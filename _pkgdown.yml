@@ -1,0 +1,4 @@
+destination: www
+template:
+  params:
+    bootswatch: lumen
