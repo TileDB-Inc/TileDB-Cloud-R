@@ -8,3 +8,7 @@
 ^README\.md$
 ^cran-comments\.md$
 ^local
+tests/testthat
+md-docs
+docs
+tests/.*\.R
