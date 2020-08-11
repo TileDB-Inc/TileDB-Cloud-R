@@ -7,18 +7,23 @@
     .pkgenv[["usr"]] <- usr <- Sys.getenv("TILEDB_REST_USERNAME")
     .pkgenv[["pwd"]] <- pwd <- Sys.getenv("TILEDB_REST_PASSWORD")
 
-    good <- tok != "" || (usr != "" && pwd != "")
-    if (!good) {
-        message(paste("The TileDB Cloud R integration needs either a token,",
-                      "or a username and password, to operation."))
-    }
-
     .pkgenv[["cl"]] <- cl <- ApiClient$new(basePath="https://api.tiledb.com/v1",
                                            accessToken=tok,
                                            username=usr,
                                            password=pwd)
 
-    .pkgenv[["api"]] <- api <- UserApi$new(cl)
+    .pkgenv[["api"]] <- UserApi$new(cl)
     .pkgenv[["api"]]$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- tok
 
+}
+
+.onAttach <- function(libname, pkgname) {
+    tok <- .pkgenv[["tok"]]
+    usr <- .pkgenv[["usr"]]
+    pwd <- .pkgenv[["pwd"]]
+    good <- tok != "" || (usr != "" && pwd != "")
+    if (!good) {
+        packageStartupMessage(paste("The TileDB Cloud R integration needs either a token,",
+                                    "or a username and password, to operate."))
+    }
 }
