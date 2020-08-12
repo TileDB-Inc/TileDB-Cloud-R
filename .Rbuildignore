@@ -12,3 +12,4 @@ tests/testthat
 md-docs
 docs
 tests/.*\.R
+tiledbcloud.*\.tar\.gz
