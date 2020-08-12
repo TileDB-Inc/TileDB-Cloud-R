@@ -15,7 +15,7 @@ UDFRanges Class
 \describe{
 \item{\code{layout}}{\link{Layout} [optional]}
 
-\item{\code{ranges}}{list( \link{array[numeric]} ) [optional]}
+\item{\code{ranges}}{list( \link{array} ) [optional]}
 }
 \if{html}{\out{</div>}}
 }

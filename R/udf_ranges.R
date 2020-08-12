@@ -15,7 +15,7 @@
 #'
 #' @field layout  \link{Layout} [optional]
 #'
-#' @field ranges  list( \link{array[numeric]} ) [optional]
+#' @field ranges  list( \link{array} ) [optional]
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
