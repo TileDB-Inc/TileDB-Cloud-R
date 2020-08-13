@@ -13,3 +13,5 @@ md-docs
 docs
 tests/.*\.R
 tiledbcloud.*\.tar\.gz
+origREADME.md
+howToBuild.md
