@@ -40,7 +40,7 @@ login <- function(username, password, api_key, host, remember_me=TRUE) {
 
                                         #print(c(usr=username,pwd=password,tok=token))
     good <- api_key != "" || (username != "" && password != "")
-    if (!good && verbose) {
+    if (!good) {
         warning("Need either 'username' + 'password', or 'api_key', ",
                 "to create login session.")
         return(invisible(NULL))
