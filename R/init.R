@@ -6,8 +6,8 @@
     .pkgenv[["config"]] <- config()
 }
 
-onAttach <- function(libname, pkgname) {
-    if (!isGood()) {
+.onAttach <- function(libname, pkgname) {
+    if (!.isGood()) {
         packageStartupMessage(paste("The TileDB Cloud R integration needs either a api,",
                                     "key, or a username and password; see 'help(config)'."))
     } else {
@@ -33,5 +33,5 @@ onAttach <- function(libname, pkgname) {
     tok <- .getConfigValue("api_key")
     usr <- .getConfigValue("username")
     pwd <- .getConfigValue("password")
-    good <- api_key != "" || (usr != "" && pwd != "")
+    good <- tok != "" || (usr != "" && pwd != "")
 }
