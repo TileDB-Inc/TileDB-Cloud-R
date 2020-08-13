@@ -19,7 +19,7 @@
 ##' \code{TILEDB_REST_USERNAME}, and \code{TILEDB_REST_PASSWORD}.
 ##'
 ##' It also reads a configuration file from a file
-##' \code{.tiledb/cloud.json}
+##' \code{.tiledb/httpshocloud.json}
 ##'
 ##' To operate, \emph{either} an API token has to be provided and will
 ##' be used, \emph{or} the username and password combination will be

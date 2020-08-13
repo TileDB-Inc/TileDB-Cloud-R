@@ -29,16 +29,14 @@
 ##' @param remember_me A boolean to select a session with for 24 hours
 ##' instead of 8 hours, used only when a new session is requested.
 ##'
-##' @param verbose A boolean switch to select whether an warning message
-##' is printed or not.
-##'
 ##' @return Nothing is returned, the function is called for a side effect
 ##' of storing the values in the package environment
-login <- function(username, password, api_key, host,
-                  remember_me=TRUE, verbose=TRUE) {
+##'
+login <- function(username, password, api_key, host, remember_me=TRUE) {
     if (missing(username)) username <- .getConfigValue("username")
     if (missing(password)) password <- .getConfigValue("password")
     if (missing(api_key))  api_key  <- .getConfigValue("api_key")
+    if (missing(host))     host     <- .getConfigValue("host")
 
                                         #print(c(usr=username,pwd=password,tok=token))
     good <- api_key != "" || (username != "" && password != "")
@@ -48,14 +46,13 @@ login <- function(username, password, api_key, host,
         return(invisible(NULL))
     }
 
-    cl <- ApiClient$new(basePath="https://api.tiledb.com/v1",
+    cl <- ApiClient$new(basePath=paste(host, "v1", sep="/"),
                         accessToken=api_key,
                         username=username,
                         password=password)
 
     api <- UserApi$new(cl)
     api$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- api_key
-    #cat("usr='", username, "' pwd='", password, "' tok='", api_key, "'\n", sep="")
 
     ## if there is not api token key, request one
     if (api_key == "") {
@@ -69,8 +66,9 @@ login <- function(username, password, api_key, host,
         .setConfigValue("api_key", api_key)
     }
 
-    res <- api$GetUser()
-    cat("GetUser() got name", res$name, "\n")
+    ## use as a possible test
+    #res <- api$GetUser()
+    #cat("GetUser() got name", res$name, "\n")
 
     ## we do not store username and password, but update
     .setConfigValue("username", "")
