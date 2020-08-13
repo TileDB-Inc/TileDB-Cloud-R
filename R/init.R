@@ -33,5 +33,5 @@ onAttach <- function(libname, pkgname) {
     tok <- .getConfigValue("api_key")
     usr <- .getConfigValue("username")
     pwd <- .getConfigValue("password")
-    good <- tok != "" || (usr != "" && pwd != "")
+    good <- api_key != "" || (usr != "" && pwd != "")
 }

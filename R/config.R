@@ -54,7 +54,8 @@ config <- function() {
                        username   = username,
                        password   = password,
                        host       = host,
-                       verify_ssl = verify_ssl)
+                       verify_ssl = verify_ssl,
+                       logged_in  = "FALSE")
 }
 
 ##' TileDB Cloud Login Helper
@@ -95,7 +96,6 @@ config <- function() {
 ##' of storing the values in the package environment
 login <- function(username, password, api_key, host,
                   remember_me=TRUE, verbose=TRUE) {
-
     if (missing(username)) username <- .getConfigValue("username")
     if (missing(password)) password <- .getConfigValue("password")
     if (missing(api_key))  api_key  <- .getConfigValue("api_key")
@@ -135,6 +135,7 @@ login <- function(username, password, api_key, host,
     ## we do not store username and password, but update
     .setConfigValue("username", "")
     .setConfigValue("password", "")
+    .setConfigValue("logged_in", "TRUE")
 
     invisible()
 }
