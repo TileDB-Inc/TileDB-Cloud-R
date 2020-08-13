@@ -75,5 +75,9 @@ login <- function(username, password, api_key, host, remember_me=TRUE) {
     .setConfigValue("password", "")
     .setConfigValue("logged_in", "TRUE")
 
+    ## cache api and client instances
+    .pkgenv[["api"]] <- api
+    .pkgenv[["cl"]]  <- cl
+
     invisible()
 }
