@@ -67,8 +67,8 @@ login <- function(username, password, api_key, host, remember_me=TRUE) {
     }
 
     ## use as a possible test
-    #res <- api$GetUser()
-    #cat("GetUser() got name", res$name, "\n")
+    res <- api$GetUser()
+    cat("GetUser() got name", res$name, "\n")
 
     ## we do not store username and password, but update
     .setConfigValue("username", "")

@@ -16,4 +16,3 @@ Imports: jsonlite, httr, R6, base64enc
 Suggests: tinytest
 RoxygenNote: 7.1.1
 Encoding: UTF-8
-
