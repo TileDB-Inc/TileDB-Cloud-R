@@ -1,58 +1,21 @@
+# TileDB-Cloud-R
 
-## tiledbcloud
+This repository contains the R client for the TileDB Cloud Service.
 
-Work in progress
+## Quick Links
 
-### How was this built
+### Installation
 
-- using current (2020-Aug-07) Docker container
-  `openapitools/openapi-generator-cli:latest`
-- standard invocation using TileDB Cloud API Spec V1, setting package name
-  and version
-- involing `roxygen2` to build documentation
-
-```sh
-docker run --rm -u 1000:1000 -v $PWD:/work \
-       openapitools/openapi-generator-cli:latest \
-       generate -i /work/openapi-v1.yaml -g r \
-       -p packageName=tiledbcloud -p packageVersion=0.0.1 -o /work/tiledb-cloud-r
-cd tiledb-cloud-r && roxy.r -f   # simple roxygen2 wrapper from littler
-```
-
-### Demo
-
-A few first commands (see [local/](local/) as well)
+At present, installation from GitHub is supported via
 
 ```r
-library(tiledbcloud)
-
-cl <- ApiClient$new(basePath="https://api.tiledb.com/v1",
-                    accessToken=Sys.getenv("TILEDB_REST_TOKEN"),
-                    username=Sys.getenv("TILEDB_REST_USENAME"),
-                    password=Sys.getenv("TILEDB_REST_PASSWORD"))
-
-api <- UserApi$new(cl)
-# still needs this
-api$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- Sys.getenv("TILEDB_REST_TOKEN")
-## alternative if no 'ApiClient' instance
-##api$apiClient$username <- Sys.getenv("TILEDB_REST_USENAME")
-##api$apiClient$password <- Sys.getenv("TILEDB_REST_PASSWORD")
-##api$apiClient$basePath <- "https://api.tiledb.com/v1"
-api$GetSession()
-
-
-## Array Example
-
-arr <- ArrayApi$new(cl)
-arr$GetArrayMetadata("TileDB-Inc", "quickstart_dense")
-
-
-## SQL Example
-
-sql <- SqlApi$new(cl)
-sqlpar <-  SQLParameters$new(name="SomethingToFillInHere",
-                             query="select `rows`, AVG(a) as avg_a from `tiledb://TileDB-Inc/quickstart_dense` GROUP BY `rows`")
-ans <- sql$RunSQL("TileDB-Inc", sqlpar)
-
-data.table::rbindlist( ans )            # easiest helper to glue rows together
+> if (!requireNamespace("remotes",quietly=TRUE)) install.packages("remotes")
+> remotes::install_github("TileDB-Inc/TileDB-Cloud-R")
 ```
+
+The [TileDB-R](https://github.com/TileDB-Inc/TileDB-R) package is a dependency and has 
+to be installed first.
+
+### Quickstart
+
+See the [Quickstart](https://docs.tiledb.com/cloud/quickstart) section of the docs.
