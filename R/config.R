@@ -41,7 +41,7 @@ config <- function() {
         if ("username" %in% names(cfg))  username <- cfg$username
         if ("password" %in% names(cfg))  password <- cfg$password
         if (host == "")  host <- gsub("/v1(/)?$", "", cfg$host) # scrubs trailing /v1 or /v1/
-        if (token == "" && !is.null(cfg$api_key[[1]])) token <- cfg$api_key
+        if (token == "" && !is.null(cfg$api_key[[1]])) token <- cfg$api_key[[1]]
         verify_ssl <- cfg$verify_ssl
     }
 
