@@ -4,5 +4,5 @@ steps:
     inputs:
       cipher: 'des3' 
       inFile: 'tests/cloud.json.enc'
-      passphrase: '$(cloud_json_encryption_password)'
+      passphrase: '$(cloud_json_password)'
       outFile: '$(R_LIBS_USER)/cloud.json'
