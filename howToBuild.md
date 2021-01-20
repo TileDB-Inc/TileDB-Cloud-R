@@ -27,6 +27,13 @@ docker run --rm -u 1000:1000 -v $PWD:/work \
 cd tiledb-cloud-r && roxy.r -f   # simple roxygen2 wrapper from littler
 ```
 
+### Build and Test
+
+```sh
+R CMD build .                           # creates eg tiledbcloud_0.0.2.tar.gz
+R CMD check tiledbcloud_0.0.2.tar.gz    # checks the package
+
+
 ### Demo
 
 A few first commands (see [local/](local/) as well)
