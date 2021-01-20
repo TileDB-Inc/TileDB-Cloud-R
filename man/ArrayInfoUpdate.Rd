@@ -19,6 +19,10 @@ ArrayInfoUpdate Class
 
 \item{\code{uri}}{character [optional]}
 
+\item{\code{file_type}}{\link{FileType} [optional]}
+
+\item{\code{file_properties}}{named list( character ) [optional]}
+
 \item{\code{access_credentials_name}}{character [optional]}
 
 \item{\code{logo}}{character [optional]}
@@ -51,6 +55,8 @@ ArrayInfoUpdate Class
   description = NULL,
   name = NULL,
   uri = NULL,
+  file_type = NULL,
+  file_properties = NULL,
   access_credentials_name = NULL,
   logo = NULL,
   tags = NULL,

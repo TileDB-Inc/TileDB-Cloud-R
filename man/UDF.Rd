@@ -21,7 +21,7 @@ UDF Class
 
 \item{\code{image_name}}{character [optional]}
 
-\item{\code{ranges}}{\link{UDFRanges} [optional]}
+\item{\code{ranges}}{\link{QueryRanges} [optional]}
 
 \item{\code{subarray}}{\link{UDFSubarray} [optional]}
 
@@ -34,6 +34,8 @@ UDF Class
 \item{\code{result_format}}{\link{UDFResultType} [optional]}
 
 \item{\code{task_name}}{character [optional]}
+
+\item{\code{argument}}{character [optional]}
 }
 \if{html}{\out{</div>}}
 }
@@ -65,6 +67,7 @@ UDF Class
   buffers = NULL,
   result_format = NULL,
   task_name = NULL,
+  argument = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }

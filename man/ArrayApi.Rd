@@ -23,6 +23,7 @@ get array activity logs
 \item \emph{ @param } end integer
 \item \emph{ @param } event.types character
 \item \emph{ @param } task.id character
+\item \emph{ @param } has.task.id character
 \item \emph{ @returnType } list( \link{ArrayActivityLog} ) \cr
 
 
@@ -53,6 +54,9 @@ Fetch a list of all arrays that are owned directly by user or user&#39;s organiz
 \item \emph{ @param } orderby character
 \item \emph{ @param } permissions character
 \item \emph{ @param } tag list( character )
+\item \emph{ @param } exclude.tag list( character )
+\item \emph{ @param } file.type list( character )
+\item \emph{ @param } exclude.file.type list( character )
 \item \emph{ @returnType } \link{ArrayBrowserData} \cr
 
 
@@ -106,6 +110,9 @@ Fetch a list of all arrays that have been shared publically
 \item \emph{ @param } orderby character
 \item \emph{ @param } permissions character
 \item \emph{ @param } tag list( character )
+\item \emph{ @param } exclude.tag list( character )
+\item \emph{ @param } file.type list( character )
+\item \emph{ @param } exclude.file.type list( character )
 \item \emph{ @returnType } \link{ArrayBrowserData} \cr
 
 
@@ -159,6 +166,9 @@ Fetch a list of all arrays that have been shared with the user
 \item \emph{ @param } orderby character
 \item \emph{ @param } permissions character
 \item \emph{ @param } tag list( character )
+\item \emph{ @param } exclude.tag list( character )
+\item \emph{ @param } file.type list( character )
+\item \emph{ @param } exclude.file.type list( character )
 \item \emph{ @returnType } \link{ArrayBrowserData} \cr
 
 
@@ -201,6 +211,31 @@ Fetch a list of all arrays that have been shared with the user
 }
 }
 
+\strong{ ConsolidateArray } \emph{  }
+consolidate an array at a specified URI
+
+\itemize{
+\item \emph{ @param } namespace character
+\item \emph{ @param } array character
+\item \emph{ @param } tiledb.config \link{TileDBConfig}
+
+
+\item status code : 204 | array consolidated successfully
+
+
+\item response headers :
+
+\tabular{ll}{
+}
+\item status code : 0 | error response
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
+}
+}
+
 \strong{ CreateArray } \emph{  }
 create a array schema at a specified URI registered to a group/project
 
@@ -209,6 +244,7 @@ create a array schema at a specified URI registered to a group/project
 \item \emph{ @param } array character
 \item \emph{ @param } content.type character
 \item \emph{ @param } array.schema \link{ArraySchema}
+\item \emph{ @param } X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME character
 
 
 \item status code : 204 | schema created successfully
@@ -618,6 +654,31 @@ update metadata on an array
 }
 }
 
+\strong{ VacuumArray } \emph{  }
+vacuum an array at a specified URI
+
+\itemize{
+\item \emph{ @param } namespace character
+\item \emph{ @param } array character
+\item \emph{ @param } tiledb.config \link{TileDBConfig}
+
+
+\item status code : 204 | array vacuumed successfully
+
+
+\item response headers :
+
+\tabular{ll}{
+}
+\item status code : 0 | error response
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
+}
+}
+
 }
 }
 
@@ -632,6 +693,7 @@ var.start <- 56 # integer | Start time of window of fetch logs, unix epoch in se
 var.end <- 56 # integer | End time of window of fetch logs, unix epoch in seconds (default: current utc timestamp)
 var.event.types <- 'event.types_example' # character | Event values can be one or more of the following read, write, create, delete, register, deregister, comma separated
 var.task.id <- 'task.id_example' # character | Array task id To filter activity to
+var.has.task.id <- 'has.task.id_example' # character | Excludes activity log results that does not contain an array task uuid
 
 api.instance <- ArrayApi$new()
 
@@ -644,7 +706,7 @@ api.instance$apiClient$username <- '<user-serial>';
 # provide your api key generated using the developer portal
 api.instance$apiClient$password <- '<api_key>';
 
-result <- api.instance$ArrayActivityLog(var.namespace, var.array, start=var.start, end=var.end, event.types=var.event.types, task.id=var.task.id)
+result <- api.instance$ArrayActivityLog(var.namespace, var.array, start=var.start, end=var.end, event.types=var.event.types, task.id=var.task.id, has.task.id=var.has.task.id)
 
 
 ####################  ArraysBrowserOwnedGet  ####################
@@ -657,6 +719,9 @@ var.namespace <- 'namespace_example' # character | namespace
 var.orderby <- 'orderby_example' # character | sort by which field valid values include last_accessed, size, name
 var.permissions <- 'permissions_example' # character | permissions valid values include read, read_write, write, admin
 var.tag <- ['tag_example'] # array[character] | tag to search for, more than one can be included
+var.exclude.tag <- ['exclude.tag_example'] # array[character] | tags to exclude matching array in results, more than one can be included
+var.file.type <- ['file.type_example'] # array[character] | file_type to search for, more than one can be included
+var.exclude.file.type <- ['exclude.file.type_example'] # array[character] | file_type to exclude matching array in results, more than one can be included
 
 api.instance <- ArrayApi$new()
 
@@ -669,7 +734,7 @@ api.instance$apiClient$username <- '<user-serial>';
 # provide your api key generated using the developer portal
 api.instance$apiClient$password <- '<api_key>';
 
-result <- api.instance$ArraysBrowserOwnedGet(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag)
+result <- api.instance$ArraysBrowserOwnedGet(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag, exclude.tag=var.exclude.tag, file.type=var.file.type, exclude.file.type=var.exclude.file.type)
 
 
 ####################  ArraysBrowserOwnedSidebarGet  ####################
@@ -700,6 +765,9 @@ var.namespace <- 'namespace_example' # character | namespace
 var.orderby <- 'orderby_example' # character | sort by which field valid values include last_accessed, size, name
 var.permissions <- 'permissions_example' # character | permissions valid values include read, read_write, write, admin
 var.tag <- ['tag_example'] # array[character] | tag to search for, more than one can be included
+var.exclude.tag <- ['exclude.tag_example'] # array[character] | tags to exclude matching array in results, more than one can be included
+var.file.type <- ['file.type_example'] # array[character] | file_type to search for, more than one can be included
+var.exclude.file.type <- ['exclude.file.type_example'] # array[character] | file_type to exclude matching array in results, more than one can be included
 
 api.instance <- ArrayApi$new()
 
@@ -712,7 +780,7 @@ api.instance$apiClient$username <- '<user-serial>';
 # provide your api key generated using the developer portal
 api.instance$apiClient$password <- '<api_key>';
 
-result <- api.instance$ArraysBrowserPublicGet(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag)
+result <- api.instance$ArraysBrowserPublicGet(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag, exclude.tag=var.exclude.tag, file.type=var.file.type, exclude.file.type=var.exclude.file.type)
 
 
 ####################  ArraysBrowserPublicSidebarGet  ####################
@@ -743,6 +811,9 @@ var.namespace <- 'namespace_example' # character | namespace
 var.orderby <- 'orderby_example' # character | sort by which field valid values include last_accessed, size, name
 var.permissions <- 'permissions_example' # character | permissions valid values include read, read_write, write, admin
 var.tag <- ['tag_example'] # array[character] | tag to search for, more than one can be included
+var.exclude.tag <- ['exclude.tag_example'] # array[character] | tags to exclude matching array in results, more than one can be included
+var.file.type <- ['file.type_example'] # array[character] | file_type to search for, more than one can be included
+var.exclude.file.type <- ['exclude.file.type_example'] # array[character] | file_type to exclude matching array in results, more than one can be included
 
 api.instance <- ArrayApi$new()
 
@@ -755,7 +826,7 @@ api.instance$apiClient$username <- '<user-serial>';
 # provide your api key generated using the developer portal
 api.instance$apiClient$password <- '<api_key>';
 
-result <- api.instance$ArraysBrowserSharedGet(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag)
+result <- api.instance$ArraysBrowserSharedGet(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag, exclude.tag=var.exclude.tag, file.type=var.file.type, exclude.file.type=var.exclude.file.type)
 
 
 ####################  ArraysBrowserSharedSidebarGet  ####################
@@ -776,13 +847,12 @@ api.instance$apiClient$password <- '<api_key>';
 result <- api.instance$ArraysBrowserSharedSidebarGet()
 
 
-####################  CreateArray  ####################
+####################  ConsolidateArray  ####################
 
 library(tiledbcloud)
 var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
 var.array <- 'array_example' # character | name/uri of array that is url-encoded
-var.content.type <- 'application/json' # character | Content Type of input and return mime
-var.array.schema <- ArraySchema$new() # ArraySchema | ArraySchema being created
+var.tiledb.config <- TileDBConfig$new() # TileDBConfig | tiledb configuration
 
 api.instance <- ArrayApi$new()
 
@@ -795,7 +865,30 @@ api.instance$apiClient$username <- '<user-serial>';
 # provide your api key generated using the developer portal
 api.instance$apiClient$password <- '<api_key>';
 
-result <- api.instance$CreateArray(var.namespace, var.array, var.content.type, var.array.schema)
+result <- api.instance$ConsolidateArray(var.namespace, var.array, var.tiledb.config)
+
+
+####################  CreateArray  ####################
+
+library(tiledbcloud)
+var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
+var.array <- 'array_example' # character | name/uri of array that is url-encoded
+var.content.type <- 'application/json' # character | Content Type of input and return mime
+var.array.schema <- ArraySchema$new() # ArraySchema | ArraySchema being created
+var.X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME <- 'X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME_example' # character | Optional registered access credentials to use for creation
+
+api.instance <- ArrayApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$CreateArray(var.namespace, var.array, var.content.type, var.array.schema, X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME=var.X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME)
 
 
 ####################  DeleteArray  ####################
@@ -1106,6 +1199,27 @@ api.instance$apiClient$password <- '<api_key>';
 result <- api.instance$UpdateArrayMetadata(var.namespace, var.array, var.array.metadata)
 
 
+####################  VacuumArray  ####################
+
+library(tiledbcloud)
+var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
+var.array <- 'array_example' # character | name/uri of array that is url-encoded
+var.tiledb.config <- TileDBConfig$new() # TileDBConfig | tiledb configuration
+
+api.instance <- ArrayApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
+
+
 }
 }
 \section{Public fields}{
@@ -1133,6 +1247,8 @@ result <- api.instance$UpdateArrayMetadata(var.namespace, var.array, var.array.m
 \item \href{#method-ArraysBrowserSharedGetWithHttpInfo}{\code{ArrayApi$ArraysBrowserSharedGetWithHttpInfo()}}
 \item \href{#method-ArraysBrowserSharedSidebarGet}{\code{ArrayApi$ArraysBrowserSharedSidebarGet()}}
 \item \href{#method-ArraysBrowserSharedSidebarGetWithHttpInfo}{\code{ArrayApi$ArraysBrowserSharedSidebarGetWithHttpInfo()}}
+\item \href{#method-ConsolidateArray}{\code{ArrayApi$ConsolidateArray()}}
+\item \href{#method-ConsolidateArrayWithHttpInfo}{\code{ArrayApi$ConsolidateArrayWithHttpInfo()}}
 \item \href{#method-CreateArray}{\code{ArrayApi$CreateArray()}}
 \item \href{#method-CreateArrayWithHttpInfo}{\code{ArrayApi$CreateArrayWithHttpInfo()}}
 \item \href{#method-DeleteArray}{\code{ArrayApi$DeleteArray()}}
@@ -1165,6 +1281,8 @@ result <- api.instance$UpdateArrayMetadata(var.namespace, var.array, var.array.m
 \item \href{#method-ShareArrayWithHttpInfo}{\code{ArrayApi$ShareArrayWithHttpInfo()}}
 \item \href{#method-UpdateArrayMetadata}{\code{ArrayApi$UpdateArrayMetadata()}}
 \item \href{#method-UpdateArrayMetadataWithHttpInfo}{\code{ArrayApi$UpdateArrayMetadataWithHttpInfo()}}
+\item \href{#method-VacuumArray}{\code{ArrayApi$VacuumArray()}}
+\item \href{#method-VacuumArrayWithHttpInfo}{\code{ArrayApi$VacuumArrayWithHttpInfo()}}
 \item \href{#method-clone}{\code{ArrayApi$clone()}}
 }
 }
@@ -1189,6 +1307,7 @@ result <- api.instance$UpdateArrayMetadata(var.namespace, var.array, var.array.m
   end = NULL,
   event.types = NULL,
   task.id = NULL,
+  has.task.id = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -1206,6 +1325,7 @@ result <- api.instance$UpdateArrayMetadata(var.namespace, var.array, var.array.m
   end = NULL,
   event.types = NULL,
   task.id = NULL,
+  has.task.id = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -1224,6 +1344,9 @@ result <- api.instance$UpdateArrayMetadata(var.namespace, var.array, var.array.m
   orderby = NULL,
   permissions = NULL,
   tag = NULL,
+  exclude.tag = NULL,
+  file.type = NULL,
+  exclude.file.type = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -1242,6 +1365,9 @@ result <- api.instance$UpdateArrayMetadata(var.namespace, var.array, var.array.m
   orderby = NULL,
   permissions = NULL,
   tag = NULL,
+  exclude.tag = NULL,
+  file.type = NULL,
+  exclude.file.type = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -1278,6 +1404,9 @@ result <- api.instance$UpdateArrayMetadata(var.namespace, var.array, var.array.m
   orderby = NULL,
   permissions = NULL,
   tag = NULL,
+  exclude.tag = NULL,
+  file.type = NULL,
+  exclude.file.type = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -1296,6 +1425,9 @@ result <- api.instance$UpdateArrayMetadata(var.namespace, var.array, var.array.m
   orderby = NULL,
   permissions = NULL,
   tag = NULL,
+  exclude.tag = NULL,
+  file.type = NULL,
+  exclude.file.type = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -1332,6 +1464,9 @@ result <- api.instance$UpdateArrayMetadata(var.namespace, var.array, var.array.m
   orderby = NULL,
   permissions = NULL,
   tag = NULL,
+  exclude.tag = NULL,
+  file.type = NULL,
+  exclude.file.type = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -1350,6 +1485,9 @@ result <- api.instance$UpdateArrayMetadata(var.namespace, var.array, var.array.m
   orderby = NULL,
   permissions = NULL,
   tag = NULL,
+  exclude.tag = NULL,
+  file.type = NULL,
+  exclude.file.type = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -1374,11 +1512,36 @@ result <- api.instance$UpdateArrayMetadata(var.namespace, var.array, var.array.m
 
 }
 \if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-ConsolidateArray"></a>}}
+\if{latex}{\out{\hypertarget{method-ConsolidateArray}{}}}
+\subsection{Method \code{ConsolidateArray()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ArrayApi$ConsolidateArray(namespace, array, tiledb.config, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-ConsolidateArrayWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ConsolidateArrayWithHttpInfo}{}}}
+\subsection{Method \code{ConsolidateArrayWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ArrayApi$ConsolidateArrayWithHttpInfo(namespace, array, tiledb.config, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-CreateArray"></a>}}
 \if{latex}{\out{\hypertarget{method-CreateArray}{}}}
 \subsection{Method \code{CreateArray()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ArrayApi$CreateArray(namespace, array, content.type, array.schema, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{ArrayApi$CreateArray(
+  namespace,
+  array,
+  content.type,
+  array.schema,
+  X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = NULL,
+  ...
+)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1392,6 +1555,7 @@ result <- api.instance$UpdateArrayMetadata(var.namespace, var.array, var.array.m
   array,
   content.type,
   array.schema,
+  X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -1690,6 +1854,24 @@ result <- api.instance$UpdateArrayMetadata(var.namespace, var.array, var.array.m
 \subsection{Method \code{UpdateArrayMetadataWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$UpdateArrayMetadataWithHttpInfo(namespace, array, array.metadata, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-VacuumArray"></a>}}
+\if{latex}{\out{\hypertarget{method-VacuumArray}{}}}
+\subsection{Method \code{VacuumArray()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ArrayApi$VacuumArray(namespace, array, tiledb.config, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-VacuumArrayWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-VacuumArrayWithHttpInfo}{}}}
+\subsection{Method \code{VacuumArrayWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ArrayApi$VacuumArrayWithHttpInfo(namespace, array, tiledb.config, ...)}\if{html}{\out{</div>}}
 }
 
 }

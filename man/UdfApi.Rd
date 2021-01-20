@@ -13,23 +13,15 @@ tiledbcloud.Udf
 \section{Methods}{
 
 \describe{
-\strong{ GetUDFInfo } \emph{  }
-get a specific UDF in the given namespace
+\strong{ DeleteUDFInfo } \emph{  }
+delete a registerd UDF, this will remove all sharing and can not be undone
 
 \itemize{
 \item \emph{ @param } namespace character
 \item \emph{ @param } name character
-\item \emph{ @returnType } \link{UDFInfo} \cr
 
 
-\item status code : 200 | UDFInfo was retrieved successfully
-
-\item return type : UDFInfo 
-\item response headers :
-
-\tabular{ll}{
-}
-\item status code : 404 | udf not found
+\item status code : 202 | UDF delete successfully
 
 
 \item response headers :
@@ -45,24 +37,18 @@ get a specific UDF in the given namespace
 }
 }
 
-\strong{ GetUDFInfoList } \emph{  }
-get a all UDFs accessible to the user
+\strong{ GetUDFInfo } \emph{  }
+get a specific UDF in the given namespace
 
 \itemize{
 \item \emph{ @param } namespace character
-\item \emph{ @param } created.by character
-\item \emph{ @param } page integer
-\item \emph{ @param } per.page integer
-\item \emph{ @param } type character
-\item \emph{ @param } search character
-\item \emph{ @param } orderby character
-\item \emph{ @param } tag list( character )
-\item \emph{ @returnType } \link{UDFListingData} \cr
+\item \emph{ @param } name character
+\item \emph{ @returnType } \link{UDFInfo} \cr
 
 
-\item status code : 200 | UDFInfo list
+\item status code : 200 | UDFInfo was retrieved successfully
 
-\item return type : UDFListingData 
+\item return type : UDFInfo 
 \item response headers :
 
 \tabular{ll}{
@@ -208,6 +194,7 @@ send a UDF to run against a specified array/URI registered to a group/project
 \item \emph{ @param } udf \link{UDF}
 \item \emph{ @param } x.payer character
 \item \emph{ @param } accept.encoding character
+\item \emph{ @param } v2 character
 
 
 \item status code : 200 | udf completed and the udf-type specific result is returned
@@ -258,6 +245,26 @@ updated an existing registerd UDF in the given namespace
 
 \examples{
 \dontrun{
+####################  DeleteUDFInfo  ####################
+
+library(tiledbcloud)
+var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
+var.name <- 'name_example' # character | name to register udf under
+
+api.instance <- UdfApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$DeleteUDFInfo(var.namespace, var.name)
+
+
 ####################  GetUDFInfo  ####################
 
 library(tiledbcloud)
@@ -276,32 +283,6 @@ api.instance$apiClient$username <- '<user-serial>';
 api.instance$apiClient$password <- '<api_key>';
 
 result <- api.instance$GetUDFInfo(var.namespace, var.name)
-
-
-####################  GetUDFInfoList  ####################
-
-library(tiledbcloud)
-var.namespace <- 'namespace_example' # character | namespace to filter
-var.created.by <- 'created.by_example' # character | username to filter
-var.page <- 56 # integer | pagination offset
-var.per.page <- 56 # integer | pagination limit
-var.type <- 'type_example' # character | udf type, \"generic\", \"single_array\"
-var.search <- 'search_example' # character | search string that will look at name, namespace or description fields
-var.orderby <- 'orderby_example' # character | sort by which field valid values include created_at, last_used, name
-var.tag <- ['tag_example'] # array[character] | tag to search for, more than one can be included
-
-api.instance <- UdfApi$new()
-
-#Configure API key authorization: ApiKeyAuth
-api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-
-#Configure HTTP basic authorization: BasicAuth
-# provide your username in the user-serial format
-api.instance$apiClient$username <- '<user-serial>'; 
-# provide your api key generated using the developer portal
-api.instance$apiClient$password <- '<api_key>';
-
-result <- api.instance$GetUDFInfoList(namespace=var.namespace, created.by=var.created.by, page=var.page, per.page=var.per.page, type=var.type, search=var.search, orderby=var.orderby, tag=var.tag)
 
 
 ####################  GetUDFInfoSharingPolicies  ####################
@@ -395,6 +376,7 @@ var.array <- 'array_example' # character | name/uri of array that is url-encoded
 var.udf <- UDF$new() # UDF | udf to run
 var.x.payer <- 'x.payer_example' # character | Name of organization or user who should be charged for this request
 var.accept.encoding <- 'accept.encoding_example' # character | Encoding to use
+var.v2 <- 'v2_example' # character | flag to indicate if v2 array udfs should be used, currently in beta testing. Setting any value will enable v2 array udfs
 
 api.instance <- UdfApi$new()
 
@@ -407,7 +389,7 @@ api.instance$apiClient$username <- '<user-serial>';
 # provide your api key generated using the developer portal
 api.instance$apiClient$password <- '<api_key>';
 
-result <- api.instance$SubmitUDF(var.namespace, var.array, var.udf, x.payer=var.x.payer, accept.encoding=var.accept.encoding)
+result <- api.instance$SubmitUDF(var.namespace, var.array, var.udf, x.payer=var.x.payer, accept.encoding=var.accept.encoding, v2=var.v2)
 
 
 ####################  UpdateUDFInfo  ####################
@@ -444,10 +426,10 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-new}{\code{UdfApi$new()}}
+\item \href{#method-DeleteUDFInfo}{\code{UdfApi$DeleteUDFInfo()}}
+\item \href{#method-DeleteUDFInfoWithHttpInfo}{\code{UdfApi$DeleteUDFInfoWithHttpInfo()}}
 \item \href{#method-GetUDFInfo}{\code{UdfApi$GetUDFInfo()}}
 \item \href{#method-GetUDFInfoWithHttpInfo}{\code{UdfApi$GetUDFInfoWithHttpInfo()}}
-\item \href{#method-GetUDFInfoList}{\code{UdfApi$GetUDFInfoList()}}
-\item \href{#method-GetUDFInfoListWithHttpInfo}{\code{UdfApi$GetUDFInfoListWithHttpInfo()}}
 \item \href{#method-GetUDFInfoSharingPolicies}{\code{UdfApi$GetUDFInfoSharingPolicies()}}
 \item \href{#method-GetUDFInfoSharingPoliciesWithHttpInfo}{\code{UdfApi$GetUDFInfoSharingPoliciesWithHttpInfo()}}
 \item \href{#method-RegisterUDFInfo}{\code{UdfApi$RegisterUDFInfo()}}
@@ -473,6 +455,24 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 
 }
 \if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-DeleteUDFInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-DeleteUDFInfo}{}}}
+\subsection{Method \code{DeleteUDFInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{UdfApi$DeleteUDFInfo(namespace, name, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-DeleteUDFInfoWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-DeleteUDFInfoWithHttpInfo}{}}}
+\subsection{Method \code{DeleteUDFInfoWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{UdfApi$DeleteUDFInfoWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetUDFInfo"></a>}}
 \if{latex}{\out{\hypertarget{method-GetUDFInfo}{}}}
 \subsection{Method \code{GetUDFInfo()}}{
@@ -487,44 +487,6 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 \subsection{Method \code{GetUDFInfoWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UdfApi$GetUDFInfoWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetUDFInfoList"></a>}}
-\if{latex}{\out{\hypertarget{method-GetUDFInfoList}{}}}
-\subsection{Method \code{GetUDFInfoList()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{UdfApi$GetUDFInfoList(
-  namespace = NULL,
-  created.by = NULL,
-  page = NULL,
-  per.page = NULL,
-  type = NULL,
-  search = NULL,
-  orderby = NULL,
-  tag = NULL,
-  ...
-)}\if{html}{\out{</div>}}
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetUDFInfoListWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetUDFInfoListWithHttpInfo}{}}}
-\subsection{Method \code{GetUDFInfoListWithHttpInfo()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{UdfApi$GetUDFInfoListWithHttpInfo(
-  namespace = NULL,
-  created.by = NULL,
-  page = NULL,
-  per.page = NULL,
-  type = NULL,
-  search = NULL,
-  orderby = NULL,
-  tag = NULL,
-  ...
-)}\if{html}{\out{</div>}}
 }
 
 }
@@ -616,6 +578,7 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
   udf,
   x.payer = NULL,
   accept.encoding = NULL,
+  v2 = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -632,6 +595,7 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
   udf,
   x.payer = NULL,
   accept.encoding = NULL,
+  v2 = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }

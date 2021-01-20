@@ -15,6 +15,7 @@ test_that("ArrayActivityLog", {
   # @param end integer End time of window of fetch logs, unix epoch in seconds (default: current utc timestamp) (optional)
   # @param event.types character Event values can be one or more of the following read, write, create, delete, register, deregister, comma separated (optional)
   # @param task.id character Array task id To filter activity to (optional)
+  # @param has.task.id character Excludes activity log results that does not contain an array task uuid (optional)
   # @return [array[ArrayActivityLog]]
 
   # uncomment below to test the operation
@@ -32,6 +33,9 @@ test_that("ArraysBrowserOwnedGet", {
   # @param orderby character sort by which field valid values include last_accessed, size, name (optional)
   # @param permissions character permissions valid values include read, read_write, write, admin (optional)
   # @param tag array[character] tag to search for, more than one can be included (optional)
+  # @param exclude.tag array[character] tags to exclude matching array in results, more than one can be included (optional)
+  # @param file.type array[character] file_type to search for, more than one can be included (optional)
+  # @param exclude.file.type array[character] file_type to exclude matching array in results, more than one can be included (optional)
   # @return [ArrayBrowserData]
 
   # uncomment below to test the operation
@@ -59,6 +63,9 @@ test_that("ArraysBrowserPublicGet", {
   # @param orderby character sort by which field valid values include last_accessed, size, name (optional)
   # @param permissions character permissions valid values include read, read_write, write, admin (optional)
   # @param tag array[character] tag to search for, more than one can be included (optional)
+  # @param exclude.tag array[character] tags to exclude matching array in results, more than one can be included (optional)
+  # @param file.type array[character] file_type to search for, more than one can be included (optional)
+  # @param exclude.file.type array[character] file_type to exclude matching array in results, more than one can be included (optional)
   # @return [ArrayBrowserData]
 
   # uncomment below to test the operation
@@ -86,6 +93,9 @@ test_that("ArraysBrowserSharedGet", {
   # @param orderby character sort by which field valid values include last_accessed, size, name (optional)
   # @param permissions character permissions valid values include read, read_write, write, admin (optional)
   # @param tag array[character] tag to search for, more than one can be included (optional)
+  # @param exclude.tag array[character] tags to exclude matching array in results, more than one can be included (optional)
+  # @param file.type array[character] file_type to search for, more than one can be included (optional)
+  # @param exclude.file.type array[character] file_type to exclude matching array in results, more than one can be included (optional)
   # @return [ArrayBrowserData]
 
   # uncomment below to test the operation
@@ -102,6 +112,19 @@ test_that("ArraysBrowserSharedSidebarGet", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
+test_that("ConsolidateArray", {
+  # tests for ConsolidateArray
+  # base path: http://localhost/v1
+  # consolidate an array at a specified URI
+  # @param namespace character namespace array is in (an organization name or user's username)
+  # @param array character name/uri of array that is url-encoded
+  # @param tiledb.config TileDBConfig tiledb configuration
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
 test_that("CreateArray", {
   # tests for CreateArray
   # base path: http://localhost/v1
@@ -110,6 +133,7 @@ test_that("CreateArray", {
   # @param array character name/uri of array that is url-encoded
   # @param content.type character Content Type of input and return mime
   # @param array.schema ArraySchema ArraySchema being created
+  # @param X_TILEDB_CLOUD_ACCESS_CREDENTIALS_NAME character Optional registered access credentials to use for creation (optional)
   # @return [Void]
 
   # uncomment below to test the operation
@@ -297,6 +321,19 @@ test_that("UpdateArrayMetadata", {
   # @param namespace character namespace array is in (an organization name or user's username)
   # @param array character name/uri of array that is url-encoded
   # @param array.metadata ArrayInfoUpdate array metadata to update
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("VacuumArray", {
+  # tests for VacuumArray
+  # base path: http://localhost/v1
+  # vacuum an array at a specified URI
+  # @param namespace character namespace array is in (an organization name or user's username)
+  # @param array character name/uri of array that is url-encoded
+  # @param tiledb.config TileDBConfig tiledb configuration
   # @return [Void]
 
   # uncomment below to test the operation

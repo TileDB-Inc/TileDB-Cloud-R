@@ -18,6 +18,12 @@ QueryReader Class
 \item{\code{subarray}}{\link{Subarray} [optional]}
 
 \item{\code{readState}}{\link{ReadState} [optional]}
+
+\item{\code{varOffsetsMode}}{character [optional]}
+
+\item{\code{varOffsetsAddExtraElement}}{character [optional]}
+
+\item{\code{varOffsetsBitsize}}{integer [optional]}
 }
 \if{html}{\out{</div>}}
 }
@@ -37,7 +43,15 @@ QueryReader Class
 \if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{QueryReader$new(layout = NULL, subarray = NULL, readState = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{QueryReader$new(
+  layout = NULL,
+  subarray = NULL,
+  readState = NULL,
+  varOffsetsMode = NULL,
+  varOffsetsAddExtraElement = NULL,
+  varOffsetsBitsize = NULL,
+  ...
+)}\if{html}{\out{</div>}}
 }
 
 }

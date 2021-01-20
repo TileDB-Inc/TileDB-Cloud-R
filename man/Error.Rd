@@ -16,6 +16,8 @@ Error Class
 \item{\code{code}}{integer [optional]}
 
 \item{\code{message}}{character [optional]}
+
+\item{\code{request_id}}{character [optional]}
 }
 \if{html}{\out{</div>}}
 }
@@ -35,7 +37,7 @@ Error Class
 \if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Error$new(code = NULL, message = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Error$new(code = NULL, message = NULL, request_id = NULL, ...)}\if{html}{\out{</div>}}
 }
 
 }

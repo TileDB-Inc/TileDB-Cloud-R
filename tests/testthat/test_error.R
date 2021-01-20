@@ -19,3 +19,10 @@ test_that("message", {
   #expect_equal(model.instance$`message`, "EXPECTED_RESULT")
 })
 
+test_that("request_id", {
+  # tests for the property `request_id` (character)
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`request_id`, "EXPECTED_RESULT")
+})
+

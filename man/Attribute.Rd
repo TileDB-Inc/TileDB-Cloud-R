@@ -20,6 +20,8 @@ Attribute Class
 \item{\code{filterPipeline}}{\link{FilterPipeline}}
 
 \item{\code{cellValNum}}{integer}
+
+\item{\code{fillValue}}{list( integer ) [optional]}
 }
 \if{html}{\out{</div>}}
 }
@@ -39,7 +41,7 @@ Attribute Class
 \if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Attribute$new(name, type, filterPipeline, cellValNum, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Attribute$new(name, type, filterPipeline, cellValNum, fillValue = NULL, ...)}\if{html}{\out{</div>}}
 }
 
 }

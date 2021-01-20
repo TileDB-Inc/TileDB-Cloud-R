@@ -54,7 +54,7 @@ test_that("exec_raw", {
 
 test_that("argument", {
   # tests for the property `argument` (character)
-  # Argument to pass to udf function
+  # Argument(s) to pass to udf function, tuple or list of args/kwargs which can be in native or json format
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`argument`, "EXPECTED_RESULT")

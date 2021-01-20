@@ -39,6 +39,20 @@ test_that("GetEstResultSizes", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
+test_that("GetFile", {
+  # tests for GetFile
+  # base path: http://localhost/v1
+  # send a query to run against a specified array/URI registered to a group/project, returns file bytes
+  # @param namespace character namespace array is in (an organization name or user's username)
+  # @param array character name/uri of array that is url-encoded
+  # @param content.type character Content Type of input and return mime
+  # @param x.payer character Name of organization or user who should be charged for this request (optional)
+  # @return [data.frame]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
 test_that("SubmitQuery", {
   # tests for SubmitQuery
   # base path: http://localhost/v1
@@ -51,6 +65,21 @@ test_that("SubmitQuery", {
   # @param x.payer character Name of organization or user who should be charged for this request (optional)
   # @param open.at integer open_at for array in unix epoch (optional)
   # @return [Query]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("SubmitQueryJson", {
+  # tests for SubmitQueryJson
+  # base path: http://localhost/v1
+  # send a query to run against a specified array/URI registered to a group/project, returns json results
+  # @param namespace character namespace array is in (an organization name or user's username)
+  # @param array character name/uri of array that is url-encoded
+  # @param content.type character Content Type of input and return mime
+  # @param query.json QueryJson query to run
+  # @param x.payer character Name of organization or user who should be charged for this request (optional)
+  # @return [object]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
