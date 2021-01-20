@@ -27,3 +27,16 @@ test_that("ShutdownNotebookServer", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
+test_that("UpdateNotebookName", {
+  # tests for UpdateNotebookName
+  # base path: http://localhost/v1
+  # update name on a notebok, moving related s3 object to new location
+  # @param namespace character namespace array is in (an organization name or user's username)
+  # @param array character name/uri of notebook (array) that is url-encoded
+  # @param notebook.metadata ArrayInfoUpdate notebook (array) metadata to update
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+

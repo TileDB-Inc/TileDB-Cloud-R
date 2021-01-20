@@ -4,8 +4,8 @@ All URIs are relative to *http://localhost/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**DeleteUDFInfo**](UdfApi.md#DeleteUDFInfo) | **DELETE** /udf/{namespace}/{name} | 
 [**GetUDFInfo**](UdfApi.md#GetUDFInfo) | **GET** /udf/{namespace}/{name} | 
-[**GetUDFInfoList**](UdfApi.md#GetUDFInfoList) | **GET** /udfs | 
 [**GetUDFInfoSharingPolicies**](UdfApi.md#GetUDFInfoSharingPolicies) | **GET** /udf/{namespace}/{name}/share | 
 [**RegisterUDFInfo**](UdfApi.md#RegisterUDFInfo) | **POST** /udf/{namespace}/{name} | 
 [**ShareUDFInfo**](UdfApi.md#ShareUDFInfo) | **PATCH** /udf/{namespace}/{name}/share | 
@@ -13,6 +13,55 @@ Method | HTTP request | Description
 [**SubmitUDF**](UdfApi.md#SubmitUDF) | **POST** /arrays/{namespace}/{array}/udf/submit | 
 [**UpdateUDFInfo**](UdfApi.md#UpdateUDFInfo) | **PATCH** /udf/{namespace}/{name} | 
 
+
+# **DeleteUDFInfo**
+> DeleteUDFInfo(namespace, name)
+
+
+
+delete a registerd UDF, this will remove all sharing and can not be undone
+
+### Example
+```R
+library(tiledbcloud)
+
+var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
+var.name <- 'name_example' # character | name to register udf under
+
+api.instance <- UdfApi$new()
+# Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+# Configure HTTP basic authorization: BasicAuth
+api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
+api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
+api.instance$DeleteUDFInfo(var.namespace, var.name)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **namespace** | **character**| namespace array is in (an organization name or user&#39;s username) | 
+ **name** | **character**| name to register udf under | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **202** | UDF delete successfully |  -  |
+| **0** | error response |  -  |
 
 # **GetUDFInfo**
 > UDFInfo GetUDFInfo(namespace, name)
@@ -62,69 +111,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | UDFInfo was retrieved successfully |  -  |
-| **404** | udf not found |  -  |
-| **0** | error response |  -  |
-
-# **GetUDFInfoList**
-> UDFListingData GetUDFInfoList(namespace=var.namespace, created.by=var.created.by, page=var.page, per.page=var.per.page, type=var.type, search=var.search, orderby=var.orderby, tag=var.tag)
-
-
-
-get a all UDFs accessible to the user
-
-### Example
-```R
-library(tiledbcloud)
-
-var.namespace <- 'namespace_example' # character | namespace to filter
-var.created.by <- 'created.by_example' # character | username to filter
-var.page <- 56 # integer | pagination offset
-var.per.page <- 56 # integer | pagination limit
-var.type <- 'type_example' # character | udf type, \"generic\", \"single_array\"
-var.search <- 'search_example' # character | search string that will look at name, namespace or description fields
-var.orderby <- 'orderby_example' # character | sort by which field valid values include created_at, last_used, name
-var.tag <- list("inner_example") # array[character] | tag to search for, more than one can be included
-
-api.instance <- UdfApi$new()
-# Configure API key authorization: ApiKeyAuth
-api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-# Configure HTTP basic authorization: BasicAuth
-api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
-api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
-result <- api.instance$GetUDFInfoList(namespace=var.namespace, created.by=var.created.by, page=var.page, per.page=var.per.page, type=var.type, search=var.search, orderby=var.orderby, tag=var.tag)
-dput(result)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **namespace** | **character**| namespace to filter | [optional] 
- **created.by** | **character**| username to filter | [optional] 
- **page** | **integer**| pagination offset | [optional] 
- **per.page** | **integer**| pagination limit | [optional] 
- **type** | **character**| udf type, \&quot;generic\&quot;, \&quot;single_array\&quot; | [optional] 
- **search** | **character**| search string that will look at name, namespace or description fields | [optional] 
- **orderby** | **character**| sort by which field valid values include created_at, last_used, name | [optional] 
- **tag** | list( **character** )| tag to search for, more than one can be included | [optional] 
-
-### Return type
-
-[**UDFListingData**](UDFListingData.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | UDFInfo list |  -  |
 | **404** | udf not found |  -  |
 | **0** | error response |  -  |
 
@@ -332,10 +318,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | udf completed and the udf-type specific result is returned |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
-| **0** | error response |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just request if task was started <br>  |
+| **0** | error response |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
 
 # **SubmitUDF**
-> data.frame SubmitUDF(namespace, array, udf, x.payer=var.x.payer, accept.encoding=var.accept.encoding)
+> data.frame SubmitUDF(namespace, array, udf, x.payer=var.x.payer, accept.encoding=var.accept.encoding, v2=var.v2)
 
 
 
@@ -347,9 +333,10 @@ library(tiledbcloud)
 
 var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
 var.array <- 'array_example' # character | name/uri of array that is url-encoded
-var.udf <- UDF$new("udf_info_name_example", UDFLanguage$new(), "version_example", "image_name_example", UDFRanges$new(Layout$new(), list(list(123))), UDFSubarray$new(Layout$new(), list(UDFSubarrayRange$new(123, DimensionCoordinate$new(123, 123, 123, 123, 123, 123, 123, 123, 123, 123), DimensionCoordinate$new(123, 123, 123, 123, 123, 123, 123, 123, 123, 123)))), "exec_example", "exec_raw_example", list("buffers_example"), UDFResultType$new(), "task_name_example") # UDF | udf to run
+var.udf <- UDF$new("udf_info_name_example", UDFLanguage$new(), "version_example", "image_name_example", QueryRanges$new(Layout$new(), list(list(123))), UDFSubarray$new(Layout$new(), list(UDFSubarrayRange$new(123, DimensionCoordinate$new(123, 123, 123, 123, 123, 123, 123, 123, 123, 123), DimensionCoordinate$new(123, 123, 123, 123, 123, 123, 123, 123, 123, 123)))), "exec_example", "exec_raw_example", list("buffers_example"), UDFResultType$new(), "task_name_example", "argument_example") # UDF | udf to run
 var.x.payer <- 'x.payer_example' # character | Name of organization or user who should be charged for this request
 var.accept.encoding <- 'accept.encoding_example' # character | Encoding to use
+var.v2 <- 'v2_example' # character | flag to indicate if v2 array udfs should be used, currently in beta testing. Setting any value will enable v2 array udfs
 
 api.instance <- UdfApi$new()
 # Configure API key authorization: ApiKeyAuth
@@ -357,7 +344,7 @@ api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
 # Configure HTTP basic authorization: BasicAuth
 api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
-result <- api.instance$SubmitUDF(var.namespace, var.array, var.udf, x.payer=var.x.payer, accept.encoding=var.accept.encoding)
+result <- api.instance$SubmitUDF(var.namespace, var.array, var.udf, x.payer=var.x.payer, accept.encoding=var.accept.encoding, v2=var.v2)
 dput(result)
 ```
 
@@ -370,6 +357,7 @@ Name | Type | Description  | Notes
  **udf** | [**UDF**](UDF.md)| udf to run | 
  **x.payer** | **character**| Name of organization or user who should be charged for this request | [optional] 
  **accept.encoding** | **character**| Encoding to use | [optional] 
+ **v2** | **character**| flag to indicate if v2 array udfs should be used, currently in beta testing. Setting any value will enable v2 array udfs | [optional] 
 
 ### Return type
 
@@ -388,7 +376,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | udf completed and the udf-type specific result is returned |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
-| **0** | error response |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just request if task was started <br>  |
+| **0** | error response |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
 
 # **UpdateUDFInfo**
 > UpdateUDFInfo(namespace, name, udf)

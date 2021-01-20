@@ -13,6 +13,21 @@ test_that("id", {
   #expect_equal(model.instance$`id`, "EXPECTED_RESULT")
 })
 
+test_that("file_type", {
+  # tests for the property `file_type` (FileType)
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`file_type`, "EXPECTED_RESULT")
+})
+
+test_that("file_properties", {
+  # tests for the property `file_properties` (map(character))
+  # map of file properties created for this array
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`file_properties`, "EXPECTED_RESULT")
+})
+
 test_that("uri", {
   # tests for the property `uri` (character)
   # uri of array

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **image_name** | **character** | Docker image name to use for udf | [optional] 
 **exec** | **character** | Type-specific executable text | [optional] 
 **exec_raw** | **character** | optional raw text to store of serialized function, used for showing in UI | [optional] 
-**argument** | **character** | Argument to pass to udf function | [optional] 
+**argument** | **character** | Argument(s) to pass to udf function, tuple or list of args/kwargs which can be in native or json format | [optional] 
 **result_format** | [**UDFResultType**](UDFResultType.md) |  | [optional] 
 **task_name** | **character** | name of task, optional | [optional] 
 

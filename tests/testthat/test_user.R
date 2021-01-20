@@ -124,10 +124,27 @@ test_that("unpaid_subscription", {
   #expect_equal(model.instance$`unpaid_subscription`, "EXPECTED_RESULT")
 })
 
-test_that("notebook_settings", {
-  # tests for the property `notebook_settings` (NotebookSettings)
+test_that("default_s3_path", {
+  # tests for the property `default_s3_path` (character)
+  # default s3 path to store newly created notebooks
 
   # uncomment below to test the property 
-  #expect_equal(model.instance$`notebook_settings`, "EXPECTED_RESULT")
+  #expect_equal(model.instance$`default_s3_path`, "EXPECTED_RESULT")
+})
+
+test_that("default_s3_path_credentials_name", {
+  # tests for the property `default_s3_path_credentials_name` (character)
+  # Default s3 path credentials name is the credentials name to use along with default_s3_path
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`default_s3_path_credentials_name`, "EXPECTED_RESULT")
+})
+
+test_that("default_namespace_charged", {
+  # tests for the property `default_namespace_charged` (character)
+  # Override the default namespace charged for actions when no namespace is specified
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`default_namespace_charged`, "EXPECTED_RESULT")
 })
 
