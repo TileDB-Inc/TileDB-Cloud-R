@@ -7,15 +7,11 @@ Copyright: TileDB, Inc.
 Maintainer: Dirk Eddelbuettel <dirk@tiledb.com>
 Description: The TileDB Cloud Platform API Client Package offers
  access to the TileDB Cloud service.
+License: MIT + file LICENSE
 URL: https://github.com/TileDB-Inc/TileDB-Cloud-R
 Depends: R (>= 3.3)
-Encoding: UTF-8
-License: Unlicense
 LazyData: true
-Suggests: testthat
+Suggests: testthat, tinytest
 Imports: jsonlite, httr, R6, base64enc
+Encoding: UTF-8
 RoxygenNote: 7.1.1
-NeedsCompilation: no
-Packaged: 2021-01-20 17:59:25 UTC; edd
-Author: OpenAPI Generator community [aut, cre]
-Maintainer: OpenAPI Generator community <team@openapitools.org>
