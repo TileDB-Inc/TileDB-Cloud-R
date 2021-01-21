@@ -8,6 +8,7 @@ library(tiledbcloud)
 library(tinytest)
 
 api <- tiledbcloud:::.pkgenv[["api"]]
+if (is.null(api)) exit_file("not logged in")
 
 res <- api$GetSession()
 expect_true(is(res, "Token"))
