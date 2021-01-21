@@ -26,7 +26,7 @@
 ##' used to login with a new session.
 ##'
 ##' @return A named vector with configuration values is returned.
-##'
+##' @export
 config <- function() {
 
     ## start with environment variables; R returns "" if unset by default

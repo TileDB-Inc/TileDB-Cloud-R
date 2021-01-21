@@ -35,3 +35,8 @@
     pwd <- .getConfigValue("password")
     good <- tok != "" || (usr != "" && pwd != "")
 }
+
+##' @import R6
+##' @import base64enc
+##' @import httr
+NULL
