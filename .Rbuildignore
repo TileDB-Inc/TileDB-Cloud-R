@@ -19,3 +19,5 @@ _pkgdown.yml
 ^\.ci
 tiledb-cloud-r
 openapi-v1\.yaml
+origNAMESPACE
+runMe.sh
