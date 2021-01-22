@@ -38,7 +38,8 @@ login <- function(username, password, api_key, host, remember_me=TRUE) {
     if (missing(api_key))  api_key  <- .getConfigValue("api_key")
     if (missing(host))     host     <- .getConfigValue("host")
 
-                                        #print(c(usr=username,pwd=password,tok=token))
+    verbose <- getOption("verbose", "false")
+
     good <- api_key != "" || (username != "" && password != "")
     if (!good) {
         warning("Need either 'username' + 'password', or 'api_key', ",
@@ -68,7 +69,7 @@ login <- function(username, password, api_key, host, remember_me=TRUE) {
 
     ## use as a possible test
     res <- api$GetUser()
-    cat("GetUser() got name", res$name, "\n")
+    if (verbose) cat("GetUser() got name", res$name, "\n")
 
     ## we do not store username and password, but update
     .setConfigValue("username", "")

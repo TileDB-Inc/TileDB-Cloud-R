@@ -19,13 +19,13 @@
 ## unexported helper functions to get and set values, and to check combinations
 .getConfigValue <- function(key) {
     names <- names(.pkgenv[["config"]])
-    if (! key %in% names) stop("Key '", key, "' not found.", call.=FALSE)
+    if (! key %in% names) stop("Key '", key, "' not found.", call. = FALSE)
     .pkgenv[["config"]][[key]]
 }
 
 .setConfigValue <- function(key, value) {
     names <- names(.pkgenv[["config"]])
-    if (! key %in% names) stop("Key '", key, "' not found.", call.=FALSE)
+    if (! key %in% names) stop("Key '", key, "' not found.", call. = FALSE)
     .pkgenv[["config"]][[key]] <- value
 }
 
