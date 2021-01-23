@@ -9,6 +9,7 @@ library(tinytest)
 
 #api <- tiledbcloud:::.pkgenv[["api"]]
 cl <- tiledbcloud:::.pkgenv[["cl"]]
+if (is.null(cl)) exit_file("not logged in")
 
 arr <- ArrayApi$new(cl)
 expect_true(is(arr, "ArrayApi"))

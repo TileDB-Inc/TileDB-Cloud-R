@@ -16,3 +16,8 @@ tiledbcloud.*\.tar\.gz
 origREADME.md
 howToBuild.md
 _pkgdown.yml
+^\.ci
+tiledb-cloud-r
+openapi-v1\.yaml
+origNAMESPACE
+runMe.sh

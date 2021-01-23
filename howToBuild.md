@@ -5,11 +5,19 @@ Work in progress
 
 ### How was this built
 
-- using current (2020-Aug-07) Docker container
-  `openapitools/openapi-generator-cli:latest`
+- using current (2020-Aug-07) Docker container `openapitools/openapi-generator-cli:latest`
+- it appear to be depedent on this version as in Jan 2021 a newer container
+  created issues for Andreas; the version we used is
+  > openapi-generator-cli 5.0.0-SNAPSHOT
+  >   commit : 0b529de
+  >   built  : 2020-08-07T10:39:48Z
+  >   source : https://github.com/openapitools/openapi-generator
+  >   docs   : https://openapi-generator.tech/
+  we will look into newer verions later
 - standard invocation using TileDB Cloud API Spec V1, setting package name
   and version
-- involing `roxygen2` to build documentation
+- involing `roxygen2` to build documentation 
+
 
 ```sh
 docker run --rm -u 1000:1000 -v $PWD:/work \
@@ -18,6 +26,13 @@ docker run --rm -u 1000:1000 -v $PWD:/work \
        -p packageName=tiledbcloud -p packageVersion=0.0.1 -o /work/tiledb-cloud-r
 cd tiledb-cloud-r && roxy.r -f   # simple roxygen2 wrapper from littler
 ```
+
+### Build and Test
+
+```sh
+R CMD build .                           # creates eg tiledbcloud_0.0.2.tar.gz
+R CMD check tiledbcloud_0.0.2.tar.gz    # checks the package
+
 
 ### Demo
 

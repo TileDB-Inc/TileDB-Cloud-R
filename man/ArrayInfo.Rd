@@ -15,6 +15,10 @@ ArrayInfo Class
 \describe{
 \item{\code{id}}{character [optional]}
 
+\item{\code{file_type}}{\link{FileType} [optional]}
+
+\item{\code{file_properties}}{named list( character ) [optional]}
+
 \item{\code{uri}}{character [optional]}
 
 \item{\code{namespace}}{character [optional]}
@@ -73,6 +77,8 @@ ArrayInfo Class
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayInfo$new(
   id = NULL,
+  file_type = NULL,
+  file_properties = NULL,
   uri = NULL,
   namespace = NULL,
   size = NULL,

@@ -29,6 +29,21 @@ test_that("uri", {
   #expect_equal(model.instance$`uri`, "EXPECTED_RESULT")
 })
 
+test_that("file_type", {
+  # tests for the property `file_type` (FileType)
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`file_type`, "EXPECTED_RESULT")
+})
+
+test_that("file_properties", {
+  # tests for the property `file_properties` (map(character))
+  # map of file properties created for this array
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`file_properties`, "EXPECTED_RESULT")
+})
+
 test_that("access_credentials_name", {
   # tests for the property `access_credentials_name` (character)
   # the name of the access credentials to use. if unset, the default credentials will be used

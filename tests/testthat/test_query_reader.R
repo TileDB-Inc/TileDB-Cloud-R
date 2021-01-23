@@ -26,3 +26,27 @@ test_that("readState", {
   #expect_equal(model.instance$`readState`, "EXPECTED_RESULT")
 })
 
+test_that("varOffsetsMode", {
+  # tests for the property `varOffsetsMode` (character)
+  # The offsets format (bytes or elements) to be used.
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`varOffsetsMode`, "EXPECTED_RESULT")
+})
+
+test_that("varOffsetsAddExtraElement", {
+  # tests for the property `varOffsetsAddExtraElement` (character)
+  # True if an extra element will be added to the end of the offsets buffer.
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`varOffsetsAddExtraElement`, "EXPECTED_RESULT")
+})
+
+test_that("varOffsetsBitsize", {
+  # tests for the property `varOffsetsBitsize` (integer)
+  # The offsets bitsize (32 or 64) to be used.
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`varOffsetsBitsize`, "EXPECTED_RESULT")
+})
+

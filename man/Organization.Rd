@@ -37,7 +37,11 @@ Organization Class
 
 \item{\code{unpaid_subscription}}{character [optional]}
 
-\item{\code{notebook_settings}}{\link{NotebookSettings} [optional]}
+\item{\code{default_s3_path}}{character [optional]}
+
+\item{\code{default_s3_path_credentials_name}}{character [optional]}
+
+\item{\code{stripe_connect}}{character [optional]}
 }
 \if{html}{\out{</div>}}
 }
@@ -70,7 +74,9 @@ Organization Class
   num_of_arrays = NULL,
   enabled_features = NULL,
   unpaid_subscription = NULL,
-  notebook_settings = NULL,
+  default_s3_path = NULL,
+  default_s3_path_credentials_name = NULL,
+  stripe_connect = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }

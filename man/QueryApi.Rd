@@ -89,6 +89,33 @@ X-TILEDB-CLOUD-TASK-ID \tab Task ID for just computed query result size \cr
 }
 }
 
+\strong{ GetFile } \emph{  }
+send a query to run against a specified array/URI registered to a group/project, returns file bytes
+
+\itemize{
+\item \emph{ @param } namespace character
+\item \emph{ @param } array character
+\item \emph{ @param } content.type character
+\item \emph{ @param } x.payer character
+
+
+\item status code : 200 | query completed and result bytes are returned
+
+\item return type : data.frame 
+\item response headers :
+
+\tabular{ll}{
+X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed query \cr
+}
+\item status code : 0 | error response
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
+}
+}
+
 \strong{ SubmitQuery } \emph{  }
 send a query to run against a specified array/URI registered to a group/project
 
@@ -117,6 +144,34 @@ X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed query \cr
 \item response headers :
 
 \tabular{ll}{
+}
+\item status code : 0 | error response
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
+}
+}
+
+\strong{ SubmitQueryJson } \emph{  }
+send a query to run against a specified array/URI registered to a group/project, returns json results
+
+\itemize{
+\item \emph{ @param } namespace character
+\item \emph{ @param } array character
+\item \emph{ @param } content.type character
+\item \emph{ @param } query.json \link{QueryJson}
+\item \emph{ @param } x.payer character
+
+
+\item status code : 200 | query completed and results are returned in json format
+
+\item return type : object 
+\item response headers :
+
+\tabular{ll}{
+X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed query \cr
 }
 \item status code : 0 | error response
 
@@ -182,6 +237,28 @@ api.instance$apiClient$password <- '<api_key>';
 result <- api.instance$GetEstResultSizes(var.namespace, var.array, var.type, var.content.type, var.query, x.payer=var.x.payer, open.at=var.open.at)
 
 
+####################  GetFile  ####################
+
+library(tiledbcloud)
+var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
+var.array <- 'array_example' # character | name/uri of array that is url-encoded
+var.content.type <- 'application/json' # character | Content Type of input and return mime
+var.x.payer <- 'x.payer_example' # character | Name of organization or user who should be charged for this request
+
+api.instance <- QueryApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$GetFile(var.namespace, var.array, var.content.type, x.payer=var.x.payer)
+
+
 ####################  SubmitQuery  ####################
 
 library(tiledbcloud)
@@ -207,6 +284,29 @@ api.instance$apiClient$password <- '<api_key>';
 result <- api.instance$SubmitQuery(var.namespace, var.array, var.type, var.content.type, var.query, x.payer=var.x.payer, open.at=var.open.at)
 
 
+####################  SubmitQueryJson  ####################
+
+library(tiledbcloud)
+var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
+var.array <- 'array_example' # character | name/uri of array that is url-encoded
+var.content.type <- 'application/json' # character | Content Type of input and return mime
+var.query.json <- QueryJson$new() # QueryJson | query to run
+var.x.payer <- 'x.payer_example' # character | Name of organization or user who should be charged for this request
+
+api.instance <- QueryApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$SubmitQueryJson(var.namespace, var.array, var.content.type, var.query.json, x.payer=var.x.payer)
+
+
 }
 }
 \section{Public fields}{
@@ -224,8 +324,12 @@ result <- api.instance$SubmitQuery(var.namespace, var.array, var.type, var.conte
 \item \href{#method-FinalizeQueryWithHttpInfo}{\code{QueryApi$FinalizeQueryWithHttpInfo()}}
 \item \href{#method-GetEstResultSizes}{\code{QueryApi$GetEstResultSizes()}}
 \item \href{#method-GetEstResultSizesWithHttpInfo}{\code{QueryApi$GetEstResultSizesWithHttpInfo()}}
+\item \href{#method-GetFile}{\code{QueryApi$GetFile()}}
+\item \href{#method-GetFileWithHttpInfo}{\code{QueryApi$GetFileWithHttpInfo()}}
 \item \href{#method-SubmitQuery}{\code{QueryApi$SubmitQuery()}}
 \item \href{#method-SubmitQueryWithHttpInfo}{\code{QueryApi$SubmitQueryWithHttpInfo()}}
+\item \href{#method-SubmitQueryJson}{\code{QueryApi$SubmitQueryJson()}}
+\item \href{#method-SubmitQueryJsonWithHttpInfo}{\code{QueryApi$SubmitQueryJsonWithHttpInfo()}}
 \item \href{#method-clone}{\code{QueryApi$clone()}}
 }
 }
@@ -311,6 +415,30 @@ result <- api.instance$SubmitQuery(var.namespace, var.array, var.type, var.conte
 
 }
 \if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GetFile"></a>}}
+\if{latex}{\out{\hypertarget{method-GetFile}{}}}
+\subsection{Method \code{GetFile()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{QueryApi$GetFile(namespace, array, content.type, x.payer = NULL, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GetFileWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-GetFileWithHttpInfo}{}}}
+\subsection{Method \code{GetFileWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{QueryApi$GetFileWithHttpInfo(
+  namespace,
+  array,
+  content.type,
+  x.payer = NULL,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SubmitQuery"></a>}}
 \if{latex}{\out{\hypertarget{method-SubmitQuery}{}}}
 \subsection{Method \code{SubmitQuery()}}{
@@ -341,6 +469,38 @@ result <- api.instance$SubmitQuery(var.namespace, var.array, var.type, var.conte
   query,
   x.payer = NULL,
   open.at = NULL,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-SubmitQueryJson"></a>}}
+\if{latex}{\out{\hypertarget{method-SubmitQueryJson}{}}}
+\subsection{Method \code{SubmitQueryJson()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{QueryApi$SubmitQueryJson(
+  namespace,
+  array,
+  content.type,
+  query.json,
+  x.payer = NULL,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-SubmitQueryJsonWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-SubmitQueryJsonWithHttpInfo}{}}}
+\subsection{Method \code{SubmitQueryJsonWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{QueryApi$SubmitQueryJsonWithHttpInfo(
+  namespace,
+  array,
+  content.type,
+  query.json,
+  x.payer = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }

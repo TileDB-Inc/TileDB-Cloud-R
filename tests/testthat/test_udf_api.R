@@ -5,6 +5,18 @@ context("Test UdfApi")
 
 api.instance <- UdfApi$new()
 
+test_that("DeleteUDFInfo", {
+  # tests for DeleteUDFInfo
+  # base path: http://localhost/v1
+  # delete a registerd UDF, this will remove all sharing and can not be undone
+  # @param namespace character namespace array is in (an organization name or user's username)
+  # @param name character name to register udf under
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
 test_that("GetUDFInfo", {
   # tests for GetUDFInfo
   # base path: http://localhost/v1
@@ -12,24 +24,6 @@ test_that("GetUDFInfo", {
   # @param namespace character namespace array is in (an organization name or user's username)
   # @param name character name to register udf under
   # @return [UDFInfo]
-
-  # uncomment below to test the operation
-  #expect_equal(result, "EXPECTED_RESULT")
-})
-
-test_that("GetUDFInfoList", {
-  # tests for GetUDFInfoList
-  # base path: http://localhost/v1
-  # get a all UDFs accessible to the user
-  # @param namespace character namespace to filter (optional)
-  # @param created.by character username to filter (optional)
-  # @param page integer pagination offset (optional)
-  # @param per.page integer pagination limit (optional)
-  # @param type character udf type, \"generic\", \"single_array\" (optional)
-  # @param search character search string that will look at name, namespace or description fields (optional)
-  # @param orderby character sort by which field valid values include created_at, last_used, name (optional)
-  # @param tag array[character] tag to search for, more than one can be included (optional)
-  # @return [UDFListingData]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -95,6 +89,7 @@ test_that("SubmitUDF", {
   # @param udf UDF udf to run
   # @param x.payer character Name of organization or user who should be charged for this request (optional)
   # @param accept.encoding character Encoding to use (optional)
+  # @param v2 character flag to indicate if v2 array udfs should be used, currently in beta testing. Setting any value will enable v2 array udfs (optional)
   # @return [data.frame]
 
   # uncomment below to test the operation

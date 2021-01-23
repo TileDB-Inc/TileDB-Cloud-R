@@ -1,7 +1,10 @@
 .loadConfig <- function() {
     ## should we use rappdirs? follow the XDG_CONFIG_HOME?
     homedir <- Sys.getenv("HOME")
-    if (homedir == "") stop("Need to define HOME environment variable.")  # Windows ?
+    if (homedir == "") {
+        warning("No HOME environment variable.")  # Windows ?
+        return(NULL)
+    }
     cfgfile <- file.path(homedir, ".tiledb", "cloud.json")
     if (!file.exists(cfgfile)) {
         #message("No config file 'cloud.json' found.")
@@ -26,7 +29,7 @@
 ##' used to login with a new session.
 ##'
 ##' @return A named vector with configuration values is returned.
-##'
+##' @export
 config <- function() {
 
     ## start with environment variables; R returns "" if unset by default
@@ -36,7 +39,7 @@ config <- function() {
     password   <- Sys.getenv("TILEDB_REST_PASSWORD")
     verify_ssl <- TRUE
 
-    cfg <- .loadConfig()
+    cfg <- .loadConfig()                # load a config file (if one found)
     if (!is.null(cfg)) {
         if ("username" %in% names(cfg))  username <- cfg$username
         if ("password" %in% names(cfg))  password <- cfg$password

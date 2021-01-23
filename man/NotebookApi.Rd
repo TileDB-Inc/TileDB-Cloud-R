@@ -81,6 +81,31 @@ Shutdown a notebook server
 }
 }
 
+\strong{ UpdateNotebookName } \emph{  }
+update name on a notebok, moving related s3 object to new location
+
+\itemize{
+\item \emph{ @param } namespace character
+\item \emph{ @param } array character
+\item \emph{ @param } notebook.metadata \link{ArrayInfoUpdate}
+
+
+\item status code : 204 | notebook name updated successfully
+
+
+\item response headers :
+
+\tabular{ll}{
+}
+\item status code : 0 | error response
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
+}
+}
+
 }
 }
 
@@ -124,6 +149,27 @@ api.instance$apiClient$password <- '<api_key>';
 result <- api.instance$ShutdownNotebookServer(var.namespace)
 
 
+####################  UpdateNotebookName  ####################
+
+library(tiledbcloud)
+var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
+var.array <- 'array_example' # character | name/uri of notebook (array) that is url-encoded
+var.notebook.metadata <- ArrayInfoUpdate$new() # ArrayInfoUpdate | notebook (array) metadata to update
+
+api.instance <- NotebookApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$UpdateNotebookName(var.namespace, var.array, var.notebook.metadata)
+
+
 }
 }
 \section{Public fields}{
@@ -141,6 +187,8 @@ result <- api.instance$ShutdownNotebookServer(var.namespace)
 \item \href{#method-GetNotebookServerStatusWithHttpInfo}{\code{NotebookApi$GetNotebookServerStatusWithHttpInfo()}}
 \item \href{#method-ShutdownNotebookServer}{\code{NotebookApi$ShutdownNotebookServer()}}
 \item \href{#method-ShutdownNotebookServerWithHttpInfo}{\code{NotebookApi$ShutdownNotebookServerWithHttpInfo()}}
+\item \href{#method-UpdateNotebookName}{\code{NotebookApi$UpdateNotebookName()}}
+\item \href{#method-UpdateNotebookNameWithHttpInfo}{\code{NotebookApi$UpdateNotebookNameWithHttpInfo()}}
 \item \href{#method-clone}{\code{NotebookApi$clone()}}
 }
 }
@@ -186,6 +234,29 @@ result <- api.instance$ShutdownNotebookServer(var.namespace)
 \subsection{Method \code{ShutdownNotebookServerWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotebookApi$ShutdownNotebookServerWithHttpInfo(namespace, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-UpdateNotebookName"></a>}}
+\if{latex}{\out{\hypertarget{method-UpdateNotebookName}{}}}
+\subsection{Method \code{UpdateNotebookName()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{NotebookApi$UpdateNotebookName(namespace, array, notebook.metadata, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-UpdateNotebookNameWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UpdateNotebookNameWithHttpInfo}{}}}
+\subsection{Method \code{UpdateNotebookNameWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{NotebookApi$UpdateNotebookNameWithHttpInfo(
+  namespace,
+  array,
+  notebook.metadata,
+  ...
+)}\if{html}{\out{</div>}}
 }
 
 }

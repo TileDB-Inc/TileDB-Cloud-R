@@ -43,7 +43,11 @@ User Class
 
 \item{\code{unpaid_subscription}}{character [optional]}
 
-\item{\code{notebook_settings}}{\link{NotebookSettings} [optional]}
+\item{\code{default_s3_path}}{character [optional]}
+
+\item{\code{default_s3_path_credentials_name}}{character [optional]}
+
+\item{\code{default_namespace_charged}}{character [optional]}
 }
 \if{html}{\out{</div>}}
 }
@@ -79,7 +83,9 @@ User Class
   allowed_actions = NULL,
   enabled_features = NULL,
   unpaid_subscription = NULL,
-  notebook_settings = NULL,
+  default_s3_path = NULL,
+  default_s3_path_credentials_name = NULL,
+  default_namespace_charged = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }

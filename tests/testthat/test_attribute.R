@@ -35,3 +35,11 @@ test_that("cellValNum", {
   #expect_equal(model.instance$`cellValNum`, "EXPECTED_RESULT")
 })
 
+test_that("fillValue", {
+  # tests for the property `fillValue` (array[integer])
+  # The default fill value
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`fillValue`, "EXPECTED_RESULT")
+})
+

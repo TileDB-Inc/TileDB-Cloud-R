@@ -37,7 +37,7 @@ test_that("image_name", {
 })
 
 test_that("ranges", {
-  # tests for the property `ranges` (UDFRanges)
+  # tests for the property `ranges` (QueryRanges)
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`ranges`, "EXPECTED_RESULT")
@@ -87,5 +87,13 @@ test_that("task_name", {
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`task_name`, "EXPECTED_RESULT")
+})
+
+test_that("argument", {
+  # tests for the property `argument` (character)
+  # Argument(s) to pass to udf function, tuple or list of args/kwargs which can be in native or json format
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`argument`, "EXPECTED_RESULT")
 })
 

@@ -29,6 +29,17 @@ test_that("TaskIdGet", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
+test_that("TaskIdRetryPost", {
+  # tests for TaskIdRetryPost
+  # base path: http://localhost/v1
+  # Retry an array task
+  # @param id character task id to retry
+  # @return [ArrayTask]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
 test_that("TasksGet", {
   # tests for TasksGet
   # base path: http://localhost/v1

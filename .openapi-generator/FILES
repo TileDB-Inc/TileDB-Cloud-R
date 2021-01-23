@@ -39,6 +39,12 @@ R/dimension_tile_extent.R
 R/domain.R
 R/domain_array.R
 R/error.R
+R/favorite.R
+R/favorite_type.R
+R/favorite_update.R
+R/favorites_api.R
+R/file_property_name.R
+R/file_type.R
 R/filter.R
 R/filter_data.R
 R/filter_option.R
@@ -60,7 +66,6 @@ R/max_buffer_sizes.R
 R/namespace_actions.R
 R/non_empty_domain.R
 R/notebook_api.R
-R/notebook_settings.R
 R/notebook_status.R
 R/organization.R
 R/organization_api.R
@@ -76,6 +81,8 @@ R/pricing_unit_label.R
 R/public_share_filter.R
 R/query.R
 R/query_api.R
+R/query_json.R
+R/query_ranges.R
 R/query_reader.R
 R/querystatus.R
 R/querytype.R
@@ -91,6 +98,7 @@ R/subarray_partitioner_state.R
 R/subarray_ranges.R
 R/subscription.R
 R/tasks_api.R
+R/tile_db_config.R
 R/token.R
 R/token_request.R
 R/udf.R
@@ -100,10 +108,7 @@ R/udf_image.R
 R/udf_image_version.R
 R/udf_info.R
 R/udf_info_update.R
-R/udf_info_version.R
 R/udf_language.R
-R/udf_listing_data.R
-R/udf_ranges.R
 R/udf_result_type.R
 R/udf_sharing.R
 R/udf_subarray.R
@@ -146,6 +151,12 @@ docs/DimensionTileExtent.md
 docs/Domain.md
 docs/DomainArray.md
 docs/Error.md
+docs/Favorite.md
+docs/FavoriteType.md
+docs/FavoriteUpdate.md
+docs/FavoritesApi.md
+docs/FilePropertyName.md
+docs/FileType.md
 docs/Filter.md
 docs/FilterData.md
 docs/FilterOption.md
@@ -167,7 +178,6 @@ docs/MaxBufferSizes.md
 docs/NamespaceActions.md
 docs/NonEmptyDomain.md
 docs/NotebookApi.md
-docs/NotebookSettings.md
 docs/NotebookStatus.md
 docs/Organization.md
 docs/OrganizationApi.md
@@ -183,6 +193,8 @@ docs/PricingUnitLabel.md
 docs/PublicShareFilter.md
 docs/Query.md
 docs/QueryApi.md
+docs/QueryJson.md
+docs/QueryRanges.md
 docs/QueryReader.md
 docs/Querystatus.md
 docs/Querytype.md
@@ -198,6 +210,7 @@ docs/SubarrayPartitionerState.md
 docs/SubarrayRanges.md
 docs/Subscription.md
 docs/TasksApi.md
+docs/TileDBConfig.md
 docs/Token.md
 docs/TokenRequest.md
 docs/UDF.md
@@ -206,10 +219,7 @@ docs/UDFImage.md
 docs/UDFImageVersion.md
 docs/UDFInfo.md
 docs/UDFInfoUpdate.md
-docs/UDFInfoVersion.md
 docs/UDFLanguage.md
-docs/UDFListingData.md
-docs/UDFRanges.md
 docs/UDFResultType.md
 docs/UDFSharing.md
 docs/UDFSubarray.md
@@ -254,6 +264,12 @@ tests/testthat/test_dimension_tile_extent.R
 tests/testthat/test_domain.R
 tests/testthat/test_domain_array.R
 tests/testthat/test_error.R
+tests/testthat/test_favorite.R
+tests/testthat/test_favorite_type.R
+tests/testthat/test_favorite_update.R
+tests/testthat/test_favorites_api.R
+tests/testthat/test_file_property_name.R
+tests/testthat/test_file_type.R
 tests/testthat/test_filter.R
 tests/testthat/test_filter_data.R
 tests/testthat/test_filter_option.R
@@ -275,7 +291,6 @@ tests/testthat/test_max_buffer_sizes.R
 tests/testthat/test_namespace_actions.R
 tests/testthat/test_non_empty_domain.R
 tests/testthat/test_notebook_api.R
-tests/testthat/test_notebook_settings.R
 tests/testthat/test_notebook_status.R
 tests/testthat/test_organization.R
 tests/testthat/test_organization_api.R
@@ -291,6 +306,8 @@ tests/testthat/test_pricing_unit_label.R
 tests/testthat/test_public_share_filter.R
 tests/testthat/test_query.R
 tests/testthat/test_query_api.R
+tests/testthat/test_query_json.R
+tests/testthat/test_query_ranges.R
 tests/testthat/test_query_reader.R
 tests/testthat/test_querystatus.R
 tests/testthat/test_querytype.R
@@ -306,6 +323,7 @@ tests/testthat/test_subarray_partitioner_state.R
 tests/testthat/test_subarray_ranges.R
 tests/testthat/test_subscription.R
 tests/testthat/test_tasks_api.R
+tests/testthat/test_tile_db_config.R
 tests/testthat/test_token.R
 tests/testthat/test_token_request.R
 tests/testthat/test_udf.R
@@ -315,10 +333,7 @@ tests/testthat/test_udf_image.R
 tests/testthat/test_udf_image_version.R
 tests/testthat/test_udf_info.R
 tests/testthat/test_udf_info_update.R
-tests/testthat/test_udf_info_version.R
 tests/testthat/test_udf_language.R
-tests/testthat/test_udf_listing_data.R
-tests/testthat/test_udf_ranges.R
 tests/testthat/test_udf_result_type.R
 tests/testthat/test_udf_sharing.R
 tests/testthat/test_udf_subarray.R

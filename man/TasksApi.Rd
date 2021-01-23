@@ -71,6 +71,30 @@ Fetch an array task
 }
 }
 
+\strong{ TaskIdRetryPost } \emph{  }
+Retry an array task
+
+\itemize{
+\item \emph{ @param } id character
+\item \emph{ @returnType } \link{ArrayTask} \cr
+
+
+\item status code : 200 | Array task
+
+\item return type : ArrayTask 
+\item response headers :
+
+\tabular{ll}{
+}
+\item status code : 0 | error response
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
+}
+}
+
 \strong{ TasksGet } \emph{  }
 Fetch a list of all array tasks a user has access to
 
@@ -150,6 +174,25 @@ api.instance$apiClient$password <- '<api_key>';
 result <- api.instance$TaskIdGet(var.id)
 
 
+####################  TaskIdRetryPost  ####################
+
+library(tiledbcloud)
+var.id <- 'id_example' # character | task id to retry
+
+api.instance <- TasksApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$TaskIdRetryPost(var.id)
+
+
 ####################  TasksGet  ####################
 
 library(tiledbcloud)
@@ -196,6 +239,8 @@ result <- api.instance$TasksGet(namespace=var.namespace, created.by=var.created.
 \item \href{#method-RunSQLWithHttpInfo}{\code{TasksApi$RunSQLWithHttpInfo()}}
 \item \href{#method-TaskIdGet}{\code{TasksApi$TaskIdGet()}}
 \item \href{#method-TaskIdGetWithHttpInfo}{\code{TasksApi$TaskIdGetWithHttpInfo()}}
+\item \href{#method-TaskIdRetryPost}{\code{TasksApi$TaskIdRetryPost()}}
+\item \href{#method-TaskIdRetryPostWithHttpInfo}{\code{TasksApi$TaskIdRetryPostWithHttpInfo()}}
 \item \href{#method-TasksGet}{\code{TasksApi$TasksGet()}}
 \item \href{#method-TasksGetWithHttpInfo}{\code{TasksApi$TasksGetWithHttpInfo()}}
 \item \href{#method-clone}{\code{TasksApi$clone()}}
@@ -243,6 +288,24 @@ result <- api.instance$TasksGet(namespace=var.namespace, created.by=var.created.
 \subsection{Method \code{TaskIdGetWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TasksApi$TaskIdGetWithHttpInfo(id, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-TaskIdRetryPost"></a>}}
+\if{latex}{\out{\hypertarget{method-TaskIdRetryPost}{}}}
+\subsection{Method \code{TaskIdRetryPost()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{TasksApi$TaskIdRetryPost(id, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-TaskIdRetryPostWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-TaskIdRetryPostWithHttpInfo}{}}}
+\subsection{Method \code{TaskIdRetryPostWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{TasksApi$TaskIdRetryPostWithHttpInfo(id, ...)}\if{html}{\out{</div>}}
 }
 
 }
