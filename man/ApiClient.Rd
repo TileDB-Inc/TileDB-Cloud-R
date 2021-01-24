@@ -35,6 +35,10 @@ Do not edit the class manually.
 \item{\code{password}}{Password for HTTP basic authentication}
 
 \item{\code{timeout}}{Default timeout in seconds}
+
+\item{\code{retryStatusCodes}}{vector of status codes to retry}
+
+\item{\code{maxRetryAttempts}}{maximum number of retries for the status codes}
 }
 \if{html}{\out{</div>}}
 }
@@ -43,6 +47,7 @@ Do not edit the class manually.
 \itemize{
 \item \href{#method-new}{\code{ApiClient$new()}}
 \item \href{#method-CallApi}{\code{ApiClient$CallApi()}}
+\item \href{#method-Execute}{\code{ApiClient$Execute()}}
 \item \href{#method-deserialize}{\code{ApiClient$deserialize()}}
 \item \href{#method-deserializeObj}{\code{ApiClient$deserializeObj()}}
 \item \href{#method-clone}{\code{ApiClient$clone()}}
@@ -61,7 +66,9 @@ Do not edit the class manually.
   password = NULL,
   apiKeys = NULL,
   accessToken = NULL,
-  timeout = NULL
+  timeout = NULL,
+  retryStatusCodes = NULL,
+  maxRetryAttempts = NULL
 )}\if{html}{\out{</div>}}
 }
 
@@ -72,6 +79,15 @@ Do not edit the class manually.
 \subsection{Method \code{CallApi()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApiClient$CallApi(url, method, queryParams, headerParams, body, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-Execute"></a>}}
+\if{latex}{\out{\hypertarget{method-Execute}{}}}
+\subsection{Method \code{Execute()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ApiClient$Execute(url, method, queryParams, headerParams, body, ...)}\if{html}{\out{</div>}}
 }
 
 }

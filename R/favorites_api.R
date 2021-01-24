@@ -200,6 +200,7 @@ FavoritesApi <- R6::R6Class(
         stop("Missing required parameter `id`.")
       }
 
+      body <- NULL
       urlPath <- "/favorites/{id}"
       if (!missing(`id`)) {
         urlPath <- gsub(paste0("\\{", "id", "\\}"), URLencode(as.character(`id`), reserved = TRUE), urlPath)
@@ -252,6 +253,7 @@ FavoritesApi <- R6::R6Class(
         stop("Missing required parameter `id`.")
       }
 
+      body <- NULL
       urlPath <- "/favorites/{id}"
       if (!missing(`id`)) {
         urlPath <- gsub(paste0("\\{", "id", "\\}"), URLencode(as.character(`id`), reserved = TRUE), urlPath)
@@ -308,6 +310,7 @@ FavoritesApi <- R6::R6Class(
 
       queryParams['type'] <- type
 
+      body <- NULL
       urlPath <- "/favorites"
       # API key authentication
       if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {

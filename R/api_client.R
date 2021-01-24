@@ -31,6 +31,8 @@
 #' @field apiKeys
 #' @field accessToken
 #' @field timeout Default timeout in seconds
+#' @field retryStatusCodes vector of status codes to retry
+#' @field maxRetryAttempts maximum number of retries for the status codes
 #' @importFrom httr add_headers accept timeout content
 #' @export
 ApiClient  <- R6::R6Class(
@@ -39,7 +41,7 @@ ApiClient  <- R6::R6Class(
     # base path of all requests
     basePath = "http://localhost/v1",
     # user agent in the HTTP request
-    userAgent = "OpenAPI-Generator/0.0.1/r",
+    userAgent = "OpenAPI-Generator/0.0.3/r",
     # default headers in the HTTP request
     defaultHeaders = NULL,
     # username (HTTP basic authentication)
@@ -52,8 +54,12 @@ ApiClient  <- R6::R6Class(
     accessToken = NULL,
     # Time Out (seconds)
     timeout = NULL,
+    # Vector of status codes to retry
+    retryStatusCodes=NULL,
+    # Maximum number of retry attempts for the retry status codes
+    maxRetryAttempts = NULL,
     # constructor
-    initialize = function(basePath=NULL, userAgent=NULL, defaultHeaders=NULL, username=NULL, password=NULL, apiKeys=NULL, accessToken=NULL, timeout=NULL){
+    initialize = function(basePath=NULL, userAgent=NULL, defaultHeaders=NULL, username=NULL, password=NULL, apiKeys=NULL, accessToken=NULL, timeout=NULL,  retryStatusCodes=NULL, maxRetryAttempts=NULL){
       if (!is.null(basePath)) {
         self$basePath <- basePath
       }
@@ -87,8 +93,42 @@ ApiClient  <- R6::R6Class(
       if (!is.null(timeout)) {
         self$timeout <- timeout
       }
+
+      if (!is.null(retryStatusCodes)) {
+        self$retryStatusCodes <- retryStatusCodes
+      }
+
+      if (!is.null(maxRetryAttempts)) {
+        self$maxRetryAttempts <- maxRetryAttempts
+      }
     },
+
     CallApi = function(url, method, queryParams, headerParams, body, ...){
+
+      resp <- self$Execute(url, method, queryParams, headerParams, body, ...)
+      statusCode <- httr::status_code(resp)
+
+      if (is.null(self$maxRetryAttempts)) {
+        self$maxRetryAttempts = 3
+      }
+      
+      if (!is.null(self$retryStatusCodes)) {
+
+        for (i in 1 : self$maxRetryAttempts) {
+          if (statusCode %in% self$retryStatusCodes) {
+            Sys.sleep((2 ^ i) + stats::runif(n = 1, min = 0, max = 1))
+            resp <- self$Execute(url, method, queryParams, headerParams, body, ...)
+            statusCode <- httr::status_code(resp)
+          } else {
+            break;
+          }
+        }  
+      }
+
+      resp
+    },
+
+    Execute = function(url, method, queryParams, headerParams, body, ...){
       headers <- httr::add_headers(c(headerParams, self$defaultHeaders))
 
       httpTimeout <- NULL
@@ -128,7 +168,6 @@ ApiClient  <- R6::R6Class(
     deserializeObj = function(obj, returnType, pkgEnv) {
       returnObj <- NULL
       primitiveTypes <- c("character", "numeric", "integer", "logical", "complex")
-      skipTypes <- c("User")            # also need to prevent other types where get(...) would fails
 
       # To handle the "map" type 
       if (startsWith(returnType, "map(")) {
@@ -162,7 +201,7 @@ ApiClient  <- R6::R6Class(
       }
 
       # To handle model objects which are not array or map containers. Ex:"Pet"
-      else if (exists(returnType, pkgEnv) && !(returnType %in% c(primitiveTypes, skipTypes))) {
+      else if (exists(returnType, pkgEnv) && !(c(returnType) %in% primitiveTypes)) {
         returnType <- get(returnType, envir = as.environment(pkgEnv))
         returnObj <- returnType$new()
         returnObj$fromJSON(

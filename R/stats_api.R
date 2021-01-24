@@ -95,6 +95,7 @@ StatsApi <- R6::R6Class(
       queryParams <- list()
       headerParams <- c()
 
+      body <- NULL
       urlPath <- "/.stats"
       # API key authentication
       if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {

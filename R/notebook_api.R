@@ -210,6 +210,7 @@ NotebookApi <- R6::R6Class(
         stop("Missing required parameter `namespace`.")
       }
 
+      body <- NULL
       urlPath <- "/notebooks/server/{namespace}/status"
       if (!missing(`namespace`)) {
         urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)
@@ -268,6 +269,7 @@ NotebookApi <- R6::R6Class(
         stop("Missing required parameter `namespace`.")
       }
 
+      body <- NULL
       urlPath <- "/notebooks/server/{namespace}"
       if (!missing(`namespace`)) {
         urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)

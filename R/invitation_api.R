@@ -374,6 +374,7 @@ InvitationApi <- R6::R6Class(
         stop("Missing required parameter `invitation`.")
       }
 
+      body <- NULL
       urlPath <- "/invitations/{invitation}"
       if (!missing(`invitation`)) {
         urlPath <- gsub(paste0("\\{", "invitation", "\\}"), URLencode(as.character(`invitation`), reserved = TRUE), urlPath)
@@ -430,6 +431,7 @@ InvitationApi <- R6::R6Class(
         stop("Missing required parameter `organization`.")
       }
 
+      body <- NULL
       urlPath <- "/invitations/{invitation}/{organization}/join"
       if (!missing(`invitation`)) {
         urlPath <- gsub(paste0("\\{", "invitation", "\\}"), URLencode(as.character(`invitation`), reserved = TRUE), urlPath)
@@ -494,6 +496,7 @@ InvitationApi <- R6::R6Class(
         stop("Missing required parameter `array`.")
       }
 
+      body <- NULL
       urlPath <- "/invitations/{invitation}/{namespace}/{array}/share"
       if (!missing(`namespace`)) {
         urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)
@@ -568,6 +571,7 @@ InvitationApi <- R6::R6Class(
 
       queryParams['orderby'] <- orderby
 
+      body <- NULL
       urlPath <- "/invitations"
       # API key authentication
       if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {

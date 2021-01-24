@@ -110,6 +110,7 @@ ArrayTasksApi <- R6::R6Class(
 
       queryParams['end'] <- end
 
+      body <- NULL
       urlPath <- "/tasks/sidebar"
       # API key authentication
       if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {
