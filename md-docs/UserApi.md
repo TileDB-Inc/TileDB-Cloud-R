@@ -276,7 +276,7 @@ create a user
 ```R
 library(tiledbcloud)
 
-var.user <- User$new("id_example", "username_example", "password_example", "name_example", "email_example", "is_valid_email_example", "stripe_connect_example", "company_example", "logo_example", "last_activity_date_example", "timezone_example", list(OrganizationUser$new("user_id_example", "organization_id_example", "username_example", "organization_name_example", OrganizationRoles$new(), list(NamespaceActions$new()))), list(NamespaceActions$new()), list("enabled_features_example"), "unpaid_subscription_example", NotebookSettings$new("default_s3_path_example")) # User | user to create
+var.user <- User$new("id_example", "username_example", "password_example", "name_example", "email_example", "is_valid_email_example", "stripe_connect_example", "company_example", "logo_example", "last_activity_date_example", "timezone_example", list(OrganizationUser$new("user_id_example", "organization_id_example", "username_example", "organization_name_example", OrganizationRoles$new(), list(NamespaceActions$new()))), list(NamespaceActions$new()), list("enabled_features_example"), "unpaid_subscription_example", "default_s3_path_example", "default_s3_path_credentials_name_example", "default_namespace_charged_example") # User | user to create
 
 api.instance <- UserApi$new()
 # Configure API key authorization: ApiKeyAuth
@@ -899,7 +899,7 @@ update a user
 library(tiledbcloud)
 
 var.username <- 'username_example' # character | username or id
-var.user <- User$new("id_example", "username_example", "password_example", "name_example", "email_example", "is_valid_email_example", "stripe_connect_example", "company_example", "logo_example", "last_activity_date_example", "timezone_example", list(OrganizationUser$new("user_id_example", "organization_id_example", "username_example", "organization_name_example", OrganizationRoles$new(), list(NamespaceActions$new()))), list(NamespaceActions$new()), list("enabled_features_example"), "unpaid_subscription_example", NotebookSettings$new("default_s3_path_example")) # User | user details to update
+var.user <- User$new("id_example", "username_example", "password_example", "name_example", "email_example", "is_valid_email_example", "stripe_connect_example", "company_example", "logo_example", "last_activity_date_example", "timezone_example", list(OrganizationUser$new("user_id_example", "organization_id_example", "username_example", "organization_name_example", OrganizationRoles$new(), list(NamespaceActions$new()))), list(NamespaceActions$new()), list("enabled_features_example"), "unpaid_subscription_example", "default_s3_path_example", "default_s3_path_credentials_name_example", "default_namespace_charged_example") # User | user details to update
 
 api.instance <- UserApi$new()
 # Configure API key authorization: ApiKeyAuth
