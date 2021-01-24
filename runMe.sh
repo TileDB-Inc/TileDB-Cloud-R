@@ -10,16 +10,16 @@ else
 fi
 
 docker run --rm -u 1000:1000 -v $PWD:/work \
-       openapitools/openapi-generator-cli:latest \
+       openapitools/openapi-generator-cli:v5.0.0 \
        generate -i /work/openapi-v1.yaml -g r \
-       -p packageName=tiledbcloud -p packageVersion=0.0.2 \
-       -o /work/tiledb-cloud-r
+       -p packageName=tiledbcloud -p packageVersion=0.0.3 \
+       -o /work/tiledbcloud-generated
 
 echo "** Comparing R/ and tests/testthat/ and man/ (after roxygenize-ing)  [DRY RUNS]"
-rsync --delete --exclude=init.R --exclude=config.R --exclude=login.R -ncav tiledb-cloud-r/R/ R/
-rsync --delete -ncav tiledb-cloud-r/tests/testthat/ tests/testthat/
+rsync --delete --exclude=init.R --exclude=config.R --exclude=login.R -ncav tiledbcloud-generated/R/ R/
+rsync --delete -ncav tiledbcloud-generated/tests/testthat/ tests/testthat/
 ## after roxygen update of man/ inside of tiledb-cloud-r/
-rsync --exclude=login.Rd --exclude=config.Rd --delete -ncav tiledb-cloud-r/man/ man/
+rsync --exclude=login.Rd --exclude=config.Rd --delete -ncav tiledbcloud-generated/man/ man/
 
 
 echo "Done. Remember to adjust api_client for the User field."
