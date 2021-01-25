@@ -18,6 +18,7 @@ howToBuild.md
 _pkgdown.yml
 ^\.ci
 tiledb-cloud-r
+tiledbcloud-generated
 openapi-v1\.yaml
 origNAMESPACE
 runMe.sh

@@ -5,6 +5,8 @@ metadata of an array
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **character** | unique id of registered array | [optional] 
+**file_type** | [**FileType**](FileType.md) |  | [optional] 
+**file_properties** | **map(character)** | map of file properties created for this array | [optional] 
 **uri** | **character** | uri of array | [optional] 
 **namespace** | **character** | namespace array is in | [optional] 
 **size** | **numeric** | size in bytes of array | [optional] 

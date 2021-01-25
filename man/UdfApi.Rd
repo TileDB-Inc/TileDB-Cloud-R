@@ -181,7 +181,7 @@ X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
 \item response headers :
 
 \tabular{ll}{
-X-TILEDB-CLOUD-TASK-ID \tab Task ID for just request if task was started \cr
+X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
 }
 }
 
@@ -211,7 +211,7 @@ X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
 \item response headers :
 
 \tabular{ll}{
-X-TILEDB-CLOUD-TASK-ID \tab Task ID for just request if task was started \cr
+X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
 }
 }
 

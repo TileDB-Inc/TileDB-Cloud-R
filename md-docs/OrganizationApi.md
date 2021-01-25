@@ -227,7 +227,7 @@ create a organization, the user creating will be listed as owner
 ```R
 library(tiledbcloud)
 
-var.organization <- Organization$new("id_example", OrganizationRoles$new(), "name_example", "created_at_example", "updated_at_example", "logo_example", "description_example", list(OrganizationUser$new("user_id_example", "organization_id_example", "username_example", "organization_name_example", OrganizationRoles$new(), list(NamespaceActions$new()))), list(NamespaceActions$new()), 123, list("enabled_features_example"), "unpaid_subscription_example", NotebookSettings$new("default_s3_path_example")) # Organization | organization to create
+var.organization <- Organization$new("id_example", OrganizationRoles$new(), "name_example", "created_at_example", "updated_at_example", "logo_example", "description_example", list(OrganizationUser$new("user_id_example", "organization_id_example", "username_example", "organization_name_example", OrganizationRoles$new(), list(NamespaceActions$new()))), list(NamespaceActions$new()), 123, list("enabled_features_example"), "unpaid_subscription_example", "default_s3_path_example", "default_s3_path_credentials_name_example", "stripe_connect_example") # Organization | organization to create
 
 api.instance <- OrganizationApi$new()
 # Configure API key authorization: ApiKeyAuth
@@ -617,7 +617,7 @@ update a organization
 library(tiledbcloud)
 
 var.organization <- 'organization_example' # character | organization name or id
-var.organization.details <- Organization$new("id_example", OrganizationRoles$new(), "name_example", "created_at_example", "updated_at_example", "logo_example", "description_example", list(OrganizationUser$new("user_id_example", "organization_id_example", "username_example", "organization_name_example", OrganizationRoles$new(), list(NamespaceActions$new()))), list(NamespaceActions$new()), 123, list("enabled_features_example"), "unpaid_subscription_example", NotebookSettings$new("default_s3_path_example")) # Organization | organization details to update
+var.organization.details <- Organization$new("id_example", OrganizationRoles$new(), "name_example", "created_at_example", "updated_at_example", "logo_example", "description_example", list(OrganizationUser$new("user_id_example", "organization_id_example", "username_example", "organization_name_example", OrganizationRoles$new(), list(NamespaceActions$new()))), list(NamespaceActions$new()), 123, list("enabled_features_example"), "unpaid_subscription_example", "default_s3_path_example", "default_s3_path_credentials_name_example", "stripe_connect_example") # Organization | organization details to update
 
 api.instance <- OrganizationApi$new()
 # Configure API key authorization: ApiKeyAuth

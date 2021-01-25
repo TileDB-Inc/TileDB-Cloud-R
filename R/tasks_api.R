@@ -29,7 +29,7 @@
 #' \item response headers :
 #'
 #' \tabular{ll}{
-#' X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed query \cr
+#' X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
 #' }
 #' \item status code : 204 | SQL executed successfully
 #'
@@ -37,7 +37,7 @@
 #' \item response headers :
 #'
 #' \tabular{ll}{
-#' X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed query \cr
+#' X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
 #' }
 #' \item status code : 0 | error response
 #'
@@ -332,6 +332,7 @@ TasksApi <- R6::R6Class(
         stop("Missing required parameter `id`.")
       }
 
+      body <- NULL
       urlPath <- "/task/{id}"
       if (!missing(`id`)) {
         urlPath <- gsub(paste0("\\{", "id", "\\}"), URLencode(as.character(`id`), reserved = TRUE), urlPath)
@@ -390,6 +391,7 @@ TasksApi <- R6::R6Class(
         stop("Missing required parameter `id`.")
       }
 
+      body <- NULL
       urlPath <- "/task/{id}/retry"
       if (!missing(`id`)) {
         urlPath <- gsub(paste0("\\{", "id", "\\}"), URLencode(as.character(`id`), reserved = TRUE), urlPath)
@@ -466,6 +468,7 @@ TasksApi <- R6::R6Class(
 
       queryParams['orderby'] <- orderby
 
+      body <- NULL
       urlPath <- "/tasks"
       # API key authentication
       if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {

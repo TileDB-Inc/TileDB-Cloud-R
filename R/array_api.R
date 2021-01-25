@@ -1274,6 +1274,7 @@ ArrayApi <- R6::R6Class(
 
       queryParams['has_task_id'] <- has.task.id
 
+      body <- NULL
       urlPath <- "/arrays/{namespace}/{array}/activity"
       if (!missing(`namespace`)) {
         urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)
@@ -1352,6 +1353,7 @@ ArrayApi <- R6::R6Class(
 
       queryParams['exclude_file_type'] <- exclude.file.type
 
+      body <- NULL
       urlPath <- "/arrays/browser/owned"
       # API key authentication
       if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {
@@ -1402,6 +1404,7 @@ ArrayApi <- R6::R6Class(
       queryParams <- list()
       headerParams <- c()
 
+      body <- NULL
       urlPath <- "/arrays/browser/owned/sidebar"
       # API key authentication
       if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {
@@ -1472,6 +1475,7 @@ ArrayApi <- R6::R6Class(
 
       queryParams['exclude_file_type'] <- exclude.file.type
 
+      body <- NULL
       urlPath <- "/arrays/browser/public"
       # API key authentication
       if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {
@@ -1522,6 +1526,7 @@ ArrayApi <- R6::R6Class(
       queryParams <- list()
       headerParams <- c()
 
+      body <- NULL
       urlPath <- "/arrays/browser/public/sidebar"
       # API key authentication
       if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {
@@ -1592,6 +1597,7 @@ ArrayApi <- R6::R6Class(
 
       queryParams['exclude_file_type'] <- exclude.file.type
 
+      body <- NULL
       urlPath <- "/arrays/browser/shared"
       # API key authentication
       if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {
@@ -1642,6 +1648,7 @@ ArrayApi <- R6::R6Class(
       queryParams <- list()
       headerParams <- c()
 
+      body <- NULL
       urlPath <- "/arrays/browser/shared/sidebar"
       # API key authentication
       if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {
@@ -1854,6 +1861,7 @@ ArrayApi <- R6::R6Class(
 
       headerParams['Content-Type'] <- `content.type`
 
+      body <- NULL
       urlPath <- "/arrays/{namespace}/{array}"
       if (!missing(`namespace`)) {
         urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)
@@ -1914,6 +1922,7 @@ ArrayApi <- R6::R6Class(
         stop("Missing required parameter `array`.")
       }
 
+      body <- NULL
       urlPath <- "/arrays/{namespace}/{array}/deregister"
       if (!missing(`namespace`)) {
         urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)
@@ -1968,6 +1977,7 @@ ArrayApi <- R6::R6Class(
 
       queryParams['public_share'] <- public.share
 
+      body <- NULL
       urlPath <- "/arrays"
       # API key authentication
       if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {
@@ -2032,6 +2042,7 @@ ArrayApi <- R6::R6Class(
 
       headerParams['Content-Type'] <- `content.type`
 
+      body <- NULL
       urlPath <- "/arrays/{namespace}/{array}"
       if (!missing(`namespace`)) {
         urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)
@@ -2112,6 +2123,7 @@ ArrayApi <- R6::R6Class(
 
       queryParams['subarray'] <- subarray
 
+      body <- NULL
       urlPath <- "/arrays/{namespace}/{array}/max_buffer_sizes"
       if (!missing(`namespace`)) {
         urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)
@@ -2180,6 +2192,7 @@ ArrayApi <- R6::R6Class(
 
       queryParams['length'] <- length
 
+      body <- NULL
       urlPath <- "/arrays/{namespace}/{array}/metadata_json"
       if (!missing(`namespace`)) {
         urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)
@@ -2246,6 +2259,7 @@ ArrayApi <- R6::R6Class(
         stop("Missing required parameter `array`.")
       }
 
+      body <- NULL
       urlPath <- "/arrays/{namespace}/{array}/metadata"
       if (!missing(`namespace`)) {
         urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)
@@ -2320,6 +2334,7 @@ ArrayApi <- R6::R6Class(
 
       headerParams['X-Payer'] <- `x.payer`
 
+      body <- NULL
       urlPath <- "/arrays/{namespace}/{array}/non_empty_domain"
       if (!missing(`namespace`)) {
         urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)
@@ -2388,6 +2403,7 @@ ArrayApi <- R6::R6Class(
 
       queryParams['samples'] <- samples
 
+      body <- NULL
       urlPath <- "/arrays/{namespace}/{array}/sample"
       if (!missing(`namespace`)) {
         urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)
@@ -2454,6 +2470,7 @@ ArrayApi <- R6::R6Class(
         stop("Missing required parameter `array`.")
       }
 
+      body <- NULL
       urlPath <- "/arrays/{namespace}/{array}/share"
       if (!missing(`namespace`)) {
         urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)
@@ -2516,6 +2533,7 @@ ArrayApi <- R6::R6Class(
         stop("Missing required parameter `namespace`.")
       }
 
+      body <- NULL
       urlPath <- "/arrays/{namespace}"
       if (!missing(`namespace`)) {
         urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)
@@ -2570,6 +2588,7 @@ ArrayApi <- R6::R6Class(
       queryParams <- list()
       headerParams <- c()
 
+      body <- NULL
       urlPath <- "/arrays/last_accessed"
       # API key authentication
       if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {

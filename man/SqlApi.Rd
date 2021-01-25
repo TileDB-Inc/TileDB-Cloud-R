@@ -28,7 +28,7 @@ Run a sql query
 \item response headers :
 
 \tabular{ll}{
-X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed query \cr
+X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
 }
 \item status code : 204 | SQL executed successfully
 
@@ -36,7 +36,7 @@ X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed query \cr
 \item response headers :
 
 \tabular{ll}{
-X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed query \cr
+X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
 }
 \item status code : 0 | error response
 

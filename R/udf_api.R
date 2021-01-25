@@ -182,7 +182,7 @@
 #' \item response headers :
 #'
 #' \tabular{ll}{
-#' X-TILEDB-CLOUD-TASK-ID \tab Task ID for just request if task was started \cr
+#' X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
 #' }
 #' }
 #'
@@ -212,7 +212,7 @@
 #' \item response headers :
 #'
 #' \tabular{ll}{
-#' X-TILEDB-CLOUD-TASK-ID \tab Task ID for just request if task was started \cr
+#' X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
 #' }
 #' }
 #'
@@ -457,6 +457,7 @@ UdfApi <- R6::R6Class(
         stop("Missing required parameter `name`.")
       }
 
+      body <- NULL
       urlPath <- "/udf/{namespace}/{name}"
       if (!missing(`namespace`)) {
         urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)
@@ -517,6 +518,7 @@ UdfApi <- R6::R6Class(
         stop("Missing required parameter `name`.")
       }
 
+      body <- NULL
       urlPath <- "/udf/{namespace}/{name}"
       if (!missing(`namespace`)) {
         urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)
@@ -583,6 +585,7 @@ UdfApi <- R6::R6Class(
         stop("Missing required parameter `name`.")
       }
 
+      body <- NULL
       urlPath <- "/udf/{namespace}/{name}/share"
       if (!missing(`namespace`)) {
         urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)

@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **type** | [**Datatype**](Datatype.md) |  | 
 **filterPipeline** | [**FilterPipeline**](FilterPipeline.md) |  | 
 **cellValNum** | **integer** | Attribute number of values per cell | 
+**fillValue** | **array[integer]** | The default fill value | [optional] 
 
 

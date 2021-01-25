@@ -33,7 +33,7 @@ send a query to run against a specified array/URI registered to a group/project
 \item response headers :
 
 \tabular{ll}{
-X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed query \cr
+X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
 }
 \item status code : 204 | query completed successfully with no return
 
@@ -71,7 +71,7 @@ send a query to run against a specified array/URI registered to a group/project
 \item response headers :
 
 \tabular{ll}{
-X-TILEDB-CLOUD-TASK-ID \tab Task ID for just computed query result size \cr
+X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
 }
 \item status code : 204 | query completed successfully with no return
 
@@ -105,7 +105,7 @@ send a query to run against a specified array/URI registered to a group/project,
 \item response headers :
 
 \tabular{ll}{
-X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed query \cr
+X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
 }
 \item status code : 0 | error response
 
@@ -136,7 +136,7 @@ send a query to run against a specified array/URI registered to a group/project
 \item response headers :
 
 \tabular{ll}{
-X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed query \cr
+X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
 }
 \item status code : 204 | query completed successfully with no return
 
@@ -171,7 +171,7 @@ send a query to run against a specified array/URI registered to a group/project,
 \item response headers :
 
 \tabular{ll}{
-X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed query \cr
+X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
 }
 \item status code : 0 | error response
 

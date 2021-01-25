@@ -34,7 +34,7 @@
 #' \item response headers :
 #'
 #' \tabular{ll}{
-#' X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed query \cr
+#' X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
 #' }
 #' \item status code : 204 | query completed successfully with no return
 #'
@@ -72,7 +72,7 @@
 #' \item response headers :
 #'
 #' \tabular{ll}{
-#' X-TILEDB-CLOUD-TASK-ID \tab Task ID for just computed query result size \cr
+#' X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
 #' }
 #' \item status code : 204 | query completed successfully with no return
 #'
@@ -106,7 +106,7 @@
 #' \item response headers :
 #'
 #' \tabular{ll}{
-#' X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed query \cr
+#' X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
 #' }
 #' \item status code : 0 | error response
 #'
@@ -137,7 +137,7 @@
 #' \item response headers :
 #'
 #' \tabular{ll}{
-#' X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed query \cr
+#' X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
 #' }
 #' \item status code : 204 | query completed successfully with no return
 #'
@@ -172,7 +172,7 @@
 #' \item response headers :
 #'
 #' \tabular{ll}{
-#' X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed query \cr
+#' X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
 #' }
 #' \item status code : 0 | error response
 #'
@@ -543,6 +543,7 @@ QueryApi <- R6::R6Class(
 
       headerParams['X-Payer'] <- `x.payer`
 
+      body <- NULL
       urlPath <- "/arrays/{namespace}/{array}/query/get_file"
       if (!missing(`namespace`)) {
         urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)

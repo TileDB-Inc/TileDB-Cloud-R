@@ -1,6 +1,6 @@
-# tiledbcloud::UDFRanges
+# tiledbcloud::QueryRanges
 
-Subarray bounds to query for a UDF to operate on
+Subarray bounds to query
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

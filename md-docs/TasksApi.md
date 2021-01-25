@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**RunSQL**](TasksApi.md#RunSQL) | **POST** /sql/{namespace} | 
 [**TaskIdGet**](TasksApi.md#TaskIdGet) | **GET** /task/{id} | 
+[**TaskIdRetryPost**](TasksApi.md#TaskIdRetryPost) | **POST** /task/{id}/retry | 
 [**TasksGet**](TasksApi.md#TasksGet) | **GET** /tasks | 
 
 
@@ -58,8 +59,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | JSON results in array of objects form, if the query returns results |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed query <br>  |
-| **204** | SQL executed successfully |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed query <br>  |
+| **200** | JSON results in array of objects form, if the query returns results |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
+| **204** | SQL executed successfully |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
 | **0** | error response |  -  |
 
 # **TaskIdGet**
@@ -90,6 +91,54 @@ dput(result)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **character**| task id to fetch | 
+
+### Return type
+
+[**ArrayTask**](ArrayTask.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Array task |  -  |
+| **0** | error response |  -  |
+
+# **TaskIdRetryPost**
+> ArrayTask TaskIdRetryPost(id)
+
+
+
+Retry an array task
+
+### Example
+```R
+library(tiledbcloud)
+
+var.id <- 'id_example' # character | task id to retry
+
+api.instance <- TasksApi$new()
+# Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+# Configure HTTP basic authorization: BasicAuth
+api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
+api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
+result <- api.instance$TaskIdRetryPost(var.id)
+dput(result)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **character**| task id to retry | 
 
 ### Return type
 

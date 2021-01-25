@@ -5,33 +5,32 @@ Work in progress
 
 ### How was this built
 
-- using current (2020-Aug-07) Docker container `openapitools/openapi-generator-cli:latest`
-- it appear to be depedent on this version as in Jan 2021 a newer container
-  created issues for Andreas; the version we used is
-  > openapi-generator-cli 5.0.0-SNAPSHOT
-  >   commit : 0b529de
-  >   built  : 2020-08-07T10:39:48Z
-  >   source : https://github.com/openapitools/openapi-generator
-  >   docs   : https://openapi-generator.tech/
-  we will look into newer verions later
-- standard invocation using TileDB Cloud API Spec V1, setting package name
-  and version
-- involing `roxygen2` to build documentation 
+- initially using then-current (2020-Aug-07) Docker container `openapitools/openapi-generator-cli:latest`
+- now via the offical v5.0.0 release `openapitools/openapi-generator-cli:v5.0.0`
+- standard invocation using TileDB Cloud API Spec V1, setting package name and version
+- one (very important) fix to `R/api_client.R` (see below)
+- involing `roxygen2` to build documentation followed by a one-word fix to one Rd file
 
 
 ```sh
 docker run --rm -u 1000:1000 -v $PWD:/work \
        openapitools/openapi-generator-cli:latest \
        generate -i /work/openapi-v1.yaml -g r \
-       -p packageName=tiledbcloud -p packageVersion=0.0.1 -o /work/tiledb-cloud-r
-cd tiledb-cloud-r && roxy.r -f   # simple roxygen2 wrapper from littler
+       -p packageName=tiledbcloud -p packageVersion=0.0.3 -o /work/tiledbcloud-generated
+cd tiledbcloud-generated && Rscript -e 'roxygen2::roxygenize(".", roclets=NULL)'
 ```
+
+*Important* The generated API wants to also parse a field `User` which we
+apparently do not send. So the default deserializer breaks. See PR #2 and its
+small diff to `R/api_client.R` file for a fix that needs to be re-applied.
+
+
 
 ### Build and Test
 
 ```sh
 R CMD build .                           # creates eg tiledbcloud_0.0.2.tar.gz
-R CMD check tiledbcloud_0.0.2.tar.gz    # checks the package
+R CMD check tiledbcloud_0.0.3.tar.gz    # checks the package
 
 
 ### Demo
