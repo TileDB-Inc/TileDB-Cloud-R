@@ -57,7 +57,7 @@ UDFLanguage <- R6::R6Class(
 # add to utils.R
 .parse_UDFLanguage <- function(vals) {
     res <- gsub("^\\[|\\]$", "",
-        "[python]"
+        "[python, r]"
     )
     unlist(strsplit(res, ", "))
 }
