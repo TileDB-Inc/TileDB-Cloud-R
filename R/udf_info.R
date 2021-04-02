@@ -127,8 +127,7 @@ UDFInfo <- R6::R6Class(
         self$`name` <- UDFInfoObject$`name`
       }
       if (!is.null(UDFInfoObject$`language`)) {
-        languageObject <- UDFLanguage$new()
-        languageObject$fromJSON(jsonlite::toJSON(UDFInfoObject$language, auto_unbox = TRUE, digits = NA))
+        languageObject <- UDFLanguage$new(UDFInfoObject$`language`)
         self$`language` <- languageObject
       }
       if (!is.null(UDFInfoObject$`type`)) {
