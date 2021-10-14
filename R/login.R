@@ -11,7 +11,7 @@
 ##' new session is requested and the token assigned to that session is
 ##' used.
 ##'
-##' Funtion arguments are optional, and can be used to override the
+##' Function arguments are optional, and can be used to override the
 ##' default configuration values obtained by \code{config()} from
 ##' either the environment variables or the configuration file.
 ##'
@@ -29,8 +29,8 @@
 ##' @param remember_me A boolean to select a session with for 24 hours
 ##' instead of 8 hours, used only when a new session is requested.
 ##'
-##' @return Nothing is returned, the function is called for a side effect
-##' of storing the values in the package environment
+##' @return Nothing is returned; the function is called for a side effect
+##' of storing the values in the package environment.
 ##' @export
 login <- function(username, password, api_key, host, remember_me=TRUE) {
     if (missing(username)) username <- .getConfigValue("username")

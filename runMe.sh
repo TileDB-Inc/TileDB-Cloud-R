@@ -16,7 +16,9 @@ docker run --rm -u 1000:1000 -v $PWD:/work \
        -o /work/tiledbcloud-generated
 
 echo "** Comparing R/ and tests/testthat/ and man/ (after roxygenize-ing)  [DRY RUNS]"
-rsync --delete --exclude=init.R --exclude=config.R --exclude=login.R -ncav tiledbcloud-generated/R/ R/
+rsync --delete \
+  --exclude=init.R --exclude=config.R --exclude=login.R --exclude execute.R \
+  -ncav tiledbcloud-generated/R/ R/
 rsync --delete -ncav tiledbcloud-generated/tests/testthat/ tests/testthat/
 ## after roxygen update of man/ inside of tiledb-cloud-r/
 rsync --exclude=login.Rd --exclude=config.Rd --delete -ncav tiledbcloud-generated/man/ man/
