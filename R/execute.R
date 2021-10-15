@@ -18,7 +18,7 @@
 ##'
 ##' @return The R object which is the return value from the UDF.
 ##' @export
-execute_udf <- function(udf, args=NULL, namespace) {
+execute_udf <- function(namespace, udf, args=NULL) {
   client <- .pkgenv[["cl"]] # Expected to be set from login.R
   if (is.null(client)) {
     stop("tiledbcloud: unable to find login credentials. Please use login().")
@@ -51,3 +51,33 @@ execute_udf <- function(udf, args=NULL, namespace) {
   resultValue = resultJSON$value
   resultValue
 }
+
+# swagger autogen:
+
+# SubmitGenericUDF = function(namespace, udf, accept.encoding=NULL, ...){
+#   apiResponse <- self$SubmitGenericUDFWithHttpInfo(namespace, udf, accept.encoding, ...)
+#   resp <- apiResponse$response
+#   if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+#     apiResponse$content
+#   } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+#     apiResponse
+#   } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+#     apiResponse
+#   } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+#     apiResponse
+#   }
+# },
+
+# SubmitUDF = function(namespace, array, udf, x.payer=NULL, accept.encoding=NULL, v2=NULL, ...){
+#   apiResponse <- self$SubmitUDFWithHttpInfo(namespace, array, udf, x.payer, accept.encoding, v2, ...)
+#   resp <- apiResponse$response
+#   if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+#     apiResponse$content
+#   } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+#     apiResponse
+#   } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+#     apiResponse
+#   } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+#     apiResponse
+#   }
+# },
