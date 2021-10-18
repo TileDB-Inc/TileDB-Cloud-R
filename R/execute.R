@@ -81,6 +81,23 @@ execute_array_udf <- function(namespace, array, udf) {
   array_udf$language <- UDFLanguage$new("r")
   array_udf$exec <- jsonlite::toJSON(as.integer(serialize(udf, NULL)))
 
-  stop("unimplemented")
+  resultObject <- udfapi$SubmitUDF(namespace=namespace, array=array, udf, array_udf)
+  print("RESULTOBJECT")
+  print(resultObject)
 
+#  if (typeof(resultObject) != "raw") {
+#    # TODO: extract a function to a R/utils.R
+#    className <- class(resultObject)[1]
+#    if (className == "ApiResponse") {
+#      stop(paste("tiledbcloud: received error response:", resultObject$content))
+#    } else {
+#      stop(paste("tiledbcloud: received error response:", class(resultObject)[1]))
+#    }
+#  }
+#  resultString <- rawToChar(resultObject)
+#  resultJSON <- jsonlite::fromJSON(resultString)
+#  resultValue <- resultJSON$value
+#  resultValue
+
+  stop("unimplemented")
 }
