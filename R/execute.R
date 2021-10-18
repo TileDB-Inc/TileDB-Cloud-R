@@ -47,9 +47,9 @@ execute_generic_udf <- function(namespace, udf, args=NULL) {
       stop(paste("tiledbcloud: received error response:", class(resultObject)[1]))
     }
   }
-  resultString = rawToChar(resultObject)
-  resultJSON = jsonlite::fromJSON(resultString)
-  resultValue = resultJSON$value
+  resultString <- rawToChar(resultObject)
+  resultJSON <- jsonlite::fromJSON(resultString)
+  resultValue <- resultJSON$value
   resultValue
 }
 
