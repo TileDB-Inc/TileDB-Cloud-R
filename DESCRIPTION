@@ -14,4 +14,4 @@ LazyData: true
 Suggests: testthat, tinytest
 Imports: jsonlite, httr, R6, base64enc
 Encoding: UTF-8
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2

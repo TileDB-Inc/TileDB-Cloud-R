@@ -22,8 +22,8 @@ used instead of username and password.}
 instead of 8 hours, used only when a new session is requested.}
 }
 \value{
-Nothing is returned, the function is called for a side effect
-of storing the values in the package environment
+Nothing is returned; the function is called for a side effect
+of storing the values in the package environment.
 }
 \description{
 This function can be used to override the default setup made at
@@ -38,7 +38,7 @@ to instantiate a new API client object. If no token was supplied a
 new session is requested and the token assigned to that session is
 used.
 
-Funtion arguments are optional, and can be used to override the
+Function arguments are optional, and can be used to override the
 default configuration values obtained by \code{config()} from
 either the environment variables or the configuration file.
 }

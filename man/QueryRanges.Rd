@@ -15,7 +15,7 @@ QueryRanges Class
 \describe{
 \item{\code{layout}}{\link{Layout} [optional]}
 
-\item{\code{ranges}}{list( \link{array} ) [optional]}
+\item{\code{ranges}}{list( \link{array[numeric]} ) [optional]}
 }
 \if{html}{\out{</div>}}
 }
