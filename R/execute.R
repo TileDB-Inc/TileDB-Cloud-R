@@ -68,9 +68,12 @@ execute_generic_udf <- function(namespace, udf, args=NULL) {
 ##'
 ##' @param array TODO: describe this.
 ##'
+##' @param queryRanges TODO: describe this.
+##'
 ##' @return TODO: describe
 ##' @export
-execute_array_udf <- function(namespace, array, udf) {
+execute_array_udf <- function(namespace, array, udf, queryRanges) {
+  print("ENTER")
   client <- .pkgenv[["cl"]] # Expected to be set from login.R
   if (is.null(client)) {
     stop("tiledbcloud: unable to find login credentials. Please use login().")
@@ -81,23 +84,43 @@ execute_array_udf <- function(namespace, array, udf) {
   array_udf$language <- UDFLanguage$new("r")
   array_udf$exec <- jsonlite::toJSON(as.integer(serialize(udf, NULL)))
 
-  resultObject <- udfapi$SubmitUDF(namespace=namespace, array=array, udf, array_udf)
-  print("RESULTOBJECT")
-  print(resultObject)
+  array_udf$ranges = queryRanges
 
-#  if (typeof(resultObject) != "raw") {
-#    # TODO: extract a function to a R/utils.R
-#    className <- class(resultObject)[1]
-#    if (className == "ApiResponse") {
-#      stop(paste("tiledbcloud: received error response:", resultObject$content))
-#    } else {
-#      stop(paste("tiledbcloud: received error response:", class(resultObject)[1]))
-#    }
-#  }
-#  resultString <- rawToChar(resultObject)
-#  resultJSON <- jsonlite::fromJSON(resultString)
-#  resultValue <- resultJSON$value
-#  resultValue
+  # Error in self$ranges$toJSON : $ operator is invalid for atomic vectors
 
-  stop("unimplemented")
+  # Python: JSON body as received by the REST server:
+  # {
+  #   "buffers": [
+  #     "a"
+  #   ],
+  #   "exec": "gAV...FIu",
+  #   "exec_raw": "def median(numpy_ordered_dictionary):\n  return numpy.median(numpy_ordered_dictionary[\"a\"])\n",
+  #   "image_name": "default",
+  #   "language": "python",
+  #   "ranges": {
+  #     "ranges": [ [ 1, 2 ], [ 1, 2 ] ]
+  #   },
+  #   "result_format": "native",
+  #   "store_results": false,
+  #   "stored_param_uuids": [],
+  #   "version": "3.7.9"
+  # }
+
+  # See also R/udf.R about line 213 or so re array_udf$toJSONString()
+
+  print("PRE:S")
+  resultObject <- udfapi$SubmitUDF(namespace=namespace, array=array, udf=array_udf)
+  print("POST:S")
+
+  if (typeof(resultObject) != "raw") {
+    # TODO: extract a function to a R/utils.R
+    className <- class(resultObject)[1]
+    if (className == "ApiResponse") {
+      stop(paste("tiledbcloud: received error response:", resultObject$content))
+    } else {
+      stop(paste("tiledbcloud: received error response:", class(resultObject)[1]))
+    }
+  } else {
+    resultObject # TOOD: decoding TBD
+  }
 }

@@ -55,8 +55,8 @@ QueryRanges <- R6::R6Class(
     fromJSON = function(QueryRangesJson) {
       QueryRangesObject <- jsonlite::fromJSON(QueryRangesJson)
       if (!is.null(QueryRangesObject$`layout`)) {
-        layoutObject <- Layout$new()
-        layoutObject$fromJSON(jsonlite::toJSON(QueryRangesObject$layout, auto_unbox = TRUE, digits = NA))
+        layoutObject <- Layout$new(QueryRangesObject$layout)
+        #layoutObject$fromJSON(jsonlite::toJSON(QueryRangesObject$layout, auto_unbox = TRUE, digits = NA))
         self$`layout` <- layoutObject
       }
       if (!is.null(QueryRangesObject$`ranges`)) {

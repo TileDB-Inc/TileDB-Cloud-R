@@ -30,7 +30,7 @@
 ##'
 ##' @return A named vector with configuration values is returned.
 ##' @export
-config <- function() {
+configure <- function() {
 
     ## start with environment variables; R returns "" if unset by default
     token      <- Sys.getenv("TILEDB_REST_TOKEN")
