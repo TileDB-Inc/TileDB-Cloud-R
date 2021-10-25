@@ -3,7 +3,7 @@
 
 .onLoad <- function(libname, pkgname) {
     ## set configuration values from environment variable and/or a config file
-    .pkgenv[["config"]] <- config()
+    .pkgenv[["config"]] <- configure()
 }
 
 .onAttach <- function(libname, pkgname) {
