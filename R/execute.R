@@ -120,7 +120,9 @@ execute_array_udf <- function(namespace, array, udf, queryRanges) {
     } else {
       stop(paste("tiledbcloud: received error response:", class(resultObject)[1]))
     }
-  } else {
-    resultObject # TOOD: decoding TBD
   }
+  resultString <- rawToChar(resultObject)
+  resultJSON <- jsonlite::fromJSON(resultString)
+  resultValue <- resultJSON$value
+  resultValue
 }
