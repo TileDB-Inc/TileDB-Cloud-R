@@ -32,6 +32,8 @@ ArrayInfoUpdate Class
 \item{\code{license_id}}{character [optional]}
 
 \item{\code{license_text}}{character [optional]}
+
+\item{\code{read_only}}{character [optional]}
 }
 \if{html}{\out{</div>}}
 }
@@ -62,6 +64,7 @@ ArrayInfoUpdate Class
   tags = NULL,
   license_id = NULL,
   license_text = NULL,
+  read_only = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }

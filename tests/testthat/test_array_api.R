@@ -36,6 +36,7 @@ test_that("ArraysBrowserOwnedGet", {
   # @param exclude.tag array[character] tags to exclude matching array in results, more than one can be included (optional)
   # @param file.type array[character] file_type to search for, more than one can be included (optional)
   # @param exclude.file.type array[character] file_type to exclude matching array in results, more than one can be included (optional)
+  # @param file.property array[character] file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included (optional)
   # @return [ArrayBrowserData]
 
   # uncomment below to test the operation
@@ -66,6 +67,7 @@ test_that("ArraysBrowserPublicGet", {
   # @param exclude.tag array[character] tags to exclude matching array in results, more than one can be included (optional)
   # @param file.type array[character] file_type to search for, more than one can be included (optional)
   # @param exclude.file.type array[character] file_type to exclude matching array in results, more than one can be included (optional)
+  # @param file.property array[character] file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included (optional)
   # @return [ArrayBrowserData]
 
   # uncomment below to test the operation
@@ -96,6 +98,7 @@ test_that("ArraysBrowserSharedGet", {
   # @param exclude.tag array[character] tags to exclude matching array in results, more than one can be included (optional)
   # @param file.type array[character] file_type to search for, more than one can be included (optional)
   # @param exclude.file.type array[character] file_type to exclude matching array in results, more than one can be included (optional)
+  # @param file.property array[character] file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included (optional)
   # @return [ArrayBrowserData]
 
   # uncomment below to test the operation
@@ -107,6 +110,20 @@ test_that("ArraysBrowserSharedSidebarGet", {
   # base path: http://localhost/v1
   # Fetch a list of all arrays that have been shared with the user
   # @return [ArrayBrowserSidebar]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("ArraysNamespaceArrayEndTimestampsGet", {
+  # tests for ArraysNamespaceArrayEndTimestampsGet
+  # base path: http://localhost/v1
+  # retrieve a list of timestamps from the array fragment info listing in milliseconds, paginated
+  # @param namespace character namespace array is in (an organization name or user's username)
+  # @param array character name/uri of array that is url-encoded
+  # @param page integer pagination offset (optional)
+  # @param per.page integer pagination limit (optional)
+  # @return [ArrayEndTimestampData]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -165,6 +182,19 @@ test_that("DeregisterArray", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
+test_that("GetActivityLogById", {
+  # tests for GetActivityLogById
+  # base path: http://localhost/v1
+  # get activity log by id
+  # @param namespace character namespace array is in (an organization name or user's username)
+  # @param array character name/uri of array that is url-encoded
+  # @param id character id of the activity
+  # @return [ArrayActivityLog]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
 test_that("GetAllArrayMetadata", {
   # tests for GetAllArrayMetadata
   # base path: http://localhost/v1
@@ -211,6 +241,7 @@ test_that("GetArrayMetaDataJson", {
   # @param namespace character namespace array is in (an organization name or user's username)
   # @param array character name/uri of array that is url-encoded
   # @param length integer (optional) limit character length of returned values (optional)
+  # @param end.timestamp integer Milliseconds since Unix epoch, metadata will use open_at functionality to open array at the specific timestamp (optional)
   # @return [object]
 
   # uncomment below to test the operation
@@ -229,6 +260,18 @@ test_that("GetArrayMetadata", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
+test_that("GetArrayMetadataCapnp", {
+  # tests for GetArrayMetadataCapnp
+  # base path: http://localhost/v1
+  # get metadata on an array
+  # @param namespace character namespace array is in (an organization name or user's username)
+  # @param array character name/uri of array that is url-encoded
+  # @return [ArrayMetadata]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
 test_that("GetArrayNonEmptyDomain", {
   # tests for GetArrayNonEmptyDomain
   # base path: http://localhost/v1
@@ -238,6 +281,18 @@ test_that("GetArrayNonEmptyDomain", {
   # @param content.type character Content Type of input and return mime
   # @param x.payer character Name of organization or user who should be charged for this request (optional)
   # @return [NonEmptyDomain]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("GetArrayNonEmptyDomainJson", {
+  # tests for GetArrayNonEmptyDomainJson
+  # base path: http://localhost/v1
+  # get non-empty domain from the array in json format
+  # @param namespace character namespace array is in (an organization name or user's username)
+  # @param array character name/uri of array that is url-encoded
+  # @return [object]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -274,6 +329,19 @@ test_that("GetArraysInNamespace", {
   # get metadata on all arrays in a namespace
   # @param namespace character namespace array is in (an organization name or user's username)
   # @return [array[ArrayInfo]]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("GetFragmentEndTimestamp", {
+  # tests for GetFragmentEndTimestamp
+  # base path: http://localhost/v1
+  # Get fragment end_timestamp on an array, will search for the closest end_timestamp to the timestamp asked
+  # @param namespace character namespace array is in (an organization name or user's username)
+  # @param array character name/uri of array that is url-encoded
+  # @param end.timestamp integer Milliseconds since Unix epoch (optional)
+  # @return [integer]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -321,6 +389,19 @@ test_that("UpdateArrayMetadata", {
   # @param namespace character namespace array is in (an organization name or user's username)
   # @param array character name/uri of array that is url-encoded
   # @param array.metadata ArrayInfoUpdate array metadata to update
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("UpdateArrayMetadataCapnp", {
+  # tests for UpdateArrayMetadataCapnp
+  # base path: http://localhost/v1
+  # update metadata on an array
+  # @param namespace character namespace array is in (an organization name or user's username)
+  # @param array character name/uri of array that is url-encoded
+  # @param array.metadata.entries ArrayMetadata List of metadata entries
   # @return [Void]
 
   # uncomment below to test the operation

@@ -7,7 +7,7 @@ model.instance <- PaginationMetadata$new()
 
 test_that("page", {
   # tests for the property `page` (numeric)
-  # pagination offset
+  # pagination offset. Use it to skip the first ((page - 1) * per_page) items
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`page`, "EXPECTED_RESULT")
@@ -15,7 +15,7 @@ test_that("page", {
 
 test_that("per_page", {
   # tests for the property `per_page` (numeric)
-  # pagination limit
+  # pagination limit (page size)
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`per_page`, "EXPECTED_RESULT")

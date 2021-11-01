@@ -5,11 +5,11 @@ context("Test ArrayMetadata")
 
 model.instance <- ArrayMetadata$new()
 
-test_that("ranges", {
-  # tests for the property `ranges` (array[ArrayMetadataEntry])
+test_that("entries", {
+  # tests for the property `entries` (array[ArrayMetadataEntry])
   # List of metadata entries
 
   # uncomment below to test the property 
-  #expect_equal(model.instance$`ranges`, "EXPECTED_RESULT")
+  #expect_equal(model.instance$`entries`, "EXPECTED_RESULT")
 })
 

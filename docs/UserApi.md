@@ -15,12 +15,14 @@ Method | HTTP request | Description
 [**DeleteUserFromOrganization**](UserApi.md#DeleteUserFromOrganization) | **DELETE** /organizations/{organization}/{username} | 
 [**GetOrganizationUser**](UserApi.md#GetOrganizationUser) | **GET** /organizations/{organization}/{username} | 
 [**GetSession**](UserApi.md#GetSession) | **GET** /session | 
+[**GetTokenScopes**](UserApi.md#GetTokenScopes) | **GET** /tokens/scopes | 
 [**GetUser**](UserApi.md#GetUser) | **GET** /user | 
 [**GetUserWithUsername**](UserApi.md#GetUserWithUsername) | **GET** /users/{username} | 
 [**RequestToken**](UserApi.md#RequestToken) | **POST** /token | 
 [**ResetUserPassword**](UserApi.md#ResetUserPassword) | **POST** /user/password_reset | 
 [**RevokeToken**](UserApi.md#RevokeToken) | **DELETE** /tokens/{token} | 
 [**TokensGet**](UserApi.md#TokensGet) | **GET** /tokens | 
+[**TokensSessionGet**](UserApi.md#TokensSessionGet) | **GET** /tokens/session | 
 [**UpdateAWSAccessCredentials**](UserApi.md#UpdateAWSAccessCredentials) | **PATCH** /credentials/{namespace}/aws/{name} | 
 [**UpdateUser**](UserApi.md#UpdateUser) | **PATCH** /users/{username} | 
 [**UpdateUserInOrganization**](UserApi.md#UpdateUserInOrganization) | **PATCH** /organizations/{organization}/{username} | 
@@ -556,6 +558,50 @@ Name | Type | Description  | Notes
 | **200** | Session token |  -  |
 | **0** | error response |  -  |
 
+# **GetTokenScopes**
+> array[TokenScope] GetTokenScopes()
+
+
+
+retrieves available token scopes for a user
+
+### Example
+```R
+library(tiledbcloud)
+
+
+api.instance <- UserApi$new()
+# Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+# Configure HTTP basic authorization: BasicAuth
+api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
+api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
+result <- api.instance$GetTokenScopes()
+dput(result)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**array[TokenScope]**](TokenScope.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | available token scopes |  -  |
+| **0** | error response |  -  |
+
 # **GetUser**
 > User GetUser()
 
@@ -833,7 +879,51 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Array of all user created tokens |  -  |
+| **200** | Array of user created non-session tokens |  -  |
+| **0** | error response |  -  |
+
+# **TokensSessionGet**
+> array[Token] TokensSessionGet()
+
+
+
+Fetch a list of user session tokens
+
+### Example
+```R
+library(tiledbcloud)
+
+
+api.instance <- UserApi$new()
+# Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+# Configure HTTP basic authorization: BasicAuth
+api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
+api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
+result <- api.instance$TokensSessionGet()
+dput(result)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**array[Token]**](Token.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Array of user created session tokens |  -  |
 | **0** | error response |  -  |
 
 # **UpdateAWSAccessCredentials**

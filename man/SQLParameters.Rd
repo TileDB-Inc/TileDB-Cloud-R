@@ -18,6 +18,14 @@ SQLParameters Class
 \item{\code{query}}{character [optional]}
 
 \item{\code{output_uri}}{character [optional]}
+
+\item{\code{store_results}}{character [optional]}
+
+\item{\code{result_format}}{\link{ResultFormat} [optional]}
+
+\item{\code{init_commands}}{list( character ) [optional]}
+
+\item{\code{parameters}}{list( object ) [optional]}
 }
 \if{html}{\out{</div>}}
 }
@@ -37,7 +45,16 @@ SQLParameters Class
 \if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{SQLParameters$new(name = NULL, query = NULL, output_uri = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{SQLParameters$new(
+  name = NULL,
+  query = NULL,
+  output_uri = NULL,
+  store_results = NULL,
+  result_format = NULL,
+  init_commands = NULL,
+  parameters = NULL,
+  ...
+)}\if{html}{\out{</div>}}
 }
 
 }

@@ -131,6 +131,16 @@ test_that("GetSession", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
+test_that("GetTokenScopes", {
+  # tests for GetTokenScopes
+  # base path: http://localhost/v1
+  # retrieves available token scopes for a user
+  # @return [array[TokenScope]]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
 test_that("GetUser", {
   # tests for GetUser
   # base path: http://localhost/v1
@@ -189,6 +199,16 @@ test_that("TokensGet", {
   # tests for TokensGet
   # base path: http://localhost/v1
   # Fetch a list of user tokens
+  # @return [array[Token]]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("TokensSessionGet", {
+  # tests for TokensSessionGet
+  # base path: http://localhost/v1
+  # Fetch a list of user session tokens
   # @return [array[Token]]
 
   # uncomment below to test the operation

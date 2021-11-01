@@ -11,23 +11,29 @@ Method | HTTP request | Description
 [**ArraysBrowserPublicSidebarGet**](ArrayApi.md#ArraysBrowserPublicSidebarGet) | **GET** /arrays/browser/public/sidebar | 
 [**ArraysBrowserSharedGet**](ArrayApi.md#ArraysBrowserSharedGet) | **GET** /arrays/browser/shared | 
 [**ArraysBrowserSharedSidebarGet**](ArrayApi.md#ArraysBrowserSharedSidebarGet) | **GET** /arrays/browser/shared/sidebar | 
+[**ArraysNamespaceArrayEndTimestampsGet**](ArrayApi.md#ArraysNamespaceArrayEndTimestampsGet) | **GET** /arrays/{namespace}/{array}/end_timestamps | 
 [**ConsolidateArray**](ArrayApi.md#ConsolidateArray) | **POST** /arrays/{namespace}/{array}/consolidate | 
 [**CreateArray**](ArrayApi.md#CreateArray) | **POST** /arrays/{namespace}/{array} | 
 [**DeleteArray**](ArrayApi.md#DeleteArray) | **DELETE** /arrays/{namespace}/{array} | 
 [**DeregisterArray**](ArrayApi.md#DeregisterArray) | **DELETE** /arrays/{namespace}/{array}/deregister | 
+[**GetActivityLogById**](ArrayApi.md#GetActivityLogById) | **GET** /arrays/{namespace}/{array}/activity/{id} | 
 [**GetAllArrayMetadata**](ArrayApi.md#GetAllArrayMetadata) | **GET** /arrays | 
 [**GetArray**](ArrayApi.md#GetArray) | **GET** /arrays/{namespace}/{array} | 
 [**GetArrayMaxBufferSizes**](ArrayApi.md#GetArrayMaxBufferSizes) | **GET** /arrays/{namespace}/{array}/max_buffer_sizes | 
 [**GetArrayMetaDataJson**](ArrayApi.md#GetArrayMetaDataJson) | **GET** /arrays/{namespace}/{array}/metadata_json | 
 [**GetArrayMetadata**](ArrayApi.md#GetArrayMetadata) | **GET** /arrays/{namespace}/{array}/metadata | 
+[**GetArrayMetadataCapnp**](ArrayApi.md#GetArrayMetadataCapnp) | **GET** /arrays/{namespace}/{array}/array_metadata | 
 [**GetArrayNonEmptyDomain**](ArrayApi.md#GetArrayNonEmptyDomain) | **GET** /arrays/{namespace}/{array}/non_empty_domain | 
+[**GetArrayNonEmptyDomainJson**](ArrayApi.md#GetArrayNonEmptyDomainJson) | **GET** /arrays/{namespace}/{array}/non_empty_domain_json | 
 [**GetArraySampleData**](ArrayApi.md#GetArraySampleData) | **GET** /arrays/{namespace}/{array}/sample | 
 [**GetArraySharingPolicies**](ArrayApi.md#GetArraySharingPolicies) | **GET** /arrays/{namespace}/{array}/share | 
 [**GetArraysInNamespace**](ArrayApi.md#GetArraysInNamespace) | **GET** /arrays/{namespace} | 
+[**GetFragmentEndTimestamp**](ArrayApi.md#GetFragmentEndTimestamp) | **GET** /arrays/{namespace}/{array}/fragment_end_timestamp | 
 [**GetLastAccessedArrays**](ArrayApi.md#GetLastAccessedArrays) | **GET** /arrays/last_accessed | 
 [**RegisterArray**](ArrayApi.md#RegisterArray) | **POST** /arrays/{namespace}/{array}/register | 
 [**ShareArray**](ArrayApi.md#ShareArray) | **PATCH** /arrays/{namespace}/{array}/share | 
 [**UpdateArrayMetadata**](ArrayApi.md#UpdateArrayMetadata) | **PATCH** /arrays/{namespace}/{array}/metadata | 
+[**UpdateArrayMetadataCapnp**](ArrayApi.md#UpdateArrayMetadataCapnp) | **POST** /arrays/{namespace}/{array}/array_metadata | 
 [**VacuumArray**](ArrayApi.md#VacuumArray) | **POST** /arrays/{namespace}/{array}/vacuum | 
 
 
@@ -92,7 +98,7 @@ Name | Type | Description  | Notes
 | **0** | error response |  -  |
 
 # **ArraysBrowserOwnedGet**
-> ArrayBrowserData ArraysBrowserOwnedGet(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag, exclude.tag=var.exclude.tag, file.type=var.file.type, exclude.file.type=var.exclude.file.type)
+> ArrayBrowserData ArraysBrowserOwnedGet(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag, exclude.tag=var.exclude.tag, file.type=var.file.type, exclude.file.type=var.exclude.file.type, file.property=var.file.property)
 
 
 
@@ -112,6 +118,7 @@ var.tag <- list("inner_example") # array[character] | tag to search for, more th
 var.exclude.tag <- list("inner_example") # array[character] | tags to exclude matching array in results, more than one can be included
 var.file.type <- list("inner_example") # array[character] | file_type to search for, more than one can be included
 var.exclude.file.type <- list("inner_example") # array[character] | file_type to exclude matching array in results, more than one can be included
+var.file.property <- list("inner_example") # array[character] | file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included
 
 api.instance <- ArrayApi$new()
 # Configure API key authorization: ApiKeyAuth
@@ -119,7 +126,7 @@ api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
 # Configure HTTP basic authorization: BasicAuth
 api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
-result <- api.instance$ArraysBrowserOwnedGet(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag, exclude.tag=var.exclude.tag, file.type=var.file.type, exclude.file.type=var.exclude.file.type)
+result <- api.instance$ArraysBrowserOwnedGet(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag, exclude.tag=var.exclude.tag, file.type=var.file.type, exclude.file.type=var.exclude.file.type, file.property=var.file.property)
 dput(result)
 ```
 
@@ -137,6 +144,7 @@ Name | Type | Description  | Notes
  **exclude.tag** | list( **character** )| tags to exclude matching array in results, more than one can be included | [optional] 
  **file.type** | list( **character** )| file_type to search for, more than one can be included | [optional] 
  **exclude.file.type** | list( **character** )| file_type to exclude matching array in results, more than one can be included | [optional] 
+ **file.property** | list( **character** )| file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included | [optional] 
 
 ### Return type
 
@@ -202,7 +210,7 @@ This endpoint does not need any parameter.
 | **0** | error response |  -  |
 
 # **ArraysBrowserPublicGet**
-> ArrayBrowserData ArraysBrowserPublicGet(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag, exclude.tag=var.exclude.tag, file.type=var.file.type, exclude.file.type=var.exclude.file.type)
+> ArrayBrowserData ArraysBrowserPublicGet(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag, exclude.tag=var.exclude.tag, file.type=var.file.type, exclude.file.type=var.exclude.file.type, file.property=var.file.property)
 
 
 
@@ -222,6 +230,7 @@ var.tag <- list("inner_example") # array[character] | tag to search for, more th
 var.exclude.tag <- list("inner_example") # array[character] | tags to exclude matching array in results, more than one can be included
 var.file.type <- list("inner_example") # array[character] | file_type to search for, more than one can be included
 var.exclude.file.type <- list("inner_example") # array[character] | file_type to exclude matching array in results, more than one can be included
+var.file.property <- list("inner_example") # array[character] | file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included
 
 api.instance <- ArrayApi$new()
 # Configure API key authorization: ApiKeyAuth
@@ -229,7 +238,7 @@ api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
 # Configure HTTP basic authorization: BasicAuth
 api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
-result <- api.instance$ArraysBrowserPublicGet(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag, exclude.tag=var.exclude.tag, file.type=var.file.type, exclude.file.type=var.exclude.file.type)
+result <- api.instance$ArraysBrowserPublicGet(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag, exclude.tag=var.exclude.tag, file.type=var.file.type, exclude.file.type=var.exclude.file.type, file.property=var.file.property)
 dput(result)
 ```
 
@@ -247,6 +256,7 @@ Name | Type | Description  | Notes
  **exclude.tag** | list( **character** )| tags to exclude matching array in results, more than one can be included | [optional] 
  **file.type** | list( **character** )| file_type to search for, more than one can be included | [optional] 
  **exclude.file.type** | list( **character** )| file_type to exclude matching array in results, more than one can be included | [optional] 
+ **file.property** | list( **character** )| file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included | [optional] 
 
 ### Return type
 
@@ -312,7 +322,7 @@ This endpoint does not need any parameter.
 | **0** | error response |  -  |
 
 # **ArraysBrowserSharedGet**
-> ArrayBrowserData ArraysBrowserSharedGet(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag, exclude.tag=var.exclude.tag, file.type=var.file.type, exclude.file.type=var.exclude.file.type)
+> ArrayBrowserData ArraysBrowserSharedGet(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag, exclude.tag=var.exclude.tag, file.type=var.file.type, exclude.file.type=var.exclude.file.type, file.property=var.file.property)
 
 
 
@@ -332,6 +342,7 @@ var.tag <- list("inner_example") # array[character] | tag to search for, more th
 var.exclude.tag <- list("inner_example") # array[character] | tags to exclude matching array in results, more than one can be included
 var.file.type <- list("inner_example") # array[character] | file_type to search for, more than one can be included
 var.exclude.file.type <- list("inner_example") # array[character] | file_type to exclude matching array in results, more than one can be included
+var.file.property <- list("inner_example") # array[character] | file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included
 
 api.instance <- ArrayApi$new()
 # Configure API key authorization: ApiKeyAuth
@@ -339,7 +350,7 @@ api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
 # Configure HTTP basic authorization: BasicAuth
 api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
-result <- api.instance$ArraysBrowserSharedGet(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag, exclude.tag=var.exclude.tag, file.type=var.file.type, exclude.file.type=var.exclude.file.type)
+result <- api.instance$ArraysBrowserSharedGet(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag, exclude.tag=var.exclude.tag, file.type=var.file.type, exclude.file.type=var.exclude.file.type, file.property=var.file.property)
 dput(result)
 ```
 
@@ -357,6 +368,7 @@ Name | Type | Description  | Notes
  **exclude.tag** | list( **character** )| tags to exclude matching array in results, more than one can be included | [optional] 
  **file.type** | list( **character** )| file_type to search for, more than one can be included | [optional] 
  **exclude.file.type** | list( **character** )| file_type to exclude matching array in results, more than one can be included | [optional] 
+ **file.property** | list( **character** )| file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included | [optional] 
 
 ### Return type
 
@@ -419,6 +431,60 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Array of array info that has been shared with the user |  -  |
+| **0** | error response |  -  |
+
+# **ArraysNamespaceArrayEndTimestampsGet**
+> ArrayEndTimestampData ArraysNamespaceArrayEndTimestampsGet(namespace, array, page=var.page, per.page=var.per.page)
+
+
+
+retrieve a list of timestamps from the array fragment info listing in milliseconds, paginated
+
+### Example
+```R
+library(tiledbcloud)
+
+var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
+var.array <- 'array_example' # character | name/uri of array that is url-encoded
+var.page <- 56 # integer | pagination offset
+var.per.page <- 56 # integer | pagination limit
+
+api.instance <- ArrayApi$new()
+# Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+# Configure HTTP basic authorization: BasicAuth
+api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
+api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
+result <- api.instance$ArraysNamespaceArrayEndTimestampsGet(var.namespace, var.array, page=var.page, per.page=var.per.page)
+dput(result)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **namespace** | **character**| namespace array is in (an organization name or user&#39;s username) | 
+ **array** | **character**| name/uri of array that is url-encoded | 
+ **page** | **integer**| pagination offset | [optional] 
+ **per.page** | **integer**| pagination limit | [optional] 
+
+### Return type
+
+[**ArrayEndTimestampData**](ArrayEndTimestampData.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | list of timestamps in milliseconds, paginated |  -  |
 | **0** | error response |  -  |
 
 # **ConsolidateArray**
@@ -627,6 +693,58 @@ void (empty response body)
 | **204** | deregistered array successful |  -  |
 | **0** | error response |  -  |
 
+# **GetActivityLogById**
+> ArrayActivityLog GetActivityLogById(namespace, array, id)
+
+
+
+get activity log by id
+
+### Example
+```R
+library(tiledbcloud)
+
+var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
+var.array <- 'array_example' # character | name/uri of array that is url-encoded
+var.id <- 'id_example' # character | id of the activity
+
+api.instance <- ArrayApi$new()
+# Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+# Configure HTTP basic authorization: BasicAuth
+api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
+api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
+result <- api.instance$GetActivityLogById(var.namespace, var.array, var.id)
+dput(result)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **namespace** | **character**| namespace array is in (an organization name or user&#39;s username) | 
+ **array** | **character**| name/uri of array that is url-encoded | 
+ **id** | **character**| id of the activity | 
+
+### Return type
+
+[**ArrayActivityLog**](ArrayActivityLog.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | array activity |  -  |
+| **0** | error response |  -  |
+
 # **GetAllArrayMetadata**
 > array[ArrayInfo] GetAllArrayMetadata(public.share=var.public.share)
 
@@ -784,7 +902,7 @@ Name | Type | Description  | Notes
 | **0** | error response |  -  |
 
 # **GetArrayMetaDataJson**
-> object GetArrayMetaDataJson(namespace, array, length=var.length)
+> object GetArrayMetaDataJson(namespace, array, length=var.length, end.timestamp=var.end.timestamp)
 
 
 
@@ -797,6 +915,7 @@ library(tiledbcloud)
 var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
 var.array <- 'array_example' # character | name/uri of array that is url-encoded
 var.length <- 56 # integer | (optional) limit character length of returned values
+var.end.timestamp <- 56 # integer | Milliseconds since Unix epoch, metadata will use open_at functionality to open array at the specific timestamp
 
 api.instance <- ArrayApi$new()
 # Configure API key authorization: ApiKeyAuth
@@ -804,7 +923,7 @@ api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
 # Configure HTTP basic authorization: BasicAuth
 api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
 api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
-result <- api.instance$GetArrayMetaDataJson(var.namespace, var.array, length=var.length)
+result <- api.instance$GetArrayMetaDataJson(var.namespace, var.array, length=var.length, end.timestamp=var.end.timestamp)
 dput(result)
 ```
 
@@ -815,6 +934,7 @@ Name | Type | Description  | Notes
  **namespace** | **character**| namespace array is in (an organization name or user&#39;s username) | 
  **array** | **character**| name/uri of array that is url-encoded | 
  **length** | **integer**| (optional) limit character length of returned values | [optional] 
+ **end.timestamp** | **integer**| Milliseconds since Unix epoch, metadata will use open_at functionality to open array at the specific timestamp | [optional] 
 
 ### Return type
 
@@ -885,6 +1005,56 @@ Name | Type | Description  | Notes
 | **200** | array metadata for an array |  -  |
 | **0** | error response |  -  |
 
+# **GetArrayMetadataCapnp**
+> ArrayMetadata GetArrayMetadataCapnp(namespace, array)
+
+
+
+get metadata on an array
+
+### Example
+```R
+library(tiledbcloud)
+
+var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
+var.array <- 'array_example' # character | name/uri of array that is url-encoded
+
+api.instance <- ArrayApi$new()
+# Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+# Configure HTTP basic authorization: BasicAuth
+api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
+api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
+result <- api.instance$GetArrayMetadataCapnp(var.namespace, var.array)
+dput(result)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **namespace** | **character**| namespace array is in (an organization name or user&#39;s username) | 
+ **array** | **character**| name/uri of array that is url-encoded | 
+
+### Return type
+
+[**ArrayMetadata**](ArrayMetadata.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, application/capnp
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | array metadata for an array |  -  |
+| **0** | error response |  -  |
+
 # **GetArrayNonEmptyDomain**
 > NonEmptyDomain GetArrayNonEmptyDomain(namespace, array, content.type, x.payer=var.x.payer)
 
@@ -937,6 +1107,56 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | get the non empty domain of an array |  -  |
+| **0** | error response |  -  |
+
+# **GetArrayNonEmptyDomainJson**
+> object GetArrayNonEmptyDomainJson(namespace, array)
+
+
+
+get non-empty domain from the array in json format
+
+### Example
+```R
+library(tiledbcloud)
+
+var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
+var.array <- 'array_example' # character | name/uri of array that is url-encoded
+
+api.instance <- ArrayApi$new()
+# Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+# Configure HTTP basic authorization: BasicAuth
+api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
+api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
+result <- api.instance$GetArrayNonEmptyDomainJson(var.namespace, var.array)
+dput(result)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **namespace** | **character**| namespace array is in (an organization name or user&#39;s username) | 
+ **array** | **character**| name/uri of array that is url-encoded | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | get array non-empty domaim |  -  |
 | **0** | error response |  -  |
 
 # **GetArraySampleData**
@@ -1090,6 +1310,58 @@ Name | Type | Description  | Notes
 | **200** | array metadata for all arrays in a namespace |  -  |
 | **0** | error response |  -  |
 
+# **GetFragmentEndTimestamp**
+> integer GetFragmentEndTimestamp(namespace, array, end.timestamp=var.end.timestamp)
+
+
+
+Get fragment end_timestamp on an array, will search for the closest end_timestamp to the timestamp asked
+
+### Example
+```R
+library(tiledbcloud)
+
+var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
+var.array <- 'array_example' # character | name/uri of array that is url-encoded
+var.end.timestamp <- 56 # integer | Milliseconds since Unix epoch
+
+api.instance <- ArrayApi$new()
+# Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+# Configure HTTP basic authorization: BasicAuth
+api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
+api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
+result <- api.instance$GetFragmentEndTimestamp(var.namespace, var.array, end.timestamp=var.end.timestamp)
+dput(result)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **namespace** | **character**| namespace array is in (an organization name or user&#39;s username) | 
+ **array** | **character**| name/uri of array that is url-encoded | 
+ **end.timestamp** | **integer**| Milliseconds since Unix epoch | [optional] 
+
+### Return type
+
+**integer**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | fragment end_timestamp on an array |  -  |
+| **0** | error response |  -  |
+
 # **GetLastAccessedArrays**
 > array[LastAccessedArray] GetLastAccessedArrays()
 
@@ -1145,7 +1417,7 @@ library(tiledbcloud)
 
 var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
 var.array <- 'array_example' # character | name/uri of array that is url-encoded
-var.array.metadata <- ArrayInfoUpdate$new("description_example", "name_example", "uri_example", FileType$new(), TODO, "access_credentials_name_example", "logo_example", list("tags_example"), "license_id_example", "license_text_example") # ArrayInfoUpdate | metadata associated with array
+var.array.metadata <- ArrayInfoUpdate$new("description_example", "name_example", "uri_example", FileType$new(), TODO, "access_credentials_name_example", "logo_example", list("tags_example"), "license_id_example", "license_text_example", "read_only_example") # ArrayInfoUpdate | metadata associated with array
 
 api.instance <- ArrayApi$new()
 # Configure API key authorization: ApiKeyAuth
@@ -1248,7 +1520,7 @@ library(tiledbcloud)
 
 var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
 var.array <- 'array_example' # character | name/uri of array that is url-encoded
-var.array.metadata <- ArrayInfoUpdate$new("description_example", "name_example", "uri_example", FileType$new(), TODO, "access_credentials_name_example", "logo_example", list("tags_example"), "license_id_example", "license_text_example") # ArrayInfoUpdate | array metadata to update
+var.array.metadata <- ArrayInfoUpdate$new("description_example", "name_example", "uri_example", FileType$new(), TODO, "access_credentials_name_example", "logo_example", list("tags_example"), "license_id_example", "license_text_example", "read_only_example") # ArrayInfoUpdate | array metadata to update
 
 api.instance <- ArrayApi$new()
 # Configure API key authorization: ApiKeyAuth
@@ -1284,6 +1556,57 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | array metadata updated successfully |  -  |
+| **0** | error response |  -  |
+
+# **UpdateArrayMetadataCapnp**
+> UpdateArrayMetadataCapnp(namespace, array, array.metadata.entries)
+
+
+
+update metadata on an array
+
+### Example
+```R
+library(tiledbcloud)
+
+var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
+var.array <- 'array_example' # character | name/uri of array that is url-encoded
+var.array.metadata.entries <- ArrayMetadata$new(list(ArrayMetadataEntry$new("key_example", "type_example", 123, list(123), "del_example"))) # ArrayMetadata | List of metadata entries
+
+api.instance <- ArrayApi$new()
+# Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+# Configure HTTP basic authorization: BasicAuth
+api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
+api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
+api.instance$UpdateArrayMetadataCapnp(var.namespace, var.array, var.array.metadata.entries)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **namespace** | **character**| namespace array is in (an organization name or user&#39;s username) | 
+ **array** | **character**| name/uri of array that is url-encoded | 
+ **array.metadata.entries** | [**ArrayMetadata**](ArrayMetadata.md)| List of metadata entries | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/capnp
+ - **Accept**: application/json, application/capnp
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | array metadata updated successfully |  -  |
 | **0** | error response |  -  |
 
 # **VacuumArray**

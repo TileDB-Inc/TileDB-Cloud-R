@@ -13,7 +13,7 @@ ArrayMetadata Class
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{ranges}}{list( \link{ArrayMetadataEntry} ) [optional]}
+\item{\code{entries}}{list( \link{ArrayMetadataEntry} ) [optional]}
 }
 \if{html}{\out{</div>}}
 }
@@ -33,7 +33,7 @@ ArrayMetadata Class
 \if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ArrayMetadata$new(ranges = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{ArrayMetadata$new(entries = NULL, ...)}\if{html}{\out{</div>}}
 }
 
 }

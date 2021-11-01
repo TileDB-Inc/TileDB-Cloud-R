@@ -185,13 +185,40 @@ X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
 }
 }
 
+\strong{ SubmitMultiArrayUDF } \emph{  }
+submit a multi-array UDF in the given namespace
+
+\itemize{
+\item \emph{ @param } namespace character
+\item \emph{ @param } udf \link{MultiArrayUDF}
+\item \emph{ @param } accept.encoding character
+
+
+\item status code : 200 | udf completed and the udf-type specific result is returned
+
+\item return type : data.frame 
+\item response headers :
+
+\tabular{ll}{
+X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
+}
+\item status code : 0 | error response
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
+X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
+}
+}
+
 \strong{ SubmitUDF } \emph{  }
 send a UDF to run against a specified array/URI registered to a group/project
 
 \itemize{
 \item \emph{ @param } namespace character
 \item \emph{ @param } array character
-\item \emph{ @param } udf \link{UDF}
+\item \emph{ @param } udf \link{MultiArrayUDF}
 \item \emph{ @param } x.payer character
 \item \emph{ @param } accept.encoding character
 \item \emph{ @param } v2 character
@@ -212,6 +239,33 @@ X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
 
 \tabular{ll}{
 X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
+}
+}
+
+\strong{ UdfNamespaceArrayEndTimestampsGet } \emph{  }
+retrieve a list of timestamps from the array fragment info listing in milliseconds, paginated
+
+\itemize{
+\item \emph{ @param } namespace character
+\item \emph{ @param } array character
+\item \emph{ @param } page integer
+\item \emph{ @param } per.page integer
+\item \emph{ @returnType } \link{ArrayEndTimestampData} \cr
+
+
+\item status code : 200 | list of timestamps in milliseconds, paginated
+
+\item return type : ArrayEndTimestampData 
+\item response headers :
+
+\tabular{ll}{
+}
+\item status code : 0 | error response
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
 }
 }
 
@@ -368,12 +422,33 @@ api.instance$apiClient$password <- '<api_key>';
 result <- api.instance$SubmitGenericUDF(var.namespace, var.udf, accept.encoding=var.accept.encoding)
 
 
+####################  SubmitMultiArrayUDF  ####################
+
+library(tiledbcloud)
+var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
+var.udf <- MultiArrayUDF$new() # MultiArrayUDF | udf to run
+var.accept.encoding <- 'accept.encoding_example' # character | Encoding to use
+
+api.instance <- UdfApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$SubmitMultiArrayUDF(var.namespace, var.udf, accept.encoding=var.accept.encoding)
+
+
 ####################  SubmitUDF  ####################
 
 library(tiledbcloud)
 var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
 var.array <- 'array_example' # character | name/uri of array that is url-encoded
-var.udf <- UDF$new() # UDF | udf to run
+var.udf <- MultiArrayUDF$new() # MultiArrayUDF | udf to run
 var.x.payer <- 'x.payer_example' # character | Name of organization or user who should be charged for this request
 var.accept.encoding <- 'accept.encoding_example' # character | Encoding to use
 var.v2 <- 'v2_example' # character | flag to indicate if v2 array udfs should be used, currently in beta testing. Setting any value will enable v2 array udfs
@@ -390,6 +465,28 @@ api.instance$apiClient$username <- '<user-serial>';
 api.instance$apiClient$password <- '<api_key>';
 
 result <- api.instance$SubmitUDF(var.namespace, var.array, var.udf, x.payer=var.x.payer, accept.encoding=var.accept.encoding, v2=var.v2)
+
+
+####################  UdfNamespaceArrayEndTimestampsGet  ####################
+
+library(tiledbcloud)
+var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
+var.array <- 'array_example' # character | name/uri of array that is url-encoded
+var.page <- 56 # integer | pagination offset
+var.per.page <- 56 # integer | pagination limit
+
+api.instance <- UdfApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$UdfNamespaceArrayEndTimestampsGet(var.namespace, var.array, page=var.page, per.page=var.per.page)
 
 
 ####################  UpdateUDFInfo  ####################
@@ -438,8 +535,12 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 \item \href{#method-ShareUDFInfoWithHttpInfo}{\code{UdfApi$ShareUDFInfoWithHttpInfo()}}
 \item \href{#method-SubmitGenericUDF}{\code{UdfApi$SubmitGenericUDF()}}
 \item \href{#method-SubmitGenericUDFWithHttpInfo}{\code{UdfApi$SubmitGenericUDFWithHttpInfo()}}
+\item \href{#method-SubmitMultiArrayUDF}{\code{UdfApi$SubmitMultiArrayUDF()}}
+\item \href{#method-SubmitMultiArrayUDFWithHttpInfo}{\code{UdfApi$SubmitMultiArrayUDFWithHttpInfo()}}
 \item \href{#method-SubmitUDF}{\code{UdfApi$SubmitUDF()}}
 \item \href{#method-SubmitUDFWithHttpInfo}{\code{UdfApi$SubmitUDFWithHttpInfo()}}
+\item \href{#method-UdfNamespaceArrayEndTimestampsGet}{\code{UdfApi$UdfNamespaceArrayEndTimestampsGet()}}
+\item \href{#method-UdfNamespaceArrayEndTimestampsGetWithHttpInfo}{\code{UdfApi$UdfNamespaceArrayEndTimestampsGetWithHttpInfo()}}
 \item \href{#method-UpdateUDFInfo}{\code{UdfApi$UpdateUDFInfo()}}
 \item \href{#method-UpdateUDFInfoWithHttpInfo}{\code{UdfApi$UpdateUDFInfoWithHttpInfo()}}
 \item \href{#method-clone}{\code{UdfApi$clone()}}
@@ -568,6 +669,29 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 
 }
 \if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-SubmitMultiArrayUDF"></a>}}
+\if{latex}{\out{\hypertarget{method-SubmitMultiArrayUDF}{}}}
+\subsection{Method \code{SubmitMultiArrayUDF()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{UdfApi$SubmitMultiArrayUDF(namespace, udf, accept.encoding = NULL, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-SubmitMultiArrayUDFWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-SubmitMultiArrayUDFWithHttpInfo}{}}}
+\subsection{Method \code{SubmitMultiArrayUDFWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{UdfApi$SubmitMultiArrayUDFWithHttpInfo(
+  namespace,
+  udf,
+  accept.encoding = NULL,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-SubmitUDF"></a>}}
 \if{latex}{\out{\hypertarget{method-SubmitUDF}{}}}
 \subsection{Method \code{SubmitUDF()}}{
@@ -596,6 +720,36 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
   x.payer = NULL,
   accept.encoding = NULL,
   v2 = NULL,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-UdfNamespaceArrayEndTimestampsGet"></a>}}
+\if{latex}{\out{\hypertarget{method-UdfNamespaceArrayEndTimestampsGet}{}}}
+\subsection{Method \code{UdfNamespaceArrayEndTimestampsGet()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{UdfApi$UdfNamespaceArrayEndTimestampsGet(
+  namespace,
+  array,
+  page = NULL,
+  per.page = NULL,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-UdfNamespaceArrayEndTimestampsGetWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UdfNamespaceArrayEndTimestampsGetWithHttpInfo}{}}}
+\subsection{Method \code{UdfNamespaceArrayEndTimestampsGetWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{UdfApi$UdfNamespaceArrayEndTimestampsGetWithHttpInfo(
+  namespace,
+  array,
+  page = NULL,
+  per.page = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }

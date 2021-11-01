@@ -29,3 +29,34 @@ test_that("output_uri", {
   #expect_equal(model.instance$`output_uri`, "EXPECTED_RESULT")
 })
 
+test_that("store_results", {
+  # tests for the property `store_results` (character)
+  # store results for later retrieval
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`store_results`, "EXPECTED_RESULT")
+})
+
+test_that("result_format", {
+  # tests for the property `result_format` (ResultFormat)
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`result_format`, "EXPECTED_RESULT")
+})
+
+test_that("init_commands", {
+  # tests for the property `init_commands` (array[character])
+  # Queries or commands to run before main query
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`init_commands`, "EXPECTED_RESULT")
+})
+
+test_that("parameters", {
+  # tests for the property `parameters` (array[object])
+  # SQL query parameters
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`parameters`, "EXPECTED_RESULT")
+})
+

@@ -50,6 +50,38 @@ mv tests       old
 mv git_push.sh old
 ./runMe.sh
 ```
+mkdir /tmp/foo
+cp openapi-v1.yaml   /tmp/foobar
+cp runMe.sh          /tmp/foobar
+cp regenerate-docs.r /tmp/foobar/
+cp -a .openapi-generator* /tmp/foobar
+
+cd /tmp/foobar
+./runMe.sh
+```
+
+Then remove `DESCRIPTION`, `NAMESPACE`, `R`, `docs`, `man`, `test` from this
+repo directory (maybe `mkdir old` and `mv` them to `old`) with outputs from
+`/tmp/foo`. Then move `/tmp/foo/README.md` to `./origREADME.md`.
+
+### Autogen option 2
+
+```
+mkdir old
+mv DESCRIPTION old
+mv NAMESPACE   old
+mv README.md   old
+mv R           old
+mv docs        old
+mv man         old
+mv tests       old
+mv git_push.sh old
+./runMe.sh
+```
+
+Then move `./README.md` to `./origREADME.md` and `old/README.md` to `.`.
+
+### Post-processing
 
 Then move `./README.md` to `./origREADME.md` and `old/README.md` to `.`.
 

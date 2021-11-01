@@ -5,45 +5,269 @@ context("Test FavoritesApi")
 
 api.instance <- FavoritesApi$new()
 
-test_that("DeleteFavoriteId", {
-  # tests for DeleteFavoriteId
+test_that("AddArrayFavorite", {
+  # tests for AddArrayFavorite
   # base path: http://localhost/v1
-  # Delete specific favorite
-  # @param id character The uuid of the favorite
+  # Add a new array favorite
+  # @param body FavoriteCreate  (optional)
   # @return [Void]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("GetFavorite", {
-  # tests for GetFavorite
+test_that("AddMLModelFavorite", {
+  # tests for AddMLModelFavorite
   # base path: http://localhost/v1
-  # Fetch specific favorite of a user
-  # @param id character The uuid of the favorite
-  # @return [Favorite]
-
-  # uncomment below to test the operation
-  #expect_equal(result, "EXPECTED_RESULT")
-})
-
-test_that("GetFavorites", {
-  # tests for GetFavorites
-  # base path: http://localhost/v1
-  # Fetch all favorites of connected user
-  # @param type character The type of the desired favorites e.g. arrays (optional)
-  # @return [array[Favorite]]
-
-  # uncomment below to test the operation
-  #expect_equal(result, "EXPECTED_RESULT")
-})
-
-test_that("PostFavorite", {
-  # tests for PostFavorite
-  # base path: http://localhost/v1
-  # Add a new favorite
-  # @param body FavoriteUpdate  (optional)
+  # Add a new ML model favorite
+  # @param body FavoriteCreate  (optional)
   # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("AddNotebookFavorite", {
+  # tests for AddNotebookFavorite
+  # base path: http://localhost/v1
+  # Add a new notebook favorite
+  # @param body FavoriteCreate  (optional)
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("AddUDFFavorite", {
+  # tests for AddUDFFavorite
+  # base path: http://localhost/v1
+  # Add a new UDF favorite
+  # @param body FavoriteCreate  (optional)
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("DeleteArrayFavorite", {
+  # tests for DeleteArrayFavorite
+  # base path: http://localhost/v1
+  # Delete specific array favorite
+  # @param id character The uuid of the array favorite
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("DeleteMLModelFavorite", {
+  # tests for DeleteMLModelFavorite
+  # base path: http://localhost/v1
+  # Delete specific ML model favorite
+  # @param id character The uuid of the ML model favorite
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("DeleteNotebookFavorite", {
+  # tests for DeleteNotebookFavorite
+  # base path: http://localhost/v1
+  # Delete specific notebook favorite
+  # @param id character The uuid of the notebook favorite
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("DeleteUDFFavorite", {
+  # tests for DeleteUDFFavorite
+  # base path: http://localhost/v1
+  # Delete specific UDF favorite
+  # @param id character The uuid of the UDF favorite
+  # @return [Void]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("GetArrayFavorite", {
+  # tests for GetArrayFavorite
+  # base path: http://localhost/v1
+  # Fetch specific array favorite of a user
+  # @param id character The uuid of the array favorite
+  # @return [ArrayFavorite]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("GetArrayFavoriteForArray", {
+  # tests for GetArrayFavoriteForArray
+  # base path: http://localhost/v1
+  # Fetch array favorite of a specific array
+  # @param namespace character The namespace of the array
+  # @param name character The name of the array
+  # @return [ArrayFavorite]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("GetMLModelFavorite", {
+  # tests for GetMLModelFavorite
+  # base path: http://localhost/v1
+  # Fetch specific ML model favorite of a user
+  # @param id character The uuid of the ML model favorite
+  # @return [MLModelFavorite]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("GetMLModelFavoriteForMLModel", {
+  # tests for GetMLModelFavoriteForMLModel
+  # base path: http://localhost/v1
+  # Fetch ML model favorite of a specific ML model
+  # @param namespace character The namespace of the ML model
+  # @param name character The name of the ML model
+  # @return [MLModelFavorite]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("GetNotebookFavorite", {
+  # tests for GetNotebookFavorite
+  # base path: http://localhost/v1
+  # Fetch specific notebook favorite of a user
+  # @param id character The uuid of the notebook favorite
+  # @return [NotebookFavorite]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("GetNotebookFavoriteForNotebook", {
+  # tests for GetNotebookFavoriteForNotebook
+  # base path: http://localhost/v1
+  # Fetch notebook favorite of a specific notebook
+  # @param namespace character The namespace of the notebook
+  # @param name character The name of the notebook
+  # @return [NotebookFavorite]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("GetUDFFavorite", {
+  # tests for GetUDFFavorite
+  # base path: http://localhost/v1
+  # Fetch specific UDF favorite of a user
+  # @param id character The uuid of the UDF favorite
+  # @return [UDFFavorite]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("GetUDFFavoriteForUDF", {
+  # tests for GetUDFFavoriteForUDF
+  # base path: http://localhost/v1
+  # Fetch UDF favorite of a specific UDF
+  # @param namespace character The namespace of the UDF
+  # @param name character The name of the UDF
+  # @return [UDFFavorite]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("ListArrayFavorites", {
+  # tests for ListArrayFavorites
+  # base path: http://localhost/v1
+  # Fetch all array favorites of connected user
+  # @param page integer pagination offset (optional)
+  # @param per.page integer pagination limit (optional)
+  # @return [ArrayFavoritesData]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("ListArrayFavoritesUUIDs", {
+  # tests for ListArrayFavoritesUUIDs
+  # base path: http://localhost/v1
+  # Fetch all favorite array uuids of connected user
+  # @return [array[ArrayFavorite]]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("ListMLModelFavorites", {
+  # tests for ListMLModelFavorites
+  # base path: http://localhost/v1
+  # Fetch all ML models favorites of connected user
+  # @param page integer pagination offset (optional)
+  # @param per.page integer pagination limit (optional)
+  # @return [MLModelFavoritesData]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("ListMLModelFavoritesUUIDs", {
+  # tests for ListMLModelFavoritesUUIDs
+  # base path: http://localhost/v1
+  # Fetch all favorite ML models uuids of connected user
+  # @return [array[MLModelFavorite]]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("ListNotebookFavorites", {
+  # tests for ListNotebookFavorites
+  # base path: http://localhost/v1
+  # Fetch all notebook favorites of connected user
+  # @param page integer pagination offset (optional)
+  # @param per.page integer pagination limit (optional)
+  # @return [NotebookFavoritesData]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("ListNotebookFavoritesUUIDs", {
+  # tests for ListNotebookFavoritesUUIDs
+  # base path: http://localhost/v1
+  # Fetch all favorite notebook uuids of connected user
+  # @return [array[NotebookFavorite]]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("ListUDFFavorites", {
+  # tests for ListUDFFavorites
+  # base path: http://localhost/v1
+  # Fetch all UDF favorites of connected user
+  # @param page integer pagination offset (optional)
+  # @param per.page integer pagination limit (optional)
+  # @return [UDFFavoritesData]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("ListUDFFavoritesUUIDs", {
+  # tests for ListUDFFavoritesUUIDs
+  # base path: http://localhost/v1
+  # Fetch all favorite UDF uuids of connected user
+  # @return [array[UDFFavorite]]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

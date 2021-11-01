@@ -10,7 +10,9 @@ Method | HTTP request | Description
 [**RegisterUDFInfo**](UdfApi.md#RegisterUDFInfo) | **POST** /udf/{namespace}/{name} | 
 [**ShareUDFInfo**](UdfApi.md#ShareUDFInfo) | **PATCH** /udf/{namespace}/{name}/share | 
 [**SubmitGenericUDF**](UdfApi.md#SubmitGenericUDF) | **POST** /udfs/generic/{namespace} | 
+[**SubmitMultiArrayUDF**](UdfApi.md#SubmitMultiArrayUDF) | **POST** /udfs/arrays/{namespace} | 
 [**SubmitUDF**](UdfApi.md#SubmitUDF) | **POST** /arrays/{namespace}/{array}/udf/submit | 
+[**UdfNamespaceArrayEndTimestampsGet**](UdfApi.md#UdfNamespaceArrayEndTimestampsGet) | **GET** /udf/{namespace}/{array}/end_timestamps | 
 [**UpdateUDFInfo**](UdfApi.md#UpdateUDFInfo) | **PATCH** /udf/{namespace}/{name} | 
 
 
@@ -280,7 +282,7 @@ submit a generic UDF in the given namespace
 library(tiledbcloud)
 
 var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
-var.udf <- GenericUDF$new("udf_info_name_example", UDFLanguage$new(), "version_example", "image_name_example", "exec_example", "exec_raw_example", "argument_example", UDFResultType$new(), "task_name_example") # GenericUDF | udf to run
+var.udf <- GenericUDF$new("udf_info_name_example", UDFLanguage$new(), "version_example", "image_name_example", "exec_example", "exec_raw_example", "argument_example", list("stored_param_uuids_example"), ResultFormat$new(), "task_name_example", "store_results_example") # GenericUDF | udf to run
 var.accept.encoding <- 'accept.encoding_example' # character | Encoding to use
 
 api.instance <- UdfApi$new()
@@ -318,7 +320,59 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | udf completed and the udf-type specific result is returned |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
-| **0** | error response |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just request if task was started <br>  |
+| **0** | error response |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
+
+# **SubmitMultiArrayUDF**
+> data.frame SubmitMultiArrayUDF(namespace, udf, accept.encoding=var.accept.encoding)
+
+
+
+submit a multi-array UDF in the given namespace
+
+### Example
+```R
+library(tiledbcloud)
+
+var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
+var.udf <- MultiArrayUDF$new("udf_info_name_example", UDFLanguage$new(), "version_example", "image_name_example", "exec_example", "exec_raw_example", ResultFormat$new(), "task_name_example", "argument_example", list("stored_param_uuids_example"), "store_results_example", QueryRanges$new(Layout$new(), list(list(123))), UDFSubarray$new(Layout$new(), list(UDFSubarrayRange$new(123, DimensionCoordinate$new(123, 123, 123, 123, 123, 123, 123, 123, 123, 123), DimensionCoordinate$new(123, 123, 123, 123, 123, 123, 123, 123, 123, 123)))), list("buffers_example"), list(UDFArrayDetails$new("uri_example", QueryRanges$new(Layout$new(), list(list(123))), list("buffers_example")))) # MultiArrayUDF | udf to run
+var.accept.encoding <- 'accept.encoding_example' # character | Encoding to use
+
+api.instance <- UdfApi$new()
+# Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+# Configure HTTP basic authorization: BasicAuth
+api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
+api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
+result <- api.instance$SubmitMultiArrayUDF(var.namespace, var.udf, accept.encoding=var.accept.encoding)
+dput(result)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **namespace** | **character**| namespace array is in (an organization name or user&#39;s username) | 
+ **udf** | [**MultiArrayUDF**](MultiArrayUDF.md)| udf to run | 
+ **accept.encoding** | **character**| Encoding to use | [optional] 
+
+### Return type
+
+**data.frame**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/octet-stream
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | udf completed and the udf-type specific result is returned |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
+| **0** | error response |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
 
 # **SubmitUDF**
 > data.frame SubmitUDF(namespace, array, udf, x.payer=var.x.payer, accept.encoding=var.accept.encoding, v2=var.v2)
@@ -333,7 +387,7 @@ library(tiledbcloud)
 
 var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
 var.array <- 'array_example' # character | name/uri of array that is url-encoded
-var.udf <- UDF$new("udf_info_name_example", UDFLanguage$new(), "version_example", "image_name_example", QueryRanges$new(Layout$new(), list(list(123))), UDFSubarray$new(Layout$new(), list(UDFSubarrayRange$new(123, DimensionCoordinate$new(123, 123, 123, 123, 123, 123, 123, 123, 123, 123), DimensionCoordinate$new(123, 123, 123, 123, 123, 123, 123, 123, 123, 123)))), "exec_example", "exec_raw_example", list("buffers_example"), UDFResultType$new(), "task_name_example", "argument_example") # UDF | udf to run
+var.udf <- MultiArrayUDF$new("udf_info_name_example", UDFLanguage$new(), "version_example", "image_name_example", "exec_example", "exec_raw_example", ResultFormat$new(), "task_name_example", "argument_example", list("stored_param_uuids_example"), "store_results_example", QueryRanges$new(Layout$new(), list(list(123))), UDFSubarray$new(Layout$new(), list(UDFSubarrayRange$new(123, DimensionCoordinate$new(123, 123, 123, 123, 123, 123, 123, 123, 123, 123), DimensionCoordinate$new(123, 123, 123, 123, 123, 123, 123, 123, 123, 123)))), list("buffers_example"), list(UDFArrayDetails$new("uri_example", QueryRanges$new(Layout$new(), list(list(123))), list("buffers_example")))) # MultiArrayUDF | udf to run
 var.x.payer <- 'x.payer_example' # character | Name of organization or user who should be charged for this request
 var.accept.encoding <- 'accept.encoding_example' # character | Encoding to use
 var.v2 <- 'v2_example' # character | flag to indicate if v2 array udfs should be used, currently in beta testing. Setting any value will enable v2 array udfs
@@ -354,7 +408,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **namespace** | **character**| namespace array is in (an organization name or user&#39;s username) | 
  **array** | **character**| name/uri of array that is url-encoded | 
- **udf** | [**UDF**](UDF.md)| udf to run | 
+ **udf** | [**MultiArrayUDF**](MultiArrayUDF.md)| udf to run | 
  **x.payer** | **character**| Name of organization or user who should be charged for this request | [optional] 
  **accept.encoding** | **character**| Encoding to use | [optional] 
  **v2** | **character**| flag to indicate if v2 array udfs should be used, currently in beta testing. Setting any value will enable v2 array udfs | [optional] 
@@ -376,7 +430,61 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | udf completed and the udf-type specific result is returned |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
-| **0** | error response |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just request if task was started <br>  |
+| **0** | error response |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
+
+# **UdfNamespaceArrayEndTimestampsGet**
+> ArrayEndTimestampData UdfNamespaceArrayEndTimestampsGet(namespace, array, page=var.page, per.page=var.per.page)
+
+
+
+retrieve a list of timestamps from the array fragment info listing in milliseconds, paginated
+
+### Example
+```R
+library(tiledbcloud)
+
+var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
+var.array <- 'array_example' # character | name/uri of array that is url-encoded
+var.page <- 56 # integer | pagination offset
+var.per.page <- 56 # integer | pagination limit
+
+api.instance <- UdfApi$new()
+# Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+# Configure HTTP basic authorization: BasicAuth
+api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
+api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
+result <- api.instance$UdfNamespaceArrayEndTimestampsGet(var.namespace, var.array, page=var.page, per.page=var.per.page)
+dput(result)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **namespace** | **character**| namespace array is in (an organization name or user&#39;s username) | 
+ **array** | **character**| name/uri of array that is url-encoded | 
+ **page** | **integer**| pagination offset | [optional] 
+ **per.page** | **integer**| pagination limit | [optional] 
+
+### Return type
+
+[**ArrayEndTimestampData**](ArrayEndTimestampData.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth), [BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | list of timestamps in milliseconds, paginated |  -  |
+| **0** | error response |  -  |
 
 # **UpdateUDFInfo**
 > UpdateUDFInfo(namespace, name, udf)

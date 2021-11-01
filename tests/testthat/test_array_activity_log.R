@@ -52,11 +52,27 @@ test_that("array_task_id", {
   #expect_equal(model.instance$`array_task_id`, "EXPECTED_RESULT")
 })
 
+test_that("id", {
+  # tests for the property `id` (character)
+  # id of the activity
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`id`, "EXPECTED_RESULT")
+})
+
 test_that("query_ranges", {
   # tests for the property `query_ranges` (character)
   # ranges for query
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`query_ranges`, "EXPECTED_RESULT")
+})
+
+test_that("query_stats", {
+  # tests for the property `query_stats` (character)
+  # stats for query
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`query_stats`, "EXPECTED_RESULT")
 })
 

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **key** | **character** |  | [optional] 
 **type** | **character** |  | [optional] 
-**value_num** | **integer** |  | [optional] 
+**valueNum** | **integer** |  | [optional] 
 **value** | **array[integer]** |  | [optional] 
 **del** | **character** |  | [optional] 
 

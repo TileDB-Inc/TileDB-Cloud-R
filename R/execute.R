@@ -80,7 +80,7 @@ execute_array_udf <- function(namespace, array, udf, queryRanges) {
   }
 
   udfapi <- UdfApi$new(client)
-  array_udf <- UDF$new()
+  array_udf <- MultiArrayUDF$new()
   array_udf$language <- UDFLanguage$new("r")
   array_udf$exec <- jsonlite::toJSON(as.integer(serialize(udf, NULL)))
 
@@ -108,9 +108,78 @@ execute_array_udf <- function(namespace, array, udf, queryRanges) {
 
   # See also R/udf.R about line 213 or so re array_udf$toJSONString()
 
-  print("PRE:S")
+  print("PRE:S:002")
   resultObject <- udfapi$SubmitUDF(namespace=namespace, array=array, udf=array_udf)
-  print("POST:S")
+  print("POST:S:002")
+
+  if (typeof(resultObject) != "raw") {
+    # TODO: extract a function to a R/utils.R
+    className <- class(resultObject)[1]
+    if (className == "ApiResponse") {
+      stop(paste("tiledbcloud: received error response:", resultObject$content))
+    } else {
+      stop(paste("tiledbcloud: received error response:", class(resultObject)[1]))
+    }
+  }
+  resultString <- rawToChar(resultObject)
+  resultJSON <- jsonlite::fromJSON(resultString)
+  resultValue <- resultJSON$value
+  resultValue
+}
+
+##' TileDB Cloud UDF-Execution Helper
+##'
+##' This function invokes a user-defined function in TileDB Cloud.
+##' Nominally you will first call login(); if not, the results
+##' of the last login at ~/.tiledb/cloud.json will be used.
+##'
+##' All arguments are required.
+##'
+##' @param namespace Namespace within TileDB cloud.
+##'
+##' @param udf An R function. TODO: more context here on that function's
+##' signature.
+##'
+##' @param array TODO: describe this.
+##'
+##' @param queryRanges TODO: describe this.
+##'
+##' @return TODO: describe
+##' @export
+execute_array_udf_new <- function(namespace, array, udf, selectedRanges=NULL, attrs=NULL) {
+  print("ENTER")
+  client <- .pkgenv[["cl"]] # Expected to be set from login.R
+  if (is.null(client)) {
+    stop("tiledbcloud: unable to find login credentials. Please use login().")
+  }
+
+  udfapi <- UdfApi$new(client)
+  multi_array_udf <- MultiArrayUDF$new()
+  multi_array_udf$language <- UDFLanguage$new("r")
+  multi_array_udf$exec <- jsonlite::toJSON(as.integer(serialize(udf, NULL)))
+
+#  if (!is.null(attrs)) {
+#    multi_array_udf$buffers = jsonlite::toJSON(as.integer(serialize(attrs, NULL)))
+#  }
+#  if (!is.null(selectedRanges)) {
+#    ###multi_array_udf$ranges = jsonlite::toJSON(as.integer(serialize(selectedRanges, NULL)))
+#    multi_array_udf$ranges = selectedRanges
+#  }
+
+  details <- UDFArrayDetails$new()
+  if (!is.null(attrs)) {
+    details$buffers = jsonlite::toJSON(as.integer(serialize(attrs, NULL)))
+  }
+  if (!is.null(selectedRanges)) {
+    ###multi_array_udf$ranges = jsonlite::toJSON(as.integer(serialize(selectedRanges, NULL)))
+    details$ranges = selectedRanges
+  }
+
+  multi_array_udf$arrays <- list(details)
+
+  print("PRE:S:002")
+  resultObject <- udfapi$SubmitUDF(namespace=namespace, array=array, udf=multi_array_udf)
+  print("POST:S:002")
 
   if (typeof(resultObject) != "raw") {
     # TODO: extract a function to a R/utils.R
