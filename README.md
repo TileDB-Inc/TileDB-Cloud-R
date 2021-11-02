@@ -6,6 +6,10 @@ This repository contains the R client for the TileDB Cloud Service.
 
 ## Quick Links
 
+## Re-running autogen from API spec
+
+See [./howToBuild.md](howToBuild.md).
+
 ### Installation
 
 At present, installation from GitHub is supported via
