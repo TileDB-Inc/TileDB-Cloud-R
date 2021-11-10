@@ -102,6 +102,9 @@ Also `diff -r old/R R` and see what other manual edits need to be re-applied.
 In particular, all manual edits needing re-application should be marked with
 `MANUAL EDIT AFTER SWAGGER AUTOGEN`.
 
+Also manually edit `DESCRIPTION`, carrying over manual edits from before the
+autogen run.
+
 ## Build and Test
 
 ```sh
