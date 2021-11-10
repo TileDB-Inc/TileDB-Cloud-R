@@ -99,6 +99,8 @@ apparently do not send. So the default deserializer breaks. See PR #2 and its
 small diff to `R/api_client.R` file for a fix that needs to be re-applied.
 
 Also `diff -r old/R R` and see what other manual edits need to be re-applied.
+In particular, all manual edits needing re-application should be marked with
+`MANUAL EDIT AFTER SWAGGER AUTOGEN`.
 
 ## Build and Test
 

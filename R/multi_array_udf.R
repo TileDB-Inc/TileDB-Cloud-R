@@ -338,7 +338,6 @@ MultiArrayUDF <- R6::R6Class(
         %s
         ',
         jsonlite::toJSON(self$`ranges`$toJSON(), auto_unbox=TRUE, digits = NA)
-        ##jsonlite::toJSON(as.integer(serialize(self$ranges, NULL)))
         )},
         if (!is.null(self$`subarray`)) {
         sprintf(

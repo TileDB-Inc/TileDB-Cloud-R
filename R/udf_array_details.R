@@ -54,11 +54,13 @@ UDFArrayDetails <- R6::R6Class(
       }
       if (!is.null(self$`ranges`)) {
         UDFArrayDetailsObject[['ranges']] <-
-          self$`ranges`$toJSON()
+          ####self$`ranges`$toJSON()
+          jsonlite::toJSON(as.integer(serialize(self$ranges, NULL)))
       }
       if (!is.null(self$`buffers`)) {
         UDFArrayDetailsObject[['buffers']] <-
-          self$`buffers`
+          ####self$`buffers`
+          jsonlite::toJSON(as.integer(serialize(self$buffers, NULL)))
       }
 
       UDFArrayDetailsObject

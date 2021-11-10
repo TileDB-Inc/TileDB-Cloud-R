@@ -4,7 +4,14 @@
 \alias{execute_array_udf}
 \title{TileDB Cloud UDF-Execution Helper}
 \usage{
-execute_array_udf(namespace, array, udf, queryRanges)
+execute_array_udf(
+  namespace,
+  array,
+  udf,
+  layout = NULL,
+  selectedRanges,
+  attrs = NULL
+)
 }
 \arguments{
 \item{namespace}{Namespace within TileDB cloud.}

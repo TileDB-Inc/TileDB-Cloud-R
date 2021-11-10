@@ -35,7 +35,9 @@ QueryRanges <- R6::R6Class(
       }
       if (!is.null(`ranges`)) {
         stopifnot(is.vector(`ranges`), length(`ranges`) != 0)
-        sapply(`ranges`, function(x) stopifnot(R6::is.R6(x)))
+        # MANUAL EDIT AFTER SWAGGER AUTOGEN
+        # See comments just below this for why.
+        #sapply(`ranges`, function(x) stopifnot(R6::is.R6(x)))
         self$`ranges` <- `ranges`
       }
     },
@@ -46,8 +48,30 @@ QueryRanges <- R6::R6Class(
           self$`layout`$toJSON()
       }
       if (!is.null(self$`ranges`)) {
-        QueryRangesObject[['ranges']] <-
-          lapply(self$`ranges`, function(x) x$toJSON())
+        # MANUAL EDIT AFTER SWAGGER AUTOGEN
+        #
+        # The user/library-level interface is a list of two-column matrices,
+        # e.g. 'list(cbind(1,2), cbind(3,4))'. Input to this function is marked
+        # as a list of array of numeric.
+        #
+        # The autogen code generates a check that the list slots must be R6
+        # classes; in fact they must *not* be.
+        #
+        # Here we flatten the list of two-column matrices elementwise to a list
+        # of even-length vectors (start end start end start end ...), then
+        # serialize them to a language-independent JSON representation like
+        # '[[1,2],[3,4]]'. (The same is done in Python by the TileDB-Cloud-Py
+        # library.)
+        #
+        # Context: some items in the TileDB R array UDF API are encoded as
+        # R-serialized and shared between the client (us) and the server-side
+        # UDF-executor R code, with zero inspection by the REST-server code:
+        # e.g. the UDF code itself, and the results. The query-ranges, however,
+        # are also decoded and processed by the REST server itself -- hence the
+        # particular and careful language-independent handling for query
+        # ranges.
+        listOfEvenLengthVectors <- lapply(self$ranges, function(e) as.vector(e))
+        QueryRangesObject[['ranges']] <- jsonlite::toJSON(listOfEvenLengthVectors, auto_unbox=TRUE)
       }
 
       QueryRangesObject
@@ -55,7 +79,8 @@ QueryRanges <- R6::R6Class(
     fromJSON = function(QueryRangesJson) {
       QueryRangesObject <- jsonlite::fromJSON(QueryRangesJson)
       if (!is.null(QueryRangesObject$`layout`)) {
-        #layoutObject <- Layout$new()
+        # MANUAL EDIT AFTER SWAGGER AUTOGEN
+        # Layout$new does not accept having zero arguments.
         layoutObject <- Layout$new(QueryRangesObject$layout)
         layoutObject$fromJSON(jsonlite::toJSON(QueryRangesObject$layout, auto_unbox = TRUE, digits = NA))
         self$`layout` <- layoutObject
@@ -77,9 +102,9 @@ QueryRanges <- R6::R6Class(
         if (!is.null(self$`ranges`)) {
         sprintf(
         '"ranges":
-        [%s]
+        %s
 ',
-        paste(sapply(self$`ranges`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        jsonlite::toJSON(self$`ranges`)
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -88,7 +113,9 @@ QueryRanges <- R6::R6Class(
     fromJSONString = function(QueryRangesJson) {
       QueryRangesObject <- jsonlite::fromJSON(QueryRangesJson)
       self$`layout` <- Layout$new()$fromJSON(jsonlite::toJSON(QueryRangesObject$layout, auto_unbox = TRUE, digits = NA))
-      self$`ranges` <- ApiClient$new()$deserializeObj(QueryRangesObject$`ranges`, "array[array[numeric]]", loadNamespace("tiledbcloud"))
+      # MANUAL EDIT AFTER SWAGGER AUTOGEN
+      #self$`ranges` <- ApiClient$new()$deserializeObj(QueryRangesObject$`ranges`, "array[array[numeric]]", loadNamespace("tiledbcloud"))
+      self$`ranges` <- unserialize(as.raw(fromJSON(QueryRangesObject$`ranges`)))
       self
     }
   )

@@ -917,13 +917,9 @@ UdfApi <- R6::R6Class(
                                  ...)
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        #deserializedRespObj <- tryCatch(
-          #self$apiClient$deserialize(resp, "data.frame", loadNamespace("tiledbcloud")),
-          #error = function(e){
-             #stop("Failed to deserialize response")
-          #}
-        #)
-        #ApiResponse$new(deserializedRespObj, resp)
+        # MANUAL EDIT AFTER SWAGGER AUTOGEN
+        # ApiResponse$new(deserializedRespObj, resp)
+        # The following is correct for interaction with the REST server.
         ApiResponse$new(resp$content, resp)
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
@@ -988,13 +984,15 @@ UdfApi <- R6::R6Class(
                                  ...)
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        # MANUAL EDIT AFTER SWAGGER AUTOGEN
         #deserializedRespObj <- tryCatch(
-          #self$apiClient$deserialize(resp, "data.frame", loadNamespace("tiledbcloud")),
-          #error = function(e){
-             #stop("Failed to deserialize response")
-          #}
+        #  self$apiClient$deserialize(resp, "data.frame", loadNamespace("tiledbcloud")),
+        #  error = function(e){
+        #    stop("Failed to deserialize response")
+        # }
         #)
         #ApiResponse$new(deserializedRespObj, resp)
+        # The following is correct for interaction with the REST server.
         ApiResponse$new(resp$content, resp)
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
@@ -1019,7 +1017,6 @@ UdfApi <- R6::R6Class(
     },
 
     SubmitUDFWithHttpInfo = function(namespace, array, udf, x.payer=NULL, accept.encoding=NULL, v2=NULL, ...){
-      # xxx touch
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
@@ -1064,9 +1061,6 @@ UdfApi <- R6::R6Class(
       # HTTP basic auth
       headerParams['Authorization'] <- paste("Basic", base64enc::base64encode(charToRaw(paste(self$apiClient$username, self$apiClient$password, sep=":"))))
 
-      print("OUTGOING REQ BODY:S")
-      print(body)
-      print("OUTGOING REQ BODY:E")
       resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
                                  method = "POST",
                                  queryParams = queryParams,
@@ -1075,13 +1069,15 @@ UdfApi <- R6::R6Class(
                                  ...)
 
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        # MANUAL EDIT AFTER SWAGGER AUTOGEN
         #deserializedRespObj <- tryCatch(
-          #self$apiClient$deserialize(resp, "data.frame", loadNamespace("tiledbcloud")),
-          #error = function(e){
-             #stop("Failed to deserialize response")
-          #}
+        #  self$apiClient$deserialize(resp, "data.frame", loadNamespace("tiledbcloud")),
+        #  error = function(e){
+        #    stop("Failed to deserialize response")
+        #  }
         #)
         #ApiResponse$new(deserializedRespObj, resp)
+        # The following is correct for interaction with the REST server.
         ApiResponse$new(resp$content, resp)
       } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
         ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
