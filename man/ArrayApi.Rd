@@ -57,6 +57,7 @@ Fetch a list of all arrays that are owned directly by user or user&#39;s organiz
 \item \emph{ @param } exclude.tag list( character )
 \item \emph{ @param } file.type list( character )
 \item \emph{ @param } exclude.file.type list( character )
+\item \emph{ @param } file.property list( character )
 \item \emph{ @returnType } \link{ArrayBrowserData} \cr
 
 
@@ -113,6 +114,7 @@ Fetch a list of all arrays that have been shared publically
 \item \emph{ @param } exclude.tag list( character )
 \item \emph{ @param } file.type list( character )
 \item \emph{ @param } exclude.file.type list( character )
+\item \emph{ @param } file.property list( character )
 \item \emph{ @returnType } \link{ArrayBrowserData} \cr
 
 
@@ -169,6 +171,7 @@ Fetch a list of all arrays that have been shared with the user
 \item \emph{ @param } exclude.tag list( character )
 \item \emph{ @param } file.type list( character )
 \item \emph{ @param } exclude.file.type list( character )
+\item \emph{ @param } file.property list( character )
 \item \emph{ @returnType } \link{ArrayBrowserData} \cr
 
 
@@ -198,6 +201,33 @@ Fetch a list of all arrays that have been shared with the user
 \item status code : 200 | Array of array info that has been shared with the user
 
 \item return type : ArrayBrowserSidebar 
+\item response headers :
+
+\tabular{ll}{
+}
+\item status code : 0 | error response
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
+}
+}
+
+\strong{ ArraysNamespaceArrayEndTimestampsGet } \emph{  }
+retrieve a list of timestamps from the array fragment info listing in milliseconds, paginated
+
+\itemize{
+\item \emph{ @param } namespace character
+\item \emph{ @param } array character
+\item \emph{ @param } page integer
+\item \emph{ @param } per.page integer
+\item \emph{ @returnType } \link{ArrayEndTimestampData} \cr
+
+
+\item status code : 200 | list of timestamps in milliseconds, paginated
+
+\item return type : ArrayEndTimestampData 
 \item response headers :
 
 \tabular{ll}{
@@ -312,6 +342,32 @@ deregister a array
 }
 }
 
+\strong{ GetActivityLogById } \emph{  }
+get activity log by id
+
+\itemize{
+\item \emph{ @param } namespace character
+\item \emph{ @param } array character
+\item \emph{ @param } id character
+\item \emph{ @returnType } \link{ArrayActivityLog} \cr
+
+
+\item status code : 200 | array activity
+
+\item return type : ArrayActivityLog 
+\item response headers :
+
+\tabular{ll}{
+}
+\item status code : 0 | error response
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
+}
+}
+
 \strong{ GetAllArrayMetadata } \emph{  }
 get all array metadata user has access to
 
@@ -397,6 +453,7 @@ get metadata from the array in json format
 \item \emph{ @param } namespace character
 \item \emph{ @param } array character
 \item \emph{ @param } length integer
+\item \emph{ @param } end.timestamp integer
 
 
 \item status code : 200 | get array metadata
@@ -440,6 +497,31 @@ get metadata on an array
 }
 }
 
+\strong{ GetArrayMetadataCapnp } \emph{  }
+get metadata on an array
+
+\itemize{
+\item \emph{ @param } namespace character
+\item \emph{ @param } array character
+\item \emph{ @returnType } \link{ArrayMetadata} \cr
+
+
+\item status code : 200 | array metadata for an array
+
+\item return type : ArrayMetadata 
+\item response headers :
+
+\tabular{ll}{
+}
+\item status code : 0 | error response
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
+}
+}
+
 \strong{ GetArrayNonEmptyDomain } \emph{  }
 get the non empty domain of an array
 
@@ -454,6 +536,30 @@ get the non empty domain of an array
 \item status code : 200 | get the non empty domain of an array
 
 \item return type : NonEmptyDomain 
+\item response headers :
+
+\tabular{ll}{
+}
+\item status code : 0 | error response
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
+}
+}
+
+\strong{ GetArrayNonEmptyDomainJson } \emph{  }
+get non-empty domain from the array in json format
+
+\itemize{
+\item \emph{ @param } namespace character
+\item \emph{ @param } array character
+
+
+\item status code : 200 | get array non-empty domaim
+
+\item return type : object 
 \item response headers :
 
 \tabular{ll}{
@@ -536,6 +642,31 @@ get metadata on all arrays in a namespace
 \item status code : 200 | array metadata for all arrays in a namespace
 
 \item return type : array[ArrayInfo] 
+\item response headers :
+
+\tabular{ll}{
+}
+\item status code : 0 | error response
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
+}
+}
+
+\strong{ GetFragmentEndTimestamp } \emph{  }
+Get fragment end_timestamp on an array, will search for the closest end_timestamp to the timestamp asked
+
+\itemize{
+\item \emph{ @param } namespace character
+\item \emph{ @param } array character
+\item \emph{ @param } end.timestamp integer
+
+
+\item status code : 200 | fragment end_timestamp on an array
+
+\item return type : integer 
 \item response headers :
 
 \tabular{ll}{
@@ -654,6 +785,31 @@ update metadata on an array
 }
 }
 
+\strong{ UpdateArrayMetadataCapnp } \emph{  }
+update metadata on an array
+
+\itemize{
+\item \emph{ @param } namespace character
+\item \emph{ @param } array character
+\item \emph{ @param } array.metadata.entries \link{ArrayMetadata}
+
+
+\item status code : 200 | array metadata updated successfully
+
+
+\item response headers :
+
+\tabular{ll}{
+}
+\item status code : 0 | error response
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
+}
+}
+
 \strong{ VacuumArray } \emph{  }
 vacuum an array at a specified URI
 
@@ -722,6 +878,7 @@ var.tag <- ['tag_example'] # array[character] | tag to search for, more than one
 var.exclude.tag <- ['exclude.tag_example'] # array[character] | tags to exclude matching array in results, more than one can be included
 var.file.type <- ['file.type_example'] # array[character] | file_type to search for, more than one can be included
 var.exclude.file.type <- ['exclude.file.type_example'] # array[character] | file_type to exclude matching array in results, more than one can be included
+var.file.property <- ['file.property_example'] # array[character] | file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included
 
 api.instance <- ArrayApi$new()
 
@@ -734,7 +891,7 @@ api.instance$apiClient$username <- '<user-serial>';
 # provide your api key generated using the developer portal
 api.instance$apiClient$password <- '<api_key>';
 
-result <- api.instance$ArraysBrowserOwnedGet(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag, exclude.tag=var.exclude.tag, file.type=var.file.type, exclude.file.type=var.exclude.file.type)
+result <- api.instance$ArraysBrowserOwnedGet(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag, exclude.tag=var.exclude.tag, file.type=var.file.type, exclude.file.type=var.exclude.file.type, file.property=var.file.property)
 
 
 ####################  ArraysBrowserOwnedSidebarGet  ####################
@@ -768,6 +925,7 @@ var.tag <- ['tag_example'] # array[character] | tag to search for, more than one
 var.exclude.tag <- ['exclude.tag_example'] # array[character] | tags to exclude matching array in results, more than one can be included
 var.file.type <- ['file.type_example'] # array[character] | file_type to search for, more than one can be included
 var.exclude.file.type <- ['exclude.file.type_example'] # array[character] | file_type to exclude matching array in results, more than one can be included
+var.file.property <- ['file.property_example'] # array[character] | file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included
 
 api.instance <- ArrayApi$new()
 
@@ -780,7 +938,7 @@ api.instance$apiClient$username <- '<user-serial>';
 # provide your api key generated using the developer portal
 api.instance$apiClient$password <- '<api_key>';
 
-result <- api.instance$ArraysBrowserPublicGet(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag, exclude.tag=var.exclude.tag, file.type=var.file.type, exclude.file.type=var.exclude.file.type)
+result <- api.instance$ArraysBrowserPublicGet(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag, exclude.tag=var.exclude.tag, file.type=var.file.type, exclude.file.type=var.exclude.file.type, file.property=var.file.property)
 
 
 ####################  ArraysBrowserPublicSidebarGet  ####################
@@ -814,6 +972,7 @@ var.tag <- ['tag_example'] # array[character] | tag to search for, more than one
 var.exclude.tag <- ['exclude.tag_example'] # array[character] | tags to exclude matching array in results, more than one can be included
 var.file.type <- ['file.type_example'] # array[character] | file_type to search for, more than one can be included
 var.exclude.file.type <- ['exclude.file.type_example'] # array[character] | file_type to exclude matching array in results, more than one can be included
+var.file.property <- ['file.property_example'] # array[character] | file_property key-value pair (comma separated, i.e. key,value) to search for, more than one can be included
 
 api.instance <- ArrayApi$new()
 
@@ -826,7 +985,7 @@ api.instance$apiClient$username <- '<user-serial>';
 # provide your api key generated using the developer portal
 api.instance$apiClient$password <- '<api_key>';
 
-result <- api.instance$ArraysBrowserSharedGet(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag, exclude.tag=var.exclude.tag, file.type=var.file.type, exclude.file.type=var.exclude.file.type)
+result <- api.instance$ArraysBrowserSharedGet(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag, exclude.tag=var.exclude.tag, file.type=var.file.type, exclude.file.type=var.exclude.file.type, file.property=var.file.property)
 
 
 ####################  ArraysBrowserSharedSidebarGet  ####################
@@ -845,6 +1004,28 @@ api.instance$apiClient$username <- '<user-serial>';
 api.instance$apiClient$password <- '<api_key>';
 
 result <- api.instance$ArraysBrowserSharedSidebarGet()
+
+
+####################  ArraysNamespaceArrayEndTimestampsGet  ####################
+
+library(tiledbcloud)
+var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
+var.array <- 'array_example' # character | name/uri of array that is url-encoded
+var.page <- 56 # integer | pagination offset
+var.per.page <- 56 # integer | pagination limit
+
+api.instance <- ArrayApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$ArraysNamespaceArrayEndTimestampsGet(var.namespace, var.array, page=var.page, per.page=var.per.page)
 
 
 ####################  ConsolidateArray  ####################
@@ -932,6 +1113,27 @@ api.instance$apiClient$password <- '<api_key>';
 result <- api.instance$DeregisterArray(var.namespace, var.array)
 
 
+####################  GetActivityLogById  ####################
+
+library(tiledbcloud)
+var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
+var.array <- 'array_example' # character | name/uri of array that is url-encoded
+var.id <- 'id_example' # character | id of the activity
+
+api.instance <- ArrayApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$GetActivityLogById(var.namespace, var.array, var.id)
+
+
 ####################  GetAllArrayMetadata  ####################
 
 library(tiledbcloud)
@@ -1001,6 +1203,7 @@ library(tiledbcloud)
 var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
 var.array <- 'array_example' # character | name/uri of array that is url-encoded
 var.length <- 56 # integer | (optional) limit character length of returned values
+var.end.timestamp <- 56 # integer | Milliseconds since Unix epoch, metadata will use open_at functionality to open array at the specific timestamp
 
 api.instance <- ArrayApi$new()
 
@@ -1013,7 +1216,7 @@ api.instance$apiClient$username <- '<user-serial>';
 # provide your api key generated using the developer portal
 api.instance$apiClient$password <- '<api_key>';
 
-result <- api.instance$GetArrayMetaDataJson(var.namespace, var.array, length=var.length)
+result <- api.instance$GetArrayMetaDataJson(var.namespace, var.array, length=var.length, end.timestamp=var.end.timestamp)
 
 
 ####################  GetArrayMetadata  ####################
@@ -1036,6 +1239,26 @@ api.instance$apiClient$password <- '<api_key>';
 result <- api.instance$GetArrayMetadata(var.namespace, var.array)
 
 
+####################  GetArrayMetadataCapnp  ####################
+
+library(tiledbcloud)
+var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
+var.array <- 'array_example' # character | name/uri of array that is url-encoded
+
+api.instance <- ArrayApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$GetArrayMetadataCapnp(var.namespace, var.array)
+
+
 ####################  GetArrayNonEmptyDomain  ####################
 
 library(tiledbcloud)
@@ -1056,6 +1279,26 @@ api.instance$apiClient$username <- '<user-serial>';
 api.instance$apiClient$password <- '<api_key>';
 
 result <- api.instance$GetArrayNonEmptyDomain(var.namespace, var.array, var.content.type, x.payer=var.x.payer)
+
+
+####################  GetArrayNonEmptyDomainJson  ####################
+
+library(tiledbcloud)
+var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
+var.array <- 'array_example' # character | name/uri of array that is url-encoded
+
+api.instance <- ArrayApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$GetArrayNonEmptyDomainJson(var.namespace, var.array)
 
 
 ####################  GetArraySampleData  ####################
@@ -1116,6 +1359,27 @@ api.instance$apiClient$username <- '<user-serial>';
 api.instance$apiClient$password <- '<api_key>';
 
 result <- api.instance$GetArraysInNamespace(var.namespace)
+
+
+####################  GetFragmentEndTimestamp  ####################
+
+library(tiledbcloud)
+var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
+var.array <- 'array_example' # character | name/uri of array that is url-encoded
+var.end.timestamp <- 56 # integer | Milliseconds since Unix epoch
+
+api.instance <- ArrayApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$GetFragmentEndTimestamp(var.namespace, var.array, end.timestamp=var.end.timestamp)
 
 
 ####################  GetLastAccessedArrays  ####################
@@ -1199,6 +1463,27 @@ api.instance$apiClient$password <- '<api_key>';
 result <- api.instance$UpdateArrayMetadata(var.namespace, var.array, var.array.metadata)
 
 
+####################  UpdateArrayMetadataCapnp  ####################
+
+library(tiledbcloud)
+var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
+var.array <- 'array_example' # character | name/uri of array that is url-encoded
+var.array.metadata.entries <- ArrayMetadata$new() # ArrayMetadata | List of metadata entries
+
+api.instance <- ArrayApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$UpdateArrayMetadataCapnp(var.namespace, var.array, var.array.metadata.entries)
+
+
 ####################  VacuumArray  ####################
 
 library(tiledbcloud)
@@ -1247,6 +1532,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 \item \href{#method-ArraysBrowserSharedGetWithHttpInfo}{\code{ArrayApi$ArraysBrowserSharedGetWithHttpInfo()}}
 \item \href{#method-ArraysBrowserSharedSidebarGet}{\code{ArrayApi$ArraysBrowserSharedSidebarGet()}}
 \item \href{#method-ArraysBrowserSharedSidebarGetWithHttpInfo}{\code{ArrayApi$ArraysBrowserSharedSidebarGetWithHttpInfo()}}
+\item \href{#method-ArraysNamespaceArrayEndTimestampsGet}{\code{ArrayApi$ArraysNamespaceArrayEndTimestampsGet()}}
+\item \href{#method-ArraysNamespaceArrayEndTimestampsGetWithHttpInfo}{\code{ArrayApi$ArraysNamespaceArrayEndTimestampsGetWithHttpInfo()}}
 \item \href{#method-ConsolidateArray}{\code{ArrayApi$ConsolidateArray()}}
 \item \href{#method-ConsolidateArrayWithHttpInfo}{\code{ArrayApi$ConsolidateArrayWithHttpInfo()}}
 \item \href{#method-CreateArray}{\code{ArrayApi$CreateArray()}}
@@ -1255,6 +1542,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 \item \href{#method-DeleteArrayWithHttpInfo}{\code{ArrayApi$DeleteArrayWithHttpInfo()}}
 \item \href{#method-DeregisterArray}{\code{ArrayApi$DeregisterArray()}}
 \item \href{#method-DeregisterArrayWithHttpInfo}{\code{ArrayApi$DeregisterArrayWithHttpInfo()}}
+\item \href{#method-GetActivityLogById}{\code{ArrayApi$GetActivityLogById()}}
+\item \href{#method-GetActivityLogByIdWithHttpInfo}{\code{ArrayApi$GetActivityLogByIdWithHttpInfo()}}
 \item \href{#method-GetAllArrayMetadata}{\code{ArrayApi$GetAllArrayMetadata()}}
 \item \href{#method-GetAllArrayMetadataWithHttpInfo}{\code{ArrayApi$GetAllArrayMetadataWithHttpInfo()}}
 \item \href{#method-GetArray}{\code{ArrayApi$GetArray()}}
@@ -1265,14 +1554,20 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 \item \href{#method-GetArrayMetaDataJsonWithHttpInfo}{\code{ArrayApi$GetArrayMetaDataJsonWithHttpInfo()}}
 \item \href{#method-GetArrayMetadata}{\code{ArrayApi$GetArrayMetadata()}}
 \item \href{#method-GetArrayMetadataWithHttpInfo}{\code{ArrayApi$GetArrayMetadataWithHttpInfo()}}
+\item \href{#method-GetArrayMetadataCapnp}{\code{ArrayApi$GetArrayMetadataCapnp()}}
+\item \href{#method-GetArrayMetadataCapnpWithHttpInfo}{\code{ArrayApi$GetArrayMetadataCapnpWithHttpInfo()}}
 \item \href{#method-GetArrayNonEmptyDomain}{\code{ArrayApi$GetArrayNonEmptyDomain()}}
 \item \href{#method-GetArrayNonEmptyDomainWithHttpInfo}{\code{ArrayApi$GetArrayNonEmptyDomainWithHttpInfo()}}
+\item \href{#method-GetArrayNonEmptyDomainJson}{\code{ArrayApi$GetArrayNonEmptyDomainJson()}}
+\item \href{#method-GetArrayNonEmptyDomainJsonWithHttpInfo}{\code{ArrayApi$GetArrayNonEmptyDomainJsonWithHttpInfo()}}
 \item \href{#method-GetArraySampleData}{\code{ArrayApi$GetArraySampleData()}}
 \item \href{#method-GetArraySampleDataWithHttpInfo}{\code{ArrayApi$GetArraySampleDataWithHttpInfo()}}
 \item \href{#method-GetArraySharingPolicies}{\code{ArrayApi$GetArraySharingPolicies()}}
 \item \href{#method-GetArraySharingPoliciesWithHttpInfo}{\code{ArrayApi$GetArraySharingPoliciesWithHttpInfo()}}
 \item \href{#method-GetArraysInNamespace}{\code{ArrayApi$GetArraysInNamespace()}}
 \item \href{#method-GetArraysInNamespaceWithHttpInfo}{\code{ArrayApi$GetArraysInNamespaceWithHttpInfo()}}
+\item \href{#method-GetFragmentEndTimestamp}{\code{ArrayApi$GetFragmentEndTimestamp()}}
+\item \href{#method-GetFragmentEndTimestampWithHttpInfo}{\code{ArrayApi$GetFragmentEndTimestampWithHttpInfo()}}
 \item \href{#method-GetLastAccessedArrays}{\code{ArrayApi$GetLastAccessedArrays()}}
 \item \href{#method-GetLastAccessedArraysWithHttpInfo}{\code{ArrayApi$GetLastAccessedArraysWithHttpInfo()}}
 \item \href{#method-RegisterArray}{\code{ArrayApi$RegisterArray()}}
@@ -1281,6 +1576,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 \item \href{#method-ShareArrayWithHttpInfo}{\code{ArrayApi$ShareArrayWithHttpInfo()}}
 \item \href{#method-UpdateArrayMetadata}{\code{ArrayApi$UpdateArrayMetadata()}}
 \item \href{#method-UpdateArrayMetadataWithHttpInfo}{\code{ArrayApi$UpdateArrayMetadataWithHttpInfo()}}
+\item \href{#method-UpdateArrayMetadataCapnp}{\code{ArrayApi$UpdateArrayMetadataCapnp()}}
+\item \href{#method-UpdateArrayMetadataCapnpWithHttpInfo}{\code{ArrayApi$UpdateArrayMetadataCapnpWithHttpInfo()}}
 \item \href{#method-VacuumArray}{\code{ArrayApi$VacuumArray()}}
 \item \href{#method-VacuumArrayWithHttpInfo}{\code{ArrayApi$VacuumArrayWithHttpInfo()}}
 \item \href{#method-clone}{\code{ArrayApi$clone()}}
@@ -1347,6 +1644,7 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
   exclude.tag = NULL,
   file.type = NULL,
   exclude.file.type = NULL,
+  file.property = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -1368,6 +1666,7 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
   exclude.tag = NULL,
   file.type = NULL,
   exclude.file.type = NULL,
+  file.property = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -1407,6 +1706,7 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
   exclude.tag = NULL,
   file.type = NULL,
   exclude.file.type = NULL,
+  file.property = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -1428,6 +1728,7 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
   exclude.tag = NULL,
   file.type = NULL,
   exclude.file.type = NULL,
+  file.property = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -1467,6 +1768,7 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
   exclude.tag = NULL,
   file.type = NULL,
   exclude.file.type = NULL,
+  file.property = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -1488,6 +1790,7 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
   exclude.tag = NULL,
   file.type = NULL,
   exclude.file.type = NULL,
+  file.property = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
@@ -1508,6 +1811,36 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 \subsection{Method \code{ArraysBrowserSharedSidebarGetWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$ArraysBrowserSharedSidebarGetWithHttpInfo(...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-ArraysNamespaceArrayEndTimestampsGet"></a>}}
+\if{latex}{\out{\hypertarget{method-ArraysNamespaceArrayEndTimestampsGet}{}}}
+\subsection{Method \code{ArraysNamespaceArrayEndTimestampsGet()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ArrayApi$ArraysNamespaceArrayEndTimestampsGet(
+  namespace,
+  array,
+  page = NULL,
+  per.page = NULL,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-ArraysNamespaceArrayEndTimestampsGetWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArraysNamespaceArrayEndTimestampsGetWithHttpInfo}{}}}
+\subsection{Method \code{ArraysNamespaceArrayEndTimestampsGetWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ArrayApi$ArraysNamespaceArrayEndTimestampsGetWithHttpInfo(
+  namespace,
+  array,
+  page = NULL,
+  per.page = NULL,
+  ...
+)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1598,6 +1931,24 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GetActivityLogById"></a>}}
+\if{latex}{\out{\hypertarget{method-GetActivityLogById}{}}}
+\subsection{Method \code{GetActivityLogById()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetActivityLogById(namespace, array, id, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GetActivityLogByIdWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-GetActivityLogByIdWithHttpInfo}{}}}
+\subsection{Method \code{GetActivityLogByIdWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetActivityLogByIdWithHttpInfo(namespace, array, id, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetAllArrayMetadata"></a>}}
 \if{latex}{\out{\hypertarget{method-GetAllArrayMetadata}{}}}
 \subsection{Method \code{GetAllArrayMetadata()}}{
@@ -1670,7 +2021,13 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 \if{latex}{\out{\hypertarget{method-GetArrayMetaDataJson}{}}}
 \subsection{Method \code{GetArrayMetaDataJson()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArrayMetaDataJson(namespace, array, length = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArrayMetaDataJson(
+  namespace,
+  array,
+  length = NULL,
+  end.timestamp = NULL,
+  ...
+)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1679,7 +2036,13 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 \if{latex}{\out{\hypertarget{method-GetArrayMetaDataJsonWithHttpInfo}{}}}
 \subsection{Method \code{GetArrayMetaDataJsonWithHttpInfo()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArrayMetaDataJsonWithHttpInfo(namespace, array, length = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArrayMetaDataJsonWithHttpInfo(
+  namespace,
+  array,
+  length = NULL,
+  end.timestamp = NULL,
+  ...
+)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1698,6 +2061,24 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 \subsection{Method \code{GetArrayMetadataWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArrayMetadataWithHttpInfo(namespace, array, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GetArrayMetadataCapnp"></a>}}
+\if{latex}{\out{\hypertarget{method-GetArrayMetadataCapnp}{}}}
+\subsection{Method \code{GetArrayMetadataCapnp()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArrayMetadataCapnp(namespace, array, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GetArrayMetadataCapnpWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-GetArrayMetadataCapnpWithHttpInfo}{}}}
+\subsection{Method \code{GetArrayMetadataCapnpWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArrayMetadataCapnpWithHttpInfo(namespace, array, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1728,6 +2109,24 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
   x.payer = NULL,
   ...
 )}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GetArrayNonEmptyDomainJson"></a>}}
+\if{latex}{\out{\hypertarget{method-GetArrayNonEmptyDomainJson}{}}}
+\subsection{Method \code{GetArrayNonEmptyDomainJson()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArrayNonEmptyDomainJson(namespace, array, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GetArrayNonEmptyDomainJsonWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-GetArrayNonEmptyDomainJsonWithHttpInfo}{}}}
+\subsection{Method \code{GetArrayNonEmptyDomainJsonWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArrayNonEmptyDomainJsonWithHttpInfo(namespace, array, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1782,6 +2181,29 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 \subsection{Method \code{GetArraysInNamespaceWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArraysInNamespaceWithHttpInfo(namespace, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GetFragmentEndTimestamp"></a>}}
+\if{latex}{\out{\hypertarget{method-GetFragmentEndTimestamp}{}}}
+\subsection{Method \code{GetFragmentEndTimestamp()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetFragmentEndTimestamp(namespace, array, end.timestamp = NULL, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GetFragmentEndTimestampWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-GetFragmentEndTimestampWithHttpInfo}{}}}
+\subsection{Method \code{GetFragmentEndTimestampWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetFragmentEndTimestampWithHttpInfo(
+  namespace,
+  array,
+  end.timestamp = NULL,
+  ...
+)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1854,6 +2276,34 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 \subsection{Method \code{UpdateArrayMetadataWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$UpdateArrayMetadataWithHttpInfo(namespace, array, array.metadata, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-UpdateArrayMetadataCapnp"></a>}}
+\if{latex}{\out{\hypertarget{method-UpdateArrayMetadataCapnp}{}}}
+\subsection{Method \code{UpdateArrayMetadataCapnp()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ArrayApi$UpdateArrayMetadataCapnp(
+  namespace,
+  array,
+  array.metadata.entries,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-UpdateArrayMetadataCapnpWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UpdateArrayMetadataCapnpWithHttpInfo}{}}}
+\subsection{Method \code{UpdateArrayMetadataCapnpWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ArrayApi$UpdateArrayMetadataCapnpWithHttpInfo(
+  namespace,
+  array,
+  array.metadata.entries,
+  ...
+)}\if{html}{\out{</div>}}
 }
 
 }

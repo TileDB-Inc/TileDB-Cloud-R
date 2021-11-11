@@ -27,9 +27,13 @@ GenericUDF Class
 
 \item{\code{argument}}{character [optional]}
 
-\item{\code{result_format}}{\link{UDFResultType} [optional]}
+\item{\code{stored_param_uuids}}{list( character ) [optional]}
+
+\item{\code{result_format}}{\link{ResultFormat} [optional]}
 
 \item{\code{task_name}}{character [optional]}
+
+\item{\code{store_results}}{character [optional]}
 }
 \if{html}{\out{</div>}}
 }
@@ -57,8 +61,10 @@ GenericUDF Class
   exec = NULL,
   exec_raw = NULL,
   argument = NULL,
+  stored_param_uuids = NULL,
   result_format = NULL,
   task_name = NULL,
+  store_results = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }

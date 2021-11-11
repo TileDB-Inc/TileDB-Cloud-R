@@ -19,7 +19,7 @@ Run a sql query
 library(tiledbcloud)
 
 var.namespace <- 'namespace_example' # character | namespace to run task under is in (an organization name or user's username)
-var.sql <- SQLParameters$new("name_example", "query_example", "output_uri_example") # SQLParameters | sql being submitted
+var.sql <- SQLParameters$new("name_example", "query_example", "output_uri_example", "store_results_example", ResultFormat$new(), list("init_commands_example"), list(123)) # SQLParameters | sql being submitted
 var.accept.encoding <- 'accept.encoding_example' # character | Encoding to use
 
 api.instance <- SqlApi$new()
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | JSON results in array of objects form, if the query returns results |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed query <br>  |
-| **204** | SQL executed successfully |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed query <br>  |
+| **200** | JSON results in array of objects form, if the query returns results |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
+| **204** | SQL executed successfully |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
 | **0** | error response |  -  |
 

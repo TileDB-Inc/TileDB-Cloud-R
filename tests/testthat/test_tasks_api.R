@@ -29,12 +29,13 @@ test_that("TaskIdGet", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
-test_that("TaskIdRetryPost", {
-  # tests for TaskIdRetryPost
+test_that("TaskIdResultGet", {
+  # tests for TaskIdResultGet
   # base path: http://localhost/v1
-  # Retry an array task
-  # @param id character task id to retry
-  # @return [ArrayTask]
+  # Retrieve results of an array task
+  # @param id character task id to retrieve stored results
+  # @param accept.encoding character Encoding to use (optional)
+  # @return [character]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")
@@ -51,7 +52,10 @@ test_that("TasksGet", {
   # @param end integer end time for tasks to filter by (optional)
   # @param page integer pagination offset (optional)
   # @param per.page integer pagination limit (optional)
-  # @param type character task type, \"QUERY\", \"SQL\", \"UDF\" (optional)
+  # @param type character task type, \"QUERY\", \"SQL\", \"UDF\", \"GENERIC_UDF\" (optional)
+  # @param exclude.type array[character] task_type to exclude matching array in results, more than one can be included (optional)
+  # @param file.type array[character] match file_type of task array, more than one can be included (optional)
+  # @param exclude.file.type array[character] exclude file_type of task arrays, more than one can be included (optional)
   # @param status character Filter to only return these statuses (optional)
   # @param search character search string that will look at name, namespace or description fields (optional)
   # @param orderby character sort by which field valid values include start_time, name (optional)

@@ -25,7 +25,11 @@ ArrayActivityLog Class
 
 \item{\code{array_task_id}}{character [optional]}
 
+\item{\code{id}}{character [optional]}
+
 \item{\code{query_ranges}}{character [optional]}
+
+\item{\code{query_stats}}{character [optional]}
 }
 \if{html}{\out{</div>}}
 }
@@ -52,7 +56,9 @@ ArrayActivityLog Class
   bytes_sent = NULL,
   bytes_received = NULL,
   array_task_id = NULL,
+  id = NULL,
   query_ranges = NULL,
+  query_stats = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }

@@ -19,11 +19,11 @@ test_that("type", {
   #expect_equal(model.instance$`type`, "EXPECTED_RESULT")
 })
 
-test_that("value_num", {
-  # tests for the property `value_num` (integer)
+test_that("valueNum", {
+  # tests for the property `valueNum` (integer)
 
   # uncomment below to test the property 
-  #expect_equal(model.instance$`value_num`, "EXPECTED_RESULT")
+  #expect_equal(model.instance$`valueNum`, "EXPECTED_RESULT")
 })
 
 test_that("value", {

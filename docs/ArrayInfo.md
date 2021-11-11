@@ -26,5 +26,8 @@ Name | Type | Description | Notes
 **tags** | **array[character]** | optional tags for array | [optional] 
 **license_id** | **character** | License identifier from SPDX License List or Custom | [optional] 
 **license_text** | **character** | License text | [optional] 
+**read_only** | **character** | Suggests if the array is in read_only mode | [optional] 
+**is_favorite** | **character** | Indicates whether the array is in user favorites | [optional] 
+**favorite_uuid** | **character** | The favorite UUID if the array if is_favorite is true | [optional] 
 
 

@@ -180,3 +180,27 @@ test_that("license_text", {
   #expect_equal(model.instance$`license_text`, "EXPECTED_RESULT")
 })
 
+test_that("read_only", {
+  # tests for the property `read_only` (character)
+  # Suggests if the array is in read_only mode
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`read_only`, "EXPECTED_RESULT")
+})
+
+test_that("is_favorite", {
+  # tests for the property `is_favorite` (character)
+  # Indicates whether the array is in user favorites
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`is_favorite`, "EXPECTED_RESULT")
+})
+
+test_that("favorite_uuid", {
+  # tests for the property `favorite_uuid` (character)
+  # The favorite UUID if the array if is_favorite is true
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`favorite_uuid`, "EXPECTED_RESULT")
+})
+

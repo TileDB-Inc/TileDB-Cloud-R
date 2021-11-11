@@ -56,6 +56,7 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | status of running notebook |  -  |
 | **202** | Notebook server is pending |  -  |
+| **402** | Payment required |  -  |
 | **404** | Notebook is not running |  -  |
 | **0** | error response |  -  |
 
@@ -120,7 +121,7 @@ library(tiledbcloud)
 
 var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
 var.array <- 'array_example' # character | name/uri of notebook (array) that is url-encoded
-var.notebook.metadata <- ArrayInfoUpdate$new("description_example", "name_example", "uri_example", FileType$new(), TODO, "access_credentials_name_example", "logo_example", list("tags_example"), "license_id_example", "license_text_example") # ArrayInfoUpdate | notebook (array) metadata to update
+var.notebook.metadata <- ArrayInfoUpdate$new("description_example", "name_example", "uri_example", FileType$new(), TODO, "access_credentials_name_example", "logo_example", list("tags_example"), "license_id_example", "license_text_example", "read_only_example") # ArrayInfoUpdate | notebook (array) metadata to update
 
 api.instance <- NotebookApi$new()
 # Configure API key authorization: ApiKeyAuth

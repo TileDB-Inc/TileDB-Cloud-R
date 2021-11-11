@@ -60,8 +60,16 @@ test_that("argument", {
   #expect_equal(model.instance$`argument`, "EXPECTED_RESULT")
 })
 
+test_that("stored_param_uuids", {
+  # tests for the property `stored_param_uuids` (array[character])
+  # The UUIDs of stored input parameters (passed in a language-specific format within \&quot;argument\&quot;) to be retrieved from the server-side cache. Serialized in standard hex format with no {}.
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`stored_param_uuids`, "EXPECTED_RESULT")
+})
+
 test_that("result_format", {
-  # tests for the property `result_format` (UDFResultType)
+  # tests for the property `result_format` (ResultFormat)
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`result_format`, "EXPECTED_RESULT")
@@ -73,5 +81,13 @@ test_that("task_name", {
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`task_name`, "EXPECTED_RESULT")
+})
+
+test_that("store_results", {
+  # tests for the property `store_results` (character)
+  # store results for later retrieval
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`store_results`, "EXPECTED_RESULT")
 })
 

@@ -35,6 +35,13 @@ Get status of the notebook server
 
 \tabular{ll}{
 }
+\item status code : 402 | Payment required
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
+}
 \item status code : 404 | Notebook is not running
 
 

@@ -17,7 +17,7 @@ ArrayMetadataEntry Class
 
 \item{\code{type}}{character [optional]}
 
-\item{\code{value_num}}{integer [optional]}
+\item{\code{valueNum}}{integer [optional]}
 
 \item{\code{value}}{list( integer ) [optional]}
 
@@ -44,7 +44,7 @@ ArrayMetadataEntry Class
 \if{html}{\out{<div class="r">}}\preformatted{ArrayMetadataEntry$new(
   key = NULL,
   type = NULL,
-  value_num = NULL,
+  valueNum = NULL,
   value = NULL,
   del = NULL,
   ...

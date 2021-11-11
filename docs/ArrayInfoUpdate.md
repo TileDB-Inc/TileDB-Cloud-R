@@ -14,5 +14,6 @@ Name | Type | Description | Notes
 **tags** | **array[character]** | optional tags for array | [optional] 
 **license_id** | **character** | License identifier from SPDX License List or Custom | [optional] 
 **license_text** | **character** | License text | [optional] 
+**read_only** | **character** | Suggests if the array is in read_only mode | [optional] 
 
 

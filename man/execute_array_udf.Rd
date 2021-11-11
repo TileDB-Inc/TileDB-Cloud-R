@@ -4,7 +4,14 @@
 \alias{execute_array_udf}
 \title{TileDB Cloud UDF-Execution Helper}
 \usage{
-execute_array_udf(namespace, array, udf)
+execute_array_udf(
+  namespace,
+  array,
+  udf,
+  layout = NULL,
+  selectedRanges,
+  attrs = NULL
+)
 }
 \arguments{
 \item{namespace}{Namespace within TileDB cloud.}
@@ -13,6 +20,8 @@ execute_array_udf(namespace, array, udf)
 
 \item{udf}{An R function. TODO: more context here on that function's
 signature.}
+
+\item{queryRanges}{TODO: describe this.}
 }
 \value{
 TODO: describe

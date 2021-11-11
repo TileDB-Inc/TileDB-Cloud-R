@@ -37,6 +37,10 @@ ArrayTask Class
 
 \item{\code{cost}}{numeric [optional]}
 
+\item{\code{egress_cost}}{numeric [optional]}
+
+\item{\code{access_cost}}{numeric [optional]}
+
 \item{\code{query_type}}{\link{Querytype} [optional]}
 
 \item{\code{udf_code}}{character [optional]}
@@ -50,6 +54,14 @@ ArrayTask Class
 \item{\code{activity}}{list( \link{ArrayActivityLog} ) [optional]}
 
 \item{\code{logs}}{character [optional]}
+
+\item{\code{duration}}{numeric [optional]}
+
+\item{\code{sql_init_commands}}{list( character ) [optional]}
+
+\item{\code{sql_parameters}}{list( object ) [optional]}
+
+\item{\code{result_format}}{\link{ResultFormat} [optional]}
 }
 \if{html}{\out{</div>}}
 }
@@ -82,6 +94,8 @@ ArrayTask Class
   start_time = NULL,
   finish_time = NULL,
   cost = NULL,
+  egress_cost = NULL,
+  access_cost = NULL,
   query_type = NULL,
   udf_code = NULL,
   udf_language = NULL,
@@ -89,6 +103,10 @@ ArrayTask Class
   type = NULL,
   activity = NULL,
   logs = NULL,
+  duration = NULL,
+  sql_init_commands = NULL,
+  sql_parameters = NULL,
+  result_format = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }

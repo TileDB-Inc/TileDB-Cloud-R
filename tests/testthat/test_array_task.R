@@ -92,10 +92,26 @@ test_that("finish_time", {
 
 test_that("cost", {
   # tests for the property `cost` (numeric)
-  # Cost accumulated for task in USD, example is $0.12
+  # Total accumulated for task in USD, example is $0.12
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`cost`, "EXPECTED_RESULT")
+})
+
+test_that("egress_cost", {
+  # tests for the property `egress_cost` (numeric)
+  # Total accumulated for egress task in USD, example is $0.12
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`egress_cost`, "EXPECTED_RESULT")
+})
+
+test_that("access_cost", {
+  # tests for the property `access_cost` (numeric)
+  # Cost accumulated for access task in USD, example is $0.12
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`access_cost`, "EXPECTED_RESULT")
 })
 
 test_that("query_type", {
@@ -150,5 +166,36 @@ test_that("logs", {
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`logs`, "EXPECTED_RESULT")
+})
+
+test_that("duration", {
+  # tests for the property `duration` (numeric)
+  # duration in nanoseconds of an array task
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`duration`, "EXPECTED_RESULT")
+})
+
+test_that("sql_init_commands", {
+  # tests for the property `sql_init_commands` (array[character])
+  # SQL queries or commands to run before main sql query
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`sql_init_commands`, "EXPECTED_RESULT")
+})
+
+test_that("sql_parameters", {
+  # tests for the property `sql_parameters` (array[object])
+  # SQL query parameters
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`sql_parameters`, "EXPECTED_RESULT")
+})
+
+test_that("result_format", {
+  # tests for the property `result_format` (ResultFormat)
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`result_format`, "EXPECTED_RESULT")
 })
 

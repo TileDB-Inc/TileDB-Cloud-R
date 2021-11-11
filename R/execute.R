@@ -72,48 +72,43 @@ execute_generic_udf <- function(namespace, udf, args=NULL) {
 ##'
 ##' @return TODO: describe
 ##' @export
-execute_array_udf <- function(namespace, array, udf, queryRanges) {
-  print("ENTER")
+execute_array_udf <- function(namespace, array, udf, layout=NULL, selectedRanges, attrs=NULL) {
   client <- .pkgenv[["cl"]] # Expected to be set from login.R
   if (is.null(client)) {
     stop("tiledbcloud: unable to find login credentials. Please use login().")
   }
 
   udfapi <- UdfApi$new(client)
-  array_udf <- UDF$new()
-  array_udf$language <- UDFLanguage$new("r")
-  array_udf$exec <- jsonlite::toJSON(as.integer(serialize(udf, NULL)))
 
-  array_udf$ranges = queryRanges
+  # TODO: support multiple arrays. At present we are putting a single array's
+  # info into this container.
+  multi_array_udf <- MultiArrayUDF$new()
+  multi_array_udf$language <- UDFLanguage$new("r")
+  multi_array_udf$exec <- jsonlite::toJSON(as.integer(serialize(udf, NULL)))
 
-  # Error in self$ranges$toJSON : $ operator is invalid for atomic vectors
+  # selected_ranges are required for dense arrays; optional for sparse arrays.
+  # At the user/library level this is a list of two-column matrices, e.g.
+  # 'list(cbind(1,2), cbind(3,4))'.
 
-  # Python: JSON body as received by the REST server:
-  # {
-  #   "buffers": [
-  #     "a"
-  #   ],
-  #   "exec": "gAV...FIu",
-  #   "exec_raw": "def median(numpy_ordered_dictionary):\n  return numpy.median(numpy_ordered_dictionary[\"a\"])\n",
-  #   "image_name": "default",
-  #   "language": "python",
-  #   "ranges": {
-  #     "ranges": [ [ 1, 2 ], [ 1, 2 ] ]
-  #   },
-  #   "result_format": "native",
-  #   "store_results": false,
-  #   "stored_param_uuids": [],
-  #   "version": "3.7.9"
-  # }
+  # TODO: parameterize in the argument list.
+  layout <- Layout$new('row-major')
 
-  # See also R/udf.R about line 213 or so re array_udf$toJSONString()
+  queryRanges <- QueryRanges$new(layout=layout, ranges=selectedRanges)
+  multi_array_udf$ranges = queryRanges
 
-  print("PRE:S")
-  resultObject <- udfapi$SubmitUDF(namespace=namespace, array=array, udf=array_udf)
-  print("POST:S")
+  # Attrs can be optionally specified by the client. If they are not, the
+  # server-side code will load all attributes.
+  if (!is.null(attrs)) {
+    multi_array_udf$buffers <- attrs
+  }
 
+  # Make the network request.
+  resultObject <- udfapi$SubmitUDF(namespace=namespace, array=array, udf=multi_array_udf)
+
+  # Decode the results.
+  # TODO: more client-side/server-side work to get more error details into this
+  # object.
   if (typeof(resultObject) != "raw") {
-    # TODO: extract a function to a R/utils.R
     className <- class(resultObject)[1]
     if (className == "ApiResponse") {
       stop(paste("tiledbcloud: received error response:", resultObject$content))
@@ -121,6 +116,9 @@ execute_array_udf <- function(namespace, array, udf, queryRanges) {
       stop(paste("tiledbcloud: received error response:", class(resultObject)[1]))
     }
   }
+  # This is a serialized R object (opaque to the REST server) sent from the
+  # server-side R code, passed through as-is by the REST server, to the
+  # client-side R code (us).
   resultString <- rawToChar(resultObject)
   resultJSON <- jsonlite::fromJSON(resultString)
   resultValue <- resultJSON$value

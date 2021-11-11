@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | query completed and results are returned in query object |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed query <br>  |
+| **200** | query completed and results are returned in query object |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
 | **204** | query completed successfully with no return |  -  |
 | **0** | error response |  -  |
 
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | query est result size computed and results are returned in query object |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just computed query result size <br>  |
+| **200** | query est result size computed and results are returned in query object |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
 | **204** | query completed successfully with no return |  -  |
 | **0** | error response |  -  |
 
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | query completed and result bytes are returned |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed query <br>  |
+| **200** | query completed and result bytes are returned |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
 | **0** | error response |  -  |
 
 # **SubmitQuery**
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | query completed and results are returned in query object |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed query <br>  |
+| **200** | query completed and results are returned in query object |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
 | **204** | query completed successfully with no return |  -  |
 | **0** | error response |  -  |
 
@@ -301,6 +301,6 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | query completed and results are returned in json format |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed query <br>  |
+| **200** | query completed and results are returned in json format |  * X-TILEDB-CLOUD-TASK-ID - Task ID for just completed request <br>  |
 | **0** | error response |  -  |
 

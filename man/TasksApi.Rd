@@ -71,17 +71,32 @@ Fetch an array task
 }
 }
 
-\strong{ TaskIdRetryPost } \emph{  }
-Retry an array task
+\strong{ TaskIdResultGet } \emph{  }
+Retrieve results of an array task
 
 \itemize{
 \item \emph{ @param } id character
-\item \emph{ @returnType } \link{ArrayTask} \cr
+\item \emph{ @param } accept.encoding character
 
 
-\item status code : 200 | Array task
+\item status code : 200 | output and format of originating request
 
-\item return type : ArrayTask 
+\item return type : character 
+\item response headers :
+
+\tabular{ll}{
+Content-Type \tab format results are delivered in \cr
+}
+\item status code : 202 | task is still executing
+
+
+\item response headers :
+
+\tabular{ll}{
+}
+\item status code : 404 | results were not saved, or results have expored
+
+\item return type : Error 
 \item response headers :
 
 \tabular{ll}{
@@ -107,6 +122,9 @@ Fetch a list of all array tasks a user has access to
 \item \emph{ @param } page integer
 \item \emph{ @param } per.page integer
 \item \emph{ @param } type character
+\item \emph{ @param } exclude.type list( character )
+\item \emph{ @param } file.type list( character )
+\item \emph{ @param } exclude.file.type list( character )
 \item \emph{ @param } status character
 \item \emph{ @param } search character
 \item \emph{ @param } orderby character
@@ -174,10 +192,11 @@ api.instance$apiClient$password <- '<api_key>';
 result <- api.instance$TaskIdGet(var.id)
 
 
-####################  TaskIdRetryPost  ####################
+####################  TaskIdResultGet  ####################
 
 library(tiledbcloud)
-var.id <- 'id_example' # character | task id to retry
+var.id <- 'id_example' # character | task id to retrieve stored results
+var.accept.encoding <- 'accept.encoding_example' # character | Encoding to use
 
 api.instance <- TasksApi$new()
 
@@ -190,7 +209,7 @@ api.instance$apiClient$username <- '<user-serial>';
 # provide your api key generated using the developer portal
 api.instance$apiClient$password <- '<api_key>';
 
-result <- api.instance$TaskIdRetryPost(var.id)
+result <- api.instance$TaskIdResultGet(var.id, accept.encoding=var.accept.encoding)
 
 
 ####################  TasksGet  ####################
@@ -203,7 +222,10 @@ var.start <- 56 # integer | start time for tasks to filter by
 var.end <- 56 # integer | end time for tasks to filter by
 var.page <- 56 # integer | pagination offset
 var.per.page <- 56 # integer | pagination limit
-var.type <- 'type_example' # character | task type, \"QUERY\", \"SQL\", \"UDF\"
+var.type <- 'type_example' # character | task type, \"QUERY\", \"SQL\", \"UDF\", \"GENERIC_UDF\"
+var.exclude.type <- ['exclude.type_example'] # array[character] | task_type to exclude matching array in results, more than one can be included
+var.file.type <- ['file.type_example'] # array[character] | match file_type of task array, more than one can be included
+var.exclude.file.type <- ['exclude.file.type_example'] # array[character] | exclude file_type of task arrays, more than one can be included
 var.status <- 'status_example' # character | Filter to only return these statuses
 var.search <- 'search_example' # character | search string that will look at name, namespace or description fields
 var.orderby <- 'orderby_example' # character | sort by which field valid values include start_time, name
@@ -219,7 +241,7 @@ api.instance$apiClient$username <- '<user-serial>';
 # provide your api key generated using the developer portal
 api.instance$apiClient$password <- '<api_key>';
 
-result <- api.instance$TasksGet(namespace=var.namespace, created.by=var.created.by, array=var.array, start=var.start, end=var.end, page=var.page, per.page=var.per.page, type=var.type, status=var.status, search=var.search, orderby=var.orderby)
+result <- api.instance$TasksGet(namespace=var.namespace, created.by=var.created.by, array=var.array, start=var.start, end=var.end, page=var.page, per.page=var.per.page, type=var.type, exclude.type=var.exclude.type, file.type=var.file.type, exclude.file.type=var.exclude.file.type, status=var.status, search=var.search, orderby=var.orderby)
 
 
 }
@@ -239,8 +261,8 @@ result <- api.instance$TasksGet(namespace=var.namespace, created.by=var.created.
 \item \href{#method-RunSQLWithHttpInfo}{\code{TasksApi$RunSQLWithHttpInfo()}}
 \item \href{#method-TaskIdGet}{\code{TasksApi$TaskIdGet()}}
 \item \href{#method-TaskIdGetWithHttpInfo}{\code{TasksApi$TaskIdGetWithHttpInfo()}}
-\item \href{#method-TaskIdRetryPost}{\code{TasksApi$TaskIdRetryPost()}}
-\item \href{#method-TaskIdRetryPostWithHttpInfo}{\code{TasksApi$TaskIdRetryPostWithHttpInfo()}}
+\item \href{#method-TaskIdResultGet}{\code{TasksApi$TaskIdResultGet()}}
+\item \href{#method-TaskIdResultGetWithHttpInfo}{\code{TasksApi$TaskIdResultGetWithHttpInfo()}}
 \item \href{#method-TasksGet}{\code{TasksApi$TasksGet()}}
 \item \href{#method-TasksGetWithHttpInfo}{\code{TasksApi$TasksGetWithHttpInfo()}}
 \item \href{#method-clone}{\code{TasksApi$clone()}}
@@ -292,20 +314,20 @@ result <- api.instance$TasksGet(namespace=var.namespace, created.by=var.created.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-TaskIdRetryPost"></a>}}
-\if{latex}{\out{\hypertarget{method-TaskIdRetryPost}{}}}
-\subsection{Method \code{TaskIdRetryPost()}}{
+\if{html}{\out{<a id="method-TaskIdResultGet"></a>}}
+\if{latex}{\out{\hypertarget{method-TaskIdResultGet}{}}}
+\subsection{Method \code{TaskIdResultGet()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{TasksApi$TaskIdRetryPost(id, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{TasksApi$TaskIdResultGet(id, accept.encoding = NULL, ...)}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-TaskIdRetryPostWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-TaskIdRetryPostWithHttpInfo}{}}}
-\subsection{Method \code{TaskIdRetryPostWithHttpInfo()}}{
+\if{html}{\out{<a id="method-TaskIdResultGetWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-TaskIdResultGetWithHttpInfo}{}}}
+\subsection{Method \code{TaskIdResultGetWithHttpInfo()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{TasksApi$TaskIdRetryPostWithHttpInfo(id, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{TasksApi$TaskIdResultGetWithHttpInfo(id, accept.encoding = NULL, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -323,6 +345,9 @@ result <- api.instance$TasksGet(namespace=var.namespace, created.by=var.created.
   page = NULL,
   per.page = NULL,
   type = NULL,
+  exclude.type = NULL,
+  file.type = NULL,
+  exclude.file.type = NULL,
   status = NULL,
   search = NULL,
   orderby = NULL,
@@ -345,6 +370,9 @@ result <- api.instance$TasksGet(namespace=var.namespace, created.by=var.created.
   page = NULL,
   per.page = NULL,
   type = NULL,
+  exclude.type = NULL,
+  file.type = NULL,
+  exclude.file.type = NULL,
   status = NULL,
   search = NULL,
   orderby = NULL,

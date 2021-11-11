@@ -282,6 +282,29 @@ Get session token for user
 }
 }
 
+\strong{ GetTokenScopes } \emph{  }
+retrieves available token scopes for a user
+
+\itemize{
+\item \emph{ @returnType } list( \link{TokenScope} ) \cr
+
+
+\item status code : 200 | available token scopes
+
+\item return type : array[TokenScope] 
+\item response headers :
+
+\tabular{ll}{
+}
+\item status code : 0 | error response
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
+}
+}
+
 \strong{ GetUser } \emph{  }
 get a user
 
@@ -420,7 +443,30 @@ Fetch a list of user tokens
 \item \emph{ @returnType } list( \link{Token} ) \cr
 
 
-\item status code : 200 | Array of all user created tokens
+\item status code : 200 | Array of user created non-session tokens
+
+\item return type : array[Token] 
+\item response headers :
+
+\tabular{ll}{
+}
+\item status code : 0 | error response
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
+}
+}
+
+\strong{ TokensSessionGet } \emph{  }
+Fetch a list of user session tokens
+
+\itemize{
+\item \emph{ @returnType } list( \link{Token} ) \cr
+
+
+\item status code : 200 | Array of user created session tokens
 
 \item return type : array[Token] 
 \item response headers :
@@ -729,6 +775,24 @@ api.instance$apiClient$password <- '<api_key>';
 result <- api.instance$GetSession(remember.me=var.remember.me)
 
 
+####################  GetTokenScopes  ####################
+
+library(tiledbcloud)
+
+api.instance <- UserApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$GetTokenScopes()
+
+
 ####################  GetUser  ####################
 
 library(tiledbcloud)
@@ -841,6 +905,24 @@ api.instance$apiClient$password <- '<api_key>';
 result <- api.instance$TokensGet()
 
 
+####################  TokensSessionGet  ####################
+
+library(tiledbcloud)
+
+api.instance <- UserApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$TokensSessionGet()
+
+
 ####################  UpdateAWSAccessCredentials  ####################
 
 library(tiledbcloud)
@@ -938,6 +1020,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 \item \href{#method-GetOrganizationUserWithHttpInfo}{\code{UserApi$GetOrganizationUserWithHttpInfo()}}
 \item \href{#method-GetSession}{\code{UserApi$GetSession()}}
 \item \href{#method-GetSessionWithHttpInfo}{\code{UserApi$GetSessionWithHttpInfo()}}
+\item \href{#method-GetTokenScopes}{\code{UserApi$GetTokenScopes()}}
+\item \href{#method-GetTokenScopesWithHttpInfo}{\code{UserApi$GetTokenScopesWithHttpInfo()}}
 \item \href{#method-GetUser}{\code{UserApi$GetUser()}}
 \item \href{#method-GetUserWithHttpInfo}{\code{UserApi$GetUserWithHttpInfo()}}
 \item \href{#method-GetUserWithUsername}{\code{UserApi$GetUserWithUsername()}}
@@ -950,6 +1034,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 \item \href{#method-RevokeTokenWithHttpInfo}{\code{UserApi$RevokeTokenWithHttpInfo()}}
 \item \href{#method-TokensGet}{\code{UserApi$TokensGet()}}
 \item \href{#method-TokensGetWithHttpInfo}{\code{UserApi$TokensGetWithHttpInfo()}}
+\item \href{#method-TokensSessionGet}{\code{UserApi$TokensSessionGet()}}
+\item \href{#method-TokensSessionGetWithHttpInfo}{\code{UserApi$TokensSessionGetWithHttpInfo()}}
 \item \href{#method-UpdateAWSAccessCredentials}{\code{UserApi$UpdateAWSAccessCredentials()}}
 \item \href{#method-UpdateAWSAccessCredentialsWithHttpInfo}{\code{UserApi$UpdateAWSAccessCredentialsWithHttpInfo()}}
 \item \href{#method-UpdateUser}{\code{UserApi$UpdateUser()}}
@@ -1171,6 +1257,24 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GetTokenScopes"></a>}}
+\if{latex}{\out{\hypertarget{method-GetTokenScopes}{}}}
+\subsection{Method \code{GetTokenScopes()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{UserApi$GetTokenScopes(...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GetTokenScopesWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-GetTokenScopesWithHttpInfo}{}}}
+\subsection{Method \code{GetTokenScopesWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{UserApi$GetTokenScopesWithHttpInfo(...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-GetUser"></a>}}
 \if{latex}{\out{\hypertarget{method-GetUser}{}}}
 \subsection{Method \code{GetUser()}}{
@@ -1275,6 +1379,24 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 \subsection{Method \code{TokensGetWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$TokensGetWithHttpInfo(...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-TokensSessionGet"></a>}}
+\if{latex}{\out{\hypertarget{method-TokensSessionGet}{}}}
+\subsection{Method \code{TokensSessionGet()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{UserApi$TokensSessionGet(...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-TokensSessionGetWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-TokensSessionGetWithHttpInfo}{}}}
+\subsection{Method \code{TokensSessionGetWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{UserApi$TokensSessionGetWithHttpInfo(...)}\if{html}{\out{</div>}}
 }
 
 }

@@ -80,17 +80,44 @@ test_that("SubmitGenericUDF", {
   #expect_equal(result, "EXPECTED_RESULT")
 })
 
+test_that("SubmitMultiArrayUDF", {
+  # tests for SubmitMultiArrayUDF
+  # base path: http://localhost/v1
+  # submit a multi-array UDF in the given namespace
+  # @param namespace character namespace array is in (an organization name or user's username)
+  # @param udf MultiArrayUDF udf to run
+  # @param accept.encoding character Encoding to use (optional)
+  # @return [data.frame]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
 test_that("SubmitUDF", {
   # tests for SubmitUDF
   # base path: http://localhost/v1
   # send a UDF to run against a specified array/URI registered to a group/project
   # @param namespace character namespace array is in (an organization name or user's username)
   # @param array character name/uri of array that is url-encoded
-  # @param udf UDF udf to run
+  # @param udf MultiArrayUDF udf to run
   # @param x.payer character Name of organization or user who should be charged for this request (optional)
   # @param accept.encoding character Encoding to use (optional)
   # @param v2 character flag to indicate if v2 array udfs should be used, currently in beta testing. Setting any value will enable v2 array udfs (optional)
   # @return [data.frame]
+
+  # uncomment below to test the operation
+  #expect_equal(result, "EXPECTED_RESULT")
+})
+
+test_that("UdfNamespaceArrayEndTimestampsGet", {
+  # tests for UdfNamespaceArrayEndTimestampsGet
+  # base path: http://localhost/v1
+  # retrieve a list of timestamps from the array fragment info listing in milliseconds, paginated
+  # @param namespace character namespace array is in (an organization name or user's username)
+  # @param array character name/uri of array that is url-encoded
+  # @param page integer pagination offset (optional)
+  # @param per.page integer pagination limit (optional)
+  # @return [ArrayEndTimestampData]
 
   # uncomment below to test the operation
   #expect_equal(result, "EXPECTED_RESULT")

@@ -10,7 +10,7 @@ This repository contains the R client for the TileDB Cloud Service.
 
 See [./howToBuild.md](howToBuild.md).
 
-### Installation
+## Installation
 
 At present, installation from GitHub is supported via
 
@@ -22,6 +22,6 @@ At present, installation from GitHub is supported via
 The [TileDB-R](https://github.com/TileDB-Inc/TileDB-R) package is a dependency and has 
 to be installed first.
 
-### Quickstart
+## Quickstart
 
 See the [Quickstart](https://docs.tiledb.com/cloud/quickstart) section of the docs.
