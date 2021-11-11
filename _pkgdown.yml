@@ -1,4 +1,4 @@
-destination: www
+destination: docs
 template:
   params:
     bootswatch: lumen
