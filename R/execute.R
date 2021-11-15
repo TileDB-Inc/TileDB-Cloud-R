@@ -9,8 +9,7 @@
 ##'
 ##' @param namespace Namespace within TileDB cloud.
 ##'
-##' @param udf An R function. TODO: more context here on that function's
-##' signature.
+##' @param udf An R function. Arguments are specified separately via \code{args}.
 ##'
 ##' @param args Arguments to the function. If the function takes
 ##' no arguments, this can be omitted. If you want to call by
@@ -36,7 +35,6 @@ execute_generic_udf <- function(namespace, udf, args=NULL) {
   # In the successful case, the result will be an R object.  In a failure case
   # such as invalid hostname provided to login, it will be an object of type
   # ApiResponse.
-
   resultObject <- udfapi$SubmitGenericUDF(namespace, generic_udf)
   if (typeof(resultObject) != "raw") {
     # TODO: extract a function to a R/utils.R
@@ -63,16 +61,17 @@ execute_generic_udf <- function(namespace, udf, args=NULL) {
 ##'
 ##' @param namespace Namespace within TileDB cloud.
 ##'
-##' @param udf An R function. TODO: more context here on that function's
-##' signature.
+##' @param array Name of the array. E.g. if the URI is \code{tiledb://hello/world}
+##' then the namespace is "hello" and the array is "world".
 ##'
-##' @param array TODO: describe this.
+##' @param udf An R function which takes a dataframe as argument.
 ##'
-##' @param queryRanges TODO: describe this.
+##' @param queryRanges List of two-column matrices, one matrix per dimension,
+##' each matrix being a start-end pair.
 ##'
-##' @return TODO: describe
+##' @return Return value from the UDF.
 ##' @export
-execute_array_udf <- function(namespace, array, udf, layout=NULL, selectedRanges, attrs=NULL) {
+execute_array_udf <- function(namespace, array, udf, selectedRanges, layout=NULL, result_format=NULL, attrs=NULL) {
   client <- .pkgenv[["cl"]] # Expected to be set from login.R
   if (is.null(client)) {
     stop("tiledbcloud: unable to find login credentials. Please use login().")
@@ -106,19 +105,17 @@ execute_array_udf <- function(namespace, array, udf, layout=NULL, selectedRanges
   resultObject <- udfapi$SubmitUDF(namespace=namespace, array=array, udf=multi_array_udf)
 
   # Decode the results.
-  # TODO: more client-side/server-side work to get more error details into this
-  # object.
   if (typeof(resultObject) != "raw") {
     className <- class(resultObject)[1]
     if (className == "ApiResponse") {
-      stop(paste("tiledbcloud: received error response:", resultObject$content))
+      stop("tiledbcloud: received error response: ", resultObject$content, call.=FALSE)
     } else {
-      stop(paste("tiledbcloud: received error response:", class(resultObject)[1]))
+      stop("tiledbcloud: received error response: ", class(resultObject)[1], call.=FALSE)
     }
   }
-  # This is a serialized R object (opaque to the REST server) sent from the
-  # server-side R code, passed through as-is by the REST server, to the
-  # client-side R code (us).
+  # This is a serialized R object sent from the server-side R code, passed
+  # through as-is by the REST server (opaquely to it), to the client-side R
+  # code (us).
   resultString <- rawToChar(resultObject)
   resultJSON <- jsonlite::fromJSON(resultString)
   resultValue <- resultJSON$value

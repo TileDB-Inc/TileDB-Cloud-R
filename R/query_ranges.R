@@ -35,7 +35,7 @@ QueryRanges <- R6::R6Class(
       }
       if (!is.null(`ranges`)) {
         stopifnot(is.vector(`ranges`), length(`ranges`) != 0)
-        # MANUAL EDIT AFTER SWAGGER AUTOGEN
+        # MANUAL EDIT AFTER OPENAPI AUTOGEN
         # See comments just below this for why.
         #sapply(`ranges`, function(x) stopifnot(R6::is.R6(x)))
         self$`ranges` <- `ranges`
@@ -48,7 +48,7 @@ QueryRanges <- R6::R6Class(
           self$`layout`$toJSON()
       }
       if (!is.null(self$`ranges`)) {
-        # MANUAL EDIT AFTER SWAGGER AUTOGEN
+        # MANUAL EDIT AFTER OPENAPI AUTOGEN
         #
         # The user/library-level interface is a list of two-column matrices,
         # e.g. 'list(cbind(1,2), cbind(3,4))'. Input to this function is marked
@@ -79,7 +79,7 @@ QueryRanges <- R6::R6Class(
     fromJSON = function(QueryRangesJson) {
       QueryRangesObject <- jsonlite::fromJSON(QueryRangesJson)
       if (!is.null(QueryRangesObject$`layout`)) {
-        # MANUAL EDIT AFTER SWAGGER AUTOGEN
+        # MANUAL EDIT AFTER OPENAPI AUTOGEN
         # Layout$new does not accept having zero arguments.
         layoutObject <- Layout$new(QueryRangesObject$layout)
         layoutObject$fromJSON(jsonlite::toJSON(QueryRangesObject$layout, auto_unbox = TRUE, digits = NA))
@@ -113,7 +113,7 @@ QueryRanges <- R6::R6Class(
     fromJSONString = function(QueryRangesJson) {
       QueryRangesObject <- jsonlite::fromJSON(QueryRangesJson)
       self$`layout` <- Layout$new()$fromJSON(jsonlite::toJSON(QueryRangesObject$layout, auto_unbox = TRUE, digits = NA))
-      # MANUAL EDIT AFTER SWAGGER AUTOGEN
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
       #self$`ranges` <- ApiClient$new()$deserializeObj(QueryRangesObject$`ranges`, "array[array[numeric]]", loadNamespace("tiledbcloud"))
       self$`ranges` <- unserialize(as.raw(fromJSON(QueryRangesObject$`ranges`)))
       self
