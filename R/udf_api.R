@@ -1068,24 +1068,8 @@ UdfApi <- R6::R6Class(
                                  body = body,
                                  ...)
 
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # MANUAL EDIT AFTER SWAGGER AUTOGEN
-        #deserializedRespObj <- tryCatch(
-        #  self$apiClient$deserialize(resp, "data.frame", loadNamespace("tiledbcloud")),
-        #  error = function(e){
-        #    stop("Failed to deserialize response")
-        #  }
-        #)
-        #ApiResponse$new(deserializedRespObj, resp)
-        # The following is correct for interaction with the REST server.
-        ApiResponse$new(resp$content, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
+      # MANUAL EDIT AFTER SWAGGER AUTOGEN
+      decode_response(resp)
     },
     UdfNamespaceArrayEndTimestampsGet = function(namespace, array, page=NULL, per.page=NULL, ...){
       apiResponse <- self$UdfNamespaceArrayEndTimestampsGetWithHttpInfo(namespace, array, page, per.page, ...)
