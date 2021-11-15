@@ -70,8 +70,11 @@ execute_generic_udf <- function(namespace, udf, args=NULL) {
 ##' each matrix being a start-end pair.
 ##'
 ##' @return Return value from the UDF.
+##'
+##' @importFrom arrow read_ipc_stream
+##'
 ##' @export
-execute_array_udf <- function(namespace, array, udf, selectedRanges, layout=NULL, result_format=NULL, attrs=NULL) {
+execute_array_udf <- function(namespace, array, udf, selectedRanges, layout=NULL, result_format='json', attrs=NULL) {
   client <- .pkgenv[["cl"]] # Expected to be set from login.R
   if (is.null(client)) {
     stop("tiledbcloud: unable to find login credentials. Please use login().")
@@ -95,6 +98,10 @@ execute_array_udf <- function(namespace, array, udf, selectedRanges, layout=NULL
   queryRanges <- QueryRanges$new(layout=layout, ranges=selectedRanges)
   multi_array_udf$ranges = queryRanges
 
+  if (!is.null(result_format)) {
+    multi_array_udf$result_format <- ResultFormat$new(result_format)
+  }
+
   # Attrs can be optionally specified by the client. If they are not, the
   # server-side code will load all attributes.
   if (!is.null(attrs)) {
@@ -102,22 +109,36 @@ execute_array_udf <- function(namespace, array, udf, selectedRanges, layout=NULL
   }
 
   # Make the network request.
-  resultObject <- udfapi$SubmitUDF(namespace=namespace, array=array, udf=multi_array_udf)
+  result <- udfapi$SubmitUDF(namespace=namespace, array=array, udf=multi_array_udf)
 
   # Decode the results.
-  if (typeof(resultObject) != "raw") {
-    className <- class(resultObject)[1]
+  if (typeof(result) != "raw") {
+    className <- class(result)[1]
     if (className == "ApiResponse") {
-      stop("tiledbcloud: received error response: ", resultObject$content, call.=FALSE)
+      stop("tiledbcloud: received error response: ", result$content, call.=FALSE)
     } else {
-      stop("tiledbcloud: received error response: ", class(resultObject)[1], call.=FALSE)
+      stop("tiledbcloud: received error response: ", class(result)[1], call.=FALSE)
     }
   }
   # This is a serialized R object sent from the server-side R code, passed
   # through as-is by the REST server (opaquely to it), to the client-side R
   # code (us).
-  resultString <- rawToChar(resultObject)
-  resultJSON <- jsonlite::fromJSON(resultString)
-  resultValue <- resultJSON$value
-  resultValue
+
+  formattedResult <- NULL
+  switch(result_format,
+    native={
+      formattedResult <- unserialize(result, NULL)
+    },
+    json={
+      resultString <- rawToChar(result)
+      resultJSON <- jsonlite::fromJSON(resultString)
+      formattedResult <- resultJSON$value
+    },
+    arrow={
+      formattedResult <- arrow::read_ipc_stream(result)
+    },
+    stop("Result format unrecognized: ", result_format)
+  )
+
+  formattedResult
 }
