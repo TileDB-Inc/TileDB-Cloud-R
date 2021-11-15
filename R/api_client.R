@@ -168,7 +168,7 @@ ApiClient  <- R6::R6Class(
     deserializeObj = function(obj, returnType, pkgEnv) {
       returnObj <- NULL
       primitiveTypes <- c("character", "numeric", "integer", "logical", "complex")
-      # MANUAL EDIT AFTER SWAGGER AUTOGEN
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
       skipTypes <- c("User") # also need to prevent other types where get(...) would fail
 
       # To handle the "map" type 
@@ -203,7 +203,7 @@ ApiClient  <- R6::R6Class(
       }
 
       # To handle model objects which are not array or map containers. Ex:"Pet"
-      # MANUAL EDIT AFTER SWAGGER AUTOGEN
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
       else if (exists(returnType, pkgEnv) && !(returnType %in% c(primitiveTypes, skipTypes))) {
         returnType <- get(returnType, envir = as.environment(pkgEnv))
         returnObj <- returnType$new()

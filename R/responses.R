@@ -4,13 +4,14 @@
 ##' * Makes the handling compatible with TileDB REST-server response format
 ##' * Surfaces error messages back to the user
 ##' Not intended to be exported from this package; for package-internal use only.
-#
 ##'
 ##' @param resp A \code{response} S3 object e.g. from \code{httr:GET}.
 ##'
-##' @return The R object which is decoded.
+##' @return An object of type \link{ApiResponse}. In the success case (HTTP 2xx)
+##' its \code{content} slot is the raw HTTP body. In the failure case (otherwise)
+##' its \code{content} slot is error-text from the server.
 ##' @export
-decode_response <- function(resp) {
+wrap_as_api_response <- function(resp) {
   # Goal: unpack the useful bits and surface them; avoid showing non-useful bits.
   # * The response object `resp` is an S3 object (list with generic functions)
   #   having named slots including `resp$status_code` and `resp$content`, along

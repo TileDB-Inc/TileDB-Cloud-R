@@ -70,7 +70,7 @@ small diff to `R/api_client.R` file for a fix that needs to be re-applied.
 
 Also `diff -r old/R R` and see what other manual edits need to be re-applied.
 In particular, all manual edits needing re-application should be marked with
-`MANUAL EDIT AFTER SWAGGER AUTOGEN`.
+`MANUAL EDIT AFTER OPENAPI AUTOGEN`.
 
 Also manually edit `DESCRIPTION`, carrying over manual edits from before the
 autogen run.
