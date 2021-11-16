@@ -74,7 +74,7 @@ execute_generic_udf <- function(namespace, udf, args=NULL) {
 ##' @importFrom arrow read_ipc_stream
 ##'
 ##' @export
-execute_array_udf <- function(namespace, array, udf, selectedRanges, layout=NULL, result_format='json', attrs=NULL) {
+execute_array_udf <- function(namespace, array, udf, selectedRanges, layout=NULL, result_format='native', attrs=NULL) {
   client <- .pkgenv[["cl"]] # Expected to be set from login.R
   if (is.null(client)) {
     stop("tiledbcloud: unable to find login credentials. Please use login().")
