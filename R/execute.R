@@ -156,3 +156,89 @@ execute_array_udf <- function(namespace, array, udf, selectedRanges, attrs=NULL,
 
   formattedResult
 }
+
+##' TileDB Cloud UDF-Execution Helper for multiple-array UDFs
+##'
+##' This function invokes a user-defined function in TileDB Cloud.
+##' Nominally you will first call login(); if not, the results
+##' of the last login at ~/.tiledb/cloud.json will be used.
+##'
+##' All arguments are required.
+##'
+##' @param namespace Namespace within TileDB cloud.
+##'
+##' @param array_list Names of the arrays. E.g. if one URI is \code{tiledb://hello/earth}
+##' and another is \code{tiledb://hello/mars} ##' then the namespace is "hello" and the array_list is
+##' \code{list("earth", "mars")}.
+##'
+##' @param udf An R function which takes an array of dataframes as argument.
+##'
+##' @param queryRanges List of two-column matrices, one matrix per dimension,
+##' each matrix being a start-end pair.
+##'
+##' @return Return value from the UDF.
+##' @export
+execute_multi_array_udf <- function(namespace, array_list, udf, selectedRanges, layout=NULL, result_format=NULL, attrs=NULL) {
+  client <- .pkgenv[["cl"]] # Expected to be set from login.R
+  if (is.null(client)) {
+    stop("tiledbcloud: unable to find login credentials. Please use login().")
+  }
+
+#        >>> import numpy as np
+#        >>> from tiledb.cloud import array
+#        >>> import tiledb.cloud
+#        >>> dense_array = "tiledb://andreas/quickstart_dense_local"
+#        >>> sparse_array = "tiledb://andreas/quickstart_sparse_local"
+#        >>> def median(numpy_ordered_dictionary):
+#        ...    return np.median(numpy_ordered_dictionary[0]["a"]) + np.median(numpy_ordered_dictionary[1]["a"])
+#        >>> array_list = array.ArrayList()
+#        >>> array_list.add(dense_array, [(1, 4), (1, 4)], ["a"])
+#        >>> array_list.add(sparse_array, [(1, 2), (1, 4)], ["a"])
+#        >>> namespace = "namespace"
+#        >>> res = array.exec_multi_array_udf(median, array_list, namespace)
+#        >>> print("Median Multi UDF:\n{}\n".format(res))
+
+  udfapi <- UdfApi$new(client)
+
+  # TODO: support multiple arrays. At present we are putting a single array's
+  # info into this container.
+  multi_array_udf <- MultiArrayUDF$new()
+  multi_array_udf$language <- UDFLanguage$new("r")
+  multi_array_udf$exec <- jsonlite::toJSON(as.integer(serialize(udf, NULL)))
+
+  # selected_ranges are required for dense arrays; optional for sparse arrays.
+  # At the user/library level this is a list of two-column matrices, e.g.
+  # 'list(cbind(1,2), cbind(3,4))'.
+
+  # TODO: parameterize in the argument list.
+  layout <- Layout$new('row-major')
+
+  queryRanges <- QueryRanges$new(layout=layout, ranges=selectedRanges)
+  multi_array_udf$ranges = queryRanges
+
+  # Attrs can be optionally specified by the client. If they are not, the
+  # server-side code will load all attributes.
+  if (!is.null(attrs)) {
+    multi_array_udf$buffers <- attrs
+  }
+
+  # Make the network request.
+  resultObject <- udfapi$SubmitUDF(namespace=namespace, array=array, udf=multi_array_udf)
+
+  # Decode the results.
+  if (typeof(resultObject) != "raw") {
+    className <- class(resultObject)[1]
+    if (className == "ApiResponse") {
+      stop("tiledbcloud: received error response: ", resultObject$content, call.=FALSE)
+    } else {
+      stop("tiledbcloud: received error response: ", class(resultObject)[1], call.=FALSE)
+    }
+  }
+  # This is a serialized R object sent from the server-side R code, passed
+  # through as-is by the REST server (opaquely to it), to the client-side R
+  # code (us).
+  resultString <- rawToChar(resultObject)
+  resultJSON <- jsonlite::fromJSON(resultString)
+  resultValue <- resultJSON$value
+  resultValue
+}
