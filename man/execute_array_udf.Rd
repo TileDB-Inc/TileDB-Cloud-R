@@ -2,29 +2,41 @@
 % Please edit documentation in R/execute.R
 \name{execute_array_udf}
 \alias{execute_array_udf}
-\title{TileDB Cloud UDF-Execution Helper}
+\title{TileDB Cloud UDF-Execution Helper for Single-Array UDFs}
 \usage{
 execute_array_udf(
   namespace,
   array,
   udf,
-  layout = NULL,
   selectedRanges,
-  attrs = NULL
+  attrs = NULL,
+  layout = NULL,
+  result_format = "native"
 )
 }
 \arguments{
 \item{namespace}{Namespace within TileDB cloud.}
 
-\item{array}{TODO: describe this.}
+\item{array}{Name of the array. E.g. if the URI is \code{tiledb://hello/world}
+then the namespace is "hello" and the array is "world".}
 
-\item{udf}{An R function. TODO: more context here on that function's
-signature.}
+\item{udf}{An R function which takes a dataframe as argument.}
 
-\item{queryRanges}{TODO: describe this.}
+\item{selectedRanges}{List of two-column matrices, one matrix per dimension,
+each matrix being a start-end pair: e.g. \code{list(cbind(1,10),cbind(1,20))}.}
+
+\item{attrs}{}
+
+\item{layout}{One of \code{row-major}, \code{col-major}, \code{global-order}, or
+\code{unordered},}
+
+\item{result_format}{One of \code{native}, \code{json}, or \code{arrow}. These are
+used as wire format for returning results from the server to this library, primarily
+for memory-usage control.  UDF return values handed back to your code from this
+library are converted back to natural R objects.}
 }
 \value{
-TODO: describe
+Return value from the UDF.
 }
 \description{
 This function invokes a user-defined function in TileDB Cloud.

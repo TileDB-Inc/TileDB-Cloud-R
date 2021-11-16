@@ -14,6 +14,6 @@ Depends: R (>= 3.3)
 License: MIT + file LICENSE
 LazyData: true
 Suggests: testthat, tinytest
-Imports: jsonlite, httr, R6, base64enc
+Imports: jsonlite, arrow, httr, R6, base64enc
 Encoding: UTF-8
 RoxygenNote: 7.1.2
