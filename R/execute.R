@@ -106,8 +106,9 @@ execute_array_udf <- function(namespace, array, udf, selectedRanges, attrs=NULL,
   # At the user/library level this is a list of two-column matrices, e.g.
   # 'list(cbind(1,2), cbind(3,4))'.
 
-  # TODO: parameterize from the argument list.
-  layout <- Layout$new('row-major')
+  if (!is.null(layout)) {
+    layout <- Layout$new(layout)
+  }
 
   queryRanges <- QueryRanges$new(layout=layout, ranges=selectedRanges)
   multi_array_udf$ranges = queryRanges
