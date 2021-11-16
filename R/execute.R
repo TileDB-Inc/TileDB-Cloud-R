@@ -1,4 +1,4 @@
-##' TileDB Cloud UDF-Execution Helper
+##' TileDB Cloud UDF-Execution Helper for Generic UDFs
 ##'
 ##' This function invokes a user-defined function in TileDB Cloud.
 ##' Nominally you will first call login(); if not, the results
@@ -51,7 +51,7 @@ execute_generic_udf <- function(namespace, udf, args=NULL) {
   resultValue
 }
 
-##' TileDB Cloud UDF-Execution Helper
+##' TileDB Cloud UDF-Execution Helper for Single-Array UDFs
 ##'
 ##' This function invokes a user-defined function in TileDB Cloud.
 ##' Nominally you will first call login(); if not, the results
@@ -66,15 +66,29 @@ execute_generic_udf <- function(namespace, udf, args=NULL) {
 ##'
 ##' @param udf An R function which takes a dataframe as argument.
 ##'
-##' @param queryRanges List of two-column matrices, one matrix per dimension,
-##' each matrix being a start-end pair.
+##' @param selectedRanges List of two-column matrices, one matrix per dimension,
+##' each matrix being a start-end pair: e.g. \code{list(cbind(1,10),cbind(1,20))}.
+##'
+##' @param attrs Optional list of attributes (default: all) for the server-side
+##' code to select for UDF execution. Specifying only what your UDF needs is
+##' useful for memory-usage control.
+##'
+##' @param layout One of \code{row-major}, \code{col-major}, \code{global-order}, or
+##' \code{unordered},
+##'
+##' @param result_format One of \code{native}, \code{json}, or \code{arrow}. These are
+##' used as wire format for returning results from the server to this library, primarily
+##' for memory-usage control.  UDF return values handed back to your code from this
+##' library are converted back to natural R objects.
+##'
+##' @param attrs
 ##'
 ##' @return Return value from the UDF.
 ##'
 ##' @importFrom arrow read_ipc_stream
 ##'
 ##' @export
-execute_array_udf <- function(namespace, array, udf, selectedRanges, layout=NULL, result_format='native', attrs=NULL) {
+execute_array_udf <- function(namespace, array, udf, selectedRanges, attrs=NULL, layout=NULL, result_format='native') {
   client <- .pkgenv[["cl"]] # Expected to be set from login.R
   if (is.null(client)) {
     stop("tiledbcloud: unable to find login credentials. Please use login().")
@@ -92,7 +106,7 @@ execute_array_udf <- function(namespace, array, udf, selectedRanges, layout=NULL
   # At the user/library level this is a list of two-column matrices, e.g.
   # 'list(cbind(1,2), cbind(3,4))'.
 
-  # TODO: parameterize in the argument list.
+  # TODO: parameterize from the argument list.
   layout <- Layout$new('row-major')
 
   queryRanges <- QueryRanges$new(layout=layout, ranges=selectedRanges)
@@ -120,10 +134,10 @@ execute_array_udf <- function(namespace, array, udf, selectedRanges, layout=NULL
       stop("tiledbcloud: received error response: ", class(result)[1], call.=FALSE)
     }
   }
+
   # This is a serialized R object sent from the server-side R code, passed
   # through as-is by the REST server (opaquely to it), to the client-side R
   # code (us).
-
   formattedResult <- NULL
   switch(result_format,
     native={

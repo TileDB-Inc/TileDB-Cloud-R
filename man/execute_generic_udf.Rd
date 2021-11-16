@@ -2,15 +2,14 @@
 % Please edit documentation in R/execute.R
 \name{execute_generic_udf}
 \alias{execute_generic_udf}
-\title{TileDB Cloud UDF-Execution Helper}
+\title{TileDB Cloud UDF-Execution Helper for Generic UDFs}
 \usage{
 execute_generic_udf(namespace, udf, args = NULL)
 }
 \arguments{
 \item{namespace}{Namespace within TileDB cloud.}
 
-\item{udf}{An R function. TODO: more context here on that function's
-signature.}
+\item{udf}{An R function. Arguments are specified separately via \code{args}.}
 
 \item{args}{Arguments to the function. If the function takes
 no arguments, this can be omitted. If you want to call by
