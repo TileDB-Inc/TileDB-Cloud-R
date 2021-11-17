@@ -57,14 +57,18 @@ login <- function(username, password, api_key, host, remember_me=TRUE) {
 
     ## if there is not api token key, request one
     if (api_key == "") {
-        ## request a session
+        ## request a session ...
         sess <- api$GetSession(remember.me = remember_me)
 
-        ## and proceed with the assigned token
+        ## ... and proceed with the assigned token ...
         api_key <- sess$token
         api$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- api_key
-        ## and store it
-        .setConfigValue("api_key", api_key)
+        ## ... and store it.
+        ## note that the user can request a sessionless login so we
+        ## check for null here.
+        if (!is.null(api_key)) {
+          .setConfigValue("api_key", api_key)
+        }
     }
 
     ## use as a possible test

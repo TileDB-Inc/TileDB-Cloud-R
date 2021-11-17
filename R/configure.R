@@ -44,7 +44,13 @@ configure <- function() {
         if ("username" %in% names(cfg))  username <- cfg$username
         if ("password" %in% names(cfg))  password <- cfg$password
         if (host == "")  host <- gsub("/v1(/)?$", "", cfg$host) # scrubs trailing /v1 or /v1/
-        if (token == "" && !is.null(cfg$api_key[[1]])) token <- cfg$api_key[[1]]
+        # If the previous login was without a session-token requested then the cloud-config
+        # JSON file will have username and password but no API key.
+        if (token == "") {
+          if (!is.null(cfg$api_key) && length(cfg$api_key) > 0 && !is.null(cfg$api_key[[1]])) {
+              token <- cfg$api_key[[1]]
+          }
+        }
         verify_ssl <- cfg$verify_ssl
     }
 
