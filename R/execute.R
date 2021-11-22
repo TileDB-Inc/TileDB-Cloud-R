@@ -96,8 +96,9 @@ execute_array_udf <- function(namespace, array, udf, selectedRanges, attrs=NULL,
 
   udfapi <- UdfApi$new(client)
 
-  # TODO: support multiple arrays. At present we are putting a single array's
-  # info into this container.
+  # This function is for single arrays which are packed a little differently
+  # from the way the multi-array function does it. Namely, here we pass buffers &
+  # ranges outside of the multi_array_udf object.
   multi_array_udf <- MultiArrayUDF$new()
   multi_array_udf$language <- UDFLanguage$new("r")
   multi_array_udf$exec <- jsonlite::toJSON(as.integer(serialize(udf, NULL)))
@@ -179,52 +180,26 @@ execute_array_udf <- function(namespace, array, udf, selectedRanges, attrs=NULL,
 ##'
 ##' @return Return value from the UDF.
 ##' @export
-execute_multi_array_udf <- function(namespace, array_list, udf, selectedRanges, layout=NULL, result_format=NULL, attrs=NULL) {
+execute_multi_array_udf <- function(namespace, array_list, udf, result_format=NULL) {
   client <- .pkgenv[["cl"]] # Expected to be set from login.R
   if (is.null(client)) {
     stop("tiledbcloud: unable to find login credentials. Please use login().")
   }
 
-#        >>> import numpy as np
-#        >>> from tiledb.cloud import array
-#        >>> import tiledb.cloud
-#        >>> dense_array = "tiledb://andreas/quickstart_dense_local"
-#        >>> sparse_array = "tiledb://andreas/quickstart_sparse_local"
-#        >>> def median(numpy_ordered_dictionary):
-#        ...    return np.median(numpy_ordered_dictionary[0]["a"]) + np.median(numpy_ordered_dictionary[1]["a"])
-#        >>> array_list = array.ArrayList()
-#        >>> array_list.add(dense_array, [(1, 4), (1, 4)], ["a"])
-#        >>> array_list.add(sparse_array, [(1, 2), (1, 4)], ["a"])
-#        >>> namespace = "namespace"
-#        >>> res = array.exec_multi_array_udf(median, array_list, namespace)
-#        >>> print("Median Multi UDF:\n{}\n".format(res))
-
   udfapi <- UdfApi$new(client)
 
-  # TODO: support multiple arrays. At present we are putting a single array's
-  # info into this container.
   multi_array_udf <- MultiArrayUDF$new()
   multi_array_udf$language <- UDFLanguage$new("r")
   multi_array_udf$exec <- jsonlite::toJSON(as.integer(serialize(udf, NULL)))
-
-  # selected_ranges are required for dense arrays; optional for sparse arrays.
-  # At the user/library level this is a list of two-column matrices, e.g.
-  # 'list(cbind(1,2), cbind(3,4))'.
-
-  # TODO: parameterize in the argument list.
-  layout <- Layout$new('row-major')
-
-  queryRanges <- QueryRanges$new(layout=layout, ranges=selectedRanges)
-  multi_array_udf$ranges = queryRanges
-
-  # Attrs can be optionally specified by the client. If they are not, the
-  # server-side code will load all attributes.
-  if (!is.null(attrs)) {
-    multi_array_udf$buffers <- attrs
+  if (!is.null(result_format)) {
+    multi_array_udf$result_format <- ResultFormat$new(result_format)
   }
 
+  # TODO: type-check the array_list parameter to be sure it's list of UDFArrayDetails
+  multi_array_udf$arrays <- array_list
+
   # Make the network request.
-  resultObject <- udfapi$SubmitUDF(namespace=namespace, array=array, udf=multi_array_udf)
+  resultObject <- udfapi$SubmitMultiArrayUDF(namespace=namespace, udf=multi_array_udf)
 
   # Decode the results.
   if (typeof(resultObject) != "raw") {
