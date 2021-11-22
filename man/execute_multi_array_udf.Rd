@@ -4,25 +4,20 @@
 \alias{execute_multi_array_udf}
 \title{TileDB Cloud UDF-Execution Helper for multiple-array UDFs}
 \usage{
-execute_multi_array_udf(
-  namespace,
-  array_list,
-  udf,
-  layout = NULL,
-  result_format = NULL
-)
+execute_multi_array_udf(namespace, array_list, udf, result_format = NULL)
 }
 \arguments{
 \item{namespace}{Namespace within TileDB cloud.}
 
-\item{array_list}{Names of the arrays. E.g. if one URI is \code{tiledb://hello/earth}
-and another is \code{tiledb://hello/mars} ##' then the namespace is "hello" and the array_list is
-\code{list("earth", "mars")}.}
+\item{array_list}{List of \code{UDFArrayDetails} objects.
+Example list element: \code{tiledbcloud::UDFArrayDetails$new(uri="tiledb://demo/quickstart_dense", ranges=QueryRanges$new(layout=Layout$new('row-major'), ranges=list(cbind(1,4),cbind(1,4))), buffers=list("a"))}}
 
-\item{udf}{An R function which takes an array of dataframes as argument.}
+\item{udf}{An R function which takes dataframes as arguments, one dataframe argument for each element in \code{array_list}.}
 
-\item{queryRanges}{List of two-column matrices, one matrix per dimension,
-each matrix being a start-end pair.}
+\item{result_format}{One of \code{native}, \code{json}, or \code{arrow}. These are
+used as wire format for returning results from the server to this library, primarily
+for memory-usage control.  UDF return values handed back to your code from this
+library are converted back to natural R objects.}
 }
 \value{
 Return value from the UDF.
