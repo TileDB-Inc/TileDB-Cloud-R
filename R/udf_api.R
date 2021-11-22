@@ -915,19 +915,15 @@ UdfApi <- R6::R6Class(
       wrap_as_api_response(resp)
     },
     SubmitMultiArrayUDF = function(namespace, udf, accept.encoding=NULL, ...){
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
       apiResponse <- self$SubmitMultiArrayUDFWithHttpInfo(namespace, udf, accept.encoding, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+      } else {
         apiResponse
       }
     },
-
     SubmitMultiArrayUDFWithHttpInfo = function(namespace, udf, accept.encoding=NULL, ...){
       args <- list(...)
       queryParams <- list()
@@ -961,32 +957,11 @@ UdfApi <- R6::R6Class(
       # HTTP basic auth
       headerParams['Authorization'] <- paste("Basic", base64enc::base64encode(charToRaw(paste(self$apiClient$username, self$apiClient$password, sep=":"))))
 
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "POST",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        # MANUAL EDIT AFTER OPENAPI AUTOGEN
-        #deserializedRespObj <- tryCatch(
-        #  self$apiClient$deserialize(resp, "data.frame", loadNamespace("tiledbcloud")),
-        #  error = function(e){
-        #    stop("Failed to deserialize response")
-        # }
-        #)
-        #ApiResponse$new(deserializedRespObj, resp)
-        # The following is correct for interaction with the REST server.
-        ApiResponse$new(resp$content, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath), method = "POST", queryParams = queryParams, headerParams = headerParams, body = body, ...)
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
+      wrap_as_api_response(resp)
     },
+
     SubmitUDF = function(namespace, array, udf, x.payer=NULL, accept.encoding=NULL, v2=NULL, ...){
       # MANUAL EDIT AFTER OPENAPI AUTOGEN
       apiResponse <- self$SubmitUDFWithHttpInfo(namespace, array, udf, x.payer, accept.encoding, v2, ...)
@@ -1043,12 +1018,7 @@ UdfApi <- R6::R6Class(
       # HTTP basic auth
       headerParams['Authorization'] <- paste("Basic", base64enc::base64encode(charToRaw(paste(self$apiClient$username, self$apiClient$password, sep=":"))))
 
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "POST",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath), method = "POST", queryParams = queryParams, headerParams = headerParams, body = body, ...)
 
       # MANUAL EDIT AFTER OPENAPI AUTOGEN
       wrap_as_api_response(resp)
