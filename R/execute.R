@@ -76,6 +76,11 @@ execute_generic_udf <- function(namespace, udf, args=NULL) {
 ##' @param layout One of \code{row-major}, \code{col-major}, \code{global-order}, or
 ##' \code{unordered},
 ##'
+##' @param args Arguments to the function. If the function takes
+##' no arguments, this can be omitted. If you want to call by
+##' position, use a list like \code{args=list(123, 456)}. If you want
+##' to call by name, use a named list like \code{args=list(x=123,y=456)}.
+##'
 ##' @param result_format One of \code{native}, \code{json}, or \code{arrow}. These are
 ##' used as wire format for returning results from the server to this library, primarily
 ##' for memory-usage control.  UDF return values handed back to your code from this
@@ -88,7 +93,7 @@ execute_generic_udf <- function(namespace, udf, args=NULL) {
 ##' @importFrom arrow read_ipc_stream
 ##'
 ##' @export
-execute_array_udf <- function(namespace, array, udf, selectedRanges, attrs=NULL, layout=NULL, result_format='native') {
+execute_array_udf <- function(namespace, array, udf, selectedRanges, attrs=NULL, layout=NULL, args=NULL, result_format='native') {
   client <- .pkgenv[["cl"]] # Expected to be set from login.R
   if (is.null(client)) {
     stop("tiledbcloud: unable to find login credentials. Please use login().")
@@ -113,6 +118,10 @@ execute_array_udf <- function(namespace, array, udf, selectedRanges, attrs=NULL,
 
   queryRanges <- QueryRanges$new(layout=layout, ranges=selectedRanges)
   multi_array_udf$ranges = queryRanges
+
+  if (!is.null(args)) {
+    multi_array_udf$argument <- jsonlite::toJSON(as.integer(serialize(args, NULL)))
+  }
 
   if (!is.null(result_format)) {
     multi_array_udf$result_format <- ResultFormat$new(result_format)
@@ -174,6 +183,11 @@ execute_array_udf <- function(namespace, array, udf, selectedRanges, attrs=NULL,
 ##'
 ##' @param udf An R function which takes dataframes as arguments, one dataframe argument for each element in \code{array_list}.
 ##'
+##' @param args Arguments to the function. If the function takes
+##' no arguments, this can be omitted. If you want to call by
+##' position, use a list like \code{args=list(123, 456)}. If you want
+##' to call by name, use a named list like \code{args=list(x=123,y=456)}.
+##'
 ##' @param result_format One of \code{native}, \code{json}, or \code{arrow}. These are
 ##' used as wire format for returning results from the server to this library, primarily
 ##' for memory-usage control.  UDF return values handed back to your code from this
@@ -181,7 +195,7 @@ execute_array_udf <- function(namespace, array, udf, selectedRanges, attrs=NULL,
 ##'
 ##' @return Return value from the UDF.
 ##' @export
-execute_multi_array_udf <- function(namespace, array_list, udf, result_format=NULL) {
+execute_multi_array_udf <- function(namespace, array_list, udf, args=NULL, result_format=NULL) {
   client <- .pkgenv[["cl"]] # Expected to be set from login.R
   if (is.null(client)) {
     stop("tiledbcloud: unable to find login credentials. Please use login().")
@@ -192,6 +206,11 @@ execute_multi_array_udf <- function(namespace, array_list, udf, result_format=NU
   multi_array_udf <- MultiArrayUDF$new()
   multi_array_udf$language <- UDFLanguage$new("r")
   multi_array_udf$exec <- jsonlite::toJSON(as.integer(serialize(udf, NULL)))
+
+  if (!is.null(args)) {
+    multi_array_udf$argument <- jsonlite::toJSON(as.integer(serialize(args, NULL)))
+  }
+
   if (!is.null(result_format)) {
     multi_array_udf$result_format <- ResultFormat$new(result_format)
   }
