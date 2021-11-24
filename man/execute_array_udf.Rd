@@ -11,6 +11,7 @@ execute_array_udf(
   selectedRanges,
   attrs = NULL,
   layout = NULL,
+  args = NULL,
   result_format = "native"
 )
 }
@@ -29,6 +30,11 @@ each matrix being a start-end pair: e.g. \code{list(cbind(1,10),cbind(1,20))}.}
 
 \item{layout}{One of \code{row-major}, \code{col-major}, \code{global-order}, or
 \code{unordered},}
+
+\item{args}{Arguments to the function. If the function takes
+no arguments, this can be omitted. If you want to call by
+position, use a list like \code{args=list(123, 456)}. If you want
+to call by name, use a named list like \code{args=list(x=123,y=456)}.}
 
 \item{result_format}{One of \code{native}, \code{json}, or \code{arrow}. These are
 used as wire format for returning results from the server to this library, primarily

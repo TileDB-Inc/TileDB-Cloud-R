@@ -4,7 +4,13 @@
 \alias{execute_multi_array_udf}
 \title{TileDB Cloud UDF-Execution Helper for multiple-array UDFs}
 \usage{
-execute_multi_array_udf(namespace, array_list, udf, result_format = NULL)
+execute_multi_array_udf(
+  namespace,
+  array_list,
+  udf,
+  args = NULL,
+  result_format = NULL
+)
 }
 \arguments{
 \item{namespace}{Namespace within TileDB cloud.}
@@ -13,6 +19,11 @@ execute_multi_array_udf(namespace, array_list, udf, result_format = NULL)
 Example list element: \code{tiledbcloud::UDFArrayDetails$new(uri="tiledb://demo/quickstart_dense", ranges=QueryRanges$new(layout=Layout$new('row-major'), ranges=list(cbind(1,4),cbind(1,4))), buffers=list("a"))}}
 
 \item{udf}{An R function which takes dataframes as arguments, one dataframe argument for each element in \code{array_list}.}
+
+\item{args}{Arguments to the function. If the function takes
+no arguments, this can be omitted. If you want to call by
+position, use a list like \code{args=list(123, 456)}. If you want
+to call by name, use a named list like \code{args=list(x=123,y=456)}.}
 
 \item{result_format}{One of \code{native}, \code{json}, or \code{arrow}. These are
 used as wire format for returning results from the server to this library, primarily
