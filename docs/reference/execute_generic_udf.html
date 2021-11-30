@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TileDB Cloud UDF-Execution Helper — execute_generic_udf • tiledbcloud</title>
+<title>TileDB Cloud UDF-Execution Helper for Generic UDFs — execute_generic_udf • tiledbcloud</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="TileDB Cloud UDF-Execution Helper — execute_generic_udf" />
+<meta property="og:title" content="TileDB Cloud UDF-Execution Helper for Generic UDFs — execute_generic_udf" />
 <meta property="og:description" content="This function invokes a user-defined function in TileDB Cloud.
 Nominally you will first call login(); if not, the results
 of the last login at ~/.tiledb/cloud.json will be used." />
@@ -74,7 +74,7 @@ of the last login at ~/.tiledb/cloud.json will be used." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tiledbcloud</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.4</span>
       </span>
     </div>
 
@@ -110,7 +110,7 @@ of the last login at ~/.tiledb/cloud.json will be used." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>TileDB Cloud UDF-Execution Helper</h1>
+    <h1>TileDB Cloud UDF-Execution Helper for Generic UDFs</h1>
     <small class="dont-index">Source: <a href='https://github.com/TileDB-Inc/TileDB-Cloud-R/blob/master/R/execute.R'><code>R/execute.R</code></a></small>
     <div class="hidden name"><code>execute_generic_udf.Rd</code></div>
     </div>
@@ -132,8 +132,7 @@ of the last login at ~/.tiledb/cloud.json will be used.</p>
     </tr>
     <tr>
       <th>udf</th>
-      <td><p>An R function. TODO: more context here on that function's
-signature.</p></td>
+      <td><p>An R function. Arguments are specified separately via <code>args</code>.</p></td>
     </tr>
     <tr>
       <th>args</th>

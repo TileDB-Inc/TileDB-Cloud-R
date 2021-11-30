@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TileDB Cloud UDF-Execution Helper — execute_array_udf • tiledbcloud</title>
+<title>TileDB Cloud UDF-Execution Helper for Single-Array UDFs — execute_array_udf • tiledbcloud</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="TileDB Cloud UDF-Execution Helper — execute_array_udf" />
+<meta property="og:title" content="TileDB Cloud UDF-Execution Helper for Single-Array UDFs — execute_array_udf" />
 <meta property="og:description" content="This function invokes a user-defined function in TileDB Cloud.
 Nominally you will first call login(); if not, the results
 of the last login at ~/.tiledb/cloud.json will be used." />
@@ -74,7 +74,7 @@ of the last login at ~/.tiledb/cloud.json will be used." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tiledbcloud</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.4</span>
       </span>
     </div>
 
@@ -110,7 +110,7 @@ of the last login at ~/.tiledb/cloud.json will be used." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>TileDB Cloud UDF-Execution Helper</h1>
+    <h1>TileDB Cloud UDF-Execution Helper for Single-Array UDFs</h1>
     <small class="dont-index">Source: <a href='https://github.com/TileDB-Inc/TileDB-Cloud-R/blob/master/R/execute.R'><code>R/execute.R</code></a></small>
     <div class="hidden name"><code>execute_array_udf.Rd</code></div>
     </div>
@@ -125,9 +125,11 @@ of the last login at ~/.tiledb/cloud.json will be used.</p>
   <span class='va'>namespace</span>,
   <span class='va'>array</span>,
   <span class='va'>udf</span>,
-  layout <span class='op'>=</span> <span class='cn'>NULL</span>,
   <span class='va'>selectedRanges</span>,
-  attrs <span class='op'>=</span> <span class='cn'>NULL</span>
+  attrs <span class='op'>=</span> <span class='cn'>NULL</span>,
+  layout <span class='op'>=</span> <span class='cn'>NULL</span>,
+  args <span class='op'>=</span> <span class='cn'>NULL</span>,
+  result_format <span class='op'>=</span> <span class='st'>"native"</span>
 <span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -139,22 +141,46 @@ of the last login at ~/.tiledb/cloud.json will be used.</p>
     </tr>
     <tr>
       <th>array</th>
-      <td><p>TODO: describe this.</p></td>
+      <td><p>Name of the array. E.g. if the URI is <code>tiledb://hello/world</code>
+then the namespace is "hello" and the array is "world".</p></td>
     </tr>
     <tr>
       <th>udf</th>
-      <td><p>An R function. TODO: more context here on that function's
-signature.</p></td>
+      <td><p>An R function which takes a dataframe as argument.</p></td>
     </tr>
     <tr>
-      <th>queryRanges</th>
-      <td><p>TODO: describe this.</p></td>
+      <th>selectedRanges</th>
+      <td><p>List of two-column matrices, one matrix per dimension,
+each matrix being a start-end pair: e.g. <code>list(cbind(1,10),cbind(1,20))</code>.</p></td>
+    </tr>
+    <tr>
+      <th>attrs</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>layout</th>
+      <td><p>One of <code>row-major</code>, <code>col-major</code>, <code>global-order</code>, or
+<code>unordered</code>,</p></td>
+    </tr>
+    <tr>
+      <th>args</th>
+      <td><p>Arguments to the function. If the function takes
+no arguments, this can be omitted. If you want to call by
+position, use a list like <code>args=list(123, 456)</code>. If you want
+to call by name, use a named list like <code>args=list(x=123,y=456)</code>.</p></td>
+    </tr>
+    <tr>
+      <th>result_format</th>
+      <td><p>One of <code>native</code>, <code>json</code>, or <code>arrow</code>. These are
+used as wire format for returning results from the server to this library, primarily
+for memory-usage control.  UDF return values handed back to your code from this
+library are converted back to natural R objects.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>TODO: describe</p>
+    <p>Return value from the UDF.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>All arguments are required.</p>
