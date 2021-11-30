@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>How to build this package • tiledbcloud</title>
+<title>How to update from API spec • tiledbcloud</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="How to build this package" />
+<meta property="og:title" content="How to update from API spec" />
 
 
 
@@ -107,21 +107,72 @@
 <div class="row">
   <div class="contents col-md-9">
     <div class="page-header">
-      <h1>How to build this package</h1>
+      <h1>How to update from API spec</h1>
     </div>
 
-<div id="how-to-build-this-package" class="section level1">
+<div id="how-to-update-from-api-spec" class="section level1">
 
-<div id="build-and-test" class="section level2">
+<p>These are the steps to follow when bringing this repo up to date from an updated <a href="https://github.com/TileDB-Inc/TileDB-Cloud-API-Spec/blob/master/openapi-v1.yaml">API spec</a>.</p>
+<div id="how-this-was-built" class="section level2">
 <h2 class="hasAnchor">
-<a href="#build-and-test" class="anchor"></a>Build and Test</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">R</span> CMD build .                           <span class="co"># creates e.g. tiledbcloud_0.0.4.tar.gz</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">R</span> CMD check tiledbcloud_0.0.4.tar.gz    <span class="co"># checks the package</span></span></code></pre></div>
+<a href="#how-this-was-built" class="anchor"></a>How this was built</h2>
+<ul>
+<li>Initially using then-current (2020-Aug-07) Docker container <code>openapitools/openapi-generator-cli:latest</code>
+</li>
+<li>Now via the offical v5.0.0 release <code>openapitools/openapi-generator-cli:v5.0.0</code>
+</li>
+<li>Standard invocation using TileDB Cloud API Spec v1, setting package name and version</li>
+<li>Some manual edits (detailed below)</li>
+<li>Invoking <code><a href="https://roxygen2.r-lib.org/reference/roxygenize.html">roxygen2::roxygenise()</a></code> to build interactive R documentation followed by a one-word fix to one Rd file</li>
+<li>Invoking <code>pkgdown:build_site()</code> to build HTML documentation</li>
+</ul>
 </div>
-<div id="demo" class="section level2">
+<div id="prep" class="section level2">
 <h2 class="hasAnchor">
-<a href="#demo" class="anchor"></a>Demo</h2>
-<p>A few first commands: see <a href="local/">local/</a>.</p>
+<a href="#prep" class="anchor"></a>Prep</h2>
+<p>Prep: the Docker command in <code>runMe.sh</code> will read its current directory and write the following into <code>./tiledbcloud-generated</code>: <code>DESCRIPTION</code>, <code>NAMESPACE</code>, <code>README.md</code>, <code>R</code>, <code>docs</code>, <code>man</code>, <code>tests</code>, and <code>git_push.sh</code>. Unfortunately it will read the <em>current</em> files from the working directory as well.</p>
+<p>In either case we need a current <code>openapi-v1.yaml</code> copied from <a href="https://github.com/TileDB-Inc/TileDB-Cloud-API-Spec">https://github.com/TileDB-Inc/TileDB-Cloud-API-Spec</a> into <code>.</code>.</p>
+<div id="autogen-option-1" class="section level3">
+<h3 class="hasAnchor">
+<a href="#autogen-option-1" class="anchor"></a>Autogen option 1</h3>
+<pre><code>mkdir /tmp/gen
+cp openapi-v1.yaml   /tmp/gen
+cp runMe.sh          /tmp/gen
+cp regenerate-docs.r /tmp/gen/
+cp -a .openapi-generator* /tmp/gen
+
+cd /tmp/gen
+./runMe.sh</code></pre>
+<p>Then remove <code>DESCRIPTION</code>, <code>NAMESPACE</code>, <code>R</code>, <code>docs</code>, <code>man</code>, <code>test</code> from this repo directory (maybe <code>mkdir old</code> and <code>mv</code> them to <code>old</code>) with outputs from <code>/tmp/gen</code>. Then move <code>/tmp/gen/README.md</code> to <code>./origREADME.md</code>.</p>
+</div>
+<div id="autogen-option-2" class="section level3">
+<h3 class="hasAnchor">
+<a href="#autogen-option-2" class="anchor"></a>Autogen option 2</h3>
+<pre><code>mkdir old
+mv DESCRIPTION old
+mv NAMESPACE   old
+mv README.md   old
+mv R           old
+mv docs        old
+mv man         old
+mv tests       old
+mv git_push.sh old
+
+./runMe.sh</code></pre>
+<p>Then move <code>./README.md</code> to <code>./origREADME.md</code> and <code>old/README.md</code> to <code>.</code>.</p>
+</div>
+<div id="post-processing" class="section level3">
+<h3 class="hasAnchor">
+<a href="#post-processing" class="anchor"></a>Post-processing</h3>
+<p>In either case, be sure any manual-layer files (such as <code>init.R</code> – listed in <code>runMe.sh</code>) are copied back to <code>./R</code>. Then remove <code>NAMESPACE</code> and (in R) <code><a href="https://devtools.r-lib.org/">library(devtools)</a></code> and <code><a href="https://devtools.r-lib.org//reference/document.html">devtools::document()</a></code>. (The <code>NAMESPACE</code> file must be removed first since it was generated by <code>openapi-generator</code> so <code>devtools</code> will skip it.) This will ensure that exported functions in the manual-layer files are properly exported.</p>
+<p><em>Important</em> The generated API wants to also parse a field <code>User</code> which we apparently do not send. So the default deserializer breaks. See PR #2 and its small diff to <code>R/api_client.R</code> file for a fix that needs to be re-applied.</p>
+<p>Also <code>diff -r old/R R</code> and see what other manual edits need to be re-applied. In particular, all manual edits needing re-application should be marked with <code>MANUAL EDIT AFTER OPENAPI AUTOGEN</code>.</p>
+<p>Also manually edit <code>DESCRIPTION</code>, carrying over manual edits from before the autogen run.</p>
+<p>Also:</p>
+<pre><code>R CMD build .
+R CMD INSTALL .</code></pre>
+<p>See <a href="./HowToRelease.html">HowToRelease.md</a> for how to update documentation pages and commit them to version control.</p>
+</div>
 </div>
 </div>
 
