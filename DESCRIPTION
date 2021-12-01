@@ -2,18 +2,16 @@ Package: tiledbcloud
 Type: Package
 Title: TileDB Cloud Platform R Client Package
 Version: 0.0.4
-Authors@R: c(
-  person("Dirk", "Eddelbuettel", email = "dirk@tiledb.com", role="cre"),
-  person("John", "Kerl", email = "john.kerl@tiledb.com", role="aut"),
-  person("OpenAPI Generator community", email = "team@openapitools.org", role = "aut"))
-Copyright: TileDB, Inc.
+Authors@R: c(person("TileDB, Inc.", role = c("aut", "cph")),
+             person("OpenAPI Generator community", email = "team@openapitools.org", role = "ctb"),
+             person("John", "Kerl", email = "john.kerl@tiledb.com", role="cre"))
 Description: The TileDB Cloud Platform API Client Package offers access to the TileDB Cloud service.
 URL: https://github.com/TileDB-Inc/TileDB-Cloud-R
 BugReports: https://github.com/TileDB-Inc/TileDB-Cloud-R/issues
 Depends: R (>= 3.3)
 License: MIT + file LICENSE
-LazyData: true
-Suggests: testthat, tinytest
+Suggests: testthat, tinytest, rmarkdown, knitr
 Imports: jsonlite, arrow, httr, R6, base64enc
+VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 7.1.2
