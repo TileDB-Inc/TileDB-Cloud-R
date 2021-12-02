@@ -46,6 +46,24 @@
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="articles/HowToBuild.html">How To Build</a>
+    </li>
+    <li>
+      <a href="articles/HowToRelease.html">How To Release</a>
+    </li>
+    <li>
+      <a href="articles/HowToUpdateAPI.html">How To Update</a>
+    </li>
+  </ul>
+</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
@@ -71,20 +89,11 @@
 <a href="#tiledb-cloud-r" class="anchor"></a>TileDB-Cloud-R</h1></div>
 
 <p>This repository contains the R client for the TileDB Cloud Service.</p>
-<div id="quick-links" class="section level2">
-<h2 class="hasAnchor">
-<a href="#quick-links" class="anchor"></a>Quick Links</h2>
-</div>
-<div id="re-running-autogen-from-api-spec" class="section level2">
-<h2 class="hasAnchor">
-<a href="#re-running-autogen-from-api-spec" class="anchor"></a>Re-running autogen from API spec</h2>
-<p>See <a href="howToBuild.html">./howToBuild.md</a>.</p>
-</div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>At present, installation from GitHub is supported via</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"remotes"</span>,<span class="at">quietly=</span><span class="cn">TRUE</span>)) <span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"remotes"</span>, <span class="at">quietly=</span><span class="cn">TRUE</span>)) <span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"TileDB-Inc/TileDB-Cloud-R"</span>)</span></code></pre></div>
 <p>The <a href="https://github.com/TileDB-Inc/TileDB-R">TileDB-R</a> package is a dependency and has to be installed first.</p>
 </div>
@@ -92,6 +101,11 @@
 <h2 class="hasAnchor">
 <a href="#quickstart" class="anchor"></a>Quickstart</h2>
 <p>See the <a href="https://docs.tiledb.com/cloud/quickstart">Quickstart</a> section of the docs.</p>
+</div>
+<div id="developer-links" class="section level2">
+<h2 class="hasAnchor">
+<a href="#developer-links" class="anchor"></a>Developer links</h2>
+<p>See vignettes in the Articles section.</p>
 </div>
 </div>
   </div>
@@ -117,9 +131,9 @@
 <div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
-<li>Dirk Eddelbuettel <br><small class="roles"> Maintainer </small>  </li>
-<li>John Kerl <br><small class="roles"> Author </small>  </li>
-<li>OpenAPI Generator community <br><small class="roles"> Author </small>  </li>
+<li>TileDB, Inc. <br><small class="roles"> Author, copyright holder </small>  </li>
+<li>John Kerl <br><small class="roles"> Maintainer </small>  </li>
+<li><a href="authors.html">All authors...</a></li>
 </ul>
 </div>
 
@@ -134,7 +148,7 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Dirk Eddelbuettel, John Kerl, OpenAPI Generator community.</p>
+  <p>Developed by TileDB, Inc., John Kerl.</p>
 </div>
 
 <div class="pkgdown">
