@@ -1,3 +1,12 @@
+---
+title: "How To Build"
+output: github_document
+vignette: |
+  %\VignetteIndexEntry{How To Build}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
 # How to build this package
 
 ## Build and Test
