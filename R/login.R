@@ -47,12 +47,12 @@ login <- function(username, password, api_key, host, remember_me=TRUE) {
         return(invisible(NULL))
     }
 
-    cl <- ApiClient$new(basePath=paste(host, "v1", sep="/"),
-                        accessToken=api_key,
-                        username=username,
-                        password=password)
+    apiClientInstance <- ApiClient$new(basePath=paste(host, "v1", sep="/"),
+                                       accessToken=api_key,
+                                       username=username,
+                                       password=password)
 
-    api <- UserApi$new(cl)
+    api <- UserApi$new(apiClientInstance)
     api$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- api_key
 
     ## if there is not api token key, request one
@@ -82,7 +82,7 @@ login <- function(username, password, api_key, host, remember_me=TRUE) {
 
     ## cache api and client instances
     .pkgenv[["api"]] <- api
-    .pkgenv[["cl"]]  <- cl
+    .pkgenv[["apiClientInstance"]]  <- apiClientInstance
 
     invisible()
 }

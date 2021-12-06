@@ -19,12 +19,12 @@
 ##' @return The R object which is the return value from the UDF.
 ##' @export
 execute_generic_udf <- function(namespace, udf, args=NULL) {
-  client <- .pkgenv[["cl"]] # Expected to be set from login.R
-  if (is.null(client)) {
+  apiClientInstance <- .pkgenv[["apiClientInstance"]] # Expected to be set from login.R
+  if (is.null(apiClientInstance)) {
     stop("tiledbcloud: unable to find login credentials. Please use login().")
   }
 
-  udfapi <- UdfApi$new(client)
+  udfapi <- UdfApi$new(apiClientInstance)
   generic_udf <- GenericUDF$new()
   generic_udf$language <- UDFLanguage$new("r")
   generic_udf$exec <- jsonlite::toJSON(as.integer(serialize(udf, NULL)))
@@ -94,12 +94,12 @@ execute_generic_udf <- function(namespace, udf, args=NULL) {
 ##'
 ##' @export
 execute_array_udf <- function(namespace, array, udf, selectedRanges, attrs=NULL, layout=NULL, args=NULL, result_format='native') {
-  client <- .pkgenv[["cl"]] # Expected to be set from login.R
-  if (is.null(client)) {
+  apiClientInstance <- .pkgenv[["apiClientInstance"]] # Expected to be set from login.R
+  if (is.null(apiClientInstance)) {
     stop("tiledbcloud: unable to find login credentials. Please use login().")
   }
 
-  udfapi <- UdfApi$new(client)
+  udfapi <- UdfApi$new(apiClientInstance)
 
   # This function is for single arrays which are packed a little differently
   # from the way the multi-array function does it. Namely, here we pass buffers &
@@ -196,12 +196,12 @@ execute_array_udf <- function(namespace, array, udf, selectedRanges, attrs=NULL,
 ##' @return Return value from the UDF.
 ##' @export
 execute_multi_array_udf <- function(namespace, array_list, udf, args=NULL, result_format=NULL) {
-  client <- .pkgenv[["cl"]] # Expected to be set from login.R
-  if (is.null(client)) {
+  apiClientInstance <- .pkgenv[["apiClientInstance"]] # Expected to be set from login.R
+  if (is.null(apiClientInstance)) {
     stop("tiledbcloud: unable to find login credentials. Please use login().")
   }
 
-  udfapi <- UdfApi$new(client)
+  udfapi <- UdfApi$new(apiClientInstance)
 
   multi_array_udf <- MultiArrayUDF$new()
   multi_array_udf$language <- UDFLanguage$new("r")
