@@ -52,17 +52,17 @@ login <- function(username, password, api_key, host, remember_me=TRUE) {
                                        username=username,
                                        password=password)
 
-    api <- UserApi$new(apiClientInstance)
-    api$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- api_key
+    userApiInstance <- UserApi$new(apiClientInstance)
+    userApiInstance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- api_key
 
     ## if there is not api token key, request one
     if (api_key == "") {
         ## request a session ...
-        sess <- api$GetSession(remember.me = remember_me)
+        sess <- userApiInstance$GetSession(remember.me = remember_me)
 
         ## ... and proceed with the assigned token ...
         api_key <- sess$token
-        api$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- api_key
+        userApiInstance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- api_key
         ## ... and store it.
         ## note that the user can request a sessionless login so we
         ## check for null here.
@@ -72,7 +72,7 @@ login <- function(username, password, api_key, host, remember_me=TRUE) {
     }
 
     ## use as a possible test
-    res <- api$GetUser()
+    res <- userApiInstance$GetUser()
     if (verbose) cat("GetUser() got name", res$name, "\n")
 
     ## we do not store username and password, but update
@@ -81,7 +81,7 @@ login <- function(username, password, api_key, host, remember_me=TRUE) {
     .setConfigValue("logged_in", "TRUE")
 
     ## cache api and client instances
-    .pkgenv[["api"]] <- api
+    .pkgenv[["userApiInstance"]] <- userApiInstance
     .pkgenv[["apiClientInstance"]]  <- apiClientInstance
 
     invisible()
