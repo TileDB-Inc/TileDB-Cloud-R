@@ -33,19 +33,11 @@ execute_generic_udf <- function(namespace, udf, args=NULL) {
   # such as invalid hostname provided to login, it will be an object of type
   # ApiResponse.
   resultObject <- udfApiInstance$SubmitGenericUDF(namespace, generic_udf)
-  if (typeof(resultObject) != "raw") {
-    # TODO: extract a function to a R/utils.R
-    className <- class(resultObject)[1]
-    if (className == "ApiResponse") {
-      stop(paste("tiledbcloud: received error response:", resultObject$content))
-    } else {
-      stop(paste("tiledbcloud: received error response:", class(resultObject)[1]))
-    }
-  }
-  resultString <- rawToChar(resultObject)
-  resultJSON <- jsonlite::fromJSON(resultString)
-  resultValue <- resultJSON$value
-  resultValue
+
+  # Decode the result
+  body <- get_raw_response_body_or_stop(resultObject)
+  parsed <- jsonlite::fromJSON(rawToChar(body))
+  parsed[["value"]] # Extract the value field
 }
 
 ##' TileDB Cloud UDF-Execution Helper for Single-Array UDFs
@@ -128,38 +120,12 @@ execute_array_udf <- function(namespace, array, udf, selectedRanges, attrs=NULL,
   }
 
   # Make the network request.
-  result <- udfApiInstance$SubmitUDF(namespace=namespace, array=array, udf=multi_array_udf)
+  resultObject <- udfApiInstance$SubmitUDF(namespace=namespace, array=array, udf=multi_array_udf)
 
-  # Decode the results.
-  if (typeof(result) != "raw") {
-    className <- class(result)[1]
-    if (className == "ApiResponse") {
-      stop("tiledbcloud: received error response: ", result$content, call.=FALSE)
-    } else {
-      stop("tiledbcloud: received error response: ", class(result)[1], call.=FALSE)
-    }
-  }
+  # Decode the result
+  body <- get_raw_response_body_or_stop(resultObject)
 
-  # This is a serialized R object sent from the server-side R code, passed
-  # through as-is by the REST server (opaquely to it), to the client-side R
-  # code (us).
-  formattedResult <- NULL
-  switch(result_format,
-    native={
-      formattedResult <- unserialize(result, NULL)
-    },
-    json={
-        resultString <- rawToChar(result)
-      resultJSON <- jsonlite::fromJSON(resultString)
-      formattedResult <- resultJSON$value
-    },
-    arrow={
-      formattedResult <- arrow::read_ipc_stream(result)
-    },
-    stop("Result format unrecognized: ", result_format)
-  )
-
-  formattedResult
+  get_decoded_response_body_or_stop(resultObject, result_format)
 }
 
 ##' TileDB Cloud UDF-Execution Helper for multiple-array UDFs
@@ -212,20 +178,5 @@ execute_multi_array_udf <- function(namespace, array_list, udf, args=NULL, resul
   # Make the network request.
   resultObject <- udfApiInstance$SubmitMultiArrayUDF(namespace=namespace, udf=multi_array_udf)
 
-  # Decode the results.
-  if (typeof(resultObject) != "raw") {
-    className <- class(resultObject)[1]
-    if (className == "ApiResponse") {
-      stop("tiledbcloud: received error response: ", resultObject$content, call.=FALSE)
-    } else {
-      stop("tiledbcloud: received error response: ", class(resultObject)[1], call.=FALSE)
-    }
-  }
-  # This is a serialized R object sent from the server-side R code, passed
-  # through as-is by the REST server (opaquely to it), to the client-side R
-  # code (us).
-  resultString <- rawToChar(resultObject)
-  resultJSON <- jsonlite::fromJSON(resultString)
-  resultValue <- resultJSON$value
-  resultValue
+  get_decoded_response_body_or_stop(resultObject, result_format)
 }
