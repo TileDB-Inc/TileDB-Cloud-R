@@ -24,7 +24,7 @@ execute_generic_udf <- function(namespace, udf, args=NULL) {
     stop("tiledbcloud: unable to find login credentials. Please use login().")
   }
 
-  udfapi <- UdfApi$new(apiClientInstance)
+  udfApiInstance <- UdfApi$new(apiClientInstance)
   generic_udf <- GenericUDF$new()
   generic_udf$language <- UDFLanguage$new("r")
   generic_udf$exec <- jsonlite::toJSON(as.integer(serialize(udf, NULL)))
@@ -35,7 +35,7 @@ execute_generic_udf <- function(namespace, udf, args=NULL) {
   # In the successful case, the result will be an R object.  In a failure case
   # such as invalid hostname provided to login, it will be an object of type
   # ApiResponse.
-  resultObject <- udfapi$SubmitGenericUDF(namespace, generic_udf)
+  resultObject <- udfApiInstance$SubmitGenericUDF(namespace, generic_udf)
   if (typeof(resultObject) != "raw") {
     # TODO: extract a function to a R/utils.R
     className <- class(resultObject)[1]
@@ -99,7 +99,7 @@ execute_array_udf <- function(namespace, array, udf, selectedRanges, attrs=NULL,
     stop("tiledbcloud: unable to find login credentials. Please use login().")
   }
 
-  udfapi <- UdfApi$new(apiClientInstance)
+  udfApiInstance <- UdfApi$new(apiClientInstance)
 
   # This function is for single arrays which are packed a little differently
   # from the way the multi-array function does it. Namely, here we pass buffers &
@@ -134,7 +134,7 @@ execute_array_udf <- function(namespace, array, udf, selectedRanges, attrs=NULL,
   }
 
   # Make the network request.
-  result <- udfapi$SubmitUDF(namespace=namespace, array=array, udf=multi_array_udf)
+  result <- udfApiInstance$SubmitUDF(namespace=namespace, array=array, udf=multi_array_udf)
 
   # Decode the results.
   if (typeof(result) != "raw") {
@@ -201,7 +201,7 @@ execute_multi_array_udf <- function(namespace, array_list, udf, args=NULL, resul
     stop("tiledbcloud: unable to find login credentials. Please use login().")
   }
 
-  udfapi <- UdfApi$new(apiClientInstance)
+  udfApiInstance <- UdfApi$new(apiClientInstance)
 
   multi_array_udf <- MultiArrayUDF$new()
   multi_array_udf$language <- UDFLanguage$new("r")
@@ -219,7 +219,7 @@ execute_multi_array_udf <- function(namespace, array_list, udf, args=NULL, resul
   multi_array_udf$arrays <- array_list
 
   # Make the network request.
-  resultObject <- udfapi$SubmitMultiArrayUDF(namespace=namespace, udf=multi_array_udf)
+  resultObject <- udfApiInstance$SubmitMultiArrayUDF(namespace=namespace, udf=multi_array_udf)
 
   # Decode the results.
   if (typeof(resultObject) != "raw") {
