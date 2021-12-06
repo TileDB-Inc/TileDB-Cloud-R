@@ -11,12 +11,9 @@
 ##' @return A list of array properties
 ##' @export
 array_info <- function(namespace, arrayname) {
-  client <- .pkgenv[["cl"]] # Expected to be set from login.R
-  if (is.null(client)) {
-    stop("tiledbcloud: unable to find login credentials. Please use login().")
-  }
-  api.instance <- ArrayApi$new(client)
+  apiClientInstance <- get_api_client_instance()
+  arrayApiInstance <- ArrayApi$new(apiClientInstance)
   # The $toJSON() converts from R6 class to R named list.
   # That in turn is nicely printable using str().
-  api.instance$GetArrayMetadata(namespace, arrayname)$toJSON()
+  arrayApiInstance$GetArrayMetadata(namespace, arrayname)$toJSON()
 }
