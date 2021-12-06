@@ -57,3 +57,61 @@ wrap_as_api_response <- function(resp) {
     return(ApiResponse$new(paste("Server returned" , status_code , "response status code. Message: ", bodyAsNamedList$message), resp))
   }
 }
+
+##' This is a package-internal function for code-deduplication within various
+##' manual-layer functions. For the API-level functions which use
+##' wrap_as_api_response (above), manual-layer functions will receive either (a)
+##' the raw HTTP body, if the status_code was 2xx, or (b) an ApiResponse object.
+##' Using this function, callsites can get the HTTP body (if available), else an
+##' informative stop().
+##'
+##' @param resultObject Should be a return value from an API function which uses
+##' wrap_as_api_response internally. These are functions which are manually
+##' edited after OpenAPI autogen.
+##'
+##' @return The argument, as long as it's of type 'raw'. Else, stops.  The
+##' caller can then decode the raw body.
+get_raw_response_body_or_stop <- function(resultObject) {
+  # Decode the results.
+  if (typeof(resultObject) != "raw") {
+    className <- class(resultObject)[1]
+    if (className == "ApiResponse") {
+      stop("tiledbcloud: received error response: ", resultObject$content, call.=FALSE)
+    } else {
+      stop("tiledbcloud: received error response: ", class(resultObject)[1], call.=FALSE)
+    }
+  }
+  resultObject
+}
+
+##' This is a package-internal function for code-deduplication within various
+##' manual-layer functions. It wraps get_raw_response_body_or_stop() by
+##' decoding the raw response body using any of the three result-format types
+##' we support for UDFs. It's a keystroke-saving wrapper around
+##' get_raw_response_body_or_stop().
+##'
+##' @param resultObject Should be a return value from an API function which uses
+##' wrap_as_api_response internally. These are functions which are manually
+##' edited after OpenAPI autogen.
+##'
+##' @return The argument, decoded according to the specified result format.
+get_decoded_response_body_or_stop <- function(resultObject, result_format) {
+  body <- get_raw_response_body_or_stop(resultObject)
+
+  decoded_response <- NULL
+  switch(result_format,
+    native={
+      decoded_response <- unserialize(body, NULL)
+    },
+    json={
+      resultString <- rawToChar(body)
+      resultJSON <- jsonlite::fromJSON(resultString)
+      decoded_response <- resultJSON[["value"]]
+    },
+    arrow={
+      decoded_response <- arrow::read_ipc_stream(body)
+    },
+    stop("Result format unrecognized: ", result_format)
+  )
+  decoded_response
+}
