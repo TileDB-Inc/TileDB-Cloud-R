@@ -11,13 +11,10 @@
 ##' @return A list of user properties from the currently logged-in TileDB cloud account.
 ##' @export
 user_profile <- function(include_logo=FALSE) {
-  apiClientInstance <- .pkgenv[["apiClientInstance"]] # Expected to be set from login.R
-  if (is.null(apiClientInstance)) {
-    stop("tiledbcloud: unable to find login credentials. Please use login().")
-  }
-  api.instance <- UserApi$new(apiClientInstance)
+  apiClientInstance <- get_api_client_instance()
+  userApiInstance <- UserApi$new(apiClientInstance)
 
-  info <- api.instance$GetUser()
+  info <- userApiInstance$GetUser()
   if (!include_logo) {
     info[["logo"]] <- NULL
   }

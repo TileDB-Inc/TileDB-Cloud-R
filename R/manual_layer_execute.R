@@ -19,10 +19,7 @@
 ##' @return The R object which is the return value from the UDF.
 ##' @export
 execute_generic_udf <- function(namespace, udf, args=NULL) {
-  apiClientInstance <- .pkgenv[["apiClientInstance"]] # Expected to be set from login.R
-  if (is.null(apiClientInstance)) {
-    stop("tiledbcloud: unable to find login credentials. Please use login().")
-  }
+  apiClientInstance <- get_api_client_instance()
 
   udfApiInstance <- UdfApi$new(apiClientInstance)
   generic_udf <- GenericUDF$new()
@@ -94,10 +91,7 @@ execute_generic_udf <- function(namespace, udf, args=NULL) {
 ##'
 ##' @export
 execute_array_udf <- function(namespace, array, udf, selectedRanges, attrs=NULL, layout=NULL, args=NULL, result_format='native') {
-  apiClientInstance <- .pkgenv[["apiClientInstance"]] # Expected to be set from login.R
-  if (is.null(apiClientInstance)) {
-    stop("tiledbcloud: unable to find login credentials. Please use login().")
-  }
+  apiClientInstance <- get_api_client_instance()
 
   udfApiInstance <- UdfApi$new(apiClientInstance)
 
@@ -196,10 +190,7 @@ execute_array_udf <- function(namespace, array, udf, selectedRanges, attrs=NULL,
 ##' @return Return value from the UDF.
 ##' @export
 execute_multi_array_udf <- function(namespace, array_list, udf, args=NULL, result_format=NULL) {
-  apiClientInstance <- .pkgenv[["apiClientInstance"]] # Expected to be set from login.R
-  if (is.null(apiClientInstance)) {
-    stop("tiledbcloud: unable to find login credentials. Please use login().")
-  }
+  apiClientInstance <- get_api_client_instance()
 
   udfApiInstance <- UdfApi$new(apiClientInstance)
 
