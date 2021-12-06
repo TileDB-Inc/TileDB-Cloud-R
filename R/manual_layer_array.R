@@ -18,46 +18,48 @@ array_info <- function(namespace, arrayname) {
   arrayApiInstance$GetArrayMetadata(namespace, arrayname)$toJSON()
 }
 
-##' TODO: comment
-##' xxx note this is a paginable API but default params are all-at-once
+##' Returns a dataframe of metadata for all arrays in your account that meet the
+##' filter applied.  Note that this is a paginable API but default params return
+##' all results on one call, even hundreds of them. As currently implemented,
+##' pagination information is not returned from this function.
+##'
+##' @param page integer
+##' @param per.page integer
+##' @param search character
+##' @param namespace character
+##' @param orderby character
+##' @param permissions character
+##' @param tag list( character )
+##' @param exclude.tag list( character )
+##' @param file.type list( character )
+##' @param exclude.file.type list( character )
+##' @param file.property list( character )
+##'
+##' @return Dataframe of metadata for all arrays in your account that meet the filter applied.
 ##' @export
-
-# Help on function list_arrays in module tiledb.cloud.client:
-#
-# list_arrays(namespace=None, permissions=None, tag=None, exclude_tag=None, search=None, file_type=None, exclude_file_type=None, page=None, per_page=None, async_req=False)
-#     List arrays in a user account
-#
-#     :param str namespace: list arrays in single namespace
-#     :param str permissions: filter arrays for given permissions
-#     :param list tag: zero or more tags to filter on
-#     :param list exclude_tag: zero or more tags to filter on
-#     :param str search: search string
-#     :param list file_type: zero or more file_types to filter on
-#     :param list exclude_file_type: zero or more file_types to filter on
-#     :param int page: optional page for pagination
-#     :param int per_page: optional per_page for pagination
-#     :param async_req: return future instead of results for async support
-#     :return: list of all array metadata you have access to that meet the filter applied
-
-
-
-
-list_arrays <- function(namespace=NULL, permissions=NULL) {
+list_arrays <- function(page=NULL, per.page=NULL, search=NULL, namespace=NULL, orderby=NULL, permissions=NULL, tag=NULL, exclude.tag=NULL, file.type=NULL, exclude.file.type=NULL, file.property=NULL, ...) {
   apiClientInstance <- get_api_client_instance()
   arrayApiInstance <- ArrayApi$new(apiClientInstance)
-  resultObject <- arrayApiInstance$ArraysBrowserOwnedGet()
+  resultObject <- arrayApiInstance$ArraysBrowserOwnedGet(page, per.page, search, namespace, orderby, permissions, tag, exclude.tag, file.type, exclude.file.type, file.property)
   bodyAsJSONString <- rawToChar(resultObject)
   # Output has keys 'arrays' and 'pagination_metadata'; keep only the former
   jsonlite::fromJSON(bodyAsJSONString)[["arrays"]]
 }
 
-##' TODO: comment
-##' xxx note this is a paginable API but default params are all-at-once
+##' Returns a dataframe of metadata for all public arrays accessible from your
+##' account that meet the filter applied.  Note that this is a paginable API but
+##' default params return all results on one call, even hundreds of them. As
+##' currently implemented, pagination information is not returned from this
+##' function.
+##'
+##' @inheritParams list_arrays
+##'
+##' @return Dataframe of metadata for all public arrays accessible from your account that meet the filter applied.
 ##' @export
-list_public_arrays <- function(namespace=NULL, permissions=NULL) {
+list_public_arrays <- function(page=NULL, per.page=NULL, search=NULL, namespace=NULL, orderby=NULL, permissions=NULL, tag=NULL, exclude.tag=NULL, file.type=NULL, exclude.file.type=NULL, file.property=NULL, ...) {
   apiClientInstance <- get_api_client_instance()
   arrayApiInstance <- ArrayApi$new(apiClientInstance)
-  resultObject <- arrayApiInstance$ArraysBrowserPublicGet()
+  resultObject <- arrayApiInstance$ArraysBrowserPublicGet(page, per.page, search, namespace, orderby, permissions, tag, exclude.tag, file.type, exclude.file.type, file.property)
 
   if (typeof(resultObject) != "raw") {
     className <- class(resultObject)[1]
@@ -73,13 +75,19 @@ list_public_arrays <- function(namespace=NULL, permissions=NULL) {
   jsonlite::fromJSON(bodyAsJSONString)[["arrays"]]
 }
 
-##' TODO: comment
-##' xxx note this is a paginable API but default params are all-at-once
+##' Returns a dataframe of metadata for all arrays shared with your account that
+##' meet the filter applied.  Note that this is a paginable API but default
+##' params return all results on one call, even hundreds of them. As currently
+##' implemented, pagination information is not returned from this function.
+##'
+##' @inheritParams list_arrays
+##'
+##' @return Dataframe of metadata for all arrays shared with your account that meet the filter applied.
 ##' @export
-list_shared_arrays <- function(namespace=NULL, permissions=NULL) {
+list_shared_arrays <- function(page=NULL, per.page=NULL, search=NULL, namespace=NULL, orderby=NULL, permissions=NULL, tag=NULL, exclude.tag=NULL, file.type=NULL, exclude.file.type=NULL, file.property=NULL, ...) {
   apiClientInstance <- get_api_client_instance()
   arrayApiInstance <- ArrayApi$new(apiClientInstance)
-  resultObject <- arrayApiInstance$ArraysBrowserSharedGet()
+  resultObject <- arrayApiInstance$ArraysBrowserSharedGet(page, per.page, search, namespace, orderby, permissions, tag, exclude.tag, file.type, exclude.file.type, file.property)
 
   if (typeof(resultObject) != "raw") {
     className <- class(resultObject)[1]

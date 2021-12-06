@@ -2,12 +2,57 @@
 % Please edit documentation in R/manual_layer_array.R
 \name{list_public_arrays}
 \alias{list_public_arrays}
-\title{TODO: comment
-xxx note this is a paginable API but default params are all-at-once}
+\title{Returns a dataframe of metadata for all public arrays accessible from your
+account that meet the filter applied.  Note that this is a paginable API but
+default params return all results on one call, even hundreds of them. As
+currently implemented, pagination information is not returned from this
+function.}
 \usage{
-list_public_arrays(namespace = NULL, permissions = NULL)
+list_public_arrays(
+  page = NULL,
+  per.page = NULL,
+  search = NULL,
+  namespace = NULL,
+  orderby = NULL,
+  permissions = NULL,
+  tag = NULL,
+  exclude.tag = NULL,
+  file.type = NULL,
+  exclude.file.type = NULL,
+  file.property = NULL,
+  ...
+)
+}
+\arguments{
+\item{page}{integer}
+
+\item{per.page}{integer}
+
+\item{search}{character}
+
+\item{namespace}{character}
+
+\item{orderby}{character}
+
+\item{permissions}{character}
+
+\item{tag}{list( character )}
+
+\item{exclude.tag}{list( character )}
+
+\item{file.type}{list( character )}
+
+\item{exclude.file.type}{list( character )}
+
+\item{file.property}{list( character )}
+}
+\value{
+Dataframe of metadata for all public arrays accessible from your account that meet the filter applied.
 }
 \description{
-TODO: comment
-xxx note this is a paginable API but default params are all-at-once
+Returns a dataframe of metadata for all public arrays accessible from your
+account that meet the filter applied.  Note that this is a paginable API but
+default params return all results on one call, even hundreds of them. As
+currently implemented, pagination information is not returned from this
+function.
 }
