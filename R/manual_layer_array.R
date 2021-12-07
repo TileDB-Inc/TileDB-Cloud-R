@@ -49,7 +49,10 @@ list_arrays <- function(page=NULL, per.page=NULL, search=NULL, namespace=NULL, o
   apiClientInstance <- get_api_client_instance()
   arrayApiInstance <- ArrayApi$new(apiClientInstance)
   resultObject <- arrayApiInstance$ArraysBrowserOwnedGet(page, per.page, search, namespace, orderby, permissions, tag, exclude.tag, file.type, exclude.file.type, file.property)
-  bodyAsJSONString <- rawToChar(resultObject)
+
+  body <- get_raw_response_body_or_stop(resultObject)
+
+  bodyAsJSONString <- rawToChar(body)
   # Output has keys 'arrays' and 'pagination_metadata'; keep only the former
   jsonlite::fromJSON(bodyAsJSONString)[["arrays"]]
 }
@@ -69,16 +72,9 @@ list_public_arrays <- function(page=NULL, per.page=NULL, search=NULL, namespace=
   arrayApiInstance <- ArrayApi$new(apiClientInstance)
   resultObject <- arrayApiInstance$ArraysBrowserPublicGet(page, per.page, search, namespace, orderby, permissions, tag, exclude.tag, file.type, exclude.file.type, file.property)
 
-  if (typeof(resultObject) != "raw") {
-    className <- class(resultObject)[1]
-    if (className == "ApiResponse") {
-      stop("tiledbcloud: received error response: ", resultObject$content, call.=FALSE)
-    } else {
-      stop("tiledbcloud: received error response: ", class(resultObject)[1], call.=FALSE)
-    }
-  }
+  body <- get_raw_response_body_or_stop(resultObject)
 
-  bodyAsJSONString <- rawToChar(resultObject)
+  bodyAsJSONString <- rawToChar(body)
   # Output has keys 'arrays' and 'pagination_metadata'; keep only the former
   jsonlite::fromJSON(bodyAsJSONString)[["arrays"]]
 }
@@ -97,16 +93,9 @@ list_shared_arrays <- function(page=NULL, per.page=NULL, search=NULL, namespace=
   arrayApiInstance <- ArrayApi$new(apiClientInstance)
   resultObject <- arrayApiInstance$ArraysBrowserSharedGet(page, per.page, search, namespace, orderby, permissions, tag, exclude.tag, file.type, exclude.file.type, file.property)
 
-  if (typeof(resultObject) != "raw") {
-    className <- class(resultObject)[1]
-    if (className == "ApiResponse") {
-      stop("tiledbcloud: received error response: ", resultObject$content, call.=FALSE)
-    } else {
-      stop("tiledbcloud: received error response: ", class(resultObject)[1], call.=FALSE)
-    }
-  }
+  body <- get_raw_response_body_or_stop(resultObject)
 
-  bodyAsJSONString <- rawToChar(resultObject)
+  bodyAsJSONString <- rawToChar(body)
   # Output has keys 'arrays' and 'pagination_metadata'; keep only the former
   jsonlite::fromJSON(bodyAsJSONString)[["arrays"]]
 }
