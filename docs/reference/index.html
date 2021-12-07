@@ -925,6 +925,37 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="get_decoded_response_body_or_stop.html">get_decoded_response_body_or_stop()</a></code> </p>
+        </td>
+        <td><p>This is a package-internal function for code-deduplication within various
+manual-layer functions. It wraps get_raw_response_body_or_stop() by
+decoding the raw response body using any of the three result-format types
+we support for UDFs. It's a keystroke-saving wrapper around
+get_raw_response_body_or_stop().</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="get_raw_response_body_or_stop.html">get_raw_response_body_or_stop()</a></code> </p>
+        </td>
+        <td><p>This is a package-internal function for code-deduplication within various
+manual-layer functions. For the API-level functions which use
+wrap_as_api_response (above), manual-layer functions will receive either (a)
+the raw HTTP body, if the status_code was 2xx, or (b) an ApiResponse object.
+Using this function, callsites can get the HTTP body (if available), else an
+informative stop().</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="list_arrays.html">list_arrays()</a></code> </p>
+        </td>
+        <td><p>Returns a dataframe of metadata for all arrays that meet the
+filter applied.  Note that this is a paginable API but default params return
+all results on one call, even hundreds of them. As currently implemented,
+pagination information is not returned from this function. The <code>public</code>
+<code>shared</code> arguments may not both be true.</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="login.html">login()</a></code> </p>
         </td>
         <td><p>TileDB Cloud Login Helper</p></td>

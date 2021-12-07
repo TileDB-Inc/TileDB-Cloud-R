@@ -1601,14 +1601,11 @@ ArrayApi <- R6::R6Class(
     },
     ArraysBrowserOwnedGet = function(page=NULL, per.page=NULL, search=NULL, namespace=NULL, orderby=NULL, permissions=NULL, tag=NULL, exclude.tag=NULL, file.type=NULL, exclude.file.type=NULL, file.property=NULL, ...){
       apiResponse <- self$ArraysBrowserOwnedGetWithHttpInfo(page, per.page, search, namespace, orderby, permissions, tag, exclude.tag, file.type, exclude.file.type, file.property, ...)
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+      } else {
         apiResponse
       }
     },
@@ -1655,22 +1652,8 @@ ArrayApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "ArrayBrowserData", loadNamespace("tiledbcloud")),
-          error = function(e){
-             stop("Failed to deserialize response")
-          }
-        )
-        ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
+      wrap_as_api_response(resp)
     },
     ArraysBrowserOwnedSidebarGet = function(...){
       apiResponse <- self$ArraysBrowserOwnedSidebarGetWithHttpInfo(...)
@@ -1726,13 +1709,10 @@ ArrayApi <- R6::R6Class(
     ArraysBrowserPublicGet = function(page=NULL, per.page=NULL, search=NULL, namespace=NULL, orderby=NULL, permissions=NULL, tag=NULL, exclude.tag=NULL, file.type=NULL, exclude.file.type=NULL, file.property=NULL, ...){
       apiResponse <- self$ArraysBrowserPublicGetWithHttpInfo(page, per.page, search, namespace, orderby, permissions, tag, exclude.tag, file.type, exclude.file.type, file.property, ...)
       resp <- apiResponse$response
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+      } else {
         apiResponse
       }
     },
@@ -1780,21 +1760,8 @@ ArrayApi <- R6::R6Class(
                                  body = body,
                                  ...)
 
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "ArrayBrowserData", loadNamespace("tiledbcloud")),
-          error = function(e){
-             stop("Failed to deserialize response")
-          }
-        )
-        ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
+      wrap_as_api_response(resp)
     },
     ArraysBrowserPublicSidebarGet = function(...){
       apiResponse <- self$ArraysBrowserPublicSidebarGetWithHttpInfo(...)
@@ -1850,13 +1817,10 @@ ArrayApi <- R6::R6Class(
     ArraysBrowserSharedGet = function(page=NULL, per.page=NULL, search=NULL, namespace=NULL, orderby=NULL, permissions=NULL, tag=NULL, exclude.tag=NULL, file.type=NULL, exclude.file.type=NULL, file.property=NULL, ...){
       apiResponse <- self$ArraysBrowserSharedGetWithHttpInfo(page, per.page, search, namespace, orderby, permissions, tag, exclude.tag, file.type, exclude.file.type, file.property, ...)
       resp <- apiResponse$response
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+      } else {
         apiResponse
       }
     },
@@ -1903,22 +1867,8 @@ ArrayApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "ArrayBrowserData", loadNamespace("tiledbcloud")),
-          error = function(e){
-             stop("Failed to deserialize response")
-          }
-        )
-        ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
+      wrap_as_api_response(resp)
     },
     ArraysBrowserSharedSidebarGet = function(...){
       apiResponse <- self$ArraysBrowserSharedSidebarGetWithHttpInfo(...)
@@ -1974,13 +1924,10 @@ ArrayApi <- R6::R6Class(
     ArraysNamespaceArrayEndTimestampsGet = function(namespace, array, page=NULL, per.page=NULL, ...){
       apiResponse <- self$ArraysNamespaceArrayEndTimestampsGetWithHttpInfo(namespace, array, page, per.page, ...)
       resp <- apiResponse$response
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+      } else {
         apiResponse
       }
     },
@@ -2025,22 +1972,8 @@ ArrayApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "ArrayEndTimestampData", loadNamespace("tiledbcloud")),
-          error = function(e){
-             stop("Failed to deserialize response")
-          }
-        )
-        ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
+      wrap_as_api_response(resp)
     },
     ConsolidateArray = function(namespace, array, tiledb.config, ...){
       apiResponse <- self$ConsolidateArrayWithHttpInfo(namespace, array, tiledb.config, ...)
@@ -3086,13 +3019,10 @@ ArrayApi <- R6::R6Class(
     GetArraysInNamespace = function(namespace, ...){
       apiResponse <- self$GetArraysInNamespaceWithHttpInfo(namespace, ...)
       resp <- apiResponse$response
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+      } else {
         apiResponse
       }
     },
@@ -3125,22 +3055,8 @@ ArrayApi <- R6::R6Class(
                                  headerParams = headerParams,
                                  body = body,
                                  ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "array[ArrayInfo]", loadNamespace("tiledbcloud")),
-          error = function(e){
-             stop("Failed to deserialize response")
-          }
-        )
-        ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
+      wrap_as_api_response(resp)
     },
     GetFragmentEndTimestamp = function(namespace, array, end.timestamp=NULL, ...){
       apiResponse <- self$GetFragmentEndTimestampWithHttpInfo(namespace, array, end.timestamp, ...)

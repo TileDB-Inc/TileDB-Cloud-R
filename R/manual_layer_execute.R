@@ -29,9 +29,6 @@ execute_generic_udf <- function(namespace, udf, args=NULL) {
     generic_udf$argument <- jsonlite::toJSON(as.integer(serialize(args, NULL)))
   }
 
-  # In the successful case, the result will be an R object.  In a failure case
-  # such as invalid hostname provided to login, it will be an object of type
-  # ApiResponse.
   resultObject <- udfApiInstance$SubmitGenericUDF(namespace, generic_udf)
 
   # Decode the result
@@ -123,8 +120,6 @@ execute_array_udf <- function(namespace, array, udf, selectedRanges, attrs=NULL,
   resultObject <- udfApiInstance$SubmitUDF(namespace=namespace, array=array, udf=multi_array_udf)
 
   # Decode the result
-  body <- get_raw_response_body_or_stop(resultObject)
-
   get_decoded_response_body_or_stop(resultObject, result_format)
 }
 
@@ -178,5 +173,6 @@ execute_multi_array_udf <- function(namespace, array_list, udf, args=NULL, resul
   # Make the network request.
   resultObject <- udfApiInstance$SubmitMultiArrayUDF(namespace=namespace, udf=multi_array_udf)
 
+  # Decode the result
   get_decoded_response_body_or_stop(resultObject, result_format)
 }
