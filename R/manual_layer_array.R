@@ -37,6 +37,14 @@ array_info <- function(namespace, arrayname) {
 ##'
 ##' @return Dataframe of metadata for all arrays in your account that meet the filter applied.
 ##' @export
+# Note: list_arrays, list_public_arrays, and list_shared_arrays are all but identical.
+# They are split out for the following reasons:
+# * For regularity with the Python API -- Python and R code-snippet tabs are side-by-side in our
+#   webdocs -- we have three separate user-level functions rather than a single one with an
+#   owner/public/shared enum/bool/something.
+# * In the REST API there are three separate endpoints to call.
+# In between those two constraints there isn't much room for code deduplication.
+
 list_arrays <- function(page=NULL, per.page=NULL, search=NULL, namespace=NULL, orderby=NULL, permissions=NULL, tag=NULL, exclude.tag=NULL, file.type=NULL, exclude.file.type=NULL, file.property=NULL, ...) {
   apiClientInstance <- get_api_client_instance()
   arrayApiInstance <- ArrayApi$new(apiClientInstance)
