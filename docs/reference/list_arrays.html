@@ -6,8 +6,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TODO: comment
-xxx note this is a paginable API but default params are all-at-once — list_arrays • tiledbcloud</title>
+<title>Returns a dataframe of metadata for all arrays that meet the
+filter applied.  Note that this is a paginable API but default params return
+all results on one call, even hundreds of them. As currently implemented,
+pagination information is not returned from this function. The public
+shared arguments may not both be true. — list_arrays • tiledbcloud</title>
 
 
 <!-- jquery -->
@@ -40,10 +43,16 @@ xxx note this is a paginable API but default params are all-at-once — list_arr
 
 
 
-<meta property="og:title" content="TODO: comment
-xxx note this is a paginable API but default params are all-at-once — list_arrays" />
-<meta property="og:description" content="TODO: comment
-xxx note this is a paginable API but default params are all-at-once" />
+<meta property="og:title" content="Returns a dataframe of metadata for all arrays that meet the
+filter applied.  Note that this is a paginable API but default params return
+all results on one call, even hundreds of them. As currently implemented,
+pagination information is not returned from this function. The public
+shared arguments may not both be true. — list_arrays" />
+<meta property="og:description" content="Returns a dataframe of metadata for all arrays that meet the
+filter applied.  Note that this is a paginable API but default params return
+all results on one call, even hundreds of them. As currently implemented,
+pagination information is not returned from this function. The public
+shared arguments may not both be true." />
 
 
 
@@ -129,20 +138,101 @@ xxx note this is a paginable API but default params are all-at-once" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>TODO: comment
-xxx note this is a paginable API but default params are all-at-once</h1>
+    <h1>Returns a dataframe of metadata for all arrays that meet the
+filter applied.  Note that this is a paginable API but default params return
+all results on one call, even hundreds of them. As currently implemented,
+pagination information is not returned from this function. The <code>public</code>
+<code>shared</code> arguments may not both be true.</h1>
     <small class="dont-index">Source: <a href='https://github.com/TileDB-Inc/TileDB-Cloud-R/blob/master/R/manual_layer_array.R'><code>R/manual_layer_array.R</code></a></small>
     <div class="hidden name"><code>list_arrays.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>TODO: comment
-xxx note this is a paginable API but default params are all-at-once</p>
+    <p>Returns a dataframe of metadata for all arrays that meet the
+filter applied.  Note that this is a paginable API but default params return
+all results on one call, even hundreds of them. As currently implemented,
+pagination information is not returned from this function. The <code>public</code>
+<code>shared</code> arguments may not both be true.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>list_arrays</span><span class='op'>(</span>namespace <span class='op'>=</span> <span class='cn'>NULL</span>, permissions <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>list_arrays</span><span class='op'>(</span>
+  public <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  shared <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  page <span class='op'>=</span> <span class='cn'>NULL</span>,
+  per.page <span class='op'>=</span> <span class='cn'>NULL</span>,
+  search <span class='op'>=</span> <span class='cn'>NULL</span>,
+  namespace <span class='op'>=</span> <span class='cn'>NULL</span>,
+  orderby <span class='op'>=</span> <span class='cn'>NULL</span>,
+  permissions <span class='op'>=</span> <span class='cn'>NULL</span>,
+  tag <span class='op'>=</span> <span class='cn'>NULL</span>,
+  exclude.tag <span class='op'>=</span> <span class='cn'>NULL</span>,
+  file.type <span class='op'>=</span> <span class='cn'>NULL</span>,
+  exclude.file.type <span class='op'>=</span> <span class='cn'>NULL</span>,
+  file.property <span class='op'>=</span> <span class='cn'>NULL</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>public</th>
+      <td><p>logical TRUE means list public arrays</p></td>
+    </tr>
+    <tr>
+      <th>shared</th>
+      <td><p>logical TRUE means list shared arrays. If <code>public</code> and <code>shared</code> are both
+false then arrays owned by you are listed.</p></td>
+    </tr>
+    <tr>
+      <th>page</th>
+      <td><p>integer</p></td>
+    </tr>
+    <tr>
+      <th>per.page</th>
+      <td><p>integer</p></td>
+    </tr>
+    <tr>
+      <th>search</th>
+      <td><p>character</p></td>
+    </tr>
+    <tr>
+      <th>namespace</th>
+      <td><p>character</p></td>
+    </tr>
+    <tr>
+      <th>orderby</th>
+      <td><p>character</p></td>
+    </tr>
+    <tr>
+      <th>permissions</th>
+      <td><p>character</p></td>
+    </tr>
+    <tr>
+      <th>tag</th>
+      <td><p>list( character )</p></td>
+    </tr>
+    <tr>
+      <th>exclude.tag</th>
+      <td><p>list( character )</p></td>
+    </tr>
+    <tr>
+      <th>file.type</th>
+      <td><p>list( character )</p></td>
+    </tr>
+    <tr>
+      <th>exclude.file.type</th>
+      <td><p>list( character )</p></td>
+    </tr>
+    <tr>
+      <th>file.property</th>
+      <td><p>list( character )</p></td>
+    </tr>
+    </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>Dataframe of metadata for all arrays in your account that meet the filter applied.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

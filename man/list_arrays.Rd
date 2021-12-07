@@ -2,12 +2,15 @@
 % Please edit documentation in R/manual_layer_array.R
 \name{list_arrays}
 \alias{list_arrays}
-\title{Returns a dataframe of metadata for all arrays in your account that meet the
+\title{Returns a dataframe of metadata for all arrays that meet the
 filter applied.  Note that this is a paginable API but default params return
 all results on one call, even hundreds of them. As currently implemented,
-pagination information is not returned from this function.}
+pagination information is not returned from this function. The \code{public}
+\code{shared} arguments may not both be true.}
 \usage{
 list_arrays(
+  public = FALSE,
+  shared = FALSE,
   page = NULL,
   per.page = NULL,
   search = NULL,
@@ -23,6 +26,11 @@ list_arrays(
 )
 }
 \arguments{
+\item{public}{logical TRUE means list public arrays}
+
+\item{shared}{logical TRUE means list shared arrays. If \code{public} and \code{shared} are both
+false then arrays owned by you are listed.}
+
 \item{page}{integer}
 
 \item{per.page}{integer}
@@ -49,8 +57,9 @@ list_arrays(
 Dataframe of metadata for all arrays in your account that meet the filter applied.
 }
 \description{
-Returns a dataframe of metadata for all arrays in your account that meet the
+Returns a dataframe of metadata for all arrays that meet the
 filter applied.  Note that this is a paginable API but default params return
 all results on one call, even hundreds of them. As currently implemented,
-pagination information is not returned from this function.
+pagination information is not returned from this function. The \code{public}
+\code{shared} arguments may not both be true.
 }

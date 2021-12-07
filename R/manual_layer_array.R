@@ -18,11 +18,15 @@ array_info <- function(namespace, arrayname) {
   arrayApiInstance$GetArrayMetadata(namespace, arrayname)$toJSON()
 }
 
-##' Returns a dataframe of metadata for all arrays in your account that meet the
+##' Returns a dataframe of metadata for all arrays that meet the
 ##' filter applied.  Note that this is a paginable API but default params return
 ##' all results on one call, even hundreds of them. As currently implemented,
-##' pagination information is not returned from this function.
+##' pagination information is not returned from this function. The \code{public}
+##' \code{shared} arguments may not both be true.
 ##'
+##' @param public logical TRUE means list public arrays
+##' @param shared logical TRUE means list shared arrays. If \code{public} and \code{shared} are both
+##' false then arrays owned by you are listed.
 ##' @param page integer
 ##' @param per.page integer
 ##' @param search character
@@ -37,61 +41,24 @@ array_info <- function(namespace, arrayname) {
 ##'
 ##' @return Dataframe of metadata for all arrays in your account that meet the filter applied.
 ##' @export
-# Note: list_arrays, list_public_arrays, and list_shared_arrays are all but identical.
-# They are split out for the following reasons:
-# * For regularity with the Python API -- Python and R code-snippet tabs are side-by-side in our
-#   webdocs -- we have three separate user-level functions rather than a single one with an
-#   owner/public/shared enum/bool/something.
-# * In the REST API there are three separate endpoints to call.
-# In between those two constraints there isn't much room for code deduplication.
-
-list_arrays <- function(page=NULL, per.page=NULL, search=NULL, namespace=NULL, orderby=NULL, permissions=NULL, tag=NULL, exclude.tag=NULL, file.type=NULL, exclude.file.type=NULL, file.property=NULL, ...) {
+list_arrays <- function(public=FALSE, shared=FALSE, page=NULL, per.page=NULL, search=NULL, namespace=NULL,
+  orderby=NULL, permissions=NULL, tag=NULL, exclude.tag=NULL, file.type=NULL, exclude.file.type=NULL, file.property=NULL, ...) {
+  if (public && shared) {
+    stop("The public and shared arguments must not both be TRUE.")
+  }
   apiClientInstance <- get_api_client_instance()
   arrayApiInstance <- ArrayApi$new(apiClientInstance)
-  resultObject <- arrayApiInstance$ArraysBrowserOwnedGet(page, per.page, search, namespace, orderby, permissions, tag, exclude.tag, file.type, exclude.file.type, file.property)
 
-  body <- get_raw_response_body_or_stop(resultObject)
-
-  bodyAsJSONString <- rawToChar(body)
-  # Output has keys 'arrays' and 'pagination_metadata'; keep only the former
-  jsonlite::fromJSON(bodyAsJSONString)[["arrays"]]
-}
-
-##' Returns a dataframe of metadata for all public arrays accessible from your
-##' account that meet the filter applied.  Note that this is a paginable API but
-##' default params return all results on one call, even hundreds of them. As
-##' currently implemented, pagination information is not returned from this
-##' function.
-##'
-##' @inheritParams list_arrays
-##'
-##' @return Dataframe of metadata for all public arrays accessible from your account that meet the filter applied.
-##' @export
-list_public_arrays <- function(page=NULL, per.page=NULL, search=NULL, namespace=NULL, orderby=NULL, permissions=NULL, tag=NULL, exclude.tag=NULL, file.type=NULL, exclude.file.type=NULL, file.property=NULL, ...) {
-  apiClientInstance <- get_api_client_instance()
-  arrayApiInstance <- ArrayApi$new(apiClientInstance)
-  resultObject <- arrayApiInstance$ArraysBrowserPublicGet(page, per.page, search, namespace, orderby, permissions, tag, exclude.tag, file.type, exclude.file.type, file.property)
-
-  body <- get_raw_response_body_or_stop(resultObject)
-
-  bodyAsJSONString <- rawToChar(body)
-  # Output has keys 'arrays' and 'pagination_metadata'; keep only the former
-  jsonlite::fromJSON(bodyAsJSONString)[["arrays"]]
-}
-
-##' Returns a dataframe of metadata for all arrays shared with your account that
-##' meet the filter applied.  Note that this is a paginable API but default
-##' params return all results on one call, even hundreds of them. As currently
-##' implemented, pagination information is not returned from this function.
-##'
-##' @inheritParams list_arrays
-##'
-##' @return Dataframe of metadata for all arrays shared with your account that meet the filter applied.
-##' @export
-list_shared_arrays <- function(page=NULL, per.page=NULL, search=NULL, namespace=NULL, orderby=NULL, permissions=NULL, tag=NULL, exclude.tag=NULL, file.type=NULL, exclude.file.type=NULL, file.property=NULL, ...) {
-  apiClientInstance <- get_api_client_instance()
-  arrayApiInstance <- ArrayApi$new(apiClientInstance)
-  resultObject <- arrayApiInstance$ArraysBrowserSharedGet(page, per.page, search, namespace, orderby, permissions, tag, exclude.tag, file.type, exclude.file.type, file.property)
+  if (public) {
+    resultObject <- arrayApiInstance$ArraysBrowserPublicGet(page, per.page, search, namespace, orderby,
+      permissions, tag, exclude.tag, file.type, exclude.file.type, file.property)
+  } else if (shared) {
+    resultObject <- arrayApiInstance$ArraysBrowserSharedGet(page, per.page, search, namespace, orderby,
+      permissions, tag, exclude.tag, file.type, exclude.file.type, file.property)
+  } else {
+    resultObject <- arrayApiInstance$ArraysBrowserOwnedGet(page, per.page, search, namespace, orderby,
+      permissions, tag, exclude.tag, file.type, exclude.file.type, file.property)
+  }
 
   body <- get_raw_response_body_or_stop(resultObject)
 
