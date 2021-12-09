@@ -9,7 +9,7 @@ execute_multi_array_udf(
   array_list,
   udf,
   args = NULL,
-  result_format = NULL
+  result_format = "native"
 )
 }
 \arguments{
