@@ -1,0 +1,34 @@
+---
+title: "Setup"
+output: github_document
+vignette: |
+  %\VignetteIndexEntry{Setup}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# How to get access to TileDB-Cloud-R
+
+## Build and Test
+
+```sh
+R CMD build .                           # creates e.g. tiledbcloud_0.0.4.tar.gz
+R CMD check tiledbcloud_0.0.4.tar.gz    # checks the package
+```
+
+## From GitHub
+
+```
+> if (!requireNamespace("remotes", quietly=TRUE)) install.packages("remotes")
+> remotes::install_github("TileDB-Inc/TileDB-Cloud-R")
+```
+
+## Command-line access
+
+```
+library(tiledbcloud)
+```
+
+## Notebooks
+
+Up-to-date `TileDB-Cloud-R` can be loaded in [TileDB Cloud Notebooks](https://cloud.tiledb.com/notebooks/me) using `library(tiledbcloud)`.

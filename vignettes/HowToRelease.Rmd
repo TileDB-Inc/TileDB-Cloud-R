@@ -17,4 +17,4 @@ vignette: |
     * Note that you need to re-run `build_site` after editing any `*.md` files in this repo, as it generates HTML from markdown files. Check all the HTML for any markdown-formatting issues.
     * `git add` any new files
 * Make a GitHub release tag with the same spelling as used in the `DESCRIPTION` file, e.g. `0.0.4`. This is used by some packaging tools such as Conda.
-* See also [HowToBuild.md](./HowToBuild.md)
+* See also [Setup.md](./Setup.md)

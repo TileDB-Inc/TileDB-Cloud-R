@@ -107,7 +107,7 @@
   body <- .get_raw_response_body_or_stop(resultObject)
 
   decoded_response <- NULL
-  switch(result_format,
+  switch(resultFormat,
     native={
       decoded_response <- unserialize(body, NULL)
     },
@@ -119,7 +119,7 @@
     arrow={
       decoded_response <- arrow::read_ipc_stream(body)
     },
-    stop("Result format unrecognized: ", result_format)
+    stop("Result format unrecognized: ", resultFormat)
   )
   decoded_response
 }

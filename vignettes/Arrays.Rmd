@@ -1,0 +1,118 @@
+---
+title: "Arrays"
+output: github_document
+vignette: |
+  %\VignetteIndexEntry{Arrays}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Arrays
+
+Some of these examples use [TileDB-R](https://github.com/TileDB-Inc/TileDB-R) in addition to this package.
+
+## Listing arrays
+
+You can show arrays you own, or public/shared arrays:
+
+```
+> tiledbcloud::list_arrays()[c("namespace","name")]
+ namespace                             name
+ 1   sampleuser                      mtcars
+ 2   sampleuser            palmer_penguins2
+ 3   sampleuser            quickstart_dense
+ 4   sampleuser                    untitled
+ 5   sampleuser                     flights
+ 6   sampleuser             palmer_penguins
+ 7   sampleuser                 example_csv
+```
+
+```
+> tiledbcloud::list_arrays(public=TRUE, namespace="TileDB-Inc")[c("namespace","name")]
+   namespace                           name
+1 TileDB-Inc               quickstart_dense
+2 TileDB-Inc              quickstart_sparse
+3 TileDB-Inc gtex-analysis-rnaseqc-gene-tpm
+4 TileDB-Inc       example-tensorflow-model
+```
+
+```
+> tiledbcloud::list_arrays(shared=TRUE)[c("namespace","name")]
+  namespace                    name
+1   sampleuser       experiment_001
+2     coworker         testing--032
+```
+
+## Showing array information
+
+```
+> str(tiledbcloud::array_info(namespace="TileDB-Inc", arrayname="quickstart_dense"))
+List of 12
+ $ id                  : chr "682afbad-7671-488b-9058-41f0fe5da049"
+ $ namespace           : chr "TileDB-Inc"
+ $ size                : int 835
+ $ last_accessed       : chr "2021-12-09T14:48:43Z"
+ $ description         : chr ""
+ $ name                : chr "quickstart_dense"
+ $ type                : chr "dense"
+ $ share_count         : int 1
+ $ public_share        : logi TRUE
+ $ namespace_subscribed: logi FALSE
+ $ tiledb_uri          : chr "tiledb://TileDB-Inc/quickstart_dense"
+ $ tags                : list()
+```
+
+## Reading arrays
+
+```
+uri <- "tiledb://TileDB-Inc/quickstart_sparse"
+arr <- tiledb::tiledb_array(uri, query_type="READ", as.data.frame=TRUE)
+schema(arr)
+- Array type: sparse
+- Cell order: row-major
+- Tile order: row-major
+- Capacity: 10000
+- Allows duplicates: false
+- Coordinates filters: 1
+  > ZSTD: COMPRESSION_LEVEL=-1
+- Offsets filters: 1
+  > ZSTD: COMPRESSION_LEVEL=-1
+- Validity filters: 1
+  > RLE: COMPRESSION_LEVEL=-1
+
+### Dimension ###
+- Name: rows
+- Type: INT32
+- Cell val num: 1
+- Domain: [1,4]
+- Tile extent: 4
+- Filters: 0
+
+### Dimension ###
+- Name: cols
+- Type: INT32
+- Cell val num: 1
+- Domain: [1,4]
+- Tile extent: 4
+- Filters: 0
+
+### Attribute ###
+- Name: a
+- Type: UINT32
+- Nullable: false
+- Cell val num: 1
+- Filters: 0
+- Fill value: 4294967295
+```
+
+## Registering / deregistering arrays
+
+Information coming soon! See also [https://cloud.tiledb.com](https://cloud.tiledb.com) for UI access.
+
+## Sharing
+
+Information coming soon! See also [https://cloud.tiledb.com](https://cloud.tiledb.com) for UI access.
+
+## Reading/writing metadata
+
+Information coming soon! See also [https://cloud.tiledb.com](https://cloud.tiledb.com) for UI access.

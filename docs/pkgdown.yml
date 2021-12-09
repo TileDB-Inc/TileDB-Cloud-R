@@ -2,8 +2,14 @@ pandoc: 2.16.2
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
-  HowToBuild: HowToBuild.html
+  Arrays: Arrays.html
   HowToRelease: HowToRelease.html
   HowToUpdateAPI: HowToUpdateAPI.html
-last_built: 2021-12-10T16:07Z
-
+  HowToUpdateDocumentation: HowToUpdateDocumentation.html
+  Login: Login.html
+  PackageStatus: PackageStatus.html
+  SQL: SQL.html
+  Setup: Setup.html
+  Tasks: Tasks.html
+  UDFs: UDFs.html
+last_built: 2021-12-09T20:36Z
