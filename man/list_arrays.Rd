@@ -63,3 +63,14 @@ all results on one call, even hundreds of them. As currently implemented,
 pagination information is not returned from this function. The \code{public}
 \code{shared} arguments may not both be true.
 }
+\seealso{
+Other {manual-layer functions}: 
+\code{\link{.wrap_as_api_response}()},
+\code{\link{array_info}()},
+\code{\link{execute_array_udf}()},
+\code{\link{execute_generic_udf}()},
+\code{\link{execute_multi_array_udf}()},
+\code{\link{login}()},
+\code{\link{user_profile}()}
+}
+\concept{{manual-layer functions}}

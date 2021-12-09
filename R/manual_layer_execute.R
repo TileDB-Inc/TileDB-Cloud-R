@@ -17,6 +17,7 @@
 ##' to call by name, use a named list like \code{args=list(x=123,y=456)}.
 ##'
 ##' @return The R object which is the return value from the UDF.
+##' @family {manual-layer functions}
 ##' @export
 execute_generic_udf <- function(namespace, udf, args=NULL) {
   apiClientInstance <- get_api_client_instance()
@@ -32,7 +33,7 @@ execute_generic_udf <- function(namespace, udf, args=NULL) {
   resultObject <- udfApiInstance$SubmitGenericUDF(namespace, generic_udf)
 
   # Decode the result
-  body <- get_raw_response_body_or_stop(resultObject)
+  body <- .get_raw_response_body_or_stop(resultObject)
   parsed <- jsonlite::fromJSON(rawToChar(body))
   parsed[["value"]] # Extract the value field
 }
@@ -77,7 +78,7 @@ execute_generic_udf <- function(namespace, udf, args=NULL) {
 ##' @return Return value from the UDF.
 ##'
 ##' @importFrom arrow read_ipc_stream
-##'
+##' @family {manual-layer functions}
 ##' @export
 execute_array_udf <- function(namespace, array, udf, selectedRanges, attrs=NULL, layout=NULL, args=NULL, result_format='native') {
   apiClientInstance <- get_api_client_instance()
@@ -120,7 +121,7 @@ execute_array_udf <- function(namespace, array, udf, selectedRanges, attrs=NULL,
   resultObject <- udfApiInstance$SubmitUDF(namespace=namespace, array=array, udf=multi_array_udf)
 
   # Decode the result
-  get_decoded_response_body_or_stop(resultObject, result_format)
+  .get_decoded_response_body_or_stop(resultObject, result_format)
 }
 
 ##' TileDB Cloud UDF-Execution Helper for multiple-array UDFs
@@ -149,6 +150,7 @@ execute_array_udf <- function(namespace, array, udf, selectedRanges, attrs=NULL,
 ##' library are converted back to natural R objects.
 ##'
 ##' @return Return value from the UDF.
+##' @family {manual-layer functions}
 ##' @export
 execute_multi_array_udf <- function(namespace, array_list, udf, args=NULL, result_format='native') {
   apiClientInstance <- get_api_client_instance()
@@ -174,5 +176,5 @@ execute_multi_array_udf <- function(namespace, array_list, udf, args=NULL, resul
   resultObject <- udfApiInstance$SubmitMultiArrayUDF(namespace=namespace, udf=multi_array_udf)
 
   # Decode the result
-  get_decoded_response_body_or_stop(resultObject, result_format)
+  .get_decoded_response_body_or_stop(resultObject, result_format)
 }

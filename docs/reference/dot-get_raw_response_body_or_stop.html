@@ -6,7 +6,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TileDB Cloud Manual Layer for User Info — user_profile • tiledbcloud</title>
+<title>This is a package-internal function for code-deduplication within various
+manual-layer functions. For the API-level functions which use
+.wrap_as_api_response, manual-layer functions will receive either (a)
+the raw HTTP body, if the status_code was 2xx, or (b) an link{ApiResponse} object.
+Using this function, callsites can get the HTTP body (if available), else an
+informative stop(). — .get_raw_response_body_or_stop • tiledbcloud</title>
 
 
 <!-- jquery -->
@@ -39,10 +44,18 @@
 
 
 
-<meta property="og:title" content="TileDB Cloud Manual Layer for User Info — user_profile" />
-<meta property="og:description" content="This function shows user information for the  currently logged-in account on
-TileDB Cloud.  Nominally you will first call login(); if not, the results of
-the last login at ~/.tiledb/cloud.json will be used." />
+<meta property="og:title" content="This is a package-internal function for code-deduplication within various
+manual-layer functions. For the API-level functions which use
+.wrap_as_api_response, manual-layer functions will receive either (a)
+the raw HTTP body, if the status_code was 2xx, or (b) an link{ApiResponse} object.
+Using this function, callsites can get the HTTP body (if available), else an
+informative stop(). — .get_raw_response_body_or_stop" />
+<meta property="og:description" content="This is a package-internal function for code-deduplication within various
+manual-layer functions. For the API-level functions which use
+.wrap_as_api_response, manual-layer functions will receive either (a)
+the raw HTTP body, if the status_code was 2xx, or (b) an link{ApiResponse} object.
+Using this function, callsites can get the HTTP body (if available), else an
+informative stop()." />
 
 
 
@@ -128,43 +141,42 @@ the last login at ~/.tiledb/cloud.json will be used." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>TileDB Cloud Manual Layer for User Info</h1>
-    <small class="dont-index">Source: <a href='https://github.com/TileDB-Inc/TileDB-Cloud-R/blob/master/R/manual_layer_user.R'><code>R/manual_layer_user.R</code></a></small>
-    <div class="hidden name"><code>user_profile.Rd</code></div>
+    <h1>This is a package-internal function for code-deduplication within various
+manual-layer functions. For the API-level functions which use
+<code>.wrap_as_api_response</code>, manual-layer functions will receive either (a)
+the raw HTTP body, if the status_code was 2xx, or (b) an <code>link{ApiResponse}</code> object.
+Using this function, callsites can get the HTTP body (if available), else an
+informative stop().</h1>
+    <small class="dont-index">Source: <a href='https://github.com/TileDB-Inc/TileDB-Cloud-R/blob/master/R/manual_layer_responses.R'><code>R/manual_layer_responses.R</code></a></small>
+    <div class="hidden name"><code>dot-get_raw_response_body_or_stop.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function shows user information for the  currently logged-in account on
-TileDB Cloud.  Nominally you will first call login(); if not, the results of
-the last login at ~/.tiledb/cloud.json will be used.</p>
+    <p>This is a package-internal function for code-deduplication within various
+manual-layer functions. For the API-level functions which use
+<code>.wrap_as_api_response</code>, manual-layer functions will receive either (a)
+the raw HTTP body, if the status_code was 2xx, or (b) an <code>link{ApiResponse}</code> object.
+Using this function, callsites can get the HTTP body (if available), else an
+informative stop().</p>
     </div>
 
-    <pre class="usage"><span class='fu'>user_profile</span><span class='op'>(</span>include_logo <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>.get_raw_response_body_or_stop</span><span class='op'>(</span><span class='va'>resultObject</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>include_logo</th>
-      <td><p>If set to True, include the <code>logo</code> field in the return value.
-By default this is omitted since it's a long base64-encoded string which takes up
-a lot of screen space and is likely uninteresting.</p></td>
+      <th>resultObject</th>
+      <td><p>Should be a return value from an API function which uses
+<code>.wrap_as_api_response</code> internally. These are functions which are manually
+edited after OpenAPI autogen.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A list of user properties from the currently logged-in TileDB cloud account.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p>Other manual-layer functions: 
-<code><a href='.wrap_as_api_response.html'>.wrap_as_api_response</a>()</code>,
-<code><a href='array_info.html'>array_info</a>()</code>,
-<code><a href='execute_array_udf.html'>execute_array_udf</a>()</code>,
-<code><a href='execute_generic_udf.html'>execute_generic_udf</a>()</code>,
-<code><a href='execute_multi_array_udf.html'>execute_multi_array_udf</a>()</code>,
-<code><a href='list_arrays.html'>list_arrays</a>()</code>,
-<code><a href='login.html'>login</a>()</code></p></div>
+    <p>The argument, as long as it's of type 'raw'. Else, stops.  The
+caller can then decode the raw body.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

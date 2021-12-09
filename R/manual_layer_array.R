@@ -9,6 +9,7 @@
 ##' @param arrayname Like "quickstart_dense"
 ##'
 ##' @return A list of array properties
+##' @family {manual-layer functions}
 ##' @export
 array_info <- function(namespace, arrayname) {
   apiClientInstance <- get_api_client_instance()
@@ -40,6 +41,7 @@ array_info <- function(namespace, arrayname) {
 ##' @param file.property list( character )
 ##'
 ##' @return Dataframe of metadata for all arrays in your account that meet the filter applied.
+##' @family {manual-layer functions}
 ##' @export
 list_arrays <- function(public=FALSE, shared=FALSE, page=NULL, per.page=NULL, search=NULL, namespace=NULL,
   orderby=NULL, permissions=NULL, tag=NULL, exclude.tag=NULL, file.type=NULL, exclude.file.type=NULL, file.property=NULL, ...) {
@@ -60,7 +62,7 @@ list_arrays <- function(public=FALSE, shared=FALSE, page=NULL, per.page=NULL, se
       permissions, tag, exclude.tag, file.type, exclude.file.type, file.property)
   }
 
-  body <- get_raw_response_body_or_stop(resultObject)
+  body <- .get_raw_response_body_or_stop(resultObject)
 
   bodyAsJSONString <- rawToChar(body)
   # Output has keys 'arrays' and 'pagination_metadata'; keep only the former

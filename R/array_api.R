@@ -1653,7 +1653,7 @@ ArrayApi <- R6::R6Class(
                                  body = body,
                                  ...)
       # MANUAL EDIT AFTER OPENAPI AUTOGEN
-      wrap_as_api_response(resp)
+      .wrap_as_api_response(resp)
     },
     ArraysBrowserOwnedSidebarGet = function(...){
       apiResponse <- self$ArraysBrowserOwnedSidebarGetWithHttpInfo(...)
@@ -1761,7 +1761,7 @@ ArrayApi <- R6::R6Class(
                                  ...)
 
       # MANUAL EDIT AFTER OPENAPI AUTOGEN
-      wrap_as_api_response(resp)
+      .wrap_as_api_response(resp)
     },
     ArraysBrowserPublicSidebarGet = function(...){
       apiResponse <- self$ArraysBrowserPublicSidebarGetWithHttpInfo(...)
@@ -1868,7 +1868,7 @@ ArrayApi <- R6::R6Class(
                                  body = body,
                                  ...)
       # MANUAL EDIT AFTER OPENAPI AUTOGEN
-      wrap_as_api_response(resp)
+      .wrap_as_api_response(resp)
     },
     ArraysBrowserSharedSidebarGet = function(...){
       apiResponse <- self$ArraysBrowserSharedSidebarGetWithHttpInfo(...)
@@ -1973,7 +1973,7 @@ ArrayApi <- R6::R6Class(
                                  body = body,
                                  ...)
       # MANUAL EDIT AFTER OPENAPI AUTOGEN
-      wrap_as_api_response(resp)
+      .wrap_as_api_response(resp)
     },
     ConsolidateArray = function(namespace, array, tiledb.config, ...){
       apiResponse <- self$ConsolidateArrayWithHttpInfo(namespace, array, tiledb.config, ...)
@@ -3056,7 +3056,7 @@ ArrayApi <- R6::R6Class(
                                  body = body,
                                  ...)
       # MANUAL EDIT AFTER OPENAPI AUTOGEN
-      wrap_as_api_response(resp)
+      .wrap_as_api_response(resp)
     },
     GetFragmentEndTimestamp = function(namespace, array, end.timestamp=NULL, ...){
       apiResponse <- self$GetFragmentEndTimestampWithHttpInfo(namespace, array, end.timestamp, ...)
