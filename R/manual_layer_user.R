@@ -1,8 +1,10 @@
-##' TileDB Cloud Manual Layer for User Info
+##' Show information from user TileDB Cloud user profile
 ##'
 ##' This function shows user information for the  currently logged-in account on
-##' TileDB Cloud.  Nominally you will first call login(); if not, the results of
-##' the last login at ~/.tiledb/cloud.json will be used.
+##' TileDB Cloud.
+##'
+##' Nominally you will first call \code{\link{login}}; if not, the results of the last
+##' login at \code{~/.tiledb/cloud.json} will be used.
 ##'
 ##' @param include_logo If set to True, include the \code{logo} field in the return value.
 ##' By default this is omitted since it's a long base64-encoded string which takes up

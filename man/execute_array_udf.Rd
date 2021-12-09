@@ -2,7 +2,7 @@
 % Please edit documentation in R/manual_layer_execute.R
 \name{execute_array_udf}
 \alias{execute_array_udf}
-\title{TileDB Cloud UDF-Execution Helper for Single-Array UDFs}
+\title{Execute a single-array UDF on TileDB Cloud}
 \usage{
 execute_array_udf(
   namespace,
@@ -19,7 +19,7 @@ execute_array_udf(
 \item{namespace}{Namespace within TileDB cloud.}
 
 \item{array}{Name of the array. E.g. if the URI is \code{tiledb://hello/world}
-then the namespace is "hello" and the array is "world".}
+then the namespace is \code{hello} and the array is \code{world}.}
 
 \item{udf}{An R function which takes a dataframe as argument.}
 
@@ -45,11 +45,12 @@ library are converted back to natural R objects.}
 Return value from the UDF.
 }
 \description{
-This function invokes a user-defined function in TileDB Cloud.
-Nominally you will first call login(); if not, the results
-of the last login at ~/.tiledb/cloud.json will be used.
+This invokes a user-defined function in TileDB Cloud.
 }
 \details{
+Nominally you will first call \code{\link{login}}; if not, the results
+of the last login at \code{~/.tiledb/cloud.json} will be used.
+
 All arguments are required.
 }
 \seealso{

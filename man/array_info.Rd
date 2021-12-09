@@ -2,7 +2,7 @@
 % Please edit documentation in R/manual_layer_array.R
 \name{array_info}
 \alias{array_info}
-\title{TileDB Cloud Manual Layer for Array Info}
+\title{Show information about an array on TileDB Cloud}
 \usage{
 array_info(namespace, arrayname)
 }
@@ -15,9 +15,11 @@ array_info(namespace, arrayname)
 A list of array properties
 }
 \description{
-This function shows array information on TileDB Cloud.  Nominally you will
-first call login(); if not, the results of the last login at
-~/.tiledb/cloud.json will be used.
+This function shows array information on TileDB Cloud.
+}
+\details{
+Nominally you will first call \code{\link{login}}; if not, the results of
+the last login at \code{~/.tiledb/cloud.json} will be used.
 }
 \seealso{
 Other {manual-layer functions}: 

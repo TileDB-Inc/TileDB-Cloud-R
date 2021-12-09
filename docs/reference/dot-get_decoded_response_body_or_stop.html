@@ -6,10 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>This is a package-internal function for code-deduplication within various
-manual-layer functions. It's a keystroke-saving wrapper around
-.get_raw_response_body_or_stop() which decodes the raw response body
-using any of the result-format types we support for UDFs. — .get_decoded_response_body_or_stop • tiledbcloud</title>
+<title>Package-internal HTTP-response helper — .get_decoded_response_body_or_stop • tiledbcloud</title>
 
 
 <!-- jquery -->
@@ -42,14 +39,9 @@ using any of the result-format types we support for UDFs. — .get_decoded_respo
 
 
 
-<meta property="og:title" content="This is a package-internal function for code-deduplication within various
-manual-layer functions. It's a keystroke-saving wrapper around
-.get_raw_response_body_or_stop() which decodes the raw response body
-using any of the result-format types we support for UDFs. — .get_decoded_response_body_or_stop" />
+<meta property="og:title" content="Package-internal HTTP-response helper — .get_decoded_response_body_or_stop" />
 <meta property="og:description" content="This is a package-internal function for code-deduplication within various
-manual-layer functions. It's a keystroke-saving wrapper around
-.get_raw_response_body_or_stop() which decodes the raw response body
-using any of the result-format types we support for UDFs." />
+manual-layer functions." />
 
 
 
@@ -135,19 +127,14 @@ using any of the result-format types we support for UDFs." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>This is a package-internal function for code-deduplication within various
-manual-layer functions. It's a keystroke-saving wrapper around
-<code>.get_raw_response_body_or_stop()</code> which decodes the raw response body
-using any of the result-format types we support for UDFs.</h1>
+    <h1>Package-internal HTTP-response helper</h1>
     <small class="dont-index">Source: <a href='https://github.com/TileDB-Inc/TileDB-Cloud-R/blob/master/R/manual_layer_responses.R'><code>R/manual_layer_responses.R</code></a></small>
     <div class="hidden name"><code>dot-get_decoded_response_body_or_stop.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>This is a package-internal function for code-deduplication within various
-manual-layer functions. It's a keystroke-saving wrapper around
-<code><a href='.get_raw_response_body_or_stop.html'>.get_raw_response_body_or_stop()</a></code> which decodes the raw response body
-using any of the result-format types we support for UDFs.</p>
+manual-layer functions.</p>
     </div>
 
     <pre class="usage"><span class='fu'>.get_decoded_response_body_or_stop</span><span class='op'>(</span><span class='va'>resultObject</span>, <span class='va'>result_format</span><span class='op'>)</span></pre>
@@ -158,7 +145,7 @@ using any of the result-format types we support for UDFs.</p>
     <tr>
       <th>resultObject</th>
       <td><p>Should be a return value from an API function which uses
-<code>.wrap_as_api_response</code> internally. These are functions which are manually
+<code>wrap_as_api_response</code> internally. These are functions which are manually
 edited after OpenAPI autogen.</p></td>
     </tr>
     </table>
@@ -166,6 +153,12 @@ edited after OpenAPI autogen.</p></td>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>The argument, decoded according to the specified result format.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>It wraps <code>get_raw_response_body_or_stop</code> by decoding
+the raw response body using any of the three result-format types
+we support for UDFs. It's a keystroke-saving wrapper around
+<code>get_raw_response_body_or_stop</code>.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

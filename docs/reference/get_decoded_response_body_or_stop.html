@@ -6,11 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>This is a package-internal function for code-deduplication within various
-manual-layer functions. It wraps get_raw_response_body_or_stop() by
-decoding the raw response body using any of the three result-format types
-we support for UDFs. It's a keystroke-saving wrapper around
-get_raw_response_body_or_stop(). — get_decoded_response_body_or_stop • tiledbcloud</title>
+<title>Package-internal HTTP-response helper — get_decoded_response_body_or_stop • tiledbcloud</title>
 
 
 <!-- jquery -->
@@ -43,16 +39,9 @@ get_raw_response_body_or_stop(). — get_decoded_response_body_or_stop • tiled
 
 
 
-<meta property="og:title" content="This is a package-internal function for code-deduplication within various
-manual-layer functions. It wraps get_raw_response_body_or_stop() by
-decoding the raw response body using any of the three result-format types
-we support for UDFs. It's a keystroke-saving wrapper around
-get_raw_response_body_or_stop(). — get_decoded_response_body_or_stop" />
+<meta property="og:title" content="Package-internal HTTP-response helper — get_decoded_response_body_or_stop" />
 <meta property="og:description" content="This is a package-internal function for code-deduplication within various
-manual-layer functions. It wraps get_raw_response_body_or_stop() by
-decoding the raw response body using any of the three result-format types
-we support for UDFs. It's a keystroke-saving wrapper around
-get_raw_response_body_or_stop()." />
+manual-layer functions." />
 
 
 
@@ -138,21 +127,14 @@ get_raw_response_body_or_stop()." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>This is a package-internal function for code-deduplication within various
-manual-layer functions. It wraps get_raw_response_body_or_stop() by
-decoding the raw response body using any of the three result-format types
-we support for UDFs. It's a keystroke-saving wrapper around
-get_raw_response_body_or_stop().</h1>
+    <h1>Package-internal HTTP-response helper</h1>
     <small class="dont-index">Source: <a href='https://github.com/TileDB-Inc/TileDB-Cloud-R/blob/master/R/manual_layer_responses.R'><code>R/manual_layer_responses.R</code></a></small>
     <div class="hidden name"><code>get_decoded_response_body_or_stop.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>This is a package-internal function for code-deduplication within various
-manual-layer functions. It wraps get_raw_response_body_or_stop() by
-decoding the raw response body using any of the three result-format types
-we support for UDFs. It's a keystroke-saving wrapper around
-get_raw_response_body_or_stop().</p>
+manual-layer functions.</p>
     </div>
 
     <pre class="usage"><span class='fu'>get_decoded_response_body_or_stop</span><span class='op'>(</span><span class='va'>resultObject</span>, <span class='va'>result_format</span><span class='op'>)</span></pre>
@@ -163,7 +145,7 @@ get_raw_response_body_or_stop().</p>
     <tr>
       <th>resultObject</th>
       <td><p>Should be a return value from an API function which uses
-wrap_as_api_response internally. These are functions which are manually
+<code><a href='wrap_as_api_response.html'>wrap_as_api_response</a></code> internally. These are functions which are manually
 edited after OpenAPI autogen.</p></td>
     </tr>
     </table>
@@ -171,6 +153,12 @@ edited after OpenAPI autogen.</p></td>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>The argument, decoded according to the specified result format.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>It wraps <code><a href='get_raw_response_body_or_stop.html'>get_raw_response_body_or_stop</a></code> by decoding
+the raw response body using any of the three result-format types
+we support for UDFs. It's a keystroke-saving wrapper around
+<code><a href='get_raw_response_body_or_stop.html'>get_raw_response_body_or_stop</a></code>.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -2,7 +2,7 @@
 % Please edit documentation in R/manual_layer_execute.R
 \name{execute_multi_array_udf}
 \alias{execute_multi_array_udf}
-\title{TileDB Cloud UDF-Execution Helper for multiple-array UDFs}
+\title{Execute a multi-array UDF on TileDB Cloud}
 \usage{
 execute_multi_array_udf(
   namespace,
@@ -34,11 +34,12 @@ library are converted back to natural R objects.}
 Return value from the UDF.
 }
 \description{
-This function invokes a user-defined function in TileDB Cloud.
-Nominally you will first call login(); if not, the results
-of the last login at ~/.tiledb/cloud.json will be used.
+This invokes a user-defined function in TileDB Cloud.
 }
 \details{
+Nominally you will first call \code{\link{login}}; if not, the results
+of the last login at \code{~/.tiledb/cloud.json} will be used.
+
 All arguments are required.
 }
 \seealso{

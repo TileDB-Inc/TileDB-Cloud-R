@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TileDB Cloud Manual Layer for Array Info — array_info • tiledbcloud</title>
+<title>Show information about an array on TileDB Cloud — array_info • tiledbcloud</title>
 
 
 <!-- jquery -->
@@ -39,10 +39,8 @@
 
 
 
-<meta property="og:title" content="TileDB Cloud Manual Layer for Array Info — array_info" />
-<meta property="og:description" content="This function shows array information on TileDB Cloud.  Nominally you will
-first call login(); if not, the results of the last login at
-~/.tiledb/cloud.json will be used." />
+<meta property="og:title" content="Show information about an array on TileDB Cloud — array_info" />
+<meta property="og:description" content="This function shows array information on TileDB Cloud." />
 
 
 
@@ -128,15 +126,13 @@ first call login(); if not, the results of the last login at
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>TileDB Cloud Manual Layer for Array Info</h1>
+    <h1>Show information about an array on TileDB Cloud</h1>
     <small class="dont-index">Source: <a href='https://github.com/TileDB-Inc/TileDB-Cloud-R/blob/master/R/manual_layer_array.R'><code>R/manual_layer_array.R</code></a></small>
     <div class="hidden name"><code>array_info.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function shows array information on TileDB Cloud.  Nominally you will
-first call login(); if not, the results of the last login at
-~/.tiledb/cloud.json will be used.</p>
+    <p>This function shows array information on TileDB Cloud.</p>
     </div>
 
     <pre class="usage"><span class='fu'>array_info</span><span class='op'>(</span><span class='va'>namespace</span>, <span class='va'>arrayname</span><span class='op'>)</span></pre>
@@ -157,6 +153,10 @@ first call login(); if not, the results of the last login at
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A list of array properties</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Nominally you will first call <code><a href='login.html'>login</a></code>; if not, the results of
+the last login at <code>~/.tiledb/cloud.json</code> will be used.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other manual-layer functions: 

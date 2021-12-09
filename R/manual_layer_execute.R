@@ -1,11 +1,12 @@
-##' TileDB Cloud UDF-Execution Helper for Generic UDFs
+##' Execute a generic UDF on TileDB Cloud
 ##'
-##' This function invokes a user-defined function in TileDB Cloud.
-##' Nominally you will first call login(); if not, the results
-##' of the last login at ~/.tiledb/cloud.json will be used.
+##' This invokes a user-defined function in TileDB Cloud.
 ##'
-##' The udf and namespace arguments are required; the args argument is
-##' optional.
+##' Nominally you will first call \code{\link{login}}; if not, the results
+##' of the last login at \code{~/.tiledb/cloud.json} will be used.
+##'
+##' The \code{udf} and \code{namespace} arguments are required; the \code{args}
+##' argument is optional.
 ##'
 ##' @param namespace Namespace within TileDB cloud.
 ##'
@@ -38,18 +39,19 @@ execute_generic_udf <- function(namespace, udf, args=NULL) {
   parsed[["value"]] # Extract the value field
 }
 
-##' TileDB Cloud UDF-Execution Helper for Single-Array UDFs
+##' Execute a single-array UDF on TileDB Cloud
 ##'
-##' This function invokes a user-defined function in TileDB Cloud.
-##' Nominally you will first call login(); if not, the results
-##' of the last login at ~/.tiledb/cloud.json will be used.
+##' This invokes a user-defined function in TileDB Cloud.
+##'
+##' Nominally you will first call \code{\link{login}}; if not, the results
+##' of the last login at \code{~/.tiledb/cloud.json} will be used.
 ##'
 ##' All arguments are required.
 ##'
 ##' @param namespace Namespace within TileDB cloud.
 ##'
 ##' @param array Name of the array. E.g. if the URI is \code{tiledb://hello/world}
-##' then the namespace is "hello" and the array is "world".
+##' then the namespace is \code{hello} and the array is \code{world}.
 ##'
 ##' @param udf An R function which takes a dataframe as argument.
 ##'
@@ -124,11 +126,12 @@ execute_array_udf <- function(namespace, array, udf, selectedRanges, attrs=NULL,
   .get_decoded_response_body_or_stop(resultObject, result_format)
 }
 
-##' TileDB Cloud UDF-Execution Helper for multiple-array UDFs
+##' Execute a multi-array UDF on TileDB Cloud
 ##'
-##' This function invokes a user-defined function in TileDB Cloud.
-##' Nominally you will first call login(); if not, the results
-##' of the last login at ~/.tiledb/cloud.json will be used.
+##' This invokes a user-defined function in TileDB Cloud.
+##'
+##' Nominally you will first call \code{\link{login}}; if not, the results
+##' of the last login at \code{~/.tiledb/cloud.json} will be used.
 ##'
 ##' All arguments are required.
 ##'

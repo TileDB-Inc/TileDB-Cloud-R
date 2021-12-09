@@ -2,11 +2,7 @@
 % Please edit documentation in R/manual_layer_array.R
 \name{list_arrays}
 \alias{list_arrays}
-\title{Returns a dataframe of metadata for all arrays that meet the
-filter applied.  Note that this is a paginable API but default params return
-all results on one call, even hundreds of them. As currently implemented,
-pagination information is not returned from this function. The \code{public}
-\code{shared} arguments may not both be true.}
+\title{Show listing of arrays}
 \usage{
 list_arrays(
   public = FALSE,
@@ -58,9 +54,12 @@ Dataframe of metadata for all arrays in your account that meet the filter applie
 }
 \description{
 Returns a dataframe of metadata for all arrays that meet the
-filter applied.  Note that this is a paginable API but default params return
-all results on one call, even hundreds of them. As currently implemented,
-pagination information is not returned from this function. The \code{public}
+filter applied.
+}
+\details{
+Note that this is a paginable API but default params return all results on
+one call, even hundreds of them. As currently implemented, pagination
+information is not returned from this function. The \code{public} and
 \code{shared} arguments may not both be true.
 }
 \seealso{
