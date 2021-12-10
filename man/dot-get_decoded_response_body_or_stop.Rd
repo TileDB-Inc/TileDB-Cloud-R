@@ -8,7 +8,7 @@
 }
 \arguments{
 \item{resultObject}{Should be a return value from an API function which uses
-\code{\link{wrap_as_api_response}} internally. These are functions which are manually
+\code{\link{.wrap_as_api_response}} internally. These are functions which are manually
 edited after OpenAPI autogen.}
 }
 \value{
@@ -19,8 +19,8 @@ This is a package-internal function for code-deduplication within various
 manual-layer functions.
 }
 \details{
-It wraps \code{\link{get_raw_response_body_or_stop}} by decoding
+It wraps \code{\link{.get_raw_response_body_or_stop}} by decoding
 the raw response body using any of the three result-format types
 we support for UDFs. It's a keystroke-saving wrapper around
-\code{\link{get_raw_response_body_or_stop}}.
+\code{\link{.get_raw_response_body_or_stop}}.
 }

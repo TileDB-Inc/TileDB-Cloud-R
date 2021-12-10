@@ -22,14 +22,3 @@ Makes the handling compatible with TileDB REST-server response format;
 surfaces error messages back to the user.
 Not intended to be exported from this package; for package-internal use only.
 }
-\seealso{
-Other {manual-layer functions}: 
-\code{\link{array_info}()},
-\code{\link{execute_array_udf}()},
-\code{\link{execute_generic_udf}()},
-\code{\link{execute_multi_array_udf}()},
-\code{\link{list_arrays}()},
-\code{\link{login}()},
-\code{\link{user_profile}()}
-}
-\concept{{manual-layer functions}}

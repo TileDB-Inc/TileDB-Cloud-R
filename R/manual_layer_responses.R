@@ -11,8 +11,6 @@
 ##' @return An object of type \code{\link{ApiResponse}}. In the success case (HTTP 2xx)
 ##' its \code{content} slot is the raw HTTP body. In the failure case (otherwise)
 ##' its \code{content} slot is error-text from the server.
-##'
-##' @family {manual-layer functions}
 .wrap_as_api_response <- function(resp) {
   # Goal: unpack the useful bits and surface them; avoid showing non-useful bits.
   # * The response object \code{resp} is an S3 object (list with generic functions)
@@ -65,14 +63,14 @@
 ##' This is a package-internal function for code-deduplication within various
 ##' manual-layer functions.
 ##'
-##' For the API-level functions which use \code{\link{wrap_as_api_response}},
+##' For the API-level functions which use \code{\link{.wrap_as_api_response}},
 ##' manual-layer functions will receive either (a) the raw HTTP body,
 ##' if the \code{status_code} was 2xx, or (b) an \code{\link{ApiResponse}}
 ##' object.  Using this function, callsites can get the HTTP body (if
 ##' available), else an informative \code{stop()}.
 ##'
 ##' @param resultObject Should be a return value from an API function which uses
-##' \code{\link{wrap_as_api_response}} internally. These are functions which are manually
+##' \code{\link{.wrap_as_api_response}} internally. These are functions which are manually
 ##' edited after OpenAPI autogen.
 ##'
 ##' @return The argument, as long as it's of type \code{raw}. Else, stops.  The
@@ -95,13 +93,13 @@
 ##' This is a package-internal function for code-deduplication within various
 ##' manual-layer functions.
 ##'
-##' It wraps \code{\link{get_raw_response_body_or_stop}} by decoding
+##' It wraps \code{\link{.get_raw_response_body_or_stop}} by decoding
 ##' the raw response body using any of the three result-format types
 ##' we support for UDFs. It's a keystroke-saving wrapper around
-##' \code{\link{get_raw_response_body_or_stop}}.
+##' \code{\link{.get_raw_response_body_or_stop}}.
 ##'
 ##' @param resultObject Should be a return value from an API function which uses
-##' \code{\link{wrap_as_api_response}} internally. These are functions which are manually
+##' \code{\link{.wrap_as_api_response}} internally. These are functions which are manually
 ##' edited after OpenAPI autogen.
 ##'
 ##' @return The argument, decoded according to the specified result format.

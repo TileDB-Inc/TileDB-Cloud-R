@@ -8,7 +8,7 @@
 }
 \arguments{
 \item{resultObject}{Should be a return value from an API function which uses
-\code{\link{wrap_as_api_response}} internally. These are functions which are manually
+\code{\link{.wrap_as_api_response}} internally. These are functions which are manually
 edited after OpenAPI autogen.}
 }
 \value{
@@ -20,7 +20,7 @@ This is a package-internal function for code-deduplication within various
 manual-layer functions.
 }
 \details{
-For the API-level functions which use \code{\link{wrap_as_api_response}},
+For the API-level functions which use \code{\link{.wrap_as_api_response}},
 manual-layer functions will receive either (a) the raw HTTP body,
 if the \code{status_code} was 2xx, or (b) an \code{\link{ApiResponse}}
 object.  Using this function, callsites can get the HTTP body (if
