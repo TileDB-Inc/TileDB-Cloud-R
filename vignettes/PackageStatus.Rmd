@@ -52,7 +52,7 @@ whereas using the manual-layer function `tiledbcloud::array_info` we can do simp
 ```
 tiledbcloud::array_info("namespace-goes-here", "arrayname-goes-here")
 ```
-## Prioritization for Development
+## Prioritization for development
 
 * Several key API entrypoints have a manual layer written; not all do.
 * Current efforts focus on user-defined functions (UDFs).
