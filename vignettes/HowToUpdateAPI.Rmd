@@ -1,8 +1,8 @@
 ---
-title: "How To Update from API spec"
+title: "How to update from API spec"
 output: github_document
 vignette: |
-  %\VignetteIndexEntry{How To Update}
+  %\VignetteIndexEntry{How to update from API spec}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

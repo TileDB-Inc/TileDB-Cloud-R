@@ -1,8 +1,8 @@
 ---
-title: "How To Release"
+title: "How to release a version"
 output: github_document
 vignette: |
-  %\VignetteIndexEntry{How To Release}
+  %\VignetteIndexEntry{How to release a version}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

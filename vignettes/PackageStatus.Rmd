@@ -1,13 +1,13 @@
 ---
-title: "Package Status"
+title: "Package status"
 output: github_document
 vignette: |
-  %\VignetteIndexEntry{Package Status}
+  %\VignetteIndexEntry{Package status}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-# Package Status
+# Package status
 
 The `TileDB-Cloud-R` is in early-access release. We're committed to ongoing
 multilingual support for TileDB Cloud API services, and `TileDB-Cloud-R` is a

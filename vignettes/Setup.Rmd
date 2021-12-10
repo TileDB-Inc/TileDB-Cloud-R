@@ -9,7 +9,7 @@ vignette: |
 
 # How to get access to TileDB-Cloud-R
 
-## Build and Test
+## Build and test
 
 ```sh
 R CMD build .                           # creates e.g. tiledbcloud_0.0.4.tar.gz

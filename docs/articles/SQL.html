@@ -84,7 +84,7 @@
 <h1 class="hasAnchor">
 <a href="#sql-example" class="anchor"></a>SQL example</h1>
 <p>This mostly uses the OpenAPI-autogen layer (see also <a href="PackageStatus.html">PackageStatus</a>).</p>
-<pre><code>api.client.instance &lt;- tiledbcloud::.get_api_client_instance()
+<pre><code>api.client.instance &lt;- tiledbcloud:::.get_api_client_instance()
 sql.api.instance &lt;- sql &lt;- SqlApi$new(api.client.instance)
 
 sql.parameters &lt;-  SQLParameters$new(
@@ -94,6 +94,11 @@ sql.parameters &lt;-  SQLParameters$new(
 answer &lt;- sql$RunSQL("namespace-to-charge", sql.parameters)
 
 data.table::rbindlist(answer) # easiest helper to glue rows together</code></pre>
+<pre><code>     avg_a rows
+1:  2.5000    1
+2:  6.5000    2
+3: 10.5000    3
+4: 14.5000    4</code></pre>
 </div>
   </div>
 

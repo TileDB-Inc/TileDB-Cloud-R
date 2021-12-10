@@ -25,7 +25,7 @@ articles:
   - UDFs
   - SQL
   - Tasks
-- title: For Developers
+- title: For developers
   contents:
   - HowToUpdateDocumentation
   - HowToRelease
