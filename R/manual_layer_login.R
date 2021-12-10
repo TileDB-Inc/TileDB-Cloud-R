@@ -31,6 +31,8 @@
 ##'
 ##' @return Nothing is returned; the function is called for a side effect
 ##' of storing the values in the package environment.
+##'
+##' @family {manual-layer functions}
 ##' @export
 login <- function(username, password, api_key, host, remember_me=TRUE) {
     if (missing(username)) username <- .getConfigValue("username")

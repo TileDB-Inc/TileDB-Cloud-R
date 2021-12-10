@@ -52,3 +52,14 @@ of the last login at ~/.tiledb/cloud.json will be used.
 \details{
 All arguments are required.
 }
+\seealso{
+Other {manual-layer functions}: 
+\code{\link{.wrap_as_api_response}()},
+\code{\link{array_info}()},
+\code{\link{execute_generic_udf}()},
+\code{\link{execute_multi_array_udf}()},
+\code{\link{list_arrays}()},
+\code{\link{login}()},
+\code{\link{user_profile}()}
+}
+\concept{{manual-layer functions}}

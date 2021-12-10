@@ -42,3 +42,14 @@ Function arguments are optional, and can be used to override the
 default configuration values obtained by \code{config()} from
 either the environment variables or the configuration file.
 }
+\seealso{
+Other {manual-layer functions}: 
+\code{\link{.wrap_as_api_response}()},
+\code{\link{array_info}()},
+\code{\link{execute_array_udf}()},
+\code{\link{execute_generic_udf}()},
+\code{\link{execute_multi_array_udf}()},
+\code{\link{list_arrays}()},
+\code{\link{user_profile}()}
+}
+\concept{{manual-layer functions}}

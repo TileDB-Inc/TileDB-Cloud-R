@@ -912,7 +912,7 @@ UdfApi <- R6::R6Class(
                                  body = body,
                                  ...)
       # MANUAL EDIT AFTER OPENAPI AUTOGEN
-      wrap_as_api_response(resp)
+      .wrap_as_api_response(resp)
     },
     SubmitMultiArrayUDF = function(namespace, udf, accept.encoding=NULL, ...){
       # MANUAL EDIT AFTER OPENAPI AUTOGEN
@@ -959,7 +959,7 @@ UdfApi <- R6::R6Class(
 
       resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath), method = "POST", queryParams = queryParams, headerParams = headerParams, body = body, ...)
       # MANUAL EDIT AFTER OPENAPI AUTOGEN
-      wrap_as_api_response(resp)
+      .wrap_as_api_response(resp)
     },
 
     SubmitUDF = function(namespace, array, udf, x.payer=NULL, accept.encoding=NULL, v2=NULL, ...){
@@ -1021,7 +1021,7 @@ UdfApi <- R6::R6Class(
       resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath), method = "POST", queryParams = queryParams, headerParams = headerParams, body = body, ...)
 
       # MANUAL EDIT AFTER OPENAPI AUTOGEN
-      wrap_as_api_response(resp)
+      .wrap_as_api_response(resp)
     },
     UdfNamespaceArrayEndTimestampsGet = function(namespace, array, page=NULL, per.page=NULL, ...){
       apiResponse <- self$UdfNamespaceArrayEndTimestampsGetWithHttpInfo(namespace, array, page, per.page, ...)

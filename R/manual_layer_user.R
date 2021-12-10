@@ -9,6 +9,8 @@
 ##' a lot of screen space and is likely uninteresting.
 ##'
 ##' @return A list of user properties from the currently logged-in TileDB cloud account.
+##'
+##' @family {manual-layer functions}
 ##' @export
 user_profile <- function(include_logo=FALSE) {
   apiClientInstance <- get_api_client_instance()

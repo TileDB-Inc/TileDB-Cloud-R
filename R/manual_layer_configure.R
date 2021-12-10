@@ -66,4 +66,3 @@ configure <- function() {
                        verify_ssl = verify_ssl,
                        logged_in  = "FALSE")
 }
-

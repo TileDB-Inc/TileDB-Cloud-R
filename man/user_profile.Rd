@@ -19,3 +19,14 @@ This function shows user information for the  currently logged-in account on
 TileDB Cloud.  Nominally you will first call login(); if not, the results of
 the last login at ~/.tiledb/cloud.json will be used.
 }
+\seealso{
+Other {manual-layer functions}: 
+\code{\link{.wrap_as_api_response}()},
+\code{\link{array_info}()},
+\code{\link{execute_array_udf}()},
+\code{\link{execute_generic_udf}()},
+\code{\link{execute_multi_array_udf}()},
+\code{\link{list_arrays}()},
+\code{\link{login}()}
+}
+\concept{{manual-layer functions}}
