@@ -150,7 +150,7 @@ execute_array_udf <- function(namespace, array, udf, selectedRanges, attrs=NULL,
 ##'
 ##' @return Return value from the UDF.
 ##' @export
-execute_multi_array_udf <- function(namespace, array_list, udf, args=NULL, result_format=NULL) {
+execute_multi_array_udf <- function(namespace, array_list, udf, args=NULL, result_format='native') {
   apiClientInstance <- get_api_client_instance()
 
   udfApiInstance <- UdfApi$new(apiClientInstance)
