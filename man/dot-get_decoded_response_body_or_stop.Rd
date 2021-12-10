@@ -2,16 +2,13 @@
 % Please edit documentation in R/manual_layer_responses.R
 \name{.get_decoded_response_body_or_stop}
 \alias{.get_decoded_response_body_or_stop}
-\title{This is a package-internal function for code-deduplication within various
-manual-layer functions. It's a keystroke-saving wrapper around
-\code{.get_raw_response_body_or_stop()} which decodes the raw response body
-using any of the result-format types we support for UDFs.}
+\title{Package-internal HTTP-response helper}
 \usage{
 .get_decoded_response_body_or_stop(resultObject, result_format)
 }
 \arguments{
 \item{resultObject}{Should be a return value from an API function which uses
-\code{.wrap_as_api_response} internally. These are functions which are manually
+\code{\link{.wrap_as_api_response}} internally. These are functions which are manually
 edited after OpenAPI autogen.}
 }
 \value{
@@ -19,7 +16,11 @@ The argument, decoded according to the specified result format.
 }
 \description{
 This is a package-internal function for code-deduplication within various
-manual-layer functions. It's a keystroke-saving wrapper around
-\code{.get_raw_response_body_or_stop()} which decodes the raw response body
-using any of the result-format types we support for UDFs.
+manual-layer functions.
+}
+\details{
+It wraps \code{\link{.get_raw_response_body_or_stop}} by decoding
+the raw response body using any of the three result-format types
+we support for UDFs. It's a keystroke-saving wrapper around
+\code{\link{.get_raw_response_body_or_stop}}.
 }

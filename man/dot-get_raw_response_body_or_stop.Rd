@@ -2,29 +2,27 @@
 % Please edit documentation in R/manual_layer_responses.R
 \name{.get_raw_response_body_or_stop}
 \alias{.get_raw_response_body_or_stop}
-\title{This is a package-internal function for code-deduplication within various
-manual-layer functions. For the API-level functions which use
-\code{.wrap_as_api_response}, manual-layer functions will receive either (a)
-the raw HTTP body, if the status_code was 2xx, or (b) an \code{link{ApiResponse}} object.
-Using this function, callsites can get the HTTP body (if available), else an
-informative stop().}
+\title{Package-internal HTTP-response helper}
 \usage{
 .get_raw_response_body_or_stop(resultObject)
 }
 \arguments{
 \item{resultObject}{Should be a return value from an API function which uses
-\code{.wrap_as_api_response} internally. These are functions which are manually
+\code{\link{.wrap_as_api_response}} internally. These are functions which are manually
 edited after OpenAPI autogen.}
 }
 \value{
-The argument, as long as it's of type 'raw'. Else, stops.  The
+The argument, as long as it's of type \code{raw}. Else, stops.  The
 caller can then decode the raw body.
 }
 \description{
 This is a package-internal function for code-deduplication within various
-manual-layer functions. For the API-level functions which use
-\code{.wrap_as_api_response}, manual-layer functions will receive either (a)
-the raw HTTP body, if the status_code was 2xx, or (b) an \code{link{ApiResponse}} object.
-Using this function, callsites can get the HTTP body (if available), else an
-informative stop().
+manual-layer functions.
+}
+\details{
+For the API-level functions which use \code{\link{.wrap_as_api_response}},
+manual-layer functions will receive either (a) the raw HTTP body,
+if the \code{status_code} was 2xx, or (b) an \code{\link{ApiResponse}}
+object.  Using this function, callsites can get the HTTP body (if
+available), else an informative \code{stop()}.
 }

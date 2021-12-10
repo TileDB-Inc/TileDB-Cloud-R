@@ -1,8 +1,9 @@
-##' TileDB Cloud Manual Layer for Array Info
+##' Show information about an array on TileDB Cloud
 ##'
-##' This function shows array information on TileDB Cloud.  Nominally you will
-##' first call login(); if not, the results of the last login at
-##' ~/.tiledb/cloud.json will be used.
+##' This function shows array information on TileDB Cloud.
+##'
+##' Nominally you will first call \code{\link{login}}; if not, the results of
+##' the last login at \code{~/.tiledb/cloud.json} will be used.
 ##'
 ##' @param namespace Like "TileDB-Inc"
 ##'
@@ -19,10 +20,14 @@ array_info <- function(namespace, arrayname) {
   arrayApiInstance$GetArrayMetadata(namespace, arrayname)$toJSON()
 }
 
+##' Show listing of arrays
+##'
 ##' Returns a dataframe of metadata for all arrays that meet the
-##' filter applied.  Note that this is a paginable API but default params return
-##' all results on one call, even hundreds of them. As currently implemented,
-##' pagination information is not returned from this function. The \code{public}
+##' filter applied.
+##'
+##' Note that this is a paginable API but default params return all results on
+##' one call, even hundreds of them. As currently implemented, pagination
+##' information is not returned from this function. The \code{public} and
 ##' \code{shared} arguments may not both be true.
 ##'
 ##' @param public logical TRUE means list public arrays

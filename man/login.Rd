@@ -2,7 +2,7 @@
 % Please edit documentation in R/manual_layer_login.R
 \name{login}
 \alias{login}
-\title{TileDB Cloud Login Helper}
+\title{Log in to TileDB Cloud}
 \usage{
 login(username, password, api_key, host, remember_me = TRUE)
 }
@@ -30,21 +30,20 @@ This function can be used to override the default setup made at
 package load.
 }
 \details{
-It can operate in two modes. Either, a username and a password are
+It can operate in two modes. Either a username and a password are
 supplied as environment variable \code{TILEDB_REST_USERNAME} and
 \code{TILEDB_REST_PASSWORD}.  As an alternative, an access token
 can be supplied via \code{TILEDB_REST_TOKEN}.  The values are used
-to instantiate a new API client object. If no token was supplied a
+to instantiate a new API client object. If no token was supplied, a
 new session is requested and the token assigned to that session is
 used.
 
 Function arguments are optional, and can be used to override the
-default configuration values obtained by \code{config()} from
+default configuration values obtained by \code{\link{configure}} from
 either the environment variables or the configuration file.
 }
 \seealso{
 Other {manual-layer functions}: 
-\code{\link{.wrap_as_api_response}()},
 \code{\link{array_info}()},
 \code{\link{execute_array_udf}()},
 \code{\link{execute_generic_udf}()},

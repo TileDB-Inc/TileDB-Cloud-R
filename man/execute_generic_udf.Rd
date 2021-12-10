@@ -2,7 +2,7 @@
 % Please edit documentation in R/manual_layer_execute.R
 \name{execute_generic_udf}
 \alias{execute_generic_udf}
-\title{TileDB Cloud UDF-Execution Helper for Generic UDFs}
+\title{Execute a generic UDF on TileDB Cloud}
 \usage{
 execute_generic_udf(namespace, udf, args = NULL)
 }
@@ -20,17 +20,17 @@ to call by name, use a named list like \code{args=list(x=123,y=456)}.}
 The R object which is the return value from the UDF.
 }
 \description{
-This function invokes a user-defined function in TileDB Cloud.
-Nominally you will first call login(); if not, the results
-of the last login at ~/.tiledb/cloud.json will be used.
+This invokes a user-defined function in TileDB Cloud.
 }
 \details{
-The udf and namespace arguments are required; the args argument is
-optional.
+Nominally you will first call \code{\link{login}}; if not, the results
+of the last login at \code{~/.tiledb/cloud.json} will be used.
+
+The \code{udf} and \code{namespace} arguments are required; the \code{args}
+argument is optional.
 }
 \seealso{
 Other {manual-layer functions}: 
-\code{\link{.wrap_as_api_response}()},
 \code{\link{array_info}()},
 \code{\link{execute_array_udf}()},
 \code{\link{execute_multi_array_udf}()},

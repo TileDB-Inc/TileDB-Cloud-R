@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TileDB Cloud Login Helper — login • tiledbcloud</title>
+<title>Log in to TileDB Cloud — login • tiledbcloud</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="TileDB Cloud Login Helper — login" />
+<meta property="og:title" content="Log in to TileDB Cloud — login" />
 <meta property="og:description" content="This function can be used to override the default setup made at
 package load." />
 
@@ -127,7 +127,7 @@ package load." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>TileDB Cloud Login Helper</h1>
+    <h1>Log in to TileDB Cloud</h1>
     <small class="dont-index">Source: <a href='https://github.com/TileDB-Inc/TileDB-Cloud-R/blob/master/R/manual_layer_login.R'><code>R/manual_layer_login.R</code></a></small>
     <div class="hidden name"><code>login.Rd</code></div>
     </div>
@@ -174,20 +174,19 @@ instead of 8 hours, used only when a new session is requested.</p></td>
 of storing the values in the package environment.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>It can operate in two modes. Either, a username and a password are
+    <p>It can operate in two modes. Either a username and a password are
 supplied as environment variable <code>TILEDB_REST_USERNAME</code> and
 <code>TILEDB_REST_PASSWORD</code>.  As an alternative, an access token
 can be supplied via <code>TILEDB_REST_TOKEN</code>.  The values are used
-to instantiate a new API client object. If no token was supplied a
+to instantiate a new API client object. If no token was supplied, a
 new session is requested and the token assigned to that session is
 used.</p>
 <p>Function arguments are optional, and can be used to override the
-default configuration values obtained by <code>config()</code> from
+default configuration values obtained by <code><a href='configure.html'>configure</a></code> from
 either the environment variables or the configuration file.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other manual-layer functions: 
-<code><a href='.wrap_as_api_response.html'>.wrap_as_api_response</a>()</code>,
 <code><a href='array_info.html'>array_info</a>()</code>,
 <code><a href='execute_array_udf.html'>execute_array_udf</a>()</code>,
 <code><a href='execute_generic_udf.html'>execute_generic_udf</a>()</code>,

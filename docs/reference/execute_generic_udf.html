@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TileDB Cloud UDF-Execution Helper for Generic UDFs — execute_generic_udf • tiledbcloud</title>
+<title>Execute a generic UDF on TileDB Cloud — execute_generic_udf • tiledbcloud</title>
 
 
 <!-- jquery -->
@@ -39,10 +39,8 @@
 
 
 
-<meta property="og:title" content="TileDB Cloud UDF-Execution Helper for Generic UDFs — execute_generic_udf" />
-<meta property="og:description" content="This function invokes a user-defined function in TileDB Cloud.
-Nominally you will first call login(); if not, the results
-of the last login at ~/.tiledb/cloud.json will be used." />
+<meta property="og:title" content="Execute a generic UDF on TileDB Cloud — execute_generic_udf" />
+<meta property="og:description" content="This invokes a user-defined function in TileDB Cloud." />
 
 
 
@@ -128,15 +126,13 @@ of the last login at ~/.tiledb/cloud.json will be used." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>TileDB Cloud UDF-Execution Helper for Generic UDFs</h1>
+    <h1>Execute a generic UDF on TileDB Cloud</h1>
     <small class="dont-index">Source: <a href='https://github.com/TileDB-Inc/TileDB-Cloud-R/blob/master/R/manual_layer_execute.R'><code>R/manual_layer_execute.R</code></a></small>
     <div class="hidden name"><code>execute_generic_udf.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function invokes a user-defined function in TileDB Cloud.
-Nominally you will first call login(); if not, the results
-of the last login at ~/.tiledb/cloud.json will be used.</p>
+    <p>This invokes a user-defined function in TileDB Cloud.</p>
     </div>
 
     <pre class="usage"><span class='fu'>execute_generic_udf</span><span class='op'>(</span><span class='va'>namespace</span>, <span class='va'>udf</span>, args <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
@@ -166,12 +162,13 @@ to call by name, use a named list like <code>args=list(x=123,y=456)</code>.</p><
     <p>The R object which is the return value from the UDF.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The udf and namespace arguments are required; the args argument is
-optional.</p>
+    <p>Nominally you will first call <code><a href='login.html'>login</a></code>; if not, the results
+of the last login at <code>~/.tiledb/cloud.json</code> will be used.</p>
+<p>The <code>udf</code> and <code>namespace</code> arguments are required; the <code>args</code>
+argument is optional.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other manual-layer functions: 
-<code><a href='.wrap_as_api_response.html'>.wrap_as_api_response</a>()</code>,
 <code><a href='array_info.html'>array_info</a>()</code>,
 <code><a href='execute_array_udf.html'>execute_array_udf</a>()</code>,
 <code><a href='execute_multi_array_udf.html'>execute_multi_array_udf</a>()</code>,

@@ -153,7 +153,7 @@
         <td>
           <p><code><a href="array_info.html">array_info()</a></code> </p>
         </td>
-        <td><p>TileDB Cloud Manual Layer for Array Info</p></td>
+        <td><p>Show information about an array on TileDB Cloud</p></td>
       </tr><tr>
         
         <td>
@@ -165,47 +165,43 @@
         <td>
           <p><code><a href="execute_array_udf.html">execute_array_udf()</a></code> </p>
         </td>
-        <td><p>TileDB Cloud UDF-Execution Helper for Single-Array UDFs</p></td>
+        <td><p>Execute a single-array UDF on TileDB Cloud</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="execute_generic_udf.html">execute_generic_udf()</a></code> </p>
         </td>
-        <td><p>TileDB Cloud UDF-Execution Helper for Generic UDFs</p></td>
+        <td><p>Execute a generic UDF on TileDB Cloud</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="execute_multi_array_udf.html">execute_multi_array_udf()</a></code> </p>
         </td>
-        <td><p>TileDB Cloud UDF-Execution Helper for multiple-array UDFs</p></td>
+        <td><p>Execute a multi-array UDF on TileDB Cloud</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="get_api_client_instance.html">get_api_client_instance()</a></code> </p>
         </td>
-        <td><p>TileDB Cloud Login-Reuse Helper</p></td>
+        <td><p>Access cached API-client object</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="list_arrays.html">list_arrays()</a></code> </p>
         </td>
-        <td><p>Returns a dataframe of metadata for all arrays that meet the
-filter applied.  Note that this is a paginable API but default params return
-all results on one call, even hundreds of them. As currently implemented,
-pagination information is not returned from this function. The <code>public</code>
-<code>shared</code> arguments may not both be true.</p></td>
+        <td><p>Show listing of arrays</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="login.html">login()</a></code> </p>
         </td>
-        <td><p>TileDB Cloud Login Helper</p></td>
+        <td><p>Log in to TileDB Cloud</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="user_profile.html">user_profile()</a></code> </p>
         </td>
-        <td><p>TileDB Cloud Manual Layer for User Info</p></td>
+        <td><p>Show information from user TileDB Cloud user profile</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -975,27 +971,19 @@ pagination information is not returned from this function. The <code>public</cod
         <td>
           <p><code><a href="dot-get_decoded_response_body_or_stop.html">.get_decoded_response_body_or_stop()</a></code> </p>
         </td>
-        <td><p>This is a package-internal function for code-deduplication within various
-manual-layer functions. It's a keystroke-saving wrapper around
-<code>.get_raw_response_body_or_stop()</code> which decodes the raw response body
-using any of the result-format types we support for UDFs.</p></td>
+        <td><p>Package-internal HTTP-response helper</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="dot-get_raw_response_body_or_stop.html">.get_raw_response_body_or_stop()</a></code> </p>
         </td>
-        <td><p>This is a package-internal function for code-deduplication within various
-manual-layer functions. For the API-level functions which use
-<code>.wrap_as_api_response</code>, manual-layer functions will receive either (a)
-the raw HTTP body, if the status_code was 2xx, or (b) an <code>link{ApiResponse}</code> object.
-Using this function, callsites can get the HTTP body (if available), else an
-informative stop().</p></td>
+        <td><p>Package-internal HTTP-response helper</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="dot-wrap_as_api_response.html">.wrap_as_api_response()</a></code> </p>
         </td>
-        <td><p>TileDB Cloud HTTP-response helper</p></td>
+        <td><p>Package-internal HTTP-response helper</p></td>
       </tr>
     </tbody>
     </table>

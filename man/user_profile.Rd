@@ -2,7 +2,7 @@
 % Please edit documentation in R/manual_layer_user.R
 \name{user_profile}
 \alias{user_profile}
-\title{TileDB Cloud Manual Layer for User Info}
+\title{Show information from user TileDB Cloud user profile}
 \usage{
 user_profile(include_logo = FALSE)
 }
@@ -16,12 +16,14 @@ A list of user properties from the currently logged-in TileDB cloud account.
 }
 \description{
 This function shows user information for the  currently logged-in account on
-TileDB Cloud.  Nominally you will first call login(); if not, the results of
-the last login at ~/.tiledb/cloud.json will be used.
+TileDB Cloud.
+}
+\details{
+Nominally you will first call \code{\link{login}}; if not, the results of the last
+login at \code{~/.tiledb/cloud.json} will be used.
 }
 \seealso{
 Other {manual-layer functions}: 
-\code{\link{.wrap_as_api_response}()},
 \code{\link{array_info}()},
 \code{\link{execute_array_udf}()},
 \code{\link{execute_generic_udf}()},
