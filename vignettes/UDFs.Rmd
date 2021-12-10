@@ -1,0 +1,178 @@
+---
+title: "UDFs"
+output: github_document
+vignette: |
+  %\VignetteIndexEntry{UDFs}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# User-defined functions
+
+See the [Login page](Login.md) for login information.
+
+## Generic UDFs
+
+These are functions you write, invoked server-side.
+
+```
+# Namespace to charge
+namespace <- "demo"
+# Your function
+myfunc <- function(x=50:54, y=70:74) { x + y }
+# Execute the function on TileDB Cloud
+result <- tiledbcloud::execute_generic_udf(namespace=namespace, udf=myfunc)
+print(result)
+```
+
+```
+[1] 120 122 124 126 128
+```
+
+Using arguments:
+
+```
+namespace <- "demo"
+myfunc <- function(x, y) { x + y }
+myargs <- list(100:104, 200:204)
+result <- tiledbcloud::execute_generic_udf(namespace=namespace, udf=myfunc, args=myargs)
+print(result)
+```
+
+```
+[1] 300 302 304 306 308
+```
+
+# Single-array UDFs
+
+```
+namespace  <- "demo"
+array_name <- "quickstart_dense"
+myfunc <- function(df) {
+  vec <- as.vector(df[["a"]])
+  list(min=min(vec), med=median(vec), max=max(vec))
+}
+
+# Upper-left 2x2
+selectedRanges <- list(cbind(1,2), cbind(1,2))
+attrs <- c("a")
+
+result <- tiledbcloud::execute_array_udf(
+  namespace=namespace,
+  array=array_name,
+  udf=myfunc,
+  selectedRanges=selectedRanges,
+  attrs=attrs
+)
+print(result)
+```
+
+```
+$min
+[1] 1
+
+$med
+[1] 3.5
+
+$max
+[1] 6
+```
+
+```
+namespace  <- "demo"
+array_name <- "palmer_penguins2"
+
+# Run a linear regression on bill length vs body mass
+myfunc <- function(df) {
+  vec1 <- as.vector(df$bill_length_mm)
+  vec2 <- as.vector(df$body_mass_g)
+  lm.fit(cbind(1, vec2), vec1)$coefficients
+}
+
+selectedRanges <- list(cbind("A", "Z"), cbind(2007,2009))
+attrs <- list("bill_length_mm", "body_mass_g")
+
+result <- tiledbcloud::execute_array_udf(
+    namespace=namespace,
+    array=array_name,
+    udf=myfunc,
+    selectedRanges=selectedRanges,
+    attrs=attrs
+)
+print(result)
+```
+
+```
+                   vec2
+27.15072200  0.00400329
+```
+
+# Multi-array UDFs
+
+```
+namespace   <- "demo"
+array_name1 <- "quickstart_dense"
+array_name2 <- "quickstart_sparse"
+
+uri1 <- paste("tiledb:/", namespace, array_name1, sep="/")
+uri2 <- paste("tiledb:/", namespace, array_name2, sep="/")
+
+myfunc <- function(df1, df2) {
+  vec1 <- as.vector(df1[["a"]])
+  vec2 <- as.vector(df2[["a"]])
+  list(
+    len=length(vec1) + length(vec2),
+    min=min(vec1) + min(vec2),
+    med=median(vec1) + median(vec2),
+    max=max(vec1) + max(vec2)
+  )
+}
+
+details1 <- tiledbcloud::UDFArrayDetails$new(
+  uri=uri1,
+  ranges=QueryRanges$new(
+    layout=Layout$new('row-major'),
+    ranges=list(cbind(1,4),cbind(1,4))
+  ),
+  buffers=list("a")
+)
+
+details2 <- tiledbcloud::UDFArrayDetails$new(
+  uri=uri2,
+  ranges=QueryRanges$new(
+    layout=Layout$new('row-major'),
+    ranges=list(cbind(1,2),cbind(1,4))
+  ),
+  buffers=list("a")
+)
+
+result <- tiledbcloud::execute_multi_array_udf(
+  namespace=namespace,
+  array_list=list(details1, details2),
+  udf=myfunc,
+)
+print(result)
+```
+
+```
+$len
+[1] 19
+
+$min
+[1] 2
+
+$med
+[1] 10.5
+
+$max
+[1] 19
+```
+
+## UDF registration
+
+Information coming soon!
+
+* Register a UDF
+* Read back UDF info
+* Invoke registered UDF
+* Unregister UDF

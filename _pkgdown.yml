@@ -4,7 +4,7 @@ template:
     bootswatch: lumen
 reference:
   - title: "Manual layer"
-    desc: "These are manually written/curated functions which wrap some of the key calls into the OpenAPI autogen layer. They're more user-friendly and better documented."
+    desc: "These are manually written/curated functions which wrap some of the key calls into the OpenAPI autogen layer. They're more user-friendly and better documented. See also the Article on Package Status."
     contents:
     - matches("^[a-z]")
   - title: "Autogen layer"
@@ -15,3 +15,18 @@ reference:
     desc: "These are functions intended to be invoked by the manual-layer functions, as implementation details beneath the interest of most users of the API."
     contents:
     - matches("^\\.")
+articles:
+- title: Using TileDB Cloud
+  contents:
+  - PackageStatus
+  - Setup
+  - Login
+  - Arrays
+  - UDFs
+  - SQL
+  - Tasks
+- title: For developers
+  contents:
+  - HowToUpdateDocumentation
+  - HowToRelease
+  - HowToUpdateAPI
