@@ -19,9 +19,9 @@ register_udf(
 )
 }
 \arguments{
-\item{namespace}{Namespace for the UDF to be stored in. If omitted, defaults to username.}
+\item{namespace}{Namespace for the UDF to be stored in, e.g. \code{mynamespace}. If omitted, defaults to username.}
 
-\item{name}{character Name for the function to be stored under in TileDB Cloud.}
+\item{name}{character Name for the function to be stored under in TileDB Cloud, e.g. \code{myudfname}.}
 
 \item{type}{character One of \code{single_array} or \code{generic}.}
 

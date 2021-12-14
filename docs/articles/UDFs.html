@@ -215,16 +215,75 @@ $med
 
 $max
 [1] 19</code></pre>
-<div id="udf-registration" class="section level2">
-<h2 class="hasAnchor">
-<a href="#udf-registration" class="anchor"></a>UDF registration</h2>
-<p>Information coming soon!</p>
+</div>
+<div id="udf-registration" class="section level1">
+<h1 class="hasAnchor">
+<a href="#udf-registration" class="anchor"></a>UDF registration</h1>
+<p>Known issues:</p>
 <ul>
-<li>Register a UDF</li>
-<li>Read back UDF info</li>
-<li>Invoke registered UDF</li>
-<li>Unregister UDF</li>
+<li>Tags can be successfully set using the functions shown below but are not read back on <code>get_udf_info</code>. This is a server-side bug, affecting UDF-info readback regardless of client (Python or R).</li>
+<li>Array UDFs cannot be invoked by registered name – only generic UDFs at present. This is also a server-side bug, independent of client (Python or R).</li>
+<li>
+<code>multiple_array</code> is not present at all in the <code>UDFType</code> enum in the API YAML spec. This affects all client languages. This means we cannot yet register multi-array UDFs.</li>
 </ul>
+<div id="register-a-udf-and-read-back-udf-info" class="section level2">
+<h2 class="hasAnchor">
+<a href="#register-a-udf-and-read-back-udf-info" class="anchor"></a>Register a UDF and read back UDF info</h2>
+<pre><code><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R">library(tiledbcloud)
+
+namespace &lt;- 'testuser'
+udfname &lt;- 'udf-registration-test-generic'
+
+myfunc &lt;- function(vec, exponent) {
+  sum(vec) ** exponent
+}
+
+register_udf(namespace=namespace, name=udfname, 'generic', func=myfunc)
+
+info &lt;- get_udf_info(namespace=namespace, name=udfname)
+str(info)</a></code></pre>
+<pre><code>$ ./cloud-register-generic-udf.r
+List of 5
+ $ name    : chr "udf-registration-test-generic"
+ $ exec    : chr "Wzg4LDEwLDAsMCwwLDMsMCw0LDEsMSwwLDMsNSwwLDAsMCwwLDUsODUsODQsNzAsNDUsNTYsMCwwLDQsMywwLDAsMCwyNTMsMCwwLDQsMiwwLDA"| __truncated__
+ $ exec_raw: chr "function (vec, exponent) \n{\n    sum(vec)^exponent\n}"
+ $ language: chr "\"r\""
+ $ tags    : NULL</code></pre>
+</div>
+<div id="invoke-registered-udf" class="section level2">
+<h2 class="hasAnchor">
+<a href="#invoke-registered-udf" class="anchor"></a>Invoke registered UDF</h2>
+<pre><code><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R">library(tiledbcloud)
+
+namespace &lt;- 'testuser'
+udfname &lt;- 'udf-registration-test-generic'
+registered_udf_name=paste(namespace, udfname, sep='/')
+
+result &lt;- execute_generic_udf(
+  namespace=namespace,
+  registered_udf_name=registered_udf_name,
+  args=list(vec=1:10, exponent=2)
+)
+print(result)
+
+result &lt;- execute_generic_udf(
+  namespace=namespace,
+  registered_udf_name=registered_udf_name,
+  args=list(vec=1:10, exponent=3)
+)
+print(result)</a></code></pre>
+<pre><code>$ ./cloud-execute-registered-generic-udf.r
+[1] 3025
+[1] 166375</code></pre>
+</div>
+<div id="unregister-udf" class="section level2">
+<h2 class="hasAnchor">
+<a href="#unregister-udf" class="anchor"></a>Unregister UDF</h2>
+<pre><code><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R">library(tiledbcloud)
+
+namespace &lt;- 'testuser'
+udfname &lt;- 'udf-registration-test-generic'
+unregister_udf(namespace=namespace, name=udfname)</a></code></pre>
 </div>
 </div>
   </div>

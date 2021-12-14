@@ -168,11 +168,78 @@ $max
 [1] 19
 ```
 
-## UDF registration
+# UDF registration
 
-Information coming soon!
+Known issues:
 
-* Register a UDF
-* Read back UDF info
-* Invoke registered UDF
-* Unregister UDF
+* Tags can be successfully set using the functions shown below but are not read back on `get_udf_info`. This is a server-side bug, affecting UDF-info readback regardless of client (Python or R).
+* Array UDFs cannot be invoked by registered name -- only generic UDFs at present. This is also a server-side bug, independent of client (Python or R).
+* `multiple_array` is not present at all in the `UDFType` enum in the API YAML spec. This affects all client languages. This means we cannot yet register multi-array UDFs.
+
+## Register a UDF and read back UDF info
+
+```
+library(tiledbcloud)
+
+namespace <- 'testuser'
+udfname <- 'udf-registration-test-generic'
+
+myfunc <- function(vec, exponent) {
+  sum(vec) ** exponent
+}
+
+register_udf(namespace=namespace, name=udfname, 'generic', func=myfunc)
+
+info <- get_udf_info(namespace=namespace, name=udfname)
+str(info)
+```
+
+```
+$ ./cloud-register-generic-udf.r
+List of 5
+ $ name    : chr "udf-registration-test-generic"
+ $ exec    : chr "Wzg4LDEwLDAsMCwwLDMsMCw0LDEsMSwwLDMsNSwwLDAsMCwwLDUsODUsODQsNzAsNDUsNTYsMCwwLDQsMywwLDAsMCwyNTMsMCwwLDQsMiwwLDA"| __truncated__
+ $ exec_raw: chr "function (vec, exponent) \n{\n    sum(vec)^exponent\n}"
+ $ language: chr "\"r\""
+ $ tags    : NULL
+```
+
+## Invoke registered UDF
+
+```
+library(tiledbcloud)
+
+namespace <- 'testuser'
+udfname <- 'udf-registration-test-generic'
+registered_udf_name=paste(namespace, udfname, sep='/')
+
+result <- execute_generic_udf(
+  namespace=namespace,
+  registered_udf_name=registered_udf_name,
+  args=list(vec=1:10, exponent=2)
+)
+print(result)
+
+result <- execute_generic_udf(
+  namespace=namespace,
+  registered_udf_name=registered_udf_name,
+  args=list(vec=1:10, exponent=3)
+)
+print(result)
+```
+
+```
+$ ./cloud-execute-registered-generic-udf.r
+[1] 3025
+[1] 166375
+```
+
+## Unregister UDF
+
+```
+library(tiledbcloud)
+
+namespace <- 'testuser'
+udfname <- 'udf-registration-test-generic'
+unregister_udf(namespace=namespace, name=udfname)
+```

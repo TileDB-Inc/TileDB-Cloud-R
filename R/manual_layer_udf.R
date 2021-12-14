@@ -13,9 +13,9 @@
 ##' @param udf An R function. Arguments are specified separately via \code{args}.
 ##' One of \code{udf} and \code{registered_udf_name} must be non-null.
 ##'
-##' @param registered_udf_name Name of a registered UDF within \code{namespace}.
-##' Arguments are specified separately via \code{args}.
-##' One of \code{udf} and \code{registered_udf_name} must be non-null.
+##' @param registered_udf_name Name of a registered UDF, of the form \code{namespace/udfname}.
+##' Arguments are specified separately via \code{args}.  One of \code{udf} and
+##' \code{registered_udf_name} must be non-null.
 ##'
 ##' @param args Arguments to the function. If the function takes
 ##' no arguments, this can be omitted. If you want to call by
@@ -71,6 +71,12 @@ execute_generic_udf <- function(namespace, udf=NULL, registered_udf_name=NULL, a
 ##' then the namespace is \code{hello} and the array is \code{world}.
 ##'
 ##' @param udf An R function which takes a dataframe as argument.
+##' Arguments are specified separately via \code{args}.
+##' One of \code{udf} and \code{registered_udf_name} must be non-null.
+##'
+##' @param registered_udf_name Name of a registered UDF, of the form \code{namespace/udfname}.
+##' Arguments are specified separately via \code{args}.  One of \code{udf} and
+##' \code{registered_udf_name} must be non-null.
 ##'
 ##' @param selectedRanges List of two-column matrices, one matrix per dimension,
 ##' each matrix being a start-end pair: e.g. \code{list(cbind(1,10),cbind(1,20))}.
@@ -126,7 +132,7 @@ execute_array_udf <- function(namespace, array, udf=NULL, registered_udf_name=NU
   }
 
   queryRanges <- QueryRanges$new(layout=layout, ranges=selectedRanges)
-  multi_array_udf$ranges = queryRanges
+  multi_array_udf$ranges <- queryRanges
 
   if (!is.null(udf)) {
     multi_array_udf$exec <- jsonlite::toJSON(as.integer(serialize(udf, NULL)))
@@ -171,6 +177,12 @@ execute_array_udf <- function(namespace, array, udf=NULL, registered_udf_name=NU
 ##' Example list element: \code{tiledbcloud::UDFArrayDetails$new(uri="tiledb://demo/quickstart_dense", ranges=QueryRanges$new(layout=Layout$new('row-major'), ranges=list(cbind(1,4),cbind(1,4))), buffers=list("a"))}
 ##'
 ##' @param udf An R function which takes dataframes as arguments, one dataframe argument for each element in \code{array_list}.
+##' Arguments are specified separately via \code{args}.
+##' One of \code{udf} and \code{registered_udf_name} must be non-null.
+##'
+##' @param registered_udf_name Name of a registered UDF, of the form \code{namespace/udfname}.
+##' Arguments are specified separately via \code{args}.  One of \code{udf} and
+##' \code{registered_udf_name} must be non-null.
 ##'
 ##' @param args Arguments to the function. If the function takes
 ##' no arguments, this can be omitted. If you want to call by
@@ -228,9 +240,9 @@ execute_multi_array_udf <- function(namespace, array_list, udf=NULL, registered_
 ##'
 ##' Registers a user-defined function on TileDB Cloud, so that it may be invoked by name later.
 ##'
-##' @param namespace Namespace for the UDF to be stored in. If omitted, defaults to username.
+##' @param namespace Namespace for the UDF to be stored in, e.g. \code{mynamespace}. If omitted, defaults to username.
 ##'
-##' @param name character Name for the function to be stored under in TileDB Cloud.
+##' @param name character Name for the function to be stored under in TileDB Cloud, e.g. \code{myudfname}.
 ##'
 ##' @param type character One of \code{single_array} or \code{generic}.
 ##'
@@ -288,9 +300,9 @@ register_udf <- function(namespace=NULL, name, type, func, func_text=NULL, versi
 ##' Updates information for a specified user-defined function on TileDB Cloud. Please provide all
 ##' parameters to be set, not only the ones that need changing.
 ##'
-##' @param namespace Namespace for the UDF to be stored in. If omitted, defaults to username.
+##' @param namespace Namespace for the UDF to be stored in, e.g. \code{mynamespace}. If omitted, defaults to username.
 ##'
-##' @param name character Name for the function to be stored under in TileDB Cloud.
+##' @param name character Name for the function to be stored under in TileDB Cloud, e.g. \code{myudfname}.
 ##'
 ##' @param type character One of \code{single_array} or \code{generic}.
 ##'
@@ -352,9 +364,9 @@ update_udf_info <- function(namespace, name, type, func=NULL, func_text=NULL, ve
 ##'
 ##' Reads back information for a specified user-defined function on TileDB Cloud.
 ##'
-##' @param namespace Namespace for the UDF in TileDB Cloud.
+##' @param namespace Namespace for the UDF in TileDB Cloud, e.g. \code{mynamespace}.
 ##'
-##' @param name Name of the UDF in TileDB Cloud.
+##' @param name Name of the UDF in TileDB Cloud, e.g. \code{myudfname}.
 ##'
 ##' @return List of key-value pairs of UDF information.
 ##'
@@ -376,9 +388,9 @@ get_udf_info <- function(name, namespace) {
 ##'
 ##' Deletes a registered UDF. This removes all sharing and cannot be undone.
 ##'
-##' @param namespace Namespace for the UDF in TileDB Cloud.
+##' @param namespace Namespace for the UDF in TileDB Cloud, e.g. \code{mynamespace}.
 ##'
-##' @param name Name of the UDF in TileDB Cloud.
+##' @param name Name of the UDF in TileDB Cloud, e.g. \code{myudfname}.
 ##'
 ##' @return No return value.
 ##' @family {manual-layer functions}

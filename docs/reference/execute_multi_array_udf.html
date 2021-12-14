@@ -143,7 +143,15 @@ Example list element: <code>tiledbcloud::UDFArrayDetails$new(uri="tiledb://demo/
     </tr>
     <tr>
       <th>udf</th>
-      <td><p>An R function which takes dataframes as arguments, one dataframe argument for each element in <code>array_list</code>.</p></td>
+      <td><p>An R function which takes dataframes as arguments, one dataframe argument for each element in <code>array_list</code>.
+Arguments are specified separately via <code>args</code>.
+One of <code>udf</code> and <code>registered_udf_name</code> must be non-null.</p></td>
+    </tr>
+    <tr>
+      <th>registered_udf_name</th>
+      <td><p>Name of a registered UDF, of the form <code>namespace/udfname</code>.
+Arguments are specified separately via <code>args</code>.  One of <code>udf</code> and
+<code>registered_udf_name</code> must be non-null.</p></td>
     </tr>
     <tr>
       <th>args</th>

@@ -22,7 +22,13 @@ execute_array_udf(
 \item{array}{Name of the array. E.g. if the URI is \code{tiledb://hello/world}
 then the namespace is \code{hello} and the array is \code{world}.}
 
-\item{udf}{An R function which takes a dataframe as argument.}
+\item{udf}{An R function which takes a dataframe as argument.
+Arguments are specified separately via \code{args}.
+One of \code{udf} and \code{registered_udf_name} must be non-null.}
+
+\item{registered_udf_name}{Name of a registered UDF, of the form \code{namespace/udfname}.
+Arguments are specified separately via \code{args}.  One of \code{udf} and
+\code{registered_udf_name} must be non-null.}
 
 \item{selectedRanges}{List of two-column matrices, one matrix per dimension,
 each matrix being a start-end pair: e.g. \code{list(cbind(1,10),cbind(1,20))}.}

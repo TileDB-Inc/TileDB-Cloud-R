@@ -19,7 +19,13 @@ execute_multi_array_udf(
 \item{array_list}{List of \code{UDFArrayDetails} objects.
 Example list element: \code{tiledbcloud::UDFArrayDetails$new(uri="tiledb://demo/quickstart_dense", ranges=QueryRanges$new(layout=Layout$new('row-major'), ranges=list(cbind(1,4),cbind(1,4))), buffers=list("a"))}}
 
-\item{udf}{An R function which takes dataframes as arguments, one dataframe argument for each element in \code{array_list}.}
+\item{udf}{An R function which takes dataframes as arguments, one dataframe argument for each element in \code{array_list}.
+Arguments are specified separately via \code{args}.
+One of \code{udf} and \code{registered_udf_name} must be non-null.}
+
+\item{registered_udf_name}{Name of a registered UDF, of the form \code{namespace/udfname}.
+Arguments are specified separately via \code{args}.  One of \code{udf} and
+\code{registered_udf_name} must be non-null.}
 
 \item{args}{Arguments to the function. If the function takes
 no arguments, this can be omitted. If you want to call by

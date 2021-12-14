@@ -7,9 +7,9 @@
 unregister_udf(name, namespace)
 }
 \arguments{
-\item{name}{Name of the UDF in TileDB Cloud.}
+\item{name}{Name of the UDF in TileDB Cloud, e.g. \code{myudfname}.}
 
-\item{namespace}{Namespace for the UDF in TileDB Cloud.}
+\item{namespace}{Namespace for the UDF in TileDB Cloud, e.g. \code{mynamespace}.}
 }
 \value{
 No return value.

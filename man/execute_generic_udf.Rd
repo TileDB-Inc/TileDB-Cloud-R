@@ -17,9 +17,9 @@ execute_generic_udf(
 \item{udf}{An R function. Arguments are specified separately via \code{args}.
 One of \code{udf} and \code{registered_udf_name} must be non-null.}
 
-\item{registered_udf_name}{Name of a registered UDF within \code{namespace}.
-Arguments are specified separately via \code{args}.
-One of \code{udf} and \code{registered_udf_name} must be non-null.}
+\item{registered_udf_name}{Name of a registered UDF, of the form \code{namespace/udfname}.
+Arguments are specified separately via \code{args}.  One of \code{udf} and
+\code{registered_udf_name} must be non-null.}
 
 \item{args}{Arguments to the function. If the function takes
 no arguments, this can be omitted. If you want to call by
