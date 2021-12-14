@@ -68,7 +68,11 @@ Other {manual-layer functions}:
 \code{\link{execute_array_udf}()},
 \code{\link{execute_generic_udf}()},
 \code{\link{execute_multi_array_udf}()},
+\code{\link{get_udf_info}()},
 \code{\link{login}()},
+\code{\link{register_udf}()},
+\code{\link{unregister_udf}()},
+\code{\link{update_udf_info}()},
 \code{\link{user_profile}()}
 }
 \concept{{manual-layer functions}}

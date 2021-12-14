@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Execute a generic UDF on TileDB Cloud — execute_generic_udf • tiledbcloud</title>
+<title>Register a UDF on TileDB Cloud — register_udf • tiledbcloud</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Execute a generic UDF on TileDB Cloud — execute_generic_udf" />
-<meta property="og:description" content="This invokes a user-defined function in TileDB Cloud." />
+<meta property="og:title" content="Register a UDF on TileDB Cloud — register_udf" />
+<meta property="og:description" content="Registers a user-defined function on TileDB Cloud, so that it may be invoked by name later." />
 
 
 
@@ -111,20 +111,27 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Execute a generic UDF on TileDB Cloud</h1>
+    <h1>Register a UDF on TileDB Cloud</h1>
     <small class="dont-index">Source: <a href='https://github.com/TileDB-Inc/TileDB-Cloud-R/blob/master/R/manual_layer_udf.R'><code>R/manual_layer_udf.R</code></a></small>
-    <div class="hidden name"><code>execute_generic_udf.Rd</code></div>
+    <div class="hidden name"><code>register_udf.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This invokes a user-defined function in TileDB Cloud.</p>
+    <p>Registers a user-defined function on TileDB Cloud, so that it may be invoked by name later.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>execute_generic_udf</span><span class='op'>(</span>
-  <span class='va'>namespace</span>,
-  udf <span class='op'>=</span> <span class='cn'>NULL</span>,
-  registered_udf_name <span class='op'>=</span> <span class='cn'>NULL</span>,
-  args <span class='op'>=</span> <span class='cn'>NULL</span>
+    <pre class="usage"><span class='fu'>register_udf</span><span class='op'>(</span>
+  namespace <span class='op'>=</span> <span class='cn'>NULL</span>,
+  <span class='va'>name</span>,
+  <span class='va'>type</span>,
+  <span class='va'>func</span>,
+  func_text <span class='op'>=</span> <span class='cn'>NULL</span>,
+  version <span class='op'>=</span> <span class='cn'>NULL</span>,
+  image_name <span class='op'>=</span> <span class='cn'>NULL</span>,
+  readme <span class='op'>=</span> <span class='cn'>NULL</span>,
+  license_id <span class='op'>=</span> <span class='cn'>NULL</span>,
+  license_text <span class='op'>=</span> <span class='cn'>NULL</span>,
+  tags <span class='op'>=</span> <span class='cn'>NULL</span>
 <span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -132,47 +139,63 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>namespace</th>
-      <td><p>Namespace within TileDB cloud.</p></td>
+      <td><p>Namespace for the UDF to be stored in. If omitted, defaults to username.</p></td>
     </tr>
     <tr>
-      <th>udf</th>
-      <td><p>An R function. Arguments are specified separately via <code>args</code>.
-One of <code>udf</code> and <code>registered_udf_name</code> must be non-null.</p></td>
+      <th>name</th>
+      <td><p>character Name for the function to be stored under in TileDB Cloud.</p></td>
     </tr>
     <tr>
-      <th>registered_udf_name</th>
-      <td><p>Name of a registered UDF within <code>namespace</code>.
-Arguments are specified separately via <code>args</code>.
-One of <code>udf</code> and <code>registered_udf_name</code> must be non-null.</p></td>
+      <th>type</th>
+      <td><p>character One of <code>single_array</code> or <code>generic</code>.</p></td>
     </tr>
     <tr>
-      <th>args</th>
-      <td><p>Arguments to the function. If the function takes
-no arguments, this can be omitted. If you want to call by
-position, use a list like <code>args=list(123, 456)</code>. If you want
-to call by name, use a named list like <code>args=list(x=123,y=456)</code>.</p></td>
+      <th>func</th>
+      <td><p>An R function which takes a dataframe as first argument.</p></td>
+    </tr>
+    <tr>
+      <th>version</th>
+      <td><p>character Optional version string.</p></td>
+    </tr>
+    <tr>
+      <th>image_name</th>
+      <td><p>character</p></td>
+    </tr>
+    <tr>
+      <th>readme</th>
+      <td><p>README text to be displayed in the TileDB Cloud UI.</p></td>
+    </tr>
+    <tr>
+      <th>license_id</th>
+      <td><p>character See the TileDB Cloud UI for options.</p></td>
+    </tr>
+    <tr>
+      <th>license_text</th>
+      <td><p>character See the TileDB Cloud UI for options.</p></td>
+    </tr>
+    <tr>
+      <th>tags</th>
+      <td><p>list(character) Tags to apply to the UDF.</p></td>
+    </tr>
+    <tr>
+      <th>exec_raw</th>
+      <td><p>character Text to display in the TileDB Cloud UI's Preview tab. If omitted, a full deparse of <code>func</code> is used. You can set this to something shorter for brevity if you like.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The R object which is the return value from the UDF.</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>Nominally you will first call <code><a href='login.html'>login</a></code>; if not, the results
-of the last login at <code>~/.tiledb/cloud.json</code> will be used.</p>
-<p>The <code>udf</code> and <code>namespace</code> arguments are required; the <code>args</code>
-argument is optional.</p>
+    <p>No return value.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other manual-layer functions: 
 <code><a href='array_info.html'>array_info</a>()</code>,
 <code><a href='execute_array_udf.html'>execute_array_udf</a>()</code>,
+<code><a href='execute_generic_udf.html'>execute_generic_udf</a>()</code>,
 <code><a href='execute_multi_array_udf.html'>execute_multi_array_udf</a>()</code>,
 <code><a href='get_udf_info.html'>get_udf_info</a>()</code>,
 <code><a href='list_arrays.html'>list_arrays</a>()</code>,
 <code><a href='login.html'>login</a>()</code>,
-<code><a href='register_udf.html'>register_udf</a>()</code>,
 <code><a href='unregister_udf.html'>unregister_udf</a>()</code>,
 <code><a href='update_udf_info.html'>update_udf_info</a>()</code>,
 <code><a href='user_profile.html'>user_profile</a>()</code></p></div>
