@@ -530,13 +530,10 @@ UdfApi <- R6::R6Class(
     DeleteUDFInfo = function(namespace, name, ...){
       apiResponse <- self$DeleteUDFInfoWithHttpInfo(namespace, name, ...)
       resp <- apiResponse$response
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+      } else {
         apiResponse
       }
     },
@@ -578,26 +575,16 @@ UdfApi <- R6::R6Class(
                                  body = body,
                                  ...)
 
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        ApiResponse$new(NULL, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
+      .wrap_as_api_response(resp)
     },
     GetUDFInfo = function(namespace, name, ...){
       apiResponse <- self$GetUDFInfoWithHttpInfo(namespace, name, ...)
       resp <- apiResponse$response
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+      } else {
         apiResponse
       }
     },
@@ -639,21 +626,8 @@ UdfApi <- R6::R6Class(
                                  body = body,
                                  ...)
 
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "UDFInfo", loadNamespace("tiledbcloud")),
-          error = function(e){
-             stop("Failed to deserialize response")
-          }
-        )
-        ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
+      .wrap_as_api_response(resp)
     },
     GetUDFInfoSharingPolicies = function(namespace, name, ...){
       apiResponse <- self$GetUDFInfoSharingPoliciesWithHttpInfo(namespace, name, ...)
@@ -725,13 +699,10 @@ UdfApi <- R6::R6Class(
     RegisterUDFInfo = function(namespace, name, udf, ...){
       apiResponse <- self$RegisterUDFInfoWithHttpInfo(namespace, name, udf, ...)
       resp <- apiResponse$response
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+      } else {
         apiResponse
       }
     },
@@ -782,15 +753,8 @@ UdfApi <- R6::R6Class(
                                  body = body,
                                  ...)
 
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        ApiResponse$new(NULL, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
+      .wrap_as_api_response(resp)
     },
     ShareUDFInfo = function(namespace, name, udf.sharing, ...){
       apiResponse <- self$ShareUDFInfoWithHttpInfo(namespace, name, udf.sharing, ...)
@@ -1097,13 +1061,10 @@ UdfApi <- R6::R6Class(
     UpdateUDFInfo = function(namespace, name, udf, ...){
       apiResponse <- self$UpdateUDFInfoWithHttpInfo(namespace, name, udf, ...)
       resp <- apiResponse$response
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+      } else {
         apiResponse
       }
     },
@@ -1154,15 +1115,8 @@ UdfApi <- R6::R6Class(
                                  body = body,
                                  ...)
 
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        ApiResponse$new(NULL, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
+      .wrap_as_api_response(resp)
     }
   )
 )

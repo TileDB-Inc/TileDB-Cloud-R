@@ -112,7 +112,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Execute a single-array UDF on TileDB Cloud</h1>
-    <small class="dont-index">Source: <a href='https://github.com/TileDB-Inc/TileDB-Cloud-R/blob/master/R/manual_layer_execute.R'><code>R/manual_layer_execute.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/TileDB-Inc/TileDB-Cloud-R/blob/master/R/manual_layer_udf.R'><code>R/manual_layer_udf.R</code></a></small>
     <div class="hidden name"><code>execute_array_udf.Rd</code></div>
     </div>
 
@@ -123,7 +123,8 @@
     <pre class="usage"><span class='fu'>execute_array_udf</span><span class='op'>(</span>
   <span class='va'>namespace</span>,
   <span class='va'>array</span>,
-  <span class='va'>udf</span>,
+  udf <span class='op'>=</span> <span class='cn'>NULL</span>,
+  registered_udf_name <span class='op'>=</span> <span class='cn'>NULL</span>,
   <span class='va'>selectedRanges</span>,
   attrs <span class='op'>=</span> <span class='cn'>NULL</span>,
   layout <span class='op'>=</span> <span class='cn'>NULL</span>,
@@ -145,7 +146,15 @@ then the namespace is <code>hello</code> and the array is <code>world</code>.</p
     </tr>
     <tr>
       <th>udf</th>
-      <td><p>An R function which takes a dataframe as argument.</p></td>
+      <td><p>An R function which takes a dataframe as argument.
+Arguments are specified separately via <code>args</code>.
+One of <code>udf</code> and <code>registered_udf_name</code> must be non-null.</p></td>
+    </tr>
+    <tr>
+      <th>registered_udf_name</th>
+      <td><p>Name of a registered UDF, of the form <code>namespace/udfname</code>.
+Arguments are specified separately via <code>args</code>.  One of <code>udf</code> and
+<code>registered_udf_name</code> must be non-null.</p></td>
     </tr>
     <tr>
       <th>selectedRanges</th>
@@ -191,8 +200,12 @@ of the last login at <code>~/.tiledb/cloud.json</code> will be used.</p>
 <code><a href='array_info.html'>array_info</a>()</code>,
 <code><a href='execute_generic_udf.html'>execute_generic_udf</a>()</code>,
 <code><a href='execute_multi_array_udf.html'>execute_multi_array_udf</a>()</code>,
+<code><a href='get_udf_info.html'>get_udf_info</a>()</code>,
 <code><a href='list_arrays.html'>list_arrays</a>()</code>,
 <code><a href='login.html'>login</a>()</code>,
+<code><a href='register_udf.html'>register_udf</a>()</code>,
+<code><a href='unregister_udf.html'>unregister_udf</a>()</code>,
+<code><a href='update_udf_info.html'>update_udf_info</a>()</code>,
 <code><a href='user_profile.html'>user_profile</a>()</code></p></div>
 
   </div>

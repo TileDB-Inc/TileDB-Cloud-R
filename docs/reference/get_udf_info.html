@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Show listing of arrays — list_arrays • tiledbcloud</title>
+<title>Get information about a UDF on TileDB Cloud — get_udf_info • tiledbcloud</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,8 @@
 
 
 
-<meta property="og:title" content="Show listing of arrays — list_arrays" />
-<meta property="og:description" content="Returns a dataframe of metadata for all arrays that meet the
-filter applied." />
+<meta property="og:title" content="Get information about a UDF on TileDB Cloud — get_udf_info" />
+<meta property="og:description" content="Reads back information for a specified user-defined function on TileDB Cloud." />
 
 
 
@@ -112,100 +111,33 @@ filter applied." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Show listing of arrays</h1>
-    <small class="dont-index">Source: <a href='https://github.com/TileDB-Inc/TileDB-Cloud-R/blob/master/R/manual_layer_array.R'><code>R/manual_layer_array.R</code></a></small>
-    <div class="hidden name"><code>list_arrays.Rd</code></div>
+    <h1>Get information about a UDF on TileDB Cloud</h1>
+    <small class="dont-index">Source: <a href='https://github.com/TileDB-Inc/TileDB-Cloud-R/blob/master/R/manual_layer_udf.R'><code>R/manual_layer_udf.R</code></a></small>
+    <div class="hidden name"><code>get_udf_info.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Returns a dataframe of metadata for all arrays that meet the
-filter applied.</p>
+    <p>Reads back information for a specified user-defined function on TileDB Cloud.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>list_arrays</span><span class='op'>(</span>
-  public <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  shared <span class='op'>=</span> <span class='cn'>FALSE</span>,
-  page <span class='op'>=</span> <span class='cn'>NULL</span>,
-  per.page <span class='op'>=</span> <span class='cn'>NULL</span>,
-  search <span class='op'>=</span> <span class='cn'>NULL</span>,
-  namespace <span class='op'>=</span> <span class='cn'>NULL</span>,
-  orderby <span class='op'>=</span> <span class='cn'>NULL</span>,
-  permissions <span class='op'>=</span> <span class='cn'>NULL</span>,
-  tag <span class='op'>=</span> <span class='cn'>NULL</span>,
-  exclude.tag <span class='op'>=</span> <span class='cn'>NULL</span>,
-  file.type <span class='op'>=</span> <span class='cn'>NULL</span>,
-  exclude.file.type <span class='op'>=</span> <span class='cn'>NULL</span>,
-  file.property <span class='op'>=</span> <span class='cn'>NULL</span>,
-  <span class='va'>...</span>
-<span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_udf_info</span><span class='op'>(</span><span class='va'>name</span>, <span class='va'>namespace</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>public</th>
-      <td><p>logical TRUE means list public arrays</p></td>
-    </tr>
-    <tr>
-      <th>shared</th>
-      <td><p>logical TRUE means list shared arrays. If <code>public</code> and <code>shared</code> are both
-false then arrays owned by you are listed.</p></td>
-    </tr>
-    <tr>
-      <th>page</th>
-      <td><p>integer</p></td>
-    </tr>
-    <tr>
-      <th>per.page</th>
-      <td><p>integer</p></td>
-    </tr>
-    <tr>
-      <th>search</th>
-      <td><p>character</p></td>
+      <th>name</th>
+      <td><p>Name of the UDF in TileDB Cloud, e.g. <code>myudfname</code>.</p></td>
     </tr>
     <tr>
       <th>namespace</th>
-      <td><p>character</p></td>
-    </tr>
-    <tr>
-      <th>orderby</th>
-      <td><p>character</p></td>
-    </tr>
-    <tr>
-      <th>permissions</th>
-      <td><p>character</p></td>
-    </tr>
-    <tr>
-      <th>tag</th>
-      <td><p>list( character )</p></td>
-    </tr>
-    <tr>
-      <th>exclude.tag</th>
-      <td><p>list( character )</p></td>
-    </tr>
-    <tr>
-      <th>file.type</th>
-      <td><p>list( character )</p></td>
-    </tr>
-    <tr>
-      <th>exclude.file.type</th>
-      <td><p>list( character )</p></td>
-    </tr>
-    <tr>
-      <th>file.property</th>
-      <td><p>list( character )</p></td>
+      <td><p>Namespace for the UDF in TileDB Cloud, e.g. <code>mynamespace</code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Dataframe of metadata for all arrays in your account that meet the filter applied.</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>Note that this is a paginable API but default params return all results on
-one call, even hundreds of them. As currently implemented, pagination
-information is not returned from this function. The <code>public</code> and
-<code>shared</code> arguments may not both be true.</p>
+    <p>List of key-value pairs of UDF information.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other manual-layer functions: 
@@ -213,7 +145,7 @@ information is not returned from this function. The <code>public</code> and
 <code><a href='execute_array_udf.html'>execute_array_udf</a>()</code>,
 <code><a href='execute_generic_udf.html'>execute_generic_udf</a>()</code>,
 <code><a href='execute_multi_array_udf.html'>execute_multi_array_udf</a>()</code>,
-<code><a href='get_udf_info.html'>get_udf_info</a>()</code>,
+<code><a href='list_arrays.html'>list_arrays</a>()</code>,
 <code><a href='login.html'>login</a>()</code>,
 <code><a href='register_udf.html'>register_udf</a>()</code>,
 <code><a href='unregister_udf.html'>unregister_udf</a>()</code>,

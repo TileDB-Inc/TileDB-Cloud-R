@@ -93,6 +93,30 @@
 ##' This is a package-internal function for code-deduplication within various
 ##' manual-layer functions.
 ##'
+##' This wraps \code{\link{.get_raw_response_body_or_stop}}, doing \code{stop}
+##' if there is an API-response error, or if the response is not the empty string.
+##' This is for API functions where the expected response is the empty string.
+##'
+##' @param resultObject Should be a return value from an API function which uses
+##' \code{\link{.wrap_as_api_response}} internally. These are functions which are manually
+##' edited after OpenAPI autogen.
+##'
+##' @return Invisible on success, or \code{stop()} on failure.
+.get_empty_response_body_or_stop <- function(resultObject) {
+  body <- .get_raw_response_body_or_stop(resultObject)
+
+  shouldBeEmptyString <- rawToChar(body)
+  if (shouldBeEmptyString != "") {
+    stop("Unexpected API response")
+  }
+  shouldBeEmptyString
+}
+
+##' Package-internal HTTP-response helper
+##'
+##' This is a package-internal function for code-deduplication within various
+##' manual-layer functions.
+##'
 ##' It wraps \code{\link{.get_raw_response_body_or_stop}} by decoding
 ##' the raw response body using any of the three result-format types
 ##' we support for UDFs. It's a keystroke-saving wrapper around
