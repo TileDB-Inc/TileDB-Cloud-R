@@ -954,9 +954,15 @@ UdfApi <- R6::R6Class(
         stop("Missing required parameter `udf`.")
       }
 
-      headerParams['X-Payer'] <- `x.payer`
+      if (!missing(`x.payer`)) {
+        headerParams['X-Payer'] <- `x.payer`
+      }
 
-      headerParams['Accept-Encoding'] <- `accept.encoding`
+      # Without this we get
+      # 'Error in headerParams["Accept-Encoding"] <- accept.encoding : replacement has length zero'
+      if (!is.null(`accept.encoding`)) {
+        headerParams['Accept-Encoding'] <- accept.encoding
+      }
 
       queryParams['v2'] <- v2
 
