@@ -25,6 +25,7 @@ login at \code{~/.tiledb/cloud.json} will be used.
 \seealso{
 Other {manual-layer functions}: 
 \code{\link{array_info}()},
+\code{\link{deregister_udf}()},
 \code{\link{execute_array_udf}()},
 \code{\link{execute_generic_udf}()},
 \code{\link{execute_multi_array_udf}()},
@@ -32,7 +33,6 @@ Other {manual-layer functions}:
 \code{\link{list_arrays}()},
 \code{\link{login}()},
 \code{\link{register_udf}()},
-\code{\link{unregister_udf}()},
 \code{\link{update_udf_info}()}
 }
 \concept{{manual-layer functions}}
