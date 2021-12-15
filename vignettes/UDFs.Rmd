@@ -241,5 +241,5 @@ library(tiledbcloud)
 
 namespace <- 'testuser'
 udfname <- 'udf-registration-test-generic'
-unregister_udf(namespace=namespace, name=udfname)
+deregister_udf(namespace=namespace, name=udfname)
 ```
