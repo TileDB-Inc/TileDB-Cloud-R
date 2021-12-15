@@ -40,3 +40,6 @@ local/*
 # Vim swapfiles
 .sw?
 .*.sw?
+
+# ctags files
+tags

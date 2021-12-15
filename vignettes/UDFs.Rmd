@@ -46,23 +46,17 @@ print(result)
 # Single-array UDFs
 
 ```
-namespace  <- "demo"
-array_name <- "quickstart_dense"
 myfunc <- function(df) {
-  vec <- as.vector(df[["a"]])
-  list(min=min(vec), med=median(vec), max=max(vec))
+    vec <- as.vector(df[["a"]])
+    list(min=min(vec), med=median(vec), max=max(vec))
 }
 
-# Upper-left 2x2
-selectedRanges <- list(cbind(1,2), cbind(1,2))
-attrs <- c("a")
-
 result <- tiledbcloud::execute_array_udf(
-  namespace=namespace,
-  array=array_name,
-  udf=myfunc,
-  selectedRanges=selectedRanges,
-  attrs=attrs
+    namespace="demo", // to charge
+    array="tiledb://TileDB-Inc/quickstart_dense",
+    udf=myfunc,
+    selectedRanges=list(cbind(1,2), cbind(1,2)), # Upper-left 2x2
+    attrs=c("a")
 )
 print(result)
 ```
@@ -79,9 +73,6 @@ $max
 ```
 
 ```
-namespace  <- "demo"
-array_name <- "palmer_penguins2"
-
 # Run a linear regression on bill length vs body mass
 myfunc <- function(df) {
   vec1 <- as.vector(df$bill_length_mm)
@@ -89,15 +80,12 @@ myfunc <- function(df) {
   lm.fit(cbind(1, vec2), vec1)$coefficients
 }
 
-selectedRanges <- list(cbind("A", "Z"), cbind(2007,2009))
-attrs <- list("bill_length_mm", "body_mass_g")
-
 result <- tiledbcloud::execute_array_udf(
-    namespace=namespace,
-    array=array_name,
+    # NULL namespace means username namespace is charged
+    array="tiledb://demo/palmer_penguins2",
     udf=myfunc,
-    selectedRanges=selectedRanges,
-    attrs=attrs
+    selectedRanges=list(cbind("A", "Z"), cbind(2007,2009)),
+    attrs=list("bill_length_mm", "body_mass_g")
 )
 print(result)
 ```
@@ -110,13 +98,6 @@ print(result)
 # Multi-array UDFs
 
 ```
-namespace   <- "demo"
-array_name1 <- "quickstart_dense"
-array_name2 <- "quickstart_sparse"
-
-uri1 <- paste("tiledb:/", namespace, array_name1, sep="/")
-uri2 <- paste("tiledb:/", namespace, array_name2, sep="/")
-
 myfunc <- function(df1, df2) {
   vec1 <- as.vector(df1[["a"]])
   vec2 <- as.vector(df2[["a"]])
@@ -129,7 +110,7 @@ myfunc <- function(df1, df2) {
 }
 
 details1 <- tiledbcloud::UDFArrayDetails$new(
-  uri=uri1,
+  uri="tiledb://TileDB-Inc/quickstart_dense",
   ranges=QueryRanges$new(
     layout=Layout$new('row-major'),
     ranges=list(cbind(1,4),cbind(1,4))
@@ -138,7 +119,7 @@ details1 <- tiledbcloud::UDFArrayDetails$new(
 )
 
 details2 <- tiledbcloud::UDFArrayDetails$new(
-  uri=uri2,
+  uri="tiledb://TileDB-Inc/quickstart_sparse",
   ranges=QueryRanges$new(
     layout=Layout$new('row-major'),
     ranges=list(cbind(1,2),cbind(1,4))
@@ -147,9 +128,9 @@ details2 <- tiledbcloud::UDFArrayDetails$new(
 )
 
 result <- tiledbcloud::execute_multi_array_udf(
-  namespace=namespace,
+  namespace="demo",
   array_list=list(details1, details2),
-  udf=myfunc,
+  udf=myfunc
 )
 print(result)
 ```

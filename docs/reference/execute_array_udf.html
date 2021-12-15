@@ -121,8 +121,8 @@
     </div>
 
     <pre class="usage"><span class='fu'>execute_array_udf</span><span class='op'>(</span>
-  <span class='va'>namespace</span>,
   <span class='va'>array</span>,
+  namespace <span class='op'>=</span> <span class='cn'>NULL</span>,
   udf <span class='op'>=</span> <span class='cn'>NULL</span>,
   registered_udf_name <span class='op'>=</span> <span class='cn'>NULL</span>,
   <span class='va'>selectedRanges</span>,
@@ -136,13 +136,14 @@
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>namespace</th>
-      <td><p>Namespace within TileDB cloud.</p></td>
+      <th>array</th>
+      <td><p>Name of the array, in the form either <code>tiledb://hello/world</code>
+or <code>hello/world</code>.</p></td>
     </tr>
     <tr>
-      <th>array</th>
-      <td><p>Name of the array. E.g. if the URI is <code>tiledb://hello/world</code>
-then the namespace is <code>hello</code> and the array is <code>world</code>.</p></td>
+      <th>namespace</th>
+      <td><p>Namespace within TileDB cloud to charge. If this is null, the
+logged-in user's username will be used for the namespace.</p></td>
     </tr>
     <tr>
       <th>udf</th>

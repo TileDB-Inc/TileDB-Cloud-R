@@ -5,8 +5,8 @@
 \title{Execute a single-array UDF on TileDB Cloud}
 \usage{
 execute_array_udf(
-  namespace,
   array,
+  namespace = NULL,
   udf = NULL,
   registered_udf_name = NULL,
   selectedRanges,
@@ -17,10 +17,11 @@ execute_array_udf(
 )
 }
 \arguments{
-\item{namespace}{Namespace within TileDB cloud.}
+\item{array}{Name of the array, in the form either \code{tiledb://hello/world}
+or \code{hello/world}.}
 
-\item{array}{Name of the array. E.g. if the URI is \code{tiledb://hello/world}
-then the namespace is \code{hello} and the array is \code{world}.}
+\item{namespace}{Namespace within TileDB cloud to charge. If this is null, the
+logged-in user's username will be used for the namespace.}
 
 \item{udf}{An R function which takes a dataframe as argument.
 Arguments are specified separately via \code{args}.

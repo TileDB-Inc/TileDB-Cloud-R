@@ -65,10 +65,11 @@ execute_generic_udf <- function(namespace, udf=NULL, registered_udf_name=NULL, a
 ##'
 ##' All arguments are required.
 ##'
-##' @param namespace Namespace within TileDB cloud.
+##' @param array Name of the array, in the form either \code{tiledb://hello/world}
+##' or \code{hello/world}.
 ##'
-##' @param array Name of the array. E.g. if the URI is \code{tiledb://hello/world}
-##' then the namespace is \code{hello} and the array is \code{world}.
+##' @param namespace Namespace within TileDB cloud to charge. If this is null, the
+##' logged-in user's username will be used for the namespace.
 ##'
 ##' @param udf An R function which takes a dataframe as argument.
 ##' Arguments are specified separately via \code{args}.
@@ -105,7 +106,7 @@ execute_generic_udf <- function(namespace, udf=NULL, registered_udf_name=NULL, a
 ##' @importFrom arrow read_ipc_stream
 ##' @family {manual-layer functions}
 ##' @export
-execute_array_udf <- function(namespace, array, udf=NULL, registered_udf_name=NULL, selectedRanges, attrs=NULL, layout=NULL, args=NULL, result_format='native') {
+execute_array_udf <- function(array, namespace=NULL, udf=NULL, registered_udf_name=NULL, selectedRanges, attrs=NULL, layout=NULL, args=NULL, result_format='native') {
   apiClientInstance <- get_api_client_instance()
 
   if (is.null(udf) && is.null(registered_udf_name)) {
@@ -155,8 +156,20 @@ execute_array_udf <- function(namespace, array, udf=NULL, registered_udf_name=NU
     multi_array_udf$buffers <- attrs
   }
 
+  # * The namespace parameter is whom to charge.
+  # * The array argument should be of the form 'tiledb://foo/bar'.
+  #   o The whom-to-charge parameter maps to x.payer in the REST API.
+  #   o The array namespace and name map to namespace and array in the REST API.
+  # This is necessary for a user to be able to run UDFs on arrays they do not
+  # own, charging their own namespace.
+  uri_fields <- .split_uri(array)
+
+  array_namespace <- uri_fields[["namespace"]]
+  array_name <- uri_fields[["name"]]
+  x.payer <- if (is.null(namespace)) array_namespace else namespace
+
   # Make the network request.
-  resultObject <- udfApiInstance$SubmitUDF(namespace=namespace, array=array, udf=multi_array_udf)
+  resultObject <- udfApiInstance$SubmitUDF(namespace=array_namespace, array=array_name, udf=multi_array_udf, x.payer=x.payer)
 
   # Decode the result
   .get_decoded_response_body_or_stop(resultObject, result_format)

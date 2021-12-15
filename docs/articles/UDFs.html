@@ -108,23 +108,17 @@ print(result)</code></pre>
 <div id="single-array-udfs" class="section level1">
 <h1 class="hasAnchor">
 <a href="#single-array-udfs" class="anchor"></a>Single-array UDFs</h1>
-<pre><code>namespace  &lt;- "demo"
-array_name &lt;- "quickstart_dense"
-myfunc &lt;- function(df) {
-  vec &lt;- as.vector(df[["a"]])
-  list(min=min(vec), med=median(vec), max=max(vec))
+<pre><code>myfunc &lt;- function(df) {
+    vec &lt;- as.vector(df[["a"]])
+    list(min=min(vec), med=median(vec), max=max(vec))
 }
 
-# Upper-left 2x2
-selectedRanges &lt;- list(cbind(1,2), cbind(1,2))
-attrs &lt;- c("a")
-
 result &lt;- tiledbcloud::execute_array_udf(
-  namespace=namespace,
-  array=array_name,
-  udf=myfunc,
-  selectedRanges=selectedRanges,
-  attrs=attrs
+    namespace="demo", // to charge
+    array="tiledb://TileDB-Inc/quickstart_dense",
+    udf=myfunc,
+    selectedRanges=list(cbind(1,2), cbind(1,2)), # Upper-left 2x2
+    attrs=c("a")
 )
 print(result)</code></pre>
 <pre><code>$min
@@ -135,25 +129,19 @@ $med
 
 $max
 [1] 6</code></pre>
-<pre><code>namespace  &lt;- "demo"
-array_name &lt;- "palmer_penguins2"
-
-# Run a linear regression on bill length vs body mass
+<pre><code># Run a linear regression on bill length vs body mass
 myfunc &lt;- function(df) {
   vec1 &lt;- as.vector(df$bill_length_mm)
   vec2 &lt;- as.vector(df$body_mass_g)
   lm.fit(cbind(1, vec2), vec1)$coefficients
 }
 
-selectedRanges &lt;- list(cbind("A", "Z"), cbind(2007,2009))
-attrs &lt;- list("bill_length_mm", "body_mass_g")
-
 result &lt;- tiledbcloud::execute_array_udf(
-    namespace=namespace,
-    array=array_name,
+    # NULL namespace means username namespace is charged
+    array="tiledb://demo/palmer_penguins2",
     udf=myfunc,
-    selectedRanges=selectedRanges,
-    attrs=attrs
+    selectedRanges=list(cbind("A", "Z"), cbind(2007,2009)),
+    attrs=list("bill_length_mm", "body_mass_g")
 )
 print(result)</code></pre>
 <pre><code>                   vec2
@@ -162,14 +150,7 @@ print(result)</code></pre>
 <div id="multi-array-udfs" class="section level1">
 <h1 class="hasAnchor">
 <a href="#multi-array-udfs" class="anchor"></a>Multi-array UDFs</h1>
-<pre><code>namespace   &lt;- "demo"
-array_name1 &lt;- "quickstart_dense"
-array_name2 &lt;- "quickstart_sparse"
-
-uri1 &lt;- paste("tiledb:/", namespace, array_name1, sep="/")
-uri2 &lt;- paste("tiledb:/", namespace, array_name2, sep="/")
-
-myfunc &lt;- function(df1, df2) {
+<pre><code>myfunc &lt;- function(df1, df2) {
   vec1 &lt;- as.vector(df1[["a"]])
   vec2 &lt;- as.vector(df2[["a"]])
   list(
@@ -181,7 +162,7 @@ myfunc &lt;- function(df1, df2) {
 }
 
 details1 &lt;- tiledbcloud::UDFArrayDetails$new(
-  uri=uri1,
+  uri="tiledb://TileDB-Inc/quickstart_dense",
   ranges=QueryRanges$new(
     layout=Layout$new('row-major'),
     ranges=list(cbind(1,4),cbind(1,4))
@@ -190,7 +171,7 @@ details1 &lt;- tiledbcloud::UDFArrayDetails$new(
 )
 
 details2 &lt;- tiledbcloud::UDFArrayDetails$new(
-  uri=uri2,
+  uri="tiledb://TileDB-Inc/quickstart_sparse",
   ranges=QueryRanges$new(
     layout=Layout$new('row-major'),
     ranges=list(cbind(1,2),cbind(1,4))
@@ -199,9 +180,9 @@ details2 &lt;- tiledbcloud::UDFArrayDetails$new(
 )
 
 result &lt;- tiledbcloud::execute_multi_array_udf(
-  namespace=namespace,
+  namespace="demo",
   array_list=list(details1, details2),
-  udf=myfunc,
+  udf=myfunc
 )
 print(result)</code></pre>
 <pre><code>$len
