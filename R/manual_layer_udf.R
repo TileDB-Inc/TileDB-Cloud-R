@@ -384,7 +384,7 @@ get_udf_info <- function(name, namespace) {
   parsed
 }
 
-##' Unregister a UDF from TileDB Cloud
+##' Deregister a UDF from TileDB Cloud
 ##'
 ##' Deletes a registered UDF. This removes all sharing and cannot be undone.
 ##'
@@ -395,7 +395,7 @@ get_udf_info <- function(name, namespace) {
 ##' @return No return value.
 ##' @family {manual-layer functions}
 ##' @export
-unregister_udf <- function(name, namespace) {
+deregister_udf <- function(name, namespace) {
   apiClientInstance <- get_api_client_instance()
   udfApiInstance <- UdfApi$new(apiClientInstance)
 
