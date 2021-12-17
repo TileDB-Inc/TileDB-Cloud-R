@@ -257,7 +257,7 @@ execute_multi_array_udf <- function(namespace, array_list, udf=NULL, registered_
 ##'
 ##' @param name character Name for the function to be stored under in TileDB Cloud, e.g. \code{myudfname}.
 ##'
-##' @param type character One of \code{single_array} or \code{generic}.
+##' @param type character One of \code{generic}, \code{single_array}, or \code{multi_array}.
 ##'
 ##' @param func An R function which takes a dataframe as first argument.
 ##'
@@ -317,7 +317,7 @@ register_udf <- function(namespace=NULL, name, type, func, func_text=NULL, versi
 ##'
 ##' @param name character Name for the function to be stored under in TileDB Cloud, e.g. \code{myudfname}.
 ##'
-##' @param type character One of \code{single_array} or \code{generic}.
+##' @param type character One of \code{generic}, \code{single_array}, or \code{multi_array}.
 ##'
 ##' @param func An R function which takes a dataframe as first argument.
 ##'
