@@ -138,6 +138,8 @@ export TILEDB_REST_PASSWORD="your-password"</code></pre>
     "host": "https://api.tiledb.com/v1",
     "verify_ssl": true
 }</code></pre>
+<p>If you use the optional <code>write_config=TRUE</code> argument for <code><a href="../reference/login.html">tiledbcloud::login</a></code> then <code>~/.tiledb/cloud.json</code> will be written for you:</p>
+<pre><code>tiledbcloud::login(username="your-username", password="your-password", write_config=TRUE)</code></pre>
 </div>
 <div id="showing-user-profile" class="section level2">
 <h2 class="hasAnchor">

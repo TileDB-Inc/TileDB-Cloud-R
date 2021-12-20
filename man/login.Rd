@@ -4,7 +4,14 @@
 \alias{login}
 \title{Log in to TileDB Cloud}
 \usage{
-login(username, password, api_key, host, remember_me = TRUE)
+login(
+  username,
+  password,
+  api_key,
+  host,
+  remember_me = TRUE,
+  write_config = FALSE
+)
 }
 \arguments{
 \item{username}{A character value with the username, if present
@@ -20,6 +27,11 @@ used instead of username and password.}
 
 \item{remember_me}{A boolean to select a session with for 24 hours
 instead of 8 hours, used only when a new session is requested.}
+
+\item{write_config}{A boolean to write the login information
+to \code{~/.tiledb/cloud.json} from where it can be read for
+subsequent sessions. This is only done when requested by this
+parameter, which is \code{FALSE} by default.}
 }
 \value{
 Nothing is returned; the function is called for a side effect

@@ -1,3 +1,4 @@
+
 .loadConfig <- function() {
     ## should we use rappdirs? follow the XDG_CONFIG_HOME?
     homedir <- Sys.getenv("HOME")
@@ -11,6 +12,22 @@
         return(invisible(NULL))
     }
     cfg <- jsonlite::fromJSON(cfgfile)
+}
+
+.storeConfig <- function(homedir=Sys.getenv("HOME")) {
+    if (homedir == "") {
+        stop("No HOME environment variable or homedir value.", call. =FALSE)  # Windows ?
+    }
+    cfgfile <- file.path(homedir, ".tiledb", "cloud.json")
+
+    cfgdata <- jsonlite::toJSON(.pkgenv[["config"]], auto_unbox=TRUE, pretty=TRUE)
+
+    write(cfgdata, cfgfile)
+
+    verbose <- getOption("verbose", "false")
+    if (verbose) {
+      cat("Wrote", cfgfile, "\n")
+    }
 }
 
 ##' Configure TileDB Cloud
@@ -58,10 +75,15 @@ configure <- function() {
     ## Fallback defaults
     if (host == "") host <- "https://api.tiledb.com"
 
-    configuration <- c(api_key    = token,
-                       username   = username,
-                       password   = password,
-                       host       = host,
-                       verify_ssl = verify_ssl,
-                       logged_in  = "FALSE")
+    # We use jsonlite to persist sessions. In turn, jsonlite::toJSON will *not*
+    # retain names if the configuration is a named vector. We must use a named
+    # list.  Example: toJSON(c(a=1,b=2)) is '[1,2]' (bad) but
+    # toJSON(list(a=1,b=2),auto_unbox=TRUE) is '{"a":1,"b":2}' (good).
+    configuration <- list(api_key    = token,
+                          username   = username,
+                          password   = password,
+                          host       = host,
+                          verify_ssl = verify_ssl,
+                          logged_in  = "FALSE")
+    configuration
 }
