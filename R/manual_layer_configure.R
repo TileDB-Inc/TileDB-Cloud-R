@@ -16,7 +16,7 @@
 
 .storeConfig <- function(homedir=Sys.getenv("HOME")) {
     if (homedir == "") {
-        stop("No HOME environment variable or homedir value.", call .= FALSE)  # Windows ?
+        stop("No HOME environment variable or homedir value.", call. =FALSE)  # Windows ?
     }
     cfgfile <- file.path(homedir, ".tiledb", "cloud.json")
 
