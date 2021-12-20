@@ -40,7 +40,10 @@
 
 
 <meta property="og:title" content="Get information about a UDF on TileDB Cloud — get_udf_info" />
-<meta property="og:description" content="Reads back information for a specified user-defined function on TileDB Cloud." />
+<meta property="og:description" content="Reads back information for a specified user-defined function on TileDB Cloud.
+Note that version, image_name, exec, and exec_raw
+are writable via register_udf but are not read back by this
+function." />
 
 
 
@@ -117,7 +120,10 @@
     </div>
 
     <div class="ref-description">
-    <p>Reads back information for a specified user-defined function on TileDB Cloud.</p>
+    <p>Reads back information for a specified user-defined function on TileDB Cloud.
+Note that <code>version</code>, <code>image_name</code>, <code>exec</code>, and <code>exec_raw</code>
+are writable via <code>register_udf</code> but are not read back by this
+function.</p>
     </div>
 
     <pre class="usage"><span class='fu'>get_udf_info</span><span class='op'>(</span><span class='va'>name</span>, <span class='va'>namespace</span><span class='op'>)</span></pre>
