@@ -56,10 +56,5 @@ UDFType <- R6::R6Class(
 
 # add to utils.R
 .parse_UDFType <- function(vals) {
-    res <- gsub("^\\[|\\]$", "",
-        "[multi_array,single_array, generic]"
-    )
-    unlist(strsplit(res, ", "))
+  list('generic', 'single_array', 'multi_array')
 }
-
-

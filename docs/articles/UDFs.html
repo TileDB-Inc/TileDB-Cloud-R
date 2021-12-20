@@ -200,16 +200,13 @@ $max
 <div id="udf-registration" class="section level1">
 <h1 class="hasAnchor">
 <a href="#udf-registration" class="anchor"></a>UDF registration</h1>
-<p>Known issues:</p>
-<ul>
-<li>Tags can be successfully set using the functions shown below but are not read back on <code>get_udf_info</code>. This is a server-side bug, affecting UDF-info readback regardless of client (Python or R).</li>
-<li>Array UDFs cannot be invoked by registered name – only generic UDFs at present. This is also a server-side bug, independent of client (Python or R).</li>
-<li>
-<code>multiple_array</code> is not present at all in the <code>UDFType</code> enum in the API YAML spec. This affects all client languages. This means we cannot yet register multi-array UDFs.</li>
-</ul>
+<p>Known issue: Tags can be successfully set using the functions shown below but are not read back on <code>get_udf_info</code>. This is a server-side bug, affecting UDF-info readback regardless of client (Python or R).</p>
 <div id="register-a-udf-and-read-back-udf-info" class="section level2">
 <h2 class="hasAnchor">
 <a href="#register-a-udf-and-read-back-udf-info" class="anchor"></a>Register a UDF and read back UDF info</h2>
+<div id="generic-udfs-1" class="section level3">
+<h3 class="hasAnchor">
+<a href="#generic-udfs-1" class="anchor"></a>Generic UDFs</h3>
 <pre><code><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R">library(tiledbcloud)
 
 namespace &lt;- 'testuser'
@@ -231,21 +228,73 @@ List of 5
  $ language: chr "\"r\""
  $ tags    : NULL</code></pre>
 </div>
+<div id="single-array-udfs-1" class="section level3">
+<h3 class="hasAnchor">
+<a href="#single-array-udfs-1" class="anchor"></a>Single-array UDFs</h3>
+<pre><code><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R">library(tiledbcloud)
+
+namespace &lt;- "testuser"
+udfname   &lt;- "udf-registration-test-single-array-with-arg"
+
+myfunc &lt;- function(df, attrname, exponent) {
+  vec &lt;- as.vector(df[[attrname]])
+  sum(vec) ** exponent
+}
+
+tiledbcloud::register_udf(namespace=namespace, name=udfname, type='single_array', func=myfunc)
+
+info &lt;- tiledbcloud::get_udf_info(namespace=namespace, name=udfname)
+str(info)</a></code></pre>
+<pre><code>List of 5
+ $ name    : chr "udf-registration-test-single-array-with-arg"
+ $ exec    : chr "Wzg4LDEwLDAsMCwwLDMsMCw0LDEsMSwwLDMsNSwwLDAsMCwwLDUsODUsODQsNzAsNDUsNTYsMCwwLDQsMywwLDAsMCwyNTMsMCwwLDQsMiwwLDA"| __truncated__
+ $ exec_raw: chr "function (df, attrname, exponent) \n{\n    vec &lt;- as.vector(df[[attrname]])\n    sum(vec)^exponent\n}"
+ $ language: chr "\"r\""
+ $ tags    : list()</code></pre>
+</div>
+<div id="multi-array-udfs-1" class="section level3">
+<h3 class="hasAnchor">
+<a href="#multi-array-udfs-1" class="anchor"></a>Multi-array UDFs</h3>
+<pre><code><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R">library(tiledbcloud)
+
+namespace &lt;- "testuser"
+udfname   &lt;- "udf-registration-test-multi-array-with-arg"
+
+myfunc &lt;- function(df1, df2, attrname) {
+  vec1 &lt;- as.vector(df1[[attrname]])
+  vec2 &lt;- as.vector(df2[[attrname]])
+  list(
+    len=length(vec1) + length(vec2),
+    min=min(vec1) + min(vec2),
+    med=median(vec1) + median(vec2),
+    max=max(vec1) + max(vec2)
+  )
+}
+
+tiledbcloud::register_udf(namespace=namespace, name=udfname, type='multi_array', func=myfunc)
+
+info &lt;- tiledbcloud::get_udf_info(namespace=namespace, name=udfname)
+str(info)</a></code></pre>
+<pre><code>[1] "GET INFO"
+List of 5
+ $ name    : chr "udf-registration-test-multi-array-with-arg"
+ $ exec    : chr "Wzg4LDEwLDAsMCwwLDMsMCw0LDEsMSwwLDMsNSwwLDAsMCwwLDUsODUsODQsNzAsNDUsNTYsMCwwLDQsMywwLDAsMCwyNTMsMCwwLDQsMiwwLDA"| __truncated__
+ $ exec_raw: chr "function (df1, df2, attrname) \n{\n    vec1 &lt;- as.vector(df1[[attrname]])\n    vec2 &lt;- as.vector(df2[[attrname]"| __truncated__
+ $ language: chr "\"r\""
+ $ tags    : list()</code></pre>
+</div>
+</div>
 <div id="invoke-registered-udf" class="section level2">
 <h2 class="hasAnchor">
 <a href="#invoke-registered-udf" class="anchor"></a>Invoke registered UDF</h2>
+<div id="generic-udfs-2" class="section level3">
+<h3 class="hasAnchor">
+<a href="#generic-udfs-2" class="anchor"></a>Generic UDFs</h3>
 <pre><code><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R">library(tiledbcloud)
 
 namespace &lt;- 'testuser'
 udfname &lt;- 'udf-registration-test-generic'
 registered_udf_name=paste(namespace, udfname, sep='/')
-
-result &lt;- execute_generic_udf(
-  namespace=namespace,
-  registered_udf_name=registered_udf_name,
-  args=list(vec=1:10, exponent=2)
-)
-print(result)
 
 result &lt;- execute_generic_udf(
   namespace=namespace,
@@ -257,9 +306,78 @@ print(result)</a></code></pre>
 [1] 3025
 [1] 166375</code></pre>
 </div>
+<div id="single-array-udfs-2" class="section level3">
+<h3 class="hasAnchor">
+<a href="#single-array-udfs-2" class="anchor"></a>Single-array UDFs</h3>
+<pre><code><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R">library(tiledbcloud)
+
+namespace_to_charge &lt;- 'testuser'
+udf_name &lt;- 'udf-registration-test-single-array-with-arg'
+registered_udf_name=paste(namespace_to_charge, udf_name, sep='/')
+
+result &lt;- tiledbcloud::execute_array_udf(
+  namespace="testuser", # namespace to charge
+  array="TileDB-Inc/quickstart_dense",
+  registered_udf_name=registered_udf_name,
+  args=list(attrname="a", exponent=2),
+  selectedRanges=list(cbind(1,2), cbind(1,2)),
+  attrs=c("a")
+)
+print(result)</a></code></pre>
+<pre><code>[1] 196</code></pre>
+</div>
+<div id="multi-array-udfs-2" class="section level3">
+<h3 class="hasAnchor">
+<a href="#multi-array-udfs-2" class="anchor"></a>Multi-array UDFs</h3>
+<pre><code><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R">#!/usr/bin/env Rscript
+
+library(tiledbcloud)
+
+namespace_to_charge &lt;- 'testuser'
+registered_udf_name &lt;- 'testuser/udf-registration-test-multi-array-with-arg'
+
+details1 &lt;- tiledbcloud::UDFArrayDetails$new(
+  uri="tiledb://TileDB-Inc/quickstart_dense",
+  ranges=QueryRanges$new(
+    layout=Layout$new('row-major'),
+    ranges=list(cbind(1,4),cbind(1,4))
+  ),
+  buffers=list("a")
+)
+
+details2 &lt;- tiledbcloud::UDFArrayDetails$new(
+  uri="tiledb://TileDB-Inc/quickstart_sparse",
+  ranges=QueryRanges$new(
+    layout=Layout$new('row-major'),
+    ranges=list(cbind(1,2),cbind(1,4))
+  ),
+  buffers=list("a")
+)
+
+result &lt;- tiledbcloud::execute_multi_array_udf(
+  namespace=namespace_to_charge,
+  array_list=list(details1, details2),
+  registered_udf_name=registered_udf_name,
+  args=list(attrname="a")
+)
+print(result)</a></code></pre>
+<pre><code>$len
+[1] 19
+
+$min
+[1] 2
+
+$med
+[1] 10.5
+
+$max
+[1] 19</code></pre>
+</div>
+</div>
 <div id="unregister-udf" class="section level2">
 <h2 class="hasAnchor">
 <a href="#unregister-udf" class="anchor"></a>Unregister UDF</h2>
+<p>This is the same for <code>generic</code>, <code>single_array</code>, and <code>multi_array</code> registered UDFs.</p>
 <pre><code><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R">library(tiledbcloud)
 
 namespace &lt;- 'testuser'
