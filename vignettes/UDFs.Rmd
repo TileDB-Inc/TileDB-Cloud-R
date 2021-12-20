@@ -151,9 +151,7 @@ $max
 
 # UDF registration
 
-Known issue:
-
-Tags can be successfully set using the functions shown below but are not read back on `get_udf_info`. This is a server-side bug, affecting UDF-info readback regardless of client (Python or R).
+Known issue: Tags can be successfully set using the functions shown below but are not read back on `get_udf_info`. This is a server-side bug, affecting UDF-info readback regardless of client (Python or R).
 
 ## Register a UDF and read back UDF info
 
@@ -216,7 +214,6 @@ List of 5
 ### Multi-array UDFs
 
 ```
-
 library(tiledbcloud)
 
 namespace <- "testuser"
@@ -259,13 +256,6 @@ library(tiledbcloud)
 namespace <- 'testuser'
 udfname <- 'udf-registration-test-generic'
 registered_udf_name=paste(namespace, udfname, sep='/')
-
-result <- execute_generic_udf(
-  namespace=namespace,
-  registered_udf_name=registered_udf_name,
-  args=list(vec=1:10, exponent=2)
-)
-print(result)
 
 result <- execute_generic_udf(
   namespace=namespace,
