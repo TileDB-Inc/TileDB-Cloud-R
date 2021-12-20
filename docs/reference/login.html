@@ -122,7 +122,14 @@ package load." />
 package load.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>login</span><span class='op'>(</span><span class='va'>username</span>, <span class='va'>password</span>, <span class='va'>api_key</span>, <span class='va'>host</span>, remember_me <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>login</span><span class='op'>(</span>
+  <span class='va'>username</span>,
+  <span class='va'>password</span>,
+  <span class='va'>api_key</span>,
+  <span class='va'>host</span>,
+  remember_me <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  write_config <span class='op'>=</span> <span class='cn'>FALSE</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -150,6 +157,13 @@ used instead of username and password.</p></td>
       <th>remember_me</th>
       <td><p>A boolean to select a session with for 24 hours
 instead of 8 hours, used only when a new session is requested.</p></td>
+    </tr>
+    <tr>
+      <th>write_config</th>
+      <td><p>A boolean to write the login information
+to <code>~/.tiledb/cloud.json</code> from where it can be read for
+subsequent sessions. This is only done when requested by this
+parameter, which is <code>FALSE</code> by default.</p></td>
     </tr>
     </table>
 
