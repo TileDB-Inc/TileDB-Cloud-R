@@ -1,3 +1,4 @@
+
 .loadConfig <- function() {
     ## should we use rappdirs? follow the XDG_CONFIG_HOME?
     homedir <- Sys.getenv("HOME")
@@ -11,6 +12,24 @@
         return(invisible(NULL))
     }
     cfg <- jsonlite::fromJSON(cfgfile)
+}
+
+.storeConfig <- function() {
+    homedir <- Sys.getenv("HOME")
+    if (homedir == "") {
+        warning("No HOME environment variable.")  # Windows ?
+        return(NULL)
+    }
+    cfgfile <- file.path(homedir, ".tiledb", "cloud.json")
+
+    cfgdata <- jsonlite::toJSON(.pkgenv[["config"]], auto_unbox=TRUE, pretty=TRUE)
+
+    write(cfgdata, cfgfile)
+
+    verbose <- getOption("verbose", "false")
+    if (verbose) {
+      cat("Wrote", cfgfile, "\n")
+    }
 }
 
 ##' Configure TileDB Cloud

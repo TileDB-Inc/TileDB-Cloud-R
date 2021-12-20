@@ -29,12 +29,17 @@
 ##' @param remember_me A boolean to select a session with for 24 hours
 ##' instead of 8 hours, used only when a new session is requested.
 ##'
+##' @param write_config A boolean to write the login information
+##' to \code{~/.tiledb/cloud.json} from where it can be read for
+##' subsequent sessions. This is only done when requested by this
+##' parameter, which is \code{FALSE} by default.
+##'
 ##' @return Nothing is returned; the function is called for a side effect
 ##' of storing the values in the package environment.
 ##'
 ##' @family {manual-layer functions}
 ##' @export
-login <- function(username, password, api_key, host, remember_me=TRUE) {
+login <- function(username, password, api_key, host, remember_me=TRUE, write_config=FALSE) {
     if (missing(username)) username <- .getConfigValue("username")
     if (missing(password)) password <- .getConfigValue("password")
     if (missing(api_key))  api_key  <- .getConfigValue("api_key")
@@ -85,6 +90,10 @@ login <- function(username, password, api_key, host, remember_me=TRUE) {
     ## Cache API-client and user-API instances
     .pkgenv[["apiClientInstance"]]  <- apiClientInstance
     .pkgenv[["userApiInstance"]] <- userApiInstance
+
+    if (write_config) {
+      .storeConfig()
+    }
 
     invisible()
 }
