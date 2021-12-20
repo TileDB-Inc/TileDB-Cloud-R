@@ -151,13 +151,13 @@ $max
 
 # UDF registration
 
-Known issues:
+Known issue:
 
-* Tags can be successfully set using the functions shown below but are not read back on `get_udf_info`. This is a server-side bug, affecting UDF-info readback regardless of client (Python or R).
-* Array UDFs cannot be invoked by registered name -- only generic UDFs at present. This is also a server-side bug, independent of client (Python or R).
-* `multiple_array` is not present at all in the `UDFType` enum in the API YAML spec. This affects all client languages. This means we cannot yet register multi-array UDFs.
+Tags can be successfully set using the functions shown below but are not read back on `get_udf_info`. This is a server-side bug, affecting UDF-info readback regardless of client (Python or R).
 
 ## Register a UDF and read back UDF info
+
+### Generic UDFs
 
 ```
 library(tiledbcloud)
@@ -185,7 +185,73 @@ List of 5
  $ tags    : NULL
 ```
 
+### Single-array UDFs
+
+```
+library(tiledbcloud)
+
+namespace <- "testuser"
+udfname   <- "udf-registration-test-single-array-with-arg"
+
+myfunc <- function(df, attrname, exponent) {
+  vec <- as.vector(df[[attrname]])
+  sum(vec) ** exponent
+}
+
+tiledbcloud::register_udf(namespace=namespace, name=udfname, type='single_array', func=myfunc)
+
+info <- tiledbcloud::get_udf_info(namespace=namespace, name=udfname)
+str(info)
+```
+
+```
+List of 5
+ $ name    : chr "udf-registration-test-single-array-with-arg"
+ $ exec    : chr "Wzg4LDEwLDAsMCwwLDMsMCw0LDEsMSwwLDMsNSwwLDAsMCwwLDUsODUsODQsNzAsNDUsNTYsMCwwLDQsMywwLDAsMCwyNTMsMCwwLDQsMiwwLDA"| __truncated__
+ $ exec_raw: chr "function (df, attrname, exponent) \n{\n    vec <- as.vector(df[[attrname]])\n    sum(vec)^exponent\n}"
+ $ language: chr "\"r\""
+ $ tags    : list()
+```
+
+### Multi-array UDFs
+
+```
+
+library(tiledbcloud)
+
+namespace <- "testuser"
+udfname   <- "udf-registration-test-multi-array-with-arg"
+
+myfunc <- function(df1, df2, attrname) {
+  vec1 <- as.vector(df1[[attrname]])
+  vec2 <- as.vector(df2[[attrname]])
+  list(
+    len=length(vec1) + length(vec2),
+    min=min(vec1) + min(vec2),
+    med=median(vec1) + median(vec2),
+    max=max(vec1) + max(vec2)
+  )
+}
+
+tiledbcloud::register_udf(namespace=namespace, name=udfname, type='multi_array', func=myfunc)
+
+info <- tiledbcloud::get_udf_info(namespace=namespace, name=udfname)
+str(info)
+```
+
+```
+[1] "GET INFO"
+List of 5
+ $ name    : chr "udf-registration-test-multi-array-with-arg"
+ $ exec    : chr "Wzg4LDEwLDAsMCwwLDMsMCw0LDEsMSwwLDMsNSwwLDAsMCwwLDUsODUsODQsNzAsNDUsNTYsMCwwLDQsMywwLDAsMCwyNTMsMCwwLDQsMiwwLDA"| __truncated__
+ $ exec_raw: chr "function (df1, df2, attrname) \n{\n    vec1 <- as.vector(df1[[attrname]])\n    vec2 <- as.vector(df2[[attrname]"| __truncated__
+ $ language: chr "\"r\""
+ $ tags    : list()
+```
+
 ## Invoke registered UDF
+
+### Generic UDFs
 
 ```
 library(tiledbcloud)
@@ -215,7 +281,84 @@ $ ./cloud-execute-registered-generic-udf.r
 [1] 166375
 ```
 
+### Single-array UDFs
+
+```
+library(tiledbcloud)
+
+namespace_to_charge <- 'testuser'
+udf_name <- 'udf-registration-test-single-array-with-arg'
+registered_udf_name=paste(namespace_to_charge, udf_name, sep='/')
+
+result <- tiledbcloud::execute_array_udf(
+  namespace="testuser", # namespace to charge
+  array="TileDB-Inc/quickstart_dense",
+  registered_udf_name=registered_udf_name,
+  args=list(attrname="a", exponent=2),
+  selectedRanges=list(cbind(1,2), cbind(1,2)),
+  attrs=c("a")
+)
+print(result)
+```
+
+```
+[1] 196
+```
+
+### Multi-array UDFs
+
+```
+#!/usr/bin/env Rscript
+
+library(tiledbcloud)
+
+namespace_to_charge <- 'testuser'
+registered_udf_name <- 'testuser/udf-registration-test-multi-array-with-arg'
+
+details1 <- tiledbcloud::UDFArrayDetails$new(
+  uri="tiledb://TileDB-Inc/quickstart_dense",
+  ranges=QueryRanges$new(
+    layout=Layout$new('row-major'),
+    ranges=list(cbind(1,4),cbind(1,4))
+  ),
+  buffers=list("a")
+)
+
+details2 <- tiledbcloud::UDFArrayDetails$new(
+  uri="tiledb://TileDB-Inc/quickstart_sparse",
+  ranges=QueryRanges$new(
+    layout=Layout$new('row-major'),
+    ranges=list(cbind(1,2),cbind(1,4))
+  ),
+  buffers=list("a")
+)
+
+result <- tiledbcloud::execute_multi_array_udf(
+  namespace=namespace_to_charge,
+  array_list=list(details1, details2),
+  registered_udf_name=registered_udf_name,
+  args=list(attrname="a")
+)
+print(result)
+```
+
+```
+$len
+[1] 19
+
+$min
+[1] 2
+
+$med
+[1] 10.5
+
+$max
+[1] 19
+```
+
 ## Unregister UDF
+
+This is the same for `generic`, `single_array`, and `multi_array` registered UDFs.
 
 ```
 library(tiledbcloud)
