@@ -14,11 +14,9 @@
     cfg <- jsonlite::fromJSON(cfgfile)
 }
 
-.storeConfig <- function() {
-    homedir <- Sys.getenv("HOME")
+.storeConfig <- function(homedir=Sys.getenv("HOME")) {
     if (homedir == "") {
-        warning("No HOME environment variable.")  # Windows ?
-        return(NULL)
+        stop("No HOME environment variable or homedir value.", call .= FALSE)  # Windows ?
     }
     cfgfile <- file.path(homedir, ".tiledb", "cloud.json")
 
