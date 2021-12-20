@@ -16,6 +16,9 @@ List of key-value pairs of UDF information.
 }
 \description{
 Reads back information for a specified user-defined function on TileDB Cloud.
+Note that \code{version}, \code{image_name}, \code{exec}, and \code{exec_raw}
+are writable via \link{\code{register_udf}} but are not read back by this
+function.
 }
 \seealso{
 Other {manual-layer functions}: 
