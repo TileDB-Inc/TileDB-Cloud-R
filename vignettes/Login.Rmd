@@ -86,6 +86,13 @@ or
 }
 ```
 
+If you use the optional `write_config=TRUE` argument for `tiledbcloud::login`
+then `~/.tiledb/cloud.json` will be written for you:
+
+```
+tiledbcloud::login(username="your-username", password="your-password", write_config=TRUE)
+```
+
 ## Showing user profile
 
 ```
