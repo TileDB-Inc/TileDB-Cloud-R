@@ -58,10 +58,15 @@ configure <- function() {
     ## Fallback defaults
     if (host == "") host <- "https://api.tiledb.com"
 
-    configuration <- c(api_key    = token,
-                       username   = username,
-                       password   = password,
-                       host       = host,
-                       verify_ssl = verify_ssl,
-                       logged_in  = "FALSE")
+    # We use jsonlite to persist sessions. In turn, jsonlite::toJSON will *not*
+    # retain names if the configuration is a named vector. We must use a named
+    # list.  Example: toJSON(c(a=1,b=2)) is '[1,2]' (bad) but
+    # toJSON(list(a=1,b=2),auto_unbox=TRUE) is '{"a":1,"b":2}' (good).
+    configuration <- list(api_key    = token,
+                          username   = username,
+                          password   = password,
+                          host       = host,
+                          verify_ssl = verify_ssl,
+                          logged_in  = "FALSE")
+    configuration
 }
