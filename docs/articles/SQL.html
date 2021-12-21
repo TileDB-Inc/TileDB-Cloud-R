@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,18 +33,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tiledbcloud</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.5</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
@@ -52,7 +48,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/TileDB-Inc/TileDB-Cloud-R/">
+  <a href="https://github.com/TileDB-Inc/TileDB-Cloud-R/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -67,33 +63,33 @@
 
       
 
-      </header><script src="SQL_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>SQL</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/TileDB-Inc/TileDB-Cloud-R/blob/master/vignettes/SQL.Rmd"><code>vignettes/SQL.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/TileDB-Inc/TileDB-Cloud-R/blob/HEAD/vignettes/SQL.Rmd" class="external-link"><code>vignettes/SQL.Rmd</code></a></small>
       <div class="hidden name"><code>SQL.Rmd</code></div>
 
     </div>
 
     
     
-<div id="sql-example" class="section level1">
-<h1 class="hasAnchor">
-<a href="#sql-example" class="anchor"></a>SQL example</h1>
+<div class="section level1">
+<h1 id="sql-example">SQL example<a class="anchor" aria-label="anchor" href="#sql-example"></a>
+</h1>
 <p>This mostly uses the OpenAPI-autogen layer (see also <a href="PackageStatus.html">PackageStatus</a>).</p>
-<pre><code>api.client.instance &lt;- tiledbcloud:::.get_api_client_instance()
-sql.api.instance &lt;- sql &lt;- SqlApi$new(api.client.instance)
+<pre><code><span class="va">api.client.instance</span> <span class="op">&lt;-</span> <span class="fu">tiledbcloud</span><span class="fu">:::</span><span class="fu">.get_api_client_instance</span><span class="op">(</span><span class="op">)</span>
+<span class="va">sql.api.instance</span> <span class="op">&lt;-</span> <span class="va">sql</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/SqlApi.html">SqlApi</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="va">api.client.instance</span><span class="op">)</span>
 
-sql.parameters &lt;-  SQLParameters$new(
-  name="name-you-give-to-your-query",
-  query="select `rows`, AVG(a) as avg_a from `tiledb://TileDB-Inc/quickstart_dense` GROUP BY `rows`")
+<span class="va">sql.parameters</span> <span class="op">&lt;-</span>  <span class="va"><a href="../reference/SQLParameters.html">SQLParameters</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>
+  name<span class="op">=</span><span class="st">"name-you-give-to-your-query"</span>,
+  query<span class="op">=</span><span class="st">"select `rows`, AVG(a) as avg_a from `tiledb://TileDB-Inc/quickstart_dense` GROUP BY `rows`"</span><span class="op">)</span>
 
-answer &lt;- sql$RunSQL("namespace-to-charge", sql.parameters)
+<span class="va">answer</span> <span class="op">&lt;-</span> <span class="va">sql</span><span class="op">$</span><span class="fu">RunSQL</span><span class="op">(</span><span class="st">"namespace-to-charge"</span>, <span class="va">sql.parameters</span><span class="op">)</span>
 
-data.table::rbindlist(answer) # easiest helper to glue rows together</code></pre>
+<span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/rbindlist.html" class="external-link">rbindlist</a></span><span class="op">(</span><span class="va">answer</span><span class="op">)</span> <span class="co"># easiest helper to glue rows together</span></code></pre>
 <pre><code>     avg_a rows
 1:  2.5000    1
 2:  6.5000    2
@@ -113,11 +109,13 @@ data.table::rbindlist(answer) # easiest helper to glue rows together</code></pre
 
 
       <footer><div class="copyright">
-  <p>Developed by TileDB, Inc., John Kerl.</p>
+  <p></p>
+<p>Developed by TileDB, Inc., John Kerl.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -125,6 +123,8 @@ data.table::rbindlist(answer) # easiest helper to glue rows together</code></pre
 
   
 
+
+  
 
   </body>
 </html>

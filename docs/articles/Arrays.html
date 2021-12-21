@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,18 +33,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tiledbcloud</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.5</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
@@ -52,7 +48,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/TileDB-Inc/TileDB-Cloud-R/">
+  <a href="https://github.com/TileDB-Inc/TileDB-Cloud-R/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -67,26 +63,26 @@
 
       
 
-      </header><script src="Arrays_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Arrays</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/TileDB-Inc/TileDB-Cloud-R/blob/master/vignettes/Arrays.Rmd"><code>vignettes/Arrays.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/TileDB-Inc/TileDB-Cloud-R/blob/HEAD/vignettes/Arrays.Rmd" class="external-link"><code>vignettes/Arrays.Rmd</code></a></small>
       <div class="hidden name"><code>Arrays.Rmd</code></div>
 
     </div>
 
     
     
-<div id="arrays" class="section level1">
-<h1 class="hasAnchor">
-<a href="#arrays" class="anchor"></a>Arrays</h1>
-<p>Some of these examples use <a href="https://github.com/TileDB-Inc/TileDB-R">TileDB-R</a> in addition to this package.</p>
-<div id="listing-arrays" class="section level2">
-<h2 class="hasAnchor">
-<a href="#listing-arrays" class="anchor"></a>Listing arrays</h2>
+<div class="section level1">
+<h1 id="arrays">Arrays<a class="anchor" aria-label="anchor" href="#arrays"></a>
+</h1>
+<p>Some of these examples use <a href="https://github.com/TileDB-Inc/TileDB-R" class="external-link">TileDB-R</a> in addition to this package.</p>
+<div class="section level2">
+<h2 id="listing-arrays">Listing arrays<a class="anchor" aria-label="anchor" href="#listing-arrays"></a>
+</h2>
 <p>You can show arrays you own, or public/shared arrays:</p>
 <pre><code>&gt; tiledbcloud::list_arrays()[c("namespace","name")]
  namespace                             name
@@ -108,9 +104,9 @@
 1   sampleuser       experiment_001
 2     coworker         testing--032</code></pre>
 </div>
-<div id="showing-array-information" class="section level2">
-<h2 class="hasAnchor">
-<a href="#showing-array-information" class="anchor"></a>Showing array information</h2>
+<div class="section level2">
+<h2 id="showing-array-information">Showing array information<a class="anchor" aria-label="anchor" href="#showing-array-information"></a>
+</h2>
 <pre><code>&gt; str(tiledbcloud::array_info(namespace="TileDB-Inc", arrayname="quickstart_dense"))
 List of 12
  $ id                  : chr "682afbad-7671-488b-9058-41f0fe5da049"
@@ -126,9 +122,9 @@ List of 12
  $ tiledb_uri          : chr "tiledb://TileDB-Inc/quickstart_dense"
  $ tags                : list()</code></pre>
 </div>
-<div id="reading-arrays" class="section level2">
-<h2 class="hasAnchor">
-<a href="#reading-arrays" class="anchor"></a>Reading arrays</h2>
+<div class="section level2">
+<h2 id="reading-arrays">Reading arrays<a class="anchor" aria-label="anchor" href="#reading-arrays"></a>
+</h2>
 <pre><code>uri &lt;- "tiledb://TileDB-Inc/quickstart_sparse"
 arr &lt;- tiledb::tiledb_array(uri, query_type="READ", as.data.frame=TRUE)
 schema(arr)
@@ -168,20 +164,20 @@ schema(arr)
 - Filters: 0
 - Fill value: 4294967295</code></pre>
 </div>
-<div id="registering-deregistering-arrays" class="section level2">
-<h2 class="hasAnchor">
-<a href="#registering-deregistering-arrays" class="anchor"></a>Registering / deregistering arrays</h2>
-<p>Information coming soon! See also <a href="https://cloud.tiledb.com">https://cloud.tiledb.com</a> for UI access.</p>
+<div class="section level2">
+<h2 id="registering-deregistering-arrays">Registering / deregistering arrays<a class="anchor" aria-label="anchor" href="#registering-deregistering-arrays"></a>
+</h2>
+<p>Information coming soon! See also <a href="https://cloud.tiledb.com" class="external-link">https://cloud.tiledb.com</a> for UI access.</p>
 </div>
-<div id="sharing" class="section level2">
-<h2 class="hasAnchor">
-<a href="#sharing" class="anchor"></a>Sharing</h2>
-<p>Information coming soon! See also <a href="https://cloud.tiledb.com">https://cloud.tiledb.com</a> for UI access.</p>
+<div class="section level2">
+<h2 id="sharing">Sharing<a class="anchor" aria-label="anchor" href="#sharing"></a>
+</h2>
+<p>Information coming soon! See also <a href="https://cloud.tiledb.com" class="external-link">https://cloud.tiledb.com</a> for UI access.</p>
 </div>
-<div id="readingwriting-metadata" class="section level2">
-<h2 class="hasAnchor">
-<a href="#readingwriting-metadata" class="anchor"></a>Reading/writing metadata</h2>
-<p>Information coming soon! See also <a href="https://cloud.tiledb.com">https://cloud.tiledb.com</a> for UI access.</p>
+<div class="section level2">
+<h2 id="readingwriting-metadata">Reading/writing metadata<a class="anchor" aria-label="anchor" href="#readingwriting-metadata"></a>
+</h2>
+<p>Information coming soon! See also <a href="https://cloud.tiledb.com" class="external-link">https://cloud.tiledb.com</a> for UI access.</p>
 </div>
 </div>
   </div>
@@ -197,11 +193,13 @@ schema(arr)
 
 
       <footer><div class="copyright">
-  <p>Developed by TileDB, Inc., John Kerl.</p>
+  <p></p>
+<p>Developed by TileDB, Inc., John Kerl.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -209,6 +207,8 @@ schema(arr)
 
   
 
+
+  
 
   </body>
 </html>

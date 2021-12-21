@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,18 +33,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tiledbcloud</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.5</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
@@ -52,7 +48,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/TileDB-Inc/TileDB-Cloud-R/">
+  <a href="https://github.com/TileDB-Inc/TileDB-Cloud-R/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -67,47 +63,47 @@
 
       
 
-      </header><script src="UDFs_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>UDFs</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/TileDB-Inc/TileDB-Cloud-R/blob/master/vignettes/UDFs.Rmd"><code>vignettes/UDFs.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/TileDB-Inc/TileDB-Cloud-R/blob/HEAD/vignettes/UDFs.Rmd" class="external-link"><code>vignettes/UDFs.Rmd</code></a></small>
       <div class="hidden name"><code>UDFs.Rmd</code></div>
 
     </div>
 
     
     
-<div id="user-defined-functions" class="section level1">
-<h1 class="hasAnchor">
-<a href="#user-defined-functions" class="anchor"></a>User-defined functions</h1>
+<div class="section level1">
+<h1 id="user-defined-functions">User-defined functions<a class="anchor" aria-label="anchor" href="#user-defined-functions"></a>
+</h1>
 <p>See the <a href="Login.html">Login page</a> for login information.</p>
-<div id="generic-udfs" class="section level2">
-<h2 class="hasAnchor">
-<a href="#generic-udfs" class="anchor"></a>Generic UDFs</h2>
+<div class="section level2">
+<h2 id="generic-udfs">Generic UDFs<a class="anchor" aria-label="anchor" href="#generic-udfs"></a>
+</h2>
 <p>These are functions you write, invoked server-side.</p>
-<pre><code># Namespace to charge
-namespace &lt;- "demo"
-# Your function
-myfunc &lt;- function(x=50:54, y=70:74) { x + y }
-# Execute the function on TileDB Cloud
-result &lt;- tiledbcloud::execute_generic_udf(namespace=namespace, udf=myfunc)
-print(result)</code></pre>
+<pre><code><span class="co"># Namespace to charge</span>
+<span class="va">namespace</span> <span class="op">&lt;-</span> <span class="st">"demo"</span>
+<span class="co"># Your function</span>
+<span class="va">myfunc</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">=</span><span class="fl">50</span><span class="op">:</span><span class="fl">54</span>, <span class="va">y</span><span class="op">=</span><span class="fl">70</span><span class="op">:</span><span class="fl">74</span><span class="op">)</span> <span class="op">{</span> <span class="va">x</span> <span class="op">+</span> <span class="va">y</span> <span class="op">}</span>
+<span class="co"># Execute the function on TileDB Cloud</span>
+<span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">tiledbcloud</span><span class="fu">::</span><span class="fu"><a href="../reference/execute_generic_udf.html">execute_generic_udf</a></span><span class="op">(</span>namespace<span class="op">=</span><span class="va">namespace</span>, udf<span class="op">=</span><span class="va">myfunc</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></code></pre>
 <pre><code>[1] 120 122 124 126 128</code></pre>
 <p>Using arguments:</p>
-<pre><code>namespace &lt;- "demo"
-myfunc &lt;- function(x, y) { x + y }
-myargs &lt;- list(100:104, 200:204)
-result &lt;- tiledbcloud::execute_generic_udf(namespace=namespace, udf=myfunc, args=myargs)
-print(result)</code></pre>
+<pre><code><span class="va">namespace</span> <span class="op">&lt;-</span> <span class="st">"demo"</span>
+<span class="va">myfunc</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span> <span class="va">x</span> <span class="op">+</span> <span class="va">y</span> <span class="op">}</span>
+<span class="va">myargs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fl">100</span><span class="op">:</span><span class="fl">104</span>, <span class="fl">200</span><span class="op">:</span><span class="fl">204</span><span class="op">)</span>
+<span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">tiledbcloud</span><span class="fu">::</span><span class="fu"><a href="../reference/execute_generic_udf.html">execute_generic_udf</a></span><span class="op">(</span>namespace<span class="op">=</span><span class="va">namespace</span>, udf<span class="op">=</span><span class="va">myfunc</span>, args<span class="op">=</span><span class="va">myargs</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></code></pre>
 <pre><code>[1] 300 302 304 306 308</code></pre>
 </div>
 </div>
-<div id="single-array-udfs" class="section level1">
-<h1 class="hasAnchor">
-<a href="#single-array-udfs" class="anchor"></a>Single-array UDFs</h1>
+<div class="section level1">
+<h1 id="single-array-udfs">Single-array UDFs<a class="anchor" aria-label="anchor" href="#single-array-udfs"></a>
+</h1>
 <pre><code>myfunc &lt;- function(df) {
     vec &lt;- as.vector(df[["a"]])
     list(min=min(vec), med=median(vec), max=max(vec))
@@ -129,62 +125,62 @@ $med
 
 $max
 [1] 6</code></pre>
-<pre><code># Run a linear regression on bill length vs body mass
-myfunc &lt;- function(df) {
-  vec1 &lt;- as.vector(df$bill_length_mm)
-  vec2 &lt;- as.vector(df$body_mass_g)
-  lm.fit(cbind(1, vec2), vec1)$coefficients
-}
+<pre><code><span class="co"># Run a linear regression on bill length vs body mass</span>
+<span class="va">myfunc</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">df</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">vec1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">bill_length_mm</span><span class="op">)</span>
+  <span class="va">vec2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">body_mass_g</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/stats/lmfit.html" class="external-link">lm.fit</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fl">1</span>, <span class="va">vec2</span><span class="op">)</span>, <span class="va">vec1</span><span class="op">)</span><span class="op">$</span><span class="va">coefficients</span>
+<span class="op">}</span>
 
-result &lt;- tiledbcloud::execute_array_udf(
-    # NULL namespace means username namespace is charged
-    array="tiledb://demo/palmer_penguins2",
-    udf=myfunc,
-    selectedRanges=list(cbind("A", "Z"), cbind(2007,2009)),
-    attrs=list("bill_length_mm", "body_mass_g")
-)
-print(result)</code></pre>
+<span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">tiledbcloud</span><span class="fu">::</span><span class="fu"><a href="../reference/execute_array_udf.html">execute_array_udf</a></span><span class="op">(</span>
+    <span class="co"># NULL namespace means username namespace is charged</span>
+    array<span class="op">=</span><span class="st">"tiledb://demo/palmer_penguins2"</span>,
+    udf<span class="op">=</span><span class="va">myfunc</span>,
+    selectedRanges<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"Z"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fl">2007</span>,<span class="fl">2009</span><span class="op">)</span><span class="op">)</span>,
+    attrs<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"bill_length_mm"</span>, <span class="st">"body_mass_g"</span><span class="op">)</span>
+<span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></code></pre>
 <pre><code>                   vec2
 27.15072200  0.00400329</code></pre>
 </div>
-<div id="multi-array-udfs" class="section level1">
-<h1 class="hasAnchor">
-<a href="#multi-array-udfs" class="anchor"></a>Multi-array UDFs</h1>
-<pre><code>myfunc &lt;- function(df1, df2) {
-  vec1 &lt;- as.vector(df1[["a"]])
-  vec2 &lt;- as.vector(df2[["a"]])
-  list(
-    len=length(vec1) + length(vec2),
-    min=min(vec1) + min(vec2),
-    med=median(vec1) + median(vec2),
-    max=max(vec1) + max(vec2)
-  )
-}
+<div class="section level1">
+<h1 id="multi-array-udfs">Multi-array UDFs<a class="anchor" aria-label="anchor" href="#multi-array-udfs"></a>
+</h1>
+<pre><code><span class="va">myfunc</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">df1</span>, <span class="va">df2</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">vec1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="va">df1</span><span class="op">[[</span><span class="st">"a"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>
+  <span class="va">vec2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="va">df2</span><span class="op">[[</span><span class="st">"a"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>
+    len<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">vec1</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">vec2</span><span class="op">)</span>,
+    min<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="va">vec1</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="va">vec2</span><span class="op">)</span>,
+    med<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/median.html" class="external-link">median</a></span><span class="op">(</span><span class="va">vec1</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html" class="external-link">median</a></span><span class="op">(</span><span class="va">vec2</span><span class="op">)</span>,
+    max<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">vec1</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">vec2</span><span class="op">)</span>
+  <span class="op">)</span>
+<span class="op">}</span>
 
-details1 &lt;- tiledbcloud::UDFArrayDetails$new(
-  uri="tiledb://TileDB-Inc/quickstart_dense",
-  ranges=QueryRanges$new(
-    layout=Layout$new('row-major'),
-    ranges=list(cbind(1,4),cbind(1,4))
-  ),
-  buffers=list("a")
-)
+<span class="va">details1</span> <span class="op">&lt;-</span> <span class="fu">tiledbcloud</span><span class="fu">::</span><span class="va"><a href="../reference/UDFArrayDetails.html">UDFArrayDetails</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>
+  uri<span class="op">=</span><span class="st">"tiledb://TileDB-Inc/quickstart_dense"</span>,
+  ranges<span class="op">=</span><span class="va"><a href="../reference/QueryRanges.html">QueryRanges</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>
+    layout<span class="op">=</span><span class="va"><a href="../reference/Layout.html">Layout</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="st">'row-major'</span><span class="op">)</span>,
+    ranges<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span>
+  <span class="op">)</span>,
+  buffers<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span>
+<span class="op">)</span>
 
-details2 &lt;- tiledbcloud::UDFArrayDetails$new(
-  uri="tiledb://TileDB-Inc/quickstart_sparse",
-  ranges=QueryRanges$new(
-    layout=Layout$new('row-major'),
-    ranges=list(cbind(1,2),cbind(1,4))
-  ),
-  buffers=list("a")
-)
+<span class="va">details2</span> <span class="op">&lt;-</span> <span class="fu">tiledbcloud</span><span class="fu">::</span><span class="va"><a href="../reference/UDFArrayDetails.html">UDFArrayDetails</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>
+  uri<span class="op">=</span><span class="st">"tiledb://TileDB-Inc/quickstart_sparse"</span>,
+  ranges<span class="op">=</span><span class="va"><a href="../reference/QueryRanges.html">QueryRanges</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>
+    layout<span class="op">=</span><span class="va"><a href="../reference/Layout.html">Layout</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="st">'row-major'</span><span class="op">)</span>,
+    ranges<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span>
+  <span class="op">)</span>,
+  buffers<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span>
+<span class="op">)</span>
 
-result &lt;- tiledbcloud::execute_multi_array_udf(
-  namespace="demo",
-  array_list=list(details1, details2),
-  udf=myfunc
-)
-print(result)</code></pre>
+<span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">tiledbcloud</span><span class="fu">::</span><span class="fu"><a href="../reference/execute_multi_array_udf.html">execute_multi_array_udf</a></span><span class="op">(</span>
+  namespace<span class="op">=</span><span class="st">"demo"</span>,
+  array_list<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">details1</span>, <span class="va">details2</span><span class="op">)</span>,
+  udf<span class="op">=</span><span class="va">myfunc</span>
+<span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></code></pre>
 <pre><code>$len
 [1] 19
 
@@ -197,29 +193,29 @@ $med
 $max
 [1] 19</code></pre>
 </div>
-<div id="udf-registration" class="section level1">
-<h1 class="hasAnchor">
-<a href="#udf-registration" class="anchor"></a>UDF registration</h1>
+<div class="section level1">
+<h1 id="udf-registration">UDF registration<a class="anchor" aria-label="anchor" href="#udf-registration"></a>
+</h1>
 <p>Known issue: Tags can be successfully set using the functions shown below but are not read back on <code>get_udf_info</code>. This is a server-side bug, affecting UDF-info readback regardless of client (Python or R).</p>
-<div id="register-a-udf-and-read-back-udf-info" class="section level2">
-<h2 class="hasAnchor">
-<a href="#register-a-udf-and-read-back-udf-info" class="anchor"></a>Register a UDF and read back UDF info</h2>
-<div id="generic-udfs-1" class="section level3">
-<h3 class="hasAnchor">
-<a href="#generic-udfs-1" class="anchor"></a>Generic UDFs</h3>
-<pre><code><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R">library(tiledbcloud)
+<div class="section level2">
+<h2 id="register-a-udf-and-read-back-udf-info">Register a UDF and read back UDF info<a class="anchor" aria-label="anchor" href="#register-a-udf-and-read-back-udf-info"></a>
+</h2>
+<div class="section level3">
+<h3 id="generic-udfs-1">Generic UDFs<a class="anchor" aria-label="anchor" href="#generic-udfs-1"></a>
+</h3>
+<pre><code><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R" class="external-link">tiledbcloud</a></span><span class="op">)</span>
 
-namespace &lt;- 'testuser'
-udfname &lt;- 'udf-registration-test-generic'
+<span class="va">namespace</span> <span class="op">&lt;-</span> <span class="st">'testuser'</span>
+<span class="va">udfname</span> <span class="op">&lt;-</span> <span class="st">'udf-registration-test-generic'</span>
 
-myfunc &lt;- function(vec, exponent) {
-  sum(vec) ** exponent
-}
+<span class="va">myfunc</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">vec</span>, <span class="va">exponent</span><span class="op">)</span> <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">vec</span><span class="op">)</span> <span class="op">**</span> <span class="va">exponent</span>
+<span class="op">}</span>
 
-register_udf(namespace=namespace, name=udfname, 'generic', func=myfunc)
+<span class="fu"><a href="../reference/register_udf.html">register_udf</a></span><span class="op">(</span>namespace<span class="op">=</span><span class="va">namespace</span>, name<span class="op">=</span><span class="va">udfname</span>, <span class="st">'generic'</span>, func<span class="op">=</span><span class="va">myfunc</span><span class="op">)</span>
 
-info &lt;- get_udf_info(namespace=namespace, name=udfname)
-str(info)</a></code></pre>
+<span class="va">info</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_udf_info.html">get_udf_info</a></span><span class="op">(</span>namespace<span class="op">=</span><span class="va">namespace</span>, name<span class="op">=</span><span class="va">udfname</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">info</span><span class="op">)</span></code></pre>
 <pre><code>$ ./cloud-register-generic-udf.r
 List of 5
  $ name    : chr "udf-registration-test-generic"
@@ -228,23 +224,23 @@ List of 5
  $ language: chr "\"r\""
  $ tags    : NULL</code></pre>
 </div>
-<div id="single-array-udfs-1" class="section level3">
-<h3 class="hasAnchor">
-<a href="#single-array-udfs-1" class="anchor"></a>Single-array UDFs</h3>
-<pre><code><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R">library(tiledbcloud)
+<div class="section level3">
+<h3 id="single-array-udfs-1">Single-array UDFs<a class="anchor" aria-label="anchor" href="#single-array-udfs-1"></a>
+</h3>
+<pre><code><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R" class="external-link">tiledbcloud</a></span><span class="op">)</span>
 
-namespace &lt;- "testuser"
-udfname   &lt;- "udf-registration-test-single-array-with-arg"
+<span class="va">namespace</span> <span class="op">&lt;-</span> <span class="st">"testuser"</span>
+<span class="va">udfname</span>   <span class="op">&lt;-</span> <span class="st">"udf-registration-test-single-array-with-arg"</span>
 
-myfunc &lt;- function(df, attrname, exponent) {
-  vec &lt;- as.vector(df[[attrname]])
-  sum(vec) ** exponent
-}
+<span class="va">myfunc</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">df</span>, <span class="va">attrname</span>, <span class="va">exponent</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">vec</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="va">df</span><span class="op">[[</span><span class="va">attrname</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">vec</span><span class="op">)</span> <span class="op">**</span> <span class="va">exponent</span>
+<span class="op">}</span>
 
-tiledbcloud::register_udf(namespace=namespace, name=udfname, type='single_array', func=myfunc)
+<span class="fu">tiledbcloud</span><span class="fu">::</span><span class="fu"><a href="../reference/register_udf.html">register_udf</a></span><span class="op">(</span>namespace<span class="op">=</span><span class="va">namespace</span>, name<span class="op">=</span><span class="va">udfname</span>, type<span class="op">=</span><span class="st">'single_array'</span>, func<span class="op">=</span><span class="va">myfunc</span><span class="op">)</span>
 
-info &lt;- tiledbcloud::get_udf_info(namespace=namespace, name=udfname)
-str(info)</a></code></pre>
+<span class="va">info</span> <span class="op">&lt;-</span> <span class="fu">tiledbcloud</span><span class="fu">::</span><span class="fu"><a href="../reference/get_udf_info.html">get_udf_info</a></span><span class="op">(</span>namespace<span class="op">=</span><span class="va">namespace</span>, name<span class="op">=</span><span class="va">udfname</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">info</span><span class="op">)</span></code></pre>
 <pre><code>List of 5
  $ name    : chr "udf-registration-test-single-array-with-arg"
  $ exec    : chr "Wzg4LDEwLDAsMCwwLDMsMCw0LDEsMSwwLDMsNSwwLDAsMCwwLDUsODUsODQsNzAsNDUsNTYsMCwwLDQsMywwLDAsMCwyNTMsMCwwLDQsMiwwLDA"| __truncated__
@@ -252,29 +248,29 @@ str(info)</a></code></pre>
  $ language: chr "\"r\""
  $ tags    : list()</code></pre>
 </div>
-<div id="multi-array-udfs-1" class="section level3">
-<h3 class="hasAnchor">
-<a href="#multi-array-udfs-1" class="anchor"></a>Multi-array UDFs</h3>
-<pre><code><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R">library(tiledbcloud)
+<div class="section level3">
+<h3 id="multi-array-udfs-1">Multi-array UDFs<a class="anchor" aria-label="anchor" href="#multi-array-udfs-1"></a>
+</h3>
+<pre><code><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R" class="external-link">tiledbcloud</a></span><span class="op">)</span>
 
-namespace &lt;- "testuser"
-udfname   &lt;- "udf-registration-test-multi-array-with-arg"
+<span class="va">namespace</span> <span class="op">&lt;-</span> <span class="st">"testuser"</span>
+<span class="va">udfname</span>   <span class="op">&lt;-</span> <span class="st">"udf-registration-test-multi-array-with-arg"</span>
 
-myfunc &lt;- function(df1, df2, attrname) {
-  vec1 &lt;- as.vector(df1[[attrname]])
-  vec2 &lt;- as.vector(df2[[attrname]])
-  list(
-    len=length(vec1) + length(vec2),
-    min=min(vec1) + min(vec2),
-    med=median(vec1) + median(vec2),
-    max=max(vec1) + max(vec2)
-  )
-}
+<span class="va">myfunc</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">df1</span>, <span class="va">df2</span>, <span class="va">attrname</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">vec1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="va">df1</span><span class="op">[[</span><span class="va">attrname</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>
+  <span class="va">vec2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="va">df2</span><span class="op">[[</span><span class="va">attrname</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>
+    len<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">vec1</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">vec2</span><span class="op">)</span>,
+    min<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="va">vec1</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="va">vec2</span><span class="op">)</span>,
+    med<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/median.html" class="external-link">median</a></span><span class="op">(</span><span class="va">vec1</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html" class="external-link">median</a></span><span class="op">(</span><span class="va">vec2</span><span class="op">)</span>,
+    max<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">vec1</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">vec2</span><span class="op">)</span>
+  <span class="op">)</span>
+<span class="op">}</span>
 
-tiledbcloud::register_udf(namespace=namespace, name=udfname, type='multi_array', func=myfunc)
+<span class="fu">tiledbcloud</span><span class="fu">::</span><span class="fu"><a href="../reference/register_udf.html">register_udf</a></span><span class="op">(</span>namespace<span class="op">=</span><span class="va">namespace</span>, name<span class="op">=</span><span class="va">udfname</span>, type<span class="op">=</span><span class="st">'multi_array'</span>, func<span class="op">=</span><span class="va">myfunc</span><span class="op">)</span>
 
-info &lt;- tiledbcloud::get_udf_info(namespace=namespace, name=udfname)
-str(info)</a></code></pre>
+<span class="va">info</span> <span class="op">&lt;-</span> <span class="fu">tiledbcloud</span><span class="fu">::</span><span class="fu"><a href="../reference/get_udf_info.html">get_udf_info</a></span><span class="op">(</span>namespace<span class="op">=</span><span class="va">namespace</span>, name<span class="op">=</span><span class="va">udfname</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">info</span><span class="op">)</span></code></pre>
 <pre><code>[1] "GET INFO"
 List of 5
  $ name    : chr "udf-registration-test-multi-array-with-arg"
@@ -284,83 +280,83 @@ List of 5
  $ tags    : list()</code></pre>
 </div>
 </div>
-<div id="invoke-registered-udf" class="section level2">
-<h2 class="hasAnchor">
-<a href="#invoke-registered-udf" class="anchor"></a>Invoke registered UDF</h2>
-<div id="generic-udfs-2" class="section level3">
-<h3 class="hasAnchor">
-<a href="#generic-udfs-2" class="anchor"></a>Generic UDFs</h3>
-<pre><code><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R">library(tiledbcloud)
+<div class="section level2">
+<h2 id="invoke-registered-udf">Invoke registered UDF<a class="anchor" aria-label="anchor" href="#invoke-registered-udf"></a>
+</h2>
+<div class="section level3">
+<h3 id="generic-udfs-2">Generic UDFs<a class="anchor" aria-label="anchor" href="#generic-udfs-2"></a>
+</h3>
+<pre><code><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R" class="external-link">tiledbcloud</a></span><span class="op">)</span>
 
-namespace &lt;- 'testuser'
-udfname &lt;- 'udf-registration-test-generic'
-registered_udf_name=paste(namespace, udfname, sep='/')
+<span class="va">namespace</span> <span class="op">&lt;-</span> <span class="st">'testuser'</span>
+<span class="va">udfname</span> <span class="op">&lt;-</span> <span class="st">'udf-registration-test-generic'</span>
+<span class="va">registered_udf_name</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="va">namespace</span>, <span class="va">udfname</span>, sep<span class="op">=</span><span class="st">'/'</span><span class="op">)</span>
 
-result &lt;- execute_generic_udf(
-  namespace=namespace,
-  registered_udf_name=registered_udf_name,
-  args=list(vec=1:10, exponent=3)
-)
-print(result)</a></code></pre>
+<span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/execute_generic_udf.html">execute_generic_udf</a></span><span class="op">(</span>
+  namespace<span class="op">=</span><span class="va">namespace</span>,
+  registered_udf_name<span class="op">=</span><span class="va">registered_udf_name</span>,
+  args<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>vec<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, exponent<span class="op">=</span><span class="fl">3</span><span class="op">)</span>
+<span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></code></pre>
 <pre><code>$ ./cloud-execute-registered-generic-udf.r
 [1] 3025
 [1] 166375</code></pre>
 </div>
-<div id="single-array-udfs-2" class="section level3">
-<h3 class="hasAnchor">
-<a href="#single-array-udfs-2" class="anchor"></a>Single-array UDFs</h3>
-<pre><code><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R">library(tiledbcloud)
+<div class="section level3">
+<h3 id="single-array-udfs-2">Single-array UDFs<a class="anchor" aria-label="anchor" href="#single-array-udfs-2"></a>
+</h3>
+<pre><code><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R" class="external-link">tiledbcloud</a></span><span class="op">)</span>
 
-namespace_to_charge &lt;- 'testuser'
-udf_name &lt;- 'udf-registration-test-single-array-with-arg'
-registered_udf_name=paste(namespace_to_charge, udf_name, sep='/')
+<span class="va">namespace_to_charge</span> <span class="op">&lt;-</span> <span class="st">'testuser'</span>
+<span class="va">udf_name</span> <span class="op">&lt;-</span> <span class="st">'udf-registration-test-single-array-with-arg'</span>
+<span class="va">registered_udf_name</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="va">namespace_to_charge</span>, <span class="va">udf_name</span>, sep<span class="op">=</span><span class="st">'/'</span><span class="op">)</span>
 
-result &lt;- tiledbcloud::execute_array_udf(
-  namespace="testuser", # namespace to charge
-  array="TileDB-Inc/quickstart_dense",
-  registered_udf_name=registered_udf_name,
-  args=list(attrname="a", exponent=2),
-  selectedRanges=list(cbind(1,2), cbind(1,2)),
-  attrs=c("a")
-)
-print(result)</a></code></pre>
+<span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">tiledbcloud</span><span class="fu">::</span><span class="fu"><a href="../reference/execute_array_udf.html">execute_array_udf</a></span><span class="op">(</span>
+  namespace<span class="op">=</span><span class="st">"testuser"</span>, <span class="co"># namespace to charge</span>
+  array<span class="op">=</span><span class="st">"TileDB-Inc/quickstart_dense"</span>,
+  registered_udf_name<span class="op">=</span><span class="va">registered_udf_name</span>,
+  args<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>attrname<span class="op">=</span><span class="st">"a"</span>, exponent<span class="op">=</span><span class="fl">2</span><span class="op">)</span>,
+  selectedRanges<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span>,
+  attrs<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span>
+<span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></code></pre>
 <pre><code>[1] 196</code></pre>
 </div>
-<div id="multi-array-udfs-2" class="section level3">
-<h3 class="hasAnchor">
-<a href="#multi-array-udfs-2" class="anchor"></a>Multi-array UDFs</h3>
-<pre><code><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R">#!/usr/bin/env Rscript
+<div class="section level3">
+<h3 id="multi-array-udfs-2">Multi-array UDFs<a class="anchor" aria-label="anchor" href="#multi-array-udfs-2"></a>
+</h3>
+<pre><code><span class="co">#!/usr/bin/env Rscript</span>
 
-library(tiledbcloud)
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R" class="external-link">tiledbcloud</a></span><span class="op">)</span>
 
-namespace_to_charge &lt;- 'testuser'
-registered_udf_name &lt;- 'testuser/udf-registration-test-multi-array-with-arg'
+<span class="va">namespace_to_charge</span> <span class="op">&lt;-</span> <span class="st">'testuser'</span>
+<span class="va">registered_udf_name</span> <span class="op">&lt;-</span> <span class="st">'testuser/udf-registration-test-multi-array-with-arg'</span>
 
-details1 &lt;- tiledbcloud::UDFArrayDetails$new(
-  uri="tiledb://TileDB-Inc/quickstart_dense",
-  ranges=QueryRanges$new(
-    layout=Layout$new('row-major'),
-    ranges=list(cbind(1,4),cbind(1,4))
-  ),
-  buffers=list("a")
-)
+<span class="va">details1</span> <span class="op">&lt;-</span> <span class="fu">tiledbcloud</span><span class="fu">::</span><span class="va"><a href="../reference/UDFArrayDetails.html">UDFArrayDetails</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>
+  uri<span class="op">=</span><span class="st">"tiledb://TileDB-Inc/quickstart_dense"</span>,
+  ranges<span class="op">=</span><span class="va"><a href="../reference/QueryRanges.html">QueryRanges</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>
+    layout<span class="op">=</span><span class="va"><a href="../reference/Layout.html">Layout</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="st">'row-major'</span><span class="op">)</span>,
+    ranges<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span>
+  <span class="op">)</span>,
+  buffers<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span>
+<span class="op">)</span>
 
-details2 &lt;- tiledbcloud::UDFArrayDetails$new(
-  uri="tiledb://TileDB-Inc/quickstart_sparse",
-  ranges=QueryRanges$new(
-    layout=Layout$new('row-major'),
-    ranges=list(cbind(1,2),cbind(1,4))
-  ),
-  buffers=list("a")
-)
+<span class="va">details2</span> <span class="op">&lt;-</span> <span class="fu">tiledbcloud</span><span class="fu">::</span><span class="va"><a href="../reference/UDFArrayDetails.html">UDFArrayDetails</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>
+  uri<span class="op">=</span><span class="st">"tiledb://TileDB-Inc/quickstart_sparse"</span>,
+  ranges<span class="op">=</span><span class="va"><a href="../reference/QueryRanges.html">QueryRanges</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>
+    layout<span class="op">=</span><span class="va"><a href="../reference/Layout.html">Layout</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="st">'row-major'</span><span class="op">)</span>,
+    ranges<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span>
+  <span class="op">)</span>,
+  buffers<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span>
+<span class="op">)</span>
 
-result &lt;- tiledbcloud::execute_multi_array_udf(
-  namespace=namespace_to_charge,
-  array_list=list(details1, details2),
-  registered_udf_name=registered_udf_name,
-  args=list(attrname="a")
-)
-print(result)</a></code></pre>
+<span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">tiledbcloud</span><span class="fu">::</span><span class="fu"><a href="../reference/execute_multi_array_udf.html">execute_multi_array_udf</a></span><span class="op">(</span>
+  namespace<span class="op">=</span><span class="va">namespace_to_charge</span>,
+  array_list<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">details1</span>, <span class="va">details2</span><span class="op">)</span>,
+  registered_udf_name<span class="op">=</span><span class="va">registered_udf_name</span>,
+  args<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>attrname<span class="op">=</span><span class="st">"a"</span><span class="op">)</span>
+<span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></code></pre>
 <pre><code>$len
 [1] 19
 
@@ -374,15 +370,15 @@ $max
 [1] 19</code></pre>
 </div>
 </div>
-<div id="unregister-udf" class="section level2">
-<h2 class="hasAnchor">
-<a href="#unregister-udf" class="anchor"></a>Unregister UDF</h2>
+<div class="section level2">
+<h2 id="unregister-udf">Unregister UDF<a class="anchor" aria-label="anchor" href="#unregister-udf"></a>
+</h2>
 <p>This is the same for <code>generic</code>, <code>single_array</code>, and <code>multi_array</code> registered UDFs.</p>
-<pre><code><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R">library(tiledbcloud)
+<pre><code><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R" class="external-link">tiledbcloud</a></span><span class="op">)</span>
 
-namespace &lt;- 'testuser'
-udfname &lt;- 'udf-registration-test-generic'
-deregister_udf(namespace=namespace, name=udfname)</a></code></pre>
+<span class="va">namespace</span> <span class="op">&lt;-</span> <span class="st">'testuser'</span>
+<span class="va">udfname</span> <span class="op">&lt;-</span> <span class="st">'udf-registration-test-generic'</span>
+<span class="fu"><a href="../reference/deregister_udf.html">deregister_udf</a></span><span class="op">(</span>namespace<span class="op">=</span><span class="va">namespace</span>, name<span class="op">=</span><span class="va">udfname</span><span class="op">)</span></code></pre>
 </div>
 </div>
   </div>
@@ -398,11 +394,13 @@ deregister_udf(namespace=namespace, name=udfname)</a></code></pre>
 
 
       <footer><div class="copyright">
-  <p>Developed by TileDB, Inc., John Kerl.</p>
+  <p></p>
+<p>Developed by TileDB, Inc., John Kerl.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -410,6 +408,8 @@ deregister_udf(namespace=namespace, name=udfname)</a></code></pre>
 
   
 
+
+  
 
   </body>
 </html>
