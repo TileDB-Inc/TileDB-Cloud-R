@@ -33,7 +33,13 @@ A few manually written functions are not exported by the package but do appear
 in the documentation. Their names start with a leading `.`, and they can be
 found in the Reference section labeled as such.
 
-For example, using the autogen layer we could write:
+For example, using the manual-layer function `tiledbcloud::array_info` we can write simply:
+
+```
+tiledbcloud::array_info("namespace-goes-here", "arrayname-goes-here")
+```
+
+instead of what we would need to do using autogen-layer functions:
 
 ```
 api.client.instance <- ApiClient$new(
@@ -47,16 +53,11 @@ array.api.instance <- ArrayApi$new(api.client.instance)
 array.api.instance$GetArrayMetadata(namespace, arrayname)$toJSON()
 ```
 
-whereas using the manual-layer function `tiledbcloud::array_info` we can do simply:
-
-```
-tiledbcloud::array_info("namespace-goes-here", "arrayname-goes-here")
-```
 ## Prioritization for development
 
 * Several key API entrypoints have a manual layer written; not all do.
 * Current efforts focus on user-defined functions (UDFs).
-* Some items in the API are eaiser to do in the UI -- for example, writing array metadata/tags, favoriting, etc.  These are lower-priority for manual-layer work.
+* Some items in the API are easier to do in the UI -- for example, writing array metadata/tags, favoriting, etc.  These are lower-priority for manual-layer work.
 * As of late 2021, cloud-R task-graph work is deferred pending current infrastructural work.
 * But implementation is always demand-driven -- please contact us as noted below!
 
