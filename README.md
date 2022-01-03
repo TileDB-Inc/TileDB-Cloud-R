@@ -1,8 +1,8 @@
-# TileDB-Cloud-R
+# <a href="https://tiledb.com/"><img src="https://github.com/TileDB-Inc/TileDB/raw/dev/doc/source/_static/tiledb-logo_color_no_margin_@4x.png" alt="TileDB logo" width="400"></a>
 
 [![Build Status](https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/TileDB-Inc.TileDB-Cloud-R?branchName=master)](https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=26&branchName=master)
 
-This repository contains the R client for the TileDB Cloud Service.
+This repository contains the [R](https://www.r-project.org/) client for the [TileDB Cloud Service](https://tiledb.com/cloud).
 
 ## Installation
 
