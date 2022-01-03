@@ -1,8 +1,6 @@
 destination: docs
 template:
   bootstrap: 5
-  params:
-    bootswatch: lumen
 reference:
   - title: "Manual layer"
     desc: "These are manually written/curated functions which wrap some of the key calls into the OpenAPI autogen layer. They're more user-friendly and better documented. See also the Article on Package Status."

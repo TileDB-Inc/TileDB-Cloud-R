@@ -84,7 +84,7 @@
 
 <span class="va">answer</span> <span class="op">&lt;-</span> <span class="va">sql</span><span class="op">$</span><span class="fu">RunSQL</span><span class="op">(</span><span class="st">"namespace-to-charge"</span>, <span class="va">sql.parameters</span><span class="op">)</span>
 
-<span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/rbindlist.html" class="external-link">rbindlist</a></span><span class="op">(</span><span class="va">answer</span><span class="op">)</span> <span class="co"># easiest helper to glue rows together</span></code></pre>
+<span class="fu">data.table</span><span class="fu">::</span><span class="fu">rbindlist</span><span class="op">(</span><span class="va">answer</span><span class="op">)</span> <span class="co"># easiest helper to glue rows together</span></code></pre>
 <pre><code>     avg_a rows
 1:  2.5000    1
 2:  6.5000    2
