@@ -109,11 +109,6 @@ result <- tiledbcloud::execute_array_udf(
 expect_equal(result, c(27.15072200, vec2=0.00400329))
 
 # ================================================================
-# array info
-# list-owned-arrays
-# list-public-arrays
-# list-shared-arrays
-
 # register generic
 # execute registered generic
 # deregister generic
