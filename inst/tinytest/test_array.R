@@ -7,11 +7,10 @@ if ((unitTestToken <- Sys.getenv("TILEDB_REST_UNIT_TEST_TOKEN")) != "") {
 library(tiledbcloud)
 library(tinytest)
 
-#api <- tiledbcloud:::.pkgenv[["api"]]
-cl <- tiledbcloud:::.pkgenv[["cl"]]
-if (is.null(cl)) exit_file("not logged in")
+apiClientInstance <- tiledbcloud:::.pkgenv[["apiClientInstance"]]
+if (is.null(apiClientInstance)) exit_file("not logged in")
 
-arr <- ArrayApi$new(cl)
+arr <- ArrayApi$new(apiClientInstance)
 expect_true(is(arr, "ArrayApi"))
 
 res <- arr$GetArrayMetadata("TileDB-Inc", "quickstart_dense")

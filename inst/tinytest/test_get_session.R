@@ -7,10 +7,10 @@ if ((unitTestToken <- Sys.getenv("TILEDB_REST_UNIT_TEST_TOKEN")) != "") {
 library(tiledbcloud)
 library(tinytest)
 
-api <- tiledbcloud:::.pkgenv[["api"]]
-if (is.null(api)) exit_file("not logged in")
+userApiInstance <- tiledbcloud:::.pkgenv[["userApiInstance"]]
+if (is.null(userApiInstance)) exit_file("not logged in")
 
-res <- api$GetSession()
+res <- userApiInstance$GetSession()
 expect_true(is(res, "Token"))
 expect_true(is.character(res$token))
 
