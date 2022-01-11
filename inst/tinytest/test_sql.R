@@ -9,12 +9,12 @@ if ((unitTestToken <- Sys.getenv("TILEDB_REST_UNIT_TEST_TOKEN")) != "") {
 library(tiledbcloud)
 library(tinytest)
 
-cl <- tiledbcloud:::.pkgenv[["cl"]]
-api <- tiledbcloud:::.pkgenv[["api"]]
-#res <- api$GetUser()
+apiClientInstance <- tiledbcloud:::.pkgenv[["apiClientInstance"]]
+userApiInstance <- tiledbcloud:::.pkgenv[["userApiInstance"]]
+#res <- userApiInstance$GetUser()
 #print(str(res))
 
-sql <- SqlApi$new(cl)
+sql <- SqlApi$new(apiClientInstance)
 expect_true(is(sql, "SqlApi"))
 
 sqlpar <-  SQLParameters$new(name="ArbitraryNameHere", query=paste("select 1 as one"))

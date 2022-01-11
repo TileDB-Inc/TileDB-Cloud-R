@@ -9,10 +9,10 @@ if ((unitTestToken <- Sys.getenv("TILEDB_REST_UNIT_TEST_TOKEN")) != "") {
 library(tiledbcloud)
 library(tinytest)
 
-api <- tiledbcloud:::.pkgenv[["api"]]
-if (is.null(api)) exit_file("not logged in")
+userApiInstance <- tiledbcloud:::.pkgenv[["userApiInstance"]]
+if (is.null(userApiInstance)) exit_file("not logged in")
 
-res <- api$GetUser()
+res <- userApiInstance$GetUser()
 expect_true(is.list(res))
 expect_true(length(names(res)) >= 13)
 expect_equal(res$is_valid_email, TRUE)
