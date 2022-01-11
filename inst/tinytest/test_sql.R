@@ -11,8 +11,6 @@ library(tinytest)
 
 apiClientInstance <- tiledbcloud:::.pkgenv[["apiClientInstance"]]
 userApiInstance <- tiledbcloud:::.pkgenv[["userApiInstance"]]
-#res <- userApiInstance$GetUser()
-#print(str(res))
 
 sql <- SqlApi$new(apiClientInstance)
 expect_true(is(sql, "SqlApi"))

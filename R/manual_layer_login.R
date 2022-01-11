@@ -117,3 +117,8 @@ get_api_client_instance <- function() {
   }
   apiClientInstance
 }
+
+# This is a convenience function for testing.
+.logged_in <- function() {
+  !is.null(tiledbcloud:::.pkgenv[["apiClientInstance"]])
+}

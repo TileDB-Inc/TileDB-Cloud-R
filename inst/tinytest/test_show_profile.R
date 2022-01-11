@@ -12,11 +12,7 @@ library(tiledbcloud)
 library(tinytest)
 
 # ----------------------------------------------------------------
-# This .pkgenv is managed opaquely by the manual-layer API.
-# However, it's nice to consult it as a logged-in check, and
-# for consistency with other test files in this package.
-apiClientInstance <- tiledbcloud:::.pkgenv[["apiClientInstance"]]
-if (is.null(apiClientInstance)) exit_file("not logged in")
+if (!tiledbcloud:::.logged_in()) exit_file("not logged in")
 
 # ----------------------------------------------------------------
 # The result of show_profile() will vary depending on which user runs this
