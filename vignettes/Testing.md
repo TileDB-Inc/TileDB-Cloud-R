@@ -20,5 +20,6 @@ which we don't want to push on all users who build the package locally.
 To opt in:
 
 * Have either environment variable `TILEDB_REST_TOKEN`, or the pair `TILEDB_REST_USERNAME` and `TILEDB_REST_PASSWORD` -- or all three if you like.
+* You will also need environment variable `TILEDB_REST_UNIT_TEST_NAMESPACE_TO_CHARGE` for the (very minor) cloud costs associated with invoking UDFs.
 * Optionally, `TILEDB_REST_HOST` if your cloud installation is local, and/or for TileDB employees pointing at our staging environment.
 * In R: `tinytest::test_all(".")`
