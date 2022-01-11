@@ -26,6 +26,7 @@ articles:
   - Tasks
 - title: For developers
   contents:
+  - Testing
   - HowToUpdateDocumentation
   - HowToRelease
   - HowToUpdateAPI
