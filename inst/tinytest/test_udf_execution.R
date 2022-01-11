@@ -103,8 +103,3 @@ result <- tiledbcloud::execute_array_udf(
     attrs=list("bill_length_mm", "body_mass_g")
 )
 expect_equal(result, c(27.15072200, vec2=0.00400329))
-
-# ================================================================
-# register generic
-# execute registered generic
-# deregister generic
