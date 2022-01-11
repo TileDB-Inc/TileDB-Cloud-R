@@ -94,11 +94,21 @@ expect_equal(result, 2515456)
 # ----------------------------------------------------------------
 # TODO:
 # palmer
+myfunc <- function(df) {
+  vec1 <- as.vector(df$bill_length_mm)
+  vec2 <- as.vector(df$body_mass_g)
+  lm.fit(cbind(1, vec2), vec1)$coefficients
+}
+result <- tiledbcloud::execute_array_udf(
+    namespace=namespaceToCharge,
+    array="tiledb://johnkerl/palmer_penguins2",
+    udf=myfunc,
+    selectedRanges=list(cbind("A", "Z"), cbind(2007,2009)),
+    attrs=list("bill_length_mm", "body_mass_g")
+)
+expect_equal(result, c(27.15072200, vec2=0.00400329))
 
-# cloud-delegate
-
-# show_profile .. ?
-
+# ================================================================
 # array info
 # list-owned-arrays
 # list-public-arrays
