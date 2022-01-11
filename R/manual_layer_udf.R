@@ -366,7 +366,7 @@ update_udf_info <- function(namespace, name, type, func=NULL, func_text=NULL, ve
     tags=tags
   )
 
-  resultObject <- udfApiInstance$UpdateUDFInfo(namespace, udfname, info)
+  resultObject <- udfApiInstance$UpdateUDFInfo(namespace, name, info)
 
   # Decode the result, expecting empty string.
   .get_empty_response_body_or_stop(resultObject)
