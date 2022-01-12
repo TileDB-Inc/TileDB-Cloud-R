@@ -11,7 +11,7 @@ BugReports: https://github.com/TileDB-Inc/TileDB-Cloud-R/issues
 Depends: R (>= 3.3)
 License: MIT + file LICENSE
 Suggests: testthat, tinytest, rmarkdown, knitr
-Imports: jsonlite, arrow, httr, R6, base64enc
+Imports: jsonlite, arrow, httr, R6, base64enc, uuid
 VignetteBuilder: knitr
 Encoding: UTF-8
 RoxygenNote: 7.1.2

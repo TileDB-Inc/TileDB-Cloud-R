@@ -57,6 +57,7 @@ either the environment variables or the configuration file.
 \seealso{
 Other {manual-layer functions}: 
 \code{\link{array_info}()},
+\code{\link{delayed}()},
 \code{\link{deregister_udf}()},
 \code{\link{execute_array_udf}()},
 \code{\link{execute_generic_udf}()},
