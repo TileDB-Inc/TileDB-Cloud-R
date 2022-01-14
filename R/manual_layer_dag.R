@@ -83,18 +83,21 @@ dagGenerator$methods(
   launch_compute = function(.self) {
     # Set initial nodes' status to RUNNING
     # TODO: timeout ... code it up early for debug foo, don't wait :)
-    for (node in .self$initial_nodes) {
-      .self$nodes_not_started[[node$uuid]] <- NULL
-      .self$nodes_running[[node$uuid]] <- node
-      node$status <- RUNNING
-    }
+    #for (node in .self$initial_nodes) {
+      #.self$nodes_not_started[[node$uuid]] <- NULL
+      #.self$nodes_running[[node$uuid]] <- node
+      ## TODO: WAITING
+      #node$status <- RUNNING
+      ## TODO: have the node@payload launch -- ?
+    #}
+    .self$terminal_node$payload$launch_compute()
 
     # TODO: continue coding
   },
 
   is_compute_finished = function(.self) {
     # TODO: stub
-    FALSE
+    .self$terminal_node$payload$is_compute_finished()
   },
 
   await_compute = function(.self) {

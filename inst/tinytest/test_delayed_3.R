@@ -7,7 +7,7 @@ library(future)
 library(tinytest)
 
 # ----------------------------------------------------------------
-# This tests our _understading_ of the future package before we begin
+# This tests our _understanding_ of the future package before we begin
 # to put it into use in the DAG logic.
 future::plan(future::multisession)
 s <- Sys.time()

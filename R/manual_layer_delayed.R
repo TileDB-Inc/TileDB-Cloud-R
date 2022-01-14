@@ -51,6 +51,11 @@ delayedGenerator <- setRefClass("Delayed", representation(
   # node       = "Node",
   node         = "ANY",
   dag          = "DAG",
+  # Ditto
+  # future       = "Future",
+  future       = "ANY",
+  # TODO: probably need separate have_result in case legit retval is a NULL.
+  # TODO: maybe resolved(.self$future) is enough.
   result       = "ANY",
   #display_name = "character"
   # TODO: find out how to make this character OR null ...
@@ -59,12 +64,14 @@ delayedGenerator <- setRefClass("Delayed", representation(
 
 delayedGenerator$methods(
   initialize = function(.self, func, args, have_args, node=NULL, dag, display_name) {
-    .self$result <- NULL
-    .self$func <- func
-    .self$args <- args
-    .self$have_args <- have_args
-    .self$node <- node
-    .self$dag <- dag
+    .self$result       <- NULL
+    .self$func         <- func
+    .self$args         <- args
+    .self$have_args    <- have_args
+    .self$node         <- node
+    .self$dag          <- dag
+    .self$future       <- NULL
+    .self$result       <- NULL
     .self$display_name <- display_name
   },
 
@@ -92,9 +99,12 @@ delayedGenerator$methods(
     }
   },
 
+  # ----------------------------------------------------------------
   # This was written first during package dev, and is also perhaps useful for
   # debug. Or if anyone is ever deeply refactoring / taking apart and
   # reassembling this stuff.
+  #
+  # TODO: rename
   compute_sequentially = function(.self) {
     if (!is.null(.self$result)) {
       return (.self$result)
@@ -113,6 +123,10 @@ delayedGenerator$methods(
     .self$result
   },
 
+  # ----------------------------------------------------------------
+  # This launches a compute of the entire DAG which *terminates* at this item.
+  # This isn't a self-compute method to run on this particular item's delayed
+  # function.
   compute = function(.self) {
     # TODO: namespace
     dag <- new("DAG", namespace="temp namespace", terminal_node=.self$node)
@@ -121,21 +135,92 @@ delayedGenerator$methods(
     dag$compute()
   },
 
+  # ----------------------------------------------------------------
+  launch_compute = function(.self) {
+    launch_compute_non_method(.self)
+  }
+)
+
+# TODO: comment this seems to need to be outside the reference class ...
+launch_compute_non_method <- function(self) {
+  # TODO: check if already running
+  if (!is.null(self$future)) {
+    return()
+  }
+  cat("LAUNCH", self$display_name, "\n")
+
+  self$future <- future({self$compute_within_future()})
+
+  for (arg in self$args) {
+    if (is(arg, "Delayed")) {
+      arg$launch_compute()
+    }
+  }
+
+  # TODO: WAITING
+  self$node$status <- RUNNING
+}
+
+delayedGenerator$methods(
+  compute_within_future = function(.self) {
+    if (!is.null(.self$result)) {
+      return (.self$result)
+    }
+    if (!.self$have_args) {
+      stop("delayed object must have args set before calling compute")
+    }
+
+    while (!.self$args_ready()) {
+      Sys.sleep(0.5)
+    }
+
+    evaluated <- lapply(.self$args, function(arg) {
+      if (is(arg, "Delayed")) {
+        if (!arg$has_result()) {
+           stop("internal coding error: args results should have already been awaited")
+        }
+        arg$result
+      } else {
+        arg
+      }
+    })
+
+    .self$result <- do.call(.self$func, evaluated)
+    .self$result
+  },
+
+  is_self_compute_finished = function(.self) {
+    if (is.null(.self$future)) {
+      stop("internal coding error: awaiting resolve of unlaunched future.")
+    }
+    if (resolved(.self$future)) {
+      .self$result <- result(.self$future)$value
+      .self$node$status <- COMPLETED
+      TRUE
+    } else {
+      FALSE
+    }
+  },
+
+  args_ready = function(.self) {
+    for (arg in .self$args) {
+      if (is(arg, "Delayed")) {
+        if (!arg$has_result()) {
+          return(FALSE)
+        }
+      }
+    }
+    return(TRUE)
+  },
+
   has_result = function(.self) {
     !is.null(.self$result)
   },
 
-  # This is just temp debug foo. Prints a tree, so, if d is a function of b and
-  # c, and if b and c are each a function of a, the DAG is really
-  # diamond-shaped but this function will print:
-  #
-  # d's name
-  #   b's name
-  #     a's name
-  #   c's name
-  #     a's name
+  # ----------------------------------------------------------------
   show_deps = function(.self, prefix="") {
-    cat(prefix, .self$node$display_name, "\n", sep="")
+    cat(prefix)
+    .self$show()
     for (arg in .self$args) {
       if (is(arg, "Delayed")) {
         arg$show_deps(paste0(prefix, "  "))
@@ -145,18 +230,20 @@ delayedGenerator$methods(
 
   str = function(.self) {
     utils::str(.self, max.level=5)
+  },
+
+  show = function(.self) {
+    cat("node=", .self$display_name, sep="")
+    cat(",nargs=", ifelse(.self$have_args, length(.self$args), "(none set)"), sep="")
+    cat(",args_ready=", ifelse(.self$have_args, .self$args_ready(), "(none set)"), sep="")
+    cat(",future=", ifelse(is.null(.self$future), "absent", "present"), sep="")
+    cat(",status=", .self$node$status, sep="")
+    cat(",result=", ifelse(is.null(.self$result), "(null)", .self$result), sep="")
+    cat("\n")
   }
 )
 
-# Our data structures have parent->child->parent->... loops if followed
-# naively and we want non-stack-overflow as the *default* behavior.
-setMethod("str", signature(object = "Delayed"), function(object) {
-  object$str()
-})
-setMethod("show", signature(object = "Delayed"), function(object) {
-  object$str()
-})
-
+# ----------------------------------------------------------------
 # Let people do 'compute(f)' in addition to 'f$compute()'
 ##' @family {manual-layer functions}
 ##' @export
@@ -169,4 +256,14 @@ setMethod("compute", signature(object = "Delayed"), function(object) {
 compute_sequentially <- function(object) 0
 setMethod("compute_sequentially", signature(object = "Delayed"), function(object) {
   object$compute_sequentially()
+})
+
+# ----------------------------------------------------------------
+# Our data structures have parent->child->parent->... loops if followed
+# naively and we want non-stack-overflow as the *default* behavior.
+setMethod("str", signature(object = "Delayed"), function(object) {
+  object$str()
+})
+setMethod("show", signature(object = "Delayed"), function(object) {
+  object$show()
 })
