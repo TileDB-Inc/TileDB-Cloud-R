@@ -86,18 +86,18 @@ expect_equal(o, 770)
 # Check that result-caching is in place.
 s <- Sys.time()
 
-a <- delayed(function(){Sys.sleep(1); 3 })
+a <- delayed(function(){Sys.sleep(1); 9 })
 
-b <- delayed(function(x){2*x}, args=list(a))
-c <- delayed(function(x){2*x}, args=list(a))
-d <- delayed(function(x){2*x}, args=list(a))
-e <- delayed(function(x){2*x}, args=list(a))
-f <- delayed(function(x){2*x}, args=list(a))
+b <- delayed(function(x){     1*x}, args=list(a))
+c <- delayed(function(x){    10*x}, args=list(a))
+d <- delayed(function(x){   100*x}, args=list(a))
+e <- delayed(function(x){  1000*x}, args=list(a))
+f <- delayed(function(x){ 10000*x}, args=list(a))
 
 g <- delayed(function(s,t,u,v,w){s+t+u+v+w}, args=list(b,c,d,e,f))
-o = g$compute()
+o = g$compute_sequentially()
 t <- Sys.time()
 
-expect_equal(o, 30)
+expect_equal(o, 99999)
 # If a's value were not re-used then this would have taken at least 5 seconds.
 expect_true(as.numeric(t-s, units='secs') < 2)

@@ -4,10 +4,10 @@
 \alias{delayed}
 \title{delayed is an exported factory function for the "Delayed" implementation class.}
 \usage{
-delayed(func, args = NULL)
+delayed(func, args = NULL, display_name = NULL)
 }
 \description{
-Intentionally, Delayed has non-public consructor, but a few public generic accessors.
+Intentionally, Delayed has non-public consructor, but a few public accessors.
 }
 \seealso{
 Other {manual-layer functions}: 

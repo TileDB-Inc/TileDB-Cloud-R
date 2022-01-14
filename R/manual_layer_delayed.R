@@ -29,45 +29,72 @@ delayed <- function(func, args=NULL, display_name=NULL) {
   }
   # TODO
   namespace <- as.character(floor(runif(1, min = 100000, max = 999999)))
-  node <- new("Node", payload=.self, display_name=display_name)
-  dag <- new("DAG", namespace=namespace) # TODO
-  new("Delayed", func=func, args=args, have_args=have_args, node=node, dag=dag, result=NULL)
+
+  # TODO: find the correct reference-class syntax to let this be nullable.
+  # Every node in the DAG needs to have a DAG reference but *only* once the
+  # entire DAG is set up. Before then, the node$dag slot should really be NULL.
+  dag <- new("DAG", namespace=namespace)
+
+  retval <- new("Delayed", func=func, args=args, have_args=have_args, dag=dag, display_name=display_name)
+  retval$node <- new("Node", payload=retval, display_name=display_name)
+  retval$update_node_parents_from_args()
+
+  retval
 }
 
 # ================================================================
 delayedGenerator <- setRefClass("Delayed", representation(
-  func      = "function",
-  args      = "list",
-  have_args = "logical",
+  func         = "function",
+  args         = "list",
+  have_args    = "logical",
   # WTF
-  # node      = "Node",
-  node      = "ANY",
-  dag       = "DAG",
-  result    = "ANY"
+  # node       = "Node",
+  node         = "ANY",
+  dag          = "DAG",
+  result       = "ANY",
+  #display_name = "character"
+  # TODO: find out how to make this character OR null ...
+  display_name = "ANY"
 ))
 
 delayedGenerator$methods(
-  .initialize = function(.self) {
+  initialize = function(.self, func, args, have_args, node=NULL, dag, display_name) {
     .self$result <- NULL
+    .self$func <- func
+    .self$args <- args
+    .self$have_args <- have_args
+    .self$node <- node
+    .self$dag <- dag
+    .self$display_name <- display_name
   },
 
   set_args = function(.self, value) {
     stopifnot(is.list(value))
     .self$args <- value
     .self$have_args <- TRUE
-    .self$update_parents()
+    .self$update_node_parents_from_args()
   },
 
-  update_parents = function(.self) {
+  # Delayed functions have args; nodes have parent nodes.
+  # This is division of labor and also duplication of effort; so be it.
+  # Here we synchronize one to the other
+  update_node_parents_from_args = function(.self) {
     for (arg in .self$args) {
       if (is(arg, "Delayed")) {
+        if (is.null(.self$node)) {
+          stop("internal coding error: delayed$node should have been initialized")
+        }
+        if (is.null(arg$node)) {
+          stop("internal coding error: delayed$node should have been initialized")
+        }
         .self$node$add_parent(arg$node)
       }
     }
   },
 
-  # This was written first during package dev, and is also perhaps
-  # useful for debug.
+  # This was written first during package dev, and is also perhaps useful for
+  # debug. Or if anyone is ever deeply refactoring / taking apart and
+  # reassembling this stuff.
   compute_sequentially = function(.self) {
     if (!is.null(.self$result)) {
       return (.self$result)
@@ -91,26 +118,24 @@ delayedGenerator$methods(
     dag <- new("DAG", namespace="temp namespace", terminal_node=.self$node)
 
     # TODO:
-    # dag$reference_in_all_nodes()
-
-    # TODO:
-    # dag$compute()
-
-    # TODO: stub
-    .self$compute_sequentially()
+    dag$compute()
   },
 
-  # Just temp debug foo. Prints a tree, so, if d is a function of b and c, and
-  # if b and c are each a function of a, the DAG is really diamond-shaped but
-  # this function will print
+  has_result = function(.self) {
+    !is.null(.self$result)
+  },
+
+  # This is just temp debug foo. Prints a tree, so, if d is a function of b and
+  # c, and if b and c are each a function of a, the DAG is really
+  # diamond-shaped but this function will print:
   #
-  # d's UUID
-  #   b's UUID
-  #     a's UUID
-  #   c's UUID
-  #     a's UUID
+  # d's name
+  #   b's name
+  #     a's name
+  #   c's name
+  #     a's name
   show_deps = function(.self, prefix="") {
-    cat(prefix, .self$node$uuid, "\n", sep="")
+    cat(prefix, .self$node$display_name, "\n", sep="")
     for (arg in .self$args) {
       if (is(arg, "Delayed")) {
         arg$show_deps(paste0(prefix, "  "))
@@ -123,8 +148,25 @@ delayedGenerator$methods(
   }
 )
 
-# Our data structures have parent->child->parent->...  loops if followed
+# Our data structures have parent->child->parent->... loops if followed
 # naively and we want non-stack-overflow as the *default* behavior.
 setMethod("str", signature(object = "Delayed"), function(object) {
   object$str()
+})
+setMethod("show", signature(object = "Delayed"), function(object) {
+  object$str()
+})
+
+# Let people do 'compute(f)' in addition to 'f$compute()'
+##' @family {manual-layer functions}
+##' @export
+compute <- function(object) 0
+setMethod("compute", signature(object = "Delayed"), function(object) {
+  object$compute()
+})
+##' @family {manual-layer functions}
+##' @export
+compute_sequentially <- function(object) 0
+setMethod("compute_sequentially", signature(object = "Delayed"), function(object) {
+  object$compute_sequentially()
 })
