@@ -52,11 +52,12 @@ delayedGenerator <- setRefClass("Delayed", representation(
   node         = "ANY",
   dag          = "DAG",
   # Ditto
-  # future       = "Future",
-  future       = "ANY",
+  # thefuture       = "Future",
+  thefuture       = "ANY",
   # TODO: probably need separate have_result in case legit retval is a NULL.
-  # TODO: maybe resolved(.self$future) is enough.
+  # TODO: maybe resolved(.self$thefuture) is enough.
   result       = "ANY",
+  debug        = "character",
   #display_name = "character"
   # TODO: find out how to make this character OR null ...
   display_name = "ANY"
@@ -70,8 +71,9 @@ delayedGenerator$methods(
     .self$have_args    <- have_args
     .self$node         <- node
     .self$dag          <- dag
-    .self$future       <- NULL
+    .self$thefuture    <- NULL
     .self$result       <- NULL
+    .self$debug        <- "INIT"
     .self$display_name <- display_name
   },
 
@@ -137,19 +139,23 @@ delayedGenerator$methods(
 
   # ----------------------------------------------------------------
   launch_compute = function(.self) {
+    .self$debug <- paste0(.self$debug, ",lc")
     launch_compute_non_method(.self)
   }
 )
 
 # TODO: comment this seems to need to be outside the reference class ...
 launch_compute_non_method <- function(self) {
+  self$debug <- paste0(self$debug, ",lcnm")
   # TODO: check if already running
-  if (!is.null(self$future)) {
+  # TODO: note this protects against multiple launches in diamond (multiple-child) cases.
+  if (!is.null(self$thefuture)) {
+    self$debug <- paste0(self$debug, ",eret")
     return()
   }
   cat("LAUNCH", self$display_name, "\n")
 
-  self$future <- future({self$compute_within_future()})
+  self$thefuture <- future::future({self$compute_within_future()})
 
   for (arg in self$args) {
     if (is(arg, "Delayed")) {
@@ -159,11 +165,15 @@ launch_compute_non_method <- function(self) {
 
   # TODO: WAITING
   self$node$status <- RUNNING
+  self$debug <- paste0(self$debug, ",launched")
 }
 
 delayedGenerator$methods(
   compute_within_future = function(.self) {
+    .self$debug <- paste0(.self$debug, ",cwf:enter")
     if (!is.null(.self$result)) {
+      .self$debug <- paste0(.self$debug, ",cwf:eret")
+      .self$node$status <- COMPLETED
       return (.self$result)
     }
     if (!.self$have_args) {
@@ -171,6 +181,7 @@ delayedGenerator$methods(
     }
 
     while (!.self$args_ready()) {
+      .self$debug <- paste0(.self$debug, ",S")
       Sys.sleep(0.5)
     }
 
@@ -185,19 +196,24 @@ delayedGenerator$methods(
       }
     })
 
+    .self$debug <- paste0(.self$debug, ",ci")
     .self$result <- do.call(.self$func, evaluated)
+    .self$debug <- paste0(.self$debug, ",co")
     .self$result
   },
 
-  is_self_compute_finished = function(.self) {
-    if (is.null(.self$future)) {
+  is_compute_finished = function(.self) {
+    .self$debug <- paste0(.self$debug, ",icf:e")
+    if (is.null(.self$thefuture)) {
       stop("internal coding error: awaiting resolve of unlaunched future.")
     }
-    if (resolved(.self$future)) {
-      .self$result <- result(.self$future)$value
+    if (resolved(.self$thefuture)) {
+      .self$debug <- paste0(.self$debug, ",icf:rt")
+      .self$result <- result(.self$thefuture)$value
       .self$node$status <- COMPLETED
       TRUE
     } else {
+      .self$debug <- paste0(.self$debug, ",icf:rf")
       FALSE
     }
   },
@@ -236,9 +252,10 @@ delayedGenerator$methods(
     cat("node=", .self$display_name, sep="")
     cat(",nargs=", ifelse(.self$have_args, length(.self$args), "(none set)"), sep="")
     cat(",args_ready=", ifelse(.self$have_args, .self$args_ready(), "(none set)"), sep="")
-    cat(",future=", ifelse(is.null(.self$future), "absent", "present"), sep="")
+    cat(",future=", ifelse(is.null(.self$thefuture), "absent", "present"), sep="")
     cat(",status=", .self$node$status, sep="")
     cat(",result=", ifelse(is.null(.self$result), "(null)", .self$result), sep="")
+    cat(",debug=", .self$debug, sep="")
     cat("\n")
   }
 )
