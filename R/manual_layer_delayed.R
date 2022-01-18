@@ -138,92 +138,71 @@ delayedGenerator$methods(
   },
 
   # ----------------------------------------------------------------
-  launch_compute = function(.self) {
-    .self$debug <- paste0(.self$debug, ",L0")
-
+  # TODO: whopper of a comment: even though we're using reference classes,
+  # the stuff inside the future body is executed in a *separated forked
+  # process*. So a given node can't just walk the args-DAG to see if its
+  # callers are done.
+  #
+  # TODO: comment re earlySignal crucial for debug
+  poll = function(.self) {
     .self$debug <- paste0(.self$debug, ",L1")
-    # TODO: check if already running
-    # TODO: note this protects against multiple launches in diamond (multiple-child) cases.
-    if (!is.null(.self$thefuture)) {
+
+    if (!.self$have_args) {
+      stop("delayed object must have args set before calling compute")
+    }
+
+    for (arg in .self$args) {
+      if (is(arg, "Delayed")) {
+        #cat("POLL FROM", .self$display_name, "TO", arg$display_name, "\n")
+        arg$poll()
+      }
+    }
+
+    if (!.self$args_ready()) {
       .self$debug <- paste0(.self$debug, ",L2")
       return()
     }
-    cat("LAUNCH", .self$display_name, "\n")
-  
-  # .self$thefuture <- future::future({compute_within_future_non_method(.self)}, earlySignal=TRUE)
-  
-  #  .self$thefuture <- future({
-  #    .self$debug <- paste0(.self$debug, ",XXX")
-  #    999
-  #  }, earlySignal=TRUE)
-  
-    fileConn<-file(paste0(.self$display_name, "-pre.txt"))
-    writeLines(c(.self$debug), fileConn)
-    close(fileConn)
-  
-    # TODO: whopper of a comment: even though we're using reference classes,
-    # the stuff inside the future body is executed in a *separated forked
-    # process*. So a given node can't just walk the args-DAG to see if its
-    # callers are done.
+    ##cat("ARGS_READY", .self$display_name, "\n")
 
+    if (!is.null(.self$result)) {
+      .self$debug <- paste0(.self$debug, ",L3")
+      .self$node$status <- COMPLETED
+      return()
+    }
+    if (!.self$have_args) {
+      stop("delayed object must have args set before calling compute")
+    }
+
+    # TODO: check if already running
+    # TODO: note this protects against multiple launches in diamond (multiple-child) cases.
+    if (!is.null(.self$thefuture)) {
+      .self$debug <- paste0(.self$debug, ",L3")
+      return()
+    }
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    # TODO: note fork-copy context
     .self$thefuture <- future::future({
-  
-      fileConn<-file(paste0(.self$display_name, "-inside.txt"))
-      writeLines(c("F1"), fileConn)
-  
-      .self$debug <- paste0(.self$debug, ",C1")
-      if (!is.null(.self$result)) {
-        writeLines(c("F2"), fileConn)
-        .self$debug <- paste0(.self$debug, ",C2")
-        .self$node$status <- COMPLETED
-        return (.self$result)
-      }
-      if (!.self$have_args) {
-        stop("delayed object must have args set before calling compute")
-      }
-  
-      # TODO: have timeout at each node so we can stop here.
-      while (!.self$args_ready()) {
-        writeLines(c("F3", .self$debug), fileConn)
-        .self$debug <- paste0(.self$debug, ",C3")
-        Sys.sleep(0.5)
-      }
-  
+
       evaluated <- lapply(.self$args, function(arg) {
-        writeLines(c("F4"), fileConn)
         if (is(arg, "Delayed")) {
-          writeLines(c("F5"), fileConn)
           if (!arg$has_result()) {
-            writeLines(c("F6"), fileConn)
             stop("internal coding error: args results should have already been awaited")
           }
           arg$result
         } else {
-          writeLines(c("F7"), fileConn)
           arg
         }
-      }, earlySignal=TRUE)
-  
+      })
+
       .self$debug <- paste0(.self$debug, ",C4")
-      writeLines(c("F8"), fileConn)
       .self$result <- do.call(.self$func, evaluated)
       .self$debug <- paste0(.self$debug, ",C5")
-      writeLines(c("F9"), fileConn)
-      writeLines(c(.self$debug), fileConn)
-      close(fileConn)
       .self$result
-    }, earlySignal=TRUE)
-  
-    fileConn<-file(paste0(.self$display_name, "-post.txt"))
-    writeLines(c(.self$debug), fileConn)
-    close(fileConn)
-  
-    for (arg in .self$args) {
-      if (is(arg, "Delayed")) {
-        arg$launch_compute()
-      }
-    }
-  
+    },
+    earlySignal=TRUE)
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # TODO: WAITING
     .self$node$status <- RUNNING
     .self$debug <- paste0(.self$debug, ",L3")
@@ -281,7 +260,8 @@ delayedGenerator$methods(
 
     .self$debug <- paste0(.self$debug, ",W1")
     if (is.null(.self$thefuture)) {
-      stop("internal coding error: awaiting resolve of unlaunched future.")
+      ####stop("internal coding error: awaiting resolve of unlaunched future.")
+      return(FALSE)
     }
     if (resolved(.self$thefuture)) {
       .self$debug <- paste0(.self$debug, ",W2")

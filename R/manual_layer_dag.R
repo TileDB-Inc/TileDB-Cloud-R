@@ -48,7 +48,7 @@ dagGenerator$methods(
   populate_aux = function(.self, node) {
     if (!is.null(.self$all_nodes[[node$uuid]])) {
       # In R, just "return" does not actually ... return. ;)
-      return(invisible())
+      return()
     }
 
     # Put reference to this DAG into each node.
@@ -67,20 +67,20 @@ dagGenerator$methods(
     for (parent_node in node$parent_nodes) {
       .self$populate_aux(parent_node)
     }
-
-    return(invisible())
   },
 
   # ================================================================
   # COMPUTE
 
   compute = function(.self) {
-    .self$launch_compute()
+    .self$poll()
+
+    # TODO: sleep & poll until done or timed out ...
 
     .self$await_compute()
   },
 
-  launch_compute = function(.self) {
+  poll = function(.self) {
     # Set initial nodes' status to RUNNING
     # TODO: timeout ... code it up early for debug foo, don't wait :)
     #for (node in .self$initial_nodes) {
@@ -90,7 +90,9 @@ dagGenerator$methods(
       #node$status <- RUNNING
       ## TODO: have the node@payload launch -- ?
     #}
-    .self$terminal_node$payload$launch_compute()
+    for (terminal_node in .self$terminal_nodes) {
+      terminal_node$payload$poll()
+    }
 
     # TODO: continue coding
   },
@@ -110,8 +112,9 @@ dagGenerator$methods(
         # TODO: set dag status FAILED
         break
       }
-      Sys.sleep(1)
+      .self$poll()
       .self$show()
+      Sys.sleep(1)
     }
   },
 
