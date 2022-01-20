@@ -1,13 +1,12 @@
 # ================================================================
 # Context of test_delayed_1.R, test_delayed_2.R, etc:
 #
-# DAGs involve circular data structures -- parents with links to children and
-# vice versa. And (since we need mutable references in the DAG data structure)
-# we use R reference classes, which have their own semantics and which may not
-# be familiar to everyone. Integration with futures adds complexity. And lastly,
-# testing with TileDB Cloud UDFs adds distributed-computing complexlity.
+# Since we need mutable references in the DAG data structure, we use R
+# reference classes, which have their own semantics and which may not be
+# familiar to everyone. Integration with futures adds complexity. And lastly,
+# testing with TileDB Cloud UDFs adds distributed-computing complexity.
 #
-# These thing  make it unclear where to *start* -- not only for initial
+# These things make it unclear where to *start* -- not only for initial
 # development of this package, but for any future deep rework of this package:
 # * Porting to another language
 # * Dealing with a disruptive upgrade of some dependency
@@ -34,51 +33,51 @@ library(tiledbcloud)
 library(tinytest)
 
 # ----------------------------------------------------------------
-a <- delayed(function(x,y){x+y}, args=list(1,2))
+a <- delayed(function(...){sum(...)}, args=list(1,2))
 expect_equal(a$compute_sequentially(), 3)
 
 # ----------------------------------------------------------------
-a <- delayed(function(x,y){x+y}, args=list(1,2))
+a <- delayed(function(...){sum(...)}, args=list(1,2))
 a$set_args(list(3, 4))
 expect_equal(a$compute_sequentially(), 7)
 
 # ----------------------------------------------------------------
-a <- delayed(function(x,y){x+y})
+a <- delayed(function(...){sum(...)})
 a$set_args(list(5, 6))
 expect_equal(a$compute_sequentially(), 11)
 
 # ----------------------------------------------------------------
-a = delayed(function() { Sys.sleep(1); 3 })
+a = delayed(function() { Sys.sleep(0.1); 3 })
 a$set_args(list())
 o = a$compute_sequentially()
 expect_equal(o, 3)
 
 ## ----------------------------------------------------------------
-a = delayed(function(x,y,z) { x+y+z })
+a = delayed(function(...) { sum(...) })
 a$set_args(list(3,4,5))
 o = a$compute_sequentially()
 expect_equal(o, 12)
 
 # ----------------------------------------------------------------
-a = delayed(function() { Sys.sleep(1); 3 }, args=list())
-b = delayed(function() { Sys.sleep(1); 4 }, args=list())
-d = delayed(function(x,y,z) { x+y+z })
+a = delayed(function() { Sys.sleep(0.1); 3 }, args=list())
+b = delayed(function() { Sys.sleep(0.1); 4 }, args=list())
+d = delayed(function(...) { sum(...) })
 d$set_args(list(a,b,5))
 o = d$compute_sequentially()
 expect_equal(o, 12)
 
 # ----------------------------------------------------------------
-a = delayed(function() { Sys.sleep(1); 3 }, args=list())
-b = delayed(function() { Sys.sleep(1); 4 }, args=list())
-d = delayed(function(x,y,z) { x+y+z }, args=list(a,b,5))
+a = delayed(function() { Sys.sleep(0.1); 3 }, args=list())
+b = delayed(function() { Sys.sleep(0.1); 4 }, args=list())
+d = delayed(function(...) { sum(...) }, args=list(a,b,5))
 o = d$compute_sequentially()
 expect_equal(o, 12)
 
 # ----------------------------------------------------------------
-a = delayed(function()  { Sys.sleep(1); 7 }, args=list())
-b = delayed(function(x) { Sys.sleep(1); x*100 }, args=list(a))
-c = delayed(function(x) { Sys.sleep(1); x*10 }, args=list(a))
-d = delayed(function(x,y) { x+y }, args=list(b,c))
+a = delayed(function()  { Sys.sleep(0.1); 7 }, args=list())
+b = delayed(function(x) { Sys.sleep(0.1); x*100 }, args=list(a))
+c = delayed(function(x) { Sys.sleep(0.1); x*10 }, args=list(a))
+d = delayed(function(...) { sum(...) }, args=list(b,c))
 o = d$compute_sequentially()
 expect_equal(o, 770)
 
@@ -86,7 +85,7 @@ expect_equal(o, 770)
 # Check that result-caching is in place.
 s <- Sys.time()
 
-a <- delayed(function(){Sys.sleep(1); 9 })
+a <- delayed(function(){Sys.sleep(0.1); 9 })
 
 b <- delayed(function(x){     1*x}, args=list(a))
 c <- delayed(function(x){    10*x}, args=list(a))
