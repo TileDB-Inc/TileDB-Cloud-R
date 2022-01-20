@@ -28,19 +28,19 @@ a <- delayed(function() { 9 }, display_name='a', do_local=FALSE)
 expect_equal(compute(a, namespace=namespaceToCharge), 9)
 
 # ----------------------------------------------------------------
-a <- delayed(function()  { 9 },               display_name='a', do_local=FALSE)
+a <- delayed(function()  { 9 },                  display_name='a', do_local=FALSE)
 b <- delayed(function(x) { 11*x }, args=list(a), display_name='b', do_local=FALSE)
 expect_equal(compute(b, namespace=namespaceToCharge), 99)
 
 # ----------------------------------------------------------------
-a <- delayed(function()    { 9 },                      display_name='a', do_local=FALSE)
-b <- delayed(function(x)   { 10*x },      args=list(a),   display_name='b', do_local=FALSE)
-c <- delayed(function(x)   { 100*x },      args=list(a),   display_name='c', do_local=FALSE)
+a <- delayed(function()    { 9 },                        display_name='a', do_local=FALSE)
+b <- delayed(function(x)   { 10*x },     args=list(a),   display_name='b', do_local=FALSE)
+c <- delayed(function(x)   { 100*x },    args=list(a),   display_name='c', do_local=FALSE)
 d <- delayed(function(...) { sum(...) }, args=list(b,c), display_name='d', do_local=FALSE)
 expect_equal(compute(d, namespace=namespaceToCharge), 990)
 
 # ----------------------------------------------------------------
-a <- delayed(function()  { 9 },               display_name='a', do_local=FALSE)
+a <- delayed(function()  { 9 },                      display_name='a', do_local=FALSE)
 
 b <- delayed(function(x) {      1*x }, args=list(a), display_name='b', do_local=FALSE)
 c <- delayed(function(x) {     10*x }, args=list(a), display_name='c', do_local=FALSE)

@@ -74,9 +74,9 @@ o = d$compute_sequentially()
 expect_equal(o, 12)
 
 # ----------------------------------------------------------------
-a = delayed(function()  { Sys.sleep(0.1); 7 }, args=list())
+a = delayed(function()  { Sys.sleep(0.1);     7 }, args=list())
 b = delayed(function(x) { Sys.sleep(0.1); x*100 }, args=list(a))
-c = delayed(function(x) { Sys.sleep(0.1); x*10 }, args=list(a))
+c = delayed(function(x) { Sys.sleep(0.1);  x*10 }, args=list(a))
 d = delayed(function(...) { sum(...) }, args=list(b,c))
 o = d$compute_sequentially()
 expect_equal(o, 770)

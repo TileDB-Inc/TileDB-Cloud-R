@@ -7,10 +7,10 @@ library(future)
 library(tinytest)
 
 # ----------------------------------------------------------------
-a <- delayed(function() {    9 }, display_name='a')
-b <- delayed(function(x) {  1*x }, args=list(a),   display_name='b')
-c <- delayed(function(x) { 10*x }, args=list(a),   display_name='c')
-d <- delayed(function(...){sum(...)},   args=list(b,c), display_name='d')
+a <- delayed(function()  {    9 },                    display_name='a')
+b <- delayed(function(x) {  1*x },    args=list(a),   display_name='b')
+c <- delayed(function(x) { 10*x },    args=list(a),   display_name='c')
+d <- delayed(function(...){sum(...)}, args=list(b,c), display_name='d')
 
 dag <- new("DAG", namespace="ns", terminal_node=d)
 
