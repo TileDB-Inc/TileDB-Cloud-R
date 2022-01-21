@@ -57,15 +57,15 @@ dagGenerator$methods(
 
   # This is a recursive helper function for populate().
   populate_aux = function(.self, node) {
-    if (!is.null(.self$all_nodes[[node$uuid]])) {
+    if (!is.null(.self$all_nodes[[node$id]])) {
       # In R, just "return" does not actually ... return. ;)
       return()
     }
 
-    .self$all_nodes[[node$uuid]] <- node
+    .self$all_nodes[[node$id]] <- node
 
     if (node$is_initial()) {
-      .self$initial_nodes[[node$uuid]] <- node
+      .self$initial_nodes[[node$id]] <- node
     }
 
     for (arg in node$args) {
@@ -94,10 +94,10 @@ dagGenerator$methods(
       node <- terminal_nodes[[1]]
       terminal_nodes[[1]] <- NULL
 
-      sorted_nodes[[node$uuid]] <- node
+      sorted_nodes[[node$id]] <- node
       for (arg in node$args) {
         if (is(arg, "Node")) {
-          terminal_nodes[[arg$uuid]] <- arg
+          terminal_nodes[[arg$id]] <- arg
         }
       }
     }

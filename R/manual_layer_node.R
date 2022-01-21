@@ -4,6 +4,19 @@
 # See the delayed() function in this package for a factory function. This constructor
 # is not intended to be invokved directly, but rather, by delayed().
 
+# ----------------------------------------------------------------
+make_id_generator <- function() {
+    count <- 0
+    f <- function() {
+        count <<- count + 1
+        return(sprintf("n%06d", count))
+    }
+    return(f)
+}
+id_generator <-make_id_generator()
+# ----------------------------------------------------------------
+
+
 nodeGenerator <- setRefClass("Node", representation(
   func          = "function",
   args          = "list",
@@ -22,7 +35,7 @@ nodeGenerator <- setRefClass("Node", representation(
   # TODO: probably need separate have_result in case legit retval is a NULL.
   result        = "ANY",
 
-  uuid          = "character",
+  id          = "character",
   # TODO: find out how to make this character OR null ...
   #display_name = "character"
   display_name  = "ANY"
@@ -41,13 +54,12 @@ nodeGenerator$methods(
     .self$status       <- NOT_STARTED
     .self$result       <- NULL
 
-    .self$uuid <- uuid::UUIDgenerate()
+    .self$id <- id_generator()
     if (is.null(display_name)) {
-      .self$display_name <- .self$uuid
+      .self$display_name <- .self$id
     } else {
       .self$display_name <- display_name
     }
-    .self$display_name <- display_name
     .self$do_local     <- do_local
   },
 

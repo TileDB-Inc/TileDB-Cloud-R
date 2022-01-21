@@ -2,12 +2,18 @@
 % Please edit documentation in R/manual_layer_delayed.R
 \name{delayed}
 \alias{delayed}
-\title{delayed is an exported factory function for the "Delayed" implementation class.}
+\title{delayed is an exported factory function for the "Node" implementation class.}
 \usage{
-delayed(func, args = NULL, display_name = NULL)
+delayed(func, args = NULL, display_name = NULL, do_local = FALSE)
+}
+\arguments{
+\item{display_name}{Optional -- e.g. \code{a} or \code{b}. If omitted, it defaults to a UUID.}
+
+\item{do_local}{If true, execute the functions on the local host; if else, execute them as
+UDFs in TileDB Cloud.}
 }
 \description{
-Intentionally, Delayed has non-public consructor, but a few public accessors.
+Intentionally, Node has non-public consructor, but a few public accessors.
 }
 \seealso{
 Other {manual-layer functions}: 

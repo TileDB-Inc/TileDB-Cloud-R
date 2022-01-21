@@ -8,6 +8,8 @@
 # this separation of files.
 
 # ----------------------------------------------------------------
+library(tinytest)
+
 if ((unitTestToken <- Sys.getenv("TILEDB_REST_UNIT_TEST_TOKEN")) != "") {
     Sys.setenv("TILEDB_REST_TOKEN"=unitTestToken)
 } else {
@@ -21,7 +23,6 @@ if ((namespaceToCharge <- Sys.getenv("TILEDB_REST_UNIT_TEST_NAMESPACE_TO_CHARGE"
 # ----------------------------------------------------------------
 library(tiledbcloud)
 library(future)
-library(tinytest)
 
 # ----------------------------------------------------------------
 a <- delayed(function() { 9 }, display_name='a', do_local=FALSE)
