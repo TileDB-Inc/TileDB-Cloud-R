@@ -113,7 +113,7 @@ dagGenerator$methods(
   # dag <- terminal_node$make_dag(), then dag$poll() and show(dag) / str(dag)
   # repeatedly in order better to visualize the flow of computation through the
   # graph.
-  compute = function(.self, timeout_seconds=100000000, verbose=FALSE) {
+  compute = function(.self, timeout_seconds=NULL, verbose=FALSE) {
 
     # This is crucial for our use of the future package -- we don't get parallelism by default
     #future::plan(future::multisession)
@@ -123,11 +123,13 @@ dagGenerator$methods(
     while (.self$poll(verbose=verbose) == FALSE) {
       now <- Sys.time()
       elapsed_seconds <- as.numeric(now-start, units='secs')
-      if (elapsed_seconds > timeout_seconds) {
-        cat("TIMEOUT\n")
-        break
+      if (!is.null(timeout_seconds)) {
+        if (elapsed_seconds > timeout_seconds) {
+          cat("TIMEOUT\n")
+          break
+        }
       }
-      
+
       Sys.sleep(0.1)
     }
 

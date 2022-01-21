@@ -21,6 +21,12 @@ b <- delayed(function(x) { Sys.sleep(0.2); 11*x }, args=list(a), display_name='b
 expect_equal(compute(b, namespace='test-namespace'), 99)
 
 # ----------------------------------------------------------------
+# Test with non-null timeout_seconds
+a <- delayed(function()  { Sys.sleep(0.1);    9 },               display_name='a', do_local=TRUE)
+b <- delayed(function(x) { Sys.sleep(0.2); 11*x }, args=list(a), display_name='b', do_local=TRUE)
+expect_equal(compute(b, namespace='test-namespace', timeout_seconds=30), 99)
+
+# ----------------------------------------------------------------
 a <- delayed(function()    { Sys.sleep(0.2);     9 },                      display_name='a', do_local=TRUE)
 b <- delayed(function(x)   { Sys.sleep(0.1);  10*x },      args=list(a),   display_name='b', do_local=TRUE)
 c <- delayed(function(x)   { Sys.sleep(0.3); 100*x },      args=list(a),   display_name='c', do_local=TRUE)

@@ -105,7 +105,9 @@ nodeGenerator$methods(
   # This launches a compute of the entire DAG which *terminates* at this item.
   # This is not a solely-self-compute method to run on this particular item's
   # delayed function.
-  compute = function(.self, namespace, timeout_seconds=100000000, verbose=FALSE) {
+  #
+  # NULL timeout_seconds means wait indefinitely.
+  compute = function(.self, namespace, timeout_seconds=NULL, verbose=FALSE) {
     dag <- .self$make_dag(namespace)
     dag$compute(timeout_seconds=timeout_seconds, verbose=verbose)
   },
@@ -275,8 +277,8 @@ nodeGenerator$methods(
 # Let people do 'compute(f)' in addition to 'f$compute()'
 ##' @family {manual-layer functions}
 ##' @export
-compute <- function(object, namespace, timeout_seconds=100000000, verbose=FALSE) 0
-setMethod("compute", signature(object = "Node"), function(object, namespace, timeout_seconds=100000000, verbose=FALSE) {
+compute <- function(object, namespace, timeout_seconds=NULL, verbose=FALSE) 0
+setMethod("compute", signature(object = "Node"), function(object, namespace, timeout_seconds=NULL, verbose=FALSE) {
   object$compute(namespace=namespace, timeout_seconds=timeout_seconds, verbose=verbose)
 })
 ##' @family {manual-layer functions}
