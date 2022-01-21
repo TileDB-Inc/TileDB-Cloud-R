@@ -77,7 +77,11 @@ dagGenerator$methods(
 
   # This is important so our status display is non-frustrating for the user.
   # This assumes a cyclicity check has already been done.
-  # https://en.wikipedia.org/wiki/Topological_sorting
+  # https://en.wikipedia.org/wiki/Topological_sorting Technically this is a
+  # reverse topological sort -- terminals appear first, then the ones that
+  # depend on them. This is intuitive for the user (and this topological sort
+  # is *only* for display to the user) since we normally write 'z <- f(x,y)'
+  # rather than 'f(x,y) -> z' -- so it makes sense to show z, then x and y.
   sort_nodes_topologically = function(.self) {
     if (length(.self$terminal_nodes) == 0) {
       stop("terminal nodes must be identified before topological sort")
