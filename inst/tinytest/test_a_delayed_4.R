@@ -54,3 +54,11 @@ a$set_args(list(b))
 b$set_args(list(a))
 # This has a cycle
 expect_error(compute(b, namespace='test-namespace'))
+
+# ----------------------------------------------------------------
+a <- delayed(function()    { Sys.sleep(10);    9 }, display_name='a', do_local=TRUE)
+b <- delayed(function(x)   { Sys.sleep(1);  11*x }, display_name='b', do_local=TRUE)
+a$set_args(list(b))
+b$set_args(list(a))
+# This has a timeout
+expect_error(compute(b, namespace='test-namespace'))
