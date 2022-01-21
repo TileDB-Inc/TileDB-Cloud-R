@@ -52,4 +52,4 @@ g <- delayed(function(x) { 100000*x }, args=list(a), display_name='g', do_local=
 
 h <- delayed(function(...) { sum(...) },   args=list(b,c,d,e,f,g),   display_name='h', do_local=FALSE)
 
-expect_equal(compute(h, namespace=namespaceToCharge), 999999)
+expect_equal(compute(h, namespace=namespaceToCharge, timeout_seconds=300), 999999)
