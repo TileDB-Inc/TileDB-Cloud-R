@@ -377,8 +377,7 @@ update_udf_info <- function(namespace, name, type, func=NULL, func_text=NULL, ve
 ##'
 ##' Reads back information for a specified user-defined function on TileDB Cloud.
 ##' Note that \code{version}, \code{image_name}, \code{exec}, and \code{exec_raw}
-##' are writable via \link{\code{register_udf}} but are not read back by this
-##' function.
+##' are writable via \code{register_udf} but are not read back by this function.
 ##'
 ##' @param namespace Namespace for the UDF in TileDB Cloud, e.g. \code{mynamespace}.
 ##'
