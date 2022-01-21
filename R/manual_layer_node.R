@@ -17,6 +17,7 @@ id_generator <-make_id_generator()
 # ----------------------------------------------------------------
 
 
+##' @importFrom future future
 nodeGenerator <- setRefClass("Node", representation(
   func          = "function",
   args          = "list",

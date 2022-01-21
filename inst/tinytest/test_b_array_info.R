@@ -4,10 +4,6 @@ if ((unitTestToken <- Sys.getenv("TILEDB_REST_UNIT_TEST_TOKEN")) != "") {
     if (!file.exists("~/.tiledb/cloud.json")) exit_file("No authentication")
 }
 
-if ((namespaceToCharge <- Sys.getenv("TILEDB_REST_UNIT_TEST_NAMESPACE_TO_CHARGE")) == "") {
-    exit_file("No TILEDB_REST_UNIT_TEST_NAMESPACE_TO_CHARGE in environment")
-}
-
 library(tiledbcloud)
 library(tinytest)
 
