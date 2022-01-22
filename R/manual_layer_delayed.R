@@ -32,5 +32,5 @@ delayed <- function(func, args=NULL, display_name=NULL, do_local=FALSE) {
     have_args <- TRUE
   }
 
-  new("Node", func=func, args=args, have_args=have_args, display_name=display_name, do_local=do_local)
+  Node$new(func=func, args=args, have_args=have_args, display_name=display_name, do_local=do_local)
 }

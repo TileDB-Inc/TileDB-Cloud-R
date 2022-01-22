@@ -16,261 +16,256 @@ make_id_generator <- function() {
 id_generator <-make_id_generator()
 # ----------------------------------------------------------------
 
-
+##' @export
 ##' @importFrom future future
-nodeGenerator <- setRefClass("Node", representation(
-  func          = "function",
-  args          = "list",
-  # have_args is necessary in addition to args (with check args being non-null)
-  # since some functions have no arguments and it's pedantic (bad UX) for us to
-  # insist that people separately articulate that. See the 'delayed' factory
-  # function.
-  have_args     = "logical",
-  do_local      = "logical",
+Node <- R6::R6Class(
+  'Node',
+  public = list(
+    func          = NULL,
+    args          = NULL,
+    # have_args is necessary in addition to args (with check args being non-null)
+    # since some functions have no arguments and it's pedantic (bad UX) for us to
+    # insist that people separately articulate that. See the 'delayed' factory
+    # function.
+    have_args     = NULL,
+    do_local      = NULL,
 
-  # TODO: find out how to make this of nullable type ...
-  # future       = "Future",
-  future        = "ANY",
-  future_result = "ANY",
-  status        = "character",
-  # TODO: probably need separate have_result in case legit retval is a NULL.
-  result        = "ANY",
+    future        = NULL,
+    future_result = NULL,
+    status        = NULL,
+    # TODO: may need separate have_result in case legit retval is a NULL.
+    result        = NULL,
 
-  id          = "character",
-  # TODO: find out how to make this character OR null ...
-  #display_name = "character"
-  display_name  = "ANY"
-))
+    id            = NULL,
+    display_name  = NULL,
 
-nodeGenerator$methods(
-  # ----------------------------------------------------------------
-  # Note: args are non-optional here but user-convenience optionals are
-  # implemented in the 'delayed' factory function.
-  initialize = function(.self, func, args, have_args, display_name, do_local) {
-    .self$result       <- NULL
-    .self$func         <- func
-    .self$args         <- args
-    .self$have_args    <- have_args
-    .self$future       <- NULL
-    .self$status       <- NOT_STARTED
-    .self$result       <- NULL
+    # Note: args are non-optional here but user-convenience optionals are
+    # implemented in the 'delayed' factory function.
+    initialize = function(func, args, have_args, display_name, do_local) {
+      self$result       <- NULL
+      self$func         <- func
+      self$args         <- args
+      self$have_args    <- have_args
+      self$future       <- NULL
+      self$status       <- NOT_STARTED
+      self$result       <- NULL
 
-    .self$id <- id_generator()
-    if (is.null(display_name)) {
-      .self$display_name <- .self$id
-    } else {
-      .self$display_name <- display_name
-    }
-    .self$do_local     <- do_local
-  },
-
-  set_args = function(.self, value) {
-    stopifnot(is.list(value))
-    .self$args <- value
-    .self$have_args <- TRUE
-  },
-
-  # ----------------------------------------------------------------
-  # This was written first during package development, and is also perhaps
-  # useful for debug. Or if anyone is ever deeply refactoring / taking apart
-  # and reassembling this stuff.
-  compute_sequentially = function(.self) {
-    if (!is.null(.self$result)) {
-      return (.self$result)
-    }
-    if (!.self$have_args) {
-      stop("delayed object must have args set before calling compute")
-    }
-    evaluated <- lapply(.self$args, function(arg) {
-      if (is(arg, "Node")) {
-        arg$compute_sequentially()
+      self$id <- id_generator()
+      if (is.null(display_name)) {
+        self$display_name <- self$id
       } else {
-        arg
+        self$display_name <- display_name
       }
-    })
-    # Memoize for the benefit of any other nodes that depend on this one
-    .self$result <- do.call(.self$func, evaluated)
-    .self$result
-  },
+      self$do_local     <- do_local
+    },
 
-  # ----------------------------------------------------------------
-  # Nominal use-case is people call compute(...) on a return value from delayed(...).
-  # However, for more detailed inspection we support getting a DAG and doing dag$poll()
-  # and inspecting the results as computation progresses.
-  make_dag = function(.self, namespace) {
-    dag <- new("DAG", namespace=namespace, terminal_node=.self)
-  },
+    set_args = function(value) {
+      stopifnot(is.list(value))
+      self$args <- value
+      self$have_args <- TRUE
+    },
 
-  # ----------------------------------------------------------------
-  # This launches a compute of the entire DAG which *terminates* at this item.
-  # This is not a solely-self-compute method to run on this particular item's
-  # delayed function.
-  #
-  # NULL timeout_seconds means wait indefinitely.
-  compute = function(.self, namespace, timeout_seconds=NULL, verbose=FALSE) {
-    dag <- .self$make_dag(namespace)
-    dag$compute(timeout_seconds=timeout_seconds, verbose=verbose)
-  },
-
-  # ----------------------------------------------------------------
-  # IMPORTANT: even though we're using reference classes, the stuff inside the
-  # future body is executed in a *separated forked process*. So a given node
-  # can't just walk the args-DAG to see if its callers are done. Crucially, the
-  # interaction between the forked process and the parent is the future's
-  # return value.
-  #
-  # Our DAG is a poll-driven DAG so dag$poll() must be called repeatedly
-  # in order to launch futures for initial nodes, detect when they are resolved,
-  # launch subsequent nodes, etc.
-  poll = function(.self, namespace, verbose=FALSE) {
-    if (is.null(namespace)) {
-      stop("namespace must be non-null")
-    }
-    if (namespace=="") {
-      stop("namespace must be non-empty")
-    }
-
-    if (.self$has_result()) {
-      .self$status <- COMPLETED
-      return(TRUE)
-    }
-
-    if (!.self$have_args) {
-      stop("delayed object must have args set before calling compute")
-    }
-    for (arg in .self$args) {
-      if (is(arg, "Node")) {
-        arg$poll(namespace=namespace, verbose=verbose)
+    # ----------------------------------------------------------------
+    # This was written first during package development, and is also perhaps
+    # useful for debug. Or if anyone is ever deeply refactoring / taking apart
+    # and reassembling this stuff.
+    compute_sequentially = function() {
+      if (!is.null(self$result)) {
+        return (self$result)
       }
-    }
-    if (!.self$args_ready()) {
-      return(FALSE)
-    }
-
-    # Check if already running.  This protects against multiple launches in
-    # diamond-dependency cases.
-    if (!is.null(.self$future)) {
-      if (resolved(.self$future)) {
-
-        # Save this off for show()/str() later
-        .self$future_result <- result(.self$future)
-
-        if (verbose) {
-          # These are output lines from within the forked process. We get them
-          # all at once, so it's extra-important that they had been printed
-          # with timestamps within them.
-          cat(.self$future_result$stdout)
-          t <- Sys.time()
-          cat(as.integer(t), as.character(t), "END  ", .self$display_name, "\n")
-        }
-
-        .self$result <- result(.self$future)$value
-        .self$status <- COMPLETED
-
-        # Empty this out so dependent nodes have less data to serialize
-        .self$future <- NULL
-
-        return(TRUE)
+      if (!self$have_args) {
+        stop("delayed object must have args set before calling compute")
       }
-      return(FALSE)
-    }
-
-    if (verbose) {
-      t <- Sys.time()
-      cat(as.integer(t), as.character(t), "START", .self$display_name, "\n")
-    }
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    # As noted above, everything inside the curly braces here executes within a
-    # separate forked process. All args are snapshotted as of the fork. Any
-    # updates to .self between the curly braces won't persist after the forked
-    # process has executed.  Communication back to the parent process is via
-    # the return value from the stuff between the curly braces.
-    .self$future <- future::future(
-      {
-      # TODO: make helper method
-      evaluated <- lapply(.self$args, function(arg) {
+      evaluated <- lapply(self$args, function(arg) {
         if (is(arg, "Node")) {
-          if (!arg$has_result()) {
-            stop("internal coding error: args results should have already been awaited")
-          }
-          arg$result
+          arg$compute_sequentially()
         } else {
           arg
         }
       })
+      # Memoize for the benefit of any other nodes that depend on this one
+      self$result <- do.call(self$func, evaluated)
+      self$result
+    },
 
-      # These cat lines to stdout won't go anywhere visible as they're inside
-      # the forked process -- only when the parent collects result via
-      # 'cat(.self$future_result$stdout)' will they be user-visible. For this reason it's
-      # extra-important that we provide timestamps.
-      if (.self$do_local) {
-        t <- Sys.time()
-        cat(as.integer(t), as.character(t), "launch local compute  ", .self$display_name, "\n")
-        .self$result <- do.call(.self$func, evaluated)
-        t <- Sys.time()
-        cat(as.integer(t), as.character(t), "finish local compute  ", .self$display_name, "\n")
-      } else {
-        t <- Sys.time()
-        cat(as.integer(t), as.character(t), "launch remote compute  ", .self$display_name, "\n")
-        .self$result <- execute_generic_udf(namespace=namespace, udf=.self$func, args=evaluated)
-        t <- Sys.time()
-        cat(as.integer(t), as.character(t), "finish remote compute  ", .self$display_name, "\n")
+    # ----------------------------------------------------------------
+    # Nominal use-case is people call compute(...) on a return value from delayed(...).
+    # However, for more detailed inspection we support getting a DAG and doing dag$poll()
+    # and inspecting the results as computation progresses.
+    make_dag = function(namespace) {
+      dag <- DAG$new(namespace=namespace, terminal_node=self)
+    },
+
+    # ----------------------------------------------------------------
+    # This launches a compute of the entire DAG which *terminates* at this item.
+    # This is not a solely-self-compute method to run on this particular item's
+    # delayed function.
+    #
+    # NULL timeout_seconds means wait indefinitely.
+    compute = function(namespace, timeout_seconds=NULL, verbose=FALSE) {
+      dag <- self$make_dag(namespace)
+      dag$compute(timeout_seconds=timeout_seconds, verbose=verbose)
+    },
+
+    # ----------------------------------------------------------------
+    # IMPORTANT: even though we're using reference classes, the stuff inside the
+    # future body is executed in a *separated forked process*. So a given node
+    # can't just walk the args-DAG to see if its callers are done. Crucially, the
+    # interaction between the forked process and the parent is the future's
+    # return value.
+    #
+    # Our DAG is a poll-driven DAG so dag$poll() must be called repeatedly
+    # in order to launch futures for initial nodes, detect when they are resolved,
+    # launch subsequent nodes, etc.
+    poll = function(namespace, verbose=FALSE) {
+      if (is.null(namespace)) {
+        stop("namespace must be non-null")
       }
-      # This return value back to the call
-      .self$result
-      },
-      earlySignal=TRUE)
+      if (namespace=="") {
+        stop("namespace must be non-empty")
+      }
 
-    .self$status <- RUNNING
-    return(FALSE)
-  },
+      if (self$has_result()) {
+        self$status <- COMPLETED
+        return(TRUE)
+      }
 
-  # ----------------------------------------------------------------
-  # This is used for DAG construction.
-  is_initial = function(.self) {
-    if (!.self$have_args) {
-      stop("delayed object must have args set before calling compute")
-    }
-    length(.self$args) == 0
-  },
-
-  # ----------------------------------------------------------------
-  args_ready = function(.self) {
-    for (arg in .self$args) {
-      if (is(arg, "Node")) {
-        if (!arg$has_result()) {
-          return(FALSE)
+      if (!self$have_args) {
+        stop("delayed object must have args set before calling compute")
+      }
+      for (arg in self$args) {
+        if (is(arg, "Node")) {
+          arg$poll(namespace=namespace, verbose=verbose)
         }
       }
+      if (!self$args_ready()) {
+        return(FALSE)
+      }
+
+      # Check if already running.  This protects against multiple launches in
+      # diamond-dependency cases.
+      if (!is.null(self$future)) {
+        if (resolved(self$future)) {
+
+          # Save this off for show()/str() later
+          self$future_result <- result(self$future)
+
+          if (verbose) {
+            # These are output lines from within the forked process. We get them
+            # all at once, so it's extra-important that they had been printed
+            # with timestamps within them.
+            cat(self$future_result$stdout)
+            t <- Sys.time()
+            cat(as.integer(t), as.character(t), "END  ", self$display_name, "\n")
+          }
+
+          self$result <- result(self$future)$value
+          self$status <- COMPLETED
+
+          # Empty this out so dependent nodes have less data to serialize
+          self$future <- NULL
+
+          return(TRUE)
+        }
+        return(FALSE)
+      }
+
+      if (verbose) {
+        t <- Sys.time()
+        cat(as.integer(t), as.character(t), "START", self$display_name, "\n")
+      }
+
+      # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      # As noted above, everything inside the curly braces here executes within a
+      # separate forked process. All args are snapshotted as of the fork. Any
+      # updates to self between the curly braces won't persist after the forked
+      # process has executed.  Communication back to the parent process is via
+      # the return value from the stuff between the curly braces.
+      self$future <- future::future(
+        {
+        # TODO: make helper method
+        evaluated <- lapply(self$args, function(arg) {
+          if (is(arg, "Node")) {
+            if (!arg$has_result()) {
+              stop("internal coding error: args results should have already been awaited")
+            }
+            arg$result
+          } else {
+            arg
+          }
+        })
+
+        # These cat lines to stdout won't go anywhere visible as they're inside
+        # the forked process -- only when the parent collects result via
+        # 'cat(self$future_result$stdout)' will they be user-visible. For this reason it's
+        # extra-important that we provide timestamps.
+        if (self$do_local) {
+          t <- Sys.time()
+          cat(as.integer(t), as.character(t), "launch local compute  ", self$display_name, "\n")
+          self$result <- do.call(self$func, evaluated)
+          t <- Sys.time()
+          cat(as.integer(t), as.character(t), "finish local compute  ", self$display_name, "\n")
+        } else {
+          t <- Sys.time()
+          cat(as.integer(t), as.character(t), "launch remote compute  ", self$display_name, "\n")
+          self$result <- execute_generic_udf(namespace=namespace, udf=self$func, args=evaluated)
+          t <- Sys.time()
+          cat(as.integer(t), as.character(t), "finish remote compute  ", self$display_name, "\n")
+        }
+        # This return value back to the call
+        self$result
+        },
+        earlySignal=TRUE)
+
+      self$status <- RUNNING
+      return(FALSE)
+    },
+
+    # ----------------------------------------------------------------
+    # This is used for DAG construction.
+    is_initial = function() {
+      if (!self$have_args) {
+        stop("delayed object must have args set before calling compute")
+      }
+      length(self$args) == 0
+    },
+
+    # ----------------------------------------------------------------
+    args_ready = function() {
+      for (arg in self$args) {
+        if (is(arg, "Node")) {
+          if (!arg$has_result()) {
+            return(FALSE)
+          }
+        }
+      }
+      return(TRUE)
+    },
+
+    # ----------------------------------------------------------------
+    has_result = function() {
+      !is.null(self$result)
+    },
+
+    # ----------------------------------------------------------------
+    # For DAG display
+    show_status = function() {
+      cat("  ", self$display_name, " ", sep="")
+      cat(" args_ready=", ifelse(self$have_args, self$args_ready(), "(none set)"), sep="")
+      cat(" status=", self$status, sep="")
+      cat("\n")
+    },
+
+    show = function() {
+      cat("node=", self$display_name, sep="")
+      cat(",nargs=", ifelse(self$have_args, length(self$args), "(none set)"), sep="")
+      cat(",args_ready=", ifelse(self$have_args, self$args_ready(), "(none set)"), sep="")
+      cat(",future=", ifelse(is.null(self$future), "absent", "present"), sep="")
+      cat(",status=", self$status, sep="")
+      cat(",result=", ifelse(is.null(self$result), "(null)", self$result), sep="")
+      cat("\n")
     }
-    return(TRUE)
-  },
-
-  # ----------------------------------------------------------------
-  has_result = function(.self) {
-    !is.null(.self$result)
-  },
-
-  # ----------------------------------------------------------------
-  # For DAG display
-  show_status = function(.self) {
-    cat("  ", .self$display_name, " ", sep="")
-    cat(" args_ready=", ifelse(.self$have_args, .self$args_ready(), "(none set)"), sep="")
-    cat(" status=", .self$status, sep="")
-    cat("\n")
-  },
-
-  show = function(.self) {
-    cat("node=", .self$display_name, sep="")
-    cat(",nargs=", ifelse(.self$have_args, length(.self$args), "(none set)"), sep="")
-    cat(",args_ready=", ifelse(.self$have_args, .self$args_ready(), "(none set)"), sep="")
-    cat(",future=", ifelse(is.null(.self$future), "absent", "present"), sep="")
-    cat(",status=", .self$status, sep="")
-    cat(",result=", ifelse(is.null(.self$result), "(null)", .self$result), sep="")
-    cat("\n")
-  }
-
+  )
 )
 
 # ----------------------------------------------------------------

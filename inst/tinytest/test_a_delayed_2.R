@@ -12,7 +12,7 @@ b <- delayed(function(x) {  1*x },    args=list(a),   display_name='b')
 c <- delayed(function(x) { 10*x },    args=list(a),   display_name='c')
 d <- delayed(function(...){sum(...)}, args=list(b,c), display_name='d')
 
-dag <- new("DAG", namespace="ns", terminal_node=d)
+dag <- DAG$new(namespace="ns", terminal_node=d)
 
 expect_equal(length(dag$all_nodes), 4)
 expect_equal(length(dag$initial_nodes), 1)
