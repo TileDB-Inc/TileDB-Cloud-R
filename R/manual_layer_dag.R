@@ -10,14 +10,13 @@ DAG <- R6::R6Class(
     namespace      = NULL,
     all_nodes      = NULL,
     initial_nodes  = NULL,
-    terminal_nodes = NULL,
+    terminal_node  = NULL,
 
     # ================================================================
     # INITIALIZATION METHODS
 
     initialize = function(terminal_node, namespace) {
       self$namespace <- namespace
-      # TODO: pluralize everywhere, so we can have multiple terminal nodes.
       self$populate(terminal_node)
     },
 
@@ -35,7 +34,7 @@ DAG <- R6::R6Class(
     #    v
     #    d
     #
-    # What we do here is locate the initial and terminal nodes.
+    # What we do here is locate the initial nodes and the terminal node.
     populate = function(terminal_node) {
       if (!is(terminal_node, "Node")) {
         stop("Terminal node must be an instance of the Node class; got ", class(terminal_node))
@@ -50,7 +49,7 @@ DAG <- R6::R6Class(
         stop("Task graph has a cycle")
       }
 
-      self$terminal_nodes <- list(terminal_node)
+      self$terminal_node <- terminal_node
 
       # This makes our print output non-frustrating for the user to read
       self$sort_nodes_topologically()
@@ -84,12 +83,12 @@ DAG <- R6::R6Class(
     # is *only* for display to the user) since we normally write 'z <- f(x,y)'
     # rather than 'f(x,y) -> z' -- so it makes sense to show z, then x and y.
     sort_nodes_topologically = function() {
-      if (length(self$terminal_nodes) == 0) {
-        stop("terminal nodes must be identified before topological sort")
+      if (is.null(self$terminal_node)) {
+        stop("terminal node must be identified before topological sort")
       }
       unsorted_nodes <- self$all_nodes
       sorted_nodes <- list()
-      terminal_nodes <- self$terminal_nodes # this is a copy of a list of reference classes
+      terminal_nodes <- list(self$terminal_node)
 
       while (length(terminal_nodes) > 0) {
         node <- terminal_nodes[[1]]
@@ -133,24 +132,13 @@ DAG <- R6::R6Class(
         Sys.sleep(0.1)
       }
 
-      if (length(self$terminal_nodes) == 1) {
-        self$terminal_nodes[[1]]$result
-      } else {
-        sapply(self$terminal_nodes, function(node) { node$result })
-      }
+      self$terminal_node$result
     },
 
     # This *must* be called periodically to update nodes and launch dependents. A
     # DAG won't auto-run without this being invoked periodically.
     poll = function(verbose=FALSE) {
-      dag_done <- TRUE
-      # Please do not replace this with anything that will break the loop -- we
-      # must (recursively) poll all nodes in order to detect node completions and
-      # launch dependents.
-      terminal_dones <- sapply(self$terminal_nodes, function(terminal_node) {
-        terminal_done <- terminal_node$poll(namespace=self$namespace, verbose=verbose)
-      })
-      all(terminal_dones)
+      terminal_done <- self$terminal_node$poll(namespace=self$namespace, verbose=verbose)
     },
 
     # ================================================================
@@ -170,7 +158,7 @@ DAG <- R6::R6Class(
       cat("Namespace: ", self$namespace, "\n", sep="")
       self$show_node_list("All      nodes:   ", self$all_nodes)
       self$show_node_list("Initial  nodes:   ", self$initial_nodes)
-      self$show_node_list("Terminal nodes:   ", self$terminal_nodes)
+      self$show_node_list("Terminal node:    ", list(self$terminal_node))
       cat("Dependencies:\n")
       for (node in self$all_nodes) {
         if (length(node$args) > 0) {

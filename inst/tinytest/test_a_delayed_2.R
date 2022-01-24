@@ -16,5 +16,4 @@ dag <- DAG$new(namespace="ns", terminal_node=d)
 
 expect_equal(length(dag$all_nodes), 4)
 expect_equal(length(dag$initial_nodes), 1)
-expect_equal(length(dag$terminal_nodes), 1)
 expect_equal(dag$namespace, 'ns')
