@@ -135,8 +135,10 @@ DAG <- R6::R6Class(
     # repeatedly in order better to visualize the flow of computation through the
     # graph.
     compute = function(timeout_seconds=NULL, verbose=FALSE) {
+      self$reset()
 
       if (verbose) show(self)
+
       # This is crucial for our use of the future package -- we don't get parallelism by default
       #future::plan(future::multisession)
       future::plan(future::multicore)
@@ -157,6 +159,13 @@ DAG <- R6::R6Class(
 
       if (verbose) show(self)
       self$terminal_node$result
+    },
+
+    # This is for reruns in case of transient node failures.
+    reset = function() {
+      for (node in self$all_nodes) {
+        node$reset()
+      }
     },
 
     # This *must* be called periodically to update nodes and launch dependents.

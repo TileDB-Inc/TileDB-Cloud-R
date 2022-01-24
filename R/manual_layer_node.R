@@ -33,8 +33,8 @@ Node <- R6::R6Class(
     future        = NULL,
     future_result = NULL,
     status        = NULL,
-    # TODO: may need separate have_result in case legit retval is a NULL.
     result        = NULL,
+    has_result    = FALSE, # in case retval is legit NULL; also for failure handling
 
     id            = NULL,
     display_name  = NULL,
@@ -97,6 +97,18 @@ Node <- R6::R6Class(
     },
 
     # ----------------------------------------------------------------
+    # This is for reruns in case of transient node failures.
+    reset = function() {
+      if (self$status == FAILED) {
+        self$status        <- NOT_STARTED
+        self$future        <- NULL
+        self$future_result <- NULL
+        self$result        <- NULL
+        self$has_result    <- FALSE
+      }
+    },
+
+    # ----------------------------------------------------------------
     # This launches a compute of the entire DAG which *terminates* at this item.
     # This is not a solely-self-compute method to run on this particular item's
     # delayed function.
@@ -125,7 +137,7 @@ Node <- R6::R6Class(
         stop("namespace must be non-empty")
       }
 
-      if (self$has_result()) {
+      if (self$has_result) {
         self$status <- COMPLETED
         return(TRUE)
       }
@@ -186,7 +198,7 @@ Node <- R6::R6Class(
         # TODO: make helper method
         evaluated <- lapply(self$args, function(arg) {
           if (is(arg, "Node")) {
-            if (!arg$has_result()) {
+            if (!arg$has_result) {
               stop("internal coding error: args results should have already been awaited")
             }
             arg$result
@@ -234,17 +246,12 @@ Node <- R6::R6Class(
     args_ready = function() {
       for (arg in self$args) {
         if (is(arg, "Node")) {
-          if (!arg$has_result()) {
+          if (!arg$has_result) {
             return(FALSE)
           }
         }
       }
       return(TRUE)
-    },
-
-    # ----------------------------------------------------------------
-    has_result = function() {
-      !is.null(self$result)
     },
 
     # ----------------------------------------------------------------
