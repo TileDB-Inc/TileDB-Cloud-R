@@ -183,7 +183,8 @@ Node <- R6::R6Class(
             self$status <- COMPLETED
           } else {
             self$status <- FAILED
-            stop("node failed: ", self$display_name)
+            stop("node failed: ", self$display_name, ": ",
+              paste(sapply(result(self$future)$conditions, function(c) {c$condition$message}), collapse=";"))
           }
 
           # Empty this out so dependent nodes have less data to serialize
