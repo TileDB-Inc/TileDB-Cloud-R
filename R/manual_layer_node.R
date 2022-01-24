@@ -259,7 +259,12 @@ Node <- R6::R6Class(
       if (!self$have_args) {
         stop("delayed object must have args set before calling compute")
       }
-      length(self$args) == 0
+      for (arg in self$args) {
+        if (is(arg, "Node")) {
+          return(FALSE)
+        }
+      }
+      return(TRUE)
     },
 
     # ----------------------------------------------------------------
