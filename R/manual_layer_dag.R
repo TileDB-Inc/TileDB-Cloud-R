@@ -2,6 +2,7 @@
 # and we must be able to update them as their computation progresses.
 #
 # Nominally this is invoked by the terminal node's compute() method.
+
 ##' @export
 ##' @importFrom future plan multicore multisession
 DAG <- R6::R6Class(

@@ -318,15 +318,21 @@ Node <- R6::R6Class(
 )
 
 # ----------------------------------------------------------------
-# Let people do 'compute(f)' in addition to 'f$compute()'
+# This generic lets people do 'compute(f)' in addition to 'f$compute()'
+
+##' Launch a task graph from a given terminal node in the task graph
+##'
+##' The task graph is implicitly defined by various \code{delayed} objects having others
+##' in their argument lists.
+##'
 ##' @family {manual-layer functions}
 ##' @export
 compute <- function(object, namespace, timeout_seconds=NULL, verbose=FALSE) 0
 setMethod("compute", signature(object = "Node"), function(object, namespace, timeout_seconds=NULL, verbose=FALSE) {
   object$compute(namespace=namespace, timeout_seconds=timeout_seconds, verbose=verbose)
 })
-##' @family {manual-layer functions}
-##' @export
+
+# Test/debug entrypoint
 compute_sequentially <- function(object) 0
 setMethod("compute_sequentially", signature(object = "Node"), function(object) {
   object$compute_sequentially()
