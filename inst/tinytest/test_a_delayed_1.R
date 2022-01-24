@@ -47,38 +47,38 @@ a$set_args(list(5, 6))
 expect_equal(a$compute_sequentially(), 11)
 
 # ----------------------------------------------------------------
-a = delayed(function() { Sys.sleep(0.1); 3 })
+a <- delayed(function() { Sys.sleep(0.1); 3 })
 a$set_args(list())
-o = a$compute_sequentially()
+o <- a$compute_sequentially()
 expect_equal(o, 3)
 
 ## ----------------------------------------------------------------
-a = delayed(function(...) { sum(...) })
+a <- delayed(function(...) { sum(...) })
 a$set_args(list(3,4,5))
-o = a$compute_sequentially()
+o <- a$compute_sequentially()
 expect_equal(o, 12)
 
 # ----------------------------------------------------------------
-a = delayed(function() { Sys.sleep(0.1); 3 }, args=list())
-b = delayed(function() { Sys.sleep(0.1); 4 }, args=list())
-d = delayed(function(...) { sum(...) })
+a <- delayed(function() { Sys.sleep(0.1); 3 }, args=list())
+b <- delayed(function() { Sys.sleep(0.1); 4 }, args=list())
+d <- delayed(function(...) { sum(...) })
 d$set_args(list(a,b,5))
-o = d$compute_sequentially()
+o <- d$compute_sequentially()
 expect_equal(o, 12)
 
 # ----------------------------------------------------------------
-a = delayed(function() { Sys.sleep(0.1); 3 }, args=list())
-b = delayed(function() { Sys.sleep(0.1); 4 }, args=list())
-d = delayed(function(...) { sum(...) }, args=list(a,b,5))
-o = d$compute_sequentially()
+a <- delayed(function() { Sys.sleep(0.1); 3 }, args=list())
+b <- delayed(function() { Sys.sleep(0.1); 4 }, args=list())
+d <- delayed(function(...) { sum(...) }, args=list(a,b,5))
+o <- d$compute_sequentially()
 expect_equal(o, 12)
 
 # ----------------------------------------------------------------
-a = delayed(function()  { Sys.sleep(0.1);     7 }, args=list())
-b = delayed(function(x) { Sys.sleep(0.1); x*100 }, args=list(a))
-c = delayed(function(x) { Sys.sleep(0.1);  x*10 }, args=list(a))
-d = delayed(function(...) { sum(...) }, args=list(b,c))
-o = d$compute_sequentially()
+a <- delayed(function()  { Sys.sleep(0.1);     7 }, args=list())
+b <- delayed(function(x) { Sys.sleep(0.1); x*100 }, args=list(a))
+c <- delayed(function(x) { Sys.sleep(0.1);  x*10 }, args=list(a))
+d <- delayed(function(...) { sum(...) }, args=list(b,c))
+o <- d$compute_sequentially()
 expect_equal(o, 770)
 
 # ----------------------------------------------------------------
@@ -94,7 +94,7 @@ e <- delayed(function(x){  1000*x}, args=list(a))
 f <- delayed(function(x){ 10000*x}, args=list(a))
 
 g <- delayed(function(s,t,u,v,w){s+t+u+v+w}, args=list(b,c,d,e,f))
-o = g$compute_sequentially()
+o <- g$compute_sequentially()
 t <- Sys.time()
 
 expect_equal(o, 99999)

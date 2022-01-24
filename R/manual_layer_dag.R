@@ -136,6 +136,7 @@ DAG <- R6::R6Class(
     # graph.
     compute = function(timeout_seconds=NULL, verbose=FALSE) {
 
+      if (verbose) show(self)
       # This is crucial for our use of the future package -- we don't get parallelism by default
       #future::plan(future::multisession)
       future::plan(future::multicore)
@@ -154,11 +155,13 @@ DAG <- R6::R6Class(
         Sys.sleep(0.1)
       }
 
+      if (verbose) show(self)
       self$terminal_node$result
     },
 
-    # This *must* be called periodically to update nodes and launch dependents. A
-    # DAG won't auto-run without this being invoked periodically.
+    # This *must* be called periodically to update nodes and launch dependents.
+    # Our poll-driven DAGs won't auto-run without this being invoked
+    # periodically.
     poll = function(verbose=FALSE) {
       terminal_done <- self$terminal_node$poll(namespace=self$namespace, verbose=verbose)
     },

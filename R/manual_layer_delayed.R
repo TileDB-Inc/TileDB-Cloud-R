@@ -1,6 +1,6 @@
 ##' delayed is an exported factory function for the "Node" implementation class.
 ##'
-##' Intentionally, Node has non-public consructor, but a few public accessors.
+##' Intentionally, Node has non-public constructor, but a few public accessors.
 ##'
 ##' @param args Can be provided here with \code{c <- delayed(function(...) { sum(...) }, args=list(a,b))}
 ##' or ##' separately with \code{c <- delayed(function(...) { sum(...) })` and later
