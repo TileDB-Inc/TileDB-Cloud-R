@@ -248,6 +248,26 @@ Node <- R6::R6Class(
     },
 
     # ----------------------------------------------------------------
+    # This is a helper function for topological sort. Finding all the args
+    # of a node is easy: node$args. This goes the other way around.
+    #
+    # Example:
+    # * a is initial
+    # * b and c both have a as arg
+    # * d has b and c as args.
+    # We want b$is_arg_of(d) to return TRUE.
+    is_arg_of = function(other) {
+      for (arg in other$args) {
+        if (is(arg, "Node")) {
+          if (arg$id == self$id) {
+            return(TRUE)
+          }
+        }
+      }
+      return(FALSE)
+    },
+
+    # ----------------------------------------------------------------
     # For DAG display
     show_status = function() {
       cat("  ", self$display_name, " ", sep="")

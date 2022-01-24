@@ -83,26 +83,48 @@ DAG <- R6::R6Class(
     # is *only* for display to the user) since we normally write 'z <- f(x,y)'
     # rather than 'f(x,y) -> z' -- so it makes sense to show z, then x and y.
     sort_nodes_topologically = function() {
-      if (is.null(self$terminal_node)) {
-        stop("terminal node must be identified before topological sort")
+      if (is.null(self$initial_nodes) || length(self$initial_nodes) == 0) {
+        stop("initial nodes must be identified before topological sort")
       }
-      unsorted_nodes <- self$all_nodes
       sorted_nodes <- list()
-      terminal_nodes <- list(self$terminal_node)
+      initial_nodes <- self$initial_nodes
 
-      while (length(terminal_nodes) > 0) {
-        node <- terminal_nodes[[1]]
-        terminal_nodes[[1]] <- NULL
+      while (length(initial_nodes) > 0) {
+        node <- initial_nodes[[1]]
+        initial_nodes[[1]] <- NULL
 
+        # If we have the terminal first and initials last, this
+        # edge-enumeration is very quick: 'for (arg in node$args)'. For
+        # display, initials-first or terminals-first is equally nice. But for
+        # future use with server-side task graphs, we'll need initials first.
+        # So we may as well do this initials-first.
         sorted_nodes[[node$id]] <- node
-        for (arg in node$args) {
-          if (is(arg, "Node")) {
-            terminal_nodes[[arg$id]] <- arg
-          }
+
+        # Initials first:
+        for (other in self$find_nodes_depending_directly_on(node)) {
+          initial_nodes[[other$id]] <- other
         }
       }
 
       self$all_nodes <- sorted_nodes
+    },
+
+    # This is a helper function for topological sort. Finding all the args
+    # of a node is easy: node$args. This goes the other way around.
+    #
+    # Example:
+    # * a is initial
+    # * b and c both have a as arg
+    # * d has b and c as args.
+    # * Then for node b: b$args is list(a). We want this function to return list(d).
+    find_nodes_depending_directly_on = function(node) {
+      retval <- list()
+      for (other in self$all_nodes) {
+        if (node$is_arg_of(other)) {
+          retval[[other$id]] <- other
+        }
+      }
+      unname(retval)
     },
 
     # ================================================================
