@@ -2,7 +2,7 @@
 % Please edit documentation in R/manual_layer_delayed.R
 \name{delayed}
 \alias{delayed}
-\title{delayed is an exported factory function for the "Node" implementation class.}
+\title{Define a function to be executed within a task graph}
 \usage{
 delayed(func, args = NULL, display_name = NULL, do_local = FALSE)
 }
@@ -13,11 +13,12 @@ delayed(func, args = NULL, display_name = NULL, do_local = FALSE)
 UDFs in TileDB Cloud.}
 }
 \description{
-Intentionally, Node has non-public consructor, but a few public accessors.
+Define a function to be executed within a task graph
 }
 \seealso{
 Other {manual-layer functions}: 
 \code{\link{array_info}()},
+\code{\link{compute}()},
 \code{\link{deregister_udf}()},
 \code{\link{execute_array_udf}()},
 \code{\link{execute_generic_udf}()},

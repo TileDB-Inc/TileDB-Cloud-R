@@ -65,6 +65,7 @@ information is not returned from this function. The \code{public} and
 \seealso{
 Other {manual-layer functions}: 
 \code{\link{array_info}()},
+\code{\link{compute}()},
 \code{\link{delayed}()},
 \code{\link{deregister_udf}()},
 \code{\link{execute_array_udf}()},

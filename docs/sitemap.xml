@@ -430,7 +430,13 @@
     <loc>/reference/array_info.html</loc>
   </url>
   <url>
+    <loc>/reference/compute.html</loc>
+  </url>
+  <url>
     <loc>/reference/configure.html</loc>
+  </url>
+  <url>
+    <loc>/reference/delayed.html</loc>
   </url>
   <url>
     <loc>/reference/deregister_udf.html</loc>

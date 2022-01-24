@@ -64,6 +64,7 @@ All arguments are required.
 \seealso{
 Other {manual-layer functions}: 
 \code{\link{array_info}()},
+\code{\link{compute}()},
 \code{\link{delayed}()},
 \code{\link{deregister_udf}()},
 \code{\link{execute_generic_udf}()},

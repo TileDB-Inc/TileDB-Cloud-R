@@ -23,6 +23,7 @@ the last login at \code{~/.tiledb/cloud.json} will be used.
 }
 \seealso{
 Other {manual-layer functions}: 
+\code{\link{compute}()},
 \code{\link{delayed}()},
 \code{\link{deregister_udf}()},
 \code{\link{execute_array_udf}()},
