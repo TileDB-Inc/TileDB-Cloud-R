@@ -34,7 +34,9 @@ Node <- R6::R6Class(
     future_result = NULL,
     status        = NULL,
     result        = NULL,
-    has_result    = FALSE, # in case retval is legit NULL; also for failure handling
+
+    # Only the terminal node in the DAG has this being non-null
+    dag_for_terminal = NULL,
 
     id            = NULL,
     display_name  = NULL,
@@ -93,7 +95,8 @@ Node <- R6::R6Class(
     # However, for more detailed inspection we support getting a DAG and doing dag$poll()
     # and inspecting the results as computation progresses.
     make_dag = function(namespace) {
-      dag <- DAG$new(namespace=namespace, terminal_node=self)
+      self$dag_for_terminal <- DAG$new(namespace=namespace, terminal_node=self)
+      self$dag_for_terminal
     },
 
     # ----------------------------------------------------------------
@@ -104,7 +107,6 @@ Node <- R6::R6Class(
         self$future        <- NULL
         self$future_result <- NULL
         self$result        <- NULL
-        self$has_result    <- FALSE
       }
     },
 
@@ -115,8 +117,14 @@ Node <- R6::R6Class(
     #
     # NULL timeout_seconds means wait indefinitely.
     compute = function(namespace, timeout_seconds=NULL, verbose=FALSE) {
-      dag <- self$make_dag(namespace)
-      dag$compute(timeout_seconds=timeout_seconds, verbose=verbose)
+      # Store this inside the terminal node so that after a compute() (whether
+      # successful or failed) people can show(n$dag_for_terminal) to visualize
+      # future results, stdout from the forked processes, etc.
+      if (is.null(self$dag_for_terminal)) {
+        self$make_dag(namespace)
+      }
+
+      self$dag_for_terminal$compute(timeout_seconds=timeout_seconds, verbose=verbose)
     },
 
     # ----------------------------------------------------------------
@@ -137,8 +145,7 @@ Node <- R6::R6Class(
         stop("namespace must be non-empty")
       }
 
-      if (self$has_result) {
-        self$status <- COMPLETED
+      if (self$status == COMPLETED) {
         return(TRUE)
       }
 
@@ -198,8 +205,12 @@ Node <- R6::R6Class(
         # TODO: make helper method
         evaluated <- lapply(self$args, function(arg) {
           if (is(arg, "Node")) {
-            if (!arg$has_result) {
-              stop("internal coding error: args results should have already been awaited")
+            if (arg$status == FAILED) {
+              stop("dependency has failed")
+            }
+            if (arg$status != COMPLETED) {
+              stop("internal coding error: detected at node ", self$display_name,
+                " result for arg ", arg$display_name, " should have already been awaited")
             }
             arg$result
           } else {
@@ -246,7 +257,10 @@ Node <- R6::R6Class(
     args_ready = function() {
       for (arg in self$args) {
         if (is(arg, "Node")) {
-          if (!arg$has_result) {
+          if (arg$status == FAILED) {
+            stop("dependency has failed")
+          }
+          if (arg$status != COMPLETED) {
             return(FALSE)
           }
         }
