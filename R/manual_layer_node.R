@@ -178,8 +178,13 @@ Node <- R6::R6Class(
             cat(as.integer(t), as.character(t), "END  ", self$display_name, "\n")
           }
 
-          self$result <- result(self$future)$value
-          self$status <- COMPLETED
+          if (!is.null(result(self$future)$visible) && result(self$future)$visible) {
+            self$result <- result(self$future)$value
+            self$status <- COMPLETED
+          } else {
+            self$status <- FAILED
+            stop("node failed: ", self$display_name)
+          }
 
           # Empty this out so dependent nodes have less data to serialize
           self$future <- NULL
@@ -238,7 +243,10 @@ Node <- R6::R6Class(
         # This return value back to the call
         self$result
         },
-        earlySignal=TRUE)
+        earlySignal=FALSE)
+        # If earlySignal == TRUE, resolved(self$future) will throw before returning.
+        # With earlySignal == FALSE, we have to do more bookkeeping ourselves but it's
+        # easier to set the node status to FAILED.
 
       self$status <- RUNNING
       return(FALSE)
