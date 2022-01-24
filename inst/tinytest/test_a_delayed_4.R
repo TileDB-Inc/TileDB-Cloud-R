@@ -62,3 +62,23 @@ a$set_args(list(b))
 b$set_args(list(a))
 # This has a timeout
 expect_error(compute(b, namespace='test-namespace'))
+
+# ----------------------------------------------------------------
+
+a <- delayed(function()    { stop()   },                 display_name='a', do_local=TRUE)
+b <- delayed(function(x)   {  10*x    }, args=list(a),   display_name='b', do_local=TRUE)
+c <- delayed(function(x)   { 100*x    }, args=list(a),   display_name='c', do_local=TRUE)
+d <- delayed(function(...) { sum(...) }, args=list(b,c), display_name='d', do_local=TRUE)
+expect_error(compute(d, namespace='test-namespace'))
+
+a <- delayed(function()    {     9    },                 display_name='a', do_local=TRUE)
+b <- delayed(function(x)   {  10*x    }, args=list(a),   display_name='b', do_local=TRUE)
+c <- delayed(function(x)   { stop()   }, args=list(a),   display_name='c', do_local=TRUE)
+d <- delayed(function(...) { sum(...) }, args=list(b,c), display_name='d', do_local=TRUE)
+expect_error(compute(d, namespace='test-namespace'))
+
+a <- delayed(function()    {     9    },                 display_name='a', do_local=TRUE)
+b <- delayed(function(x)   {  10*x    }, args=list(a),   display_name='b', do_local=TRUE)
+c <- delayed(function(x)   { 100*x    }, args=list(a),   display_name='c', do_local=TRUE)
+d <- delayed(function(...) { stop()   }, args=list(b,c), display_name='d', do_local=TRUE)
+expect_error(compute(d, namespace='test-namespace'))
