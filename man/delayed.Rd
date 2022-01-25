@@ -13,7 +13,10 @@ delayed(func, args = NULL, display_name = NULL, do_local = FALSE)
 UDFs in TileDB Cloud.}
 }
 \description{
-Define a function to be executed within a task graph
+Note: this is a provisional API, which may be reworked before the next release
+of this package.  In particular, there will be convenience wrappers like
+\code{delayedSQL} and \code{delayedArrayUDF}`, and the name and/or semantics of
+the base `delayed` function may soon change.
 }
 \seealso{
 Other {manual-layer functions}: 

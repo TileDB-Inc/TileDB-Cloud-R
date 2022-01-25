@@ -10,7 +10,7 @@
 # Notes on debug:
 #
 # * The 'future' package's default behavior is zero parallelism -- hence we need an explicit
-# future::plan.
+#   future::plan.
 #
 # * Future's 'plan::multicore' is more or less like Python's ProcessPoolExecutor. There exists no
 #   analog of ThreadPoolExecutor for R, and my understanding is there never will be -- too many

@@ -1,5 +1,10 @@
 ##' Define a function to be executed within a task graph
 ##'
+##' Note: this is a provisional API, which may be reworked before the next release
+##' of this package.  In particular, there will be convenience wrappers like
+##' \code{delayedSQL} and \code{delayedArrayUDF}`, and the name and/or semantics of
+##' the base `delayed` function may soon change.
+##'
 ##' @param args Can be provided here with \code{c <- delayed(function(...) { sum(...) }, args=list(a,b))}
 ##' or ##' separately with \code{c <- delayed(function(...) { sum(...) })` and later
 ##' \code{c$args <- list(a,b)}.
