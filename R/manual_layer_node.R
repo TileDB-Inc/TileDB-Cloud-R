@@ -1,10 +1,70 @@
-# Node is an R reference class. We need references since we have a mutable DAG of nodes
-# and we must be able to update them as their computation progresses.
+# ================================================================
+# Node is an R reference class. We need references since we have a mutable DAG of nodes and we must
+# be able to update them as their computation progresses.
 #
-# See the delayed() function in this package for a factory function. This constructor
-# is not intended to be invoked directly, but rather, by delayed().
+# See the delayed() function in this package for a factory function. This constructor is not
+# intended to be invoked directly, but rather, by delayed().
+# ================================================================
+
+# ================================================================
+# Notes on debug:
+#
+# * The 'future' package's default behavior is zero parallelism -- hence we need an explicit
+# future::plan.
+#
+# * Future's 'plan::multicore' is more or less like Python's ProcessPoolExecutor. There exists no
+#   analog of ThreadPoolExecutor for R, and my understanding is there never will be -- too many
+#   issues with threads and R.
+#
+# * Processes:
+#
+#   o Say you have a 2-node DAG where node B depends on node A.
+#
+#   o There is an R process for the call to compute(B). Inside that is dag$poll() which invokes
+#     node$poll() for both the A and B nodes.
+#
+#   o There will be a forked R process for the call to A's future
+#
+#   o There will be a forked R process for the call to B's future
+#
+#   o Both of those forked R processes, in turn, are just sitting in a synchronous call to the REST
+#     server to execute the UDF/SQL/etc. So, in any non-trivial DAG, the parent/polling process
+#     spends most of its time awaiting futures which are running in the child/forked processes, and
+#     those are in turn spending most of their time awaiting the results of HTTP requests to the
+#     REST server.
+#
+#   o Those futures resolve into the parent process' called to resolved().  The _only_ communication
+#     between child processes and the parent process is via (a) the return value from the future,
+#     and stdout prints by the child. Crucially, prints to stderr are completely lost, and prints to
+#     stdout do _not_ go directly to stdout -- they only are obtainable once the future is
+#     _resolved_ and the parent process gets all the child process' stdout lines all at one go via
+#     `self$future_result$stdout)`.
+#
+# * Debugging:
+#
+#   o If you are doing light debug, just have R print/cat/etc within the node functions -- their
+#     stdout will appear once the future completes.
+#
+#   o If you are doing hard debug, and if you need info on child processes which are still running
+#     -- I've used R's `broswer` to debug the parent process, but I don't know how to make that to
+#     work to debug child processes.  The best experience I can suggest is doing write-to-disk-file
+#     within the child process and then tail that disk file from a separate terminal.
+#
+# * DAG invocation: More detail in the vignettes, but the essentials are:
+#    o a <- delayed(function()  {   9  },                 display_name='a')
+#    o b <- delayed(function(x) { 10*x }, args=list(a),   display_name='b')
+#    o Simplest:
+#      o <- compute(a), namespace='namespace_to_charge')
+#      show(o$dag_for_terminal)
+#      str(o$dag_for_terminal)
+#      o <- compute(a), namespace='namespace_to_charge') # retry failed nodes
+#    o More detail:
+#      o <- compute(a), namespace='namespace_to_charge', verbose=TRUE)
+# ================================================================
 
 # ----------------------------------------------------------------
+# Users can name their nodes with display-names if they like. Absent that, the following is used
+# for display names, and regardless, is always used for hash-mapping node IDs to node objects.
 make_id_generator <- function() {
     count <- 0
     f <- function() {

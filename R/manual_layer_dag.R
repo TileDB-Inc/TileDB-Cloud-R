@@ -1,7 +1,13 @@
+# ================================================================
 # DAG is an R reference class. We need references since we have a mutable DAG of nodes
 # and we must be able to update them as their computation progresses.
 #
 # Nominally this is invoked by the terminal node's compute() method.
+# ================================================================
+
+# ================================================================
+# Notes on debug: Please see comments in manual_layer_node.R.
+# ================================================================
 
 ##' @export
 ##' @importFrom future plan multicore multisession
