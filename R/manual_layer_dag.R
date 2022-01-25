@@ -141,7 +141,7 @@ DAG <- R6::R6Class(
     # dag <- terminal_node$make_dag(), then dag$poll() and show(dag) / str(dag)
     # repeatedly in order better to visualize the flow of computation through the
     # graph.
-    compute = function(timeout_seconds=NULL, verbose=FALSE) {
+    compute = function(timeout_seconds=NULL, verbose=FALSE, force_all_local=FALSE) {
       self$reset()
 
       if (verbose) show(self)
@@ -151,7 +151,7 @@ DAG <- R6::R6Class(
       future::plan(future::multicore)
 
       start <- Sys.time()
-      while (self$poll(verbose=verbose) == FALSE) {
+      while (self$poll(verbose=verbose, force_all_local=force_all_local) == FALSE) {
         now <- Sys.time()
         elapsed_seconds <- as.numeric(now-start, units='secs')
         if (!is.null(timeout_seconds)) {
@@ -178,8 +178,8 @@ DAG <- R6::R6Class(
     # This *must* be called periodically to update nodes and launch dependents.
     # Our poll-driven DAGs won't auto-run without this being invoked
     # periodically.
-    poll = function(verbose=FALSE) {
-      terminal_done <- self$terminal_node$poll(namespace=self$namespace, verbose=verbose)
+    poll = function(verbose=FALSE, force_all_local=FALSE) {
+      terminal_done <- self$terminal_node$poll(namespace=self$namespace, verbose=verbose, force_local=force_all_local)
     },
 
     # ================================================================

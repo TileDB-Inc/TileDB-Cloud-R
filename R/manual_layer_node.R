@@ -196,33 +196,34 @@ Node <- R6::R6Class(
     },
 
     # ----------------------------------------------------------------
-    # This launches a compute of the entire DAG which *terminates* at this item.
+    # This launches a compute of the entire DAG which *terminates* at this node.
     # This is not a solely-self-compute method to run on this particular item's
     # delayed function.
     #
     # NULL timeout_seconds means wait indefinitely.
-    compute = function(namespace, timeout_seconds=NULL, verbose=FALSE) {
-      # Store this inside the terminal node so that after a compute() (whether
-      # successful or failed) people can show(n$dag_for_terminal) to visualize
-      # future results, stdout from the forked processes, etc.
+    #
+    # This is nominally called not as node$compute() but via the generic compute(node).
+    # See comments in the compute generic for more information.
+    compute = function(namespace, timeout_seconds=NULL, verbose=FALSE, force_all_local=FALSE) {
+      # Store this DAG object inside the terminal node so that after a compute() (whether successful
+      # or failed) people can show(n$dag_for_terminal) to visualize future results, stdout from the
+      # forked processes, etc.
       if (is.null(self$dag_for_terminal)) {
         self$make_dag(namespace)
       }
 
-      self$dag_for_terminal$compute(timeout_seconds=timeout_seconds, verbose=verbose)
+      self$dag_for_terminal$compute(timeout_seconds=timeout_seconds, verbose=verbose, force_all_local=force_all_local)
     },
 
     # ----------------------------------------------------------------
-    # IMPORTANT: even though we're using reference classes, the stuff inside the
-    # future body is executed in a *separated forked process*. So a given node
-    # can't just walk the args-DAG to see if its callers are done. Crucially, the
-    # interaction between the forked process and the parent is the future's
-    # return value.
+    # IMPORTANT: even though we're using reference classes, the stuff inside the future body is
+    # executed in a *separated forked process*. So a given node can't just walk the args-DAG to see
+    # if its callers are done. Crucially, the interaction between the forked process and the parent
+    # is the future's return value.
     #
-    # Our DAG is a poll-driven DAG so dag$poll() must be called repeatedly
-    # in order to launch futures for initial nodes, detect when they are resolved,
-    # launch subsequent nodes, etc.
-    poll = function(namespace, verbose=FALSE) {
+    # Our DAG is a poll-driven DAG so dag$poll() must be called repeatedly in order to launch
+    # futures for initial nodes, detect when they are resolved, launch subsequent nodes, etc.
+    poll = function(namespace, verbose=FALSE, force_local=FALSE) {
       if (is.null(namespace)) {
         stop("namespace must be non-null")
       }
@@ -239,7 +240,7 @@ Node <- R6::R6Class(
       }
       for (arg in self$args) {
         if (is(arg, "Node")) {
-          arg$poll(namespace=namespace, verbose=verbose)
+          arg$poll(namespace=namespace, verbose=verbose, force_local=force_local)
         }
       }
       if (!self$args_ready()) {
@@ -313,7 +314,7 @@ Node <- R6::R6Class(
         # the forked process -- only when the parent collects result via
         # 'cat(self$future_result$stdout)' will they be user-visible. For this reason it's
         # extra-important that we provide timestamps.
-        if (self$do_local) {
+        if (self$do_local || force_local) {
           t <- Sys.time()
           cat(as.integer(t), as.character(t), "launch local compute  ", self$display_name, "\n")
           self$result <- do.call(self$func, evaluated)
@@ -419,11 +420,30 @@ Node <- R6::R6Class(
 ##' The task graph is implicitly defined by various \code{delayed} objects having others
 ##' in their argument lists.
 ##'
+##' @param namespace The namespace to charge for any cloud costs during the execution of the
+##' task graph.
+##'
+##' @param timeout_seconds Number of seconds after which to stop waiting for results.
+##' Note that in-flight computationsa are not cancelled; this is not supported by the
+##' underlying R package we use for concurrency.
+##'
+##' @param verbose If supplied, show the DAG state at the start and end, along with all node start/end.
+##' Also shown are any stdout prints from the individual nodes, but these are only visible once the
+##' compute node has completed.
+##'
+##' @param force_all_local While individual nodes can be marked with \code{do_local=TRUE}
+##' to not be executed on TileDB cloud, this flag overrides the default \code{do_local=FALSE}
+##' for *all* nodes in the task graph.
+##'
+##' @return The value of the computation.
+##'
 ##' @family {manual-layer functions}
 ##' @export
-compute <- function(object, namespace, timeout_seconds=NULL, verbose=FALSE) 0
-setMethod("compute", signature(object = "Node"), function(object, namespace, timeout_seconds=NULL, verbose=FALSE) {
-  object$compute(namespace=namespace, timeout_seconds=timeout_seconds, verbose=verbose)
+compute <- function(object, namespace, timeout_seconds=NULL, verbose=FALSE, force_all_local=FALSE) 0
+setMethod("compute", signature(object = "Node"), function(object, namespace, timeout_seconds=NULL,
+  verbose=FALSE, force_all_local=FALSE)
+{
+  object$compute(namespace=namespace, timeout_seconds=timeout_seconds, verbose=verbose, force_all_local=force_all_local)
 })
 
 # Test/debug entrypoint
