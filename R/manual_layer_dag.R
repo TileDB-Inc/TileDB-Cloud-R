@@ -3,10 +3,8 @@
 # and we must be able to update them as their computation progresses.
 #
 # Nominally this is invoked by the terminal node's compute() method.
-# ================================================================
-
-# ================================================================
-# Notes on debug: Please see comments in manual_layer_node.R.
+#
+# Notes on dev/debug: Please see the developer vignette about task graphs.
 # ================================================================
 
 ##' @export
