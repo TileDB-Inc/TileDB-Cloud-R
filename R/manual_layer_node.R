@@ -179,7 +179,10 @@ Node <- R6::R6Class(
     # Nominal use-case is people call compute(...) on a return value from delayed(...).
     # However, for more detailed inspection we support getting a DAG and doing dag$poll()
     # and inspecting the results as computation progresses.
-    make_dag = function(namespace) {
+    #
+    # The namespace must be non-null for cloud execution. For all-local runs it can be null.
+    # We check this at compute time.
+    make_dag = function(namespace=NULL) {
       self$dag_for_terminal <- DAG$new(namespace=namespace, terminal_node=self)
       self$dag_for_terminal
     },
@@ -204,7 +207,7 @@ Node <- R6::R6Class(
     #
     # This is nominally called not as node$compute() but via the generic compute(node).
     # See comments in the compute generic for more information.
-    compute = function(namespace, timeout_seconds=NULL, verbose=FALSE, force_all_local=FALSE) {
+    compute = function(namespace=NULL, timeout_seconds=NULL, verbose=FALSE, force_all_local=FALSE) {
       # Store this DAG object inside the terminal node so that after a compute() (whether successful
       # or failed) people can show(n$dag_for_terminal) to visualize future results, stdout from the
       # forked processes, etc.
@@ -225,12 +228,10 @@ Node <- R6::R6Class(
     # futures for initial nodes, detect when they are resolved, launch subsequent nodes, etc.
     poll = function(namespace, verbose=FALSE, force_local=FALSE) {
       if (is.null(namespace)) {
-        stop("namespace must be non-null")
+        if (!self$do_local && !force_local) {
+          stop("namespace must be provided in a task graph with any non-local nodes.")
+        }
       }
-      if (namespace=="") {
-        stop("namespace must be non-empty")
-      }
-
       if (self$status == COMPLETED) {
         return(TRUE)
       }
@@ -421,7 +422,8 @@ Node <- R6::R6Class(
 ##' in their argument lists.
 ##'
 ##' @param namespace The namespace to charge for any cloud costs during the execution of the
-##' task graph.
+##' task graph. This can be null only when all nodes have \code{do_local}, or when \code{compute}
+##' is called with \code{force_all_local}.
 ##'
 ##' @param timeout_seconds Number of seconds after which to stop waiting for results.
 ##' Note that in-flight computationsa are not cancelled; this is not supported by the
@@ -439,8 +441,8 @@ Node <- R6::R6Class(
 ##'
 ##' @family {manual-layer functions}
 ##' @export
-compute <- function(object, namespace, timeout_seconds=NULL, verbose=FALSE, force_all_local=FALSE) 0
-setMethod("compute", signature(object = "Node"), function(object, namespace, timeout_seconds=NULL,
+compute <- function(object, namespace=NULL, timeout_seconds=NULL, verbose=FALSE, force_all_local=FALSE) 0
+setMethod("compute", signature(object = "Node"), function(object, namespace=NULL, timeout_seconds=NULL,
   verbose=FALSE, force_all_local=FALSE)
 {
   object$compute(namespace=namespace, timeout_seconds=timeout_seconds, verbose=verbose, force_all_local=force_all_local)

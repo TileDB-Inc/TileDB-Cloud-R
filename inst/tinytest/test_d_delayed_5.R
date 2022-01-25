@@ -26,6 +26,11 @@ library(future)
 
 # ----------------------------------------------------------------
 a <- delayed(function() { 9 }, display_name='a', do_local=FALSE)
+expect_error(compute(a, timeout_seconds=300),
+  pattern="namespace must be provided in a task graph with any non-local nodes")
+
+# ----------------------------------------------------------------
+a <- delayed(function() { 9 }, display_name='a', do_local=FALSE)
 expect_equal(compute(a, namespace=namespaceToCharge, timeout_seconds=300), 9)
 
 # ----------------------------------------------------------------

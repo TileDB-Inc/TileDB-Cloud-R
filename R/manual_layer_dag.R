@@ -22,8 +22,12 @@ DAG <- R6::R6Class(
     # ================================================================
     # INITIALIZATION METHODS
 
-    initialize = function(terminal_node, namespace) {
-      self$namespace <- namespace
+    # The namespace must be non-null for cloud execution. For all-local runs it can be null.
+    # We check this at compute time.
+    initialize = function(terminal_node, namespace=NULL) {
+      if (!is.null(namespace)) {
+        self$namespace <- namespace
+      }
       self$populate(terminal_node)
     },
 
@@ -196,7 +200,7 @@ DAG <- R6::R6Class(
     },
 
     show = function() {
-      cat("Namespace: ", self$namespace, "\n", sep="")
+      cat("Namespace: ", ifelse(is.null(self$namespace), "NULL", self$namespace), "\n", sep="")
       self$show_node_list("All      nodes:   ", self$all_nodes)
       self$show_node_list("Initial  nodes:   ", self$initial_nodes)
       self$show_node_list("Terminal node:    ", list(self$terminal_node))
