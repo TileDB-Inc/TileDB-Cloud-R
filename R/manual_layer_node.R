@@ -2,7 +2,7 @@
 # and we must be able to update them as their computation progresses.
 #
 # See the delayed() function in this package for a factory function. This constructor
-# is not intended to be invokved directly, but rather, by delayed().
+# is not intended to be invoked directly, but rather, by delayed().
 
 # ----------------------------------------------------------------
 make_id_generator <- function() {
