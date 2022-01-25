@@ -319,6 +319,9 @@ Node <- R6::R6Class(
       cat(",status=", self$status, sep="")
       cat(",result=", ifelse(is.null(self$result), "(null)", self$result), sep="")
       cat("\n")
+      if (!is.null(self$dag_for_terminal)) {
+        show(self$dag_for_terminal)
+      }
     }
   )
 )
