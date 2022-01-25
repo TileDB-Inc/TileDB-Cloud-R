@@ -17,12 +17,15 @@
 ##' @return The result of the SQL query.
 ##' @family {manual-layer functions}
 ##' @export
-execute_generic_udf <- function(query, name, namespace) {
+execute_sql_query <- function(query, name, namespace) {
 
-  api.client.instance <- tiledbcloud:::.get_api_client_instance()
+  api.client.instance <- get_api_client_instance()
   sql.api.instance <- sql <- SqlApi$new(api.client.instance)
 
-  sql.parameters <-  SQLParameters$new(name=name, query=query)
+  sql.parameters <- SQLParameters$new(name=name, query=query)
+  resultObject <- sql$RunSQL(namespace, sql.parameters)
 
-  sql$RunSQL(namespace, sql.parameters)
+  body <- .get_raw_response_body_or_stop(resultObject)
+  parsed <- jsonlite::fromJSON(rawToChar(body))
+  parsed
 }
