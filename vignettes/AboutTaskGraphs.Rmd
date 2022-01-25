@@ -7,9 +7,7 @@ vignette: |
   %\VignetteEncoding{UTF-8}
 ---
 
-# About task graphs
-
-## Parallelism
+# Parallelism
 
 * The `future` package's default behavior is zero parallelism -- hence we need an explicit
   `future::plan`.
@@ -18,7 +16,7 @@ vignette: |
   analog of `ThreadPoolExecutor` for R, and our understanding is there never will be -- too many
   issues with threads and R.
 
-## Processes
+# Processes
 
 * Say you have a 2-node DAG where node B depends on node A.
 
@@ -41,7 +39,7 @@ vignette: |
   _resolved_ and the parent process gets all the child process' stdout lines all at one go via
   `self$future_result$stdout)`.
 
-## Call flow
+# Call flow
 
 * Nodes are defined by calls to the delayed factory function, with edges via their args.
   Note that the DAG is at this point implicit in these nodes and edges.
@@ -63,7 +61,7 @@ vignette: |
 * Calling `compute()` again on the terminal node will leave computed nodes computed,
   and running nodes running, but will retry the failed nodes.
 
-## Debugging
+# Debugging
 
 * If you are doing light debug, just have R do `print`/`cat`/etc within the node functions -- their
    stdout will appear once the future completes.

@@ -7,9 +7,7 @@ vignette: |
   %\VignetteEncoding{UTF-8}
 ---
 
-# How to update documentation
-
-## Roxygen2 and Pkgdown
+# Roxygen2 and Pkgdown
 
 Roxygen2-style comments are how we generate most content.
 
@@ -57,12 +55,12 @@ The rule in the `reference` section is that items starting with `a-z` are manual
 
 For new articles (vignettes), by contrast, you will need to add the information for your new vignette to `_pkgdown.yml`.
 
-## Build steps
+# Build steps
 
 After `install.packages("roxygen2")` and `install.packages("pkgdown")` you can do `roxygen2::roxygenise()` and `pkgdown::build_site`.
 
 This should pop open a browser pointed to local `./docs/index.html`. From there you can check that the rendering is as desired.
 
-## Publishing
+# Publishing
 
 See [HowToRelease.md](./HowToRelease.md).
