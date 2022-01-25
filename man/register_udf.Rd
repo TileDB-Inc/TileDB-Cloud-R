@@ -50,6 +50,8 @@ Registers a user-defined function on TileDB Cloud, so that it may be invoked by 
 \seealso{
 Other {manual-layer functions}: 
 \code{\link{array_info}()},
+\code{\link{compute}()},
+\code{\link{delayed}()},
 \code{\link{deregister_udf}()},
 \code{\link{execute_array_udf}()},
 \code{\link{execute_generic_udf}()},
