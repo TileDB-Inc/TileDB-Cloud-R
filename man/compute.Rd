@@ -4,7 +4,32 @@
 \alias{compute}
 \title{Launch a task graph from a given terminal node in the task graph}
 \usage{
-compute(object, namespace, timeout_seconds = NULL, verbose = FALSE)
+compute(
+  object,
+  namespace,
+  timeout_seconds = NULL,
+  verbose = FALSE,
+  force_all_local = FALSE
+)
+}
+\arguments{
+\item{namespace}{The namespace to charge for any cloud costs during the execution of the
+task graph.}
+
+\item{timeout_seconds}{Number of seconds after which to stop waiting for results.
+Note that in-flight computationsa are not cancelled; this is not supported by the
+underlying R package we use for concurrency.}
+
+\item{verbose}{If supplied, show the DAG state at the start and end, along with all node start/end.
+Also shown are any stdout prints from the individual nodes, but these are only visible once the
+compute node has completed.}
+
+\item{force_all_local}{While individual nodes can be marked with \code{do_local=TRUE}
+to not be executed on TileDB cloud, this flag overrides the default \code{do_local=FALSE}
+for *all* nodes in the task graph.}
+}
+\value{
+The value of the computation.
 }
 \description{
 The task graph is implicitly defined by various \code{delayed} objects having others
