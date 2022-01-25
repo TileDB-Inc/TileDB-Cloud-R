@@ -463,6 +463,9 @@
     <loc>/reference/execute_multi_array_udf.html</loc>
   </url>
   <url>
+    <loc>/reference/execute_sql_query.html</loc>
+  </url>
+  <url>
     <loc>/reference/get_api_client_instance.html</loc>
   </url>
   <url>
