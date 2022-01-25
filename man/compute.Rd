@@ -6,7 +6,7 @@
 \usage{
 compute(
   object,
-  namespace,
+  namespace = NULL,
   timeout_seconds = NULL,
   verbose = FALSE,
   force_all_local = FALSE
@@ -14,7 +14,8 @@ compute(
 }
 \arguments{
 \item{namespace}{The namespace to charge for any cloud costs during the execution of the
-task graph.}
+task graph. This can be null only when all nodes have \code{do_local}, or when \code{compute}
+is called with \code{force_all_local}.}
 
 \item{timeout_seconds}{Number of seconds after which to stop waiting for results.
 Note that in-flight computationsa are not cancelled; this is not supported by the

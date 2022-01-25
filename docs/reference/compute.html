@@ -56,7 +56,7 @@ in their argument lists.</p>
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">compute</span><span class="op">(</span>
   <span class="va">object</span>,
-  <span class="va">namespace</span>,
+  namespace <span class="op">=</span> <span class="cn">NULL</span>,
   timeout_seconds <span class="op">=</span> <span class="cn">NULL</span>,
   verbose <span class="op">=</span> <span class="cn">FALSE</span>,
   force_all_local <span class="op">=</span> <span class="cn">FALSE</span>
@@ -67,7 +67,8 @@ in their argument lists.</p>
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>namespace</dt>
 <dd><p>The namespace to charge for any cloud costs during the execution of the
-task graph.</p></dd>
+task graph. This can be null only when all nodes have <code>do_local</code>, or when <code>compute</code>
+is called with <code>force_all_local</code>.</p></dd>
 <dt>timeout_seconds</dt>
 <dd><p>Number of seconds after which to stop waiting for results.
 Note that in-flight computationsa are not cancelled; this is not supported by the
