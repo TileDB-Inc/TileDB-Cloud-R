@@ -15,8 +15,8 @@ UDFs in TileDB Cloud.}
 \description{
 Note: this is a provisional API, which may be reworked before the next release
 of this package.  In particular, there will be convenience wrappers like
-\code{delayedSQL} and \code{delayedArrayUDF}`, and the name and/or semantics of
-the base `delayed` function may soon change.
+\code{delayedSQL} and \code{delayedArrayUDF}, and the name and/or semantics of
+the base \code{delayed} function may soon change.
 }
 \seealso{
 Other {manual-layer functions}: 
