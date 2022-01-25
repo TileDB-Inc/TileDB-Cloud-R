@@ -156,7 +156,7 @@ DAG <- R6::R6Class(
         elapsed_seconds <- as.numeric(now-start, units='secs')
         if (!is.null(timeout_seconds)) {
           if (elapsed_seconds > timeout_seconds) {
-            cat("TIMEOUT\n")
+            stop("Timeout")
             break
           }
         }
