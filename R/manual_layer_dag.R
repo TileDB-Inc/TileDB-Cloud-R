@@ -86,54 +86,64 @@ DAG <- R6::R6Class(
 
     # This is important so our status display is non-frustrating for the user.
     # This assumes a cyclicity check has already been done.
-    # https://en.wikipedia.org/wiki/Topological_sorting Technically this is a
-    # reverse topological sort -- terminals appear first, then the ones that
-    # depend on them. This is intuitive for the user (and this topological sort
-    # is *only* for display to the user) since we normally write 'z <- f(x,y)'
-    # rather than 'f(x,y) -> z' -- so it makes sense to show z, then x and y.
+    #
+    # See https://en.wikipedia.org/wiki/Topological_sorting
+    #
+    # Note that this algorithm requires a destroyable copy of the graph, and it
+    # requires both forward and reverse arrows. For purpose of this function we
+    # use two R named-lists-of-named-lists as forward and reverse adjacency
+    # matrices.
     sort_nodes_topologically = function() {
       if (is.null(self$initial_nodes) || length(self$initial_nodes) == 0) {
         stop("initial nodes must be identified before topological sort")
       }
+
+      # Forward: from each arg to its calling node. E.g. if b = f(a), then row 'a' has column 'b'.
+      # Reverse: rom each node to its arg. E.g. if b = f(a), then row 'b' has column 'a'.
+      # Note forward and reverse are simply transposes of one another but it's easiest to
+      # keep two copies.
+      fwd_adj_mx <- spmx$new()
+      rev_adj_mx <- spmx$new()
+      for (node in self$all_nodes) {
+        for (arg in node$args) {
+          if (is(arg, "Node")) {
+            fwd_adj_mx$add(arg$id, node$id)
+            rev_adj_mx$add(node$id, arg$id)
+          }
+        }
+      }
+      # sorted_nodes ← Empty list that will contain the sorted elements
       sorted_nodes <- list()
+      # initial_nodes ← Set of all nodes with no incoming edge
       initial_nodes <- self$initial_nodes
 
+      # while initial_nodes is not empty do
       while (length(initial_nodes) > 0) {
+        # remove node from initial_nodes
         node <- initial_nodes[[1]]
         initial_nodes[[1]] <- NULL
 
-        # If we have the terminal first and initials last, this
-        # edge-enumeration is very quick: 'for (arg in node$args)'. For
-        # display, initials-first or terminals-first is equally nice. But for
-        # future use with server-side task graphs, we'll need initials first.
-        # So we may as well do this initials-first.
+        # add node to sorted_nodes
         sorted_nodes[[node$id]] <- node
 
-        # Initials first:
-        for (other in self$find_nodes_depending_directly_on(node)) {
-          initial_nodes[[other$id]] <- other
+        # for each node other with an edge from node to other do
+        for (other_id in names(fwd_adj_mx$get_row(node$id))) {
+          other <- self$all_nodes[[other_id]]
+
+          # remove that edge from the graph
+          fwd_adj_mx$remove(node$id, other$id)
+          rev_adj_mx$remove(other$id, node$id)
+
+          # if other has no other incoming edges then
+          if (length(rev_adj_mx$get_row(other$id)) == 0) {
+            # insert other into initial_nodes
+            initial_nodes[[other$id]] <- other
+          }
         }
       }
 
+      # return sorted_nodes (a topologically sorted order)
       self$all_nodes <- sorted_nodes
-    },
-
-    # This is a helper function for topological sort. Finding all the args
-    # of a node is easy: node$args. This goes the other way around.
-    #
-    # Example:
-    # * a is initial
-    # * b and c both have a as arg
-    # * d has b and c as args.
-    # * Then for node b: b$args is list(a). We want this function to return list(d).
-    find_nodes_depending_directly_on = function(node) {
-      retval <- list()
-      for (other in self$all_nodes) {
-        if (node$is_arg_of(other)) {
-          retval[[other$id]] <- other
-        }
-      }
-      unname(retval)
     },
 
     # ================================================================
@@ -216,6 +226,39 @@ DAG <- R6::R6Class(
         node$show_status()
       }
     }
+  )
+)
+
+# ================================================================
+# This is a little sparse adjacency matrix solely for the use of the topological sorter.
+# It's a named list of named lists of 1s, e.g. if there is an edge from 'a' to 'b'
+# then rows is list(a=list(b=1)).
+spmx <- R6::R6Class(
+  'spmx',
+  public = list(
+    rows = list(),
+
+    add = function(from, to) {
+      if (!(from %in% names(self$rows))) {
+        self$rows[[from]] <- list()
+      }
+      self$rows[[from]][[to]] <- 1
+    },
+
+    get_row = function(from) {
+      self$rows[[from]]
+    },
+
+    remove = function(from, to) {
+      self$rows[[from]][[to]] <- NULL
+    },
+
+    show = function() {
+      for (rid in names(self$rows)) {
+        cat(rid, ": ", paste(names(self$rows[[rid]]), collapse=", "), "\n")
+      }
+    }
+
   )
 )
 
