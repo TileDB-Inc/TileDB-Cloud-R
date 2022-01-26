@@ -14,7 +14,7 @@ compute(
 }
 \arguments{
 \item{namespace}{The namespace to charge for any cloud costs during the execution of the
-task graph. This can be null only when all nodes have \code{do_local}, or when \code{compute}
+task graph. This can be null only when all nodes have \code{local}, or when \code{compute}
 is called with \code{force_all_local}.}
 
 \item{timeout_seconds}{Number of seconds after which to stop waiting for results.
@@ -25,8 +25,8 @@ underlying R package we use for concurrency.}
 Also shown are any stdout prints from the individual nodes, but these are only visible once the
 compute node has completed.}
 
-\item{force_all_local}{While individual nodes can be marked with \code{do_local=TRUE}
-to not be executed on TileDB cloud, this flag overrides the default \code{do_local=FALSE}
+\item{force_all_local}{While individual nodes can be marked with \code{local=TRUE}
+to not be executed on TileDB cloud, this flag overrides the default \code{local=FALSE}
 for *all* nodes in the task graph.}
 }
 \value{

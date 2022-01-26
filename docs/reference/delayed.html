@@ -60,14 +60,14 @@ the base <code>delayed</code> function may soon change.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">delayed</span><span class="op">(</span><span class="va">func</span>, args <span class="op">=</span> <span class="cn">NULL</span>, display_name <span class="op">=</span> <span class="cn">NULL</span>, do_local <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">delayed</span><span class="op">(</span><span class="va">func</span>, args <span class="op">=</span> <span class="cn">NULL</span>, name <span class="op">=</span> <span class="cn">NULL</span>, local <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>display_name</dt>
+    <dl><dt>name</dt>
 <dd><p>Optional -- e.g. <code>a</code> or <code>b</code>. If omitted, it defaults to a UUID.</p></dd>
-<dt>do_local</dt>
+<dt>local</dt>
 <dd><p>If true, execute the functions on the local host; if else, execute them as
 UDFs in TileDB Cloud.</p></dd>
 </dl></div>

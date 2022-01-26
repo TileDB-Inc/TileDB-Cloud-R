@@ -67,7 +67,7 @@ in their argument lists.</p>
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>namespace</dt>
 <dd><p>The namespace to charge for any cloud costs during the execution of the
-task graph. This can be null only when all nodes have <code>do_local</code>, or when <code>compute</code>
+task graph. This can be null only when all nodes have <code>local</code>, or when <code>compute</code>
 is called with <code>force_all_local</code>.</p></dd>
 <dt>timeout_seconds</dt>
 <dd><p>Number of seconds after which to stop waiting for results.
@@ -78,8 +78,8 @@ underlying R package we use for concurrency.</p></dd>
 Also shown are any stdout prints from the individual nodes, but these are only visible once the
 compute node has completed.</p></dd>
 <dt>force_all_local</dt>
-<dd><p>While individual nodes can be marked with <code>do_local=TRUE</code>
-to not be executed on TileDB cloud, this flag overrides the default <code>do_local=FALSE</code>
+<dd><p>While individual nodes can be marked with <code>local=TRUE</code>
+to not be executed on TileDB cloud, this flag overrides the default <code>local=FALSE</code>
 for *all* nodes in the task graph.</p></dd>
 </dl></div>
     <div class="section level2">

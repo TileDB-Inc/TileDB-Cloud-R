@@ -33,7 +33,7 @@ Node <- R6::R6Class(
     # insist that people separately articulate that. See the 'delayed' factory
     # function.
     have_args     = NULL,
-    do_local      = NULL,
+    local         = NULL,
 
     future        = NULL,
     future_result = NULL,
@@ -44,26 +44,26 @@ Node <- R6::R6Class(
     dag_for_terminal = NULL,
 
     id            = NULL,
-    display_name  = NULL,
+    name          = NULL,
 
     # Note: args are non-optional here but user-convenience optionals are
     # implemented in the 'delayed' factory function.
-    initialize = function(func, args, have_args, display_name, do_local) {
-      self$result       <- NULL
-      self$func         <- func
-      self$args         <- args
-      self$have_args    <- have_args
-      self$future       <- NULL
-      self$status       <- NOT_STARTED
-      self$result       <- NULL
+    initialize = function(func, args, have_args, name, local) {
+      self$result    <- NULL
+      self$func      <- func
+      self$args      <- args
+      self$have_args <- have_args
+      self$future    <- NULL
+      self$status    <- NOT_STARTED
+      self$result    <- NULL
+      self$local     <- local
 
       self$id <- id_generator()
-      if (is.null(display_name)) {
-        self$display_name <- self$id
+      if (is.null(name)) {
+        self$name <- self$id
       } else {
-        self$display_name <- display_name
+        self$name <- name
       }
-      self$do_local     <- do_local
     },
 
     set_args = function(value) {
@@ -148,7 +148,7 @@ Node <- R6::R6Class(
     # futures for initial nodes, detect when they are resolved, launch subsequent nodes, etc.
     poll = function(namespace, verbose=FALSE, force_local=FALSE) {
       if (is.null(namespace)) {
-        if (!self$do_local && !force_local) {
+        if (!self$local && !force_local) {
           stop("namespace must be provided in a task graph with any non-local nodes.")
         }
       }
@@ -182,7 +182,7 @@ Node <- R6::R6Class(
             # with timestamps within them.
             cat(self$future_result$stdout)
             t <- Sys.time()
-            cat(as.integer(t), as.character(t), "END  ", self$display_name, "\n")
+            cat(as.integer(t), as.character(t), "END  ", self$name, "\n")
           }
 
           if (!is.null(future::result(self$future)$visible) && future::result(self$future)$visible) {
@@ -190,7 +190,7 @@ Node <- R6::R6Class(
             self$status <- COMPLETED
           } else {
             self$status <- FAILED
-            stop("node failed: ", self$display_name, ": ",
+            stop("node failed: ", self$name, ": ",
               paste(sapply(future::result(self$future)$conditions, function(c) {c$condition$message}), collapse=";"))
           }
 
@@ -204,7 +204,7 @@ Node <- R6::R6Class(
 
       if (verbose) {
         t <- Sys.time()
-        cat(as.integer(t), as.character(t), "START", self$display_name, "\n")
+        cat(as.integer(t), as.character(t), "START", self$name, "\n")
       }
 
       # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -222,8 +222,8 @@ Node <- R6::R6Class(
               stop("dependency has failed")
             }
             if (arg$status != COMPLETED) {
-              stop("internal coding error: detected at node ", self$display_name,
-                " result for arg ", arg$display_name, " should have already been awaited")
+              stop("internal coding error: detected at node ", self$name,
+                " result for arg ", arg$name, " should have already been awaited")
             }
             arg$result
           } else {
@@ -235,18 +235,18 @@ Node <- R6::R6Class(
         # the forked process -- only when the parent collects result via
         # 'cat(self$future_result$stdout)' will they be user-visible. For this reason it's
         # extra-important that we provide timestamps.
-        if (self$do_local || force_local) {
+        if (self$local || force_local) {
           t <- Sys.time()
-          cat(as.integer(t), as.character(t), "launch local compute  ", self$display_name, "\n")
+          cat(as.integer(t), as.character(t), "launch local compute  ", self$name, "\n")
           self$result <- do.call(self$func, evaluated)
           t <- Sys.time()
-          cat(as.integer(t), as.character(t), "finish local compute  ", self$display_name, "\n")
+          cat(as.integer(t), as.character(t), "finish local compute  ", self$name, "\n")
         } else {
           t <- Sys.time()
-          cat(as.integer(t), as.character(t), "launch remote compute  ", self$display_name, "\n")
+          cat(as.integer(t), as.character(t), "launch remote compute  ", self$name, "\n")
           self$result <- execute_generic_udf(namespace=namespace, udf=self$func, args=evaluated)
           t <- Sys.time()
-          cat(as.integer(t), as.character(t), "finish remote compute  ", self$display_name, "\n")
+          cat(as.integer(t), as.character(t), "finish remote compute  ", self$name, "\n")
         }
         # This return value back to the call
         self$result
@@ -312,14 +312,14 @@ Node <- R6::R6Class(
     # ----------------------------------------------------------------
     # For DAG display
     show_status = function() {
-      cat("  ", self$display_name, " ", sep="")
+      cat("  ", self$name, " ", sep="")
       cat(" args_ready=", ifelse(self$have_args, self$args_ready(), "(none set)"), sep="")
       cat(" status=", self$status, sep="")
       cat("\n")
     },
 
     show = function() {
-      cat("node=", self$display_name, sep="")
+      cat("node=", self$name, sep="")
       cat(",nargs=", ifelse(self$have_args, length(self$args), "(none set)"), sep="")
       cat(",args_ready=", ifelse(self$have_args, self$args_ready(), "(none set)"), sep="")
       cat(",future=", ifelse(is.null(self$future), "absent", "present"), sep="")
@@ -342,7 +342,7 @@ Node <- R6::R6Class(
 ##' in their argument lists.
 ##'
 ##' @param namespace The namespace to charge for any cloud costs during the execution of the
-##' task graph. This can be null only when all nodes have \code{do_local}, or when \code{compute}
+##' task graph. This can be null only when all nodes have \code{local}, or when \code{compute}
 ##' is called with \code{force_all_local}.
 ##'
 ##' @param timeout_seconds Number of seconds after which to stop waiting for results.
@@ -353,8 +353,8 @@ Node <- R6::R6Class(
 ##' Also shown are any stdout prints from the individual nodes, but these are only visible once the
 ##' compute node has completed.
 ##'
-##' @param force_all_local While individual nodes can be marked with \code{do_local=TRUE}
-##' to not be executed on TileDB cloud, this flag overrides the default \code{do_local=FALSE}
+##' @param force_all_local While individual nodes can be marked with \code{local=TRUE}
+##' to not be executed on TileDB cloud, this flag overrides the default \code{local=FALSE}
 ##' for *all* nodes in the task graph.
 ##'
 ##' @return The value of the computation.
