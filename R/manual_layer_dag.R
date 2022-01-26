@@ -126,7 +126,8 @@ DAG <- R6::R6Class(
         # add node to sorted_nodes
         sorted_nodes[[node$id]] <- node
 
-        # for each node other with an edge from node to other do
+        # for each other node on a forward edge from this node, i.e. for us,
+        # other nodes having this one as an argument:
         for (other_id in names(fwd_adj_mx$get_row(node$id))) {
           other <- self$all_nodes[[other_id]]
 
