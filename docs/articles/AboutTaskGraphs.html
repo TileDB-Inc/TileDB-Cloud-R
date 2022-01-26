@@ -96,8 +96,8 @@
 <ul>
 <li>Nodes are defined by calls to the delayed factory function, with edges via their args. Note that the DAG is at this point implicit in these nodes and edges.</li>
 </ul>
-<pre><code>    a &lt;- delayed(function()  {   9  },                 display_name='a')
-    b &lt;- delayed(function(x) { 10*x }, args=list(a),   display_name='b')
+<pre><code>    a &lt;- delayed(function()  {   9  },                 name='a')
+    b &lt;- delayed(function(x) { 10*x }, args=list(a),   name='b')
     o &lt;- compute(a), namespace='namespace_to_charge')</code></pre>
 <ul>
 <li><p>The terminal node’s <code><a href="../reference/compute.html">compute()</a></code> function instantiates a DAG object and stashes it as a slot within that node, for easy reference later. Nodes and edges are already in existence; the DAG’s purpose is to check for cycles, identify initial nodes, etc.</p></li>
@@ -114,8 +114,8 @@
 <li>
 <p>DAG invocation: More detail in the user-level vignette, but the essentials are:</p>
 <ul>
-<li><code>a &lt;- delayed(function()  {   9  },                 display_name='a')</code></li>
-<li><code>b &lt;- delayed(function(x) { 10*x }, args=list(a),   display_name='b')</code></li>
+<li><code>a &lt;- delayed(function()  {   9  },                 name='a')</code></li>
+<li><code>b &lt;- delayed(function(x) { 10*x }, args=list(a),   name='b')</code></li>
 <li>Simplest:
 <ul>
 <li><code>o &lt;- compute(a), namespace='namespace_to_charge')</code></li>

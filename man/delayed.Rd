@@ -4,12 +4,12 @@
 \alias{delayed}
 \title{Define a function to be executed within a task graph}
 \usage{
-delayed(func, args = NULL, display_name = NULL, do_local = FALSE)
+delayed(func, args = NULL, name = NULL, local = FALSE)
 }
 \arguments{
-\item{display_name}{Optional -- e.g. \code{a} or \code{b}. If omitted, it defaults to a UUID.}
+\item{name}{Optional -- e.g. \code{a} or \code{b}. If omitted, it defaults to a UUID.}
 
-\item{do_local}{If true, execute the functions on the local host; if else, execute them as
+\item{local}{If true, execute the functions on the local host; if else, execute them as
 UDFs in TileDB Cloud.}
 }
 \description{
