@@ -12,19 +12,18 @@ vignette: |
 Script:
 
 ```
-namespace <- "yournamespace"
-
 ans <- execute_sql_query(
   query="select `rows`, AVG(a) as avg_a from `tiledb://TileDB-Inc/quickstart_dense` GROUP BY `rows`",
   name="rows-query",
-  namespace=namespace)
+  namespace="yournamespace")
 show(ans)
 
 ans <- execute_sql_query(
-  query="select `rows`, AVG(a) as avg_a from `tiledb://TileDB-Inc/oops_a_typo` GROUP BY `rows`",
-  name="rows-query",
-  namespace=namespace)
+  query="select `cols`, AVG(a) as avg_a from `tiledb://TileDB-Inc/quickstart_dense` GROUP BY `cols`",
+  name="cols-query",
+  namespace="yournamespace")
 show(ans)
+
 ```
 
 Output:
@@ -35,8 +34,9 @@ Output:
 2  6.5000    2
 3 10.5000    3
 4 14.5000    4
-
-Error: tiledbcloud: received error response: Server returned 400 response status code.
-Message:  Error 1146: Table 'test.tiledb://TileDB-Inc/oops_a_typo' doesn't exist
-Execution halted
+    avg_a cols
+1  7.0000    1
+2  8.0000    2
+3  9.0000    3
+4 10.0000    4
 ```
