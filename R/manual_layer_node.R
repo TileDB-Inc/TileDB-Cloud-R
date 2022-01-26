@@ -33,7 +33,7 @@ Node <- R6::R6Class(
     # insist that people separately articulate that. See the 'delayed' factory
     # function.
     have_args     = NULL,
-    local      = NULL,
+    local         = NULL,
 
     future        = NULL,
     future_result = NULL,
@@ -44,18 +44,19 @@ Node <- R6::R6Class(
     dag_for_terminal = NULL,
 
     id            = NULL,
-    name  = NULL,
+    name          = NULL,
 
     # Note: args are non-optional here but user-convenience optionals are
     # implemented in the 'delayed' factory function.
     initialize = function(func, args, have_args, name, local) {
-      self$result       <- NULL
-      self$func         <- func
-      self$args         <- args
-      self$have_args    <- have_args
-      self$future       <- NULL
-      self$status       <- NOT_STARTED
-      self$result       <- NULL
+      self$result    <- NULL
+      self$func      <- func
+      self$args      <- args
+      self$have_args <- have_args
+      self$future    <- NULL
+      self$status    <- NOT_STARTED
+      self$result    <- NULL
+      self$local     <- local
 
       self$id <- id_generator()
       if (is.null(name)) {
@@ -63,7 +64,6 @@ Node <- R6::R6Class(
       } else {
         self$name <- name
       }
-      self$local     <- local
     },
 
     set_args = function(value) {

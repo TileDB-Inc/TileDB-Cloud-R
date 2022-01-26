@@ -188,7 +188,7 @@ DAG <- R6::R6Class(
     # DEBUG/DISPLAY
 
     get_display_names_for_nodes = function(nodes) {
-      sapply(nodes, function(node) { node$name})
+      sapply(nodes, function(node) { node$name })
     },
     show_node_list = function(description, nodes) {
       count <- length(nodes)
