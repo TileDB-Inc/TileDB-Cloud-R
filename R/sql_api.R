@@ -93,13 +93,10 @@ SqlApi <- R6::R6Class(
     RunSQL = function(namespace, sql, accept.encoding=NULL, ...){
       apiResponse <- self$RunSQLWithHttpInfo(namespace, sql, accept.encoding, ...)
       resp <- apiResponse$response
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+      } else {
         apiResponse
       }
     },
@@ -144,21 +141,8 @@ SqlApi <- R6::R6Class(
                                  body = body,
                                  ...)
 
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "array[object]", loadNamespace("tiledbcloud")),
-          error = function(e){
-             stop("Failed to deserialize response")
-          }
-        )
-        ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
+      .wrap_as_api_response(resp)
     }
   )
 )

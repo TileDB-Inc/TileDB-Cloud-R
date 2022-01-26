@@ -74,22 +74,30 @@
 <div class="section level1">
 <h1 id="sql-example">SQL example<a class="anchor" aria-label="anchor" href="#sql-example"></a>
 </h1>
-<p>This mostly uses the OpenAPI-autogen layer (see also <a href="PackageStatus.html">PackageStatus</a>).</p>
-<pre><code><span class="va">api.client.instance</span> <span class="op">&lt;-</span> <span class="fu">tiledbcloud</span><span class="fu">:::</span><span class="fu">.get_api_client_instance</span><span class="op">(</span><span class="op">)</span>
-<span class="va">sql.api.instance</span> <span class="op">&lt;-</span> <span class="va">sql</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/SqlApi.html">SqlApi</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="va">api.client.instance</span><span class="op">)</span>
+<p>Script:</p>
+<pre><code><span class="va">namespace</span> <span class="op">&lt;-</span> <span class="st">"yournamespace"</span>
 
-<span class="va">sql.parameters</span> <span class="op">&lt;-</span>  <span class="va"><a href="../reference/SQLParameters.html">SQLParameters</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>
-  name<span class="op">=</span><span class="st">"name-you-give-to-your-query"</span>,
-  query<span class="op">=</span><span class="st">"select `rows`, AVG(a) as avg_a from `tiledb://TileDB-Inc/quickstart_dense` GROUP BY `rows`"</span><span class="op">)</span>
+<span class="va">ans</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/execute_sql_query.html">execute_sql_query</a></span><span class="op">(</span>
+  query<span class="op">=</span><span class="st">"select `rows`, AVG(a) as avg_a from `tiledb://TileDB-Inc/quickstart_dense` GROUP BY `rows`"</span>,
+  name<span class="op">=</span><span class="st">"rows-query"</span>,
+  namespace<span class="op">=</span><span class="va">namespace</span><span class="op">)</span>
+<span class="fu">show</span><span class="op">(</span><span class="va">ans</span><span class="op">)</span>
 
-<span class="va">answer</span> <span class="op">&lt;-</span> <span class="va">sql</span><span class="op">$</span><span class="fu">RunSQL</span><span class="op">(</span><span class="st">"namespace-to-charge"</span>, <span class="va">sql.parameters</span><span class="op">)</span>
+<span class="va">ans</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/execute_sql_query.html">execute_sql_query</a></span><span class="op">(</span>
+  query<span class="op">=</span><span class="st">"select `rows`, AVG(a) as avg_a from `tiledb://TileDB-Inc/oops_a_typo` GROUP BY `rows`"</span>,
+  name<span class="op">=</span><span class="st">"rows-query"</span>,
+  namespace<span class="op">=</span><span class="va">namespace</span><span class="op">)</span>
+<span class="fu">show</span><span class="op">(</span><span class="va">ans</span><span class="op">)</span></code></pre>
+<p>Output:</p>
+<pre><code>    avg_a rows
+1  2.5000    1
+2  6.5000    2
+3 10.5000    3
+4 14.5000    4
 
-<span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://Rdatatable.gitlab.io/data.table/reference/rbindlist.html" class="external-link">rbindlist</a></span><span class="op">(</span><span class="va">answer</span><span class="op">)</span> <span class="co"># easiest helper to glue rows together</span></code></pre>
-<pre><code>     avg_a rows
-1:  2.5000    1
-2:  6.5000    2
-3: 10.5000    3
-4: 14.5000    4</code></pre>
+Error: tiledbcloud: received error response: Server returned 400 response status code.
+Message:  Error 1146: Table 'test.tiledb://TileDB-Inc/oops_a_typo' doesn't exist
+Execution halted</code></pre>
 </div>
   </main>
 </div>
