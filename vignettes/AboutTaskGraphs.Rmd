@@ -45,8 +45,8 @@ vignette: |
   Note that the DAG is at this point implicit in these nodes and edges.
 
 ```
-    a <- delayed(function()  {   9  },                 display_name='a')
-    b <- delayed(function(x) { 10*x }, args=list(a),   display_name='b')
+    a <- delayed(function()  {   9  },                 name='a')
+    b <- delayed(function(x) { 10*x }, args=list(a),   name='b')
     o <- compute(a), namespace='namespace_to_charge')
 ```
 
@@ -72,8 +72,8 @@ vignette: |
   within the child process and then tail that disk file from a separate terminal.
 
 * DAG invocation: More detail in the user-level vignette, but the essentials are:
-   * `a <- delayed(function()  {   9  },                 display_name='a')`
-   * `b <- delayed(function(x) { 10*x }, args=list(a),   display_name='b')`
+   * `a <- delayed(function()  {   9  },                 name='a')`
+   * `b <- delayed(function(x) { 10*x }, args=list(a),   name='b')`
    * Simplest:
      * `o <- compute(a), namespace='namespace_to_charge')`
      * `show(o$dag_for_terminal)`
