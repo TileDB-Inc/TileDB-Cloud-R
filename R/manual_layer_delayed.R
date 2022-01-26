@@ -11,12 +11,12 @@
 ##'
 ##' @param name Optional -- e.g. \code{a} or \code{b}. If omitted, it defaults to a UUID.
 ##'
-##' @param do_local If true, execute the functions on the local host; if else, execute them as
+##' @param local If true, execute the functions on the local host; if else, execute them as
 ##' UDFs in TileDB Cloud.
 ##'
 ##' @family {manual-layer functions}
 ##' @export
-delayed <- function(func, args=NULL, name=NULL, do_local=FALSE) {
+delayed <- function(func, args=NULL, name=NULL, local=FALSE) {
   have_args <- FALSE
 
   if (is.null(args)) {
@@ -35,5 +35,5 @@ delayed <- function(func, args=NULL, name=NULL, do_local=FALSE) {
     have_args <- TRUE
   }
 
-  Node$new(func=func, args=args, have_args=have_args, name=name, do_local=do_local)
+  Node$new(func=func, args=args, have_args=have_args, name=name, local=local)
 }
