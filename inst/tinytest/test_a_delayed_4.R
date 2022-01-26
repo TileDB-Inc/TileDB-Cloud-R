@@ -3,7 +3,6 @@
 ## ================================================================
 
 library(tiledbcloud)
-library(future)
 library(tinytest)
 
 # Local and non-local test files are in separate files. This is to (a) validate

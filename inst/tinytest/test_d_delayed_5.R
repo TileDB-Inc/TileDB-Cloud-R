@@ -22,7 +22,6 @@ if ((namespaceToCharge <- Sys.getenv("TILEDB_REST_UNIT_TEST_NAMESPACE_TO_CHARGE"
 
 # ----------------------------------------------------------------
 library(tiledbcloud)
-library(future)
 
 # ----------------------------------------------------------------
 a <- delayed(function() { 9 }, display_name='a', do_local=FALSE)

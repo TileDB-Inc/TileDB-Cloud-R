@@ -171,10 +171,10 @@ Node <- R6::R6Class(
       # Check if already running.  This protects against multiple launches in
       # diamond-dependency cases.
       if (!is.null(self$future)) {
-        if (resolved(self$future)) {
+        if (future::resolved(self$future)) {
 
           # Save this off for show()/str() later
-          self$future_result <- result(self$future)
+          self$future_result <- future::result(self$future)
 
           if (verbose) {
             # These are output lines from within the forked process. We get them
@@ -185,13 +185,13 @@ Node <- R6::R6Class(
             cat(as.integer(t), as.character(t), "END  ", self$display_name, "\n")
           }
 
-          if (!is.null(result(self$future)$visible) && result(self$future)$visible) {
-            self$result <- result(self$future)$value
+          if (!is.null(future::result(self$future)$visible) && future::result(self$future)$visible) {
+            self$result <- future::result(self$future)$value
             self$status <- COMPLETED
           } else {
             self$status <- FAILED
             stop("node failed: ", self$display_name, ": ",
-              paste(sapply(result(self$future)$conditions, function(c) {c$condition$message}), collapse=";"))
+              paste(sapply(future::result(self$future)$conditions, function(c) {c$condition$message}), collapse=";"))
           }
 
           # Empty this out so dependent nodes have less data to serialize
