@@ -7,11 +7,9 @@ vignette: |
   %\VignetteEncoding{UTF-8}
 ---
 
-# Arrays
-
 Some of these examples use [TileDB-R](https://github.com/TileDB-Inc/TileDB-R) in addition to this package.
 
-## Listing arrays
+# Listing arrays
 
 You can show arrays you own, or public/shared arrays:
 
@@ -43,7 +41,7 @@ You can show arrays you own, or public/shared arrays:
 2     coworker         testing--032
 ```
 
-## Showing array information
+# Showing array information
 
 ```
 > str(tiledbcloud::array_info(namespace="TileDB-Inc", arrayname="quickstart_dense"))
@@ -62,7 +60,7 @@ List of 12
  $ tags                : list()
 ```
 
-## Reading arrays
+# Reading arrays
 
 ```
 uri <- "tiledb://TileDB-Inc/quickstart_sparse"
@@ -105,14 +103,14 @@ schema(arr)
 - Fill value: 4294967295
 ```
 
-## Registering / deregistering arrays
+# Registering / deregistering arrays
 
 Information coming soon! See also [https://cloud.tiledb.com](https://cloud.tiledb.com) for UI access.
 
-## Sharing
+# Sharing
 
 Information coming soon! See also [https://cloud.tiledb.com](https://cloud.tiledb.com) for UI access.
 
-## Reading/writing metadata
+# Reading/writing metadata
 
 Information coming soon! See also [https://cloud.tiledb.com](https://cloud.tiledb.com) for UI access.
