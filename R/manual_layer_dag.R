@@ -30,10 +30,10 @@ DAG <- R6::R6Class(
     },
 
     # Nodes already have a graph structure. For example:
-    #   a <- delayed(function()    {    9  },                    display_name='a', do_local=FALSE)
-    #   b <- delayed(function(x)   {  10*x },    args=list(a),   display_name='b', do_local=FALSE)
-    #   c <- delayed(function(x)   { 100*x },    args=list(a),   display_name='c', do_local=FALSE)
-    #   d <- delayed(function(...) { sum(...) }, args=list(b,c), display_name='d', do_local=FALSE)
+    #   a <- delayed(function()    {    9  },                    name='a', do_local=FALSE)
+    #   b <- delayed(function(x)   {  10*x },    args=list(a),   name='b', do_local=FALSE)
+    #   c <- delayed(function(x)   { 100*x },    args=list(a),   name='c', do_local=FALSE)
+    #   d <- delayed(function(...) { sum(...) }, args=list(b,c), name='d', do_local=FALSE)
     # has DAG like
     #    a
     #   / \
@@ -188,7 +188,7 @@ DAG <- R6::R6Class(
     # DEBUG/DISPLAY
 
     get_display_names_for_nodes = function(nodes) {
-      sapply(nodes, function(node) { node$display_name})
+      sapply(nodes, function(node) { node$name})
     },
     show_node_list = function(description, nodes) {
       count <- length(nodes)
@@ -198,6 +198,9 @@ DAG <- R6::R6Class(
     },
 
     show = function() {
+      # XXX TEMP
+      self$sort_nodes_topologically()
+      # XXX TEMP
       cat("Namespace: ", ifelse(is.null(self$namespace), "NULL", self$namespace), "\n", sep="")
       self$show_node_list("All      nodes:   ", self$all_nodes)
       self$show_node_list("Initial  nodes:   ", self$initial_nodes)
@@ -206,9 +209,9 @@ DAG <- R6::R6Class(
       for (node in self$all_nodes) {
         if (length(node$args) > 0) {
           deps <- node$args[sapply(node$args, function(arg) {is(arg, "Node")})]
-          self$show_node_list(paste0("  ", node$display_name), deps)
+          self$show_node_list(paste0("  ", node$name), deps)
         } else {
-          self$show_node_list(paste0("  ", node$display_name), list())
+          self$show_node_list(paste0("  ", node$name), list())
         }
       }
       cat("Statuses:\n")

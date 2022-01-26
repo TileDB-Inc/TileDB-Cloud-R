@@ -44,11 +44,11 @@ Node <- R6::R6Class(
     dag_for_terminal = NULL,
 
     id            = NULL,
-    display_name  = NULL,
+    name  = NULL,
 
     # Note: args are non-optional here but user-convenience optionals are
     # implemented in the 'delayed' factory function.
-    initialize = function(func, args, have_args, display_name, do_local) {
+    initialize = function(func, args, have_args, name, do_local) {
       self$result       <- NULL
       self$func         <- func
       self$args         <- args
@@ -58,10 +58,10 @@ Node <- R6::R6Class(
       self$result       <- NULL
 
       self$id <- id_generator()
-      if (is.null(display_name)) {
-        self$display_name <- self$id
+      if (is.null(name)) {
+        self$name <- self$id
       } else {
-        self$display_name <- display_name
+        self$name <- name
       }
       self$do_local     <- do_local
     },
@@ -69,6 +69,15 @@ Node <- R6::R6Class(
     set_args = function(value) {
       stopifnot(is.list(value))
       self$args <- value
+      self$have_args <- TRUE
+    },
+
+    add_arg = function(value) {
+      if (is.null(self$args)) {
+        self$args <- list(value)
+      } else {
+        self$args <- append(self$args, value)
+      }
       self$have_args <- TRUE
     },
 
@@ -108,6 +117,13 @@ Node <- R6::R6Class(
     },
 
     # ----------------------------------------------------------------
+    # TODO: comment
+    visualize = function(namespace=NULL) {
+      self$dag_for_terminal <- DAG$new(namespace=namespace, terminal_node=self)
+      show(self$dag_for_terminal)
+    },
+
+    # ----------------------------------------------------------------
     # This is for reruns in case of transient node failures.
     reset = function() {
       if (self$status == FAILED) {
@@ -133,6 +149,8 @@ Node <- R6::R6Class(
       # forked processes, etc.
       if (is.null(self$dag_for_terminal)) {
         self$make_dag(namespace)
+      }
+      if (!is.null(namespace)) {
       }
 
       self$dag_for_terminal$compute(timeout_seconds=timeout_seconds, verbose=verbose, force_all_local=force_all_local)
@@ -182,7 +200,7 @@ Node <- R6::R6Class(
             # with timestamps within them.
             cat(self$future_result$stdout)
             t <- Sys.time()
-            cat(as.integer(t), as.character(t), "END  ", self$display_name, "\n")
+            cat(as.integer(t), as.character(t), "END  ", self$name, "\n")
           }
 
           if (!is.null(future::result(self$future)$visible) && future::result(self$future)$visible) {
@@ -190,7 +208,7 @@ Node <- R6::R6Class(
             self$status <- COMPLETED
           } else {
             self$status <- FAILED
-            stop("node failed: ", self$display_name, ": ",
+            stop("node failed: ", self$name, ": ",
               paste(sapply(future::result(self$future)$conditions, function(c) {c$condition$message}), collapse=";"))
           }
 
@@ -204,7 +222,7 @@ Node <- R6::R6Class(
 
       if (verbose) {
         t <- Sys.time()
-        cat(as.integer(t), as.character(t), "START", self$display_name, "\n")
+        cat(as.integer(t), as.character(t), "START", self$name, "\n")
       }
 
       # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -222,8 +240,8 @@ Node <- R6::R6Class(
               stop("dependency has failed")
             }
             if (arg$status != COMPLETED) {
-              stop("internal coding error: detected at node ", self$display_name,
-                " result for arg ", arg$display_name, " should have already been awaited")
+              stop("internal coding error: detected at node ", self$name,
+                " result for arg ", arg$name, " should have already been awaited")
             }
             arg$result
           } else {
@@ -237,16 +255,16 @@ Node <- R6::R6Class(
         # extra-important that we provide timestamps.
         if (self$do_local || force_local) {
           t <- Sys.time()
-          cat(as.integer(t), as.character(t), "launch local compute  ", self$display_name, "\n")
+          cat(as.integer(t), as.character(t), "launch local compute  ", self$name, "\n")
           self$result <- do.call(self$func, evaluated)
           t <- Sys.time()
-          cat(as.integer(t), as.character(t), "finish local compute  ", self$display_name, "\n")
+          cat(as.integer(t), as.character(t), "finish local compute  ", self$name, "\n")
         } else {
           t <- Sys.time()
-          cat(as.integer(t), as.character(t), "launch remote compute  ", self$display_name, "\n")
+          cat(as.integer(t), as.character(t), "launch remote compute  ", self$name, "\n")
           self$result <- execute_generic_udf(namespace=namespace, udf=self$func, args=evaluated)
           t <- Sys.time()
-          cat(as.integer(t), as.character(t), "finish remote compute  ", self$display_name, "\n")
+          cat(as.integer(t), as.character(t), "finish remote compute  ", self$name, "\n")
         }
         # This return value back to the call
         self$result
@@ -312,14 +330,14 @@ Node <- R6::R6Class(
     # ----------------------------------------------------------------
     # For DAG display
     show_status = function() {
-      cat("  ", self$display_name, " ", sep="")
+      cat("  ", self$name, " ", sep="")
       cat(" args_ready=", ifelse(self$have_args, self$args_ready(), "(none set)"), sep="")
       cat(" status=", self$status, sep="")
       cat("\n")
     },
 
     show = function() {
-      cat("node=", self$display_name, sep="")
+      cat("node=", self$name, sep="")
       cat(",nargs=", ifelse(self$have_args, length(self$args), "(none set)"), sep="")
       cat(",args_ready=", ifelse(self$have_args, self$args_ready(), "(none set)"), sep="")
       cat(",future=", ifelse(is.null(self$future), "absent", "present"), sep="")
