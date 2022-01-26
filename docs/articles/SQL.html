@@ -75,18 +75,16 @@
 <h1 id="sql-example">SQL example<a class="anchor" aria-label="anchor" href="#sql-example"></a>
 </h1>
 <p>Script:</p>
-<pre><code><span class="va">namespace</span> <span class="op">&lt;-</span> <span class="st">"yournamespace"</span>
-
-<span class="va">ans</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/execute_sql_query.html">execute_sql_query</a></span><span class="op">(</span>
+<pre><code><span class="va">ans</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/execute_sql_query.html">execute_sql_query</a></span><span class="op">(</span>
   query<span class="op">=</span><span class="st">"select `rows`, AVG(a) as avg_a from `tiledb://TileDB-Inc/quickstart_dense` GROUP BY `rows`"</span>,
   name<span class="op">=</span><span class="st">"rows-query"</span>,
-  namespace<span class="op">=</span><span class="va">namespace</span><span class="op">)</span>
+  namespace<span class="op">=</span><span class="st">"yournamespace"</span><span class="op">)</span>
 <span class="fu">show</span><span class="op">(</span><span class="va">ans</span><span class="op">)</span>
 
 <span class="va">ans</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/execute_sql_query.html">execute_sql_query</a></span><span class="op">(</span>
-  query<span class="op">=</span><span class="st">"select `rows`, AVG(a) as avg_a from `tiledb://TileDB-Inc/oops_a_typo` GROUP BY `rows`"</span>,
-  name<span class="op">=</span><span class="st">"rows-query"</span>,
-  namespace<span class="op">=</span><span class="va">namespace</span><span class="op">)</span>
+  query<span class="op">=</span><span class="st">"select `cols`, AVG(a) as avg_a from `tiledb://TileDB-Inc/quickstart_dense` GROUP BY `cols`"</span>,
+  name<span class="op">=</span><span class="st">"cols-query"</span>,
+  namespace<span class="op">=</span><span class="st">"yournamespace"</span><span class="op">)</span>
 <span class="fu">show</span><span class="op">(</span><span class="va">ans</span><span class="op">)</span></code></pre>
 <p>Output:</p>
 <pre><code>    avg_a rows
@@ -94,10 +92,11 @@
 2  6.5000    2
 3 10.5000    3
 4 14.5000    4
-
-Error: tiledbcloud: received error response: Server returned 400 response status code.
-Message:  Error 1146: Table 'test.tiledb://TileDB-Inc/oops_a_typo' doesn't exist
-Execution halted</code></pre>
+    avg_a cols
+1  7.0000    1
+2  8.0000    2
+3  9.0000    3
+4 10.0000    4</code></pre>
 </div>
   </main>
 </div>
