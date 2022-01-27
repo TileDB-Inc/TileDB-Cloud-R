@@ -1,5 +1,5 @@
 ---
-title: "TaskGraphs"
+title: "Task graphs"
 output: github_document
 vignette: |
   %\VignetteIndexEntry{TaskGraphs}
