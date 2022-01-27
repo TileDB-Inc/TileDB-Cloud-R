@@ -147,7 +147,7 @@ with output
 [1] 168
 ```
 
-## Examing task graphs
+## Examining task graphs
 
 In the ideal case, we connect together some computations and they run correctly
 the first time.  In other cases, we need to inspect a bit. The `TileDB-Cloud-R`
