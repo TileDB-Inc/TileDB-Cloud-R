@@ -40,6 +40,30 @@ expect_equal(o[["rows"]], c(1, 2, 3, 4))
 #  $ rows : int  1 2 3 4
 
 # ----------------------------------------------------------------
+a <- delayedUDF(
+  namespace=namespaceToCharge,
+  udf=function(vec, exponent) {
+    sum(vec) ** exponent
+  },
+  args=list(vec=1:10, exponent=2),
+  name='try1'
+)
+o <- compute(a, namespaceToCharge)
+expect_equal(o, 3025)
+
+# ----------------------------------------------------------------
+a <- delayedUDF(
+  namespace=namespaceToCharge,
+  udf=function(vec, exponent) {
+    sum(vec) ** exponent
+  },
+  name='try1'
+)
+a$set_args(list(vec=1:10, exponent=3))
+o <- compute(a, namespaceToCharge)
+expect_equal(o, 166375)
+
+# ----------------------------------------------------------------
 a <- delayedArrayUDF(
   namespace=namespaceToCharge,
   array="TileDB-Inc/quickstart_dense",
