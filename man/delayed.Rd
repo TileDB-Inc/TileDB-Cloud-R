@@ -13,7 +13,7 @@ delayed(func, args = NULL, name = NULL, local = FALSE)
 UDFs in TileDB Cloud.}
 }
 \value{
-TODO
+A task-graph node object on which you can later call \code{compute}.
 }
 \description{
 Define a function to be executed within a task graph
