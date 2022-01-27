@@ -1,0 +1,148 @@
+---
+title: "TaskGraphs"
+output: github_document
+vignette: |
+  %\VignetteIndexEntry{TaskGraphs}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Delayed functions
+
+The `delayed` function constructs a "node" object for a task graph. It's simply a function, with
+a few more items:
+
+* Optionally a friendly display name in `name`
+* Optionally `local=TRUE` to execute the function on the current host -- the default is to execute on TileDB Cloud.
+* If the function takes arguments, they can be specified by `args=...` in `delayed`, or, via a separate `set_args`.
+* The `compute` function executes the function
+
+```
+a <- delayed(function()    {    9  },                    name='a', local=TRUE)
+b <- delayed(function(x)   {  10*x },    args=list(a),   name='b', local=TRUE)
+c <- delayed(function(x)   { 100*x },                    name='c', local=TRUE)
+c$set_args(list(b)
+d <- delayed(function(...) { sum(...) }, args=list(b,c), name='d', local=TRUE)
+
+o <- compute(d, namespace, verbose=TRUE)
+print(o)
+```
+
+with output
+
+```
+[1] 990
+```
+
+# Delayed SQL queries
+
+This is a simple convenience wrapper connecting `delayed`, as above, and TileDB Cloud SQL queries as described in the SQL vignette.
+
+```
+a <- delayedSQL(
+    query="select `rows`, AVG(a) as avg_a from `tiledb://TileDB-Inc/quickstart_dense` GROUP BY `rows`",
+    name="rows-query",
+    namespace='your_namespace')
+o <- compute(a, namespace, verbose=TRUE)
+print(o)
+```
+
+with output
+
+```
+    avg_a rows
+1  2.5000    1
+2  6.5000    2
+3 10.5000    3
+4 14.5000    4
+```
+
+# Delayed array UDFs
+
+This too is a simple convenience wrapper connecting `delayed` and array UDFs as described in the UDFs vignette.
+
+```
+a <- delayedArrayUDF(
+  namespace='your_namespace'
+  array="TileDB-Inc/quickstart_dense",
+  udf=function(df) {
+    vec <- as.vector(df[["a"]])
+    list(min=min(vec), med=median(vec), max=max(vec))
+  },
+  selectedRanges=list(cbind(1,2), cbind(1,2)),
+  attrs=c("a")
+)
+o <- compute(a, namespace, verbose=TRUE)
+print(o)
+```
+
+with output
+
+```
+$min
+[1] 1
+
+$med
+[1] 3.5
+
+$max
+[1] 6
+```
+
+* Composing tasks into task graphs
+
+Nodes, be they from `delayed`, `delayedSQL`, or `delayedArrayUDF`, can be
+connected together into directed acyclic graphs. (If you construct a graph with
+a cyclic dependency, you'll get an error message promptly.)
+
+Here's an example:
+
+```
+# Build several delayed objects to define a graph.
+
+# Locally executed; simple enough.
+local = delayed(function(x) { x*2 }, local=TRUE)
+local$set_args(list(100))
+
+# Array UDF -- we specify selected ranges and attributes, then do some R on the
+# dataframe which the UDF receives.
+array_apply <- delayedArrayUDF(
+  namespace=namespace, # namespace to charge
+  array="TileDB-Inc/quickstart_dense",
+  udf=function(df) { sum(as.vector(df[["a"]])) },
+  selectedRanges=list(cbind(1,4), cbind(1,4)),
+  attrs=c("a")
+)
+
+# SQL -- note the output is a dataframe, and values are all strings so we'll
+# cast them to numeric later.
+sql = delayedSQL(
+  "select SUM(`a`) as a from `tiledb://TileDB-Inc/quickstart_dense`",
+  name="sql",
+  namespace=namespace
+)
+
+# Custom function for averaging all the results we are passing in
+ourmean <- function(local, array_apply, sql) {
+    mean(c(local, array_apply, sql))
+}
+
+# This is essentially a task graph that looks like
+#               ourmean
+#          /       |      \
+#         /        |       \    
+#      local  array_apply  sql 
+#
+# The `local`, `array_apply` and `sql` tasks will computed first,
+# and once all three are finished, `ourmean` will computed on their results.
+# Note here we slot out the ansswer from the SQL dataframe using `[[...]]`,
+# and also cast to numeric.
+res <- delayed(ourmean, args=list(local, array_apply, as.numeric(sql[["a"]])))
+print(compute(res, namespace=namespace, verbose=TRUE))
+```
+
+with output
+
+```
+[1] 168
+```
