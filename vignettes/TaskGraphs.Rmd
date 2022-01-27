@@ -57,9 +57,32 @@ with output
 4 14.5000    4
 ```
 
+## Delayed generic UDFs
+
+This too is a simple convenience wrapper connecting `delayed` and generic UDFs as described in the UDFs vignette.
+
+```
+a <- delayedUDF(
+  namespace='your-namespace',
+  udf=function(vec, exponent) {
+    sum(vec) ** exponent
+  },
+  name='my-generic'
+)
+a$set_args(list(vec=1:10, exponent=3))
+print(compute(a, namespaceToCharge))
+```
+
+with output
+
+```
+[1]
+166375
+```
+
 ## Delayed array UDFs
 
-This too is a simple convenience wrapper connecting `delayed` and array UDFs as described in the UDFs vignette.
+This is another simple convenience wrapper connecting `delayed` and array UDFs as described in the UDFs vignette.
 
 ```
 a <- delayedArrayUDF(
