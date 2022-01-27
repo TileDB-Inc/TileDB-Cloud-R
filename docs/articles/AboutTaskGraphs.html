@@ -71,17 +71,17 @@
 
     
     
-<div class="section level1">
-<h1 id="parallelism">Parallelism<a class="anchor" aria-label="anchor" href="#parallelism"></a>
-</h1>
+<div class="section level2">
+<h2 id="parallelism">Parallelism<a class="anchor" aria-label="anchor" href="#parallelism"></a>
+</h2>
 <ul>
 <li><p>The <code>future</code> package’s default behavior is zero parallelism – hence we need an explicit <code><a href="https://future.futureverse.org/reference/plan.html" class="external-link">future::plan</a></code>.</p></li>
 <li><p>Future’s <code>plan::multicore</code> is more or less like Python’s <code>ProcessPoolExecutor</code>. There exists no analog of <code>ThreadPoolExecutor</code> for R, and our understanding is there never will be – too many issues with threads and R.</p></li>
 </ul>
 </div>
-<div class="section level1">
-<h1 id="processes">Processes<a class="anchor" aria-label="anchor" href="#processes"></a>
-</h1>
+<div class="section level2">
+<h2 id="processes">Processes<a class="anchor" aria-label="anchor" href="#processes"></a>
+</h2>
 <ul>
 <li><p>Say you have a 2-node DAG where node B depends on node A.</p></li>
 <li><p>There is an R process for the call to <code>compute(B)</code>. Inside that is <code>dag$poll()</code> which invokes <code>node$poll()</code> for both the A and B nodes.</p></li>
@@ -90,9 +90,9 @@
 <li><p>Those futures resolve into the parent process’ called to <code>resolved()</code>. The <em>only</em> communication between child processes and the parent process is via (a) the return value from the future, and stdout prints by the child. Crucially, prints to stderr are completely lost, and prints to stdout do <em>not</em> go directly to stdout – they only are obtainable once the future is <em>resolved</em> and the parent process gets all the child process’ stdout lines all at one go via <code>self$future_result$stdout)</code>.</p></li>
 </ul>
 </div>
-<div class="section level1">
-<h1 id="call-flow">Call flow<a class="anchor" aria-label="anchor" href="#call-flow"></a>
-</h1>
+<div class="section level2">
+<h2 id="call-flow">Call flow<a class="anchor" aria-label="anchor" href="#call-flow"></a>
+</h2>
 <ul>
 <li>Nodes are defined by calls to the delayed factory function, with edges via their args. Note that the DAG is at this point implicit in these nodes and edges.</li>
 </ul>
@@ -105,9 +105,9 @@
 <li><p>Calling <code><a href="../reference/compute.html">compute()</a></code> again on the terminal node will leave computed nodes computed, and running nodes running, but will retry the failed nodes.</p></li>
 </ul>
 </div>
-<div class="section level1">
-<h1 id="debugging">Debugging<a class="anchor" aria-label="anchor" href="#debugging"></a>
-</h1>
+<div class="section level2">
+<h2 id="debugging">Debugging<a class="anchor" aria-label="anchor" href="#debugging"></a>
+</h2>
 <ul>
 <li><p>If you are doing light debug, just have R do <code>print</code>/<code>cat</code>/etc within the node functions – their stdout will appear once the future completes.</p></li>
 <li><p>If you are doing hard debug, and if you need info on child processes which are still running – I’ve used R’s <code>broswer</code> to debug the parent process, but I don’t know how to make that to work to debug child processes. The best experience I can suggest is doing write-to-disk-file within the child process and then tail that disk file from a separate terminal.</p></li>
@@ -133,7 +133,8 @@
 </li>
 </ul>
 </div>
-  </main>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 

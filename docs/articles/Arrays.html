@@ -72,9 +72,9 @@
     
     
 <p>Some of these examples use <a href="https://github.com/TileDB-Inc/TileDB-R" class="external-link">TileDB-R</a> in addition to this package.</p>
-<div class="section level1">
-<h1 id="listing-arrays">Listing arrays<a class="anchor" aria-label="anchor" href="#listing-arrays"></a>
-</h1>
+<div class="section level2">
+<h2 id="listing-arrays">Listing arrays<a class="anchor" aria-label="anchor" href="#listing-arrays"></a>
+</h2>
 <p>You can show arrays you own, or public/shared arrays:</p>
 <pre><code>&gt; tiledbcloud::list_arrays()[c("namespace","name")]
  namespace                             name
@@ -96,9 +96,9 @@
 1   sampleuser       experiment_001
 2     coworker         testing--032</code></pre>
 </div>
-<div class="section level1">
-<h1 id="showing-array-information">Showing array information<a class="anchor" aria-label="anchor" href="#showing-array-information"></a>
-</h1>
+<div class="section level2">
+<h2 id="showing-array-information">Showing array information<a class="anchor" aria-label="anchor" href="#showing-array-information"></a>
+</h2>
 <pre><code>&gt; str(tiledbcloud::array_info(namespace="TileDB-Inc", arrayname="quickstart_dense"))
 List of 12
  $ id                  : chr "682afbad-7671-488b-9058-41f0fe5da049"
@@ -114,9 +114,9 @@ List of 12
  $ tiledb_uri          : chr "tiledb://TileDB-Inc/quickstart_dense"
  $ tags                : list()</code></pre>
 </div>
-<div class="section level1">
-<h1 id="reading-arrays">Reading arrays<a class="anchor" aria-label="anchor" href="#reading-arrays"></a>
-</h1>
+<div class="section level2">
+<h2 id="reading-arrays">Reading arrays<a class="anchor" aria-label="anchor" href="#reading-arrays"></a>
+</h2>
 <pre><code>uri &lt;- "tiledb://TileDB-Inc/quickstart_sparse"
 arr &lt;- tiledb::tiledb_array(uri, query_type="READ", as.data.frame=TRUE)
 schema(arr)
@@ -156,22 +156,23 @@ schema(arr)
 - Filters: 0
 - Fill value: 4294967295</code></pre>
 </div>
-<div class="section level1">
-<h1 id="registering-deregistering-arrays">Registering / deregistering arrays<a class="anchor" aria-label="anchor" href="#registering-deregistering-arrays"></a>
-</h1>
+<div class="section level2">
+<h2 id="registering-deregistering-arrays">Registering / deregistering arrays<a class="anchor" aria-label="anchor" href="#registering-deregistering-arrays"></a>
+</h2>
 <p>Information coming soon! See also <a href="https://cloud.tiledb.com" class="external-link">https://cloud.tiledb.com</a> for UI access.</p>
 </div>
-<div class="section level1">
-<h1 id="sharing">Sharing<a class="anchor" aria-label="anchor" href="#sharing"></a>
-</h1>
+<div class="section level2">
+<h2 id="sharing">Sharing<a class="anchor" aria-label="anchor" href="#sharing"></a>
+</h2>
 <p>Information coming soon! See also <a href="https://cloud.tiledb.com" class="external-link">https://cloud.tiledb.com</a> for UI access.</p>
 </div>
-<div class="section level1">
-<h1 id="readingwriting-metadata">Reading/writing metadata<a class="anchor" aria-label="anchor" href="#readingwriting-metadata"></a>
-</h1>
+<div class="section level2">
+<h2 id="readingwriting-metadata">Reading/writing metadata<a class="anchor" aria-label="anchor" href="#readingwriting-metadata"></a>
+</h2>
 <p>Information coming soon! See also <a href="https://cloud.tiledb.com" class="external-link">https://cloud.tiledb.com</a> for UI access.</p>
 </div>
-  </main>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 

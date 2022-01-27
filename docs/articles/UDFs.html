@@ -72,9 +72,9 @@
     
     
 <p>See the <a href="Login.html">Login page</a> for login information.</p>
-<div class="section level1">
-<h1 id="generic-udfs">Generic UDFs<a class="anchor" aria-label="anchor" href="#generic-udfs"></a>
-</h1>
+<div class="section level2">
+<h2 id="generic-udfs">Generic UDFs<a class="anchor" aria-label="anchor" href="#generic-udfs"></a>
+</h2>
 <p>These are functions you write, invoked server-side.</p>
 <pre><code><span class="co"># Namespace to charge</span>
 <span class="va">namespace</span> <span class="op">&lt;-</span> <span class="st">"demo"</span>
@@ -92,9 +92,9 @@
 <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></code></pre>
 <pre><code>[1] 300 302 304 306 308</code></pre>
 </div>
-<div class="section level1">
-<h1 id="single-array-udfs">Single-array UDFs<a class="anchor" aria-label="anchor" href="#single-array-udfs"></a>
-</h1>
+<div class="section level2">
+<h2 id="single-array-udfs">Single-array UDFs<a class="anchor" aria-label="anchor" href="#single-array-udfs"></a>
+</h2>
 <pre><code>myfunc &lt;- function(df) {
     vec &lt;- as.vector(df[["a"]])
     list(min=min(vec), med=median(vec), max=max(vec))
@@ -134,9 +134,9 @@ $max
 <pre><code>                   vec2
 27.15072200  0.00400329</code></pre>
 </div>
-<div class="section level1">
-<h1 id="multi-array-udfs">Multi-array UDFs<a class="anchor" aria-label="anchor" href="#multi-array-udfs"></a>
-</h1>
+<div class="section level2">
+<h2 id="multi-array-udfs">Multi-array UDFs<a class="anchor" aria-label="anchor" href="#multi-array-udfs"></a>
+</h2>
 <pre><code><span class="va">myfunc</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">df1</span>, <span class="va">df2</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">vec1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="va">df1</span><span class="op">[[</span><span class="st">"a"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>
   <span class="va">vec2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="va">df2</span><span class="op">[[</span><span class="st">"a"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>
@@ -184,17 +184,17 @@ $med
 $max
 [1] 19</code></pre>
 </div>
-<div class="section level1">
-<h1 id="udf-registration">UDF registration<a class="anchor" aria-label="anchor" href="#udf-registration"></a>
-</h1>
+<div class="section level2">
+<h2 id="udf-registration">UDF registration<a class="anchor" aria-label="anchor" href="#udf-registration"></a>
+</h2>
 <p>Known issue: Tags can be successfully set using the functions shown below but are not read back on <code>get_udf_info</code>. This is a server-side bug, affecting UDF-info readback regardless of client (Python or R).</p>
 </div>
-<div class="section level1">
-<h1 id="register-a-udf-and-read-back-udf-info">Register a UDF and read back UDF info<a class="anchor" aria-label="anchor" href="#register-a-udf-and-read-back-udf-info"></a>
-</h1>
 <div class="section level2">
-<h2 id="generic-udfs-1">Generic UDFs<a class="anchor" aria-label="anchor" href="#generic-udfs-1"></a>
+<h2 id="register-a-udf-and-read-back-udf-info">Register a UDF and read back UDF info<a class="anchor" aria-label="anchor" href="#register-a-udf-and-read-back-udf-info"></a>
 </h2>
+<div class="section level3">
+<h3 id="generic-udfs-1">Generic UDFs<a class="anchor" aria-label="anchor" href="#generic-udfs-1"></a>
+</h3>
 <pre><code><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R" class="external-link">tiledbcloud</a></span><span class="op">)</span>
 
 <span class="va">namespace</span> <span class="op">&lt;-</span> <span class="st">'testuser'</span>
@@ -216,9 +216,9 @@ List of 5
  $ language: chr "\"r\""
  $ tags    : NULL</code></pre>
 </div>
-<div class="section level2">
-<h2 id="single-array-udfs-1">Single-array UDFs<a class="anchor" aria-label="anchor" href="#single-array-udfs-1"></a>
-</h2>
+<div class="section level3">
+<h3 id="single-array-udfs-1">Single-array UDFs<a class="anchor" aria-label="anchor" href="#single-array-udfs-1"></a>
+</h3>
 <pre><code><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R" class="external-link">tiledbcloud</a></span><span class="op">)</span>
 
 <span class="va">namespace</span> <span class="op">&lt;-</span> <span class="st">"testuser"</span>
@@ -240,9 +240,9 @@ List of 5
  $ language: chr "\"r\""
  $ tags    : list()</code></pre>
 </div>
-<div class="section level2">
-<h2 id="multi-array-udfs-1">Multi-array UDFs<a class="anchor" aria-label="anchor" href="#multi-array-udfs-1"></a>
-</h2>
+<div class="section level3">
+<h3 id="multi-array-udfs-1">Multi-array UDFs<a class="anchor" aria-label="anchor" href="#multi-array-udfs-1"></a>
+</h3>
 <pre><code><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R" class="external-link">tiledbcloud</a></span><span class="op">)</span>
 
 <span class="va">namespace</span> <span class="op">&lt;-</span> <span class="st">"testuser"</span>
@@ -272,12 +272,12 @@ List of 5
  $ tags    : list()</code></pre>
 </div>
 </div>
-<div class="section level1">
-<h1 id="invoke-registered-udf">Invoke registered UDF<a class="anchor" aria-label="anchor" href="#invoke-registered-udf"></a>
-</h1>
 <div class="section level2">
-<h2 id="generic-udfs-2">Generic UDFs<a class="anchor" aria-label="anchor" href="#generic-udfs-2"></a>
+<h2 id="invoke-registered-udf">Invoke registered UDF<a class="anchor" aria-label="anchor" href="#invoke-registered-udf"></a>
 </h2>
+<div class="section level3">
+<h3 id="generic-udfs-2">Generic UDFs<a class="anchor" aria-label="anchor" href="#generic-udfs-2"></a>
+</h3>
 <pre><code><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R" class="external-link">tiledbcloud</a></span><span class="op">)</span>
 
 <span class="va">namespace</span> <span class="op">&lt;-</span> <span class="st">'testuser'</span>
@@ -294,9 +294,9 @@ List of 5
 [1] 3025
 [1] 166375</code></pre>
 </div>
-<div class="section level2">
-<h2 id="single-array-udfs-2">Single-array UDFs<a class="anchor" aria-label="anchor" href="#single-array-udfs-2"></a>
-</h2>
+<div class="section level3">
+<h3 id="single-array-udfs-2">Single-array UDFs<a class="anchor" aria-label="anchor" href="#single-array-udfs-2"></a>
+</h3>
 <pre><code><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R" class="external-link">tiledbcloud</a></span><span class="op">)</span>
 
 <span class="va">namespace_to_charge</span> <span class="op">&lt;-</span> <span class="st">'testuser'</span>
@@ -314,9 +314,9 @@ List of 5
 <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></code></pre>
 <pre><code>[1] 196</code></pre>
 </div>
-<div class="section level2">
-<h2 id="multi-array-udfs-2">Multi-array UDFs<a class="anchor" aria-label="anchor" href="#multi-array-udfs-2"></a>
-</h2>
+<div class="section level3">
+<h3 id="multi-array-udfs-2">Multi-array UDFs<a class="anchor" aria-label="anchor" href="#multi-array-udfs-2"></a>
+</h3>
 <pre><code><span class="co">#!/usr/bin/env Rscript</span>
 
 <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R" class="external-link">tiledbcloud</a></span><span class="op">)</span>
@@ -362,9 +362,9 @@ $max
 [1] 19</code></pre>
 </div>
 </div>
-<div class="section level1">
-<h1 id="unregister-udf">Unregister UDF<a class="anchor" aria-label="anchor" href="#unregister-udf"></a>
-</h1>
+<div class="section level2">
+<h2 id="unregister-udf">Unregister UDF<a class="anchor" aria-label="anchor" href="#unregister-udf"></a>
+</h2>
 <p>This is the same for <code>generic</code>, <code>single_array</code>, and <code>multi_array</code> registered UDFs.</p>
 <pre><code><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TileDB-Inc/TileDB-Cloud-R" class="external-link">tiledbcloud</a></span><span class="op">)</span>
 
