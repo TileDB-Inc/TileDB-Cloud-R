@@ -338,3 +338,72 @@ NODE C
 NODE D
 [1] 990
 ```
+
+### Continue from error
+
+In this (admittedly artificial) example we show partial progress through a task graph, then a retry and continue.
+
+```
+> a <- delayed(function()    {  9                 },                    name='a')
+> b <- delayed(function(x)   { stop("the train!") },    args=list(a),   name='b') # Intentional error
+> c <- delayed(function(x)   { 100*x              },    args=list(a),   name='c')
+> d <- delayed(function(...) { sum(...)           }, args=list(b,c), name='d')
+
+> o <- d$compute(namespace=namespace)
+Error in arg$poll(namespace = namespace, verbose = verbose, force_local = force_local) :
+  node failed: b: tiledbcloud: received error response: Server returned 500 response status code. Message:  Error message: received an error from the container: docker container exited with non-zero code: 1
+
+Docker logs:
+Arguments file name:  /dev/shm/tiledb_da86fa44-c1d7-4831-828d-0790844da970/args
+Error in (function (x)  : the train!
+Calls: main -> compute_result -> do.call -> <Anonymous>
+Execution halted
+```
+
+```
+> show(d)
+node=d,nargs=2Error in self$args_ready() : dependency has failed
+
+> show(d$dag_for_terminal)
+Namespace: your-namespace
+All      nodes:    (4) a, b, c, d
+Initial  nodes:    (1) a
+Terminal node:     (1) d
+Dependencies:
+  a (0)
+  b (1) a
+  c (1) a
+  d (2) b, c
+Statuses:
+  a  args_ready=TRUE status=COMPLETED
+  b  args_ready=TRUE status=FAILED
+  c  args_ready=TRUE status=RUNNING
+  d Error in self$args_ready() : dependency has failed
+```
+
+Fix the artificial error:
+
+```
+> b$func <- function(x) { 10*x }
+
+> o <- d$compute(namespace=namespace)
+> print(o)
+[1] 990
+
+> show(d$dag_for_terminal)
+Namespace: your-namespace
+All      nodes:    (4) a, b, c, d
+Initial  nodes:    (1) a
+Terminal node:     (1) d
+Dependencies:
+  a (0)
+  b (1) a
+  c (1) a
+  d (2) b, c
+Statuses:
+  a  args_ready=TRUE status=COMPLETED
+  b  args_ready=TRUE status=COMPLETED
+  c  args_ready=TRUE status=COMPLETED
+  d  args_ready=TRUE status=COMPLETED
+>
+```
