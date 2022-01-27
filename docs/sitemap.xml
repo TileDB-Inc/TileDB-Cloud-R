@@ -439,6 +439,12 @@
     <loc>/reference/delayed.html</loc>
   </url>
   <url>
+    <loc>/reference/delayedArrayUDF.html</loc>
+  </url>
+  <url>
+    <loc>/reference/delayedSQL.html</loc>
+  </url>
+  <url>
     <loc>/reference/deregister_udf.html</loc>
   </url>
   <url>
