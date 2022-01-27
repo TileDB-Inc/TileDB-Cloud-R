@@ -7,11 +7,11 @@ vignette: |
   %\VignetteEncoding{UTF-8}
 ---
 
-# Signing up
+## Signing up
 
 Visit [https://cloud.tiledb.com](https://cloud.tiledb.com).
 
-# Username+password login
+## Username+password login
 
 Once you've set up your credentials at [https://cloud.tiledb.com](https://cloud.tiledb.com), and
 once you've installed `TileDB-Cloud-R` (see [Setup](Setup.md)), you can log in from R CLI or
@@ -31,7 +31,7 @@ config["rest.password"] <- "your-password"
 ctx <- tiledb::tiledb_ctx(config)
 ```
 
-# Token login
+## Token login
 
 Visit [https://cloud.tiledb.com/settings/tokens](https://cloud.tiledb.com/settings/tokens) to create an
 API token. Then you can do
@@ -48,7 +48,7 @@ config["rest.token"] <- "[redacted]"
 ctx <- tiledb::tiledb_ctx(config)
 ```
 
-# Environment variables
+## Environment variables
 
 Instead of using explicit `login` functions, you can set the following in your environment:
 
@@ -58,7 +58,7 @@ export TILEDB_REST_USERNAME="your-username"
 export TILEDB_REST_PASSWORD="your-password"
 ```
 
-# Cached login
+## Cached login
 
 You can also put the same information in a `~/.tiledb/cloud.json` file:
 
@@ -91,7 +91,7 @@ then `~/.tiledb/cloud.json` will be written for you:
 tiledbcloud::login(username="your-username", password="your-password", write_config=TRUE)
 ```
 
-# Showing user profile
+## Showing user profile
 
 ```
 > str(tiledbcloud::user_profile())

@@ -9,7 +9,7 @@ vignette: |
 
 See the [Login page](Login.md) for login information.
 
-# Generic UDFs
+## Generic UDFs
 
 These are functions you write, invoked server-side.
 
@@ -41,7 +41,7 @@ print(result)
 [1] 300 302 304 306 308
 ```
 
-# Single-array UDFs
+## Single-array UDFs
 
 ```
 myfunc <- function(df) {
@@ -93,7 +93,7 @@ print(result)
 27.15072200  0.00400329
 ```
 
-# Multi-array UDFs
+## Multi-array UDFs
 
 ```
 myfunc <- function(df1, df2) {
@@ -147,13 +147,13 @@ $max
 [1] 19
 ```
 
-# UDF registration
+## UDF registration
 
 Known issue: Tags can be successfully set using the functions shown below but are not read back on `get_udf_info`. This is a server-side bug, affecting UDF-info readback regardless of client (Python or R).
 
-# Register a UDF and read back UDF info
+## Register a UDF and read back UDF info
 
-## Generic UDFs
+### Generic UDFs
 
 ```
 library(tiledbcloud)
@@ -181,7 +181,7 @@ List of 5
  $ tags    : NULL
 ```
 
-## Single-array UDFs
+### Single-array UDFs
 
 ```
 library(tiledbcloud)
@@ -209,7 +209,7 @@ List of 5
  $ tags    : list()
 ```
 
-## Multi-array UDFs
+### Multi-array UDFs
 
 ```
 library(tiledbcloud)
@@ -244,9 +244,9 @@ List of 5
  $ tags    : list()
 ```
 
-# Invoke registered UDF
+## Invoke registered UDF
 
-## Generic UDFs
+### Generic UDFs
 
 ```
 library(tiledbcloud)
@@ -269,7 +269,7 @@ $ ./cloud-execute-registered-generic-udf.r
 [1] 166375
 ```
 
-## Single-array UDFs
+### Single-array UDFs
 
 ```
 library(tiledbcloud)
@@ -293,7 +293,7 @@ print(result)
 [1] 196
 ```
 
-## Multi-array UDFs
+### Multi-array UDFs
 
 ```
 #!/usr/bin/env Rscript
@@ -344,7 +344,7 @@ $max
 [1] 19
 ```
 
-# Unregister UDF
+## Unregister UDF
 
 This is the same for `generic`, `single_array`, and `multi_array` registered UDFs.
 

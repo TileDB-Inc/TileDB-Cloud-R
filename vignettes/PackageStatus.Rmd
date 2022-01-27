@@ -11,7 +11,7 @@ The `TileDB-Cloud-R` is in early-access release. We're committed to ongoing
 multilingual support for TileDB Cloud API services, and `TileDB-Cloud-R` is a
 key part of that effort.
 
-# Manual and autogen layers
+## Manual and autogen layers
 
 This package implements an R client to the TileDB Cloud REST service.
 
@@ -51,7 +51,7 @@ array.api.instance <- ArrayApi$new(api.client.instance)
 array.api.instance$GetArrayMetadata(namespace, arrayname)$toJSON()
 ```
 
-# Prioritization for development
+## Prioritization for development
 
 * Several key API entrypoints have a manual layer written; not all do.
 * Current efforts focus on user-defined functions (UDFs).
@@ -59,7 +59,7 @@ array.api.instance$GetArrayMetadata(namespace, arrayname)$toJSON()
 * As of late 2021, cloud-R task-graph work is deferred pending current infrastructural work.
 * But implementation is always demand-driven -- please contact us as noted below!
 
-# Contact
+## Contact
 
 Please visit [https://tiledb.com/contact](https://tiledb.com/contact) for full
 contact information including Forum, GitHub, Twitter, and Slack. Perhaps
