@@ -344,6 +344,66 @@ NODE C
 NODE D
 [1] 990</code></pre>
 </div>
+<div class="section level3">
+<h3 id="continue-from-error">Continue from error<a class="anchor" aria-label="anchor" href="#continue-from-error"></a>
+</h3>
+<p>In this (admittedly artificial) example we show partial progress through a task graph, then a retry and continue.</p>
+<pre><code>&gt; a &lt;- delayed(function()    {  9                 },                    name='a')
+&gt; b &lt;- delayed(function(x)   { stop("the train!") },    args=list(a),   name='b') # Intentional error
+&gt; c &lt;- delayed(function(x)   { 100*x              },    args=list(a),   name='c')
+&gt; d &lt;- delayed(function(...) { sum(...)           }, args=list(b,c), name='d')
+
+&gt; o &lt;- d$compute(namespace=namespace)
+Error in arg$poll(namespace = namespace, verbose = verbose, force_local = force_local) :
+  node failed: b: tiledbcloud: received error response: Server returned 500 response status code. Message:  Error message: received an error from the container: docker container exited with non-zero code: 1
+
+Docker logs:
+Arguments file name:  /dev/shm/tiledb_da86fa44-c1d7-4831-828d-0790844da970/args
+Error in (function (x)  : the train!
+Calls: main -&gt; compute_result -&gt; do.call -&gt; &lt;Anonymous&gt;
+Execution halted</code></pre>
+<pre><code>&gt; show(d)
+node=d,nargs=2Error in self$args_ready() : dependency has failed
+
+&gt; show(d$dag_for_terminal)
+Namespace: your-namespace
+All      nodes:    (4) a, b, c, d
+Initial  nodes:    (1) a
+Terminal node:     (1) d
+Dependencies:
+  a (0)
+  b (1) a
+  c (1) a
+  d (2) b, c
+Statuses:
+  a  args_ready=TRUE status=COMPLETED
+  b  args_ready=TRUE status=FAILED
+  c  args_ready=TRUE status=RUNNING
+  d Error in self$args_ready() : dependency has failed</code></pre>
+<p>Fix the artificial error:</p>
+<pre><code>&gt; b$func &lt;- function(x) { 10*x }
+
+&gt; o &lt;- d$compute(namespace=namespace)
+&gt; print(o)
+[1] 990
+
+&gt; show(d$dag_for_terminal)
+Namespace: your-namespace
+All      nodes:    (4) a, b, c, d
+Initial  nodes:    (1) a
+Terminal node:     (1) d
+Dependencies:
+  a (0)
+  b (1) a
+  c (1) a
+  d (2) b, c
+Statuses:
+  a  args_ready=TRUE status=COMPLETED
+  b  args_ready=TRUE status=COMPLETED
+  c  args_ready=TRUE status=COMPLETED
+  d  args_ready=TRUE status=COMPLETED
+&gt;</code></pre>
+</div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
