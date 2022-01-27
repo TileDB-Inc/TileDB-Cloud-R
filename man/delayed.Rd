@@ -12,16 +12,18 @@ delayed(func, args = NULL, name = NULL, local = FALSE)
 \item{local}{If true, execute the functions on the local host; if else, execute them as
 UDFs in TileDB Cloud.}
 }
+\value{
+TODO
+}
 \description{
-Note: this is a provisional API, which may be reworked before the next release
-of this package.  In particular, there will be convenience wrappers like
-\code{delayedSQL} and \code{delayedArrayUDF}, and the name and/or semantics of
-the base \code{delayed} function may soon change.
+Define a function to be executed within a task graph
 }
 \seealso{
 Other {manual-layer functions}: 
 \code{\link{array_info}()},
 \code{\link{compute}()},
+\code{\link{delayedArrayUDF}()},
+\code{\link{delayedSQL}()},
 \code{\link{deregister_udf}()},
 \code{\link{execute_array_udf}()},
 \code{\link{execute_generic_udf}()},

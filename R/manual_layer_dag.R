@@ -201,6 +201,7 @@ DAG <- R6::R6Class(
     get_display_names_for_nodes = function(nodes) {
       sapply(nodes, function(node) { node$name })
     },
+
     show_node_list = function(description, nodes) {
       count <- length(nodes)
       display_names <- as.vector(self$get_display_names_for_nodes(nodes))
@@ -226,7 +227,28 @@ DAG <- R6::R6Class(
       for (node in self$all_nodes) {
         node$show_status()
       }
+    },
+
+    # This is (for now) a dev/debug function. It prints out data suitable
+    # for piping to `dot -T pdf > viz.pdf` for visualizing complex DAGs.
+    show_dot = function() {
+      cat("digraph {\n")
+      self$show_dot_aux(self$terminal_node)
+      cat("}\n")
+    },
+
+    # Recursive helper function for show_dot.
+    show_dot_aux = function(node) {
+      if (is(node, "Node")) {
+        for (arg in node$args) {
+          if (is(arg, "Node")) {
+            cat(arg$name, "->", node$name, "\n")
+            self$show_dot_aux(arg)
+          }
+        }
+      }
     }
+
   )
 )
 

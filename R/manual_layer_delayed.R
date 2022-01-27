@@ -1,10 +1,5 @@
 ##' Define a function to be executed within a task graph
 ##'
-##' Note: this is a provisional API, which may be reworked before the next release
-##' of this package.  In particular, there will be convenience wrappers like
-##' \code{delayedSQL} and \code{delayedArrayUDF}, and the name and/or semantics of
-##' the base \code{delayed} function may soon change.
-##'
 ##' @param args Can be provided here with \code{c <- delayed(function(...) { sum(...) }, args=list(a,b))}
 ##' or ##' separately with \code{c <- delayed(function(...) { sum(...) })` and later
 ##' \code{c$args <- list(a,b)}.
@@ -13,6 +8,8 @@
 ##'
 ##' @param local If true, execute the functions on the local host; if else, execute them as
 ##' UDFs in TileDB Cloud.
+##'
+##' @return TODO
 ##'
 ##' @family {manual-layer functions}
 ##' @export
@@ -36,4 +33,60 @@ delayed <- function(func, args=NULL, name=NULL, local=FALSE) {
   }
 
   Node$new(func=func, args=args, have_args=have_args, name=name, local=local)
+}
+
+##' Define a SQL query function to be executed within a task graph
+##'
+##' @param query SQL query string -- see vignette for examples
+##'
+##' @param name A display name for the query
+##'
+##' @param namespace The TileDB-Cloud namespace to charge the query to
+##'
+##' @return The result of the query as a dataframe. Note that results will be strings,
+##' so numerical results will need to be explicitly cast as such.
+##'
+##' @family {manual-layer functions}
+##' @export
+delayedSQL <- function(query, name, namespace) {
+  # It is absolutely necessary that this be a locally executing call to the
+  # remote REST service. A non-local execution of this would mean the REST
+  # server calling itself -- not only would that be a circular dependency, but
+  # moreover the tiledbcloud is not running on the REST server.
+  delayed(function() {
+    execute_sql_query(query=query, name=name, namespace=namespace)
+  }, local=TRUE)
+}
+
+##' Define a single-array UDF to be executed within a task graph
+##'
+##' @param namespace The TileDB-Cloud namespace to charge the query to
+##'
+##' @param array TileDB URI -- see vignette for examples.
+##'
+##' @param udf User-defined function, as in UDF examples.
+##'
+##' @param selectedRanges As in UDF examples.
+##'
+##' @param attrs As in UDF examples.
+##'
+##' @return The return value from the UDF as an R object.
+##'
+##' @family {manual-layer functions}
+##' @export
+delayedArrayUDF <- function(namespace, array, udf, selectedRanges, attrs) {
+  # It is absolutely necessary that this be a locally executing call to the
+  # remote REST service. A non-local execution of this would mean the REST
+  # server calling itself -- not only would that be a circular dependency, but
+  # moreover the tiledbcloud is not running on the REST server.
+
+  # TODO: more args are supported in execute_array_udf; support them here.
+  delayed(function() {
+    execute_array_udf(
+      array=array,
+      namespace=namespace,
+      udf=udf,
+      selectedRanges=selectedRanges,
+      attrs=attrs)
+  }, local=TRUE)
 }
