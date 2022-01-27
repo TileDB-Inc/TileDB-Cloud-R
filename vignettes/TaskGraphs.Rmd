@@ -7,15 +7,15 @@ vignette: |
   %\VignetteEncoding{UTF-8}
 ---
 
-# Delayed functions
+## Delayed functions
 
-The `delayed` function constructs a "node" object for a task graph. It's simply a function, with
-a few more items:
+The `delayed` function constructs a "node" object for a task graph. It's essentially an R function,
+to be executed later, with a few more items:
 
 * Optionally a friendly display name in `name`
 * Optionally `local=TRUE` to execute the function on the current host -- the default is to execute on TileDB Cloud.
 * If the function takes arguments, they can be specified by `args=...` in `delayed`, or, via a separate `set_args`.
-* The `compute` function executes the function
+* The `compute` function executes the delayed functions.
 
 ```
 a <- delayed(function()    {    9  },                    name='a', local=TRUE)
@@ -34,7 +34,7 @@ with output
 [1] 990
 ```
 
-# Delayed SQL queries
+## Delayed SQL queries
 
 This is a simple convenience wrapper connecting `delayed`, as above, and TileDB Cloud SQL queries as described in the SQL vignette.
 
@@ -42,7 +42,7 @@ This is a simple convenience wrapper connecting `delayed`, as above, and TileDB 
 a <- delayedSQL(
     query="select `rows`, AVG(a) as avg_a from `tiledb://TileDB-Inc/quickstart_dense` GROUP BY `rows`",
     name="rows-query",
-    namespace='your_namespace')
+    namespace='your-namespace')
 o <- compute(a, namespace, verbose=TRUE)
 print(o)
 ```
@@ -57,13 +57,13 @@ with output
 4 14.5000    4
 ```
 
-# Delayed array UDFs
+## Delayed array UDFs
 
 This too is a simple convenience wrapper connecting `delayed` and array UDFs as described in the UDFs vignette.
 
 ```
 a <- delayedArrayUDF(
-  namespace='your_namespace'
+  namespace='your-namespace'
   array="TileDB-Inc/quickstart_dense",
   udf=function(df) {
     vec <- as.vector(df[["a"]])
@@ -89,7 +89,7 @@ $max
 [1] 6
 ```
 
-* Composing tasks into task graphs
+## Composing tasks into task graphs
 
 Nodes, be they from `delayed`, `delayedSQL`, or `delayedArrayUDF`, can be
 connected together into directed acyclic graphs. (If you construct a graph with
@@ -145,4 +145,196 @@ with output
 
 ```
 [1] 168
+```
+
+## Examing task graphs
+
+In the ideal case, we connect together some computations and they run correctly
+the first time.  In other cases, we need to inspect a bit. The `TileDB-Cloud-R`
+package offers a few different ways to do this. Let's revisit the simple "diamond" example
+from above, a few different ways.
+
+### Run as-is
+
+```
+namespace <- 'your-namespace'
+a <- delayed(function()    {    9  })
+b <- delayed(function(x)   {  10*x },   args=list(a))
+c <- delayed(function(x)   { 100*x },   args=list(a))
+d <- delayed(function(...) { sum(...)}, args=list(b,c))
+
+o <- compute(d, namespace=namespace)
+print(o)
+```
+
+This is as above, except now we execute remotely.
+
+This outputs
+
+```
+[1] 990
+```
+
+### Run with verbosity
+
+For more detail we can add display names to each node (the default naming is things
+like `n000005`, which is less intuitive), and also use the `verbose` option to `compute`.
+In an R CLI session, this will live-update as the DAG runs; in a notebook,
+you'll see output when the DAG completes.
+
+```
+namespace <- 'your-namespace'
+
+a <- delayed(function()    {    9  },                    name='a')
+b <- delayed(function(x)   {  10*x },    args=list(a),   name='b')
+c <- delayed(function(x)   { 100*x },    args=list(a),   name='c')
+d <- delayed(function(...) { sum(...) }, args=list(b,c), name='d')
+
+o <- compute(d, namespace, verbose=TRUE)
+print(o)
+```
+
+with output like
+
+```
+Namespace: your-namespace
+All      nodes:    (4) a, b, c, d
+Initial  nodes:    (1) a
+Terminal node:     (1) d
+Dependencies:
+  a (0)
+  b (1) a
+  c (1) a
+  d (2) b, c
+Statuses:
+  a  args_ready=TRUE status=NOT_STARTED
+  b  args_ready=FALSE status=NOT_STARTED
+  c  args_ready=FALSE status=NOT_STARTED
+  d  args_ready=FALSE status=NOT_STARTED
+1643243967 2022-01-26 19:39:27 START a
+1643243967 2022-01-26 19:39:27 launch remote compute   a
+1643243969 2022-01-26 19:39:29 finish remote compute   a
+1643243970 2022-01-26 19:39:30 END   a
+1643243970 2022-01-26 19:39:30 START b
+1643243970 2022-01-26 19:39:30 START c
+1643243970 2022-01-26 19:39:30 launch remote compute   b
+1643243972 2022-01-26 19:39:32 finish remote compute   b
+1643243972 2022-01-26 19:39:32 END   b
+1643243970 2022-01-26 19:39:30 launch remote compute   c
+1643243972 2022-01-26 19:39:32 finish remote compute   c
+1643243972 2022-01-26 19:39:32 END   c
+1643243972 2022-01-26 19:39:32 START d
+1643243972 2022-01-26 19:39:32 launch remote compute   d
+1643243974 2022-01-26 19:39:34 finish remote compute   d
+1643243974 2022-01-26 19:39:34 END   d
+Namespace: your-namespace
+All      nodes:    (4) a, b, c, d
+Initial  nodes:    (1) a
+Terminal node:     (1) d
+Dependencies:
+  a (0)
+  b (1) a
+  c (1) a
+  d (2) b, c
+Statuses:
+  a  args_ready=TRUE status=COMPLETED
+  b  args_ready=TRUE status=COMPLETED
+  c  args_ready=TRUE status=COMPLETED
+  d  args_ready=TRUE status=COMPLETED
+[1] 990
+```
+
+Here we have a print of the DAG; then launch/finish of nodes in dependency order; then another
+print of the DAG; then finally the output as before.
+
+### Compute locally
+
+Here the nodes run locally. Print statements within the nodes go to the terminal.
+
+```
+a <- delayed(function()    { cat("NODE A\n");    9  },                    name='a')
+b <- delayed(function(x)   { cat("NODE B\n");  10*x },    args=list(a),   name='b')
+c <- delayed(function(x)   { cat("NODE C\n"); 100*x },    args=list(a),   name='c')
+d <- delayed(function(...) { cat("NODE D\n"); sum(...) }, args=list(b,c), name='d')
+
+o <- compute(d, namespace=namespace, verbose=TRUE, force_all_local=TRUE)
+print(o)
+
+```
+
+with output
+
+```
+Namespace: your-namespace
+All      nodes:    (4) a, b, c, d
+Initial  nodes:    (1) a
+Terminal node:     (1) d
+Dependencies:
+  a (0)
+  b (1) a
+  c (1) a
+  d (2) b, c
+Statuses:
+  a  args_ready=TRUE status=NOT_STARTED
+  b  args_ready=FALSE status=NOT_STARTED
+  c  args_ready=FALSE status=NOT_STARTED
+  d  args_ready=FALSE status=NOT_STARTED
+1643244469 2022-01-26 19:47:49 START a
+1643244469 2022-01-26 19:47:49 launch local compute   a
+NODE A
+1643244469 2022-01-26 19:47:49 finish local compute   a
+1643244469 2022-01-26 19:47:49 END   a
+1643244469 2022-01-26 19:47:49 START c
+1643244469 2022-01-26 19:47:49 START b
+1643244469 2022-01-26 19:47:49 launch local compute   c
+NODE C
+1643244469 2022-01-26 19:47:49 finish local compute   c
+1643244469 2022-01-26 19:47:49 END   c
+1643244469 2022-01-26 19:47:49 launch local compute   b
+NODE B
+1643244469 2022-01-26 19:47:49 finish local compute   b
+1643244469 2022-01-26 19:47:49 END   b
+1643244469 2022-01-26 19:47:49 START d
+1643244469 2022-01-26 19:47:49 launch local compute   d
+NODE D
+1643244469 2022-01-26 19:47:49 finish local compute   d
+1643244469 2022-01-26 19:47:49 END   d
+Namespace: your-namespace
+All      nodes:    (4) a, b, c, d
+Initial  nodes:    (1) a
+Terminal node:     (1) d
+Dependencies:
+  a (0)
+  b (1) a
+  c (1) a
+  d (2) b, c
+Statuses:
+  a  args_ready=TRUE status=COMPLETED
+  b  args_ready=TRUE status=COMPLETED
+  c  args_ready=TRUE status=COMPLETED
+  d  args_ready=TRUE status=COMPLETED
+[1] 990
+```
+
+### Compute locally and sequentially
+
+Here the nodes run not only locally, but with no concurrency, and all prints go directly to the
+terminal where you can see them right away:
+
+```
+a <- delayed(function()    { cat("NODE A\n");    9  },                    name='a')
+b <- delayed(function(x)   { cat("NODE B\n");  10*x },    args=list(a),   name='b')
+c <- delayed(function(x)   { cat("NODE C\n"); 100*x },    args=list(a),   name='c')
+d <- delayed(function(...) { cat("NODE D\n"); sum(...) }, args=list(b,c), name='d')
+
+o <- d$compute_sequentially()
+print(o)
+```
+
+```
+NODE A
+NODE B
+NODE C
+NODE D
+[1] 990
 ```
