@@ -9,7 +9,7 @@
 ##' @param local If true, execute the functions on the local host; if else, execute them as
 ##' UDFs in TileDB Cloud.
 ##'
-##' @return TODO
+##' @return A task-graph node object on which you can later call \code{compute}.
 ##'
 ##' @family {manual-layer functions}
 ##' @export
