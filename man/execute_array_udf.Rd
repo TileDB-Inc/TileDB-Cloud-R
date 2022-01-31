@@ -65,6 +65,8 @@ All arguments are required.
 Other {manual-layer functions}: 
 \code{\link{array_info}()},
 \code{\link{compute}()},
+\code{\link{delayedArrayUDF}()},
+\code{\link{delayedSQL}()},
 \code{\link{delayed}()},
 \code{\link{deregister_udf}()},
 \code{\link{execute_generic_udf}()},

@@ -40,6 +40,9 @@
     <loc>/articles/Setup.html</loc>
   </url>
   <url>
+    <loc>/articles/TaskGraphs.html</loc>
+  </url>
+  <url>
     <loc>/articles/Testing.html</loc>
   </url>
   <url>
@@ -437,6 +440,12 @@
   </url>
   <url>
     <loc>/reference/delayed.html</loc>
+  </url>
+  <url>
+    <loc>/reference/delayedArrayUDF.html</loc>
+  </url>
+  <url>
+    <loc>/reference/delayedSQL.html</loc>
   </url>
   <url>
     <loc>/reference/deregister_udf.html</loc>

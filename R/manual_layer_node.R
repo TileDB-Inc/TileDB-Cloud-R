@@ -75,6 +75,16 @@ Node <- R6::R6Class(
       self$have_args <- TRUE
     },
 
+    # For future use
+    add_arg = function(value) {
+      if (is.null(self$args)) {
+        self$args <- list(value)
+      } else {
+        self$args <- append(self$args, value)
+      }
+      self$have_args <- TRUE
+    },
+
     # ----------------------------------------------------------------
     # This was written first during package development, and is also perhaps
     # useful for debug. Or if anyone is ever deeply refactoring / taking apart

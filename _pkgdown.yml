@@ -21,8 +21,9 @@ articles:
   - Setup
   - Login
   - Arrays
-  - UDFs
   - SQL
+  - UDFs
+  - TaskGraphs
 - title: For developers
   contents:
   - Testing
