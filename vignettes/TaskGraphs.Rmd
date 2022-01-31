@@ -21,7 +21,7 @@ to be executed later, with a few more items:
 a <- delayed(function()    {    9  },                    name='a', local=TRUE)
 b <- delayed(function(x)   {  10*x },    args=list(a),   name='b', local=TRUE)
 c <- delayed(function(x)   { 100*x },                    name='c', local=TRUE)
-args(c) <- list(a)
+delayed_args(c) <- list(a)
 d <- delayed(function(...) { sum(...) }, args=list(b,c), name='d', local=TRUE)
 
 o <- compute(d, namespace, verbose=TRUE)
@@ -102,7 +102,7 @@ Here's an example:
 
 # Locally executed; simple enough.
 local = delayed(function(x) { x*2 }, local=TRUE)
-args(local) <- list(100)
+delayed_args(local) <- list(100)
 
 # Array UDF -- we specify selected ranges and attributes, then do some R on the
 # dataframe which the UDF receives.

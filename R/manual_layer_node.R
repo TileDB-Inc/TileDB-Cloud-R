@@ -362,7 +362,7 @@ setMethod("compute", signature(object = "Node"), function(object, namespace=NULL
 })
 
 # Test/debug entrypoint
-compute_sequentially <- function(object) 0
+compute_sequentially <- function(object) {}
 setMethod("compute_sequentially", signature(object = "Node"), function(object) {
   object$compute_sequentially()
 })
@@ -371,8 +371,8 @@ setMethod("compute_sequentially", signature(object = "Node"), function(object) {
 ##'
 ##' @family {manual-layer functions}
 ##' @export
-args <- function(object, ...) 0
-setMethod("args", signature(object = "Node"), function(object, ...) {
+delayed_args <- function(object, ...) {}
+setMethod("delayed_args", signature(object = "Node"), function(object) {
   object$get_args()
 })
 
@@ -385,15 +385,16 @@ setMethod("args", signature(object = "Node"), function(object, ...) {
 ##'
 ##' @family {manual-layer functions}
 ##' @export
-"args<-" <- function(object, ...) 0
+"delayed_args<-" <- function(object, ...) {}
 # Note: the "..." signature is forced on us.
-setMethod("args<-", signature(object = "Node"), function(object, ...) {
-  stopifnot(...length() == 1)
+setMethod("delayed_args<-", signature(object = "Node"), function(object, ...) {
   args <- list(...)
-  stopifnot(is.list(args))
-  stopifnot(is.list(args$value)) # the <- logic gives us a list with single name "value"
+  # The R '<-' logic gives us a list with single name "value"
+  stopifnot(`argument must be a list object` = is.list(args),
+            `the argument list must contain a component named value` = 'value' %in% names(args),
+            `value component must be a list` = is.list(args$value))
   object$set_args(args$value)
-  object # <- generics must return the object
+  object # '<-' generics must return the object
 })
 
 setMethod("show", signature(object = "Node"), function(object) {

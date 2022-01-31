@@ -49,14 +49,14 @@ expect_equal(compute(h, force_all_local=TRUE), 999999)
 # ----------------------------------------------------------------
 a <- delayed(function()    { Sys.sleep(0.1);    9 }, name='a')
 b <- delayed(function(x)   { Sys.sleep(0.2); 11*x }, name='b')
-a$set_args(list(b))
-b$set_args(list(a))
+delayed_args(a) <- list(b)
+delayed_args(b) <- list(a)
 expect_error(compute(b, force_all_local=TRUE), pattern='Task graph has a cycle')
 
 # ----------------------------------------------------------------
 a <- delayed(function()    { Sys.sleep(10);    9 }, name='a')
 b <- delayed(function(x)   { Sys.sleep(1);  11*x }, name='b')
-b$set_args(list(a))
+delayed_args(b) <- list(a)
 expect_error(compute(b, force_all_local=TRUE, timeout_seconds=1), pattern='Timeout')
 
 # ----------------------------------------------------------------

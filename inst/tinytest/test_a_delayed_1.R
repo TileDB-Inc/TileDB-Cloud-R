@@ -38,23 +38,23 @@ expect_equal(a$compute_sequentially(), 3)
 
 # ----------------------------------------------------------------
 a <- delayed(function(...){sum(...)}, args=list(1,2))
-args(a) <- list(3, 4)
+delayed_args(a) <- list(3, 4)
 expect_equal(a$compute_sequentially(), 7)
 
 # ----------------------------------------------------------------
 a <- delayed(function(...){sum(...)})
-args(a) <- list(5, 6)
+delayed_args(a) <- list(5, 6)
 expect_equal(a$compute_sequentially(), 11)
 
 # ----------------------------------------------------------------
 a <- delayed(function() { Sys.sleep(0.1); 3 })
-args(a) <- list()
+delayed_args(a) <- list()
 o <- a$compute_sequentially()
 expect_equal(o, 3)
 
 ## ----------------------------------------------------------------
 a <- delayed(function(...) { sum(...) })
-args(a) <- list(3,4,5)
+delayed_args(a) <- list(3,4,5)
 o <- a$compute_sequentially()
 expect_equal(o, 12)
 
@@ -62,7 +62,7 @@ expect_equal(o, 12)
 a <- delayed(function() { Sys.sleep(0.1); 3 }, args=list())
 b <- delayed(function() { Sys.sleep(0.1); 4 }, args=list())
 d <- delayed(function(...) { sum(...) })
-args(d) <- list(a,b,5)
+delayed_args(d) <- list(a,b,5)
 o <- d$compute_sequentially()
 expect_equal(o, 12)
 
