@@ -114,8 +114,8 @@ array_apply <- delayedArrayUDF(
   attrs=c("a")
 )
 
-# SQL -- note the output is a dataframe, and values are all strings so we'll
-# cast them to numeric later.
+# SQL -- note the output is a dataframe, and values are all strings (MariaDB
+# "decimal values") so we'll cast them to numeric later.
 sql = delayedSQL(
   "select SUM(`a`) as a from `tiledb://TileDB-Inc/quickstart_dense`",
   name="sql",

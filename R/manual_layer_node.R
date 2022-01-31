@@ -75,7 +75,7 @@ Node <- R6::R6Class(
       self$have_args <- TRUE
     },
 
-    # TODO: temp temp temp
+    # For future use
     add_arg = function(value) {
       if (is.null(self$args)) {
         self$args <- list(value)
