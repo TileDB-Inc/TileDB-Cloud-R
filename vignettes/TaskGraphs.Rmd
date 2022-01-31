@@ -14,7 +14,7 @@ to be executed later, with a few more items:
 
 * Optionally a friendly display name in `name`
 * Optionally `local=TRUE` to execute the function on the current host -- the default is to execute on TileDB Cloud.
-* If the function takes arguments, they can be specified by `args=...` in `delayed`, or, via a separate call to `args`.
+* If the function takes arguments, they can be specified by `args=...` in `delayed`, or, via a separate call to `delayed_args` afterward.
 * The `compute` function executes the delayed functions.
 
 ```
