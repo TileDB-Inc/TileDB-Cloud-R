@@ -367,7 +367,35 @@ setMethod("compute_sequentially", signature(object = "Node"), function(object) {
   object$compute_sequentially()
 })
 
-# ----------------------------------------------------------------
+##' Get arguments for a delayed function, as a list.
+##'
+##' @family {manual-layer functions}
+##' @export
+args <- function(object, ...) 0
+setMethod("args", signature(object = "Node"), function(object, ...) {
+  object$get_args()
+})
+
+##' Set arguments for a delayed function.
+##'
+##' Args can be set when \code{delayed} is called, or afterward using this function.
+##'
+##' @param arglist One argument which is a list of arguments to the delayed
+##' function, e.g. \code{list(a,b,c)}.
+##'
+##' @family {manual-layer functions}
+##' @export
+"args<-" <- function(object, ...) 0
+# Note: the "..." signature is forced on us.
+setMethod("args<-", signature(object = "Node"), function(object, ...) {
+  stopifnot(...length() == 1)
+  args <- list(...)
+  stopifnot(is.list(args))
+  stopifnot(is.list(args$value)) # the <- logic gives us a list with single name "value"
+  object$set_args(args$value)
+  object # <- generics must return the object
+})
+
 setMethod("show", signature(object = "Node"), function(object) {
   object$show()
 })
