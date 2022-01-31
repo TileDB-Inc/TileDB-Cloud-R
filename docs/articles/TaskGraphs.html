@@ -157,8 +157,8 @@ $max
   attrs<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span>
 <span class="op">)</span>
 
-<span class="co"># SQL -- note the output is a dataframe, and values are all strings so we'll</span>
-<span class="co"># cast them to numeric later.</span>
+<span class="co"># SQL -- note the output is a dataframe, and values are all strings (MariaDB</span>
+<span class="co"># "decimal values") so we'll cast them to numeric later.</span>
 <span class="va">sql</span> <span class="op">=</span> <span class="fu"><a href="../reference/delayedSQL.html">delayedSQL</a></span><span class="op">(</span>
   <span class="st">"select SUM(`a`) as a from `tiledb://TileDB-Inc/quickstart_dense`"</span>,
   name<span class="op">=</span><span class="st">"sql"</span>,
