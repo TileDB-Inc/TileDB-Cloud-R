@@ -14,14 +14,14 @@ to be executed later, with a few more items:
 
 * Optionally a friendly display name in `name`
 * Optionally `local=TRUE` to execute the function on the current host -- the default is to execute on TileDB Cloud.
-* If the function takes arguments, they can be specified by `args=...` in `delayed`, or, via a separate `set_args`.
+* If the function takes arguments, they can be specified by `args=...` in `delayed`, or, via a separate call to `delayed_args` afterward.
 * The `compute` function executes the delayed functions.
 
 ```
 a <- delayed(function()    {    9  },                    name='a', local=TRUE)
 b <- delayed(function(x)   {  10*x },    args=list(a),   name='b', local=TRUE)
 c <- delayed(function(x)   { 100*x },                    name='c', local=TRUE)
-c$set_args(list(b)
+delayed_args(c) <- list(a)
 d <- delayed(function(...) { sum(...) }, args=list(b,c), name='d', local=TRUE)
 
 o <- compute(d, namespace, verbose=TRUE)
@@ -102,7 +102,7 @@ Here's an example:
 
 # Locally executed; simple enough.
 local = delayed(function(x) { x*2 }, local=TRUE)
-local$set_args(list(100))
+delayed_args(local) <- list(100)
 
 # Array UDF -- we specify selected ranges and attributes, then do some R on the
 # dataframe which the UDF receives.

@@ -361,13 +361,51 @@ setMethod("compute", signature(object = "Node"), function(object, namespace=NULL
   object$compute(namespace=namespace, timeout_seconds=timeout_seconds, verbose=verbose, force_all_local=force_all_local)
 })
 
-# Test/debug entrypoint
+# ----------------------------------------------------------------
+
+## Test/debug entrypoint
+##'
+##' @family {manual-layer functions}
+##' @export
 compute_sequentially <- function(object) 0
 setMethod("compute_sequentially", signature(object = "Node"), function(object) {
   object$compute_sequentially()
 })
 
-# ----------------------------------------------------------------
+##' Get arguments for a delayed function, as a list.
+##'
+##' @family {manual-layer functions}
+##' @export
+delayed_args <- function(object, ...) {}
+setMethod("delayed_args", signature(object = "Node"), function(object) {
+  object$get_args()
+})
+
+##' Set arguments for a delayed function.
+##'
+##' Args can be set when \code{delayed} is called, or afterward using this function.
+##'
+##' @param arglist One argument which is a list of arguments to the delayed
+##' function, e.g. \code{list(a,b,c)}.
+##'
+##' @family {manual-layer functions}
+##' @export
+"delayed_args<-" <- function(object, ...) {}
+# Note: the "..." signature is forced on us.
+setMethod("delayed_args<-", signature(object = "Node"), function(object, ...) {
+  args <- list(...)
+  # The R '<-' logic gives us a list with single name "value"
+  stopifnot(`argument must be a list object` = is.list(args),
+            `the argument list must contain a component named value` = 'value' %in% names(args),
+            `value component must be a list` = is.list(args$value))
+  object$set_args(args$value)
+  object # '<-' generics must return the object
+})
+
+##' Show-generic for task-graph nodes
+##'
+##' @family {manual-layer functions}
+##' @export
 setMethod("show", signature(object = "Node"), function(object) {
   object$show()
 })

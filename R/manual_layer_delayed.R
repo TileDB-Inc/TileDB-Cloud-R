@@ -43,8 +43,9 @@ delayed <- function(func, args=NULL, name=NULL, local=FALSE) {
 ##'
 ##' @param namespace The TileDB-Cloud namespace to charge the query to
 ##'
-##' @return The result of the query as a dataframe. Note that results will be strings,
-##' so numerical results will need to be explicitly cast as such.
+##' @return A task-graph node object on which you can later call \code{compute}.  The return value from
+##' compute() will be the query result as a dataframe.  Note that results will be strings, so numerical
+##' results will need to be explicitly cast as such.
 ##'
 ##' @family {manual-layer functions}
 ##' @export
@@ -56,6 +57,53 @@ delayedSQL <- function(query, name, namespace) {
   delayed(function() {
     execute_sql_query(query=query, name=name, namespace=namespace)
   }, local=TRUE)
+}
+
+##' Define a generic UDF to be executed within a task graph
+##'
+##' @param namespace The TileDB-Cloud namespace to charge the query to
+##'
+##' @param udf An R function. Arguments are specified separately via \code{args}.
+##' One of \code{udf} and \code{registered_udf_name} must be non-null.
+##'
+##' @param registered_udf_name Name of a registered UDF, of the form \code{namespace/udfname}.
+##' Arguments are specified separately via \code{args}.  One of \code{udf} and
+##' \code{registered_udf_name} must be non-null.
+##'
+##' @param args Can be provided here with \code{c <- delayed(function(...) { sum(...) }, args=list(a,b))}
+##' or ##' separately with \code{c <- delayedUDF(...)` and later \code{c$args <- list(a,b)}.
+##'
+##' @param name Optional -- e.g. \code{a} or \code{b}. If omitted, it defaults to a UUID.
+##'
+##' @return The return value from the UDF as an R object.
+##'
+##' @family {manual-layer functions}
+##' @export
+delayedUDF <- function(namespace, udf=NULL, registered_udf_name=NULL, args=NULL, name=NULL)
+{
+  # It is absolutely necessary that this be a locally executing call to the
+  # remote REST service. A non-local execution of this would mean the REST
+  # server calling itself -- not only would that be a circular dependency, but
+  # moreover the tiledbcloud is not running on the REST server.
+
+  if (is.null(udf) && is.null(registered_udf_name)) {
+    stop("One, but not both, of udf and registered_udf_name must be provided.")
+  }
+  if (!is.null(udf) && !is.null(registered_udf_name)) {
+    stop("One, but not both, of udf and registered_udf_name must be provided.")
+  }
+
+  delayed(
+    func=function(...) {
+      execute_generic_udf(
+        namespace=namespace,
+        udf=udf,
+        registered_udf_name=registered_udf_name,
+        args=list(...))
+    },
+    args=args,
+    name=NULL,
+    local=TRUE)
 }
 
 ##' Define a single-array UDF to be executed within a task graph

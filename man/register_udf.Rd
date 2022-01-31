@@ -53,6 +53,8 @@ Other {manual-layer functions}:
 \code{\link{compute}()},
 \code{\link{delayedArrayUDF}()},
 \code{\link{delayedSQL}()},
+\code{\link{delayed_args<-}()},
+\code{\link{delayed_args}()},
 \code{\link{delayed}()},
 \code{\link{deregister_udf}()},
 \code{\link{execute_array_udf}()},
