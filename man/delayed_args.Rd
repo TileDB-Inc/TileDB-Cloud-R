@@ -4,7 +4,11 @@
 \alias{delayed_args}
 \title{Get arguments for a delayed function, as a list.}
 \usage{
-delayed_args(object, ...)
+delayed_args(delayed_function)
+}
+\arguments{
+\item{delayed_function}{The object whose args are being set -- nominally, produced by
+\code{delayed}, \code{delayedUDF}, etc.}
 }
 \description{
 Get arguments for a delayed function, as a list.
@@ -12,6 +16,7 @@ Get arguments for a delayed function, as a list.
 \seealso{
 Other {manual-layer functions}: 
 \code{\link{array_info}()},
+\code{\link{compute_sequentially}()},
 \code{\link{compute}()},
 \code{\link{delayed_args<-}()},
 \code{\link{delayed_array_udf}()},

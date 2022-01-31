@@ -4,11 +4,13 @@
 \alias{delayed_args<-}
 \title{Set arguments for a delayed function.}
 \usage{
-delayed_args(object, ...) <- value
+delayed_args(delayed_function) <- value
 }
 \arguments{
-\item{arglist}{One argument which is a list of arguments to the delayed
-function, e.g. \code{list(a,b,c)}.}
+\item{delayed_function}{The object whose args are being set -- nominally, produced by
+\code{delayed}, \code{delayedUDF}, etc.}
+
+\item{value}{A list of arguments to the delayed function, e.g. \code{list(a,b,c)}.}
 }
 \description{
 Args can be set when \code{delayed} is called, or afterward using this function.
@@ -16,6 +18,7 @@ Args can be set when \code{delayed} is called, or afterward using this function.
 \seealso{
 Other {manual-layer functions}: 
 \code{\link{array_info}()},
+\code{\link{compute_sequentially}()},
 \code{\link{compute}()},
 \code{\link{delayed_args}()},
 \code{\link{delayed_array_udf}()},

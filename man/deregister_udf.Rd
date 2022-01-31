@@ -20,6 +20,7 @@ Deletes a registered UDF. This removes all sharing and cannot be undone.
 \seealso{
 Other {manual-layer functions}: 
 \code{\link{array_info}()},
+\code{\link{compute_sequentially}()},
 \code{\link{compute}()},
 \code{\link{delayed_args<-}()},
 \code{\link{delayed_args}()},

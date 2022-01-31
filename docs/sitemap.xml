@@ -436,6 +436,9 @@
     <loc>/reference/compute.html</loc>
   </url>
   <url>
+    <loc>/reference/compute_sequentially.html</loc>
+  </url>
+  <url>
     <loc>/reference/configure.html</loc>
   </url>
   <url>
@@ -451,16 +454,16 @@
     <loc>/reference/delayedUDF.html</loc>
   </url>
   <url>
-    <loc>/reference/delayed_SQL.html</loc>
-  </url>
-  <url>
     <loc>/reference/delayed_args-set.html</loc>
   </url>
   <url>
     <loc>/reference/delayed_args.html</loc>
   </url>
   <url>
-    <loc>/reference/delayed_array_UDF.html</loc>
+    <loc>/reference/delayed_array_udf.html</loc>
+  </url>
+  <url>
+    <loc>/reference/delayed_sql.html</loc>
   </url>
   <url>
     <loc>/reference/deregister_udf.html</loc>

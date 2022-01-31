@@ -22,6 +22,7 @@ are writable via \code{register_udf} but are not read back by this function.
 \seealso{
 Other {manual-layer functions}: 
 \code{\link{array_info}()},
+\code{\link{compute_sequentially}()},
 \code{\link{compute}()},
 \code{\link{delayed_args<-}()},
 \code{\link{delayed_args}()},
