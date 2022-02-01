@@ -79,13 +79,13 @@
 <li>Optionally a friendly display name in <code>name</code>
 </li>
 <li>Optionally <code>local=TRUE</code> to execute the function on the current host – the default is to execute on TileDB Cloud.</li>
-<li>If the function takes arguments, they can be specified by <code>args=...</code> in <code>delayed</code>, or, via a separate call to <code>args</code>.</li>
+<li>If the function takes arguments, they can be specified by <code>args=...</code> in <code>delayed</code>, or, via a separate call to <code>delayed_args</code> afterward.</li>
 <li>The <code>compute</code> function executes the delayed functions.</li>
 </ul>
 <pre><code><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/delayed.html">delayed</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="op">)</span>    <span class="op">{</span>    <span class="fl">9</span>  <span class="op">}</span>,                    name<span class="op">=</span><span class="st">'a'</span>, local<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
 <span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/delayed.html">delayed</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span>   <span class="op">{</span>  <span class="fl">10</span><span class="op">*</span><span class="va">x</span> <span class="op">}</span>,    args<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span>,   name<span class="op">=</span><span class="st">'b'</span>, local<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
 <span class="va">c</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/delayed.html">delayed</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span>   <span class="op">{</span> <span class="fl">100</span><span class="op">*</span><span class="va">x</span> <span class="op">}</span>,                    name<span class="op">=</span><span class="st">'c'</span>, local<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
-<span class="fu"><a href="../reference/args.html">args</a></span><span class="op">(</span><span class="va">c</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span>
+<span class="fu"><a href="../reference/delayed_args.html">delayed_args</a></span><span class="op">(</span><span class="va">c</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span>
 <span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/delayed.html">delayed</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="op">{</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="op">}</span>, args<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">b</span>,<span class="va">c</span><span class="op">)</span>, name<span class="op">=</span><span class="st">'d'</span>, local<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
 
 <span class="va">o</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/compute.html">compute</a></span><span class="op">(</span><span class="va">d</span>, <span class="va">namespace</span>, verbose<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
@@ -97,7 +97,7 @@
 <h2 id="delayed-sql-queries">Delayed SQL queries<a class="anchor" aria-label="anchor" href="#delayed-sql-queries"></a>
 </h2>
 <p>This is a simple convenience wrapper connecting <code>delayed</code>, as above, and TileDB Cloud SQL queries as described in the SQL vignette.</p>
-<pre><code><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/delayedSQL.html">delayedSQL</a></span><span class="op">(</span>
+<pre><code><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/delayed_sql.html">delayed_sql</a></span><span class="op">(</span>
     query<span class="op">=</span><span class="st">"select `rows`, AVG(a) as avg_a from `tiledb://TileDB-Inc/quickstart_dense` GROUP BY `rows`"</span>,
     name<span class="op">=</span><span class="st">"rows-query"</span>,
     namespace<span class="op">=</span><span class="st">'your-namespace'</span><span class="op">)</span>
@@ -114,7 +114,7 @@
 <h2 id="delayed-array-udfs">Delayed array UDFs<a class="anchor" aria-label="anchor" href="#delayed-array-udfs"></a>
 </h2>
 <p>This too is a simple convenience wrapper connecting <code>delayed</code> and array UDFs as described in the UDFs vignette.</p>
-<pre><code>a &lt;- delayedArrayUDF(
+<pre><code>a &lt;- delayed_array_udf(
   namespace='your-namespace'
   array="TileDB-Inc/quickstart_dense",
   udf=function(df) {
@@ -139,17 +139,17 @@ $max
 <div class="section level2">
 <h2 id="composing-tasks-into-task-graphs">Composing tasks into task graphs<a class="anchor" aria-label="anchor" href="#composing-tasks-into-task-graphs"></a>
 </h2>
-<p>Nodes, be they from <code>delayed</code>, <code>delayedSQL</code>, or <code>delayedArrayUDF</code>, can be connected together into directed acyclic graphs. (If you construct a graph with a cyclic dependency, you’ll get an error message promptly.)</p>
+<p>Nodes, be they from <code>delayed</code>, <code>delayed_sql</code>, or <code>delayed_array_udf</code>, can be connected together into directed acyclic graphs. (If you construct a graph with a cyclic dependency, you’ll get an error message promptly.)</p>
 <p>Here’s an example:</p>
 <pre><code><span class="co"># Build several delayed objects to define a graph.</span>
 
 <span class="co"># Locally executed; simple enough.</span>
 <span class="va">local</span> <span class="op">=</span> <span class="fu"><a href="../reference/delayed.html">delayed</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span> <span class="va">x</span><span class="op">*</span><span class="fl">2</span> <span class="op">}</span>, local<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
-<span class="fu"><a href="../reference/args.html">args</a></span><span class="op">(</span><span class="va">local</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>
+<span class="fu"><a href="../reference/delayed_args.html">delayed_args</a></span><span class="op">(</span><span class="va">local</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>
 
 <span class="co"># Array UDF -- we specify selected ranges and attributes, then do some R on the</span>
 <span class="co"># dataframe which the UDF receives.</span>
-<span class="va">array_apply</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/delayedArrayUDF.html">delayedArrayUDF</a></span><span class="op">(</span>
+<span class="va">array_apply</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/delayed_array_udf.html">delayed_array_udf</a></span><span class="op">(</span>
   namespace<span class="op">=</span><span class="va">namespace</span>, <span class="co"># namespace to charge</span>
   array<span class="op">=</span><span class="st">"TileDB-Inc/quickstart_dense"</span>,
   udf<span class="op">=</span><span class="kw">function</span><span class="op">(</span><span class="va">df</span><span class="op">)</span> <span class="op">{</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="va">df</span><span class="op">[[</span><span class="st">"a"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span> <span class="op">}</span>,
@@ -159,7 +159,7 @@ $max
 
 <span class="co"># SQL -- note the output is a dataframe, and values are all strings (MariaDB</span>
 <span class="co"># "decimal values") so we'll cast them to numeric later.</span>
-<span class="va">sql</span> <span class="op">=</span> <span class="fu"><a href="../reference/delayedSQL.html">delayedSQL</a></span><span class="op">(</span>
+<span class="va">sql</span> <span class="op">=</span> <span class="fu"><a href="../reference/delayed_sql.html">delayed_sql</a></span><span class="op">(</span>
   <span class="st">"select SUM(`a`) as a from `tiledb://TileDB-Inc/quickstart_dense`"</span>,
   name<span class="op">=</span><span class="st">"sql"</span>,
   namespace<span class="op">=</span><span class="va">namespace</span>

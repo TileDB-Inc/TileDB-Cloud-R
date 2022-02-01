@@ -430,12 +430,6 @@
     <loc>/reference/Writer.html</loc>
   </url>
   <url>
-    <loc>/reference/args-set.html</loc>
-  </url>
-  <url>
-    <loc>/reference/args.html</loc>
-  </url>
-  <url>
     <loc>/reference/array_info.html</loc>
   </url>
   <url>
@@ -452,6 +446,21 @@
   </url>
   <url>
     <loc>/reference/delayedSQL.html</loc>
+  </url>
+  <url>
+    <loc>/reference/delayedUDF.html</loc>
+  </url>
+  <url>
+    <loc>/reference/delayed_SQL.html</loc>
+  </url>
+  <url>
+    <loc>/reference/delayed_args-set.html</loc>
+  </url>
+  <url>
+    <loc>/reference/delayed_args.html</loc>
+  </url>
+  <url>
+    <loc>/reference/delayed_array_UDF.html</loc>
   </url>
   <url>
     <loc>/reference/deregister_udf.html</loc>
@@ -503,6 +512,9 @@
   </url>
   <url>
     <loc>/reference/register_udf.html</loc>
+  </url>
+  <url>
+    <loc>/reference/show-Node-method.html</loc>
   </url>
   <url>
     <loc>/reference/update_udf.html</loc>
