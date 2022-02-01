@@ -24,7 +24,7 @@ if ((namespaceToCharge <- Sys.getenv("TILEDB_REST_UNIT_TEST_NAMESPACE_TO_CHARGE"
 library(tiledbcloud)
 
 # ----------------------------------------------------------------
-a <- delayed_SQL(
+a <- delayed_sql(
     query="select `rows`, AVG(a) as avg_a from `tiledb://TileDB-Inc/quickstart_dense` GROUP BY `rows`",
     name="rows-query",
     namespace=namespaceToCharge)
@@ -40,7 +40,7 @@ expect_equal(o[["rows"]], c(1, 2, 3, 4))
 #  $ rows : int  1 2 3 4
 
 # ----------------------------------------------------------------
-a <- delayed_array_UDF(
+a <- delayed_array_udf(
   namespace=namespaceToCharge,
   array="TileDB-Inc/quickstart_dense",
   udf=function(df) {
