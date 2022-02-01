@@ -39,7 +39,7 @@ with output
 This is a simple convenience wrapper connecting `delayed`, as above, and TileDB Cloud SQL queries as described in the SQL vignette.
 
 ```
-a <- delayedSQL(
+a <- delayed_SQL(
     query="select `rows`, AVG(a) as avg_a from `tiledb://TileDB-Inc/quickstart_dense` GROUP BY `rows`",
     name="rows-query",
     namespace='your-namespace')
@@ -62,7 +62,7 @@ with output
 This too is a simple convenience wrapper connecting `delayed` and array UDFs as described in the UDFs vignette.
 
 ```
-a <- delayedArrayUDF(
+a <- delayed_array_UDF(
   namespace='your-namespace'
   array="TileDB-Inc/quickstart_dense",
   udf=function(df) {
@@ -91,7 +91,7 @@ $max
 
 ## Composing tasks into task graphs
 
-Nodes, be they from `delayed`, `delayedSQL`, or `delayedArrayUDF`, can be
+Nodes, be they from `delayed`, `delayed_SQL`, or `delayed_array_UDF`, can be
 connected together into directed acyclic graphs. (If you construct a graph with
 a cyclic dependency, you'll get an error message promptly.)
 
@@ -106,7 +106,7 @@ delayed_args(local) <- list(100)
 
 # Array UDF -- we specify selected ranges and attributes, then do some R on the
 # dataframe which the UDF receives.
-array_apply <- delayedArrayUDF(
+array_apply <- delayed_array_UDF(
   namespace=namespace, # namespace to charge
   array="TileDB-Inc/quickstart_dense",
   udf=function(df) { sum(as.vector(df[["a"]])) },
@@ -116,7 +116,7 @@ array_apply <- delayedArrayUDF(
 
 # SQL -- note the output is a dataframe, and values are all strings (MariaDB
 # "decimal values") so we'll cast them to numeric later.
-sql = delayedSQL(
+sql = delayed_SQL(
   "select SUM(`a`) as a from `tiledb://TileDB-Inc/quickstart_dense`",
   name="sql",
   namespace=namespace

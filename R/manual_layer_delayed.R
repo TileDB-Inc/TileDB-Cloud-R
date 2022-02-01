@@ -48,7 +48,7 @@ delayed <- function(func, args=NULL, name=NULL, local=FALSE) {
 ##'
 ##' @family {manual-layer functions}
 ##' @export
-delayedSQL <- function(query, name, namespace) {
+delayed_SQL <- function(query, name, namespace) {
   # It is absolutely necessary that this be a locally executing call to the
   # remote REST service. A non-local execution of this would mean the REST
   # server calling itself -- not only would that be a circular dependency, but
@@ -74,7 +74,7 @@ delayedSQL <- function(query, name, namespace) {
 ##'
 ##' @family {manual-layer functions}
 ##' @export
-delayedArrayUDF <- function(namespace, array, udf, selectedRanges, attrs) {
+delayed_array_UDF <- function(namespace, array, udf, selectedRanges, attrs) {
   # It is absolutely necessary that this be a locally executing call to the
   # remote REST service. A non-local execution of this would mean the REST
   # server calling itself -- not only would that be a circular dependency, but
