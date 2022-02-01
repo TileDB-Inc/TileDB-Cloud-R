@@ -26,10 +26,10 @@ login at \code{~/.tiledb/cloud.json} will be used.
 Other {manual-layer functions}: 
 \code{\link{array_info}()},
 \code{\link{compute}()},
-\code{\link{delayedArrayUDF}()},
-\code{\link{delayedSQL}()},
 \code{\link{delayed_args<-}()},
 \code{\link{delayed_args}()},
+\code{\link{delayed_array_udf}()},
+\code{\link{delayed_sql}()},
 \code{\link{delayed}()},
 \code{\link{deregister_udf}()},
 \code{\link{execute_array_udf}()},
