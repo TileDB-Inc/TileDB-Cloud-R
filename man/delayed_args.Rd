@@ -4,11 +4,11 @@
 \alias{delayed_args}
 \title{Get arguments for a delayed function, as a list.}
 \usage{
-delayed_args(delayed_function)
+delayed_args(node)
 }
 \arguments{
-\item{delayed_function}{The object whose args are being set -- nominally, produced by
-\code{delayed}, \code{delayedUDF}, etc.}
+\item{node}{The object whose args are being set -- nominally, produced by
+\code{delayed}, \code{delayed_generic_udf}, etc.}
 }
 \description{
 Get arguments for a delayed function, as a list.
