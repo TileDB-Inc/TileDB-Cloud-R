@@ -334,6 +334,9 @@ Node <- R6::R6Class(
 ##' The task graph is implicitly defined by various \code{delayed} objects having others
 ##' in their argument lists.
 ##'
+##' @param delayed_function The object whose args are being set -- nominally, produced by
+##' \code{delayed}, \code{delayedUDF}, etc.
+##'
 ##' @param namespace The namespace to charge for any cloud costs during the execution of the
 ##' task graph. This can be null only when all nodes have \code{local}, or when \code{compute}
 ##' is called with \code{force_all_local}.
@@ -354,47 +357,58 @@ Node <- R6::R6Class(
 ##'
 ##' @family {manual-layer functions}
 ##' @export
-compute <- function(object, namespace=NULL, timeout_seconds=NULL, verbose=FALSE, force_all_local=FALSE) 0
-setMethod("compute", signature(object = "Node"), function(object, namespace=NULL, timeout_seconds=NULL,
+compute <- function(delayed_function, namespace=NULL, timeout_seconds=NULL, verbose=FALSE, force_all_local=FALSE) 0
+setMethod("compute", signature(delayed_function = "Node"), function(delayed_function, namespace=NULL, timeout_seconds=NULL,
   verbose=FALSE, force_all_local=FALSE)
 {
-  object$compute(namespace=namespace, timeout_seconds=timeout_seconds, verbose=verbose, force_all_local=force_all_local)
+  delayed_function$compute(namespace=namespace, timeout_seconds=timeout_seconds, verbose=verbose, force_all_local=force_all_local)
 })
 
-# Test/debug entrypoint
-compute_sequentially <- function(object) {}
-setMethod("compute_sequentially", signature(object = "Node"), function(object) {
-  object$compute_sequentially()
+##' Test/debug entrypoint for local/sequential compute.
+##'
+##' Runs all nodes in a correct dependency ordering, but all within the context of the same
+##' process, and all locally. See also the Task Graphs vignette.
+##'
+##' @param delayed_function Nominally, produced by \code{delayed}, \code{delayedUDF}, etc.
+##'
+##' @return The value of the computation.
+##'
+##' @family {manual-layer functions}
+##' @export
+compute_sequentially <- function(delayed_function) {}
+setMethod("compute_sequentially", signature(delayed_function = "Node"), function(delayed_function) {
+  delayed_function$compute_sequentially()
 })
 
 ##' Get arguments for a delayed function, as a list.
 ##'
+##' @param delayed_function The object whose args are being set -- nominally, produced by
+##' \code{delayed}, \code{delayedUDF}, etc.
+##'
 ##' @family {manual-layer functions}
 ##' @export
-delayed_args <- function(object, ...) {}
-setMethod("delayed_args", signature(object = "Node"), function(object) {
-  object$get_args()
+delayed_args <- function(delayed_function) {}
+setMethod("delayed_args", signature(delayed_function = "Node"), function(delayed_function) {
+  delayed_function$get_args()
 })
 
 ##' Set arguments for a delayed function.
 ##'
 ##' Args can be set when \code{delayed} is called, or afterward using this function.
 ##'
-##' @param arglist One argument which is a list of arguments to the delayed
-##' function, e.g. \code{list(a,b,c)}.
+##' @param delayed_function The object whose args are being set -- nominally, produced by
+##' \code{delayed}, \code{delayedUDF}, etc.
+##'
+##' @param value A list of arguments to the delayed function, e.g. \code{list(a,b,c)}.
 ##'
 ##' @family {manual-layer functions}
 ##' @export
-"delayed_args<-" <- function(object, ...) {}
-# Note: the "..." signature is forced on us.
-setMethod("delayed_args<-", signature(object = "Node"), function(object, ...) {
-  args <- list(...)
+"delayed_args<-" <- function(delayed_function, value) {}
+setMethod("delayed_args<-", signature(delayed_function = "Node"), function(delayed_function, value) {
   # The R '<-' logic gives us a list with single name "value"
-  stopifnot(`argument must be a list object` = is.list(args),
-            `the argument list must contain a component named value` = 'value' %in% names(args),
-            `value component must be a list` = is.list(args$value))
-  object$set_args(args$value)
-  object # '<-' generics must return the object
+  stopifnot(`argument must be a list object` = is.list(value))
+  delayed_function$set_args(value)
+  delayed_function # '<-' generics must return the object
 })
 
 setMethod("show", signature(object = "Node"), function(object) {

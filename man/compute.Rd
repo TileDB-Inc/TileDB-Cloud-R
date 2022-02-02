@@ -5,7 +5,7 @@
 \title{Launch a task graph from a given terminal node in the task graph}
 \usage{
 compute(
-  object,
+  delayed_function,
   namespace = NULL,
   timeout_seconds = NULL,
   verbose = FALSE,
@@ -13,6 +13,9 @@ compute(
 )
 }
 \arguments{
+\item{delayed_function}{The object whose args are being set -- nominally, produced by
+\code{delayed}, \code{delayedUDF}, etc.}
+
 \item{namespace}{The namespace to charge for any cloud costs during the execution of the
 task graph. This can be null only when all nodes have \code{local}, or when \code{compute}
 is called with \code{force_all_local}.}
@@ -39,6 +42,7 @@ in their argument lists.
 \seealso{
 Other {manual-layer functions}: 
 \code{\link{array_info}()},
+\code{\link{compute_sequentially}()},
 \code{\link{delayed_args<-}()},
 \code{\link{delayed_args}()},
 \code{\link{delayed_array_udf}()},

@@ -51,13 +51,20 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">delayed_args</span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">delayed_args</span><span class="op">(</span><span class="va">delayed_function</span><span class="op">)</span></code></pre></div>
     </div>
 
+    <div class="section level2">
+    <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
+    <dl><dt>delayed_function</dt>
+<dd><p>The object whose args are being set -- nominally, produced by
+<code>delayed</code>, <code>delayedUDF</code>, etc.</p></dd>
+</dl></div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other manual-layer functions: 
 <code><a href="array_info.html">array_info</a>()</code>,
+<code><a href="compute_sequentially.html">compute_sequentially</a>()</code>,
 <code><a href="compute.html">compute</a>()</code>,
 <code>delayed_args&lt;-()</code>,
 <code><a href="delayed_array_udf.html">delayed_array_udf</a>()</code>,
