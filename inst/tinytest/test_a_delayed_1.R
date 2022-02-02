@@ -54,7 +54,7 @@ expect_equal(o, 3)
 
 ## ----------------------------------------------------------------
 a <- delayed(function(...) { sum(...) })
-delayed_args(a) <- list(3,4,5)
+delayed_args(a) <- list(3, 4, 5)
 o <- a$compute_sequentially()
 expect_equal(o, 12)
 
@@ -62,7 +62,7 @@ expect_equal(o, 12)
 a <- delayed(function() { Sys.sleep(0.1); 3 }, args=list())
 b <- delayed(function() { Sys.sleep(0.1); 4 }, args=list())
 d <- delayed(function(...) { sum(...) })
-delayed_args(d) <- list(a,b,5)
+delayed_args(d) <- list(a, b, 5)
 o <- d$compute_sequentially()
 expect_equal(o, 12)
 

@@ -14,14 +14,14 @@ to be executed later, with a few more items:
 
 * Optionally a friendly display name in `name`
 * Optionally `local=TRUE` to execute the function on the current host -- the default is to execute on TileDB Cloud.
-* If the function takes arguments, they can be specified by `args=...` in `delayed`, or, via a separate call to `delayed_args` afterward.
+* If the function takes arguments, they can be specified by `args=...` in `delayed`, or, via a separate call to `delayed_args`.
 * The `compute` function executes the delayed functions.
 
 ```
 a <- delayed(function()    {    9  },                    name='a', local=TRUE)
 b <- delayed(function(x)   {  10*x },    args=list(a),   name='b', local=TRUE)
 c <- delayed(function(x)   { 100*x },                    name='c', local=TRUE)
-delayed_args(c) <- list(a)
+delayed_args(c) <- list(b)
 d <- delayed(function(...) { sum(...) }, args=list(b,c), name='d', local=TRUE)
 
 o <- compute(d, namespace, verbose=TRUE)
@@ -57,9 +57,32 @@ with output
 4 14.5000    4
 ```
 
+## Delayed generic UDFs
+
+This too is a simple convenience wrapper connecting `delayed` and generic UDFs as described in the UDFs vignette.
+
+```
+a <- delayed_generic_udf(
+  namespace='your-namespace',
+  udf=function(vec, exponent) {
+    sum(vec) ** exponent
+  },
+  name='my-generic'
+)
+delayed_args(a) <- list(vec=1:10, exponent=3)
+print(compute(a, namespaceToCharge))
+```
+
+with output
+
+```
+[1]
+166375
+```
+
 ## Delayed array UDFs
 
-This too is a simple convenience wrapper connecting `delayed` and array UDFs as described in the UDFs vignette.
+This is another simple convenience wrapper connecting `delayed` and array UDFs as described in the UDFs vignette.
 
 ```
 a <- delayed_array_udf(
