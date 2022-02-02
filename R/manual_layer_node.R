@@ -333,7 +333,7 @@ Node <- R6::R6Class(
 ##'
 ##' The task graph is implicitly defined by various \code{delayed} objects having others
 ##' in their argument lists.
-##
+##'
 ##' @param delayed_function The object whose args are being set -- nominally, produced by
 ##' \code{delayed}, \code{delayedUDF}, etc.
 ##'
@@ -365,7 +365,7 @@ setMethod("compute", signature(delayed_function = "Node"), function(delayed_func
 })
 
 ##' Test/debug entrypoint for local/sequential compute.
-##
+##'
 ##' Runs all nodes in a correct dependency ordering, but all within the context of the same
 ##' process, and all locally. See also the Task Graphs vignette.
 ##'
