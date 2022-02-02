@@ -4,18 +4,40 @@
 \alias{delayed_array_udf}
 \title{Define a single-array UDF to be executed within a task graph}
 \usage{
-delayed_array_udf(namespace, array, udf, selectedRanges, attrs)
+delayed_array_udf(
+  namespace,
+  array,
+  udf = NULL,
+  registered_udf_name = NULL,
+  selectedRanges,
+  attrs,
+  layout = NULL,
+  args = NULL,
+  result_format = "native",
+  name = NULL
+)
 }
 \arguments{
 \item{namespace}{The TileDB-Cloud namespace to charge the query to}
 
 \item{array}{TileDB URI -- see vignette for examples.}
 
-\item{udf}{User-defined function, as in UDF examples.}
+\item{udf}{User-defined function, as in UDF examples. Arguments are specified separately via \code{args}.
+One of \code{udf} and \code{registered_udf_name} must be non-null.}
+
+\item{registered_udf_name}{Name of a registered UDF, of the form \code{namespace/udfname}.
+Arguments are specified separately via \code{args}.  One of \code{udf} and
+\code{registered_udf_name} must be non-null.}
 
 \item{selectedRanges}{As in UDF examples.}
 
 \item{attrs}{As in UDF examples.}
+
+\item{layout}{As in UDF examples.}
+
+\item{result_format}{As in UDF examples.}
+
+\item{name}{A display name for the query}
 }
 \value{
 The return value from the UDF as an R object.
