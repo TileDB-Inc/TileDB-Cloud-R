@@ -4,10 +4,10 @@
 \alias{compute_sequentially}
 \title{Test/debug entrypoint for local/sequential compute.}
 \usage{
-compute_sequentially(delayed_function)
+compute_sequentially(node)
 }
 \arguments{
-\item{delayed_function}{Nominally, produced by \code{delayed}, \code{delayedUDF}, etc.}
+\item{node}{Nominally, produced by \code{delayed}, \code{delayed_generic_udf}, etc.}
 }
 \value{
 The value of the computation.

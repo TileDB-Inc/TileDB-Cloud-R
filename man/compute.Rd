@@ -5,7 +5,7 @@
 \title{Launch a task graph from a given terminal node in the task graph}
 \usage{
 compute(
-  delayed_function,
+  node,
   namespace = NULL,
   timeout_seconds = NULL,
   verbose = FALSE,
@@ -13,9 +13,6 @@ compute(
 )
 }
 \arguments{
-\item{delayed_function}{The object whose args are being set -- nominally, produced by
-\code{delayed}, \code{delayedUDF}, etc.}
-
 \item{namespace}{The namespace to charge for any cloud costs during the execution of the
 task graph. This can be null only when all nodes have \code{local}, or when \code{compute}
 is called with \code{force_all_local}.}
@@ -31,6 +28,9 @@ compute node has completed.}
 \item{force_all_local}{While individual nodes can be marked with \code{local=TRUE}
 to not be executed on TileDB cloud, this flag overrides the default \code{local=FALSE}
 for *all* nodes in the task graph.}
+
+\item{delayed_function}{The object whose args are being set -- nominally, produced by
+\code{delayed}, \code{delayed_generic_udf}, etc.}
 }
 \value{
 The value of the computation.
