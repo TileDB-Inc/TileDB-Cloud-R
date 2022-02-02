@@ -65,7 +65,10 @@ in their argument lists.</p>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>namespace</dt>
+    <dl><dt>node</dt>
+<dd><p>The object whose args are being set -- nominally, produced by
+<code>delayed</code>, <code>delayed_generic_udf</code>, etc.</p></dd>
+<dt>namespace</dt>
 <dd><p>The namespace to charge for any cloud costs during the execution of the
 task graph. This can be null only when all nodes have <code>local</code>, or when <code>compute</code>
 is called with <code>force_all_local</code>.</p></dd>
@@ -81,9 +84,6 @@ compute node has completed.</p></dd>
 <dd><p>While individual nodes can be marked with <code>local=TRUE</code>
 to not be executed on TileDB cloud, this flag overrides the default <code>local=FALSE</code>
 for *all* nodes in the task graph.</p></dd>
-<dt>delayed_function</dt>
-<dd><p>The object whose args are being set -- nominally, produced by
-<code>delayed</code>, <code>delayed_generic_udf</code>, etc.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -97,6 +97,7 @@ for *all* nodes in the task graph.</p></dd>
 <code>delayed_args&lt;-()</code>,
 <code><a href="delayed_args.html">delayed_args</a>()</code>,
 <code><a href="delayed_array_udf.html">delayed_array_udf</a>()</code>,
+<code><a href="delayed_generic_udf.html">delayed_generic_udf</a>()</code>,
 <code><a href="delayed_sql.html">delayed_sql</a>()</code>,
 <code><a href="delayed.html">delayed</a>()</code>,
 <code><a href="deregister_udf.html">deregister_udf</a>()</code>,

@@ -337,9 +337,6 @@ Node <- R6::R6Class(
 ##' @param node The object whose args are being set -- nominally, produced by
 ##' \code{delayed}, \code{delayed_generic_udf}, etc.
 ##'
-##' @param node The object whose args are being set -- nominally, produced by
-##' \code{delayed}, \code{delayed_generic_udf}, etc.
-##'
 ##' @param namespace The namespace to charge for any cloud costs during the execution of the
 ##' task graph. This can be null only when all nodes have \code{local}, or when \code{compute}
 ##' is called with \code{force_all_local}.
