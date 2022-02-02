@@ -13,6 +13,9 @@ compute(
 )
 }
 \arguments{
+\item{node}{The object whose args are being set -- nominally, produced by
+\code{delayed}, \code{delayed_generic_udf}, etc.}
+
 \item{namespace}{The namespace to charge for any cloud costs during the execution of the
 task graph. This can be null only when all nodes have \code{local}, or when \code{compute}
 is called with \code{force_all_local}.}
@@ -28,9 +31,6 @@ compute node has completed.}
 \item{force_all_local}{While individual nodes can be marked with \code{local=TRUE}
 to not be executed on TileDB cloud, this flag overrides the default \code{local=FALSE}
 for *all* nodes in the task graph.}
-
-\item{delayed_function}{The object whose args are being set -- nominally, produced by
-\code{delayed}, \code{delayed_generic_udf}, etc.}
 }
 \value{
 The value of the computation.
@@ -46,6 +46,7 @@ Other {manual-layer functions}:
 \code{\link{delayed_args<-}()},
 \code{\link{delayed_args}()},
 \code{\link{delayed_array_udf}()},
+\code{\link{delayed_generic_udf}()},
 \code{\link{delayed_sql}()},
 \code{\link{delayed}()},
 \code{\link{deregister_udf}()},

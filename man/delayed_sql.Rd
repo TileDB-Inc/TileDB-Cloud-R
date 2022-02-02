@@ -14,8 +14,9 @@ delayed_sql(query, name, namespace)
 \item{namespace}{The TileDB-Cloud namespace to charge the query to}
 }
 \value{
-The result of the query as a dataframe. Note that results will be strings,
-so numerical results will need to be explicitly cast as such.
+A task-graph node object on which you can later call \code{compute}.  The return value from
+compute() will be the query result as a dataframe.  Note that results will be strings, so numerical
+results will need to be explicitly cast as such.
 }
 \description{
 Define a SQL query function to be executed within a task graph
@@ -28,6 +29,7 @@ Other {manual-layer functions}:
 \code{\link{delayed_args<-}()},
 \code{\link{delayed_args}()},
 \code{\link{delayed_array_udf}()},
+\code{\link{delayed_generic_udf}()},
 \code{\link{delayed}()},
 \code{\link{deregister_udf}()},
 \code{\link{execute_array_udf}()},

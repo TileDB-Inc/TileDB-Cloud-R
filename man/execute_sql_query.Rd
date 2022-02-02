@@ -34,6 +34,7 @@ Other {manual-layer functions}:
 \code{\link{delayed_args<-}()},
 \code{\link{delayed_args}()},
 \code{\link{delayed_array_udf}()},
+\code{\link{delayed_generic_udf}()},
 \code{\link{delayed_sql}()},
 \code{\link{delayed}()},
 \code{\link{deregister_udf}()},
