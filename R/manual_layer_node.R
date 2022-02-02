@@ -334,7 +334,7 @@ Node <- R6::R6Class(
 ##' The task graph is implicitly defined by various \code{delayed} objects having others
 ##' in their argument lists.
 ##'
-##' @param delayed_function The object whose args are being set -- nominally, produced by
+##' @param node The object whose args are being set -- nominally, produced by
 ##' \code{delayed}, \code{delayed_generic_udf}, etc.
 ##'
 ##' @param node The object whose args are being set -- nominally, produced by
