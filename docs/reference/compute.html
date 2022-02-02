@@ -55,7 +55,7 @@ in their argument lists.</p>
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">compute</span><span class="op">(</span>
-  <span class="va">delayed_function</span>,
+  <span class="va">node</span>,
   namespace <span class="op">=</span> <span class="cn">NULL</span>,
   timeout_seconds <span class="op">=</span> <span class="cn">NULL</span>,
   verbose <span class="op">=</span> <span class="cn">FALSE</span>,
@@ -65,10 +65,7 @@ in their argument lists.</p>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>delayed_function</dt>
-<dd><p>The object whose args are being set -- nominally, produced by
-<code>delayed</code>, <code>delayedUDF</code>, etc.</p></dd>
-<dt>namespace</dt>
+    <dl><dt>namespace</dt>
 <dd><p>The namespace to charge for any cloud costs during the execution of the
 task graph. This can be null only when all nodes have <code>local</code>, or when <code>compute</code>
 is called with <code>force_all_local</code>.</p></dd>
@@ -84,6 +81,9 @@ compute node has completed.</p></dd>
 <dd><p>While individual nodes can be marked with <code>local=TRUE</code>
 to not be executed on TileDB cloud, this flag overrides the default <code>local=FALSE</code>
 for *all* nodes in the task graph.</p></dd>
+<dt>delayed_function</dt>
+<dd><p>The object whose args are being set -- nominally, produced by
+<code>delayed</code>, <code>delayed_generic_udf</code>, etc.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
