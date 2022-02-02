@@ -335,7 +335,7 @@ Node <- R6::R6Class(
 ##' in their argument lists.
 ##'
 ##' @param delayed_function The object whose args are being set -- nominally, produced by
-##' \code{delayed}, \code{delayedUDF}, etc.
+##' \code{delayed}, \code{delayed_generic_udf}, etc.
 ##'
 ##' @param node The object whose args are being set -- nominally, produced by
 ##' \code{delayed}, \code{delayed_generic_udf}, etc.
