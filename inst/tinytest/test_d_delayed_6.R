@@ -64,3 +64,30 @@ a <- delayed_array_udf(
 )
 o <- compute(a, namespace=namespaceToCharge)
 expect_equal(o, list(min=1, med=3.5, max=6))
+
+a <- delayed_array_udf(
+  namespace=namespaceToCharge,
+  array="TileDB-Inc/quickstart_dense",
+  udf=function(df) {
+    vec <- as.vector(df[["a"]])
+    sum(vec ** 3)
+  },
+  selectedRanges=list(cbind(1,4), cbind(1,4)),
+  attrs=c("a")
+)
+o <- compute(a, namespace=namespaceToCharge)
+expect_equal(o, 18496)
+
+a <- delayed_array_udf(
+  namespace=namespaceToCharge,
+  array="TileDB-Inc/quickstart_dense",
+  udf=function(df, exponent) {
+    vec <- as.vector(df[["a"]])
+    sum(vec ** exponent)
+  },
+  args=list(exponent=3),
+  selectedRanges=list(cbind(1,4), cbind(1,4)),
+  attrs=c("a")
+)
+o <- compute(a, namespace=namespaceToCharge)
+expect_equal(o, 18496)

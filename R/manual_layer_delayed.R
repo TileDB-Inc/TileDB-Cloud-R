@@ -1,8 +1,8 @@
 ##' Define a function to be executed within a task graph
 ##'
 ##' @param args Can be provided here with \code{c <- delayed(function(...) { sum(...) }, args=list(a,b))}
-##' or ##' separately with \code{c <- delayed(function(...) { sum(...) })` and later
-##' \code{c$args <- list(a,b)}.
+##' or separately with \code{c <- delayed(function(...) { sum(...) })` and later
+##' \code{delayed_args(c) <- list(a,b)}.
 ##'
 ##' @param name Optional -- e.g. \code{a} or \code{b}. If omitted, it defaults to a UUID.
 ##'
@@ -112,29 +112,68 @@ delayed_generic_udf <- function(namespace, udf=NULL, registered_udf_name=NULL, a
 ##'
 ##' @param array TileDB URI -- see vignette for examples.
 ##'
-##' @param udf User-defined function, as in UDF examples.
+##' @param udf User-defined function, as in UDF examples. Arguments are specified separately via \code{args}.
+##' One of \code{udf} and \code{registered_udf_name} must be non-null.
+##'
+##' @param registered_udf_name Name of a registered UDF, of the form \code{namespace/udfname}.
+##' Arguments are specified separately via \code{args}.  One of \code{udf} and
+##' \code{registered_udf_name} must be non-null.
 ##'
 ##' @param selectedRanges As in UDF examples.
 ##'
 ##' @param attrs As in UDF examples.
 ##'
+##' @param layout As in UDF examples.
+##'
+##' @param args Can be provided here with \code{c <- delayed_array_udf(..., args=list(a,b))}
+##' or separately with \code{c <- delayed(function(...) { sum(...) })` and later
+##' \code{c$args <- list(a,b)}.
+##'
+##' @param result_format As in UDF examples.
+##'
+##' @param name A display name for the query
+##'
 ##' @return The return value from the UDF as an R object.
 ##'
 ##' @family {manual-layer functions}
 ##' @export
-delayed_array_udf <- function(namespace, array, udf, selectedRanges, attrs) {
+delayed_array_udf <- function(namespace, array, udf=NULL, registered_udf_name=NULL, selectedRanges, attrs,
+  layout=NULL, args=NULL, result_format='native', name=NULL)
+{
   # It is absolutely necessary that this be a locally executing call to the
   # remote REST service. A non-local execution of this would mean the REST
   # server calling itself -- not only would that be a circular dependency, but
   # moreover the tiledbcloud is not running on the REST server.
 
-  # TODO: more args are supported in execute_array_udf; support them here.
-  delayed(function() {
-    execute_array_udf(
-      array=array,
-      namespace=namespace,
-      udf=udf,
-      selectedRanges=selectedRanges,
-      attrs=attrs)
-  }, local=TRUE)
+  if (is.null(udf) && is.null(registered_udf_name)) {
+    stop("One, but not both, of udf and registered_udf_name must be provided.")
+  }
+  if (!is.null(udf) && !is.null(registered_udf_name)) {
+    stop("One, but not both, of udf and registered_udf_name must be provided.")
+  }
+  # Array UDFs are different in that when they're executed server-side, the dataframe loaded from
+  # the array is always passed as the first argument to the UDF. Then, any *additional* arguments
+  # the UDF may take. We need to do this to avoid a runtime error of the form "delayed object must
+  # have args set before calling compute" for the case when the UDF takes no arguments beyond the
+  # single dataframe argument.
+  if (is.null(args)) {
+    args <- list()
+  }
+
+  delayed(
+    func=function(...) {
+      execute_array_udf(
+        array=array,
+        namespace=namespace,
+        udf=udf,
+        registered_udf_name=registered_udf_name,
+        selectedRanges=selectedRanges,
+        attrs=attrs,
+        layout=layout,
+        args=list(...),
+        result_format=result_format)
+    },
+    args=args,
+    name=name,
+    local=TRUE)
 }
