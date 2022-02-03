@@ -24,11 +24,11 @@ UDFActions <- R6::R6Class(
             val <- unlist(local.optional.var)
             enumvec <- .parse_UDFActions()
 
-            stopifnot(length(val) == 1L)
-
-            if (!val %in% enumvec)
-                stop("Use one of the valid values: ",
+            # MANUAL EDIT AFTER OPENAPI AUTOGEN
+            if ((length(val) != 1L) || (!val %in% enumvec))
+                stop("Use one of the valid values for udf_actions: ",
                     paste0(enumvec, collapse = ", "))
+
             private$value <- val
         },
         toJSON = function() {

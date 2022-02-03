@@ -24,11 +24,11 @@ ArrayTaskStatus <- R6::R6Class(
             val <- unlist(local.optional.var)
             enumvec <- .parse_ArrayTaskStatus()
 
-            stopifnot(length(val) == 1L)
-
-            if (!val %in% enumvec)
-                stop("Use one of the valid values: ",
+            # MANUAL EDIT AFTER OPENAPI AUTOGEN
+            if ((length(val) != 1L) || (!val %in% enumvec))
+                stop("Use one of the valid values for array_task_status: ",
                     paste0(enumvec, collapse = ", "))
+
             private$value <- val
         },
         toJSON = function() {
