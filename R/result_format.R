@@ -32,7 +32,21 @@ ResultFormat <- R6::R6Class(
             private$value <- val
         },
         toJSON = function() {
-            jsonlite::toJSON(private$value, auto_unbox = TRUE)
+            # MANUAL EDIT AFTER OPENAPI AUTOGEN
+            #
+            # The name toJSON is a misnomer -- its output is not a string.
+            # The name toJSONString is correct -- its output is a string.
+            # The way this works for HTTP/JSON serdes is a top-level R6 object
+            # (like GenericUDF) gets its toJSONString invoked; that in turn
+            # recursively invokes toJSON on various subattributes.
+            #
+            # This default logic written by OpenAPI results in JSON like
+            # { ..., "result_format": "\"arrow\"", ... }
+            # Here, we make sure that instead the following is generated:
+            # { ..., "result_format": "arrow", ... }
+            #
+            # jsonlite::toJSON(private$value, auto_unbox = TRUE)
+            private$value
         },
         fromJSON = function(ResultFormatJson) {
             private$value <- jsonlite::fromJSON(ResultFormatJson,
