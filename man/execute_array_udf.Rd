@@ -34,7 +34,9 @@ Arguments are specified separately via \code{args}.  One of \code{udf} and
 \item{selectedRanges}{List of two-column matrices, one matrix per dimension,
 each matrix being a start-end pair: e.g. \code{list(cbind(1,10),cbind(1,20))}.}
 
-\item{attrs}{}
+\item{attrs}{Optional list of attributes (default: all) for the server-side
+code to select for UDF execution. Specifying only what your UDF needs is
+useful for memory-usage control.}
 
 \item{layout}{One of \code{row-major}, \code{col-major}, \code{global-order}, or
 \code{unordered},}
