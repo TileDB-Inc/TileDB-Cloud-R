@@ -52,9 +52,11 @@ execute_generic_udf <- function(namespace, udf=NULL, registered_udf_name=NULL, a
   if (!is.null(args)) {
     generic_udf$argument <- jsonlite::toJSON(as.integer(serialize(args, NULL)))
   }
-  if (!is.null(result_format)) {
-    generic_udf$result_format <- ResultFormat$new(result_format)
-  }
+  stopifnot (!is.null(result_format))
+  # Here we rely on ResultFormat$new to match against the acceptable values for
+  # result format, which in turn are automatically generated from the
+  # TileDB-Cloud OpenAPI spec.
+  generic_udf$result_format <- ResultFormat$new(result_format)
 
   resultObject <- udfApiInstance$SubmitGenericUDF(namespace, generic_udf)
 
@@ -150,9 +152,11 @@ execute_array_udf <- function(array, namespace=NULL, udf=NULL, registered_udf_na
     multi_array_udf$argument <- jsonlite::toJSON(as.integer(serialize(args, NULL)))
   }
 
-  if (!is.null(result_format)) {
-    multi_array_udf$result_format <- ResultFormat$new(result_format)
-  }
+  stopifnot (!is.null(result_format))
+  # Here we rely on ResultFormat$new to match against the acceptable values for
+  # result format, which in turn are automatically generated from the
+  # TileDB-Cloud OpenAPI spec.
+  multi_array_udf$result_format <- ResultFormat$new(result_format)
 
   # Attrs can be optionally specified by the client. If they are not, the
   # server-side code will load all attributes.
@@ -239,9 +243,11 @@ execute_multi_array_udf <- function(namespace, array_list, udf=NULL, registered_
     multi_array_udf$argument <- jsonlite::toJSON(as.integer(serialize(args, NULL)))
   }
 
-  if (!is.null(result_format)) {
-    multi_array_udf$result_format <- ResultFormat$new(result_format)
-  }
+  stopifnot (!is.null(result_format))
+  # Here we rely on ResultFormat$new to match against the acceptable values for
+  # result format, which in turn are automatically generated from the
+  # TileDB-Cloud OpenAPI spec.
+  multi_array_udf$result_format <- ResultFormat$new(result_format)
 
   # TODO: type-check the array_list parameter to be sure it's list of UDFArrayDetails
   multi_array_udf$arrays <- array_list
