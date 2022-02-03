@@ -105,6 +105,22 @@ ApiClient  <- R6::R6Class(
 
     CallApi = function(url, method, queryParams, headerParams, body, ...){
 
+      if (Sys.getenv("TILEDB_CLOUD_R_HTTP_DEBUG") != "") {
+        cat("================================================================ REQUEST\n")
+        cat("METHOD:", method, "\n")
+        cat("QUERY_PARAMS:\n")
+        str(queryParams, width=1000, nchar.max=10000)
+        cat("HEADER_PARAMS:\n")
+        str(headerParams, width=1000, nchar.max=10000)
+        cat("BODY:\n")
+        if (is.null(body)) {
+          cat("(NULL)\n")
+        } else {
+          cat(body, "\n")
+        }
+        cat("================================================================\n")
+      }
+
       resp <- self$Execute(url, method, queryParams, headerParams, body, ...)
       statusCode <- httr::status_code(resp)
 
@@ -123,6 +139,14 @@ ApiClient  <- R6::R6Class(
             break;
           }
         }  
+      }
+
+      if (Sys.getenv("TILEDB_CLOUD_R_HTTP_DEBUG") != "") {
+        cat("================================================================ RESPONSE\n")
+        cat("STATUS_CODE:", statusCode, "\n")
+        cat("BODY:\n")
+        str(resp, width=1000, nchar.max=10000)
+        cat("================================================================\n")
       }
 
       resp
