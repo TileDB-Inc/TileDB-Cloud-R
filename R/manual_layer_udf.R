@@ -22,10 +22,15 @@
 ##' position, use a list like \code{args=list(123, 456)}. If you want
 ##' to call by name, use a named list like \code{args=list(x=123,y=456)}.
 ##'
+##' @param result_format One of \code{native}, \code{json}, or \code{arrow}. These are
+##' used as wire format for returning results from the server to this library, primarily
+##' for memory-usage control.  UDF return values handed back to your code from this
+##' library are converted back to natural R objects.
+##'
 ##' @return The R object which is the return value from the UDF.
 ##' @family {manual-layer functions}
 ##' @export
-execute_generic_udf <- function(namespace, udf=NULL, registered_udf_name=NULL, args=NULL) {
+execute_generic_udf <- function(namespace, udf=NULL, registered_udf_name=NULL, args=NULL, result_format='native') {
   apiClientInstance <- get_api_client_instance()
 
   if (is.null(udf) && is.null(registered_udf_name)) {
@@ -47,13 +52,16 @@ execute_generic_udf <- function(namespace, udf=NULL, registered_udf_name=NULL, a
   if (!is.null(args)) {
     generic_udf$argument <- jsonlite::toJSON(as.integer(serialize(args, NULL)))
   }
+  stopifnot (!is.null(result_format))
+  # Here we rely on ResultFormat$new to match against the acceptable values for
+  # result format, which in turn are automatically generated from the
+  # TileDB-Cloud OpenAPI spec.
+  generic_udf$result_format <- ResultFormat$new(result_format)
 
   resultObject <- udfApiInstance$SubmitGenericUDF(namespace, generic_udf)
 
   # Decode the result
-  body <- .get_raw_response_body_or_stop(resultObject)
-  parsed <- jsonlite::fromJSON(rawToChar(body))
-  parsed[["value"]] # Extract the value field
+  .get_decoded_response_body_or_stop(resultObject, result_format)
 }
 
 ##' Execute a single-array UDF on TileDB Cloud
@@ -98,8 +106,6 @@ execute_generic_udf <- function(namespace, udf=NULL, registered_udf_name=NULL, a
 ##' used as wire format for returning results from the server to this library, primarily
 ##' for memory-usage control.  UDF return values handed back to your code from this
 ##' library are converted back to natural R objects.
-##'
-##' @param attrs
 ##'
 ##' @return Return value from the UDF.
 ##'
@@ -146,9 +152,11 @@ execute_array_udf <- function(array, namespace=NULL, udf=NULL, registered_udf_na
     multi_array_udf$argument <- jsonlite::toJSON(as.integer(serialize(args, NULL)))
   }
 
-  if (!is.null(result_format)) {
-    multi_array_udf$result_format <- ResultFormat$new(result_format)
-  }
+  stopifnot (!is.null(result_format))
+  # Here we rely on ResultFormat$new to match against the acceptable values for
+  # result format, which in turn are automatically generated from the
+  # TileDB-Cloud OpenAPI spec.
+  multi_array_udf$result_format <- ResultFormat$new(result_format)
 
   # Attrs can be optionally specified by the client. If they are not, the
   # server-side code will load all attributes.
@@ -235,9 +243,11 @@ execute_multi_array_udf <- function(namespace, array_list, udf=NULL, registered_
     multi_array_udf$argument <- jsonlite::toJSON(as.integer(serialize(args, NULL)))
   }
 
-  if (!is.null(result_format)) {
-    multi_array_udf$result_format <- ResultFormat$new(result_format)
-  }
+  stopifnot (!is.null(result_format))
+  # Here we rely on ResultFormat$new to match against the acceptable values for
+  # result format, which in turn are automatically generated from the
+  # TileDB-Cloud OpenAPI spec.
+  multi_array_udf$result_format <- ResultFormat$new(result_format)
 
   # TODO: type-check the array_list parameter to be sure it's list of UDFArrayDetails
   multi_array_udf$arrays <- array_list

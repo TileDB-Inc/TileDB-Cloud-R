@@ -28,6 +28,20 @@ result <- tiledbcloud::execute_generic_udf(namespace=namespaceToCharge, udf=myfu
 expect_equal(result, c(300, 302, 304, 306, 308))
 
 # ----------------------------------------------------------------
+# Generic UDF, with result_format
+
+myfunc <- function(x, y) { x + y }
+myargs <- list(100:104, 200:204)
+result <- tiledbcloud::execute_generic_udf(namespace=namespaceToCharge, udf=myfunc, args=myargs, result_format='json')
+expect_equal(result, c(300, 302, 304, 306, 308))
+
+myfunc <- function(x, y) { x + y }
+myargs <- list(100:104, 200:204)
+result <- tiledbcloud::execute_generic_udf(namespace=namespaceToCharge, udf=myfunc, args=myargs, result_format='arrow')
+# Arrow result is of type dataframe, so we pull out the 'result' slot
+expect_equal(result$result, c(300, 302, 304, 306, 308))
+
+# ----------------------------------------------------------------
 # Array UDF, no args, dense
 myfunc <- function(df) {
   vec <- as.vector(df[["a"]])
@@ -86,6 +100,29 @@ result <- tiledbcloud::execute_array_udf(
   args=list(exponent=3)
 )
 expect_equal(result, 2515456)
+
+result <- tiledbcloud::execute_array_udf(
+  namespace=namespaceToCharge,
+  array=array_name,
+  udf=myfunc,
+  selectedRanges=selectedRanges,
+  attrs=attrs,
+  args=list(exponent=3),
+  result_format='json'
+)
+expect_equal(result, 2515456)
+
+result <- tiledbcloud::execute_array_udf(
+  namespace=namespaceToCharge,
+  array=array_name,
+  udf=myfunc,
+  selectedRanges=selectedRanges,
+  attrs=attrs,
+  args=list(exponent=3),
+  result_format='arrow'
+)
+# Arrow result is of type dataframe, so we pull out the 'result' slot
+expect_equal(result$result, 2515456)
 
 # ----------------------------------------------------------------
 # TODO: put this into TileDB-Inc namespace

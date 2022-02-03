@@ -8,7 +8,8 @@ execute_generic_udf(
   namespace,
   udf = NULL,
   registered_udf_name = NULL,
-  args = NULL
+  args = NULL,
+  result_format = "native"
 )
 }
 \arguments{
@@ -25,6 +26,11 @@ Arguments are specified separately via \code{args}.  One of \code{udf} and
 no arguments, this can be omitted. If you want to call by
 position, use a list like \code{args=list(123, 456)}. If you want
 to call by name, use a named list like \code{args=list(x=123,y=456)}.}
+
+\item{result_format}{One of \code{native}, \code{json}, or \code{arrow}. These are
+used as wire format for returning results from the server to this library, primarily
+for memory-usage control.  UDF return values handed back to your code from this
+library are converted back to natural R objects.}
 }
 \value{
 The R object which is the return value from the UDF.
