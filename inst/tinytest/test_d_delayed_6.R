@@ -91,3 +91,21 @@ a <- delayed_array_udf(
 )
 o <- compute(a, namespace=namespaceToCharge)
 expect_equal(o, 18496)
+
+# ----------------------------------------------------------------
+# Test invoking registered UDFs
+
+# This one we require to be already registered in prod -- we don't dynamically register it,
+# then test it, then deregister it. We'll do similarly for a Python UDF.
+#
+# myfunc <- function(vec, exponent) { sum(vec ** exponent) }
+# register_udf(namespace='johnkerl-tiledb', name=tiledb-cloud-r-generic-udf-r, type='generic', func=myfunc)
+
+a <- delayed_generic_udf(
+  namespace=namespaceToCharge,
+  registered_udf_name='johnkerl-tiledb/tiledb-cloud-r-generic-udf-r',
+  args=list(vec=1:10, exponent=3),
+  name='my generic udf'
+)
+o <- compute(a)
+expect_equal(o, 3025)
