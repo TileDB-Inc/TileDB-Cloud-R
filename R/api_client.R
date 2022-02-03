@@ -105,7 +105,7 @@ ApiClient  <- R6::R6Class(
 
     CallApi = function(url, method, queryParams, headerParams, body, ...){
 
-      if (Sys.getenv("TILEDB_CLOUD_R_HTTP_PRINT") != "") {
+      if (Sys.getenv("TILEDB_CLOUD_R_HTTP_DEBUG") != "") {
         cat("================================================================ REQUEST\n")
         cat("METHOD:", method, "\n")
         cat("QUERY_PARAMS:\n")
@@ -141,7 +141,7 @@ ApiClient  <- R6::R6Class(
         }  
       }
 
-      if (Sys.getenv("TILEDB_CLOUD_R_HTTP_PRINT") != "") {
+      if (Sys.getenv("TILEDB_CLOUD_R_HTTP_DEBUG") != "") {
         cat("================================================================ RESPONSE\n")
         cat("STATUS_CODE:", statusCode, "\n")
         cat("BODY:\n")

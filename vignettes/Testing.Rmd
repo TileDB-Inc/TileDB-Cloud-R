@@ -24,4 +24,4 @@ To opt in:
 
 Some debug information:
 
-* `export TILEDB_CLOUD_R_HTTP_PRINT=true` will result in helpful printouts to the screen of HTTP requests and responses.
+* `export TILEDB_CLOUD_R_HTTP_DEBUG=true` will result in helpful printouts to the screen of HTTP requests and responses.
