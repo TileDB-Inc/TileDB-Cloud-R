@@ -22,13 +22,10 @@ FileType <- R6::R6Class(
         initialize = function(...) {
             local.optional.var <- list(...)
             val <- unlist(local.optional.var)
-            enumvec <- .parse_FileType()
 
-            stopifnot(length(val) == 1L)
+            # MANUAL EDIT AFTER OPENAPI AUTOGEN
+            .check_openapi_enum("FileType", val, .parse_FileType())
 
-            if (!val %in% enumvec)
-                stop("Use one of the valid values: ",
-                    paste0(enumvec, collapse = ", "))
             private$value <- val
         },
         toJSON = function() {

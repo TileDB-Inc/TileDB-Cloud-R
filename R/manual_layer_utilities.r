@@ -7,3 +7,12 @@
   }
   list(namespace=fields[[1]][[1]], name=fields[[1]][[2]])
 }
+
+.check_openapi_enum <- function(name, value, acceptable_values) {
+  if ((length(value) != 1L) || (!value %in% acceptable_values)) {
+    stop("Use one of the valid values for ",
+         name,
+         ": ",
+         paste0(acceptable_values, collapse = ", "))
+  }
+}
