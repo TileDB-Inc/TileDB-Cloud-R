@@ -22,12 +22,9 @@ InvitationStatus <- R6::R6Class(
         initialize = function(...) {
             local.optional.var <- list(...)
             val <- unlist(local.optional.var)
-            enumvec <- .parse_InvitationStatus()
 
             # MANUAL EDIT AFTER OPENAPI AUTOGEN
-            if ((length(val) != 1L) || (!val %in% enumvec))
-                stop("Use one of the valid values for invitation_status: ",
-                    paste0(enumvec, collapse = ", "))
+            .check_openapi_enum("InvitationStatus", val, .parse_InvitationStatus())
 
             private$value <- val
         },

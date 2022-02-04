@@ -22,12 +22,9 @@ FilterOption <- R6::R6Class(
         initialize = function(...) {
             local.optional.var <- list(...)
             val <- unlist(local.optional.var)
-            enumvec <- .parse_FilterOption()
 
             # MANUAL EDIT AFTER OPENAPI AUTOGEN
-            if ((length(val) != 1L) || (!val %in% enumvec))
-                stop("Use one of the valid values for filter_option: ",
-                    paste0(enumvec, collapse = ", "))
+            .check_openapi_enum("FilterOption", val, .parse_FilterOption())
 
             private$value <- val
         },

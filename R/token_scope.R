@@ -22,12 +22,9 @@ TokenScope <- R6::R6Class(
         initialize = function(...) {
             local.optional.var <- list(...)
             val <- unlist(local.optional.var)
-            enumvec <- .parse_TokenScope()
 
             # MANUAL EDIT AFTER OPENAPI AUTOGEN
-            if ((length(val) != 1L) || (!val %in% enumvec))
-                stop("Use one of the valid values for token_scope: ",
-                    paste0(enumvec, collapse = ", "))
+            .check_openapi_enum("TokenScope", val, .parse_TokenScope())
 
             private$value <- val
         },

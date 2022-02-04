@@ -22,12 +22,9 @@ FilePropertyName <- R6::R6Class(
         initialize = function(...) {
             local.optional.var <- list(...)
             val <- unlist(local.optional.var)
-            enumvec <- .parse_FilePropertyName()
 
             # MANUAL EDIT AFTER OPENAPI AUTOGEN
-            if ((length(val) != 1L) || (!val %in% enumvec))
-                stop("Use one of the valid values for file_property_name: ",
-                    paste0(enumvec, collapse = ", "))
+            .check_openapi_enum("FilePropertyName", val, .parse_FilePropertyName())
 
             private$value <- val
         },

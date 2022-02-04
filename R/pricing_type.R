@@ -22,12 +22,9 @@ PricingType <- R6::R6Class(
         initialize = function(...) {
             local.optional.var <- list(...)
             val <- unlist(local.optional.var)
-            enumvec <- .parse_PricingType()
 
             # MANUAL EDIT AFTER OPENAPI AUTOGEN
-            if ((length(val) != 1L) || (!val %in% enumvec))
-                stop("Use one of the valid values for pricing_type: ",
-                    paste0(enumvec, collapse = ", "))
+            .check_openapi_enum("PricingType", val, .parse_PricingType())
 
             private$value <- val
         },

@@ -22,12 +22,9 @@ Layout <- R6::R6Class(
         initialize = function(...) {
             local.optional.var <- list(...)
             val <- unlist(local.optional.var)
-            enumvec <- .parse_Layout()
 
             # MANUAL EDIT AFTER OPENAPI AUTOGEN
-            if ((length(val) != 1L) || (!val %in% enumvec))
-                stop("Use one of the valid values for layout: ",
-                    paste0(enumvec, collapse = ", "))
+            .check_openapi_enum("Layout", val, .parse_Layout())
 
             private$value <- val
         },

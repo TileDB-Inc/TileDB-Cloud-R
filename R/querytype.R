@@ -22,12 +22,9 @@ Querytype <- R6::R6Class(
         initialize = function(...) {
             local.optional.var <- list(...)
             val <- unlist(local.optional.var)
-            enumvec <- .parse_Querytype()
 
             # MANUAL EDIT AFTER OPENAPI AUTOGEN
-            if ((length(val) != 1L) || (!val %in% enumvec))
-                stop("Use one of the valid values for query_type: ",
-                    paste0(enumvec, collapse = ", "))
+            .check_openapi_enum("Querytype", val, .parse_Querytype())
 
             private$value <- val
         },
