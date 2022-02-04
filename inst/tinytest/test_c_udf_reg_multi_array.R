@@ -72,7 +72,9 @@ result <- tiledbcloud::execute_multi_array_udf(
   registered_udf_name=registered_udf_name,
   args=list(attrname="a")
 )
-expect_equal(result, list(len=19, min=2, med=10.5, max=19))
 
-# ----------------------------------------------------------------
+# Deregister the temp name before checking the result, in case of failure,
+# so we don't leave temp names dangling.
 tiledbcloud::deregister_udf(namespace=namespaceToCharge, name=udfname)
+
+expect_equal(result, list(len=19, min=2, med=10.5, max=19))

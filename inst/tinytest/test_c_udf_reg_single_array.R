@@ -56,7 +56,10 @@ result <- tiledbcloud::execute_array_udf(
   selectedRanges=list(cbind(1,2), cbind(1,2)),
   attrs=c("a")
 )
+
+# Deregister the temp name before checking the result, in case of failure,
+# so we don't leave temp names dangling.
+tiledbcloud::deregister_udf(namespace=namespaceToCharge, name=udfname)
+
 expect_equal(result, 196)
 
-# ----------------------------------------------------------------
-tiledbcloud::deregister_udf(namespace=namespaceToCharge, name=udfname)
