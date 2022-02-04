@@ -22,7 +22,7 @@ make_udf_name <- function(base) {
 # ================================================================
 udfname <- make_udf_name('udf-registration-test-generic')
 myfunc <- function(vec, exponent) {
-  sum(vec) ** exponent
+  sum(vec ** exponent)
 }
 
 # ----------------------------------------------------------------
@@ -38,7 +38,7 @@ result <- tiledbcloud::execute_generic_udf(
   registered_udf_name=registered_udf_name,
   args=list(vec=1:10, exponent=2)
 )
-expect_equal(result, 3025)
+expect_equal(result, 385)
 
 result <- tiledbcloud::execute_generic_udf(
   namespace=namespaceToCharge,
@@ -50,4 +50,4 @@ result <- tiledbcloud::execute_generic_udf(
 # so we don't leave temp names dangling.
 tiledbcloud::deregister_udf(namespace=namespaceToCharge, name=udfname)
 
-expect_equal(result, 166375)
+expect_equal(result, 3025)

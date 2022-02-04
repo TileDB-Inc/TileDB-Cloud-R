@@ -24,7 +24,7 @@ udfname <- make_udf_name('udf-registration-test-single-array')
 
 myfunc <- function(df, attrname, exponent) {
   vec <- as.vector(df[[attrname]])
-  sum(vec) ** exponent
+  sum(vec ** exponent)
 }
 
 tiledbcloud::register_udf(namespace=namespaceToCharge, name=udfname, type='single_array', func=myfunc)
@@ -61,5 +61,4 @@ result <- tiledbcloud::execute_array_udf(
 # so we don't leave temp names dangling.
 tiledbcloud::deregister_udf(namespace=namespaceToCharge, name=udfname)
 
-expect_equal(result, 196)
-
+expect_equal(result, 66)

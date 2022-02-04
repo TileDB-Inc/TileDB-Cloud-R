@@ -65,7 +65,7 @@ This too is a simple convenience wrapper connecting `delayed` and generic UDFs a
 a <- delayed_generic_udf(
   namespace='your-namespace',
   udf=function(vec, exponent) {
-    sum(vec) ** exponent
+    sum(vec ** exponent)
   },
   name='my-generic'
 )
@@ -77,7 +77,7 @@ with output
 
 ```
 [1]
-166375
+3025
 ```
 
 ## Delayed array UDFs
