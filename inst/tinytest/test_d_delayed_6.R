@@ -43,13 +43,13 @@ expect_equal(o[["rows"]], c(1, 2, 3, 4))
 a <- delayed_generic_udf(
   namespace=namespaceToCharge,
   udf=function(vec, exponent) {
-    sum(vec) ** exponent
+    sum(vec ** exponent)
   },
   args=list(vec=1:10, exponent=3),
   name='my generic udf'
 )
 o <- compute(a, namespace=namespaceToCharge)
-expect_equal(o, 166375)
+expect_equal(o, 3025)
 
 # ----------------------------------------------------------------
 a <- delayed_array_udf(

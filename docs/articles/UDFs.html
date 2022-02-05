@@ -201,7 +201,7 @@ $max
 <span class="va">udfname</span> <span class="op">&lt;-</span> <span class="st">'udf-registration-test-generic'</span>
 
 <span class="va">myfunc</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">vec</span>, <span class="va">exponent</span><span class="op">)</span> <span class="op">{</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">vec</span><span class="op">)</span> <span class="op">**</span> <span class="va">exponent</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">vec</span> <span class="op">**</span> <span class="va">exponent</span><span class="op">)</span>
 <span class="op">}</span>
 
 <span class="fu"><a href="../reference/register_udf.html">register_udf</a></span><span class="op">(</span>namespace<span class="op">=</span><span class="va">namespace</span>, name<span class="op">=</span><span class="va">udfname</span>, <span class="st">'generic'</span>, func<span class="op">=</span><span class="va">myfunc</span><span class="op">)</span>
@@ -212,7 +212,7 @@ $max
 List of 5
  $ name    : chr "udf-registration-test-generic"
  $ exec    : chr "Wzg4LDEwLDAsMCwwLDMsMCw0LDEsMSwwLDMsNSwwLDAsMCwwLDUsODUsODQsNzAsNDUsNTYsMCwwLDQsMywwLDAsMCwyNTMsMCwwLDQsMiwwLDA"| __truncated__
- $ exec_raw: chr "function (vec, exponent) \n{\n    sum(vec)^exponent\n}"
+ $ exec_raw: chr "function (vec, exponent) \n{\n    sum(vec ** exponent)\n}"
  $ language: chr "\"r\""
  $ tags    : NULL</code></pre>
 </div>
@@ -226,7 +226,7 @@ List of 5
 
 <span class="va">myfunc</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">df</span>, <span class="va">attrname</span>, <span class="va">exponent</span><span class="op">)</span> <span class="op">{</span>
   <span class="va">vec</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="va">df</span><span class="op">[[</span><span class="va">attrname</span><span class="op">]</span><span class="op">]</span><span class="op">)</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">vec</span><span class="op">)</span> <span class="op">**</span> <span class="va">exponent</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">vec</span> <span class="op">**</span> <span class="va">exponent</span><span class="op">)</span>
 <span class="op">}</span>
 
 <span class="fu">tiledbcloud</span><span class="fu">::</span><span class="fu"><a href="../reference/register_udf.html">register_udf</a></span><span class="op">(</span>namespace<span class="op">=</span><span class="va">namespace</span>, name<span class="op">=</span><span class="va">udfname</span>, type<span class="op">=</span><span class="st">'single_array'</span>, func<span class="op">=</span><span class="va">myfunc</span><span class="op">)</span>
@@ -236,7 +236,7 @@ List of 5
 <pre><code>List of 5
  $ name    : chr "udf-registration-test-single-array-with-arg"
  $ exec    : chr "Wzg4LDEwLDAsMCwwLDMsMCw0LDEsMSwwLDMsNSwwLDAsMCwwLDUsODUsODQsNzAsNDUsNTYsMCwwLDQsMywwLDAsMCwyNTMsMCwwLDQsMiwwLDA"| __truncated__
- $ exec_raw: chr "function (df, attrname, exponent) \n{\n    vec &lt;- as.vector(df[[attrname]])\n    sum(vec)^exponent\n}"
+ $ exec_raw: chr "function (df, attrname, exponent) \n{\n    vec &lt;- as.vector(df[[attrname]])\n    sum(vec ** exponent)\n}"
  $ language: chr "\"r\""
  $ tags    : list()</code></pre>
 </div>

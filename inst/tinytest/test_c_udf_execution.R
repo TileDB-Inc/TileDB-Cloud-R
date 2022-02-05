@@ -76,7 +76,7 @@ expect_equal(result, list(min=1, med=2, max=3))
 array_name <- "TileDB-Inc/quickstart_dense"
 myfunc <- function(df, exponent) {
   vec <- as.vector(df[["a"]])
-  sum(vec) ** exponent
+  sum(vec ** exponent)
 }
 selectedRanges <- list(cbind(1,4), cbind(1,4))
 attrs <- c("a")
@@ -89,7 +89,7 @@ result <- tiledbcloud::execute_array_udf(
   attrs=attrs,
   args=list(exponent=2)
 )
-expect_equal(result, 18496)
+expect_equal(result, 1496)
 
 result <- tiledbcloud::execute_array_udf(
   namespace=namespaceToCharge,
@@ -99,7 +99,7 @@ result <- tiledbcloud::execute_array_udf(
   attrs=attrs,
   args=list(exponent=3)
 )
-expect_equal(result, 2515456)
+expect_equal(result, 18496)
 
 result <- tiledbcloud::execute_array_udf(
   namespace=namespaceToCharge,
@@ -110,7 +110,7 @@ result <- tiledbcloud::execute_array_udf(
   args=list(exponent=3),
   result_format='json'
 )
-expect_equal(result, 2515456)
+expect_equal(result, 18496)
 
 result <- tiledbcloud::execute_array_udf(
   namespace=namespaceToCharge,
@@ -122,7 +122,7 @@ result <- tiledbcloud::execute_array_udf(
   result_format='arrow'
 )
 # Arrow result is of type dataframe, so we pull out the 'result' slot
-expect_equal(result$result, 2515456)
+expect_equal(result$result, 18496)
 
 # ----------------------------------------------------------------
 # TODO: put this into TileDB-Inc namespace
