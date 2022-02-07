@@ -79,7 +79,7 @@ delayed_sql <- function(query, name, namespace) {
 ##'
 ##' @family {manual-layer functions}
 ##' @export
-delayed_generic_udf <- function(namespace, udf=NULL, registered_udf_name=NULL, args=NULL, name=NULL)
+delayed_generic_udf <- function(namespace, udf=NULL, registered_udf_name=NULL, args=NULL, name=NULL, language='r')
 {
   # It is absolutely necessary that this be a locally executing call to the
   # remote REST service. A non-local execution of this would mean the REST
@@ -99,7 +99,8 @@ delayed_generic_udf <- function(namespace, udf=NULL, registered_udf_name=NULL, a
         namespace=namespace,
         udf=udf,
         registered_udf_name=registered_udf_name,
-        args=list(...))
+        args=list(...),
+        language=language)
     },
     args=args,
     name=NULL,
@@ -138,7 +139,7 @@ delayed_generic_udf <- function(namespace, udf=NULL, registered_udf_name=NULL, a
 ##' @family {manual-layer functions}
 ##' @export
 delayed_array_udf <- function(namespace, array, udf=NULL, registered_udf_name=NULL, selectedRanges, attrs,
-  layout=NULL, args=NULL, result_format='native', name=NULL)
+  layout=NULL, args=NULL, result_format='native', name=NULL, language='r')
 {
   # It is absolutely necessary that this be a locally executing call to the
   # remote REST service. A non-local execution of this would mean the REST
@@ -171,7 +172,8 @@ delayed_array_udf <- function(namespace, array, udf=NULL, registered_udf_name=NU
         attrs=attrs,
         layout=layout,
         args=list(...),
-        result_format=result_format)
+        result_format=result_format,
+        language=language)
     },
     args=args,
     name=name,
