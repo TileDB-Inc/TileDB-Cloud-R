@@ -8,16 +8,16 @@
 ##' The \code{udf} and \code{namespace} arguments are required; the \code{args}
 ##' argument is optional.
 ##'
+##' @param namespace Namespace within TileDB cloud.
+##'
 ##' @param query SQL query as a string.
 ##'
 ##' @param name A descriptive name to give the query.
 ##'
-##' @param namespace Namespace within TileDB cloud.
-##'
 ##' @return The result of the SQL query.
 ##' @family {manual-layer functions}
 ##' @export
-execute_sql_query <- function(query, name, namespace) {
+execute_sql_query <- function(namespace, query, name) {
 
   api.client.instance <- get_api_client_instance()
   sql.api.instance <- sql <- SqlApi$new(api.client.instance)

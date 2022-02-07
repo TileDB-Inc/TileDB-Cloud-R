@@ -40,9 +40,9 @@ This is a simple convenience wrapper connecting `delayed`, as above, and TileDB 
 
 ```
 a <- delayed_sql(
+    namespace='your-namespace',
     query="select `rows`, AVG(a) as avg_a from `tiledb://TileDB-Inc/quickstart_dense` GROUP BY `rows`",
-    name="rows-query",
-    namespace='your-namespace')
+    name="rows-query")
 o <- compute(a, namespace, verbose=TRUE)
 print(o)
 ```
@@ -140,9 +140,9 @@ array_apply <- delayed_array_udf(
 # SQL -- note the output is a dataframe, and values are all strings (MariaDB
 # "decimal values") so we'll cast them to numeric later.
 sql = delayed_sql(
+  namespace=namespace,
   "select SUM(`a`) as a from `tiledb://TileDB-Inc/quickstart_dense`",
-  name="sql",
-  namespace=namespace
+  name="sql"
 )
 
 # Custom function for averaging all the results we are passing in
