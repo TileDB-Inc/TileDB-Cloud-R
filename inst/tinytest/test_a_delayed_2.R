@@ -18,11 +18,10 @@ check_topo_sort <- function(dag, name1, name2) {
 # ----------------------------------------------------------------
 a <- delayed(function() { 1 }, name='a', local=TRUE)
 
-dag <- DAG$new(namespace="ns", terminal_node=a)
+dag <- DAG$new(terminal_node=a)
 
 expect_equal(length(dag$all_nodes), 1)
 expect_equal(length(dag$initial_nodes), 1)
-expect_equal(dag$namespace, 'ns')
 
 # ----------------------------------------------------------------
 a <- delayed(function()    {      1 },               name='a', local=TRUE)
@@ -31,11 +30,10 @@ c <- delayed(function()  {      300 },               name='c', local=TRUE)
 d <- delayed(function(x) {   4000+x }, args=list(c), name='d', local=TRUE)
 e <- delayed(function(x,y) {  50000+x+y }, args=list(b,d), name='e', local=TRUE)
 
-dag <- DAG$new(namespace="ns", terminal_node=e)
+dag <- DAG$new(terminal_node=e)
 
 expect_equal(length(dag$all_nodes), 5)
 expect_equal(length(dag$initial_nodes), 2)
-expect_equal(dag$namespace, 'ns')
 
 check_topo_sort(dag, 'a', 'b')
 check_topo_sort(dag, 'c', 'd')
@@ -53,11 +51,10 @@ e <- delayed(function(x) {  50000+x }, args=list(d), name='e', local=TRUE)
 f <- delayed(function(x) { 600000+x }, args=list(e), name='f', local=TRUE)
 g <- delayed(function(x) {7000000+x }, args=list(f), name='g', local=TRUE)
 
-dag <- DAG$new(namespace="ns", terminal_node=g)
+dag <- DAG$new(terminal_node=g)
 
 expect_equal(length(dag$all_nodes), 7)
 expect_equal(length(dag$initial_nodes), 1)
-expect_equal(dag$namespace, 'ns')
 
 check_topo_sort(dag, 'a', 'b')
 check_topo_sort(dag, 'b', 'c')
@@ -76,11 +73,10 @@ e <- delayed(sum, args=list(c,d),   name='e')
 f <- delayed(sum, args=list(c),     name='f')
 g <- delayed(sum, args=list(a,e,f), name='g')
 
-dag <- DAG$new(namespace="ns", terminal_node=g)
+dag <- DAG$new(terminal_node=g)
 
 expect_equal(length(dag$all_nodes), 7)
 expect_equal(length(dag$initial_nodes), 3)
-expect_equal(dag$namespace, 'ns')
 
 check_topo_sort(dag, 'a', 'd')
 check_topo_sort(dag, 'a', 'g')

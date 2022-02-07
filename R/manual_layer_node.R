@@ -112,11 +112,8 @@ Node <- R6::R6Class(
     # Nominal use-case is people call compute(...) on a return value from delayed(...).
     # However, for more detailed inspection we support getting a DAG and doing dag$poll()
     # and inspecting the results as computation progresses.
-    #
-    # The namespace must be non-null for cloud execution. For all-local runs it can be null.
-    # We check this at compute time.
-    make_dag = function(namespace=NULL) {
-      self$dag_for_terminal <- DAG$new(namespace=namespace, terminal_node=self)
+    make_dag = function() {
+      self$dag_for_terminal <- DAG$new(terminal_node=self)
       self$dag_for_terminal
     },
 
@@ -145,10 +142,10 @@ Node <- R6::R6Class(
       # or failed) people can show(n$dag_for_terminal) to visualize future results, stdout from the
       # forked processes, etc.
       if (is.null(self$dag_for_terminal)) {
-        self$make_dag(namespace)
+        self$make_dag()
       }
 
-      self$dag_for_terminal$compute(timeout_seconds=timeout_seconds, verbose=verbose, force_all_local=force_all_local)
+      self$dag_for_terminal$compute(namespace=namespace, timeout_seconds=timeout_seconds, verbose=verbose, force_all_local=force_all_local)
     },
 
     # ----------------------------------------------------------------
@@ -159,7 +156,7 @@ Node <- R6::R6Class(
     #
     # Our DAG is a poll-driven DAG so dag$poll() must be called repeatedly in order to launch
     # futures for initial nodes, detect when they are resolved, launch subsequent nodes, etc.
-    poll = function(namespace, verbose=FALSE, force_local=FALSE) {
+    poll = function(namespace=NULL, verbose=FALSE, force_local=FALSE) {
       if (is.null(namespace)) {
         if (!self$local && !force_local) {
           stop("namespace must be provided in a task graph with any non-local nodes.")
