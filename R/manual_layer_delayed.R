@@ -55,7 +55,7 @@ delayed_sql <- function(namespace, query, name) {
   # server calling itself -- not only would that be a circular dependency, but
   # moreover the tiledbcloud is not running on the REST server.
   delayed(function() {
-    execute_sql_query(namespace=namespace, query=query, name=name, namespace=namespace)
+    execute_sql_query(namespace=namespace, query=query, name=name)
   }, local=TRUE)
 }
 
