@@ -315,8 +315,15 @@ Node <- R6::R6Class(
       cat(",args_ready=", ifelse(self$have_args, self$args_ready(), "(none set)"), sep="")
       cat(",future=", ifelse(is.null(self$future), "absent", "present"), sep="")
       cat(",status=", self$status, sep="")
-      cat(",result=", ifelse(is.null(self$result), "(null)", self$result), sep="")
       cat("\n")
+
+      if (!is.null(self$result)) {
+        cat("Result:\n")
+        str(self$result)
+      }
+
+
+
       if (!is.null(self$dag_for_terminal)) {
         show(self$dag_for_terminal)
       }
