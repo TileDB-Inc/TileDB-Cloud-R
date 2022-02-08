@@ -25,7 +25,7 @@ library(tiledbcloud)
 
 # ----------------------------------------------------------------
 a <- delayed(function() { 9 }, name='a', local=FALSE)
-expect_error(compute(a, timeout_seconds=300),
+expect_error(compute(a, namespace=NULL, timeout_seconds=300),
   pattern="namespace must be provided in a task graph with any non-local nodes")
 
 # ----------------------------------------------------------------
