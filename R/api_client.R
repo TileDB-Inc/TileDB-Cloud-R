@@ -105,13 +105,18 @@ ApiClient  <- R6::R6Class(
 
     CallApi = function(url, method, queryParams, headerParams, body, ...){
 
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
       if (Sys.getenv("TILEDB_CLOUD_R_HTTP_DEBUG") != "") {
         cat("================================================================ REQUEST\n")
         cat("METHOD:", method, "\n")
-        cat("QUERY_PARAMS:\n")
-        str(queryParams, width=1000, nchar.max=10000)
-        cat("HEADER_PARAMS:\n")
-        str(headerParams, width=1000, nchar.max=10000)
+        if (exists("str")) { # sometimes at startup weird "object 'str' not found" :^/
+          cat("QUERY_PARAMS:\n")
+          str(queryParams, width=1000, nchar.max=10000)
+        }
+        if (exists("str")) { # sometimes at startup weird "object 'str' not found" :^/
+          cat("HEADER_PARAMS:\n")
+          str(headerParams, width=1000, nchar.max=10000)
+        }
         cat("BODY:\n")
         if (is.null(body)) {
           cat("(NULL)\n")
@@ -141,11 +146,14 @@ ApiClient  <- R6::R6Class(
         }  
       }
 
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
       if (Sys.getenv("TILEDB_CLOUD_R_HTTP_DEBUG") != "") {
         cat("================================================================ RESPONSE\n")
         cat("STATUS_CODE:", statusCode, "\n")
-        cat("BODY:\n")
-        str(resp, width=1000, nchar.max=10000)
+        if (exists("str")) { # sometimes at startup weird "object 'str' not found" :^/
+          cat("BODY:\n")
+          str(resp, width=1000, nchar.max=10000)
+        }
         cat("================================================================\n")
       }
 

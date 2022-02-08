@@ -30,38 +30,55 @@
 ##' @return The R object which is the return value from the UDF.
 ##' @family {manual-layer functions}
 ##' @export
-execute_generic_udf <- function(namespace, udf=NULL, registered_udf_name=NULL, args=NULL, result_format='native') {
+execute_generic_udf <- function(namespace, udf=NULL, registered_udf_name=NULL, args=NULL, result_format='native', args_format='native', language='r') {
   apiClientInstance <- get_api_client_instance()
-
-  if (is.null(udf) && is.null(registered_udf_name)) {
-    stop("One, but not both, of udf and registered_udf_name must be provided.")
-  }
-  if (!is.null(udf) && !is.null(registered_udf_name)) {
-    stop("One, but not both, of udf and registered_udf_name must be provided.")
-  }
-
   udfApiInstance <- UdfApi$new(apiClientInstance)
   generic_udf <- GenericUDF$new()
-  generic_udf$language <- UDFLanguage$new("r")
+
+  # We rely on UDFLanguage$new to do enum-matching
+  generic_udf$language <- UDFLanguage$new(language)
+
+  # For invoking registered Python UDFs, we must send the args in language-independent way,
+  # and retrieve the results in a language-independent way.
+  if (language == 'python') {
+    if (args_format == 'native') {
+      args_format <- 'json'
+    }
+    if (result_format == 'native') {
+      result_format <- 'json'
+    }
+  }
+
+  # Here we rely on ResultFormat$new to match against the acceptable values for
+  # result format, which in turn are automatically generated from the
+  # TileDB-Cloud OpenAPI spec.
+  generic_udf$result_format <- ResultFormat$new(result_format)
+
+  .check_udf_or_unregistered_exclusively('execute_generic_udf', udf, registered_udf_name)
   if (!is.null(udf)) {
     generic_udf$exec <- jsonlite::toJSON(as.integer(serialize(udf, NULL)))
   }
   if (!is.null(registered_udf_name)) {
     generic_udf$udf_info_name <- registered_udf_name
   }
+
   if (!is.null(args)) {
-    generic_udf$argument <- jsonlite::toJSON(as.integer(serialize(args, NULL)))
+    if (args_format == 'native') {
+      generic_udf$argument <- jsonlite::toJSON(as.integer(serialize(args, NULL)))
+    } else if (args_format == 'json') {
+      # Particularly useful for invoking registered Python UDFs
+      generic_udf$argument <- jsonlite::toJSON(args, auto_unbox = TRUE, null = "null")
+      generic_udf$argument <- gsub('"', '\\\\"', generic_udf$argument) # hack hack hack -- does not nest well
+    } else {
+      stop('args_format must be one of "native" or "json"')
+    }
   }
-  stopifnot (!is.null(result_format))
-  # Here we rely on ResultFormat$new to match against the acceptable values for
-  # result format, which in turn are automatically generated from the
-  # TileDB-Cloud OpenAPI spec.
-  generic_udf$result_format <- ResultFormat$new(result_format)
 
   resultObject <- udfApiInstance$SubmitGenericUDF(namespace, generic_udf)
 
   # Decode the result
-  .get_decoded_response_body_or_stop(resultObject, result_format)
+  entire_json_is_result <- language == 'python' && result_format == 'json'
+  .get_decoded_response_body_or_stop(resultObject, result_format, entire_json_is_result=entire_json_is_result)
 }
 
 ##' Execute a single-array UDF on TileDB Cloud
@@ -112,35 +129,31 @@ execute_generic_udf <- function(namespace, udf=NULL, registered_udf_name=NULL, a
 ##' @importFrom arrow read_ipc_stream
 ##' @family {manual-layer functions}
 ##' @export
-execute_array_udf <- function(array, namespace=NULL, udf=NULL, registered_udf_name=NULL, selectedRanges, attrs=NULL, layout=NULL, args=NULL, result_format='native') {
+execute_array_udf <- function(array, namespace=NULL, udf=NULL, registered_udf_name=NULL, selectedRanges, attrs=NULL, layout=NULL, args=NULL, result_format='native', args_format='native', language='r') {
   apiClientInstance <- get_api_client_instance()
-
-  if (is.null(udf) && is.null(registered_udf_name)) {
-    stop("One, but not both, of udf and registered_udf_name must be provided.")
-  }
-  if (!is.null(udf) && !is.null(registered_udf_name)) {
-    stop("One, but not both, of udf and registered_udf_name must be provided.")
-  }
-
   udfApiInstance <- UdfApi$new(apiClientInstance)
-
-  # This function is for single arrays which are packed a little differently
-  # from the way the multi-array function does it. Namely, here we pass buffers &
-  # ranges outside of the multi_array_udf object.
   multi_array_udf <- MultiArrayUDF$new()
-  multi_array_udf$language <- UDFLanguage$new("r")
 
-  # selected_ranges are required for dense arrays; optional for sparse arrays.
-  # At the user/library level this is a list of two-column matrices, e.g.
-  # 'list(cbind(1,2), cbind(3,4))'.
+  # We rely on UDFLanguage$new to do enum-matching
+  multi_array_udf$language <- UDFLanguage$new(language)
 
-  if (!is.null(layout)) {
-    layout <- Layout$new(layout)
+  # For invoking registered Python UDFs, we must send the args in language-independent way,
+  # and retrieve the results in a language-independent way.
+  if (language == 'python') {
+    if (args_format == 'native') {
+      args_format <- 'json'
+    }
+    if (result_format == 'native') {
+      result_format <- 'json'
+    }
   }
 
-  queryRanges <- QueryRanges$new(layout=layout, ranges=selectedRanges)
-  multi_array_udf$ranges <- queryRanges
+  # Here we rely on ResultFormat$new to match against the acceptable values for
+  # result format, which in turn are automatically generated from the
+  # TileDB-Cloud OpenAPI spec.
+  multi_array_udf$result_format <- ResultFormat$new(result_format)
 
+  .check_udf_or_unregistered_exclusively('execute_array_udf', udf, registered_udf_name)
   if (!is.null(udf)) {
     multi_array_udf$exec <- jsonlite::toJSON(as.integer(serialize(udf, NULL)))
   }
@@ -148,20 +161,36 @@ execute_array_udf <- function(array, namespace=NULL, udf=NULL, registered_udf_na
     multi_array_udf$udf_info_name <- registered_udf_name
   }
 
-  if (!is.null(args)) {
-    multi_array_udf$argument <- jsonlite::toJSON(as.integer(serialize(args, NULL)))
+  if (!is.null(layout)) {
+    layout <- Layout$new(layout)
   }
 
-  stopifnot (!is.null(result_format))
-  # Here we rely on ResultFormat$new to match against the acceptable values for
-  # result format, which in turn are automatically generated from the
-  # TileDB-Cloud OpenAPI spec.
-  multi_array_udf$result_format <- ResultFormat$new(result_format)
+  # selected_ranges are required for dense arrays; optional for sparse arrays.
+  # At the user/library level this is a list of two-column matrices, e.g.
+  # 'list(cbind(1,2), cbind(3,4))'.
+  queryRanges <- QueryRanges$new(layout=layout, ranges=selectedRanges)
+  multi_array_udf$ranges <- queryRanges
 
+  # This function is for single arrays which are packed a little differently
+  # from the way the multi-array function does it. Namely, here we pass buffers &
+  # ranges outside of the multi_array_udf object.
+  #
   # Attrs can be optionally specified by the client. If they are not, the
   # server-side code will load all attributes.
   if (!is.null(attrs)) {
     multi_array_udf$buffers <- attrs
+  }
+
+  if (!is.null(args)) {
+    if (args_format == 'native') {
+      multi_array_udf$argument <- jsonlite::toJSON(as.integer(serialize(args, NULL)))
+    } else if (args_format == 'json') {
+      # Particularly useful for invoking registered Python UDFs
+      multi_array_udf$argument <- jsonlite::toJSON(args, auto_unbox = TRUE, null = "null")
+      multi_array_udf$argument <- gsub('"', '\\\\"', multi_array_udf$argument) # hack hack hack -- does not nest well
+    } else {
+      stop('args_format must be one of "native" or "json"')
+    }
   }
 
   # * The namespace parameter is whom to charge.
@@ -180,7 +209,8 @@ execute_array_udf <- function(array, namespace=NULL, udf=NULL, registered_udf_na
   resultObject <- udfApiInstance$SubmitUDF(namespace=array_namespace, array=array_name, udf=multi_array_udf, x.payer=x.payer)
 
   # Decode the result
-  .get_decoded_response_body_or_stop(resultObject, result_format)
+  entire_json_is_result <- language == 'python' && result_format == 'json'
+  .get_decoded_response_body_or_stop(resultObject, result_format, entire_json_is_result=entire_json_is_result)
 }
 
 ##' Execute a multi-array UDF on TileDB Cloud
@@ -218,36 +248,49 @@ execute_array_udf <- function(array, namespace=NULL, udf=NULL, registered_udf_na
 ##' @return Return value from the UDF.
 ##' @family {manual-layer functions}
 ##' @export
-execute_multi_array_udf <- function(namespace, array_list, udf=NULL, registered_udf_name=NULL, args=NULL, result_format='native') {
+execute_multi_array_udf <- function(namespace, array_list, udf=NULL, registered_udf_name=NULL, args=NULL, result_format='native', args_format='native', language='r') {
   apiClientInstance <- get_api_client_instance()
-
-  if (is.null(udf) && is.null(registered_udf_name)) {
-    stop("One, but not both, of udf and registered_udf_name must be provided.")
-  }
-  if (!is.null(udf) && !is.null(registered_udf_name)) {
-    stop("One, but not both, of udf and registered_udf_name must be provided.")
-  }
-
   udfApiInstance <- UdfApi$new(apiClientInstance)
-
   multi_array_udf <- MultiArrayUDF$new()
-  multi_array_udf$language <- UDFLanguage$new("r")
 
+  # We rely on UDFLanguage$new to do enum-matching
+  multi_array_udf$language <- UDFLanguage$new(language)
+
+  # For invoking registered Python UDFs, we must send the args in language-independent way,
+  # and retrieve the results in a language-independent way.
+  if (language == 'python') {
+    if (args_format == 'native') {
+      args_format <- 'json'
+    }
+    if (result_format == 'native') {
+      result_format <- 'json'
+    }
+  }
+
+  # Here we rely on ResultFormat$new to match against the acceptable values for
+  # result format, which in turn are automatically generated from the
+  # TileDB-Cloud OpenAPI spec.
+  multi_array_udf$result_format <- ResultFormat$new(result_format)
+
+  .check_udf_or_unregistered_exclusively('execute_multi_array_udf', udf, registered_udf_name)
   if (!is.null(udf)) {
     multi_array_udf$exec <- jsonlite::toJSON(as.integer(serialize(udf, NULL)))
   }
   if (!is.null(registered_udf_name)) {
     multi_array_udf$udf_info_name <- registered_udf_name
   }
-  if (!is.null(args)) {
-    multi_array_udf$argument <- jsonlite::toJSON(as.integer(serialize(args, NULL)))
-  }
 
-  stopifnot (!is.null(result_format))
-  # Here we rely on ResultFormat$new to match against the acceptable values for
-  # result format, which in turn are automatically generated from the
-  # TileDB-Cloud OpenAPI spec.
-  multi_array_udf$result_format <- ResultFormat$new(result_format)
+  if (!is.null(args)) {
+    if (args_format == 'native') {
+      multi_array_udf$argument <- jsonlite::toJSON(as.integer(serialize(args, NULL)))
+    } else if (args_format == 'json') {
+      # Particularly useful for invoking registered Python UDFs
+      multi_array_udf$argument <- jsonlite::toJSON(args, auto_unbox = TRUE, null = "null")
+      multi_array_udf$argument <- gsub('"', '\\\\"', multi_array_udf$argument) # hack hack hack -- does not nest well
+    } else {
+      stop('args_format must be one of "native" or "json"')
+    }
+  }
 
   # TODO: type-check the array_list parameter to be sure it's list of UDFArrayDetails
   multi_array_udf$arrays <- array_list
@@ -256,7 +299,8 @@ execute_multi_array_udf <- function(namespace, array_list, udf=NULL, registered_
   resultObject <- udfApiInstance$SubmitMultiArrayUDF(namespace=namespace, udf=multi_array_udf)
 
   # Decode the result
-  .get_decoded_response_body_or_stop(resultObject, result_format)
+  entire_json_is_result <- language == 'python' && result_format == 'json'
+  .get_decoded_response_body_or_stop(resultObject, result_format, entire_json_is_result=entire_json_is_result)
 }
 
 ##' Register a UDF on TileDB Cloud
@@ -429,4 +473,13 @@ deregister_udf <- function(name, namespace) {
   # Decode the result, expecting empty string.
   .get_empty_response_body_or_stop(resultObject)
   invisible("OK")
+}
+
+.check_udf_or_unregistered_exclusively <- function(caller_name, udf, registered_udf_name) {
+  if (is.null(udf) && is.null(registered_udf_name)) {
+    stop(caller_name, ": one, but not both, of udf and registered_udf_name must be provided.")
+  }
+  if (!is.null(udf) && !is.null(registered_udf_name)) {
+    stop(caller_name, ": one, but not both, of udf and registered_udf_name must be provided.")
+  }
 }

@@ -126,8 +126,13 @@
 ##' \code{\link{.wrap_as_api_response}} internally. These are functions which are manually
 ##' edited after OpenAPI autogen.
 ##'
+##' @param entire_json_is_result If false, return the \code{"value"} field from the JSON object.
+##' This is the right thing to do for returns from the REST server for almost all cases.
+##' The true case is only for getting the results from invoking registered Python UDFs
+##' from R, in which case the JSON result in its entirety is the UDF output.
+##'
 ##' @return The argument, decoded according to the specified result format.
-.get_decoded_response_body_or_stop <- function(resultObject, result_format) {
+.get_decoded_response_body_or_stop <- function(resultObject, result_format, entire_json_is_result=FALSE) {
   body <- .get_raw_response_body_or_stop(resultObject)
 
   decoded_response <- NULL
@@ -138,7 +143,11 @@
     json={
       resultString <- rawToChar(body)
       resultJSON <- jsonlite::fromJSON(resultString)
-      decoded_response <- resultJSON[["value"]]
+      if (entire_json_is_result) {
+        decoded_response <- resultJSON
+      } else {
+        decoded_response <- resultJSON[["value"]]
+      }
     },
     arrow={
       decoded_response <- arrow::read_ipc_stream(body)
