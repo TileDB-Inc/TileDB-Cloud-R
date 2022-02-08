@@ -160,9 +160,10 @@ Node <- R6::R6Class(
     # Our DAG is a poll-driven DAG so dag$poll() must be called repeatedly in order to launch
     # futures for initial nodes, detect when they are resolved, launch subsequent nodes, etc.
     poll = function(namespace, verbose=FALSE, force_local=FALSE) {
-      if (is.null(namespace)) {
-        if (!self$local && !force_local) {
-          stop("namespace must be provided in a task graph with any non-local nodes.")
+      if (is.null(namespace) && (!self$local && !force_local)) {
+        namespace <- .get_default_namespace_charged()
+        if (is.null(namespace)) {
+          stop("namespace must be provided in a task graph with any non-local nodes, and no account-local default was found")
         }
       }
       if (self$status == COMPLETED) {

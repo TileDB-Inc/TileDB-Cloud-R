@@ -91,11 +91,20 @@ login <- function(username, password, api_key, host, remember_me=TRUE, write_con
     .pkgenv[["apiClientInstance"]]  <- apiClientInstance
     .pkgenv[["userApiInstance"]] <- userApiInstance
 
+    ## Remember default namespace. Set this even if it's NULL -- the fact that
+    ## the user doesn't have a default namespace to charge is itself worth remembering,
+    ## so that error messages in the default-namespacing logic can be more helpful.
+    .pkgenv[["default_namespace_charged"]] <- res[["default_namespace_charged"]]
+
     if (write_config) {
       .storeConfig()
     }
 
     invisible()
+}
+
+.get_default_namespace_charged <- function() {
+  .pkgenv[["default_namespace_charged"]]
 }
 
 ##' Access cached API-client object
