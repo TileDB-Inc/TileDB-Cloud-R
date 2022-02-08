@@ -12,7 +12,6 @@
 DAG <- R6::R6Class(
   'DAG',
   public = list(
-    namespace      = NULL,
     all_nodes      = NULL,
     initial_nodes  = NULL,
     terminal_node  = NULL,
@@ -20,12 +19,7 @@ DAG <- R6::R6Class(
     # ================================================================
     # INITIALIZATION METHODS
 
-    # The namespace must be non-null for cloud execution. For all-local runs it can be null.
-    # We check this at compute time.
-    initialize = function(terminal_node, namespace=NULL) {
-      if (!is.null(namespace)) {
-        self$namespace <- namespace
-      }
+    initialize = function(terminal_node) {
       self$populate(terminal_node)
     },
 
@@ -154,7 +148,7 @@ DAG <- R6::R6Class(
     # dag <- terminal_node$make_dag(), then dag$poll() and show(dag) / str(dag)
     # repeatedly in order better to visualize the flow of computation through the
     # graph.
-    compute = function(timeout_seconds=NULL, verbose=FALSE, force_all_local=FALSE) {
+    compute = function(namespace=namespace, timeout_seconds=NULL, verbose=FALSE, force_all_local=FALSE) {
       self$reset()
 
       if (verbose) show(self)
@@ -164,7 +158,7 @@ DAG <- R6::R6Class(
       future::plan(future::multicore)
 
       start <- Sys.time()
-      while (self$poll(verbose=verbose, force_all_local=force_all_local) == FALSE) {
+      while (self$poll(namespace=namespace, verbose=verbose, force_all_local=force_all_local) == FALSE) {
         now <- Sys.time()
         elapsed_seconds <- as.numeric(now-start, units='secs')
         if (!is.null(timeout_seconds)) {
@@ -191,8 +185,11 @@ DAG <- R6::R6Class(
     # This *must* be called periodically to update nodes and launch dependents.
     # Our poll-driven DAGs won't auto-run without this being invoked
     # periodically.
-    poll = function(verbose=FALSE, force_all_local=FALSE) {
-      terminal_done <- self$terminal_node$poll(namespace=self$namespace, verbose=verbose, force_local=force_all_local)
+    #
+    # The namespace must be non-null for cloud execution. For all-local runs it can be null.
+    # We check this at compute time.
+    poll = function(namespace=NULL, verbose=FALSE, force_all_local=FALSE) {
+      terminal_done <- self$terminal_node$poll(namespace=namespace, verbose=verbose, force_local=force_all_local)
     },
 
     # ================================================================
@@ -210,7 +207,6 @@ DAG <- R6::R6Class(
     },
 
     show = function() {
-      cat("Namespace: ", ifelse(is.null(self$namespace), "NULL", self$namespace), "\n", sep="")
       self$show_node_list("All      nodes:   ", self$all_nodes)
       self$show_node_list("Initial  nodes:   ", self$initial_nodes)
       self$show_node_list("Terminal node:    ", list(self$terminal_node))
