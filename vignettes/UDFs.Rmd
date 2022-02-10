@@ -19,7 +19,7 @@ namespace <- "demo"
 # Your function
 myfunc <- function(x=50:54, y=70:74) { x + y }
 # Execute the function on TileDB Cloud
-result <- tiledbcloud::execute_generic_udf(namespace=namespace, udf=myfunc)
+result <- tiledbcloud::execute_generic_udf(udf=myfunc, namespace=namespace)
 print(result)
 ```
 
@@ -33,7 +33,7 @@ Using arguments:
 namespace <- "demo"
 myfunc <- function(x, y) { x + y }
 myargs <- list(100:104, 200:204)
-result <- tiledbcloud::execute_generic_udf(namespace=namespace, udf=myfunc, args=myargs)
+result <- tiledbcloud::execute_generic_udf(udf=myfunc, args=myargs, namespace=namespace)
 print(result)
 ```
 
@@ -50,11 +50,11 @@ myfunc <- function(df) {
 }
 
 result <- tiledbcloud::execute_array_udf(
-    namespace="demo", // to charge
     array="tiledb://TileDB-Inc/quickstart_dense",
     udf=myfunc,
     selectedRanges=list(cbind(1,2), cbind(1,2)), # Upper-left 2x2
-    attrs=c("a")
+    attrs=c("a"),
+    namespace="demo" // to charge
 )
 print(result)
 ```
@@ -79,11 +79,11 @@ myfunc <- function(df) {
 }
 
 result <- tiledbcloud::execute_array_udf(
-    # NULL namespace means username namespace is charged
     array="tiledb://demo/palmer_penguins2",
     udf=myfunc,
     selectedRanges=list(cbind("A", "Z"), cbind(2007,2009)),
     attrs=list("bill_length_mm", "body_mass_g")
+    # NULL namespace means username namespace is charged
 )
 print(result)
 ```
@@ -126,9 +126,9 @@ details2 <- tiledbcloud::UDFArrayDetails$new(
 )
 
 result <- tiledbcloud::execute_multi_array_udf(
-  namespace="demo",
   array_list=list(details1, details2),
-  udf=myfunc
+  udf=myfunc,
+  namespace="demo"
 )
 print(result)
 ```
@@ -256,9 +256,9 @@ udfname <- 'udf-registration-test-generic'
 registered_udf_name=paste(namespace, udfname, sep='/')
 
 result <- execute_generic_udf(
-  namespace=namespace,
   registered_udf_name=registered_udf_name,
-  args=list(vec=1:10, exponent=3)
+  args=list(vec=1:10, exponent=3),
+  namespace=namespace
 )
 print(result)
 ```
@@ -279,12 +279,12 @@ udf_name <- 'udf-registration-test-single-array-with-arg'
 registered_udf_name=paste(namespace_to_charge, udf_name, sep='/')
 
 result <- tiledbcloud::execute_array_udf(
-  namespace="testuser", # namespace to charge
   array="TileDB-Inc/quickstart_dense",
   registered_udf_name=registered_udf_name,
   args=list(attrname="a", exponent=2),
   selectedRanges=list(cbind(1,2), cbind(1,2)),
-  attrs=c("a")
+  attrs=c("a"),
+  namespace="testuser" # namespace to charge
 )
 print(result)
 ```
@@ -322,10 +322,10 @@ details2 <- tiledbcloud::UDFArrayDetails$new(
 )
 
 result <- tiledbcloud::execute_multi_array_udf(
-  namespace=namespace_to_charge,
   array_list=list(details1, details2),
   registered_udf_name=registered_udf_name,
-  args=list(attrname="a")
+  args=list(attrname="a"),
+  namespace=namespace_to_charge
 )
 print(result)
 ```

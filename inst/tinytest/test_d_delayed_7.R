@@ -36,9 +36,9 @@ library(tiledbcloud)
 
 # Non-delayed
 o <- execute_generic_udf(
-  namespace=namespaceToCharge,
   registered_udf_name='johnkerl-tiledb/tiledb-cloud-r-generic-udf-r',
-  args=list(vec=1:16, exponent=3)
+  args=list(vec=1:16, exponent=3),
+  namespace=namespaceToCharge
 )
 expect_equal(o, 18496)
 
@@ -68,12 +68,12 @@ expect_equal(o, 18496)
 
 # Non-delayed
 o <- execute_array_udf(
-  namespace=namespaceToCharge,
   array="TileDB-Inc/quickstart_dense",
   registered_udf_name='johnkerl-tiledb/tiledb-cloud-r-single-array-udf-r',
   selectedRanges=list(cbind(1,4), cbind(1,4)),
   attrs=c("a"),
-  args=list(attr="a", exponent=3)
+  args=list(attr="a", exponent=3),
+  namespace=namespaceToCharge
 )
 expect_equal(o, 18496)
 
@@ -107,9 +107,9 @@ expect_equal(o, 18496)
 
 # Non-delayed
 o <- execute_generic_udf(
-  namespace=namespaceToCharge,
   registered_udf_name='johnkerl-tiledb/tiledb-cloud-r-generic-udf-py',
   args=list(vec=1:16, exponent=3),
+  namespace=namespaceToCharge,
   language='python'
 )
 expect_equal(o, 18496)
@@ -143,12 +143,12 @@ expect_equal(o, 18496)
 
 # # Non-delayed
 # o <- execute_array_udf(
-#   namespace=namespaceToCharge,
 #   array="TileDB-Inc/quickstart_dense",
 #   registered_udf_name='johnkerl-tiledb/tiledb-cloud-r-single-array-udf-py',
 #   selectedRanges=list(cbind(1,4), cbind(1,4)),
 #   attrs=c("a"),
 #   args=list(attr="a", exponent=3),
+#   namespace=namespaceToCharge,
 #   language='python'
 # )
 # expect_equal(o, 18496)

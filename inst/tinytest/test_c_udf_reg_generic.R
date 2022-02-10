@@ -34,16 +34,16 @@ expect_equal(info$name, udfname)
 registered_udf_name=paste(namespaceToCharge, udfname, sep='/')
 
 result <- tiledbcloud::execute_generic_udf(
-  namespace=namespaceToCharge,
   registered_udf_name=registered_udf_name,
-  args=list(vec=1:10, exponent=2)
+  args=list(vec=1:10, exponent=2),
+  namespace=namespaceToCharge
 )
 expect_equal(result, 385)
 
 result <- tiledbcloud::execute_generic_udf(
-  namespace=namespaceToCharge,
   registered_udf_name=registered_udf_name,
-  args=list(vec=1:10, exponent=3)
+  args=list(vec=1:10, exponent=3),
+  namespace=namespaceToCharge
 )
 
 # Deregister the temp name before checking the result, in case of failure,

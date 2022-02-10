@@ -148,7 +148,10 @@ DAG <- R6::R6Class(
     # dag <- terminal_node$make_dag(), then dag$poll() and show(dag) / str(dag)
     # repeatedly in order better to visualize the flow of computation through the
     # graph.
-    compute = function(namespace=namespace, timeout_seconds=NULL, verbose=FALSE, force_all_local=FALSE) {
+    #
+    # The namespace here is one to be applied to the entire DAG. Individual nodes may
+    # have been constructed with their own overrides, which will be honored on node$poll().
+    compute = function(timeout_seconds=NULL, verbose=FALSE, namespace=NULL, force_all_local=FALSE) {
       self$reset()
 
       if (verbose) show(self)
@@ -158,7 +161,7 @@ DAG <- R6::R6Class(
       future::plan(future::multicore)
 
       start <- Sys.time()
-      while (self$poll(namespace=namespace, verbose=verbose, force_all_local=force_all_local) == FALSE) {
+      while (self$poll(verbose=verbose, namespace=namespace, force_all_local=force_all_local) == FALSE) {
         now <- Sys.time()
         elapsed_seconds <- as.numeric(now-start, units='secs')
         if (!is.null(timeout_seconds)) {
@@ -188,8 +191,8 @@ DAG <- R6::R6Class(
     #
     # The namespace must be non-null for cloud execution. For all-local runs it can be null.
     # We check this at compute time.
-    poll = function(namespace=NULL, verbose=FALSE, force_all_local=FALSE) {
-      terminal_done <- self$terminal_node$poll(namespace=namespace, verbose=verbose, force_local=force_all_local)
+    poll = function(verbose=FALSE, namespace=NULL, force_all_local=FALSE) {
+      terminal_done <- self$terminal_node$poll(verbose=verbose, namespace=namespace, force_local=force_all_local)
     },
 
     # ================================================================

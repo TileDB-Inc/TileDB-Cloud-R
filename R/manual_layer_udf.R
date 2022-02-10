@@ -8,8 +8,6 @@
 ##' The \code{udf} and \code{namespace} arguments are required; the \code{args}
 ##' argument is optional.
 ##'
-##' @param namespace Namespace within TileDB cloud.
-##'
 ##' @param udf An R function. Arguments are specified separately via \code{args}.
 ##' One of \code{udf} and \code{registered_udf_name} must be non-null.
 ##'
@@ -27,10 +25,23 @@
 ##' for memory-usage control.  UDF return values handed back to your code from this
 ##' library are converted back to natural R objects.
 ##'
+##' @param args_format One of \code{native}, \code{json}, or \code{arrow}. These are
+##' used as wire format for sending arguments to the server. Normally you do not need
+##' to specify this. If you're invoking an R UDF, \code{native} is used; if you're
+##' invoking a registered Python UDF, \code{json} is used but you can select \code{arrow}
+##' if you wish.
+##'
+##' @param namespace Namespace within TileDB cloud.
+##'
+##' @param language If omitted, defaults to \code{"r"}. Can be set to \code{"python"}
+##" when executing registered Python UDFs.
+##'
 ##' @return The R object which is the return value from the UDF.
 ##' @family {manual-layer functions}
 ##' @export
-execute_generic_udf <- function(namespace, udf=NULL, registered_udf_name=NULL, args=NULL, result_format='native', args_format='native', language='r') {
+execute_generic_udf <- function(udf=NULL, registered_udf_name=NULL, args=NULL, result_format='native',
+  args_format='native', namespace, language='r')
+{
   apiClientInstance <- get_api_client_instance()
   udfApiInstance <- UdfApi$new(apiClientInstance)
   generic_udf <- GenericUDF$new()
@@ -94,9 +105,6 @@ execute_generic_udf <- function(namespace, udf=NULL, registered_udf_name=NULL, a
 ##' @param array Name of the array, in the form either \code{tiledb://hello/world}
 ##' or \code{hello/world}.
 ##'
-##' @param namespace Namespace within TileDB cloud to charge. If this is null, the
-##' logged-in user's username will be used for the namespace.
-##'
 ##' @param udf An R function which takes a dataframe as argument.
 ##' Arguments are specified separately via \code{args}.
 ##' One of \code{udf} and \code{registered_udf_name} must be non-null.
@@ -125,12 +133,26 @@ execute_generic_udf <- function(namespace, udf=NULL, registered_udf_name=NULL, a
 ##' for memory-usage control.  UDF return values handed back to your code from this
 ##' library are converted back to natural R objects.
 ##'
+##' @param args_format One of \code{native}, \code{json}, or \code{arrow}. These are
+##' used as wire format for sending arguments to the server. Normally you do not need
+##' to specify this. If you're invoking an R UDF, \code{native} is used; if you're
+##' invoking a registered Python UDF, \code{json} is used but you can select \code{arrow}
+##' if you wish.
+##'
+##' @param namespace Namespace within TileDB cloud to charge. If this is null, the
+##' logged-in user's username will be used for the namespace.
+##'
+##' @param language If omitted, defaults to \code{"r"}. Can be set to \code{"python"}
+##" when executing registered Python UDFs.
+##'
 ##' @return Return value from the UDF.
 ##'
 ##' @importFrom arrow read_ipc_stream
 ##' @family {manual-layer functions}
 ##' @export
-execute_array_udf <- function(array, namespace=NULL, udf=NULL, registered_udf_name=NULL, selectedRanges, attrs=NULL, layout=NULL, args=NULL, result_format='native', args_format='native', language='r') {
+execute_array_udf <- function(array, udf=NULL, registered_udf_name=NULL, selectedRanges, attrs=NULL, layout=NULL, args=NULL,
+  result_format='native', args_format='native', namespace=NULL, language='r')
+{
   apiClientInstance <- get_api_client_instance()
   udfApiInstance <- UdfApi$new(apiClientInstance)
   multi_array_udf <- MultiArrayUDF$new()
@@ -224,8 +246,6 @@ execute_array_udf <- function(array, namespace=NULL, udf=NULL, registered_udf_na
 ##'
 ##' All arguments are required.
 ##'
-##' @param namespace Namespace within TileDB cloud.
-##'
 ##' @param array_list List of \code{UDFArrayDetails} objects.
 ##' Example list element: \code{tiledbcloud::UDFArrayDetails$new(uri="tiledb://demo/quickstart_dense", ranges=QueryRanges$new(layout=Layout$new('row-major'), ranges=list(cbind(1,4),cbind(1,4))), buffers=list("a"))}
 ##'
@@ -247,10 +267,23 @@ execute_array_udf <- function(array, namespace=NULL, udf=NULL, registered_udf_na
 ##' for memory-usage control.  UDF return values handed back to your code from this
 ##' library are converted back to natural R objects.
 ##'
+##' @param args_format One of \code{native}, \code{json}, or \code{arrow}. These are
+##' used as wire format for sending arguments to the server. Normally you do not need
+##' to specify this. If you're invoking an R UDF, \code{native} is used; if you're
+##' invoking a registered Python UDF, \code{json} is used but you can select \code{arrow}
+##' if you wish.
+##'
+##' @param namespace Namespace within TileDB cloud.
+##'
+##' @param language If omitted, defaults to \code{"r"}. Can be set to \code{"python"}
+##" when executing registered Python UDFs.
+##'
 ##' @return Return value from the UDF.
 ##' @family {manual-layer functions}
 ##' @export
-execute_multi_array_udf <- function(namespace, array_list, udf=NULL, registered_udf_name=NULL, args=NULL, result_format='native', args_format='native', language='r') {
+execute_multi_array_udf <- function(array_list, udf=NULL, registered_udf_name=NULL, args=NULL,
+  result_format='native', args_format='native', namespace, language='r')
+{
   apiClientInstance <- get_api_client_instance()
   udfApiInstance <- UdfApi$new(apiClientInstance)
   multi_array_udf <- MultiArrayUDF$new()
