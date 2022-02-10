@@ -273,17 +273,18 @@ Node <- R6::R6Class(
         } else {
           t <- Sys.time()
           cat(as.integer(t), as.character(t), "launch remote compute  ", self$name, "\n")
-          self$result <- execute_generic_udf(udf=self$func, args=evaluated, namespace=namespace)
+          self$result <- execute_generic_udf(udf=self$func, args=evaluated, namespace=namespace_to_use)
           t <- Sys.time()
           cat(as.integer(t), as.character(t), "finish remote compute  ", self$name, "\n")
         }
         # This return value back to the call
         self$result
         },
-        earlySignal=FALSE)
-        # If earlySignal == TRUE, resolved(self$future) will throw before returning.
-        # With earlySignal == FALSE, we have to do more bookkeeping ourselves but it's
-        # easier to set the node status to FAILED.
+        earlySignal=FALSE
+      )
+      # If earlySignal == TRUE, resolved(self$future) will throw before returning.
+      # With earlySignal == FALSE, we have to do more bookkeeping ourselves but it's
+      # easier to set the node status to FAILED.
 
       self$status <- RUNNING
       return(FALSE)

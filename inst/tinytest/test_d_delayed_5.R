@@ -24,8 +24,19 @@ if ((namespaceToCharge <- Sys.getenv("TILEDB_REST_UNIT_TEST_NAMESPACE_TO_CHARGE"
 library(tiledbcloud)
 
 # ----------------------------------------------------------------
+# Namespacing priorities:
+
+# 1. From node
+a <- delayed(function() { 9 }, name='a', namespace=namespaceToCharge, local=FALSE)
+expect_equal(compute(a, timeout_seconds=300), 9)
+
+# 2. From DAG level at compute()
 a <- delayed(function() { 9 }, name='a', local=FALSE)
-expect_equal(compute(a, namespace=NULL, timeout_seconds=300), 9)
+expect_equal(compute(a, namespace=namespaceToCharge, timeout_seconds=300), 9)
+
+# 3. From account lookup
+a <- delayed(function() { 9 }, name='a', local=FALSE)
+expect_equal(compute(a, timeout_seconds=300), 9)
 
 # TODO: test 3-way ns sel
 
