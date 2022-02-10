@@ -13,15 +13,15 @@ Script:
 namespace <- "yournamespace"
 
 ans <- execute_sql_query(
+  namespace=namespacej
   query="select `rows`, AVG(a) as avg_a from `tiledb://TileDB-Inc/quickstart_dense` GROUP BY `rows`",
-  name="rows-query",
-  namespace=namespace)
+  name="rows-query")
 show(ans)
 
 ans <- execute_sql_query(
+  namespace=namespace,
   query="select `rows`, AVG(a) as avg_a from `tiledb://TileDB-Inc/oops_a_typo` GROUP BY `rows`",
-  name="rows-query",
-  namespace=namespace)
+  name="rows-query")
 show(ans)
 ```
 

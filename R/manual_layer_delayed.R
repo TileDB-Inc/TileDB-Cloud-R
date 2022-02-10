@@ -37,11 +37,11 @@ delayed <- function(func, args=NULL, name=NULL, local=FALSE) {
 
 ##' Define a SQL query function to be executed within a task graph
 ##'
+##' @param namespace The TileDB-Cloud namespace to charge the query to
+##'
 ##' @param query SQL query string -- see vignette for examples
 ##'
 ##' @param name A display name for the query
-##'
-##' @param namespace The TileDB-Cloud namespace to charge the query to
 ##'
 ##' @return A task-graph node object on which you can later call \code{compute}.  The return value from
 ##' compute() will be the query result as a dataframe.  Note that results will be strings, so numerical
@@ -49,13 +49,13 @@ delayed <- function(func, args=NULL, name=NULL, local=FALSE) {
 ##'
 ##' @family {manual-layer functions}
 ##' @export
-delayed_sql <- function(query, name, namespace) {
+delayed_sql <- function(namespace, query, name) {
   # It is absolutely necessary that this be a locally executing call to the
   # remote REST service. A non-local execution of this would mean the REST
   # server calling itself -- not only would that be a circular dependency, but
   # moreover the tiledbcloud is not running on the REST server.
   delayed(function() {
-    execute_sql_query(query=query, name=name, namespace=namespace)
+    execute_sql_query(namespace=namespace, query=query, name=name)
   }, local=TRUE)
 }
 

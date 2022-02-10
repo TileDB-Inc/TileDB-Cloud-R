@@ -25,9 +25,9 @@ library(tiledbcloud)
 
 # ----------------------------------------------------------------
 a <- delayed_sql(
+    namespace=namespaceToCharge,
     query="select `rows`, AVG(a) as avg_a from `tiledb://TileDB-Inc/quickstart_dense` GROUP BY `rows`",
-    name="rows-query",
-    namespace=namespaceToCharge)
+    name="rows-query")
 o <- compute(a, namespaceToCharge)
 expect_equal(names(o), c("avg_a", "rows"))
 expect_equal(rownames(o), c("1", "2", "3", "4"))
