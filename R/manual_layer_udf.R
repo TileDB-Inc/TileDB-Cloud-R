@@ -37,14 +37,7 @@ execute_generic_udf <- function(namespace, udf=NULL, registered_udf_name=NULL, a
 
   # We rely on UDFLanguage$new to do enum-matching
   generic_udf$language <- UDFLanguage$new(language)
-  if (language == 'r') {
-    # For server-side stats; also for matching server-side Docker image version
-    # to client-side (us) version.
-    #
-    # TODO: How to specify lang vers for R calling registered Python UDFs.
-    # Probably make this a required argument (if language != 'r') once that's all deployed server-side.
-    generic_udf$version <- paste(R.version$major, R.version$minor, sep='.')
-  }
+  generic_udf$version <- .set_udf_version(language)
 
   # For invoking registered Python UDFs, we must send the args in language-independent way,
   # and retrieve the results in a language-independent way.
@@ -144,14 +137,7 @@ execute_array_udf <- function(array, namespace=NULL, udf=NULL, registered_udf_na
 
   # We rely on UDFLanguage$new to do enum-matching
   multi_array_udf$language <- UDFLanguage$new(language)
-  if (language == 'r') {
-    # For server-side stats; also for matching server-side Docker image version
-    # to client-side (us) version.
-    #
-    # TODO: How to specify lang vers for R calling registered Python UDFs.
-    # Probably make this a required argument (if language != 'r') once that's all deployed server-side.
-    multi_array_udf$version <- paste(R.version$major, R.version$minor, sep='.')
-  }
+  multi_array_udf$version <- .set_udf_version(language)
 
   # For invoking registered Python UDFs, we must send the args in language-independent way,
   # and retrieve the results in a language-independent way.
@@ -271,14 +257,7 @@ execute_multi_array_udf <- function(namespace, array_list, udf=NULL, registered_
 
   # We rely on UDFLanguage$new to do enum-matching
   multi_array_udf$language <- UDFLanguage$new(language)
-  if (language == 'r') {
-    # For server-side stats; also for matching server-side Docker image version
-    # to client-side (us) version.
-    #
-    # TODO: How to specify lang vers for R calling registered Python UDFs.
-    # Probably make this a required argument (if language != 'r') once that's all deployed server-side.
-    multi_array_udf$version <- paste(R.version$major, R.version$minor, sep='.')
-  }
+  multi_array_udf$version <- .set_udf_version(language)
 
   # For invoking registered Python UDFs, we must send the args in language-independent way,
   # and retrieve the results in a language-independent way.
@@ -499,6 +478,8 @@ deregister_udf <- function(name, namespace) {
   invisible("OK")
 }
 
+# Shared by generic/single-array/multi-array UDF executors: people can send an
+# R function or a registered UDF name -- one or the other.
 .check_udf_or_unregistered_exclusively <- function(caller_name, udf, registered_udf_name) {
   if (is.null(udf) && is.null(registered_udf_name)) {
     stop(caller_name, ": one, but not both, of udf and registered_udf_name must be provided.")
@@ -507,3 +488,27 @@ deregister_udf <- function(name, namespace) {
     stop(caller_name, ": one, but not both, of udf and registered_udf_name must be provided.")
   }
 }
+
+# Shared by generic/single-array/multi-array UDF executors:
+# * We're an R client, always
+# * If we're sending an R function: tell the R version we're running so the
+#   REST server can select the right Docker image to run.
+# * If we're asking for an invocation of a registered R function: this is a
+#   TODO. For now send our R version, but ideally the R version of the
+#   registered function would be stored in the registered-UDF object.
+# * If we're asking for an invocation of a registered Python function:
+#   leave the version blank (NULL). As a TODO we can let people say, as an argument
+#   in this API, which Python version they want to run; or store the Python version
+#   in registered-UDF objects.
+# Note that the primary issue for having language versions is for package
+# dependencies server-side, as well as (more crucially) for Python pickling of
+# function bodies and args. R's serialization is a bit more stable over time.
+.set_udf_version <- function(language)
+  if (language == 'r') {
+    # Send only strings like '4.1.2' without any decoration like that offered
+    # by R.version.string. We want to send something simple the REST server can
+    # easily do math on when need be.
+    paste(R.version$major, R.version$minor, sep='.')
+  } else {
+    NULL
+  }
