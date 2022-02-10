@@ -5,16 +5,16 @@
 \title{Execute a generic UDF on TileDB Cloud}
 \usage{
 execute_generic_udf(
-  namespace,
   udf = NULL,
   registered_udf_name = NULL,
   args = NULL,
-  result_format = "native"
+  result_format = "native",
+  args_format = "native",
+  namespace,
+  language = "r"
 )
 }
 \arguments{
-\item{namespace}{Namespace within TileDB cloud.}
-
 \item{udf}{An R function. Arguments are specified separately via \code{args}.
 One of \code{udf} and \code{registered_udf_name} must be non-null.}
 
@@ -31,6 +31,16 @@ to call by name, use a named list like \code{args=list(x=123,y=456)}.}
 used as wire format for returning results from the server to this library, primarily
 for memory-usage control.  UDF return values handed back to your code from this
 library are converted back to natural R objects.}
+
+\item{args_format}{One of \code{native}, \code{json}, or \code{arrow}. These are
+used as wire format for sending arguments to the server. Normally you do not need
+to specify this. If you're invoking an R UDF, \code{native} is used; if you're
+invoking a registered Python UDF, \code{json} is used but you can select \code{arrow}
+if you wish.}
+
+\item{namespace}{Namespace within TileDB cloud.}
+
+\item{language}{If omitted, defaults to \code{"r"}. Can be set to \code{"python"}}
 }
 \value{
 The R object which is the return value from the UDF.

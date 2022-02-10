@@ -4,12 +4,21 @@
 \alias{.get_decoded_response_body_or_stop}
 \title{Package-internal HTTP-response helper}
 \usage{
-.get_decoded_response_body_or_stop(resultObject, result_format)
+.get_decoded_response_body_or_stop(
+  resultObject,
+  result_format,
+  entire_json_is_result = FALSE
+)
 }
 \arguments{
 \item{resultObject}{Should be a return value from an API function which uses
 \code{\link{.wrap_as_api_response}} internally. These are functions which are manually
 edited after OpenAPI autogen.}
+
+\item{entire_json_is_result}{If false, return the \code{"value"} field from the JSON object.
+This is the right thing to do for returns from the REST server for almost all cases.
+The true case is only for getting the results from invoking registered Python UDFs
+from R, in which case the JSON result in its entirety is the UDF output.}
 }
 \value{
 The argument, decoded according to the specified result format.

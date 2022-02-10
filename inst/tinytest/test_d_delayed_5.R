@@ -25,8 +25,9 @@ library(tiledbcloud)
 
 # ----------------------------------------------------------------
 a <- delayed(function() { 9 }, name='a', local=FALSE)
-expect_error(compute(a, namespace=NULL, timeout_seconds=300),
-  pattern="namespace must be provided in a task graph with any non-local nodes")
+expect_equal(compute(a, namespace=NULL, timeout_seconds=300), 9)
+
+# TODO: test 3-way ns sel
 
 # ----------------------------------------------------------------
 a <- delayed(function() { 9 }, name='a', local=FALSE)

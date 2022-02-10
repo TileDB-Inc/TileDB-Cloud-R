@@ -6,19 +6,15 @@
 \usage{
 compute(
   node,
-  namespace = NULL,
   timeout_seconds = NULL,
   verbose = FALSE,
+  namespace = NULL,
   force_all_local = FALSE
 )
 }
 \arguments{
 \item{node}{The object whose args are being set -- nominally, produced by
 \code{delayed}, \code{delayed_generic_udf}, etc.}
-
-\item{namespace}{The namespace to charge for any cloud costs during the execution of the
-task graph. This can be null only when all nodes have \code{local}, or when \code{compute}
-is called with \code{force_all_local}.}
 
 \item{timeout_seconds}{Number of seconds after which to stop waiting for results.
 Note that in-flight computationsa are not cancelled; this is not supported by the
@@ -27,6 +23,10 @@ underlying R package we use for concurrency.}
 \item{verbose}{If supplied, show the DAG state at the start and end, along with all node start/end.
 Also shown are any stdout prints from the individual nodes, but these are only visible once the
 compute node has completed.}
+
+\item{namespace}{The namespace to charge for any cloud costs during the execution of the
+task graph. This can be null only when all nodes have \code{local}, or when \code{compute}
+is called with \code{force_all_local}.}
 
 \item{force_all_local}{While individual nodes can be marked with \code{local=TRUE}
 to not be executed on TileDB cloud, this flag overrides the default \code{local=FALSE}

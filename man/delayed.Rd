@@ -4,10 +4,14 @@
 \alias{delayed}
 \title{Define a function to be executed within a task graph}
 \usage{
-delayed(func, args = NULL, name = NULL, local = FALSE)
+delayed(func, args = NULL, name = NULL, namespace = NULL, local = FALSE)
 }
 \arguments{
 \item{name}{Optional -- e.g. \code{a} or \code{b}. If omitted, it defaults to a UUID.}
+
+\item{namespace}{If supplied, a namespace to use for executing this particular node.
+If omitted, a namespace can be applied at your top-level call to \code{compute}.
+If omitted there as well, your logged-in account's default namespace will be used.}
 
 \item{local}{If true, execute the functions on the local host; if else, execute them as
 UDFs in TileDB Cloud.}
