@@ -37,6 +37,14 @@ execute_generic_udf <- function(namespace, udf=NULL, registered_udf_name=NULL, a
 
   # We rely on UDFLanguage$new to do enum-matching
   generic_udf$language <- UDFLanguage$new(language)
+  if (language == 'r') {
+    # For server-side stats; also for matching server-side Docker image version
+    # to client-side (us) version.
+    #
+    # TODO: How to specify lang vers for R calling registered Python UDFs.
+    # Probably make this a required argument (if language != 'r') once that's all deployed server-side.
+    generic_udf$version <- paste(R.version$major, R.version$minor, sep='.')
+  }
 
   # For invoking registered Python UDFs, we must send the args in language-independent way,
   # and retrieve the results in a language-independent way.
@@ -136,6 +144,14 @@ execute_array_udf <- function(array, namespace=NULL, udf=NULL, registered_udf_na
 
   # We rely on UDFLanguage$new to do enum-matching
   multi_array_udf$language <- UDFLanguage$new(language)
+  if (language == 'r') {
+    # For server-side stats; also for matching server-side Docker image version
+    # to client-side (us) version.
+    #
+    # TODO: How to specify lang vers for R calling registered Python UDFs.
+    # Probably make this a required argument (if language != 'r') once that's all deployed server-side.
+    multi_array_udf$version <- paste(R.version$major, R.version$minor, sep='.')
+  }
 
   # For invoking registered Python UDFs, we must send the args in language-independent way,
   # and retrieve the results in a language-independent way.
@@ -255,6 +271,14 @@ execute_multi_array_udf <- function(namespace, array_list, udf=NULL, registered_
 
   # We rely on UDFLanguage$new to do enum-matching
   multi_array_udf$language <- UDFLanguage$new(language)
+  if (language == 'r') {
+    # For server-side stats; also for matching server-side Docker image version
+    # to client-side (us) version.
+    #
+    # TODO: How to specify lang vers for R calling registered Python UDFs.
+    # Probably make this a required argument (if language != 'r') once that's all deployed server-side.
+    multi_array_udf$version <- paste(R.version$major, R.version$minor, sep='.')
+  }
 
   # For invoking registered Python UDFs, we must send the args in language-independent way,
   # and retrieve the results in a language-independent way.
