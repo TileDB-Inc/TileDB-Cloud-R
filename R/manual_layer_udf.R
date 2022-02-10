@@ -508,7 +508,7 @@ deregister_udf <- function(name, namespace) {
     # Send only strings like '4.1.2' without any decoration like that offered
     # by R.version.string. We want to send something simple the REST server can
     # easily do math on when need be.
-    paste(R.version$major, R.version$minor, sep='.')
+    format(getRversion())
   } else {
     NULL
   }
