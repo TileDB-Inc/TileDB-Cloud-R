@@ -6,6 +6,10 @@
 ##'
 ##' @param name Optional -- e.g. \code{a} or \code{b}. If omitted, it defaults to a UUID.
 ##'
+##' @param namespace If supplied, a namespace to use for executing this particular node.
+##' If omitted, a namespace can be applied at your top-level call to \code{compute}.
+##' If omitted there as well, your logged-in account's default namespace will be used.
+##'
 ##' @param local If true, execute the functions on the local host; if else, execute them as
 ##' UDFs in TileDB Cloud.
 ##'
@@ -13,7 +17,7 @@
 ##'
 ##' @family {manual-layer functions}
 ##' @export
-delayed <- function(func, args=NULL, name=NULL, local=FALSE) {
+delayed <- function(func, args=NULL, name=NULL, namespace=NULL, local=FALSE) {
   have_args <- FALSE
 
   if (is.null(args)) {
@@ -32,16 +36,18 @@ delayed <- function(func, args=NULL, name=NULL, local=FALSE) {
     have_args <- TRUE
   }
 
-  Node$new(func=func, args=args, have_args=have_args, name=name, local=local)
+  Node$new(func=func, args=args, have_args=have_args, name=name, namespace=namespace, local=local)
 }
 
 ##' Define a SQL query function to be executed within a task graph
 ##'
-##' @param namespace The TileDB-Cloud namespace to charge the query to
-##'
 ##' @param query SQL query string -- see vignette for examples
 ##'
 ##' @param name A display name for the query
+##'
+##' @param namespace If supplied, the TileDB-Cloud namespace to charge the query to.
+##' If omitted, a namespace can be applied at your top-level call to \code{compute}.
+##' If omitted there as well, your logged-in account's default namespace will be used.
 ##'
 ##' @return A task-graph node object on which you can later call \code{compute}.  The return value from
 ##' compute() will be the query result as a dataframe.  Note that results will be strings, so numerical
@@ -49,19 +55,17 @@ delayed <- function(func, args=NULL, name=NULL, local=FALSE) {
 ##'
 ##' @family {manual-layer functions}
 ##' @export
-delayed_sql <- function(namespace, query, name) {
+delayed_sql <- function(query, name, namespace) {
   # It is absolutely necessary that this be a locally executing call to the
   # remote REST service. A non-local execution of this would mean the REST
   # server calling itself -- not only would that be a circular dependency, but
   # moreover the tiledbcloud is not running on the REST server.
   delayed(function() {
-    execute_sql_query(namespace=namespace, query=query, name=name)
+    execute_sql_query(query=query, name=name, namespace)
   }, local=TRUE)
 }
 
 ##' Define a generic UDF to be executed within a task graph
-##'
-##' @param namespace The TileDB-Cloud namespace to charge the query to
 ##'
 ##' @param udf An R function. Arguments are specified separately via \code{args}.
 ##' One of \code{udf} and \code{registered_udf_name} must be non-null.
@@ -75,11 +79,18 @@ delayed_sql <- function(namespace, query, name) {
 ##'
 ##' @param name Optional -- e.g. \code{a} or \code{b}. If omitted, it defaults to a UUID.
 ##'
+##' @param namespace If supplied, a namespace to use for executing this particular node.
+##' If omitted, a namespace can be applied at your top-level call to \code{compute}.
+##' If omitted there as well, your logged-in account's default namespace will be used.
+##'
+##' @param language If omitted, defaults to \code{"r"}. Can be set to \code{"python"}
+##" when executing registered Python UDFs.
+##'
 ##' @return The return value from the UDF as an R object.
 ##'
 ##' @family {manual-layer functions}
 ##' @export
-delayed_generic_udf <- function(namespace, udf=NULL, registered_udf_name=NULL, args=NULL, name=NULL, language='r')
+delayed_generic_udf <- function(udf=NULL, registered_udf_name=NULL, args=NULL, name=NULL, namespace=NULL, language='r')
 {
   # It is absolutely necessary that this be a locally executing call to the
   # remote REST service. A non-local execution of this would mean the REST
@@ -96,10 +107,10 @@ delayed_generic_udf <- function(namespace, udf=NULL, registered_udf_name=NULL, a
   delayed(
     func=function(...) {
       execute_generic_udf(
-        namespace=namespace,
         udf=udf,
         registered_udf_name=registered_udf_name,
         args=list(...),
+        namespace=namespace,
         language=language)
     },
     args=args,
@@ -134,6 +145,9 @@ delayed_generic_udf <- function(namespace, udf=NULL, registered_udf_name=NULL, a
 ##'
 ##' @param name A display name for the query
 ##'
+##' @param language If omitted, defaults to \code{"r"}. Can be set to \code{"python"}
+##" when executing registered Python UDFs.
+##'
 ##' @return The return value from the UDF as an R object.
 ##'
 ##' @family {manual-layer functions}
@@ -165,7 +179,6 @@ delayed_array_udf <- function(namespace, array, udf=NULL, registered_udf_name=NU
     func=function(...) {
       execute_array_udf(
         array=array,
-        namespace=namespace,
         udf=udf,
         registered_udf_name=registered_udf_name,
         selectedRanges=selectedRanges,
@@ -173,6 +186,7 @@ delayed_array_udf <- function(namespace, array, udf=NULL, registered_udf_name=NU
         layout=layout,
         args=list(...),
         result_format=result_format,
+        namespace=namespace,
         language=language)
     },
     args=args,

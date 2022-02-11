@@ -11,7 +11,9 @@ delayed_sql(query, name, namespace)
 
 \item{name}{A display name for the query}
 
-\item{namespace}{The TileDB-Cloud namespace to charge the query to}
+\item{namespace}{If supplied, the TileDB-Cloud namespace to charge the query to.
+If omitted, a namespace can be applied at your top-level call to \code{compute}.
+If omitted there as well, your logged-in account's default namespace will be used.}
 }
 \value{
 A task-graph node object on which you can later call \code{compute}.  The return value from

@@ -6,22 +6,21 @@
 \usage{
 execute_array_udf(
   array,
-  namespace = NULL,
   udf = NULL,
   registered_udf_name = NULL,
   selectedRanges,
   attrs = NULL,
   layout = NULL,
   args = NULL,
-  result_format = "native"
+  result_format = "native",
+  args_format = "native",
+  namespace = NULL,
+  language = "r"
 )
 }
 \arguments{
 \item{array}{Name of the array, in the form either \code{tiledb://hello/world}
 or \code{hello/world}.}
-
-\item{namespace}{Namespace within TileDB cloud to charge. If this is null, the
-logged-in user's username will be used for the namespace.}
 
 \item{udf}{An R function which takes a dataframe as argument.
 Arguments are specified separately via \code{args}.
@@ -50,6 +49,17 @@ to call by name, use a named list like \code{args=list(x=123,y=456)}.}
 used as wire format for returning results from the server to this library, primarily
 for memory-usage control.  UDF return values handed back to your code from this
 library are converted back to natural R objects.}
+
+\item{args_format}{One of \code{native}, \code{json}, or \code{arrow}. These are
+used as wire format for sending arguments to the server. Normally you do not need
+to specify this. If you're invoking an R UDF, \code{native} is used; if you're
+invoking a registered Python UDF, \code{json} is used but you can select \code{arrow}
+if you wish.}
+
+\item{namespace}{Namespace within TileDB cloud to charge. If this is null, the
+logged-in user's username will be used for the namespace.}
+
+\item{language}{If omitted, defaults to \code{"r"}. Can be set to \code{"python"}}
 }
 \value{
 Return value from the UDF.

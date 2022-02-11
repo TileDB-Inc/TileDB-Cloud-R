@@ -17,14 +17,14 @@ if (!tiledbcloud:::.logged_in()) exit_file("not logged in")
 # ----------------------------------------------------------------
 # Generic UDF, no args
 myfunc <- function(x=50:54, y=70:74) { x + y }
-result <- tiledbcloud::execute_generic_udf(namespace=namespaceToCharge, udf=myfunc)
+result <- tiledbcloud::execute_generic_udf(udf=myfunc, namespace=namespaceToCharge)
 expect_equal(result, c(120, 122, 124, 126, 128))
 
 # ----------------------------------------------------------------
 # Generic UDF, with args
 myfunc <- function(x, y) { x + y }
 myargs <- list(100:104, 200:204)
-result <- tiledbcloud::execute_generic_udf(namespace=namespaceToCharge, udf=myfunc, args=myargs)
+result <- tiledbcloud::execute_generic_udf(udf=myfunc, args=myargs, namespace=namespaceToCharge)
 expect_equal(result, c(300, 302, 304, 306, 308))
 
 # ----------------------------------------------------------------
@@ -32,12 +32,12 @@ expect_equal(result, c(300, 302, 304, 306, 308))
 
 myfunc <- function(x, y) { x + y }
 myargs <- list(100:104, 200:204)
-result <- tiledbcloud::execute_generic_udf(namespace=namespaceToCharge, udf=myfunc, args=myargs, result_format='json')
+result <- tiledbcloud::execute_generic_udf(udf=myfunc, args=myargs, result_format='json', namespace=namespaceToCharge)
 expect_equal(result, c(300, 302, 304, 306, 308))
 
 myfunc <- function(x, y) { x + y }
 myargs <- list(100:104, 200:204)
-result <- tiledbcloud::execute_generic_udf(namespace=namespaceToCharge, udf=myfunc, args=myargs, result_format='arrow')
+result <- tiledbcloud::execute_generic_udf(udf=myfunc, args=myargs, result_format='arrow', namespace=namespaceToCharge)
 # Arrow result is of type dataframe, so we pull out the 'result' slot
 expect_equal(result$result, c(300, 302, 304, 306, 308))
 
@@ -48,11 +48,11 @@ myfunc <- function(df) {
   list(min=min(vec), med=median(vec), max=max(vec))
 }
 result <- tiledbcloud::execute_array_udf(
-  namespace=namespaceToCharge,
   array="TileDB-Inc/quickstart_dense",
   udf=myfunc,
   selectedRanges=list(cbind(1,2), cbind(1,2)),
-  attrs=c("a")
+  attrs=c("a"),
+  namespace=namespaceToCharge
 )
 expect_equal(result, list(min=1, med=3.5, max=6))
 
@@ -63,11 +63,11 @@ myfunc <- function(df) {
   list(min=min(vec), med=median(vec), max=max(vec))
 }
 result <- tiledbcloud::execute_array_udf(
-  namespace=namespaceToCharge,
   array="TileDB-Inc/quickstart_sparse",
   udf=myfunc,
   selectedRanges=list(cbind(1,4), cbind(1,4)),
-  attrs=c("a")
+  attrs=c("a"),
+  namespace=namespaceToCharge
 )
 expect_equal(result, list(min=1, med=2, max=3))
 
@@ -82,44 +82,44 @@ selectedRanges <- list(cbind(1,4), cbind(1,4))
 attrs <- c("a")
 
 result <- tiledbcloud::execute_array_udf(
-  namespace=namespaceToCharge,
   array=array_name,
   udf=myfunc,
   selectedRanges=selectedRanges,
   attrs=attrs,
-  args=list(exponent=2)
+  args=list(exponent=2),
+  namespace=namespaceToCharge
 )
 expect_equal(result, 1496)
 
 result <- tiledbcloud::execute_array_udf(
-  namespace=namespaceToCharge,
-  array=array_name,
-  udf=myfunc,
-  selectedRanges=selectedRanges,
-  attrs=attrs,
-  args=list(exponent=3)
-)
-expect_equal(result, 18496)
-
-result <- tiledbcloud::execute_array_udf(
-  namespace=namespaceToCharge,
   array=array_name,
   udf=myfunc,
   selectedRanges=selectedRanges,
   attrs=attrs,
   args=list(exponent=3),
-  result_format='json'
+  namespace=namespaceToCharge
 )
 expect_equal(result, 18496)
 
 result <- tiledbcloud::execute_array_udf(
-  namespace=namespaceToCharge,
   array=array_name,
   udf=myfunc,
   selectedRanges=selectedRanges,
   attrs=attrs,
   args=list(exponent=3),
-  result_format='arrow'
+  result_format='json',
+  namespace=namespaceToCharge
+)
+expect_equal(result, 18496)
+
+result <- tiledbcloud::execute_array_udf(
+  array=array_name,
+  udf=myfunc,
+  selectedRanges=selectedRanges,
+  attrs=attrs,
+  args=list(exponent=3),
+  result_format='arrow',
+  namespace=namespaceToCharge
 )
 # Arrow result is of type dataframe, so we pull out the 'result' slot
 expect_equal(result$result, 18496)
@@ -132,10 +132,10 @@ expect_equal(result$result, 18496)
 #   lm.fit(cbind(1, vec2), vec1)$coefficients
 # }
 # result <- tiledbcloud::execute_array_udf(
-#     namespace=namespaceToCharge,
 #     array="tiledb://johnkerl/palmer_penguins2",
 #     udf=myfunc,
 #     selectedRanges=list(cbind("A", "Z"), cbind(2007,2009)),
-#     attrs=list("bill_length_mm", "body_mass_g")
+#     attrs=list("bill_length_mm", "body_mass_g"),
+#     namespace=namespaceToCharge
 # )
 # expect_equal(result, c(27.15072200, vec2=0.00400329))

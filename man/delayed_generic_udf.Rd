@@ -5,16 +5,15 @@
 \title{Define a generic UDF to be executed within a task graph}
 \usage{
 delayed_generic_udf(
-  namespace,
   udf = NULL,
   registered_udf_name = NULL,
   args = NULL,
-  name = NULL
+  name = NULL,
+  namespace = NULL,
+  language = "r"
 )
 }
 \arguments{
-\item{namespace}{The TileDB-Cloud namespace to charge the query to}
-
 \item{udf}{An R function. Arguments are specified separately via \code{args}.
 One of \code{udf} and \code{registered_udf_name} must be non-null.}
 
@@ -23,6 +22,12 @@ Arguments are specified separately via \code{args}.  One of \code{udf} and
 \code{registered_udf_name} must be non-null.}
 
 \item{name}{Optional -- e.g. \code{a} or \code{b}. If omitted, it defaults to a UUID.}
+
+\item{namespace}{If supplied, a namespace to use for executing this particular node.
+If omitted, a namespace can be applied at your top-level call to \code{compute}.
+If omitted there as well, your logged-in account's default namespace will be used.}
+
+\item{language}{If omitted, defaults to \code{"r"}. Can be set to \code{"python"}}
 }
 \value{
 The return value from the UDF as an R object.

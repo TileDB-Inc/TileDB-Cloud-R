@@ -14,7 +14,8 @@ delayed_array_udf(
   layout = NULL,
   args = NULL,
   result_format = "native",
-  name = NULL
+  name = NULL,
+  language = "r"
 )
 }
 \arguments{
@@ -38,6 +39,8 @@ Arguments are specified separately via \code{args}.  One of \code{udf} and
 \item{result_format}{As in UDF examples.}
 
 \item{name}{A display name for the query}
+
+\item{language}{If omitted, defaults to \code{"r"}. Can be set to \code{"python"}}
 }
 \value{
 The return value from the UDF as an R object.

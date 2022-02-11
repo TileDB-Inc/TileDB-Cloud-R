@@ -49,12 +49,12 @@ expect_equal(info$tags, c("testing", "udf", "upload"))
 # ----------------------------------------------------------------
 registered_udf_name=paste(namespaceToCharge, udfname, sep='/')
 result <- tiledbcloud::execute_array_udf(
-  namespace=namespaceToCharge,
   array="TileDB-Inc/quickstart_dense",
   registered_udf_name=registered_udf_name,
   args=list(attrname="a", exponent=2),
   selectedRanges=list(cbind(1,2), cbind(1,2)),
-  attrs=c("a")
+  attrs=c("a"),
+  namespace=namespaceToCharge
 )
 
 # Deregister the temp name before checking the result, in case of failure,

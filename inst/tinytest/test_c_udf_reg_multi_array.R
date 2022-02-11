@@ -68,10 +68,10 @@ details2 <- tiledbcloud::UDFArrayDetails$new(
 registered_udf_name=paste(namespaceToCharge, udfname, sep='/')
 # TODO: debug failure
 # result <- tiledbcloud::execute_multi_array_udf(
-#   namespace=namespaceToCharge,
 #   array_list=list(details1, details2),
 #   registered_udf_name=registered_udf_name,
-#   args=list(attrname="a")
+#   args=list(attrname="a"),
+#   namespace=namespaceToCharge
 # )
 
 # Deregister the temp name before checking the result, in case of failure,

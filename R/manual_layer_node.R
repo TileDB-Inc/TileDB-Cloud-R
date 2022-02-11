@@ -34,6 +34,9 @@ Node <- R6::R6Class(
     # function.
     have_args     = NULL,
     local         = NULL,
+    # Normally namespace comes in through the DAG. But users can specify a particular
+    # namespace for executing a given node, if they wish.
+    namespace     = NULL,
 
     future        = NULL,
     future_result = NULL,
@@ -48,7 +51,7 @@ Node <- R6::R6Class(
 
     # Note: args are non-optional here but user-convenience optionals are
     # implemented in the 'delayed' factory function.
-    initialize = function(func, args, have_args, name, local) {
+    initialize = function(func, args, have_args, name, local, namespace) {
       self$result    <- NULL
       self$func      <- func
       self$args      <- args
@@ -57,6 +60,7 @@ Node <- R6::R6Class(
       self$status    <- NOT_STARTED
       self$result    <- NULL
       self$local     <- local
+      self$namespace <- namespace
 
       self$id <- id_generator()
       if (is.null(name)) {
@@ -135,9 +139,12 @@ Node <- R6::R6Class(
     #
     # NULL timeout_seconds means wait indefinitely.
     #
+    # The namespace here is one to be applied to the entire DAG. Individual nodes may
+    # have been constructed with their own overrides, which will be honored on node$poll().
+    #
     # This is nominally called not as node$compute() but via the generic compute(node).
     # See comments in the compute generic for more information.
-    compute = function(namespace=NULL, timeout_seconds=NULL, verbose=FALSE, force_all_local=FALSE) {
+    compute = function(timeout_seconds=NULL, verbose=FALSE, namespace=NULL, force_all_local=FALSE) {
       # Store this DAG object inside the terminal node so that after a compute() (whether successful
       # or failed) people can show(n$dag_for_terminal) to visualize future results, stdout from the
       # forked processes, etc.
@@ -145,7 +152,8 @@ Node <- R6::R6Class(
         self$make_dag()
       }
 
-      self$dag_for_terminal$compute(namespace=namespace, timeout_seconds=timeout_seconds, verbose=verbose, force_all_local=force_all_local)
+      self$dag_for_terminal$compute(timeout_seconds=timeout_seconds, verbose=verbose, namespace=namespace,
+        force_all_local=force_all_local)
     },
 
     # ----------------------------------------------------------------
@@ -156,13 +164,23 @@ Node <- R6::R6Class(
     #
     # Our DAG is a poll-driven DAG so dag$poll() must be called repeatedly in order to launch
     # futures for initial nodes, detect when they are resolved, launch subsequent nodes, etc.
-    poll = function(namespace=NULL, verbose=FALSE, force_local=FALSE) {
-      if (is.null(namespace) && (!self$local && !force_local)) {
-        namespace <- .get_default_namespace_charged()
-        if (is.null(namespace)) {
-          stop("namespace must be provided in a task graph with any non-local nodes, and no account-local default was found")
-        }
+    poll = function(verbose=FALSE, namespace=NULL, force_local=FALSE) {
+      # Look up namespace to charge:
+      # 1. Node-level specification, if any
+      # 2. DAG-level argument, if any
+      # 3. Account-level default
+      namespace_to_use <- NULL
+      if (!is.null(self$namespace)) { # Node-level
+        namespace_to_use <- self$namespace
+      } else if (!is.null(namespace)) { # DAG-level
+        namespace_to_use <- namespace
+      } else {
+        namespace_to_use <- .get_default_namespace_charged() # Account-level
       }
+      if (is.null(namespace_to_use) && (!self$local && !force_local)) {
+        stop("namespace must be provided in a task graph with any non-local nodes, and no account-local default was found")
+      }
+
       if (self$status == COMPLETED) {
         return(TRUE)
       }
@@ -172,7 +190,7 @@ Node <- R6::R6Class(
       }
       for (arg in self$args) {
         if (is(arg, "Node")) {
-          arg$poll(namespace=namespace, verbose=verbose, force_local=force_local)
+          arg$poll(verbose=verbose, namespace=namespace_to_use, force_local=force_local)
         }
       }
       if (!self$args_ready()) {
@@ -255,17 +273,18 @@ Node <- R6::R6Class(
         } else {
           t <- Sys.time()
           cat(as.integer(t), as.character(t), "launch remote compute  ", self$name, "\n")
-          self$result <- execute_generic_udf(namespace=namespace, udf=self$func, args=evaluated)
+          self$result <- execute_generic_udf(udf=self$func, args=evaluated, namespace=namespace_to_use)
           t <- Sys.time()
           cat(as.integer(t), as.character(t), "finish remote compute  ", self$name, "\n")
         }
         # This return value back to the call
         self$result
         },
-        earlySignal=FALSE)
-        # If earlySignal == TRUE, resolved(self$future) will throw before returning.
-        # With earlySignal == FALSE, we have to do more bookkeeping ourselves but it's
-        # easier to set the node status to FAILED.
+        earlySignal=FALSE
+      )
+      # If earlySignal == TRUE, resolved(self$future) will throw before returning.
+      # With earlySignal == FALSE, we have to do more bookkeeping ourselves but it's
+      # easier to set the node status to FAILED.
 
       self$status <- RUNNING
       return(FALSE)
@@ -342,10 +361,6 @@ Node <- R6::R6Class(
 ##' @param node The object whose args are being set -- nominally, produced by
 ##' \code{delayed}, \code{delayed_generic_udf}, etc.
 ##'
-##' @param namespace The namespace to charge for any cloud costs during the execution of the
-##' task graph. This can be null only when all nodes have \code{local}, or when \code{compute}
-##' is called with \code{force_all_local}.
-##'
 ##' @param timeout_seconds Number of seconds after which to stop waiting for results.
 ##' Note that in-flight computationsa are not cancelled; this is not supported by the
 ##' underlying R package we use for concurrency.
@@ -353,6 +368,10 @@ Node <- R6::R6Class(
 ##' @param verbose If supplied, show the DAG state at the start and end, along with all node start/end.
 ##' Also shown are any stdout prints from the individual nodes, but these are only visible once the
 ##' compute node has completed.
+##'
+##' @param namespace The namespace to charge for any cloud costs during the execution of the
+##' task graph. This can be null only when all nodes have \code{local}, or when \code{compute}
+##' is called with \code{force_all_local}.
 ##'
 ##' @param force_all_local While individual nodes can be marked with \code{local=TRUE}
 ##' to not be executed on TileDB cloud, this flag overrides the default \code{local=FALSE}
@@ -363,12 +382,12 @@ Node <- R6::R6Class(
 ##' @family {manual-layer functions}
 ##' @export
 setGeneric("compute",
-           function(node, namespace=NULL, timeout_seconds=NULL, verbose=FALSE, force_all_local=FALSE)
+           function(node, timeout_seconds=NULL, verbose=FALSE, namespace=NULL, force_all_local=FALSE)
            standardGeneric("compute"))
-setMethod("compute", signature(node = "Node"), function(node, namespace=NULL, timeout_seconds=NULL,
-  verbose=FALSE, force_all_local=FALSE)
+setMethod("compute", signature(node = "Node"), function(node, timeout_seconds=NULL, verbose=FALSE,
+  namespace=NULL, force_all_local=FALSE)
 {
-  node$compute(namespace=namespace, timeout_seconds=timeout_seconds, verbose=verbose, force_all_local=force_all_local)
+  node$compute(timeout_seconds=timeout_seconds, verbose=verbose, namespace=namespace, force_all_local=force_all_local)
 })
 
 ##' Test/debug entrypoint for local/sequential compute.
