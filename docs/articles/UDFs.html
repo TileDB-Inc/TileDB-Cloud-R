@@ -81,14 +81,14 @@
 <span class="co"># Your function</span>
 <span class="va">myfunc</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">=</span><span class="fl">50</span><span class="op">:</span><span class="fl">54</span>, <span class="va">y</span><span class="op">=</span><span class="fl">70</span><span class="op">:</span><span class="fl">74</span><span class="op">)</span> <span class="op">{</span> <span class="va">x</span> <span class="op">+</span> <span class="va">y</span> <span class="op">}</span>
 <span class="co"># Execute the function on TileDB Cloud</span>
-<span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">tiledbcloud</span><span class="fu">::</span><span class="fu"><a href="../reference/execute_generic_udf.html">execute_generic_udf</a></span><span class="op">(</span>namespace<span class="op">=</span><span class="va">namespace</span>, udf<span class="op">=</span><span class="va">myfunc</span><span class="op">)</span>
+<span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">tiledbcloud</span><span class="fu">::</span><span class="fu"><a href="../reference/execute_generic_udf.html">execute_generic_udf</a></span><span class="op">(</span>udf<span class="op">=</span><span class="va">myfunc</span>, namespace<span class="op">=</span><span class="va">namespace</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></code></pre>
 <pre><code>[1] 120 122 124 126 128</code></pre>
 <p>Using arguments:</p>
 <pre><code><span class="va">namespace</span> <span class="op">&lt;-</span> <span class="st">"demo"</span>
 <span class="va">myfunc</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span> <span class="va">x</span> <span class="op">+</span> <span class="va">y</span> <span class="op">}</span>
 <span class="va">myargs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fl">100</span><span class="op">:</span><span class="fl">104</span>, <span class="fl">200</span><span class="op">:</span><span class="fl">204</span><span class="op">)</span>
-<span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">tiledbcloud</span><span class="fu">::</span><span class="fu"><a href="../reference/execute_generic_udf.html">execute_generic_udf</a></span><span class="op">(</span>namespace<span class="op">=</span><span class="va">namespace</span>, udf<span class="op">=</span><span class="va">myfunc</span>, args<span class="op">=</span><span class="va">myargs</span><span class="op">)</span>
+<span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">tiledbcloud</span><span class="fu">::</span><span class="fu"><a href="../reference/execute_generic_udf.html">execute_generic_udf</a></span><span class="op">(</span>udf<span class="op">=</span><span class="va">myfunc</span>, args<span class="op">=</span><span class="va">myargs</span>, namespace<span class="op">=</span><span class="va">namespace</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></code></pre>
 <pre><code>[1] 300 302 304 306 308</code></pre>
 </div>
@@ -101,11 +101,11 @@
 }
 
 result &lt;- tiledbcloud::execute_array_udf(
-    namespace="demo", // to charge
     array="tiledb://TileDB-Inc/quickstart_dense",
     udf=myfunc,
     selectedRanges=list(cbind(1,2), cbind(1,2)), # Upper-left 2x2
-    attrs=c("a")
+    attrs=c("a"),
+    namespace="demo" // to charge
 )
 print(result)</code></pre>
 <pre><code>$min
@@ -124,11 +124,11 @@ $max
 <span class="op">}</span>
 
 <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">tiledbcloud</span><span class="fu">::</span><span class="fu"><a href="../reference/execute_array_udf.html">execute_array_udf</a></span><span class="op">(</span>
-    <span class="co"># NULL namespace means username namespace is charged</span>
     array<span class="op">=</span><span class="st">"tiledb://demo/palmer_penguins2"</span>,
     udf<span class="op">=</span><span class="va">myfunc</span>,
     selectedRanges<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="st">"A"</span>, <span class="st">"Z"</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fl">2007</span>,<span class="fl">2009</span><span class="op">)</span><span class="op">)</span>,
     attrs<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"bill_length_mm"</span>, <span class="st">"body_mass_g"</span><span class="op">)</span>
+    <span class="co"># NULL namespace means username namespace is charged</span>
 <span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></code></pre>
 <pre><code>                   vec2
@@ -167,9 +167,9 @@ $max
 <span class="op">)</span>
 
 <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">tiledbcloud</span><span class="fu">::</span><span class="fu"><a href="../reference/execute_multi_array_udf.html">execute_multi_array_udf</a></span><span class="op">(</span>
-  namespace<span class="op">=</span><span class="st">"demo"</span>,
   array_list<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">details1</span>, <span class="va">details2</span><span class="op">)</span>,
-  udf<span class="op">=</span><span class="va">myfunc</span>
+  udf<span class="op">=</span><span class="va">myfunc</span>,
+  namespace<span class="op">=</span><span class="st">"demo"</span>
 <span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></code></pre>
 <pre><code>$len
@@ -285,9 +285,9 @@ List of 5
 <span class="va">registered_udf_name</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="va">namespace</span>, <span class="va">udfname</span>, sep<span class="op">=</span><span class="st">'/'</span><span class="op">)</span>
 
 <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/execute_generic_udf.html">execute_generic_udf</a></span><span class="op">(</span>
-  namespace<span class="op">=</span><span class="va">namespace</span>,
   registered_udf_name<span class="op">=</span><span class="va">registered_udf_name</span>,
-  args<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>vec<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, exponent<span class="op">=</span><span class="fl">3</span><span class="op">)</span>
+  args<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>vec<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, exponent<span class="op">=</span><span class="fl">3</span><span class="op">)</span>,
+  namespace<span class="op">=</span><span class="va">namespace</span>
 <span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></code></pre>
 <pre><code>$ ./cloud-execute-registered-generic-udf.r
@@ -304,12 +304,12 @@ List of 5
 <span class="va">registered_udf_name</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="va">namespace_to_charge</span>, <span class="va">udf_name</span>, sep<span class="op">=</span><span class="st">'/'</span><span class="op">)</span>
 
 <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">tiledbcloud</span><span class="fu">::</span><span class="fu"><a href="../reference/execute_array_udf.html">execute_array_udf</a></span><span class="op">(</span>
-  namespace<span class="op">=</span><span class="st">"testuser"</span>, <span class="co"># namespace to charge</span>
   array<span class="op">=</span><span class="st">"TileDB-Inc/quickstart_dense"</span>,
   registered_udf_name<span class="op">=</span><span class="va">registered_udf_name</span>,
   args<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>attrname<span class="op">=</span><span class="st">"a"</span>, exponent<span class="op">=</span><span class="fl">2</span><span class="op">)</span>,
   selectedRanges<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span>,
-  attrs<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span>
+  attrs<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span><span class="op">)</span>,
+  namespace<span class="op">=</span><span class="st">"testuser"</span> <span class="co"># namespace to charge</span>
 <span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></code></pre>
 <pre><code>[1] 196</code></pre>
@@ -343,10 +343,10 @@ List of 5
 <span class="op">)</span>
 
 <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">tiledbcloud</span><span class="fu">::</span><span class="fu"><a href="../reference/execute_multi_array_udf.html">execute_multi_array_udf</a></span><span class="op">(</span>
-  namespace<span class="op">=</span><span class="va">namespace_to_charge</span>,
   array_list<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">details1</span>, <span class="va">details2</span><span class="op">)</span>,
   registered_udf_name<span class="op">=</span><span class="va">registered_udf_name</span>,
-  args<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>attrname<span class="op">=</span><span class="st">"a"</span><span class="op">)</span>
+  args<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>attrname<span class="op">=</span><span class="st">"a"</span><span class="op">)</span>,
+  namespace<span class="op">=</span><span class="va">namespace_to_charge</span>
 <span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></code></pre>
 <pre><code>$len

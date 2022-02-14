@@ -54,7 +54,11 @@ manual-layer functions.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">.get_decoded_response_body_or_stop</span><span class="op">(</span><span class="va">resultObject</span>, <span class="va">result_format</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">.get_decoded_response_body_or_stop</span><span class="op">(</span>
+  <span class="va">resultObject</span>,
+  <span class="va">result_format</span>,
+  entire_json_is_result <span class="op">=</span> <span class="cn">FALSE</span>
+<span class="op">)</span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -63,6 +67,11 @@ manual-layer functions.</p>
 <dd><p>Should be a return value from an API function which uses
 <code><a href="dot-wrap_as_api_response.html">.wrap_as_api_response</a></code> internally. These are functions which are manually
 edited after OpenAPI autogen.</p></dd>
+<dt>entire_json_is_result</dt>
+<dd><p>If false, return the <code>"value"</code> field from the JSON object.
+This is the right thing to do for returns from the REST server for almost all cases.
+The true case is only for getting the results from invoking registered Python UDFs
+from R, in which case the JSON result in its entirety is the UDF output.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>

@@ -88,7 +88,7 @@
 <span class="fu"><a href="../reference/delayed_args.html">delayed_args</a></span><span class="op">(</span><span class="va">c</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">b</span><span class="op">)</span>
 <span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/delayed.html">delayed</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="op">{</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="op">}</span>, args<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">b</span>,<span class="va">c</span><span class="op">)</span>, name<span class="op">=</span><span class="st">'d'</span>, local<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
 
-<span class="va">o</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/compute.html">compute</a></span><span class="op">(</span><span class="va">d</span>, <span class="va">namespace</span>, verbose<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">o</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/compute.html">compute</a></span><span class="op">(</span><span class="va">d</span>, namespace<span class="op">=</span><span class="va">namespace</span>, verbose<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">o</span><span class="op">)</span></code></pre>
 <p>with output</p>
 <pre><code>[1] 990</code></pre>
@@ -98,10 +98,10 @@
 </h2>
 <p>This is a simple convenience wrapper connecting <code>delayed</code>, as above, and TileDB Cloud SQL queries as described in the SQL vignette.</p>
 <pre><code><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/delayed_sql.html">delayed_sql</a></span><span class="op">(</span>
+    namespace<span class="op">=</span><span class="st">'your-namespace'</span>,
     query<span class="op">=</span><span class="st">"select `rows`, AVG(a) as avg_a from `tiledb://TileDB-Inc/quickstart_dense` GROUP BY `rows`"</span>,
-    name<span class="op">=</span><span class="st">"rows-query"</span>,
-    namespace<span class="op">=</span><span class="st">'your-namespace'</span><span class="op">)</span>
-<span class="va">o</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/compute.html">compute</a></span><span class="op">(</span><span class="va">a</span>, <span class="va">namespace</span>, verbose<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
+    name<span class="op">=</span><span class="st">"rows-query"</span><span class="op">)</span>
+<span class="va">o</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/compute.html">compute</a></span><span class="op">(</span><span class="va">a</span>, namespace<span class="op">=</span><span class="va">namespace</span>, verbose<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">o</span><span class="op">)</span></code></pre>
 <p>with output</p>
 <pre><code>    avg_a rows
@@ -122,7 +122,7 @@
   name<span class="op">=</span><span class="st">'my-generic'</span>
 <span class="op">)</span>
 <span class="fu"><a href="../reference/delayed_args.html">delayed_args</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>vec<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>, exponent<span class="op">=</span><span class="fl">3</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="../reference/compute.html">compute</a></span><span class="op">(</span><span class="va">a</span>, <span class="va">namespaceToCharge</span><span class="op">)</span><span class="op">)</span></code></pre>
+<span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="../reference/compute.html">compute</a></span><span class="op">(</span><span class="va">a</span>, namespace<span class="op">=</span><span class="va">namespaceToCharge</span><span class="op">)</span><span class="op">)</span></code></pre>
 <p>with output</p>
 <pre><code>[1]
 3025</code></pre>
@@ -141,7 +141,7 @@
   selectedRanges=list(cbind(1,2), cbind(1,2)),
   attrs=c("a")
 )
-o &lt;- compute(a, namespace, verbose=TRUE)
+o &lt;- compute(a, namespace=namespace, verbose=TRUE)
 print(o)</code></pre>
 <p>with output</p>
 <pre><code>$min
@@ -156,7 +156,7 @@ $max
 <div class="section level2">
 <h2 id="composing-tasks-into-task-graphs">Composing tasks into task graphs<a class="anchor" aria-label="anchor" href="#composing-tasks-into-task-graphs"></a>
 </h2>
-<p>Nodes, be they from <code>delayed</code>, <code>delayed_sql</code>, or <code>delayed_array_udf</code>, can be connected together into directed acyclic graphs. (If you construct a graph with a cyclic dependency, you’ll get an error message promptly.)</p>
+<p>Nodes, be they from <code>delayed</code>, <code>delayed_sql</code>, <code>delayed_array_udf</code>, or <code>delayed_multi_array_udf</code>, can be connected together into directed acyclic graphs. (If you construct a graph with a cyclic dependency, you’ll get an error message promptly.)</p>
 <p>Here’s an example:</p>
 <pre><code><span class="co"># Build several delayed objects to define a graph.</span>
 
@@ -177,9 +177,9 @@ $max
 <span class="co"># SQL -- note the output is a dataframe, and values are all strings (MariaDB</span>
 <span class="co"># "decimal values") so we'll cast them to numeric later.</span>
 <span class="va">sql</span> <span class="op">=</span> <span class="fu"><a href="../reference/delayed_sql.html">delayed_sql</a></span><span class="op">(</span>
+  namespace<span class="op">=</span><span class="va">namespace</span>,
   <span class="st">"select SUM(`a`) as a from `tiledb://TileDB-Inc/quickstart_dense`"</span>,
-  name<span class="op">=</span><span class="st">"sql"</span>,
-  namespace<span class="op">=</span><span class="va">namespace</span>
+  name<span class="op">=</span><span class="st">"sql"</span>
 <span class="op">)</span>
 
 <span class="co"># Custom function for averaging all the results we are passing in</span>
@@ -232,11 +232,10 @@ $max
 <span class="va">c</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/delayed.html">delayed</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span>   <span class="op">{</span> <span class="fl">100</span><span class="op">*</span><span class="va">x</span> <span class="op">}</span>,    args<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span>,   name<span class="op">=</span><span class="st">'c'</span><span class="op">)</span>
 <span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/delayed.html">delayed</a></span><span class="op">(</span><span class="kw">function</span><span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="op">{</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="op">}</span>, args<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">b</span>,<span class="va">c</span><span class="op">)</span>, name<span class="op">=</span><span class="st">'d'</span><span class="op">)</span>
 
-<span class="va">o</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/compute.html">compute</a></span><span class="op">(</span><span class="va">d</span>, <span class="va">namespace</span>, verbose<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">o</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/compute.html">compute</a></span><span class="op">(</span><span class="va">d</span>, namespace<span class="op">=</span><span class="va">namespace</span>, verbose<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">o</span><span class="op">)</span></code></pre>
 <p>with output like</p>
-<pre><code>Namespace: your-namespace
-All      nodes:    (4) a, b, c, d
+<pre><code>All      nodes:    (4) a, b, c, d
 Initial  nodes:    (1) a
 Terminal node:     (1) d
 Dependencies:
@@ -249,23 +248,22 @@ Statuses:
   b  args_ready=FALSE status=NOT_STARTED
   c  args_ready=FALSE status=NOT_STARTED
   d  args_ready=FALSE status=NOT_STARTED
-1643243967 2022-01-26 19:39:27 START a
-1643243967 2022-01-26 19:39:27 launch remote compute   a
-1643243969 2022-01-26 19:39:29 finish remote compute   a
-1643243970 2022-01-26 19:39:30 END   a
-1643243970 2022-01-26 19:39:30 START b
-1643243970 2022-01-26 19:39:30 START c
-1643243970 2022-01-26 19:39:30 launch remote compute   b
-1643243972 2022-01-26 19:39:32 finish remote compute   b
-1643243972 2022-01-26 19:39:32 END   b
-1643243970 2022-01-26 19:39:30 launch remote compute   c
-1643243972 2022-01-26 19:39:32 finish remote compute   c
-1643243972 2022-01-26 19:39:32 END   c
-1643243972 2022-01-26 19:39:32 START d
-1643243972 2022-01-26 19:39:32 launch remote compute   d
-1643243974 2022-01-26 19:39:34 finish remote compute   d
-1643243974 2022-01-26 19:39:34 END   d
-Namespace: your-namespace
+1644869786 2022-02-14 15:16:26 START a
+1644869786 2022-02-14 15:16:26 launch remote compute   a
+1644869789 2022-02-14 15:16:29 finish remote compute   a
+1644869789 2022-02-14 15:16:29 END   a
+1644869789 2022-02-14 15:16:29 START c
+1644869789 2022-02-14 15:16:29 START b
+1644869789 2022-02-14 15:16:29 launch remote compute   c
+1644869791 2022-02-14 15:16:31 finish remote compute   c
+1644869791 2022-02-14 15:16:31 END   c
+1644869789 2022-02-14 15:16:29 launch remote compute   b
+1644869791 2022-02-14 15:16:31 finish remote compute   b
+1644869791 2022-02-14 15:16:31 END   b
+1644869791 2022-02-14 15:16:31 START d
+1644869791 2022-02-14 15:16:31 launch remote compute   d
+1644869794 2022-02-14 15:16:34 finish remote compute   d
+1644869794 2022-02-14 15:16:34 END   d
 All      nodes:    (4) a, b, c, d
 Initial  nodes:    (1) a
 Terminal node:     (1) d
@@ -294,8 +292,7 @@ Statuses:
 <span class="va">o</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/compute.html">compute</a></span><span class="op">(</span><span class="va">d</span>, namespace<span class="op">=</span><span class="va">namespace</span>, verbose<span class="op">=</span><span class="cn">TRUE</span>, force_all_local<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">o</span><span class="op">)</span></code></pre>
 <p>with output</p>
-<pre><code>Namespace: your-namespace
-All      nodes:    (4) a, b, c, d
+<pre><code>All      nodes:    (4) a, b, c, d
 Initial  nodes:    (1) a
 Terminal node:     (1) d
 Dependencies:
@@ -308,27 +305,26 @@ Statuses:
   b  args_ready=FALSE status=NOT_STARTED
   c  args_ready=FALSE status=NOT_STARTED
   d  args_ready=FALSE status=NOT_STARTED
-1643244469 2022-01-26 19:47:49 START a
-1643244469 2022-01-26 19:47:49 launch local compute   a
+1644869845 2022-02-14 15:17:25 START a
+1644869845 2022-02-14 15:17:25 launch local compute   a
 NODE A
-1643244469 2022-01-26 19:47:49 finish local compute   a
-1643244469 2022-01-26 19:47:49 END   a
-1643244469 2022-01-26 19:47:49 START c
-1643244469 2022-01-26 19:47:49 START b
-1643244469 2022-01-26 19:47:49 launch local compute   c
-NODE C
-1643244469 2022-01-26 19:47:49 finish local compute   c
-1643244469 2022-01-26 19:47:49 END   c
-1643244469 2022-01-26 19:47:49 launch local compute   b
+1644869845 2022-02-14 15:17:25 finish local compute   a
+1644869845 2022-02-14 15:17:25 END   a
+1644869845 2022-02-14 15:17:25 START b
+1644869845 2022-02-14 15:17:25 START c
+1644869845 2022-02-14 15:17:25 launch local compute   b
 NODE B
-1643244469 2022-01-26 19:47:49 finish local compute   b
-1643244469 2022-01-26 19:47:49 END   b
-1643244469 2022-01-26 19:47:49 START d
-1643244469 2022-01-26 19:47:49 launch local compute   d
+1644869845 2022-02-14 15:17:25 finish local compute   b
+1644869845 2022-02-14 15:17:25 END   b
+1644869845 2022-02-14 15:17:25 launch local compute   c
+NODE C
+1644869845 2022-02-14 15:17:25 finish local compute   c
+1644869845 2022-02-14 15:17:25 END   c
+1644869845 2022-02-14 15:17:25 START d
+1644869845 2022-02-14 15:17:25 launch local compute   d
 NODE D
-1643244469 2022-01-26 19:47:49 finish local compute   d
-1643244469 2022-01-26 19:47:49 END   d
-Namespace: your-namespace
+1644869845 2022-02-14 15:17:25 finish local compute   d
+1644869845 2022-02-14 15:17:25 END   d
 All      nodes:    (4) a, b, c, d
 Initial  nodes:    (1) a
 Terminal node:     (1) d
@@ -342,6 +338,7 @@ Statuses:
   b  args_ready=TRUE status=COMPLETED
   c  args_ready=TRUE status=COMPLETED
   d  args_ready=TRUE status=COMPLETED
+&gt; print(o)
 [1] 990</code></pre>
 </div>
 <div class="section level3">
@@ -383,7 +380,6 @@ Execution halted</code></pre>
 node=d,nargs=2Error in self$args_ready() : dependency has failed
 
 &gt; show(d$dag_for_terminal)
-Namespace: your-namespace
 All      nodes:    (4) a, b, c, d
 Initial  nodes:    (1) a
 Terminal node:     (1) d
@@ -405,7 +401,6 @@ Statuses:
 [1] 990
 
 &gt; show(d$dag_for_terminal)
-Namespace: your-namespace
 All      nodes:    (4) a, b, c, d
 Initial  nodes:    (1) a
 Terminal node:     (1) d
