@@ -24,7 +24,7 @@ c <- delayed(function(x)   { 100*x },                    name='c', local=TRUE)
 delayed_args(c) <- list(b)
 d <- delayed(function(...) { sum(...) }, args=list(b,c), name='d', local=TRUE)
 
-o <- compute(d, namespace, verbose=TRUE)
+o <- compute(d, namespace=namespace, verbose=TRUE)
 print(o)
 ```
 
@@ -43,7 +43,7 @@ a <- delayed_sql(
     namespace='your-namespace',
     query="select `rows`, AVG(a) as avg_a from `tiledb://TileDB-Inc/quickstart_dense` GROUP BY `rows`",
     name="rows-query")
-o <- compute(a, namespace, verbose=TRUE)
+o <- compute(a, namespace=namespace, verbose=TRUE)
 print(o)
 ```
 
@@ -70,7 +70,7 @@ a <- delayed_generic_udf(
   name='my-generic'
 )
 delayed_args(a) <- list(vec=1:10, exponent=3)
-print(compute(a, namespaceToCharge))
+print(compute(a, namespace=namespaceToCharge))
 ```
 
 with output
@@ -95,7 +95,7 @@ a <- delayed_array_udf(
   selectedRanges=list(cbind(1,2), cbind(1,2)),
   attrs=c("a")
 )
-o <- compute(a, namespace, verbose=TRUE)
+o <- compute(a, namespace=namespace, verbose=TRUE)
 print(o)
 ```
 
@@ -114,9 +114,9 @@ $max
 
 ## Composing tasks into task graphs
 
-Nodes, be they from `delayed`, `delayed_sql`, or `delayed_array_udf`, can be
-connected together into directed acyclic graphs. (If you construct a graph with
-a cyclic dependency, you'll get an error message promptly.)
+Nodes, be they from `delayed`, `delayed_sql`, `delayed_array_udf`, or `delayed_multi_array_udf`, can
+be connected together into directed acyclic graphs. (If you construct a graph with a cyclic
+dependency, you'll get an error message promptly.)
 
 Here's an example:
 
@@ -213,14 +213,13 @@ b <- delayed(function(x)   {  10*x },    args=list(a),   name='b')
 c <- delayed(function(x)   { 100*x },    args=list(a),   name='c')
 d <- delayed(function(...) { sum(...) }, args=list(b,c), name='d')
 
-o <- compute(d, namespace, verbose=TRUE)
+o <- compute(d, namespace=namespace, verbose=TRUE)
 print(o)
 ```
 
 with output like
 
 ```
-Namespace: your-namespace
 All      nodes:    (4) a, b, c, d
 Initial  nodes:    (1) a
 Terminal node:     (1) d
@@ -234,23 +233,22 @@ Statuses:
   b  args_ready=FALSE status=NOT_STARTED
   c  args_ready=FALSE status=NOT_STARTED
   d  args_ready=FALSE status=NOT_STARTED
-1643243967 2022-01-26 19:39:27 START a
-1643243967 2022-01-26 19:39:27 launch remote compute   a
-1643243969 2022-01-26 19:39:29 finish remote compute   a
-1643243970 2022-01-26 19:39:30 END   a
-1643243970 2022-01-26 19:39:30 START b
-1643243970 2022-01-26 19:39:30 START c
-1643243970 2022-01-26 19:39:30 launch remote compute   b
-1643243972 2022-01-26 19:39:32 finish remote compute   b
-1643243972 2022-01-26 19:39:32 END   b
-1643243970 2022-01-26 19:39:30 launch remote compute   c
-1643243972 2022-01-26 19:39:32 finish remote compute   c
-1643243972 2022-01-26 19:39:32 END   c
-1643243972 2022-01-26 19:39:32 START d
-1643243972 2022-01-26 19:39:32 launch remote compute   d
-1643243974 2022-01-26 19:39:34 finish remote compute   d
-1643243974 2022-01-26 19:39:34 END   d
-Namespace: your-namespace
+1644869786 2022-02-14 15:16:26 START a
+1644869786 2022-02-14 15:16:26 launch remote compute   a
+1644869789 2022-02-14 15:16:29 finish remote compute   a
+1644869789 2022-02-14 15:16:29 END   a
+1644869789 2022-02-14 15:16:29 START c
+1644869789 2022-02-14 15:16:29 START b
+1644869789 2022-02-14 15:16:29 launch remote compute   c
+1644869791 2022-02-14 15:16:31 finish remote compute   c
+1644869791 2022-02-14 15:16:31 END   c
+1644869789 2022-02-14 15:16:29 launch remote compute   b
+1644869791 2022-02-14 15:16:31 finish remote compute   b
+1644869791 2022-02-14 15:16:31 END   b
+1644869791 2022-02-14 15:16:31 START d
+1644869791 2022-02-14 15:16:31 launch remote compute   d
+1644869794 2022-02-14 15:16:34 finish remote compute   d
+1644869794 2022-02-14 15:16:34 END   d
 All      nodes:    (4) a, b, c, d
 Initial  nodes:    (1) a
 Terminal node:     (1) d
@@ -288,7 +286,6 @@ print(o)
 with output
 
 ```
-Namespace: your-namespace
 All      nodes:    (4) a, b, c, d
 Initial  nodes:    (1) a
 Terminal node:     (1) d
@@ -302,27 +299,26 @@ Statuses:
   b  args_ready=FALSE status=NOT_STARTED
   c  args_ready=FALSE status=NOT_STARTED
   d  args_ready=FALSE status=NOT_STARTED
-1643244469 2022-01-26 19:47:49 START a
-1643244469 2022-01-26 19:47:49 launch local compute   a
+1644869845 2022-02-14 15:17:25 START a
+1644869845 2022-02-14 15:17:25 launch local compute   a
 NODE A
-1643244469 2022-01-26 19:47:49 finish local compute   a
-1643244469 2022-01-26 19:47:49 END   a
-1643244469 2022-01-26 19:47:49 START c
-1643244469 2022-01-26 19:47:49 START b
-1643244469 2022-01-26 19:47:49 launch local compute   c
-NODE C
-1643244469 2022-01-26 19:47:49 finish local compute   c
-1643244469 2022-01-26 19:47:49 END   c
-1643244469 2022-01-26 19:47:49 launch local compute   b
+1644869845 2022-02-14 15:17:25 finish local compute   a
+1644869845 2022-02-14 15:17:25 END   a
+1644869845 2022-02-14 15:17:25 START b
+1644869845 2022-02-14 15:17:25 START c
+1644869845 2022-02-14 15:17:25 launch local compute   b
 NODE B
-1643244469 2022-01-26 19:47:49 finish local compute   b
-1643244469 2022-01-26 19:47:49 END   b
-1643244469 2022-01-26 19:47:49 START d
-1643244469 2022-01-26 19:47:49 launch local compute   d
+1644869845 2022-02-14 15:17:25 finish local compute   b
+1644869845 2022-02-14 15:17:25 END   b
+1644869845 2022-02-14 15:17:25 launch local compute   c
+NODE C
+1644869845 2022-02-14 15:17:25 finish local compute   c
+1644869845 2022-02-14 15:17:25 END   c
+1644869845 2022-02-14 15:17:25 START d
+1644869845 2022-02-14 15:17:25 launch local compute   d
 NODE D
-1643244469 2022-01-26 19:47:49 finish local compute   d
-1643244469 2022-01-26 19:47:49 END   d
-Namespace: your-namespace
+1644869845 2022-02-14 15:17:25 finish local compute   d
+1644869845 2022-02-14 15:17:25 END   d
 All      nodes:    (4) a, b, c, d
 Initial  nodes:    (1) a
 Terminal node:     (1) d
@@ -336,6 +332,7 @@ Statuses:
   b  args_ready=TRUE status=COMPLETED
   c  args_ready=TRUE status=COMPLETED
   d  args_ready=TRUE status=COMPLETED
+> print(o)
 [1] 990
 ```
 
@@ -388,7 +385,6 @@ Execution halted
 node=d,nargs=2Error in self$args_ready() : dependency has failed
 
 > show(d$dag_for_terminal)
-Namespace: your-namespace
 All      nodes:    (4) a, b, c, d
 Initial  nodes:    (1) a
 Terminal node:     (1) d
@@ -414,7 +410,6 @@ Fix the artificial error:
 [1] 990
 
 > show(d$dag_for_terminal)
-Namespace: your-namespace
 All      nodes:    (4) a, b, c, d
 Initial  nodes:    (1) a
 Terminal node:     (1) d
