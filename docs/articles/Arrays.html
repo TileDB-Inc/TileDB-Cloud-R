@@ -117,44 +117,15 @@ List of 12
 <div class="section level2">
 <h2 id="reading-arrays">Reading arrays<a class="anchor" aria-label="anchor" href="#reading-arrays"></a>
 </h2>
-<pre><code>uri &lt;- "tiledb://TileDB-Inc/quickstart_sparse"
-arr &lt;- tiledb::tiledb_array(uri, query_type="READ", as.data.frame=TRUE)
-schema(arr)
-- Array type: sparse
-- Cell order: row-major
-- Tile order: row-major
-- Capacity: 10000
-- Allows duplicates: false
-- Coordinates filters: 1
-  &gt; ZSTD: COMPRESSION_LEVEL=-1
-- Offsets filters: 1
-  &gt; ZSTD: COMPRESSION_LEVEL=-1
-- Validity filters: 1
-  &gt; RLE: COMPRESSION_LEVEL=-1
-
-### Dimension ###
-- Name: rows
-- Type: INT32
-- Cell val num: 1
-- Domain: [1,4]
-- Tile extent: 4
-- Filters: 0
-
-### Dimension ###
-- Name: cols
-- Type: INT32
-- Cell val num: 1
-- Domain: [1,4]
-- Tile extent: 4
-- Filters: 0
-
-### Attribute ###
-- Name: a
-- Type: UINT32
-- Nullable: false
-- Cell val num: 1
-- Filters: 0
-- Fill value: 4294967295</code></pre>
+<pre><code><span class="va">uri</span> <span class="op">&lt;-</span> <span class="st">"tiledb://TileDB-Inc/quickstart_sparse"</span>
+<span class="va">arr</span> <span class="op">&lt;-</span> <span class="fu">tiledb</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/tiledb/man/tiledb_array.html" class="external-link">tiledb_array</a></span><span class="op">(</span><span class="va">uri</span>, query_type<span class="op">=</span><span class="st">"READ"</span>, as.data.frame<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>
+<span class="fu">schema</span><span class="op">(</span><span class="va">arr</span><span class="op">)</span>
+<span class="fu">tiledb_array_schema</span><span class="op">(</span>
+    domain<span class="op">=</span><span class="fu">tiledb_domain</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu">tiledb_dim</span><span class="op">(</span>name<span class="op">=</span><span class="st">"rows"</span>, domain<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1L</span>,<span class="fl">4L</span><span class="op">)</span>, tile<span class="op">=</span><span class="fl">4L</span>, type<span class="op">=</span><span class="st">"INT32"</span><span class="op">)</span>, <span class="fu">tiledb_dim</span><span class="op">(</span>name<span class="op">=</span><span class="st">"cols"</span>, domain<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1L</span>,<span class="fl">4L</span><span class="op">)</span>, tile<span class="op">=</span><span class="fl">4L</span>, type<span class="op">=</span><span class="st">"INT32"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,
+    attrs<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu">tiledb_attr</span><span class="op">(</span>name<span class="op">=</span><span class="st">"a"</span>, type<span class="op">=</span><span class="st">"UINT32"</span>, ncells<span class="op">=</span><span class="fl">1</span>, nullable<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span>,
+    cell_order<span class="op">=</span><span class="st">"ROW_MAJOR"</span>, tile_order<span class="op">=</span><span class="st">"ROW_MAJOR"</span>, capacity<span class="op">=</span><span class="fl">10000</span>, sparse<span class="op">=</span><span class="cn">TRUE</span>, allows_dups<span class="op">=</span><span class="cn">FALSE</span>,
+    coords_filter_list<span class="op">=</span><span class="fu">tiledb_filter_list</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu">tiledb_filter_set_option</span><span class="op">(</span><span class="fu">tiledb_filter</span><span class="op">(</span><span class="st">"ZSTD"</span><span class="op">)</span>,<span class="st">"COMPRESSION_LEVEL"</span>,<span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,
+    offsets_filter_list<span class="op">=</span><span class="fu">tiledb_filter_list</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu">tiledb_filter_set_option</span><span class="op">(</span><span class="fu">tiledb_filter</span><span class="op">(</span><span class="st">"ZSTD"</span><span class="op">)</span>,<span class="st">"COMPRESSION_LEVEL"</span>,<span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="registering-deregistering-arrays">Registering / deregistering arrays<a class="anchor" aria-label="anchor" href="#registering-deregistering-arrays"></a>

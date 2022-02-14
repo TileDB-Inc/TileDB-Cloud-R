@@ -51,13 +51,17 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">delayed</span><span class="op">(</span><span class="va">func</span>, args <span class="op">=</span> <span class="cn">NULL</span>, name <span class="op">=</span> <span class="cn">NULL</span>, local <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">delayed</span><span class="op">(</span><span class="va">func</span>, args <span class="op">=</span> <span class="cn">NULL</span>, name <span class="op">=</span> <span class="cn">NULL</span>, namespace <span class="op">=</span> <span class="cn">NULL</span>, local <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>name</dt>
 <dd><p>Optional -- e.g. <code>a</code> or <code>b</code>. If omitted, it defaults to a UUID.</p></dd>
+<dt>namespace</dt>
+<dd><p>If supplied, a namespace to use for executing this particular node.
+If omitted, a namespace can be applied at your top-level call to <code>compute</code>.
+If omitted there as well, your logged-in account's default namespace will be used.</p></dd>
 <dt>local</dt>
 <dd><p>If true, execute the functions on the local host; if else, execute them as
 UDFs in TileDB Cloud.</p></dd>

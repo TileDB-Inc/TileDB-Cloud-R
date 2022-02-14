@@ -52,19 +52,18 @@
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">delayed_generic_udf</span><span class="op">(</span>
-  <span class="va">namespace</span>,
   udf <span class="op">=</span> <span class="cn">NULL</span>,
   registered_udf_name <span class="op">=</span> <span class="cn">NULL</span>,
   args <span class="op">=</span> <span class="cn">NULL</span>,
-  name <span class="op">=</span> <span class="cn">NULL</span>
+  name <span class="op">=</span> <span class="cn">NULL</span>,
+  namespace <span class="op">=</span> <span class="cn">NULL</span>,
+  language <span class="op">=</span> <span class="st">"r"</span>
 <span class="op">)</span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>namespace</dt>
-<dd><p>The TileDB-Cloud namespace to charge the query to</p></dd>
-<dt>udf</dt>
+    <dl><dt>udf</dt>
 <dd><p>An R function. Arguments are specified separately via <code>args</code>.
 One of <code>udf</code> and <code>registered_udf_name</code> must be non-null.</p></dd>
 <dt>registered_udf_name</dt>
@@ -73,6 +72,12 @@ Arguments are specified separately via <code>args</code>.  One of <code>udf</cod
 <code>registered_udf_name</code> must be non-null.</p></dd>
 <dt>name</dt>
 <dd><p>Optional -- e.g. <code>a</code> or <code>b</code>. If omitted, it defaults to a UUID.</p></dd>
+<dt>namespace</dt>
+<dd><p>If supplied, a namespace to use for executing this particular node.
+If omitted, a namespace can be applied at your top-level call to <code>compute</code>.
+If omitted there as well, your logged-in account's default namespace will be used.</p></dd>
+<dt>language</dt>
+<dd><p>If omitted, defaults to <code>"r"</code>. Can be set to <code>"python"</code></p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>

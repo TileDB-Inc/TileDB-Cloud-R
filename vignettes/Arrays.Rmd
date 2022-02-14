@@ -66,41 +66,12 @@ List of 12
 uri <- "tiledb://TileDB-Inc/quickstart_sparse"
 arr <- tiledb::tiledb_array(uri, query_type="READ", as.data.frame=TRUE)
 schema(arr)
-- Array type: sparse
-- Cell order: row-major
-- Tile order: row-major
-- Capacity: 10000
-- Allows duplicates: false
-- Coordinates filters: 1
-  > ZSTD: COMPRESSION_LEVEL=-1
-- Offsets filters: 1
-  > ZSTD: COMPRESSION_LEVEL=-1
-- Validity filters: 1
-  > RLE: COMPRESSION_LEVEL=-1
-
-### Dimension ###
-- Name: rows
-- Type: INT32
-- Cell val num: 1
-- Domain: [1,4]
-- Tile extent: 4
-- Filters: 0
-
-### Dimension ###
-- Name: cols
-- Type: INT32
-- Cell val num: 1
-- Domain: [1,4]
-- Tile extent: 4
-- Filters: 0
-
-### Attribute ###
-- Name: a
-- Type: UINT32
-- Nullable: false
-- Cell val num: 1
-- Filters: 0
-- Fill value: 4294967295
+tiledb_array_schema(
+    domain=tiledb_domain(c(tiledb_dim(name="rows", domain=c(1L,4L), tile=4L, type="INT32"), tiledb_dim(name="cols", domain=c(1L,4L), tile=4L, type="INT32"))),
+    attrs=c(tiledb_attr(name="a", type="UINT32", ncells=1, nullable=FALSE)),
+    cell_order="ROW_MAJOR", tile_order="ROW_MAJOR", capacity=10000, sparse=TRUE, allows_dups=FALSE,
+    coords_filter_list=tiledb_filter_list(c(tiledb_filter_set_option(tiledb_filter("ZSTD"),"COMPRESSION_LEVEL",-1))),
+    offsets_filter_list=tiledb_filter_list(c(tiledb_filter_set_option(tiledb_filter("ZSTD"),"COMPRESSION_LEVEL",-1))))
 ```
 
 ## Registering / deregistering arrays
