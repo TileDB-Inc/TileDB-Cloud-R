@@ -8,6 +8,7 @@ vignette: |
 ---
 
 * Bump version number in [DESCRIPTION](./DESCRIPTION)
+* Run everything in the [Testing](./Testing.md) vignette.
 * Update docs:
     * `library(roxygen2); roxygenise()`
     * `library(pkgdown); build_site()`
