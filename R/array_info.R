@@ -309,8 +309,14 @@ ArrayInfo <- R6::R6Class(
         self$`id` <- ArrayInfoObject$`id`
       }
       if (!is.null(ArrayInfoObject$`file_type`)) {
-        file_typeObject <- FileType$new()
-        file_typeObject$fromJSON(jsonlite::toJSON(ArrayInfoObject$file_type, auto_unbox = TRUE, digits = NA))
+        # MANUAL EDIT AFTER OPENAPI AUTOGEN
+        # For enums, OpenAPI autogen (1) generates a constructor which requires being called
+        # with one arguent; (2) generates callsites (such as here) that calls that constructor
+        # with zero arguments.
+        #
+        #file_typeObject <- FileType$new()
+        #file_typeObject$fromJSON(jsonlite::toJSON(ArrayInfoObject$file_type, auto_unbox = TRUE, digits = NA))
+        file_typeObject <- FileType$new(ArrayInfoObject$file_type)
         self$`file_type` <- file_typeObject
       }
       if (!is.null(ArrayInfoObject$`file_properties`)) {
