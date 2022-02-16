@@ -134,8 +134,14 @@ ArrayActivityLog <- R6::R6Class(
         self$`event_at` <- ArrayActivityLogObject$`event_at`
       }
       if (!is.null(ArrayActivityLogObject$`action`)) {
-        actionObject <- ActivityEventType$new()
-        actionObject$fromJSON(jsonlite::toJSON(ArrayActivityLogObject$action, auto_unbox = TRUE, digits = NA))
+        # MANUAL EDIT AFTER OPENAPI AUTOGEN
+        # For enums, OpenAPI autogen (1) generates a constructor which requires being called
+        # with one arguent; (2) generates callsites (such as here) that calls that constructor
+        # with zero arguments.
+        #
+        #actionObject <- ActivityEventType$new()
+        #actionObject$fromJSON(jsonlite::toJSON(ArrayActivityLogObject$action, auto_unbox = TRUE, digits = NA))
+        actionObject <- ActivityEventType$new(ArrayActivityLogObject$action)
         self$`action` <- actionObject
       }
       if (!is.null(ArrayActivityLogObject$`username`)) {

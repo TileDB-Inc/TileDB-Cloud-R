@@ -97,8 +97,14 @@ QueryReader <- R6::R6Class(
     fromJSON = function(QueryReaderJson) {
       QueryReaderObject <- jsonlite::fromJSON(QueryReaderJson)
       if (!is.null(QueryReaderObject$`layout`)) {
-        layoutObject <- Layout$new()
-        layoutObject$fromJSON(jsonlite::toJSON(QueryReaderObject$layout, auto_unbox = TRUE, digits = NA))
+        # MANUAL EDIT AFTER OPENAPI AUTOGEN
+        # For enums, OpenAPI autogen (1) generates a constructor which requires being called
+        # with one arguent; (2) generates callsites (such as here) that calls that constructor
+        # with zero arguments.
+        #
+        #layoutObject <- Layout$new()
+        #layoutObject$fromJSON(jsonlite::toJSON(QueryReaderObject$layout, auto_unbox = TRUE, digits = NA))
+        layoutObject <- Layout$new(QueryReaderObject$layout)
         self$`layout` <- layoutObject
       }
       if (!is.null(QueryReaderObject$`subarray`)) {

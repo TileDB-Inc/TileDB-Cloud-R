@@ -55,8 +55,14 @@ Subarray <- R6::R6Class(
     fromJSON = function(SubarrayJson) {
       SubarrayObject <- jsonlite::fromJSON(SubarrayJson)
       if (!is.null(SubarrayObject$`layout`)) {
-        layoutObject <- Layout$new()
-        layoutObject$fromJSON(jsonlite::toJSON(SubarrayObject$layout, auto_unbox = TRUE, digits = NA))
+        # MANUAL EDIT AFTER OPENAPI AUTOGEN
+        # For enums, OpenAPI autogen (1) generates a constructor which requires being called
+        # with one arguent; (2) generates callsites (such as here) that calls that constructor
+        # with zero arguments.
+        #
+        #layoutObject <- Layout$new()
+        #layoutObject$fromJSON(jsonlite::toJSON(SubarrayObject$layout, auto_unbox = TRUE, digits = NA))
+        layoutObject <- Layout$new(SubarrayObject$layout)
         self$`layout` <- layoutObject
       }
       if (!is.null(SubarrayObject$`ranges`)) {

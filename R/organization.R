@@ -200,8 +200,14 @@ Organization <- R6::R6Class(
         self$`id` <- OrganizationObject$`id`
       }
       if (!is.null(OrganizationObject$`role`)) {
-        roleObject <- OrganizationRoles$new()
-        roleObject$fromJSON(jsonlite::toJSON(OrganizationObject$role, auto_unbox = TRUE, digits = NA))
+        # MANUAL EDIT AFTER OPENAPI AUTOGEN
+        # For enums, OpenAPI autogen (1) generates a constructor which requires being called
+        # with one arguent; (2) generates callsites (such as here) that calls that constructor
+        # with zero arguments.
+        #
+        #roleObject <- OrganizationRoles$new()
+        #roleObject$fromJSON(jsonlite::toJSON(OrganizationObject$role, auto_unbox = TRUE, digits = NA))
+        roleObject <- OrganizationRoles$new(OrganizationObject$role)
         self$`role` <- roleObject
       }
       if (!is.null(OrganizationObject$`name`)) {

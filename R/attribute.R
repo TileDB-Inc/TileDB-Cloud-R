@@ -91,8 +91,14 @@ Attribute <- R6::R6Class(
         self$`name` <- AttributeObject$`name`
       }
       if (!is.null(AttributeObject$`type`)) {
-        typeObject <- Datatype$new()
-        typeObject$fromJSON(jsonlite::toJSON(AttributeObject$type, auto_unbox = TRUE, digits = NA))
+        # MANUAL EDIT AFTER OPENAPI AUTOGEN
+        # For enums, OpenAPI autogen (1) generates a constructor which requires being called
+        # with one arguent; (2) generates callsites (such as here) that calls that constructor
+        # with zero arguments.
+        #
+        #typeObject <- Datatype$new()
+        #typeObject$fromJSON(jsonlite::toJSON(AttributeObject$type, auto_unbox = TRUE, digits = NA))
+        typeObject <- Datatype$new(AttributeObject$type)
         self$`type` <- typeObject
       }
       if (!is.null(AttributeObject$`filterPipeline`)) {

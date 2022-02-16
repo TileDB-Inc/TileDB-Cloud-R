@@ -122,8 +122,14 @@ SQLParameters <- R6::R6Class(
         self$`store_results` <- SQLParametersObject$`store_results`
       }
       if (!is.null(SQLParametersObject$`result_format`)) {
-        result_formatObject <- ResultFormat$new()
-        result_formatObject$fromJSON(jsonlite::toJSON(SQLParametersObject$result_format, auto_unbox = TRUE, digits = NA))
+        # MANUAL EDIT AFTER OPENAPI AUTOGEN
+        # For enums, OpenAPI autogen (1) generates a constructor which requires being called
+        # with one arguent; (2) generates callsites (such as here) that calls that constructor
+        # with zero arguments.
+        #
+        #result_formatObject <- ResultFormat$new()
+        #result_formatObject$fromJSON(jsonlite::toJSON(SQLParametersObject$result_format, auto_unbox = TRUE, digits = NA))
+        result_formatObject <- ResultFormat$new(SQLParametersObject$result_format)
         self$`result_format` <- result_formatObject
       }
       if (!is.null(SQLParametersObject$`init_commands`)) {

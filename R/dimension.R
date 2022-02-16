@@ -100,8 +100,14 @@ Dimension <- R6::R6Class(
         self$`name` <- DimensionObject$`name`
       }
       if (!is.null(DimensionObject$`type`)) {
-        typeObject <- Datatype$new()
-        typeObject$fromJSON(jsonlite::toJSON(DimensionObject$type, auto_unbox = TRUE, digits = NA))
+        # MANUAL EDIT AFTER OPENAPI AUTOGEN
+        # For enums, OpenAPI autogen (1) generates a constructor which requires being called
+        # with one arguent; (2) generates callsites (such as here) that calls that constructor
+        # with zero arguments.
+        #
+        #typeObject <- Datatype$new()
+        #typeObject$fromJSON(jsonlite::toJSON(DimensionObject$type, auto_unbox = TRUE, digits = NA))
+        typeObject <- Datatype$new(DimensionObject$type)
         self$`type` <- typeObject
       }
       if (!is.null(DimensionObject$`domain`)) {
