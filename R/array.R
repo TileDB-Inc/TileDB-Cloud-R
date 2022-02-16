@@ -67,8 +67,14 @@ Array <- R6::R6Class(
         self$`timestamp` <- ArrayObject$`timestamp`
       }
       if (!is.null(ArrayObject$`queryType`)) {
-        queryTypeObject <- Querytype$new()
-        queryTypeObject$fromJSON(jsonlite::toJSON(ArrayObject$queryType, auto_unbox = TRUE, digits = NA))
+        # MANUAL EDIT AFTER OPENAPI AUTOGEN
+        # For enums, OpenAPI autogen (1) generates a constructor which requires being called
+        # with one arguent; (2) generates callsites (such as here) that calls that constructor
+        # with zero arguments.
+        #
+        #queryTypeObject <- Querytype$new()
+        #queryTypeObject$fromJSON(jsonlite::toJSON(ArrayObject$queryType, auto_unbox = TRUE, digits = NA))
+        queryTypeObject <- Querytype$new(ArrayObject$queryType)
         self$`queryType` <- queryTypeObject
       }
       if (!is.null(ArrayObject$`uri`)) {

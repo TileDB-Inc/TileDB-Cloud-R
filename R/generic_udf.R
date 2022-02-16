@@ -156,8 +156,14 @@ GenericUDF <- R6::R6Class(
         self$`udf_info_name` <- GenericUDFObject$`udf_info_name`
       }
       if (!is.null(GenericUDFObject$`language`)) {
-        languageObject <- UDFLanguage$new()
-        languageObject$fromJSON(jsonlite::toJSON(GenericUDFObject$language, auto_unbox = TRUE, digits = NA))
+        # MANUAL EDIT AFTER OPENAPI AUTOGEN
+        # For enums, OpenAPI autogen (1) generates a constructor which requires being called
+        # with one arguent; (2) generates callsites (such as here) that calls that constructor
+        # with zero arguments.
+        #
+        #languageObject <- UDFLanguage$new()
+        #languageObject$fromJSON(jsonlite::toJSON(GenericUDFObject$language, auto_unbox = TRUE, digits = NA))
+        languageObject <- UDFLanguage$new(GenericUDFObject$language)
         self$`language` <- languageObject
       }
       if (!is.null(GenericUDFObject$`version`)) {
@@ -179,8 +185,14 @@ GenericUDF <- R6::R6Class(
         self$`stored_param_uuids` <- ApiClient$new()$deserializeObj(GenericUDFObject$`stored_param_uuids`, "array[character]", loadNamespace("tiledbcloud"))
       }
       if (!is.null(GenericUDFObject$`result_format`)) {
-        result_formatObject <- ResultFormat$new()
-        result_formatObject$fromJSON(jsonlite::toJSON(GenericUDFObject$result_format, auto_unbox = TRUE, digits = NA))
+        # MANUAL EDIT AFTER OPENAPI AUTOGEN
+        # For enums, OpenAPI autogen (1) generates a constructor which requires being called
+        # with one arguent; (2) generates callsites (such as here) that calls that constructor
+        # with zero arguments.
+        #
+        #result_formatObject <- ResultFormat$new()
+        #result_formatObject$fromJSON(jsonlite::toJSON(GenericUDFObject$result_format, auto_unbox = TRUE, digits = NA))
+        result_formatObject <- ResultFormat$new(GenericUDFObject$result_format)
         self$`result_format` <- result_formatObject
       }
       if (!is.null(GenericUDFObject$`task_name`)) {

@@ -357,8 +357,14 @@ ArrayTask <- R6::R6Class(
         self$`access_cost` <- ArrayTaskObject$`access_cost`
       }
       if (!is.null(ArrayTaskObject$`query_type`)) {
-        query_typeObject <- Querytype$new()
-        query_typeObject$fromJSON(jsonlite::toJSON(ArrayTaskObject$query_type, auto_unbox = TRUE, digits = NA))
+        # MANUAL EDIT AFTER OPENAPI AUTOGEN
+        # For enums, OpenAPI autogen (1) generates a constructor which requires being called
+        # with one arguent; (2) generates callsites (such as here) that calls that constructor
+        # with zero arguments.
+        #
+        #query_typeObject <- Querytype$new()
+        #query_typeObject$fromJSON(jsonlite::toJSON(ArrayTaskObject$query_type, auto_unbox = TRUE, digits = NA))
+        query_typeObject <- Querytype$new(ArrayTaskObject$query_type)
         self$`query_type` <- query_typeObject
       }
       if (!is.null(ArrayTaskObject$`udf_code`)) {
@@ -371,8 +377,14 @@ ArrayTask <- R6::R6Class(
         self$`sql_query` <- ArrayTaskObject$`sql_query`
       }
       if (!is.null(ArrayTaskObject$`type`)) {
-        typeObject <- ArrayTaskType$new()
-        typeObject$fromJSON(jsonlite::toJSON(ArrayTaskObject$type, auto_unbox = TRUE, digits = NA))
+        # MANUAL EDIT AFTER OPENAPI AUTOGEN
+        # For enums, OpenAPI autogen (1) generates a constructor which requires being called
+        # with one arguent; (2) generates callsites (such as here) that calls that constructor
+        # with zero arguments.
+        #
+        #typeObject <- ArrayTaskType$new()
+        #typeObject$fromJSON(jsonlite::toJSON(ArrayTaskObject$type, auto_unbox = TRUE, digits = NA))
+        typeObject <- ArrayTaskType$new(ArrayTaskObject$type)
         self$`type` <- typeObject
       }
       if (!is.null(ArrayTaskObject$`activity`)) {

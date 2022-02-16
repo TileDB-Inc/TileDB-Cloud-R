@@ -157,8 +157,14 @@ UDFInfoUpdate <- R6::R6Class(
         self$`name` <- UDFInfoUpdateObject$`name`
       }
       if (!is.null(UDFInfoUpdateObject$`language`)) {
-        languageObject <- UDFLanguage$new()
-        languageObject$fromJSON(jsonlite::toJSON(UDFInfoUpdateObject$language, auto_unbox = TRUE, digits = NA))
+        # MANUAL EDIT AFTER OPENAPI AUTOGEN
+        # For enums, OpenAPI autogen (1) generates a constructor which requires being called
+        # with one arguent; (2) generates callsites (such as here) that calls that constructor
+        # with zero arguments.
+        #
+        #languageObject <- UDFLanguage$new()
+        #languageObject$fromJSON(jsonlite::toJSON(UDFInfoUpdateObject$language, auto_unbox = TRUE, digits = NA))
+        languageObject <- UDFLanguage$new(UDFInfoUpdateObject$language)
         self$`language` <- languageObject
       }
       if (!is.null(UDFInfoUpdateObject$`version`)) {
@@ -168,8 +174,14 @@ UDFInfoUpdate <- R6::R6Class(
         self$`image_name` <- UDFInfoUpdateObject$`image_name`
       }
       if (!is.null(UDFInfoUpdateObject$`type`)) {
-        typeObject <- UDFType$new()
-        typeObject$fromJSON(jsonlite::toJSON(UDFInfoUpdateObject$type, auto_unbox = TRUE, digits = NA))
+        # MANUAL EDIT AFTER OPENAPI AUTOGEN
+        # For enums, OpenAPI autogen (1) generates a constructor which requires being called
+        # with one arguent; (2) generates callsites (such as here) that calls that constructor
+        # with zero arguments.
+        #
+        #typeObject <- UDFType$new()
+        #typeObject$fromJSON(jsonlite::toJSON(UDFInfoUpdateObject$type, auto_unbox = TRUE, digits = NA))
+        typeObject <- UDFType$new(UDFInfoUpdateObject$type)
         self$`type` <- typeObject
       }
       if (!is.null(UDFInfoUpdateObject$`exec`)) {
