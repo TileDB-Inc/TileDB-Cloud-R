@@ -55,7 +55,7 @@ delayed <- function(func, args=NULL, name=NULL, namespace=NULL, local=FALSE) {
 ##'
 ##' @family {manual-layer functions}
 ##' @export
-delayed_sql <- function(query, name, namespace) {
+delayed_sql <- function(query, name=NULL, namespace=NULL) {
   # It is absolutely necessary that this be a locally executing call to the
   # remote REST service. A non-local execution of this would mean the REST
   # server calling itself -- not only would that be a circular dependency, but
