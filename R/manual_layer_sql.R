@@ -17,7 +17,10 @@
 ##' @return The result of the SQL query.
 ##' @family {manual-layer functions}
 ##' @export
-execute_sql_query <- function(query, name, namespace) {
+execute_sql_query <- function(query, name, namespace=NULL) {
+  if (is.null(namespace)) {
+    namespace <- .get_default_namespace_charged()
+  }
 
   api.client.instance <- get_api_client_instance()
   sql.api.instance <- sql <- SqlApi$new(api.client.instance)

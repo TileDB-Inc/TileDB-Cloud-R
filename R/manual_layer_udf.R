@@ -31,7 +31,8 @@
 ##' invoking a registered Python UDF, \code{json} is used but you can select \code{arrow}
 ##' if you wish.
 ##'
-##' @param namespace Namespace within TileDB cloud.
+##' @param namespace Namespace within TileDB cloud to charge. If this is null, the
+##' logged-in user's username will be used for the namespace.
 ##'
 ##' @param language If omitted, defaults to \code{"r"}. Can be set to \code{"python"}
 ##" when executing registered Python UDFs.
@@ -40,10 +41,10 @@
 ##' @family {manual-layer functions}
 ##' @export
 execute_generic_udf <- function(udf=NULL, registered_udf_name=NULL, args=NULL, result_format='native',
-  args_format='native', namespace, language='r')
+  args_format='native', namespace=NULL, language='r')
 {
   if (is.null(namespace)) {
-    stop("namespace must not be null")
+    namespace <- .get_default_namespace_charged()
   }
   apiClientInstance <- get_api_client_instance()
   udfApiInstance <- UdfApi$new(apiClientInstance)
@@ -157,7 +158,7 @@ execute_array_udf <- function(array, udf=NULL, registered_udf_name=NULL, selecte
   result_format='native', args_format='native', namespace=NULL, language='r')
 {
   if (is.null(namespace)) {
-    stop("namespace must not be null")
+    namespace <- .get_default_namespace_charged()
   }
   apiClientInstance <- get_api_client_instance()
   udfApiInstance <- UdfApi$new(apiClientInstance)
@@ -279,7 +280,8 @@ execute_array_udf <- function(array, udf=NULL, registered_udf_name=NULL, selecte
 ##' invoking a registered Python UDF, \code{json} is used but you can select \code{arrow}
 ##' if you wish.
 ##'
-##' @param namespace Namespace within TileDB cloud.
+##' @param namespace Namespace within TileDB cloud to charge. If this is null, the
+##' logged-in user's username will be used for the namespace.
 ##'
 ##' @param language If omitted, defaults to \code{"r"}. Can be set to \code{"python"}
 ##" when executing registered Python UDFs.
@@ -288,10 +290,10 @@ execute_array_udf <- function(array, udf=NULL, registered_udf_name=NULL, selecte
 ##' @family {manual-layer functions}
 ##' @export
 execute_multi_array_udf <- function(array_list, udf=NULL, registered_udf_name=NULL, args=NULL,
-  result_format='native', args_format='native', namespace, language='r')
+  result_format='native', args_format='native', namespace=NULL, language='r')
 {
   if (is.null(namespace)) {
-    stop("namespace must not be null")
+    namespace <- .get_default_namespace_charged()
   }
   apiClientInstance <- get_api_client_instance()
   udfApiInstance <- UdfApi$new(apiClientInstance)
