@@ -50,7 +50,11 @@ SQLParameters <- R6::R6Class(
       }
       if (!is.null(`query`)) {
         stopifnot(is.character(`query`), length(`query`) == 1)
-        self$`query` <- `query`
+        # MANUAL EDIT AFTER OPENAPI AUTOGEN
+        # Avoid this:
+        # Error: tiledbcloud: received error response: Server returned 400 response status code.
+        # Message:  could not parse request body: invalid character '\n' in string literal
+        self$`query` <- gsub("\n", " ", `query`)
       }
       if (!is.null(`output_uri`)) {
         stopifnot(is.character(`output_uri`), length(`output_uri`) == 1)
