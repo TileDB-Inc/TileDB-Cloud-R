@@ -4,14 +4,15 @@
 \alias{execute_sql_query}
 \title{Execute a SQL query on TileDB Cloud}
 \usage{
-execute_sql_query(query, name, namespace = NULL)
+execute_sql_query(query, name = NULL, namespace = NULL)
 }
 \arguments{
 \item{query}{SQL query as a string.}
 
 \item{name}{A descriptive name to give the query.}
 
-\item{namespace}{Namespace within TileDB cloud.}
+\item{namespace}{Namespace within TileDB cloud to charge. If this is null, the
+logged-in user's username will be used for the namespace.}
 }
 \value{
 The result of the SQL query.
