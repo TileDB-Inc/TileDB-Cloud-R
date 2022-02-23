@@ -251,9 +251,12 @@ UDFInfoUpdate <- R6::R6Class(
         if (!is.null(self$`exec_raw`)) {
         sprintf(
         '"exec_raw":
-          "%s"
+          %s
                 ',
-        self$`exec_raw`
+        # MANUAL EDIT AFTER OPENAPI AUTOGEN: needs toJSON here to escape any double quotes inside
+        # the string, e.g. 'it is "ok" with me' -> "it is \"ok\" with me". Needs auto_unbox, else
+        # we get ["it is \"ok\" with me"] (note the [...]).
+        jsonlite::toJSON(self$exec_raw, auto_unbox=TRUE)
         )},
         if (!is.null(self$`readme`)) {
         sprintf(
