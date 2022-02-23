@@ -12,12 +12,13 @@
 ##'
 ##' @param name A descriptive name to give the query.
 ##'
-##' @param namespace Namespace within TileDB cloud.
+##' @param namespace Namespace within TileDB cloud to charge. If this is null, the
+##' logged-in user's username will be used for the namespace.
 ##'
 ##' @return The result of the SQL query.
 ##' @family {manual-layer functions}
 ##' @export
-execute_sql_query <- function(query, name, namespace=NULL) {
+execute_sql_query <- function(query, name=NULL, namespace=NULL) {
   if (is.null(namespace)) {
     namespace <- .get_default_namespace_charged()
   }
