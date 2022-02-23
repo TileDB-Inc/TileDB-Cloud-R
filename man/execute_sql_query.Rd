@@ -4,7 +4,7 @@
 \alias{execute_sql_query}
 \title{Execute a SQL query on TileDB Cloud}
 \usage{
-execute_sql_query(query, name, namespace)
+execute_sql_query(query, name, namespace = NULL)
 }
 \arguments{
 \item{query}{SQL query as a string.}
