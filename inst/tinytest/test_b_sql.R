@@ -18,6 +18,11 @@ expect_true(is(sql, "SqlApi"))
 sqlpar <-  SQLParameters$new(name="ArbitraryNameHere", query=paste("select 1 as one"))
 expect_true(is(sqlpar, "SQLParameters"))
 
+# Check for handling of newlines inside SQL-query strings
+sqlpar <-  SQLParameters$new(name="ArbitraryNameHere", query=paste("select 2
+as two"))
+expect_true(is(sqlpar, "SQLParameters"))
+
 if (FALSE) {
     ## these work in isolation i.e. via run_test_file() but not in the test env; unsure why
     ans <- sql$RunSQL("unittest", sqlpar)
