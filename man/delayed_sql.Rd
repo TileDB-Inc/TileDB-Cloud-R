@@ -4,7 +4,7 @@
 \alias{delayed_sql}
 \title{Define a SQL query function to be executed within a task graph}
 \usage{
-delayed_sql(query, name, namespace)
+delayed_sql(query, name = NULL, namespace = NULL)
 }
 \arguments{
 \item{query}{SQL query string -- see vignette for examples}

@@ -51,7 +51,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">execute_sql_query</span><span class="op">(</span><span class="va">query</span>, <span class="va">name</span>, <span class="va">namespace</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">execute_sql_query</span><span class="op">(</span><span class="va">query</span>, name <span class="op">=</span> <span class="cn">NULL</span>, namespace <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -61,7 +61,8 @@
 <dt>name</dt>
 <dd><p>A descriptive name to give the query.</p></dd>
 <dt>namespace</dt>
-<dd><p>Namespace within TileDB cloud.</p></dd>
+<dd><p>Namespace within TileDB cloud to charge. If this is null, the
+logged-in user's username will be used for the namespace.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>

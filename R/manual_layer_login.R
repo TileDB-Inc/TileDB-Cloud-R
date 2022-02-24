@@ -107,6 +107,14 @@ login <- function(username, password, api_key, host, remember_me=TRUE, write_con
   .pkgenv[["default_namespace_charged"]]
 }
 
+.get_default_namespace_charged_or_stop <- function() {
+  default_namespace <- .get_default_namespace_charged()
+  if (is.null(default_namespace)) {
+    stop("namespace was not provided, and no account-local default was found")
+  }
+  default_namespace
+}
+
 ##' Access cached API-client object
 ##'
 ##' This is a package-internal function.

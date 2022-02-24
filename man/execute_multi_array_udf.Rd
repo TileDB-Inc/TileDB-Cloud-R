@@ -11,7 +11,7 @@ execute_multi_array_udf(
   args = NULL,
   result_format = "native",
   args_format = "native",
-  namespace,
+  namespace = NULL,
   language = "r"
 )
 }
@@ -43,7 +43,8 @@ to specify this. If you're invoking an R UDF, \code{native} is used; if you're
 invoking a registered Python UDF, \code{json} is used but you can select \code{arrow}
 if you wish.}
 
-\item{namespace}{Namespace within TileDB cloud.}
+\item{namespace}{Namespace within TileDB cloud to charge. If this is null, the
+logged-in user's username will be used for the namespace.}
 
 \item{language}{If omitted, defaults to \code{"r"}. Can be set to \code{"python"}}
 }
