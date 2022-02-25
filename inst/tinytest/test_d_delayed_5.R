@@ -38,8 +38,6 @@ expect_equal(compute(a, namespace=namespaceToCharge, timeout_seconds=300), 9)
 a <- delayed(function() { 9 }, name='a', local=FALSE)
 expect_equal(compute(a, timeout_seconds=300), 9)
 
-# TODO: test 3-way ns sel
-
 # ----------------------------------------------------------------
 a <- delayed(function() { 9 }, name='a', local=FALSE)
 expect_equal(compute(a, namespace=namespaceToCharge, timeout_seconds=300), 9)
