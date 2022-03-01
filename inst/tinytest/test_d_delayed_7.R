@@ -141,27 +141,27 @@ expect_equal(o, 18496)
 
 # PENDING https://github.com/TileDB-Inc/TileDB-REST-UDF-Docker-Images/pull/213
 
-# # Non-delayed
-# o <- execute_array_udf(
-#   array="TileDB-Inc/quickstart_dense",
-#   registered_udf_name='johnkerl-tiledb/tiledb-cloud-r-single-array-udf-py',
-#   selectedRanges=list(cbind(1,4), cbind(1,4)),
-#   attrs=c("a"),
-#   args=list(attr="a", exponent=3),
-#   namespace=namespaceToCharge,
-#   language='python'
-# )
-# expect_equal(o, 18496)
+# Non-delayed
+o <- execute_array_udf(
+  array="TileDB-Inc/quickstart_dense",
+  registered_udf_name='johnkerl-tiledb/tiledb-cloud-r-single-array-udf-py',
+  selectedRanges=list(cbind(1,4), cbind(1,4)),
+  attrs=c("a"),
+  args=list(attr="a", exponent=3),
+  namespace=namespaceToCharge,
+  language='python'
+)
+expect_equal(o, 18496)
 
-# # Delayed
-# a <- delayed_array_udf(
-#   namespace=namespaceToCharge,
-#   array="TileDB-Inc/quickstart_dense",
-#   registered_udf_name='johnkerl-tiledb/tiledb-cloud-r-single-array-udf-py',
-#   selectedRanges=list(cbind(1,4), cbind(1,4)),
-#   attrs=c("a"),
-#   args=list(attr="a", exponent=3),
-#   language='python'
-# )
-# o <- compute(a, namespace=namespaceToCharge)
-# expect_equal(o, 18496)
+# Delayed
+a <- delayed_array_udf(
+  namespace=namespaceToCharge,
+  array="TileDB-Inc/quickstart_dense",
+  registered_udf_name='johnkerl-tiledb/tiledb-cloud-r-single-array-udf-py',
+  selectedRanges=list(cbind(1,4), cbind(1,4)),
+  attrs=c("a"),
+  args=list(attr="a", exponent=3),
+  language='python'
+)
+o <- compute(a, namespace=namespaceToCharge)
+expect_equal(o, 18496)
