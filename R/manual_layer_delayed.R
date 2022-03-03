@@ -120,8 +120,6 @@ delayed_generic_udf <- function(udf=NULL, registered_udf_name=NULL, args=NULL, n
 
 ##' Define a single-array UDF to be executed within a task graph
 ##'
-##' @param namespace The TileDB-Cloud namespace to charge the query to
-##'
 ##' @param array TileDB URI -- see vignette for examples.
 ##'
 ##' @param udf User-defined function, as in UDF examples. Arguments are specified separately via \code{args}.
@@ -145,6 +143,10 @@ delayed_generic_udf <- function(udf=NULL, registered_udf_name=NULL, args=NULL, n
 ##'
 ##' @param name A display name for the query
 ##'
+##' @param namespace If supplied, a namespace to use for executing this particular node.
+##' If omitted, a namespace can be applied at your top-level call to \code{compute}.
+##' If omitted there as well, your logged-in account's default namespace will be used.
+##'
 ##' @param language If omitted, defaults to \code{"r"}. Can be set to \code{"python"}
 ##" when executing registered Python UDFs.
 ##'
@@ -152,8 +154,8 @@ delayed_generic_udf <- function(udf=NULL, registered_udf_name=NULL, args=NULL, n
 ##'
 ##' @family {manual-layer functions}
 ##' @export
-delayed_array_udf <- function(namespace, array, udf=NULL, registered_udf_name=NULL, selectedRanges, attrs,
-  layout=NULL, args=NULL, result_format='native', name=NULL, language='r')
+delayed_array_udf <- function(array, udf=NULL, registered_udf_name=NULL, selectedRanges, attrs,
+  layout=NULL, args=NULL, result_format='native', name=NULL, namespace=NULL, language='r')
 {
   # It is absolutely necessary that this be a locally executing call to the
   # remote REST service. A non-local execution of this would mean the REST
