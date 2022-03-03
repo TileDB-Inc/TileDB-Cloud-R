@@ -18,7 +18,14 @@ user_profile <- function(include_logo=FALSE) {
   apiClientInstance <- get_api_client_instance()
   userApiInstance <- UserApi$new(apiClientInstance)
 
-  info <- userApiInstance$GetUser()
+  resultObject <- userApiInstance$GetUser()
+  # Decode the result
+  body <- .get_raw_response_body_or_stop(resultObject)
+  info <- jsonlite::fromJSON(rawToChar(body))
+
+  cat("WTF----------------------------------------------------------------\n")
+  str(info)
+  cat("WTF----------------------------------------------------------------\n")
   if (!include_logo) {
     info[["logo"]] <- NULL
   }

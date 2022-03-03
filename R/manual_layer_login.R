@@ -79,7 +79,11 @@ login <- function(username, password, api_key, host, remember_me=TRUE, write_con
     }
 
     ## Use as a possible test.
-    res <- userApiInstance$GetUser()
+    resultObject <- userApiInstance$GetUser()
+    # Decode the result
+    body <- .get_raw_response_body_or_stop(resultObject)
+    res <- jsonlite::fromJSON(rawToChar(body))
+
     if (verbose) cat("GetUser() got name", res$name, "\n")
 
     ## We do not store username and password, but update.
