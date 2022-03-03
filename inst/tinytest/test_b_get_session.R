@@ -12,7 +12,7 @@ if (is.null(userApiInstance)) exit_file("not logged in")
 
 res <- userApiInstance$GetSession()
 expect_true(is(res, "Token"))
-expect_true(is.character(res$token))
+expect_true(!is.null(res$token) && is.character(res$token))
 
 getUTC <- function(x) as.POSIXct(x, tz="UTC", format="%Y-%m-%dT%H:%M:%OS")
 issued <- getUTC(res$issued_at)
