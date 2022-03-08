@@ -5,7 +5,6 @@
 \title{Define a single-array UDF to be executed within a task graph}
 \usage{
 delayed_array_udf(
-  namespace,
   array,
   udf = NULL,
   registered_udf_name = NULL,
@@ -15,12 +14,11 @@ delayed_array_udf(
   args = NULL,
   result_format = "native",
   name = NULL,
+  namespace = NULL,
   language = "r"
 )
 }
 \arguments{
-\item{namespace}{The TileDB-Cloud namespace to charge the query to}
-
 \item{array}{TileDB URI -- see vignette for examples.}
 
 \item{udf}{User-defined function, as in UDF examples. Arguments are specified separately via \code{args}.
@@ -39,6 +37,10 @@ Arguments are specified separately via \code{args}.  One of \code{udf} and
 \item{result_format}{As in UDF examples.}
 
 \item{name}{A display name for the query}
+
+\item{namespace}{If supplied, a namespace to use for executing this particular node.
+If omitted, a namespace can be applied at your top-level call to \code{compute}.
+If omitted there as well, your logged-in account's default namespace will be used.}
 
 \item{language}{If omitted, defaults to \code{"r"}. Can be set to \code{"python"}}
 }
