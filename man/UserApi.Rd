@@ -700,7 +700,7 @@ result <- api.instance$DeleteAWSAccessCredentials(var.namespace, var.name)
 ####################  DeleteUser  ####################
 
 library(tiledbcloud)
-var.username <- 'username_example' # character | username or id
+var.username <- 'username_example' # character | username or ID
 
 api.instance <- UserApi$new()
 
@@ -814,7 +814,7 @@ result <- api.instance$GetUser()
 ####################  GetUserWithUsername  ####################
 
 library(tiledbcloud)
-var.username <- 'username_example' # character | username or id
+var.username <- 'username_example' # character | username or ID
 
 api.instance <- UserApi$new()
 
@@ -947,7 +947,7 @@ result <- api.instance$UpdateAWSAccessCredentials(var.namespace, var.name, var.a
 ####################  UpdateUser  ####################
 
 library(tiledbcloud)
-var.username <- 'username_example' # character | username or id
+var.username <- 'username_example' # character | username or ID
 var.user <- User$new() # User | user details to update
 
 api.instance <- UserApi$new()

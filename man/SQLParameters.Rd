@@ -21,11 +21,17 @@ SQLParameters Class
 
 \item{\code{store_results}}{character [optional]}
 
+\item{\code{dont_download_results}}{character [optional]}
+
 \item{\code{result_format}}{\link{ResultFormat} [optional]}
 
 \item{\code{init_commands}}{list( character ) [optional]}
 
 \item{\code{parameters}}{list( object ) [optional]}
+
+\item{\code{task_graph_uuid}}{character [optional]}
+
+\item{\code{client_node_uuid}}{character [optional]}
 }
 \if{html}{\out{</div>}}
 }
@@ -50,9 +56,12 @@ SQLParameters Class
   query = NULL,
   output_uri = NULL,
   store_results = NULL,
+  dont_download_results = NULL,
   result_format = NULL,
   init_commands = NULL,
   parameters = NULL,
+  task_graph_uuid = NULL,
+  client_node_uuid = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }

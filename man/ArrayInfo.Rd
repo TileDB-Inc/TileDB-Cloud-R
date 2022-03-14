@@ -60,8 +60,6 @@ ArrayInfo Class
 \item{\code{read_only}}{character [optional]}
 
 \item{\code{is_favorite}}{character [optional]}
-
-\item{\code{favorite_uuid}}{character [optional]}
 }
 \if{html}{\out{</div>}}
 }
@@ -106,7 +104,6 @@ ArrayInfo Class
   license_text = NULL,
   read_only = NULL,
   is_favorite = NULL,
-  favorite_uuid = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }

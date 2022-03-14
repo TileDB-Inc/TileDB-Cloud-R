@@ -35,6 +35,8 @@ MultiArrayUDF Class
 
 \item{\code{store_results}}{character [optional]}
 
+\item{\code{dont_download_results}}{character [optional]}
+
 \item{\code{ranges}}{\link{QueryRanges} [optional]}
 
 \item{\code{subarray}}{\link{UDFSubarray} [optional]}
@@ -42,6 +44,12 @@ MultiArrayUDF Class
 \item{\code{buffers}}{list( character ) [optional]}
 
 \item{\code{arrays}}{list( \link{UDFArrayDetails} ) [optional]}
+
+\item{\code{timeout}}{integer [optional]}
+
+\item{\code{task_graph_uuid}}{character [optional]}
+
+\item{\code{client_node_uuid}}{character [optional]}
 }
 \if{html}{\out{</div>}}
 }
@@ -73,10 +81,14 @@ MultiArrayUDF Class
   argument = NULL,
   stored_param_uuids = NULL,
   store_results = NULL,
+  dont_download_results = NULL,
   ranges = NULL,
   subarray = NULL,
   buffers = NULL,
   arrays = NULL,
+  timeout = NULL,
+  task_graph_uuid = NULL,
+  client_node_uuid = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }

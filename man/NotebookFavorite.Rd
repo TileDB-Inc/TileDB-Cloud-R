@@ -13,11 +13,11 @@ NotebookFavorite Class
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{id}}{character [optional]}
-
-\item{\code{created_at}}{character [optional]}
-
 \item{\code{notebook_uuid}}{character [optional]}
+
+\item{\code{namespace}}{character [optional]}
+
+\item{\code{name}}{character [optional]}
 }
 \if{html}{\out{</div>}}
 }
@@ -37,7 +37,7 @@ NotebookFavorite Class
 \if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{NotebookFavorite$new(id = NULL, created_at = NULL, notebook_uuid = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{NotebookFavorite$new(notebook_uuid = NULL, namespace = NULL, name = NULL, ...)}\if{html}{\out{</div>}}
 }
 
 }

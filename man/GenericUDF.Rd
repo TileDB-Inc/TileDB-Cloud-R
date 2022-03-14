@@ -34,6 +34,14 @@ GenericUDF Class
 \item{\code{task_name}}{character [optional]}
 
 \item{\code{store_results}}{character [optional]}
+
+\item{\code{timeout}}{integer [optional]}
+
+\item{\code{dont_download_results}}{character [optional]}
+
+\item{\code{task_graph_uuid}}{character [optional]}
+
+\item{\code{client_node_uuid}}{character [optional]}
 }
 \if{html}{\out{</div>}}
 }
@@ -65,6 +73,10 @@ GenericUDF Class
   result_format = NULL,
   task_name = NULL,
   store_results = NULL,
+  timeout = NULL,
+  dont_download_results = NULL,
+  task_graph_uuid = NULL,
+  client_node_uuid = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }

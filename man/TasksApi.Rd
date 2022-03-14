@@ -176,7 +176,7 @@ result <- api.instance$RunSQL(var.namespace, var.sql, accept.encoding=var.accept
 ####################  TaskIdGet  ####################
 
 library(tiledbcloud)
-var.id <- 'id_example' # character | task id to fetch
+var.id <- 'id_example' # character | task ID to fetch
 
 api.instance <- TasksApi$new()
 
@@ -195,7 +195,7 @@ result <- api.instance$TaskIdGet(var.id)
 ####################  TaskIdResultGet  ####################
 
 library(tiledbcloud)
-var.id <- 'id_example' # character | task id to retrieve stored results
+var.id <- 'id_example' # character | task ID to retrieve stored results
 var.accept.encoding <- 'accept.encoding_example' # character | Encoding to use
 
 api.instance <- TasksApi$new()
