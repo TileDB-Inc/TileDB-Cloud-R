@@ -13,11 +13,11 @@
 #'
 #' @format An \code{R6Class} generator object
 #'
-#' @field id  character [optional]
-#'
-#' @field created_at  character [optional]
-#'
 #' @field mlmodel_uuid  character [optional]
+#'
+#' @field namespace  character [optional]
+#'
+#' @field name  character [optional]
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -25,78 +25,78 @@
 MLModelFavorite <- R6::R6Class(
   'MLModelFavorite',
   public = list(
-    `id` = NULL,
-    `created_at` = NULL,
     `mlmodel_uuid` = NULL,
+    `namespace` = NULL,
+    `name` = NULL,
     initialize = function(
-        `id`=NULL, `created_at`=NULL, `mlmodel_uuid`=NULL, ...
+        `mlmodel_uuid`=NULL, `namespace`=NULL, `name`=NULL, ...
     ) {
       local.optional.var <- list(...)
-      if (!is.null(`id`)) {
-        stopifnot(is.character(`id`), length(`id`) == 1)
-        self$`id` <- `id`
-      }
-      if (!is.null(`created_at`)) {
-        stopifnot(is.character(`created_at`), length(`created_at`) == 1)
-        self$`created_at` <- `created_at`
-      }
       if (!is.null(`mlmodel_uuid`)) {
         stopifnot(is.character(`mlmodel_uuid`), length(`mlmodel_uuid`) == 1)
         self$`mlmodel_uuid` <- `mlmodel_uuid`
       }
+      if (!is.null(`namespace`)) {
+        stopifnot(is.character(`namespace`), length(`namespace`) == 1)
+        self$`namespace` <- `namespace`
+      }
+      if (!is.null(`name`)) {
+        stopifnot(is.character(`name`), length(`name`) == 1)
+        self$`name` <- `name`
+      }
     },
     toJSON = function() {
       MLModelFavoriteObject <- list()
-      if (!is.null(self$`id`)) {
-        MLModelFavoriteObject[['id']] <-
-          self$`id`
-      }
-      if (!is.null(self$`created_at`)) {
-        MLModelFavoriteObject[['created_at']] <-
-          self$`created_at`
-      }
       if (!is.null(self$`mlmodel_uuid`)) {
         MLModelFavoriteObject[['mlmodel_uuid']] <-
           self$`mlmodel_uuid`
+      }
+      if (!is.null(self$`namespace`)) {
+        MLModelFavoriteObject[['namespace']] <-
+          self$`namespace`
+      }
+      if (!is.null(self$`name`)) {
+        MLModelFavoriteObject[['name']] <-
+          self$`name`
       }
 
       MLModelFavoriteObject
     },
     fromJSON = function(MLModelFavoriteJson) {
       MLModelFavoriteObject <- jsonlite::fromJSON(MLModelFavoriteJson)
-      if (!is.null(MLModelFavoriteObject$`id`)) {
-        self$`id` <- MLModelFavoriteObject$`id`
-      }
-      if (!is.null(MLModelFavoriteObject$`created_at`)) {
-        self$`created_at` <- MLModelFavoriteObject$`created_at`
-      }
       if (!is.null(MLModelFavoriteObject$`mlmodel_uuid`)) {
         self$`mlmodel_uuid` <- MLModelFavoriteObject$`mlmodel_uuid`
+      }
+      if (!is.null(MLModelFavoriteObject$`namespace`)) {
+        self$`namespace` <- MLModelFavoriteObject$`namespace`
+      }
+      if (!is.null(MLModelFavoriteObject$`name`)) {
+        self$`name` <- MLModelFavoriteObject$`name`
       }
       self
     },
     toJSONString = function() {
       jsoncontent <- c(
-        if (!is.null(self$`id`)) {
-        sprintf(
-        '"id":
-          "%s"
-                ',
-        self$`id`
-        )},
-        if (!is.null(self$`created_at`)) {
-        sprintf(
-        '"created_at":
-          "%s"
-                ',
-        self$`created_at`
-        )},
         if (!is.null(self$`mlmodel_uuid`)) {
         sprintf(
         '"mlmodel_uuid":
           "%s"
                 ',
         self$`mlmodel_uuid`
+        )},
+        if (!is.null(self$`namespace`)) {
+        sprintf(
+        '"namespace":
+          "%s"
+                ',
+        self$`namespace`
+        )},
+        if (!is.null(self$`name`)) {
+        sprintf(
+        '"name":
+          "%s"
+                ',
+        self$`name`
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -104,9 +104,9 @@ MLModelFavorite <- R6::R6Class(
     },
     fromJSONString = function(MLModelFavoriteJson) {
       MLModelFavoriteObject <- jsonlite::fromJSON(MLModelFavoriteJson)
-      self$`id` <- MLModelFavoriteObject$`id`
-      self$`created_at` <- MLModelFavoriteObject$`created_at`
       self$`mlmodel_uuid` <- MLModelFavoriteObject$`mlmodel_uuid`
+      self$`namespace` <- MLModelFavoriteObject$`namespace`
+      self$`name` <- MLModelFavoriteObject$`name`
       self
     }
   )

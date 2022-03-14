@@ -13,11 +13,11 @@
 #'
 #' @format An \code{R6Class} generator object
 #'
-#' @field id  character [optional]
-#'
-#' @field created_at  character [optional]
-#'
 #' @field notebook_uuid  character [optional]
+#'
+#' @field namespace  character [optional]
+#'
+#' @field name  character [optional]
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -25,78 +25,78 @@
 NotebookFavorite <- R6::R6Class(
   'NotebookFavorite',
   public = list(
-    `id` = NULL,
-    `created_at` = NULL,
     `notebook_uuid` = NULL,
+    `namespace` = NULL,
+    `name` = NULL,
     initialize = function(
-        `id`=NULL, `created_at`=NULL, `notebook_uuid`=NULL, ...
+        `notebook_uuid`=NULL, `namespace`=NULL, `name`=NULL, ...
     ) {
       local.optional.var <- list(...)
-      if (!is.null(`id`)) {
-        stopifnot(is.character(`id`), length(`id`) == 1)
-        self$`id` <- `id`
-      }
-      if (!is.null(`created_at`)) {
-        stopifnot(is.character(`created_at`), length(`created_at`) == 1)
-        self$`created_at` <- `created_at`
-      }
       if (!is.null(`notebook_uuid`)) {
         stopifnot(is.character(`notebook_uuid`), length(`notebook_uuid`) == 1)
         self$`notebook_uuid` <- `notebook_uuid`
       }
+      if (!is.null(`namespace`)) {
+        stopifnot(is.character(`namespace`), length(`namespace`) == 1)
+        self$`namespace` <- `namespace`
+      }
+      if (!is.null(`name`)) {
+        stopifnot(is.character(`name`), length(`name`) == 1)
+        self$`name` <- `name`
+      }
     },
     toJSON = function() {
       NotebookFavoriteObject <- list()
-      if (!is.null(self$`id`)) {
-        NotebookFavoriteObject[['id']] <-
-          self$`id`
-      }
-      if (!is.null(self$`created_at`)) {
-        NotebookFavoriteObject[['created_at']] <-
-          self$`created_at`
-      }
       if (!is.null(self$`notebook_uuid`)) {
         NotebookFavoriteObject[['notebook_uuid']] <-
           self$`notebook_uuid`
+      }
+      if (!is.null(self$`namespace`)) {
+        NotebookFavoriteObject[['namespace']] <-
+          self$`namespace`
+      }
+      if (!is.null(self$`name`)) {
+        NotebookFavoriteObject[['name']] <-
+          self$`name`
       }
 
       NotebookFavoriteObject
     },
     fromJSON = function(NotebookFavoriteJson) {
       NotebookFavoriteObject <- jsonlite::fromJSON(NotebookFavoriteJson)
-      if (!is.null(NotebookFavoriteObject$`id`)) {
-        self$`id` <- NotebookFavoriteObject$`id`
-      }
-      if (!is.null(NotebookFavoriteObject$`created_at`)) {
-        self$`created_at` <- NotebookFavoriteObject$`created_at`
-      }
       if (!is.null(NotebookFavoriteObject$`notebook_uuid`)) {
         self$`notebook_uuid` <- NotebookFavoriteObject$`notebook_uuid`
+      }
+      if (!is.null(NotebookFavoriteObject$`namespace`)) {
+        self$`namespace` <- NotebookFavoriteObject$`namespace`
+      }
+      if (!is.null(NotebookFavoriteObject$`name`)) {
+        self$`name` <- NotebookFavoriteObject$`name`
       }
       self
     },
     toJSONString = function() {
       jsoncontent <- c(
-        if (!is.null(self$`id`)) {
-        sprintf(
-        '"id":
-          "%s"
-                ',
-        self$`id`
-        )},
-        if (!is.null(self$`created_at`)) {
-        sprintf(
-        '"created_at":
-          "%s"
-                ',
-        self$`created_at`
-        )},
         if (!is.null(self$`notebook_uuid`)) {
         sprintf(
         '"notebook_uuid":
           "%s"
                 ',
         self$`notebook_uuid`
+        )},
+        if (!is.null(self$`namespace`)) {
+        sprintf(
+        '"namespace":
+          "%s"
+                ',
+        self$`namespace`
+        )},
+        if (!is.null(self$`name`)) {
+        sprintf(
+        '"name":
+          "%s"
+                ',
+        self$`name`
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -104,9 +104,9 @@ NotebookFavorite <- R6::R6Class(
     },
     fromJSONString = function(NotebookFavoriteJson) {
       NotebookFavoriteObject <- jsonlite::fromJSON(NotebookFavoriteJson)
-      self$`id` <- NotebookFavoriteObject$`id`
-      self$`created_at` <- NotebookFavoriteObject$`created_at`
       self$`notebook_uuid` <- NotebookFavoriteObject$`notebook_uuid`
+      self$`namespace` <- NotebookFavoriteObject$`namespace`
+      self$`name` <- NotebookFavoriteObject$`name`
       self
     }
   )

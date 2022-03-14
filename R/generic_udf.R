@@ -35,6 +35,14 @@
 #'
 #' @field store_results  character [optional]
 #'
+#' @field timeout  integer [optional]
+#'
+#' @field dont_download_results  character [optional]
+#'
+#' @field task_graph_uuid  character [optional]
+#'
+#' @field client_node_uuid  character [optional]
+#'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -52,8 +60,12 @@ GenericUDF <- R6::R6Class(
     `result_format` = NULL,
     `task_name` = NULL,
     `store_results` = NULL,
+    `timeout` = NULL,
+    `dont_download_results` = NULL,
+    `task_graph_uuid` = NULL,
+    `client_node_uuid` = NULL,
     initialize = function(
-        `udf_info_name`=NULL, `language`=NULL, `version`=NULL, `image_name`=NULL, `exec`=NULL, `exec_raw`=NULL, `argument`=NULL, `stored_param_uuids`=NULL, `result_format`=NULL, `task_name`=NULL, `store_results`=NULL, ...
+        `udf_info_name`=NULL, `language`=NULL, `version`=NULL, `image_name`=NULL, `exec`=NULL, `exec_raw`=NULL, `argument`=NULL, `stored_param_uuids`=NULL, `result_format`=NULL, `task_name`=NULL, `store_results`=NULL, `timeout`=NULL, `dont_download_results`=NULL, `task_graph_uuid`=NULL, `client_node_uuid`=NULL, ...
     ) {
       local.optional.var <- list(...)
       if (!is.null(`udf_info_name`)) {
@@ -99,6 +111,21 @@ GenericUDF <- R6::R6Class(
       }
       if (!is.null(`store_results`)) {
         self$`store_results` <- `store_results`
+      }
+      if (!is.null(`timeout`)) {
+        stopifnot(is.numeric(`timeout`), length(`timeout`) == 1)
+        self$`timeout` <- `timeout`
+      }
+      if (!is.null(`dont_download_results`)) {
+        self$`dont_download_results` <- `dont_download_results`
+      }
+      if (!is.null(`task_graph_uuid`)) {
+        stopifnot(is.character(`task_graph_uuid`), length(`task_graph_uuid`) == 1)
+        self$`task_graph_uuid` <- `task_graph_uuid`
+      }
+      if (!is.null(`client_node_uuid`)) {
+        stopifnot(is.character(`client_node_uuid`), length(`client_node_uuid`) == 1)
+        self$`client_node_uuid` <- `client_node_uuid`
       }
     },
     toJSON = function() {
@@ -146,6 +173,22 @@ GenericUDF <- R6::R6Class(
       if (!is.null(self$`store_results`)) {
         GenericUDFObject[['store_results']] <-
           self$`store_results`
+      }
+      if (!is.null(self$`timeout`)) {
+        GenericUDFObject[['timeout']] <-
+          self$`timeout`
+      }
+      if (!is.null(self$`dont_download_results`)) {
+        GenericUDFObject[['dont_download_results']] <-
+          self$`dont_download_results`
+      }
+      if (!is.null(self$`task_graph_uuid`)) {
+        GenericUDFObject[['task_graph_uuid']] <-
+          self$`task_graph_uuid`
+      }
+      if (!is.null(self$`client_node_uuid`)) {
+        GenericUDFObject[['client_node_uuid']] <-
+          self$`client_node_uuid`
       }
 
       GenericUDFObject
@@ -200,6 +243,18 @@ GenericUDF <- R6::R6Class(
       }
       if (!is.null(GenericUDFObject$`store_results`)) {
         self$`store_results` <- GenericUDFObject$`store_results`
+      }
+      if (!is.null(GenericUDFObject$`timeout`)) {
+        self$`timeout` <- GenericUDFObject$`timeout`
+      }
+      if (!is.null(GenericUDFObject$`dont_download_results`)) {
+        self$`dont_download_results` <- GenericUDFObject$`dont_download_results`
+      }
+      if (!is.null(GenericUDFObject$`task_graph_uuid`)) {
+        self$`task_graph_uuid` <- GenericUDFObject$`task_graph_uuid`
+      }
+      if (!is.null(GenericUDFObject$`client_node_uuid`)) {
+        self$`client_node_uuid` <- GenericUDFObject$`client_node_uuid`
       }
       self
     },
@@ -281,6 +336,34 @@ GenericUDF <- R6::R6Class(
           "%s"
                 ',
         self$`store_results`
+        )},
+        if (!is.null(self$`timeout`)) {
+        sprintf(
+        '"timeout":
+          %d
+                ',
+        self$`timeout`
+        )},
+        if (!is.null(self$`dont_download_results`)) {
+        sprintf(
+        '"dont_download_results":
+          "%s"
+                ',
+        self$`dont_download_results`
+        )},
+        if (!is.null(self$`task_graph_uuid`)) {
+        sprintf(
+        '"task_graph_uuid":
+          "%s"
+                ',
+        self$`task_graph_uuid`
+        )},
+        if (!is.null(self$`client_node_uuid`)) {
+        sprintf(
+        '"client_node_uuid":
+          "%s"
+                ',
+        self$`client_node_uuid`
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -299,6 +382,10 @@ GenericUDF <- R6::R6Class(
       self$`result_format` <- ResultFormat$new()$fromJSON(jsonlite::toJSON(GenericUDFObject$result_format, auto_unbox = TRUE, digits = NA))
       self$`task_name` <- GenericUDFObject$`task_name`
       self$`store_results` <- GenericUDFObject$`store_results`
+      self$`timeout` <- GenericUDFObject$`timeout`
+      self$`dont_download_results` <- GenericUDFObject$`dont_download_results`
+      self$`task_graph_uuid` <- GenericUDFObject$`task_graph_uuid`
+      self$`client_node_uuid` <- GenericUDFObject$`client_node_uuid`
       self
     }
   )

@@ -210,7 +210,7 @@
 #' ####################  AcceptInvitation  ####################
 #'
 #' library(tiledbcloud)
-#' var.invitation <- 'invitation_example' # character | the id of invitation about to be accepted
+#' var.invitation <- 'invitation_example' # character | the ID of invitation about to be accepted
 #'
 #' api.instance <- InvitationApi$new()
 #'
@@ -229,8 +229,8 @@
 #' ####################  CancelJoinOrganization  ####################
 #'
 #' library(tiledbcloud)
-#' var.invitation <- 'invitation_example' # character | the id of invitation about to be cancelled
-#' var.organization <- 'organization_example' # character | name or uuid of organization
+#' var.invitation <- 'invitation_example' # character | the ID of invitation about to be cancelled
+#' var.organization <- 'organization_example' # character | name or UUID of organization
 #'
 #' api.instance <- InvitationApi$new()
 #'
@@ -250,7 +250,7 @@
 #'
 #' library(tiledbcloud)
 #' var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
-#' var.invitation <- 'invitation_example' # character | the id of invitation about to be cancelled
+#' var.invitation <- 'invitation_example' # character | the ID of invitation about to be cancelled
 #' var.array <- 'array_example' # character | name/uri of array that is url-encoded
 #'
 #' api.instance <- InvitationApi$new()
@@ -270,7 +270,7 @@
 #' ####################  FetchInvitations  ####################
 #'
 #' library(tiledbcloud)
-#' var.organization <- 'organization_example' # character | name or id of organization to filter
+#' var.organization <- 'organization_example' # character | name or ID of organization to filter
 #' var.array <- 'array_example' # character | name/uri of array that is url-encoded to filter
 #' var.start <- 56 # integer | start time for tasks to filter by
 #' var.end <- 56 # integer | end time for tasks to filter by
@@ -297,7 +297,7 @@
 #' ####################  JoinOrganization  ####################
 #'
 #' library(tiledbcloud)
-#' var.organization <- 'organization_example' # character | name or uuid of organization
+#' var.organization <- 'organization_example' # character | name or UUID of organization
 #' var.email.invite <- InvitationOrganizationJoinEmail$new() # InvitationOrganizationJoinEmail | list of email recipients
 #'
 #' api.instance <- InvitationApi$new()

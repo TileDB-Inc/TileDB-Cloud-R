@@ -17,7 +17,8 @@ tiledbcloud.Favorites
 Add a new array favorite
 
 \itemize{
-\item \emph{ @param } body \link{FavoriteCreate}
+\item \emph{ @param } namespace character
+\item \emph{ @param } name character
 
 
 \item status code : 204 | Item added to favorites successfully
@@ -40,7 +41,8 @@ Add a new array favorite
 Add a new ML model favorite
 
 \itemize{
-\item \emph{ @param } body \link{FavoriteCreate}
+\item \emph{ @param } namespace character
+\item \emph{ @param } name character
 
 
 \item status code : 204 | Item added to favorites successfully
@@ -63,7 +65,8 @@ Add a new ML model favorite
 Add a new notebook favorite
 
 \itemize{
-\item \emph{ @param } body \link{FavoriteCreate}
+\item \emph{ @param } namespace character
+\item \emph{ @param } name character
 
 
 \item status code : 204 | Item added to favorites successfully
@@ -86,7 +89,8 @@ Add a new notebook favorite
 Add a new UDF favorite
 
 \itemize{
-\item \emph{ @param } body \link{FavoriteCreate}
+\item \emph{ @param } namespace character
+\item \emph{ @param } name character
 
 
 \item status code : 204 | Item added to favorites successfully
@@ -109,10 +113,11 @@ Add a new UDF favorite
 Delete specific array favorite
 
 \itemize{
-\item \emph{ @param } id character
+\item \emph{ @param } namespace character
+\item \emph{ @param } name character
 
 
-\item status code : 204 | Array favorite item deleted successfully
+\item status code : 204 | array favorite item deleted successfully
 
 
 \item response headers :
@@ -132,7 +137,8 @@ Delete specific array favorite
 Delete specific ML model favorite
 
 \itemize{
-\item \emph{ @param } id character
+\item \emph{ @param } namespace character
+\item \emph{ @param } name character
 
 
 \item status code : 204 | ML model favorite item deleted successfully
@@ -155,10 +161,11 @@ Delete specific ML model favorite
 Delete specific notebook favorite
 
 \itemize{
-\item \emph{ @param } id character
+\item \emph{ @param } namespace character
+\item \emph{ @param } name character
 
 
-\item status code : 204 | Notebook favorite item deleted successfully
+\item status code : 204 | notebook favorite item deleted successfully
 
 
 \item response headers :
@@ -178,7 +185,8 @@ Delete specific notebook favorite
 Delete specific UDF favorite
 
 \itemize{
-\item \emph{ @param } id character
+\item \emph{ @param } namespace character
+\item \emph{ @param } name character
 
 
 \item status code : 204 | UDF favorite item deleted successfully
@@ -198,30 +206,6 @@ Delete specific UDF favorite
 }
 
 \strong{ GetArrayFavorite } \emph{  }
-Fetch specific array favorite of a user
-
-\itemize{
-\item \emph{ @param } id character
-\item \emph{ @returnType } \link{ArrayFavorite} \cr
-
-
-\item status code : 200 | OK
-
-\item return type : ArrayFavorite 
-\item response headers :
-
-\tabular{ll}{
-}
-\item status code : 0 | error response
-
-\item return type : Error 
-\item response headers :
-
-\tabular{ll}{
-}
-}
-
-\strong{ GetArrayFavoriteForArray } \emph{  }
 Fetch array favorite of a specific array
 
 \itemize{
@@ -247,30 +231,6 @@ Fetch array favorite of a specific array
 }
 
 \strong{ GetMLModelFavorite } \emph{  }
-Fetch specific ML model favorite of a user
-
-\itemize{
-\item \emph{ @param } id character
-\item \emph{ @returnType } \link{MLModelFavorite} \cr
-
-
-\item status code : 200 | OK
-
-\item return type : MLModelFavorite 
-\item response headers :
-
-\tabular{ll}{
-}
-\item status code : 0 | error response
-
-\item return type : Error 
-\item response headers :
-
-\tabular{ll}{
-}
-}
-
-\strong{ GetMLModelFavoriteForMLModel } \emph{  }
 Fetch ML model favorite of a specific ML model
 
 \itemize{
@@ -296,30 +256,6 @@ Fetch ML model favorite of a specific ML model
 }
 
 \strong{ GetNotebookFavorite } \emph{  }
-Fetch specific notebook favorite of a user
-
-\itemize{
-\item \emph{ @param } id character
-\item \emph{ @returnType } \link{NotebookFavorite} \cr
-
-
-\item status code : 200 | OK
-
-\item return type : NotebookFavorite 
-\item response headers :
-
-\tabular{ll}{
-}
-\item status code : 0 | error response
-
-\item return type : Error 
-\item response headers :
-
-\tabular{ll}{
-}
-}
-
-\strong{ GetNotebookFavoriteForNotebook } \emph{  }
 Fetch notebook favorite of a specific notebook
 
 \itemize{
@@ -345,30 +281,6 @@ Fetch notebook favorite of a specific notebook
 }
 
 \strong{ GetUDFFavorite } \emph{  }
-Fetch specific UDF favorite of a user
-
-\itemize{
-\item \emph{ @param } id character
-\item \emph{ @returnType } \link{UDFFavorite} \cr
-
-
-\item status code : 200 | OK
-
-\item return type : UDFFavorite 
-\item response headers :
-
-\tabular{ll}{
-}
-\item status code : 0 | error response
-
-\item return type : Error 
-\item response headers :
-
-\tabular{ll}{
-}
-}
-
-\strong{ GetUDFFavoriteForUDF } \emph{  }
 Fetch UDF favorite of a specific UDF
 
 \itemize{
@@ -394,7 +306,7 @@ Fetch UDF favorite of a specific UDF
 }
 
 \strong{ ListArrayFavorites } \emph{  }
-Fetch all array favorites of connected user
+Fetch a page of array favorites of connected user
 
 \itemize{
 \item \emph{ @param } page integer
@@ -442,7 +354,7 @@ Fetch all favorite array uuids of connected user
 }
 
 \strong{ ListMLModelFavorites } \emph{  }
-Fetch all ML models favorites of connected user
+Fetch a page of ML models favorites of connected user
 
 \itemize{
 \item \emph{ @param } page integer
@@ -490,9 +402,10 @@ Fetch all favorite ML models uuids of connected user
 }
 
 \strong{ ListNotebookFavorites } \emph{  }
-Fetch all notebook favorites of connected user
+Fetch a page of notebook favorites of connected user
 
 \itemize{
+\item \emph{ @param } is.dashboard character
 \item \emph{ @param } page integer
 \item \emph{ @param } per.page integer
 \item \emph{ @returnType } \link{NotebookFavoritesData} \cr
@@ -538,7 +451,7 @@ Fetch all favorite notebook uuids of connected user
 }
 
 \strong{ ListUDFFavorites } \emph{  }
-Fetch all UDF favorites of connected user
+Fetch a page of UDF favorites of connected user
 
 \itemize{
 \item \emph{ @param } page integer
@@ -593,177 +506,6 @@ Fetch all favorite UDF uuids of connected user
 ####################  AddArrayFavorite  ####################
 
 library(tiledbcloud)
-var.body <- FavoriteCreate$new() # FavoriteCreate | 
-
-api.instance <- FavoritesApi$new()
-
-#Configure API key authorization: ApiKeyAuth
-api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-
-#Configure HTTP basic authorization: BasicAuth
-# provide your username in the user-serial format
-api.instance$apiClient$username <- '<user-serial>'; 
-# provide your api key generated using the developer portal
-api.instance$apiClient$password <- '<api_key>';
-
-result <- api.instance$AddArrayFavorite(body=var.body)
-
-
-####################  AddMLModelFavorite  ####################
-
-library(tiledbcloud)
-var.body <- FavoriteCreate$new() # FavoriteCreate | 
-
-api.instance <- FavoritesApi$new()
-
-#Configure API key authorization: ApiKeyAuth
-api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-
-#Configure HTTP basic authorization: BasicAuth
-# provide your username in the user-serial format
-api.instance$apiClient$username <- '<user-serial>'; 
-# provide your api key generated using the developer portal
-api.instance$apiClient$password <- '<api_key>';
-
-result <- api.instance$AddMLModelFavorite(body=var.body)
-
-
-####################  AddNotebookFavorite  ####################
-
-library(tiledbcloud)
-var.body <- FavoriteCreate$new() # FavoriteCreate | 
-
-api.instance <- FavoritesApi$new()
-
-#Configure API key authorization: ApiKeyAuth
-api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-
-#Configure HTTP basic authorization: BasicAuth
-# provide your username in the user-serial format
-api.instance$apiClient$username <- '<user-serial>'; 
-# provide your api key generated using the developer portal
-api.instance$apiClient$password <- '<api_key>';
-
-result <- api.instance$AddNotebookFavorite(body=var.body)
-
-
-####################  AddUDFFavorite  ####################
-
-library(tiledbcloud)
-var.body <- FavoriteCreate$new() # FavoriteCreate | 
-
-api.instance <- FavoritesApi$new()
-
-#Configure API key authorization: ApiKeyAuth
-api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-
-#Configure HTTP basic authorization: BasicAuth
-# provide your username in the user-serial format
-api.instance$apiClient$username <- '<user-serial>'; 
-# provide your api key generated using the developer portal
-api.instance$apiClient$password <- '<api_key>';
-
-result <- api.instance$AddUDFFavorite(body=var.body)
-
-
-####################  DeleteArrayFavorite  ####################
-
-library(tiledbcloud)
-var.id <- 'id_example' # character | The uuid of the array favorite
-
-api.instance <- FavoritesApi$new()
-
-#Configure API key authorization: ApiKeyAuth
-api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-
-#Configure HTTP basic authorization: BasicAuth
-# provide your username in the user-serial format
-api.instance$apiClient$username <- '<user-serial>'; 
-# provide your api key generated using the developer portal
-api.instance$apiClient$password <- '<api_key>';
-
-result <- api.instance$DeleteArrayFavorite(var.id)
-
-
-####################  DeleteMLModelFavorite  ####################
-
-library(tiledbcloud)
-var.id <- 'id_example' # character | The uuid of the ML model favorite
-
-api.instance <- FavoritesApi$new()
-
-#Configure API key authorization: ApiKeyAuth
-api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-
-#Configure HTTP basic authorization: BasicAuth
-# provide your username in the user-serial format
-api.instance$apiClient$username <- '<user-serial>'; 
-# provide your api key generated using the developer portal
-api.instance$apiClient$password <- '<api_key>';
-
-result <- api.instance$DeleteMLModelFavorite(var.id)
-
-
-####################  DeleteNotebookFavorite  ####################
-
-library(tiledbcloud)
-var.id <- 'id_example' # character | The uuid of the notebook favorite
-
-api.instance <- FavoritesApi$new()
-
-#Configure API key authorization: ApiKeyAuth
-api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-
-#Configure HTTP basic authorization: BasicAuth
-# provide your username in the user-serial format
-api.instance$apiClient$username <- '<user-serial>'; 
-# provide your api key generated using the developer portal
-api.instance$apiClient$password <- '<api_key>';
-
-result <- api.instance$DeleteNotebookFavorite(var.id)
-
-
-####################  DeleteUDFFavorite  ####################
-
-library(tiledbcloud)
-var.id <- 'id_example' # character | The uuid of the UDF favorite
-
-api.instance <- FavoritesApi$new()
-
-#Configure API key authorization: ApiKeyAuth
-api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-
-#Configure HTTP basic authorization: BasicAuth
-# provide your username in the user-serial format
-api.instance$apiClient$username <- '<user-serial>'; 
-# provide your api key generated using the developer portal
-api.instance$apiClient$password <- '<api_key>';
-
-result <- api.instance$DeleteUDFFavorite(var.id)
-
-
-####################  GetArrayFavorite  ####################
-
-library(tiledbcloud)
-var.id <- 'id_example' # character | The uuid of the array favorite
-
-api.instance <- FavoritesApi$new()
-
-#Configure API key authorization: ApiKeyAuth
-api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-
-#Configure HTTP basic authorization: BasicAuth
-# provide your username in the user-serial format
-api.instance$apiClient$username <- '<user-serial>'; 
-# provide your api key generated using the developer portal
-api.instance$apiClient$password <- '<api_key>';
-
-result <- api.instance$GetArrayFavorite(var.id)
-
-
-####################  GetArrayFavoriteForArray  ####################
-
-library(tiledbcloud)
 var.namespace <- 'namespace_example' # character | The namespace of the array
 var.name <- 'name_example' # character | The name of the array
 
@@ -778,29 +520,10 @@ api.instance$apiClient$username <- '<user-serial>';
 # provide your api key generated using the developer portal
 api.instance$apiClient$password <- '<api_key>';
 
-result <- api.instance$GetArrayFavoriteForArray(var.namespace, var.name)
+result <- api.instance$AddArrayFavorite(var.namespace, var.name)
 
 
-####################  GetMLModelFavorite  ####################
-
-library(tiledbcloud)
-var.id <- 'id_example' # character | The uuid of the ML model favorite
-
-api.instance <- FavoritesApi$new()
-
-#Configure API key authorization: ApiKeyAuth
-api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-
-#Configure HTTP basic authorization: BasicAuth
-# provide your username in the user-serial format
-api.instance$apiClient$username <- '<user-serial>'; 
-# provide your api key generated using the developer portal
-api.instance$apiClient$password <- '<api_key>';
-
-result <- api.instance$GetMLModelFavorite(var.id)
-
-
-####################  GetMLModelFavoriteForMLModel  ####################
+####################  AddMLModelFavorite  ####################
 
 library(tiledbcloud)
 var.namespace <- 'namespace_example' # character | The namespace of the ML model
@@ -817,29 +540,10 @@ api.instance$apiClient$username <- '<user-serial>';
 # provide your api key generated using the developer portal
 api.instance$apiClient$password <- '<api_key>';
 
-result <- api.instance$GetMLModelFavoriteForMLModel(var.namespace, var.name)
+result <- api.instance$AddMLModelFavorite(var.namespace, var.name)
 
 
-####################  GetNotebookFavorite  ####################
-
-library(tiledbcloud)
-var.id <- 'id_example' # character | The uuid of the notebook favorite
-
-api.instance <- FavoritesApi$new()
-
-#Configure API key authorization: ApiKeyAuth
-api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-
-#Configure HTTP basic authorization: BasicAuth
-# provide your username in the user-serial format
-api.instance$apiClient$username <- '<user-serial>'; 
-# provide your api key generated using the developer portal
-api.instance$apiClient$password <- '<api_key>';
-
-result <- api.instance$GetNotebookFavorite(var.id)
-
-
-####################  GetNotebookFavoriteForNotebook  ####################
+####################  AddNotebookFavorite  ####################
 
 library(tiledbcloud)
 var.namespace <- 'namespace_example' # character | The namespace of the notebook
@@ -856,29 +560,10 @@ api.instance$apiClient$username <- '<user-serial>';
 # provide your api key generated using the developer portal
 api.instance$apiClient$password <- '<api_key>';
 
-result <- api.instance$GetNotebookFavoriteForNotebook(var.namespace, var.name)
+result <- api.instance$AddNotebookFavorite(var.namespace, var.name)
 
 
-####################  GetUDFFavorite  ####################
-
-library(tiledbcloud)
-var.id <- 'id_example' # character | The uuid of the UDF favorite
-
-api.instance <- FavoritesApi$new()
-
-#Configure API key authorization: ApiKeyAuth
-api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-
-#Configure HTTP basic authorization: BasicAuth
-# provide your username in the user-serial format
-api.instance$apiClient$username <- '<user-serial>'; 
-# provide your api key generated using the developer portal
-api.instance$apiClient$password <- '<api_key>';
-
-result <- api.instance$GetUDFFavorite(var.id)
-
-
-####################  GetUDFFavoriteForUDF  ####################
+####################  AddUDFFavorite  ####################
 
 library(tiledbcloud)
 var.namespace <- 'namespace_example' # character | The namespace of the UDF
@@ -895,7 +580,167 @@ api.instance$apiClient$username <- '<user-serial>';
 # provide your api key generated using the developer portal
 api.instance$apiClient$password <- '<api_key>';
 
-result <- api.instance$GetUDFFavoriteForUDF(var.namespace, var.name)
+result <- api.instance$AddUDFFavorite(var.namespace, var.name)
+
+
+####################  DeleteArrayFavorite  ####################
+
+library(tiledbcloud)
+var.namespace <- 'namespace_example' # character | The namespace of the array
+var.name <- 'name_example' # character | The name of the array
+
+api.instance <- FavoritesApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$DeleteArrayFavorite(var.namespace, var.name)
+
+
+####################  DeleteMLModelFavorite  ####################
+
+library(tiledbcloud)
+var.namespace <- 'namespace_example' # character | The namespace of the ML model
+var.name <- 'name_example' # character | The name of the ML model
+
+api.instance <- FavoritesApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$DeleteMLModelFavorite(var.namespace, var.name)
+
+
+####################  DeleteNotebookFavorite  ####################
+
+library(tiledbcloud)
+var.namespace <- 'namespace_example' # character | The namespace of the notebook
+var.name <- 'name_example' # character | The name of the notebook
+
+api.instance <- FavoritesApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$DeleteNotebookFavorite(var.namespace, var.name)
+
+
+####################  DeleteUDFFavorite  ####################
+
+library(tiledbcloud)
+var.namespace <- 'namespace_example' # character | The namespace of the UDF
+var.name <- 'name_example' # character | The name of the UDF
+
+api.instance <- FavoritesApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$DeleteUDFFavorite(var.namespace, var.name)
+
+
+####################  GetArrayFavorite  ####################
+
+library(tiledbcloud)
+var.namespace <- 'namespace_example' # character | The namespace of the array
+var.name <- 'name_example' # character | The name of the array
+
+api.instance <- FavoritesApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$GetArrayFavorite(var.namespace, var.name)
+
+
+####################  GetMLModelFavorite  ####################
+
+library(tiledbcloud)
+var.namespace <- 'namespace_example' # character | The namespace of the ML model
+var.name <- 'name_example' # character | The name of the ML model
+
+api.instance <- FavoritesApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$GetMLModelFavorite(var.namespace, var.name)
+
+
+####################  GetNotebookFavorite  ####################
+
+library(tiledbcloud)
+var.namespace <- 'namespace_example' # character | The namespace of the notebook
+var.name <- 'name_example' # character | The name of the notebook
+
+api.instance <- FavoritesApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$GetNotebookFavorite(var.namespace, var.name)
+
+
+####################  GetUDFFavorite  ####################
+
+library(tiledbcloud)
+var.namespace <- 'namespace_example' # character | The namespace of the UDF
+var.name <- 'name_example' # character | The name of the UDF
+
+api.instance <- FavoritesApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$GetUDFFavorite(var.namespace, var.name)
 
 
 ####################  ListArrayFavorites  ####################
@@ -977,6 +822,7 @@ result <- api.instance$ListMLModelFavoritesUUIDs()
 ####################  ListNotebookFavorites  ####################
 
 library(tiledbcloud)
+var.is.dashboard <- 'is.dashboard_example' # character | return only dashboards
 var.page <- 56 # integer | pagination offset
 var.per.page <- 56 # integer | pagination limit
 
@@ -991,7 +837,7 @@ api.instance$apiClient$username <- '<user-serial>';
 # provide your api key generated using the developer portal
 api.instance$apiClient$password <- '<api_key>';
 
-result <- api.instance$ListNotebookFavorites(page=var.page, per.page=var.per.page)
+result <- api.instance$ListNotebookFavorites(is.dashboard=var.is.dashboard, page=var.page, per.page=var.per.page)
 
 
 ####################  ListNotebookFavoritesUUIDs  ####################
@@ -1081,20 +927,12 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \item \href{#method-DeleteUDFFavoriteWithHttpInfo}{\code{FavoritesApi$DeleteUDFFavoriteWithHttpInfo()}}
 \item \href{#method-GetArrayFavorite}{\code{FavoritesApi$GetArrayFavorite()}}
 \item \href{#method-GetArrayFavoriteWithHttpInfo}{\code{FavoritesApi$GetArrayFavoriteWithHttpInfo()}}
-\item \href{#method-GetArrayFavoriteForArray}{\code{FavoritesApi$GetArrayFavoriteForArray()}}
-\item \href{#method-GetArrayFavoriteForArrayWithHttpInfo}{\code{FavoritesApi$GetArrayFavoriteForArrayWithHttpInfo()}}
 \item \href{#method-GetMLModelFavorite}{\code{FavoritesApi$GetMLModelFavorite()}}
 \item \href{#method-GetMLModelFavoriteWithHttpInfo}{\code{FavoritesApi$GetMLModelFavoriteWithHttpInfo()}}
-\item \href{#method-GetMLModelFavoriteForMLModel}{\code{FavoritesApi$GetMLModelFavoriteForMLModel()}}
-\item \href{#method-GetMLModelFavoriteForMLModelWithHttpInfo}{\code{FavoritesApi$GetMLModelFavoriteForMLModelWithHttpInfo()}}
 \item \href{#method-GetNotebookFavorite}{\code{FavoritesApi$GetNotebookFavorite()}}
 \item \href{#method-GetNotebookFavoriteWithHttpInfo}{\code{FavoritesApi$GetNotebookFavoriteWithHttpInfo()}}
-\item \href{#method-GetNotebookFavoriteForNotebook}{\code{FavoritesApi$GetNotebookFavoriteForNotebook()}}
-\item \href{#method-GetNotebookFavoriteForNotebookWithHttpInfo}{\code{FavoritesApi$GetNotebookFavoriteForNotebookWithHttpInfo()}}
 \item \href{#method-GetUDFFavorite}{\code{FavoritesApi$GetUDFFavorite()}}
 \item \href{#method-GetUDFFavoriteWithHttpInfo}{\code{FavoritesApi$GetUDFFavoriteWithHttpInfo()}}
-\item \href{#method-GetUDFFavoriteForUDF}{\code{FavoritesApi$GetUDFFavoriteForUDF()}}
-\item \href{#method-GetUDFFavoriteForUDFWithHttpInfo}{\code{FavoritesApi$GetUDFFavoriteForUDFWithHttpInfo()}}
 \item \href{#method-ListArrayFavorites}{\code{FavoritesApi$ListArrayFavorites()}}
 \item \href{#method-ListArrayFavoritesWithHttpInfo}{\code{FavoritesApi$ListArrayFavoritesWithHttpInfo()}}
 \item \href{#method-ListArrayFavoritesUUIDs}{\code{FavoritesApi$ListArrayFavoritesUUIDs()}}
@@ -1128,7 +966,7 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \if{latex}{\out{\hypertarget{method-AddArrayFavorite}{}}}
 \subsection{Method \code{AddArrayFavorite()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$AddArrayFavorite(body = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$AddArrayFavorite(namespace, name, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1137,7 +975,7 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \if{latex}{\out{\hypertarget{method-AddArrayFavoriteWithHttpInfo}{}}}
 \subsection{Method \code{AddArrayFavoriteWithHttpInfo()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$AddArrayFavoriteWithHttpInfo(body = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$AddArrayFavoriteWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1146,7 +984,7 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \if{latex}{\out{\hypertarget{method-AddMLModelFavorite}{}}}
 \subsection{Method \code{AddMLModelFavorite()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$AddMLModelFavorite(body = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$AddMLModelFavorite(namespace, name, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1155,7 +993,7 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \if{latex}{\out{\hypertarget{method-AddMLModelFavoriteWithHttpInfo}{}}}
 \subsection{Method \code{AddMLModelFavoriteWithHttpInfo()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$AddMLModelFavoriteWithHttpInfo(body = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$AddMLModelFavoriteWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1164,7 +1002,7 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \if{latex}{\out{\hypertarget{method-AddNotebookFavorite}{}}}
 \subsection{Method \code{AddNotebookFavorite()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$AddNotebookFavorite(body = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$AddNotebookFavorite(namespace, name, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1173,7 +1011,7 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \if{latex}{\out{\hypertarget{method-AddNotebookFavoriteWithHttpInfo}{}}}
 \subsection{Method \code{AddNotebookFavoriteWithHttpInfo()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$AddNotebookFavoriteWithHttpInfo(body = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$AddNotebookFavoriteWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1182,7 +1020,7 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \if{latex}{\out{\hypertarget{method-AddUDFFavorite}{}}}
 \subsection{Method \code{AddUDFFavorite()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$AddUDFFavorite(body = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$AddUDFFavorite(namespace, name, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1191,7 +1029,7 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \if{latex}{\out{\hypertarget{method-AddUDFFavoriteWithHttpInfo}{}}}
 \subsection{Method \code{AddUDFFavoriteWithHttpInfo()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$AddUDFFavoriteWithHttpInfo(body = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$AddUDFFavoriteWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1200,7 +1038,7 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \if{latex}{\out{\hypertarget{method-DeleteArrayFavorite}{}}}
 \subsection{Method \code{DeleteArrayFavorite()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$DeleteArrayFavorite(id, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$DeleteArrayFavorite(namespace, name, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1209,7 +1047,7 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \if{latex}{\out{\hypertarget{method-DeleteArrayFavoriteWithHttpInfo}{}}}
 \subsection{Method \code{DeleteArrayFavoriteWithHttpInfo()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$DeleteArrayFavoriteWithHttpInfo(id, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$DeleteArrayFavoriteWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1218,7 +1056,7 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \if{latex}{\out{\hypertarget{method-DeleteMLModelFavorite}{}}}
 \subsection{Method \code{DeleteMLModelFavorite()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$DeleteMLModelFavorite(id, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$DeleteMLModelFavorite(namespace, name, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1227,7 +1065,7 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \if{latex}{\out{\hypertarget{method-DeleteMLModelFavoriteWithHttpInfo}{}}}
 \subsection{Method \code{DeleteMLModelFavoriteWithHttpInfo()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$DeleteMLModelFavoriteWithHttpInfo(id, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$DeleteMLModelFavoriteWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1236,7 +1074,7 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \if{latex}{\out{\hypertarget{method-DeleteNotebookFavorite}{}}}
 \subsection{Method \code{DeleteNotebookFavorite()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$DeleteNotebookFavorite(id, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$DeleteNotebookFavorite(namespace, name, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1245,7 +1083,7 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \if{latex}{\out{\hypertarget{method-DeleteNotebookFavoriteWithHttpInfo}{}}}
 \subsection{Method \code{DeleteNotebookFavoriteWithHttpInfo()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$DeleteNotebookFavoriteWithHttpInfo(id, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$DeleteNotebookFavoriteWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1254,7 +1092,7 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \if{latex}{\out{\hypertarget{method-DeleteUDFFavorite}{}}}
 \subsection{Method \code{DeleteUDFFavorite()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$DeleteUDFFavorite(id, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$DeleteUDFFavorite(namespace, name, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1263,7 +1101,7 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \if{latex}{\out{\hypertarget{method-DeleteUDFFavoriteWithHttpInfo}{}}}
 \subsection{Method \code{DeleteUDFFavoriteWithHttpInfo()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$DeleteUDFFavoriteWithHttpInfo(id, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$DeleteUDFFavoriteWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1272,7 +1110,7 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \if{latex}{\out{\hypertarget{method-GetArrayFavorite}{}}}
 \subsection{Method \code{GetArrayFavorite()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetArrayFavorite(id, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetArrayFavorite(namespace, name, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1281,25 +1119,7 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \if{latex}{\out{\hypertarget{method-GetArrayFavoriteWithHttpInfo}{}}}
 \subsection{Method \code{GetArrayFavoriteWithHttpInfo()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetArrayFavoriteWithHttpInfo(id, ...)}\if{html}{\out{</div>}}
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArrayFavoriteForArray"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArrayFavoriteForArray}{}}}
-\subsection{Method \code{GetArrayFavoriteForArray()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetArrayFavoriteForArray(namespace, name, ...)}\if{html}{\out{</div>}}
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArrayFavoriteForArrayWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArrayFavoriteForArrayWithHttpInfo}{}}}
-\subsection{Method \code{GetArrayFavoriteForArrayWithHttpInfo()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetArrayFavoriteForArrayWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetArrayFavoriteWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1308,7 +1128,7 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \if{latex}{\out{\hypertarget{method-GetMLModelFavorite}{}}}
 \subsection{Method \code{GetMLModelFavorite()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetMLModelFavorite(id, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetMLModelFavorite(namespace, name, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1317,25 +1137,7 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \if{latex}{\out{\hypertarget{method-GetMLModelFavoriteWithHttpInfo}{}}}
 \subsection{Method \code{GetMLModelFavoriteWithHttpInfo()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetMLModelFavoriteWithHttpInfo(id, ...)}\if{html}{\out{</div>}}
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetMLModelFavoriteForMLModel"></a>}}
-\if{latex}{\out{\hypertarget{method-GetMLModelFavoriteForMLModel}{}}}
-\subsection{Method \code{GetMLModelFavoriteForMLModel()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetMLModelFavoriteForMLModel(namespace, name, ...)}\if{html}{\out{</div>}}
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetMLModelFavoriteForMLModelWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetMLModelFavoriteForMLModelWithHttpInfo}{}}}
-\subsection{Method \code{GetMLModelFavoriteForMLModelWithHttpInfo()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetMLModelFavoriteForMLModelWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetMLModelFavoriteWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1344,7 +1146,7 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \if{latex}{\out{\hypertarget{method-GetNotebookFavorite}{}}}
 \subsection{Method \code{GetNotebookFavorite()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetNotebookFavorite(id, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetNotebookFavorite(namespace, name, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1353,25 +1155,7 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \if{latex}{\out{\hypertarget{method-GetNotebookFavoriteWithHttpInfo}{}}}
 \subsection{Method \code{GetNotebookFavoriteWithHttpInfo()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetNotebookFavoriteWithHttpInfo(id, ...)}\if{html}{\out{</div>}}
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetNotebookFavoriteForNotebook"></a>}}
-\if{latex}{\out{\hypertarget{method-GetNotebookFavoriteForNotebook}{}}}
-\subsection{Method \code{GetNotebookFavoriteForNotebook()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetNotebookFavoriteForNotebook(namespace, name, ...)}\if{html}{\out{</div>}}
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetNotebookFavoriteForNotebookWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetNotebookFavoriteForNotebookWithHttpInfo}{}}}
-\subsection{Method \code{GetNotebookFavoriteForNotebookWithHttpInfo()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetNotebookFavoriteForNotebookWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetNotebookFavoriteWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1380,7 +1164,7 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \if{latex}{\out{\hypertarget{method-GetUDFFavorite}{}}}
 \subsection{Method \code{GetUDFFavorite()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetUDFFavorite(id, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetUDFFavorite(namespace, name, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1389,25 +1173,7 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \if{latex}{\out{\hypertarget{method-GetUDFFavoriteWithHttpInfo}{}}}
 \subsection{Method \code{GetUDFFavoriteWithHttpInfo()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetUDFFavoriteWithHttpInfo(id, ...)}\if{html}{\out{</div>}}
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetUDFFavoriteForUDF"></a>}}
-\if{latex}{\out{\hypertarget{method-GetUDFFavoriteForUDF}{}}}
-\subsection{Method \code{GetUDFFavoriteForUDF()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetUDFFavoriteForUDF(namespace, name, ...)}\if{html}{\out{</div>}}
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetUDFFavoriteForUDFWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetUDFFavoriteForUDFWithHttpInfo}{}}}
-\subsection{Method \code{GetUDFFavoriteForUDFWithHttpInfo()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetUDFFavoriteForUDFWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetUDFFavoriteWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1492,7 +1258,12 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \if{latex}{\out{\hypertarget{method-ListNotebookFavorites}{}}}
 \subsection{Method \code{ListNotebookFavorites()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$ListNotebookFavorites(page = NULL, per.page = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$ListNotebookFavorites(
+  is.dashboard = NULL,
+  page = NULL,
+  per.page = NULL,
+  ...
+)}\if{html}{\out{</div>}}
 }
 
 }
@@ -1502,6 +1273,7 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \subsection{Method \code{ListNotebookFavoritesWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$ListNotebookFavoritesWithHttpInfo(
+  is.dashboard = NULL,
   page = NULL,
   per.page = NULL,
   ...

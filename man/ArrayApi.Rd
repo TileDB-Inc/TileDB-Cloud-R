@@ -343,7 +343,7 @@ deregister a array
 }
 
 \strong{ GetActivityLogById } \emph{  }
-get activity log by id
+get activity log by ID
 
 \itemize{
 \item \emph{ @param } namespace character
@@ -447,7 +447,7 @@ get the max buffer sizes of an array for a subarray
 }
 
 \strong{ GetArrayMetaDataJson } \emph{  }
-get metadata from the array in json format
+get metadata from the array in JSON format
 
 \itemize{
 \item \emph{ @param } namespace character
@@ -615,7 +615,7 @@ Get all sharing details of the array
 
 \tabular{ll}{
 }
-\item status code : 404 | Array does not exist or user does not have permissions to view array sharing policies
+\item status code : 404 | Array does not exist or user does not have permissions to view array-sharing policies
 
 
 \item response headers :
@@ -848,8 +848,8 @@ var.array <- 'array_example' # character | name/uri of array that is url-encoded
 var.start <- 56 # integer | Start time of window of fetch logs, unix epoch in seconds (default: seven days ago)
 var.end <- 56 # integer | End time of window of fetch logs, unix epoch in seconds (default: current utc timestamp)
 var.event.types <- 'event.types_example' # character | Event values can be one or more of the following read, write, create, delete, register, deregister, comma separated
-var.task.id <- 'task.id_example' # character | Array task id To filter activity to
-var.has.task.id <- 'has.task.id_example' # character | Excludes activity log results that does not contain an array task uuid
+var.task.id <- 'task.id_example' # character | Array task ID To filter activity to
+var.has.task.id <- 'has.task.id_example' # character | Excludes activity log results that do not contain an array task UUID
 
 api.instance <- ArrayApi$new()
 
@@ -1118,7 +1118,7 @@ result <- api.instance$DeregisterArray(var.namespace, var.array)
 library(tiledbcloud)
 var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
 var.array <- 'array_example' # character | name/uri of array that is url-encoded
-var.id <- 'id_example' # character | id of the activity
+var.id <- 'id_example' # character | ID of the activity
 
 api.instance <- ArrayApi$new()
 
@@ -1426,7 +1426,7 @@ result <- api.instance$RegisterArray(var.namespace, var.array, var.array.metadat
 library(tiledbcloud)
 var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
 var.array <- 'array_example' # character | name/uri of array that is url-encoded
-var.array.sharing <- ArraySharing$new() # ArraySharing | Namespace and list of permissions to share with. An empty list of permissions will remove the namespace, if permissions already exist they will be deleted then new ones added. In the event of a failure, the new polcies will be rolled back to prevent partial policies, and its likely the array will not be shared with the namespace at all
+var.array.sharing <- ArraySharing$new() # ArraySharing | Namespace and list of permissions to share with. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it's likely the array will not be shared with the namespace at all.
 
 api.instance <- ArrayApi$new()
 

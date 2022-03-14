@@ -14,7 +14,7 @@ tiledbcloud.Udf
 
 \describe{
 \strong{ DeleteUDFInfo } \emph{  }
-delete a registerd UDF, this will remove all sharing and can not be undone
+delete a registered UDF -- this will remove all sharing and can not be undone
 
 \itemize{
 \item \emph{ @param } namespace character
@@ -53,7 +53,7 @@ get a specific UDF in the given namespace
 
 \tabular{ll}{
 }
-\item status code : 404 | udf not found
+\item status code : 404 | UDF not found
 
 
 \item response headers :
@@ -70,7 +70,7 @@ get a specific UDF in the given namespace
 }
 
 \strong{ GetUDFInfoSharingPolicies } \emph{  }
-Get all sharing details of the udf
+Get all sharing details of the UDF
 
 \itemize{
 \item \emph{ @param } namespace character
@@ -85,7 +85,7 @@ Get all sharing details of the udf
 
 \tabular{ll}{
 }
-\item status code : 404 | UDF does not exist or user does not have permissions to view array sharing policies
+\item status code : 404 | UDF does not exist or user does not have permissions to view array-sharing policies
 
 
 \item response headers :
@@ -110,7 +110,7 @@ register a UDF in the given namespace
 \item \emph{ @param } udf \link{UDFInfoUpdate}
 
 
-\item status code : 204 | udf registered successfully
+\item status code : 204 | UDF registered successfully
 
 
 \item response headers :
@@ -142,7 +142,7 @@ Share a UDF with a user
 
 \tabular{ll}{
 }
-\item status code : 404 | UDF does not exist or user does not have permissions to share udf
+\item status code : 404 | UDF does not exist or user does not have permissions to share UDF
 
 
 \item response headers :
@@ -167,7 +167,7 @@ submit a generic UDF in the given namespace
 \item \emph{ @param } accept.encoding character
 
 
-\item status code : 200 | udf completed and the udf-type specific result is returned
+\item status code : 200 | UDF completed and the UDF-type specific result is returned
 
 \item return type : data.frame 
 \item response headers :
@@ -194,7 +194,7 @@ submit a multi-array UDF in the given namespace
 \item \emph{ @param } accept.encoding character
 
 
-\item status code : 200 | udf completed and the udf-type specific result is returned
+\item status code : 200 | UDF completed and the UDF-type specific result is returned
 
 \item return type : data.frame 
 \item response headers :
@@ -224,7 +224,7 @@ send a UDF to run against a specified array/URI registered to a group/project
 \item \emph{ @param } v2 character
 
 
-\item status code : 200 | udf completed and the udf-type specific result is returned
+\item status code : 200 | UDF completed and the UDF-type specific result is returned
 
 \item return type : data.frame 
 \item response headers :
@@ -270,7 +270,7 @@ retrieve a list of timestamps from the array fragment info listing in millisecon
 }
 
 \strong{ UpdateUDFInfo } \emph{  }
-updated an existing registerd UDF in the given namespace
+update an existing registered UDF in the given namespace
 
 \itemize{
 \item \emph{ @param } namespace character
@@ -278,7 +278,7 @@ updated an existing registerd UDF in the given namespace
 \item \emph{ @param } udf \link{UDFInfoUpdate}
 
 
-\item status code : 204 | udf updated successfully
+\item status code : 204 | UDF updated successfully
 
 
 \item response headers :
@@ -303,7 +303,7 @@ updated an existing registerd UDF in the given namespace
 
 library(tiledbcloud)
 var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
-var.name <- 'name_example' # character | name to register udf under
+var.name <- 'name_example' # character | name to register UDF under
 
 api.instance <- UdfApi$new()
 
@@ -323,7 +323,7 @@ result <- api.instance$DeleteUDFInfo(var.namespace, var.name)
 
 library(tiledbcloud)
 var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
-var.name <- 'name_example' # character | name to register udf under
+var.name <- 'name_example' # character | name to register UDF under
 
 api.instance <- UdfApi$new()
 
@@ -363,8 +363,8 @@ result <- api.instance$GetUDFInfoSharingPolicies(var.namespace, var.name)
 
 library(tiledbcloud)
 var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
-var.name <- 'name_example' # character | name to register udf under
-var.udf <- UDFInfoUpdate$new() # UDFInfoUpdate | udf to register
+var.name <- 'name_example' # character | name to register UDF under
+var.udf <- UDFInfoUpdate$new() # UDFInfoUpdate | UDF to register
 
 api.instance <- UdfApi$new()
 
@@ -385,7 +385,7 @@ result <- api.instance$RegisterUDFInfo(var.namespace, var.name, var.udf)
 library(tiledbcloud)
 var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
 var.name <- 'name_example' # character | name of UDFInfo
-var.udf.sharing <- UDFSharing$new() # UDFSharing | Namespace and list of permissions to share with. An empty list of permissions will remove the namespace, if permissions already exist they will be deleted then new ones added. In the event of a failure, the new polcies will be rolled back to prevent partial policies, and its likely the udf will not be shared with the namespace at all
+var.udf.sharing <- UDFSharing$new() # UDFSharing | Namespace and list of permissions to share with. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it's likely the UDF will not be shared with the namespace at all.
 
 api.instance <- UdfApi$new()
 
@@ -405,7 +405,7 @@ result <- api.instance$ShareUDFInfo(var.namespace, var.name, var.udf.sharing)
 
 library(tiledbcloud)
 var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
-var.udf <- GenericUDF$new() # GenericUDF | udf to run
+var.udf <- GenericUDF$new() # GenericUDF | UDF to run
 var.accept.encoding <- 'accept.encoding_example' # character | Encoding to use
 
 api.instance <- UdfApi$new()
@@ -426,7 +426,7 @@ result <- api.instance$SubmitGenericUDF(var.namespace, var.udf, accept.encoding=
 
 library(tiledbcloud)
 var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
-var.udf <- MultiArrayUDF$new() # MultiArrayUDF | udf to run
+var.udf <- MultiArrayUDF$new() # MultiArrayUDF | UDF to run
 var.accept.encoding <- 'accept.encoding_example' # character | Encoding to use
 
 api.instance <- UdfApi$new()
@@ -448,10 +448,10 @@ result <- api.instance$SubmitMultiArrayUDF(var.namespace, var.udf, accept.encodi
 library(tiledbcloud)
 var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
 var.array <- 'array_example' # character | name/uri of array that is url-encoded
-var.udf <- MultiArrayUDF$new() # MultiArrayUDF | udf to run
+var.udf <- MultiArrayUDF$new() # MultiArrayUDF | UDF to run
 var.x.payer <- 'x.payer_example' # character | Name of organization or user who should be charged for this request
 var.accept.encoding <- 'accept.encoding_example' # character | Encoding to use
-var.v2 <- 'v2_example' # character | flag to indicate if v2 array udfs should be used, currently in beta testing. Setting any value will enable v2 array udfs
+var.v2 <- 'v2_example' # character | flag to indicate if v2 array UDFs should be used, currently in beta testing. Setting any value will enable v2 array UDFs.
 
 api.instance <- UdfApi$new()
 
@@ -493,8 +493,8 @@ result <- api.instance$UdfNamespaceArrayEndTimestampsGet(var.namespace, var.arra
 
 library(tiledbcloud)
 var.namespace <- 'namespace_example' # character | namespace array is in (an organization name or user's username)
-var.name <- 'name_example' # character | name to register udf under
-var.udf <- UDFInfoUpdate$new() # UDFInfoUpdate | udf to update
+var.name <- 'name_example' # character | name to register UDF under
+var.udf <- UDFInfoUpdate$new() # UDFInfoUpdate | UDF to update
 
 api.instance <- UdfApi$new()
 

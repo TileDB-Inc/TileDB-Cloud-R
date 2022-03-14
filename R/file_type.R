@@ -54,7 +54,7 @@ FileType <- R6::R6Class(
 # add to utils.R
 .parse_FileType <- function(vals) {
     res <- gsub("^\\[|\\]$", "",
-        "[notebook, user_defined_function, ml_model]"
+        "[notebook, user_defined_function, ml_model, file]"
     )
     unlist(strsplit(res, ", "))
 }

@@ -54,7 +54,7 @@ ArrayTaskStatus <- R6::R6Class(
 # add to utils.R
 .parse_ArrayTaskStatus <- function(vals) {
     res <- gsub("^\\[|\\]$", "",
-        "[FAILED, COMPLETED, RUNNING]"
+        "[QUEUED, FAILED, COMPLETED, RUNNING, DENIED, UNKNOWN]"
     )
     unlist(strsplit(res, ", "))
 }

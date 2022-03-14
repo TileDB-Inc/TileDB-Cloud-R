@@ -701,7 +701,7 @@
 #' ####################  DeleteUser  ####################
 #'
 #' library(tiledbcloud)
-#' var.username <- 'username_example' # character | username or id
+#' var.username <- 'username_example' # character | username or ID
 #'
 #' api.instance <- UserApi$new()
 #'
@@ -815,7 +815,7 @@
 #' ####################  GetUserWithUsername  ####################
 #'
 #' library(tiledbcloud)
-#' var.username <- 'username_example' # character | username or id
+#' var.username <- 'username_example' # character | username or ID
 #'
 #' api.instance <- UserApi$new()
 #'
@@ -948,7 +948,7 @@
 #' ####################  UpdateUser  ####################
 #'
 #' library(tiledbcloud)
-#' var.username <- 'username_example' # character | username or id
+#' var.username <- 'username_example' # character | username or ID
 #' var.user <- User$new() # User | user details to update
 #'
 #' api.instance <- UserApi$new()

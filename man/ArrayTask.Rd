@@ -62,6 +62,10 @@ ArrayTask Class
 \item{\code{sql_parameters}}{list( object ) [optional]}
 
 \item{\code{result_format}}{\link{ResultFormat} [optional]}
+
+\item{\code{task_graph_uuid}}{character [optional]}
+
+\item{\code{client_node_uuid}}{character [optional]}
 }
 \if{html}{\out{</div>}}
 }
@@ -107,6 +111,8 @@ ArrayTask Class
   sql_init_commands = NULL,
   sql_parameters = NULL,
   result_format = NULL,
+  task_graph_uuid = NULL,
+  client_node_uuid = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }

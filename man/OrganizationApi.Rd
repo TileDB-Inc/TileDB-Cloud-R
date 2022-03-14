@@ -504,7 +504,7 @@ result <- api.instance$DeleteAWSAccessCredentials(var.namespace, var.name)
 ####################  DeleteOrganization  ####################
 
 library(tiledbcloud)
-var.organization <- 'organization_example' # character | organization name or id
+var.organization <- 'organization_example' # character | organization name or ID
 
 api.instance <- OrganizationApi$new()
 
@@ -561,7 +561,7 @@ result <- api.instance$GetAllOrganizations()
 ####################  GetOrganization  ####################
 
 library(tiledbcloud)
-var.organization <- 'organization_example' # character | organization name or id
+var.organization <- 'organization_example' # character | organization name or ID
 
 api.instance <- OrganizationApi$new()
 
@@ -621,7 +621,7 @@ result <- api.instance$UpdateAWSAccessCredentials(var.namespace, var.name, var.a
 ####################  UpdateOrganization  ####################
 
 library(tiledbcloud)
-var.organization <- 'organization_example' # character | organization name or id
+var.organization <- 'organization_example' # character | organization name or ID
 var.organization.details <- Organization$new() # Organization | organization details to update
 
 api.instance <- OrganizationApi$new()

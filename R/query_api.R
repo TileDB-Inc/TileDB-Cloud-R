@@ -156,7 +156,7 @@
 #' }
 #'
 #' \strong{ SubmitQueryJson } \emph{  }
-#' send a query to run against a specified array/URI registered to a group/project, returns json results
+#' send a query to run against a specified array/URI registered to a group/project, returns JSON results
 #'
 #' \itemize{
 #' \item \emph{ @param } namespace character
@@ -166,7 +166,7 @@
 #' \item \emph{ @param } x.payer character
 #'
 #'
-#' \item status code : 200 | query completed and results are returned in json format
+#' \item status code : 200 | query completed and results are returned in JSON format
 #'
 #' \item return type : object 
 #' \item response headers :

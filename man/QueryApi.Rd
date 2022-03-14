@@ -155,7 +155,7 @@ X-TILEDB-CLOUD-TASK-ID \tab Task ID for just completed request \cr
 }
 
 \strong{ SubmitQueryJson } \emph{  }
-send a query to run against a specified array/URI registered to a group/project, returns json results
+send a query to run against a specified array/URI registered to a group/project, returns JSON results
 
 \itemize{
 \item \emph{ @param } namespace character
@@ -165,7 +165,7 @@ send a query to run against a specified array/URI registered to a group/project,
 \item \emph{ @param } x.payer character
 
 
-\item status code : 200 | query completed and results are returned in json format
+\item status code : 200 | query completed and results are returned in JSON format
 
 \item return type : object 
 \item response headers :

@@ -63,6 +63,10 @@
 #'
 #' @field result_format  \link{ResultFormat} [optional]
 #'
+#' @field task_graph_uuid  character [optional]
+#'
+#' @field client_node_uuid  character [optional]
+#'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -94,8 +98,10 @@ ArrayTask <- R6::R6Class(
     `sql_init_commands` = NULL,
     `sql_parameters` = NULL,
     `result_format` = NULL,
+    `task_graph_uuid` = NULL,
+    `client_node_uuid` = NULL,
     initialize = function(
-        `id`=NULL, `name`=NULL, `description`=NULL, `array_metadata`=NULL, `subarray`=NULL, `memory`=NULL, `cpu`=NULL, `namespace`=NULL, `status`=NULL, `start_time`=NULL, `finish_time`=NULL, `cost`=NULL, `egress_cost`=NULL, `access_cost`=NULL, `query_type`=NULL, `udf_code`=NULL, `udf_language`=NULL, `sql_query`=NULL, `type`=NULL, `activity`=NULL, `logs`=NULL, `duration`=NULL, `sql_init_commands`=NULL, `sql_parameters`=NULL, `result_format`=NULL, ...
+        `id`=NULL, `name`=NULL, `description`=NULL, `array_metadata`=NULL, `subarray`=NULL, `memory`=NULL, `cpu`=NULL, `namespace`=NULL, `status`=NULL, `start_time`=NULL, `finish_time`=NULL, `cost`=NULL, `egress_cost`=NULL, `access_cost`=NULL, `query_type`=NULL, `udf_code`=NULL, `udf_language`=NULL, `sql_query`=NULL, `type`=NULL, `activity`=NULL, `logs`=NULL, `duration`=NULL, `sql_init_commands`=NULL, `sql_parameters`=NULL, `result_format`=NULL, `task_graph_uuid`=NULL, `client_node_uuid`=NULL, ...
     ) {
       local.optional.var <- list(...)
       if (!is.null(`id`)) {
@@ -200,6 +206,14 @@ ArrayTask <- R6::R6Class(
         stopifnot(R6::is.R6(`result_format`))
         self$`result_format` <- `result_format`
       }
+      if (!is.null(`task_graph_uuid`)) {
+        stopifnot(is.character(`task_graph_uuid`), length(`task_graph_uuid`) == 1)
+        self$`task_graph_uuid` <- `task_graph_uuid`
+      }
+      if (!is.null(`client_node_uuid`)) {
+        stopifnot(is.character(`client_node_uuid`), length(`client_node_uuid`) == 1)
+        self$`client_node_uuid` <- `client_node_uuid`
+      }
     },
     toJSON = function() {
       ArrayTaskObject <- list()
@@ -302,6 +316,14 @@ ArrayTask <- R6::R6Class(
       if (!is.null(self$`result_format`)) {
         ArrayTaskObject[['result_format']] <-
           self$`result_format`$toJSON()
+      }
+      if (!is.null(self$`task_graph_uuid`)) {
+        ArrayTaskObject[['task_graph_uuid']] <-
+          self$`task_graph_uuid`
+      }
+      if (!is.null(self$`client_node_uuid`)) {
+        ArrayTaskObject[['client_node_uuid']] <-
+          self$`client_node_uuid`
       }
 
       ArrayTaskObject
@@ -406,6 +428,12 @@ ArrayTask <- R6::R6Class(
         result_formatObject <- ResultFormat$new()
         result_formatObject$fromJSON(jsonlite::toJSON(ArrayTaskObject$result_format, auto_unbox = TRUE, digits = NA))
         self$`result_format` <- result_formatObject
+      }
+      if (!is.null(ArrayTaskObject$`task_graph_uuid`)) {
+        self$`task_graph_uuid` <- ArrayTaskObject$`task_graph_uuid`
+      }
+      if (!is.null(ArrayTaskObject$`client_node_uuid`)) {
+        self$`client_node_uuid` <- ArrayTaskObject$`client_node_uuid`
       }
       self
     },
@@ -585,6 +613,20 @@ ArrayTask <- R6::R6Class(
         %s
         ',
         jsonlite::toJSON(self$`result_format`$toJSON(), auto_unbox=TRUE, digits = NA)
+        )},
+        if (!is.null(self$`task_graph_uuid`)) {
+        sprintf(
+        '"task_graph_uuid":
+          "%s"
+                ',
+        self$`task_graph_uuid`
+        )},
+        if (!is.null(self$`client_node_uuid`)) {
+        sprintf(
+        '"client_node_uuid":
+          "%s"
+                ',
+        self$`client_node_uuid`
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -617,6 +659,8 @@ ArrayTask <- R6::R6Class(
       self$`sql_init_commands` <- ApiClient$new()$deserializeObj(ArrayTaskObject$`sql_init_commands`, "array[character]", loadNamespace("tiledbcloud"))
       self$`sql_parameters` <- ApiClient$new()$deserializeObj(ArrayTaskObject$`sql_parameters`, "array[object]", loadNamespace("tiledbcloud"))
       self$`result_format` <- ResultFormat$new()$fromJSON(jsonlite::toJSON(ArrayTaskObject$result_format, auto_unbox = TRUE, digits = NA))
+      self$`task_graph_uuid` <- ArrayTaskObject$`task_graph_uuid`
+      self$`client_node_uuid` <- ArrayTaskObject$`client_node_uuid`
       self
     }
   )

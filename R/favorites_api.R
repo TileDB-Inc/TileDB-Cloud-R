@@ -18,7 +18,8 @@
 #' Add a new array favorite
 #'
 #' \itemize{
-#' \item \emph{ @param } body \link{FavoriteCreate}
+#' \item \emph{ @param } namespace character
+#' \item \emph{ @param } name character
 #'
 #'
 #' \item status code : 204 | Item added to favorites successfully
@@ -41,7 +42,8 @@
 #' Add a new ML model favorite
 #'
 #' \itemize{
-#' \item \emph{ @param } body \link{FavoriteCreate}
+#' \item \emph{ @param } namespace character
+#' \item \emph{ @param } name character
 #'
 #'
 #' \item status code : 204 | Item added to favorites successfully
@@ -64,7 +66,8 @@
 #' Add a new notebook favorite
 #'
 #' \itemize{
-#' \item \emph{ @param } body \link{FavoriteCreate}
+#' \item \emph{ @param } namespace character
+#' \item \emph{ @param } name character
 #'
 #'
 #' \item status code : 204 | Item added to favorites successfully
@@ -87,7 +90,8 @@
 #' Add a new UDF favorite
 #'
 #' \itemize{
-#' \item \emph{ @param } body \link{FavoriteCreate}
+#' \item \emph{ @param } namespace character
+#' \item \emph{ @param } name character
 #'
 #'
 #' \item status code : 204 | Item added to favorites successfully
@@ -110,10 +114,11 @@
 #' Delete specific array favorite
 #'
 #' \itemize{
-#' \item \emph{ @param } id character
+#' \item \emph{ @param } namespace character
+#' \item \emph{ @param } name character
 #'
 #'
-#' \item status code : 204 | Array favorite item deleted successfully
+#' \item status code : 204 | array favorite item deleted successfully
 #'
 #'
 #' \item response headers :
@@ -133,7 +138,8 @@
 #' Delete specific ML model favorite
 #'
 #' \itemize{
-#' \item \emph{ @param } id character
+#' \item \emph{ @param } namespace character
+#' \item \emph{ @param } name character
 #'
 #'
 #' \item status code : 204 | ML model favorite item deleted successfully
@@ -156,10 +162,11 @@
 #' Delete specific notebook favorite
 #'
 #' \itemize{
-#' \item \emph{ @param } id character
+#' \item \emph{ @param } namespace character
+#' \item \emph{ @param } name character
 #'
 #'
-#' \item status code : 204 | Notebook favorite item deleted successfully
+#' \item status code : 204 | notebook favorite item deleted successfully
 #'
 #'
 #' \item response headers :
@@ -179,7 +186,8 @@
 #' Delete specific UDF favorite
 #'
 #' \itemize{
-#' \item \emph{ @param } id character
+#' \item \emph{ @param } namespace character
+#' \item \emph{ @param } name character
 #'
 #'
 #' \item status code : 204 | UDF favorite item deleted successfully
@@ -199,30 +207,6 @@
 #' }
 #'
 #' \strong{ GetArrayFavorite } \emph{  }
-#' Fetch specific array favorite of a user
-#'
-#' \itemize{
-#' \item \emph{ @param } id character
-#' \item \emph{ @returnType } \link{ArrayFavorite} \cr
-#'
-#'
-#' \item status code : 200 | OK
-#'
-#' \item return type : ArrayFavorite 
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' \item status code : 0 | error response
-#'
-#' \item return type : Error 
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
-#' \strong{ GetArrayFavoriteForArray } \emph{  }
 #' Fetch array favorite of a specific array
 #'
 #' \itemize{
@@ -248,30 +232,6 @@
 #' }
 #'
 #' \strong{ GetMLModelFavorite } \emph{  }
-#' Fetch specific ML model favorite of a user
-#'
-#' \itemize{
-#' \item \emph{ @param } id character
-#' \item \emph{ @returnType } \link{MLModelFavorite} \cr
-#'
-#'
-#' \item status code : 200 | OK
-#'
-#' \item return type : MLModelFavorite 
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' \item status code : 0 | error response
-#'
-#' \item return type : Error 
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
-#' \strong{ GetMLModelFavoriteForMLModel } \emph{  }
 #' Fetch ML model favorite of a specific ML model
 #'
 #' \itemize{
@@ -297,30 +257,6 @@
 #' }
 #'
 #' \strong{ GetNotebookFavorite } \emph{  }
-#' Fetch specific notebook favorite of a user
-#'
-#' \itemize{
-#' \item \emph{ @param } id character
-#' \item \emph{ @returnType } \link{NotebookFavorite} \cr
-#'
-#'
-#' \item status code : 200 | OK
-#'
-#' \item return type : NotebookFavorite 
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' \item status code : 0 | error response
-#'
-#' \item return type : Error 
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
-#' \strong{ GetNotebookFavoriteForNotebook } \emph{  }
 #' Fetch notebook favorite of a specific notebook
 #'
 #' \itemize{
@@ -346,30 +282,6 @@
 #' }
 #'
 #' \strong{ GetUDFFavorite } \emph{  }
-#' Fetch specific UDF favorite of a user
-#'
-#' \itemize{
-#' \item \emph{ @param } id character
-#' \item \emph{ @returnType } \link{UDFFavorite} \cr
-#'
-#'
-#' \item status code : 200 | OK
-#'
-#' \item return type : UDFFavorite 
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' \item status code : 0 | error response
-#'
-#' \item return type : Error 
-#' \item response headers :
-#'
-#' \tabular{ll}{
-#' }
-#' }
-#'
-#' \strong{ GetUDFFavoriteForUDF } \emph{  }
 #' Fetch UDF favorite of a specific UDF
 #'
 #' \itemize{
@@ -395,7 +307,7 @@
 #' }
 #'
 #' \strong{ ListArrayFavorites } \emph{  }
-#' Fetch all array favorites of connected user
+#' Fetch a page of array favorites of connected user
 #'
 #' \itemize{
 #' \item \emph{ @param } page integer
@@ -443,7 +355,7 @@
 #' }
 #'
 #' \strong{ ListMLModelFavorites } \emph{  }
-#' Fetch all ML models favorites of connected user
+#' Fetch a page of ML models favorites of connected user
 #'
 #' \itemize{
 #' \item \emph{ @param } page integer
@@ -491,9 +403,10 @@
 #' }
 #'
 #' \strong{ ListNotebookFavorites } \emph{  }
-#' Fetch all notebook favorites of connected user
+#' Fetch a page of notebook favorites of connected user
 #'
 #' \itemize{
+#' \item \emph{ @param } is.dashboard character
 #' \item \emph{ @param } page integer
 #' \item \emph{ @param } per.page integer
 #' \item \emph{ @returnType } \link{NotebookFavoritesData} \cr
@@ -539,7 +452,7 @@
 #' }
 #'
 #' \strong{ ListUDFFavorites } \emph{  }
-#' Fetch all UDF favorites of connected user
+#' Fetch a page of UDF favorites of connected user
 #'
 #' \itemize{
 #' \item \emph{ @param } page integer
@@ -594,177 +507,6 @@
 #' ####################  AddArrayFavorite  ####################
 #'
 #' library(tiledbcloud)
-#' var.body <- FavoriteCreate$new() # FavoriteCreate | 
-#'
-#' api.instance <- FavoritesApi$new()
-#'
-#' #Configure API key authorization: ApiKeyAuth
-#' api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-#'
-#' #Configure HTTP basic authorization: BasicAuth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' result <- api.instance$AddArrayFavorite(body=var.body)
-#'
-#'
-#' ####################  AddMLModelFavorite  ####################
-#'
-#' library(tiledbcloud)
-#' var.body <- FavoriteCreate$new() # FavoriteCreate | 
-#'
-#' api.instance <- FavoritesApi$new()
-#'
-#' #Configure API key authorization: ApiKeyAuth
-#' api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-#'
-#' #Configure HTTP basic authorization: BasicAuth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' result <- api.instance$AddMLModelFavorite(body=var.body)
-#'
-#'
-#' ####################  AddNotebookFavorite  ####################
-#'
-#' library(tiledbcloud)
-#' var.body <- FavoriteCreate$new() # FavoriteCreate | 
-#'
-#' api.instance <- FavoritesApi$new()
-#'
-#' #Configure API key authorization: ApiKeyAuth
-#' api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-#'
-#' #Configure HTTP basic authorization: BasicAuth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' result <- api.instance$AddNotebookFavorite(body=var.body)
-#'
-#'
-#' ####################  AddUDFFavorite  ####################
-#'
-#' library(tiledbcloud)
-#' var.body <- FavoriteCreate$new() # FavoriteCreate | 
-#'
-#' api.instance <- FavoritesApi$new()
-#'
-#' #Configure API key authorization: ApiKeyAuth
-#' api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-#'
-#' #Configure HTTP basic authorization: BasicAuth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' result <- api.instance$AddUDFFavorite(body=var.body)
-#'
-#'
-#' ####################  DeleteArrayFavorite  ####################
-#'
-#' library(tiledbcloud)
-#' var.id <- 'id_example' # character | The uuid of the array favorite
-#'
-#' api.instance <- FavoritesApi$new()
-#'
-#' #Configure API key authorization: ApiKeyAuth
-#' api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-#'
-#' #Configure HTTP basic authorization: BasicAuth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' result <- api.instance$DeleteArrayFavorite(var.id)
-#'
-#'
-#' ####################  DeleteMLModelFavorite  ####################
-#'
-#' library(tiledbcloud)
-#' var.id <- 'id_example' # character | The uuid of the ML model favorite
-#'
-#' api.instance <- FavoritesApi$new()
-#'
-#' #Configure API key authorization: ApiKeyAuth
-#' api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-#'
-#' #Configure HTTP basic authorization: BasicAuth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' result <- api.instance$DeleteMLModelFavorite(var.id)
-#'
-#'
-#' ####################  DeleteNotebookFavorite  ####################
-#'
-#' library(tiledbcloud)
-#' var.id <- 'id_example' # character | The uuid of the notebook favorite
-#'
-#' api.instance <- FavoritesApi$new()
-#'
-#' #Configure API key authorization: ApiKeyAuth
-#' api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-#'
-#' #Configure HTTP basic authorization: BasicAuth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' result <- api.instance$DeleteNotebookFavorite(var.id)
-#'
-#'
-#' ####################  DeleteUDFFavorite  ####################
-#'
-#' library(tiledbcloud)
-#' var.id <- 'id_example' # character | The uuid of the UDF favorite
-#'
-#' api.instance <- FavoritesApi$new()
-#'
-#' #Configure API key authorization: ApiKeyAuth
-#' api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-#'
-#' #Configure HTTP basic authorization: BasicAuth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' result <- api.instance$DeleteUDFFavorite(var.id)
-#'
-#'
-#' ####################  GetArrayFavorite  ####################
-#'
-#' library(tiledbcloud)
-#' var.id <- 'id_example' # character | The uuid of the array favorite
-#'
-#' api.instance <- FavoritesApi$new()
-#'
-#' #Configure API key authorization: ApiKeyAuth
-#' api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-#'
-#' #Configure HTTP basic authorization: BasicAuth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' result <- api.instance$GetArrayFavorite(var.id)
-#'
-#'
-#' ####################  GetArrayFavoriteForArray  ####################
-#'
-#' library(tiledbcloud)
 #' var.namespace <- 'namespace_example' # character | The namespace of the array
 #' var.name <- 'name_example' # character | The name of the array
 #'
@@ -779,29 +521,10 @@
 #' # provide your api key generated using the developer portal
 #' api.instance$apiClient$password <- '<api_key>';
 #'
-#' result <- api.instance$GetArrayFavoriteForArray(var.namespace, var.name)
+#' result <- api.instance$AddArrayFavorite(var.namespace, var.name)
 #'
 #'
-#' ####################  GetMLModelFavorite  ####################
-#'
-#' library(tiledbcloud)
-#' var.id <- 'id_example' # character | The uuid of the ML model favorite
-#'
-#' api.instance <- FavoritesApi$new()
-#'
-#' #Configure API key authorization: ApiKeyAuth
-#' api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-#'
-#' #Configure HTTP basic authorization: BasicAuth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' result <- api.instance$GetMLModelFavorite(var.id)
-#'
-#'
-#' ####################  GetMLModelFavoriteForMLModel  ####################
+#' ####################  AddMLModelFavorite  ####################
 #'
 #' library(tiledbcloud)
 #' var.namespace <- 'namespace_example' # character | The namespace of the ML model
@@ -818,29 +541,10 @@
 #' # provide your api key generated using the developer portal
 #' api.instance$apiClient$password <- '<api_key>';
 #'
-#' result <- api.instance$GetMLModelFavoriteForMLModel(var.namespace, var.name)
+#' result <- api.instance$AddMLModelFavorite(var.namespace, var.name)
 #'
 #'
-#' ####################  GetNotebookFavorite  ####################
-#'
-#' library(tiledbcloud)
-#' var.id <- 'id_example' # character | The uuid of the notebook favorite
-#'
-#' api.instance <- FavoritesApi$new()
-#'
-#' #Configure API key authorization: ApiKeyAuth
-#' api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-#'
-#' #Configure HTTP basic authorization: BasicAuth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' result <- api.instance$GetNotebookFavorite(var.id)
-#'
-#'
-#' ####################  GetNotebookFavoriteForNotebook  ####################
+#' ####################  AddNotebookFavorite  ####################
 #'
 #' library(tiledbcloud)
 #' var.namespace <- 'namespace_example' # character | The namespace of the notebook
@@ -857,29 +561,10 @@
 #' # provide your api key generated using the developer portal
 #' api.instance$apiClient$password <- '<api_key>';
 #'
-#' result <- api.instance$GetNotebookFavoriteForNotebook(var.namespace, var.name)
+#' result <- api.instance$AddNotebookFavorite(var.namespace, var.name)
 #'
 #'
-#' ####################  GetUDFFavorite  ####################
-#'
-#' library(tiledbcloud)
-#' var.id <- 'id_example' # character | The uuid of the UDF favorite
-#'
-#' api.instance <- FavoritesApi$new()
-#'
-#' #Configure API key authorization: ApiKeyAuth
-#' api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
-#'
-#' #Configure HTTP basic authorization: BasicAuth
-#' # provide your username in the user-serial format
-#' api.instance$apiClient$username <- '<user-serial>'; 
-#' # provide your api key generated using the developer portal
-#' api.instance$apiClient$password <- '<api_key>';
-#'
-#' result <- api.instance$GetUDFFavorite(var.id)
-#'
-#'
-#' ####################  GetUDFFavoriteForUDF  ####################
+#' ####################  AddUDFFavorite  ####################
 #'
 #' library(tiledbcloud)
 #' var.namespace <- 'namespace_example' # character | The namespace of the UDF
@@ -896,7 +581,167 @@
 #' # provide your api key generated using the developer portal
 #' api.instance$apiClient$password <- '<api_key>';
 #'
-#' result <- api.instance$GetUDFFavoriteForUDF(var.namespace, var.name)
+#' result <- api.instance$AddUDFFavorite(var.namespace, var.name)
+#'
+#'
+#' ####################  DeleteArrayFavorite  ####################
+#'
+#' library(tiledbcloud)
+#' var.namespace <- 'namespace_example' # character | The namespace of the array
+#' var.name <- 'name_example' # character | The name of the array
+#'
+#' api.instance <- FavoritesApi$new()
+#'
+#' #Configure API key authorization: ApiKeyAuth
+#' api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+#'
+#' #Configure HTTP basic authorization: BasicAuth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' result <- api.instance$DeleteArrayFavorite(var.namespace, var.name)
+#'
+#'
+#' ####################  DeleteMLModelFavorite  ####################
+#'
+#' library(tiledbcloud)
+#' var.namespace <- 'namespace_example' # character | The namespace of the ML model
+#' var.name <- 'name_example' # character | The name of the ML model
+#'
+#' api.instance <- FavoritesApi$new()
+#'
+#' #Configure API key authorization: ApiKeyAuth
+#' api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+#'
+#' #Configure HTTP basic authorization: BasicAuth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' result <- api.instance$DeleteMLModelFavorite(var.namespace, var.name)
+#'
+#'
+#' ####################  DeleteNotebookFavorite  ####################
+#'
+#' library(tiledbcloud)
+#' var.namespace <- 'namespace_example' # character | The namespace of the notebook
+#' var.name <- 'name_example' # character | The name of the notebook
+#'
+#' api.instance <- FavoritesApi$new()
+#'
+#' #Configure API key authorization: ApiKeyAuth
+#' api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+#'
+#' #Configure HTTP basic authorization: BasicAuth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' result <- api.instance$DeleteNotebookFavorite(var.namespace, var.name)
+#'
+#'
+#' ####################  DeleteUDFFavorite  ####################
+#'
+#' library(tiledbcloud)
+#' var.namespace <- 'namespace_example' # character | The namespace of the UDF
+#' var.name <- 'name_example' # character | The name of the UDF
+#'
+#' api.instance <- FavoritesApi$new()
+#'
+#' #Configure API key authorization: ApiKeyAuth
+#' api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+#'
+#' #Configure HTTP basic authorization: BasicAuth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' result <- api.instance$DeleteUDFFavorite(var.namespace, var.name)
+#'
+#'
+#' ####################  GetArrayFavorite  ####################
+#'
+#' library(tiledbcloud)
+#' var.namespace <- 'namespace_example' # character | The namespace of the array
+#' var.name <- 'name_example' # character | The name of the array
+#'
+#' api.instance <- FavoritesApi$new()
+#'
+#' #Configure API key authorization: ApiKeyAuth
+#' api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+#'
+#' #Configure HTTP basic authorization: BasicAuth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' result <- api.instance$GetArrayFavorite(var.namespace, var.name)
+#'
+#'
+#' ####################  GetMLModelFavorite  ####################
+#'
+#' library(tiledbcloud)
+#' var.namespace <- 'namespace_example' # character | The namespace of the ML model
+#' var.name <- 'name_example' # character | The name of the ML model
+#'
+#' api.instance <- FavoritesApi$new()
+#'
+#' #Configure API key authorization: ApiKeyAuth
+#' api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+#'
+#' #Configure HTTP basic authorization: BasicAuth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' result <- api.instance$GetMLModelFavorite(var.namespace, var.name)
+#'
+#'
+#' ####################  GetNotebookFavorite  ####################
+#'
+#' library(tiledbcloud)
+#' var.namespace <- 'namespace_example' # character | The namespace of the notebook
+#' var.name <- 'name_example' # character | The name of the notebook
+#'
+#' api.instance <- FavoritesApi$new()
+#'
+#' #Configure API key authorization: ApiKeyAuth
+#' api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+#'
+#' #Configure HTTP basic authorization: BasicAuth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' result <- api.instance$GetNotebookFavorite(var.namespace, var.name)
+#'
+#'
+#' ####################  GetUDFFavorite  ####################
+#'
+#' library(tiledbcloud)
+#' var.namespace <- 'namespace_example' # character | The namespace of the UDF
+#' var.name <- 'name_example' # character | The name of the UDF
+#'
+#' api.instance <- FavoritesApi$new()
+#'
+#' #Configure API key authorization: ApiKeyAuth
+#' api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+#'
+#' #Configure HTTP basic authorization: BasicAuth
+#' # provide your username in the user-serial format
+#' api.instance$apiClient$username <- '<user-serial>'; 
+#' # provide your api key generated using the developer portal
+#' api.instance$apiClient$password <- '<api_key>';
+#'
+#' result <- api.instance$GetUDFFavorite(var.namespace, var.name)
 #'
 #'
 #' ####################  ListArrayFavorites  ####################
@@ -978,6 +823,7 @@
 #' ####################  ListNotebookFavorites  ####################
 #'
 #' library(tiledbcloud)
+#' var.is.dashboard <- 'is.dashboard_example' # character | return only dashboards
 #' var.page <- 56 # integer | pagination offset
 #' var.per.page <- 56 # integer | pagination limit
 #'
@@ -992,7 +838,7 @@
 #' # provide your api key generated using the developer portal
 #' api.instance$apiClient$password <- '<api_key>';
 #'
-#' result <- api.instance$ListNotebookFavorites(page=var.page, per.page=var.per.page)
+#' result <- api.instance$ListNotebookFavorites(is.dashboard=var.is.dashboard, page=var.page, per.page=var.per.page)
 #'
 #'
 #' ####################  ListNotebookFavoritesUUIDs  ####################
@@ -1067,8 +913,8 @@ FavoritesApi <- R6::R6Class(
         self$apiClient <- ApiClient$new()
       }
     },
-    AddArrayFavorite = function(body=NULL, ...){
-      apiResponse <- self$AddArrayFavoriteWithHttpInfo(body, ...)
+    AddArrayFavorite = function(namespace, name, ...){
+      apiResponse <- self$AddArrayFavoriteWithHttpInfo(namespace, name, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1081,219 +927,271 @@ FavoritesApi <- R6::R6Class(
       }
     },
 
-    AddArrayFavoriteWithHttpInfo = function(body=NULL, ...){
+    AddArrayFavoriteWithHttpInfo = function(namespace, name, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (!missing(`body`)) {
-        body <- `body`$toJSONString()
-      } else {
-        body <- NULL
+      if (missing(`namespace`)) {
+        stop("Missing required parameter `namespace`.")
       }
 
-      urlPath <- "/arrays/favorites"
-      # API key authentication
-      if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {
-        headerParams['X-TILEDB-REST-API-KEY'] <- paste(unlist(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]), collapse='')
-      }
-      # HTTP basic auth
-      headerParams['Authorization'] <- paste("Basic", base64enc::base64encode(charToRaw(paste(self$apiClient$username, self$apiClient$password, sep=":"))))
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "POST",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        ApiResponse$new(NULL, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
-    AddMLModelFavorite = function(body=NULL, ...){
-      apiResponse <- self$AddMLModelFavoriteWithHttpInfo(body, ...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    AddMLModelFavoriteWithHttpInfo = function(body=NULL, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      if (!missing(`body`)) {
-        body <- `body`$toJSONString()
-      } else {
-        body <- NULL
-      }
-
-      urlPath <- "/mlmodels/favorites"
-      # API key authentication
-      if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {
-        headerParams['X-TILEDB-REST-API-KEY'] <- paste(unlist(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]), collapse='')
-      }
-      # HTTP basic auth
-      headerParams['Authorization'] <- paste("Basic", base64enc::base64encode(charToRaw(paste(self$apiClient$username, self$apiClient$password, sep=":"))))
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "POST",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        ApiResponse$new(NULL, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
-    AddNotebookFavorite = function(body=NULL, ...){
-      apiResponse <- self$AddNotebookFavoriteWithHttpInfo(body, ...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    AddNotebookFavoriteWithHttpInfo = function(body=NULL, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      if (!missing(`body`)) {
-        body <- `body`$toJSONString()
-      } else {
-        body <- NULL
-      }
-
-      urlPath <- "/notebooks/favorites"
-      # API key authentication
-      if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {
-        headerParams['X-TILEDB-REST-API-KEY'] <- paste(unlist(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]), collapse='')
-      }
-      # HTTP basic auth
-      headerParams['Authorization'] <- paste("Basic", base64enc::base64encode(charToRaw(paste(self$apiClient$username, self$apiClient$password, sep=":"))))
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "POST",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        ApiResponse$new(NULL, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
-    AddUDFFavorite = function(body=NULL, ...){
-      apiResponse <- self$AddUDFFavoriteWithHttpInfo(body, ...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    AddUDFFavoriteWithHttpInfo = function(body=NULL, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      if (!missing(`body`)) {
-        body <- `body`$toJSONString()
-      } else {
-        body <- NULL
-      }
-
-      urlPath <- "/udfs/favorites"
-      # API key authentication
-      if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {
-        headerParams['X-TILEDB-REST-API-KEY'] <- paste(unlist(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]), collapse='')
-      }
-      # HTTP basic auth
-      headerParams['Authorization'] <- paste("Basic", base64enc::base64encode(charToRaw(paste(self$apiClient$username, self$apiClient$password, sep=":"))))
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "POST",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        ApiResponse$new(NULL, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
-    DeleteArrayFavorite = function(id, ...){
-      apiResponse <- self$DeleteArrayFavoriteWithHttpInfo(id, ...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    DeleteArrayFavoriteWithHttpInfo = function(id, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      if (missing(`id`)) {
-        stop("Missing required parameter `id`.")
+      if (missing(`name`)) {
+        stop("Missing required parameter `name`.")
       }
 
       body <- NULL
-      urlPath <- "/arrays/favorites/{id}"
-      if (!missing(`id`)) {
-        urlPath <- gsub(paste0("\\{", "id", "\\}"), URLencode(as.character(`id`), reserved = TRUE), urlPath)
+      urlPath <- "/arrays/favorites/{namespace}/{name}"
+      if (!missing(`namespace`)) {
+        urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)
+      }
+
+      if (!missing(`name`)) {
+        urlPath <- gsub(paste0("\\{", "name", "\\}"), URLencode(as.character(`name`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {
+        headerParams['X-TILEDB-REST-API-KEY'] <- paste(unlist(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]), collapse='')
+      }
+      # HTTP basic auth
+      headerParams['Authorization'] <- paste("Basic", base64enc::base64encode(charToRaw(paste(self$apiClient$username, self$apiClient$password, sep=":"))))
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        ApiResponse$new(NULL, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    AddMLModelFavorite = function(namespace, name, ...){
+      apiResponse <- self$AddMLModelFavoriteWithHttpInfo(namespace, name, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    AddMLModelFavoriteWithHttpInfo = function(namespace, name, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`namespace`)) {
+        stop("Missing required parameter `namespace`.")
+      }
+
+      if (missing(`name`)) {
+        stop("Missing required parameter `name`.")
+      }
+
+      body <- NULL
+      urlPath <- "/ml_models/favorites/{namespace}/{name}"
+      if (!missing(`namespace`)) {
+        urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)
+      }
+
+      if (!missing(`name`)) {
+        urlPath <- gsub(paste0("\\{", "name", "\\}"), URLencode(as.character(`name`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {
+        headerParams['X-TILEDB-REST-API-KEY'] <- paste(unlist(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]), collapse='')
+      }
+      # HTTP basic auth
+      headerParams['Authorization'] <- paste("Basic", base64enc::base64encode(charToRaw(paste(self$apiClient$username, self$apiClient$password, sep=":"))))
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        ApiResponse$new(NULL, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    AddNotebookFavorite = function(namespace, name, ...){
+      apiResponse <- self$AddNotebookFavoriteWithHttpInfo(namespace, name, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    AddNotebookFavoriteWithHttpInfo = function(namespace, name, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`namespace`)) {
+        stop("Missing required parameter `namespace`.")
+      }
+
+      if (missing(`name`)) {
+        stop("Missing required parameter `name`.")
+      }
+
+      body <- NULL
+      urlPath <- "/notebooks/favorites/{namespace}/{name}"
+      if (!missing(`namespace`)) {
+        urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)
+      }
+
+      if (!missing(`name`)) {
+        urlPath <- gsub(paste0("\\{", "name", "\\}"), URLencode(as.character(`name`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {
+        headerParams['X-TILEDB-REST-API-KEY'] <- paste(unlist(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]), collapse='')
+      }
+      # HTTP basic auth
+      headerParams['Authorization'] <- paste("Basic", base64enc::base64encode(charToRaw(paste(self$apiClient$username, self$apiClient$password, sep=":"))))
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        ApiResponse$new(NULL, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    AddUDFFavorite = function(namespace, name, ...){
+      apiResponse <- self$AddUDFFavoriteWithHttpInfo(namespace, name, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    AddUDFFavoriteWithHttpInfo = function(namespace, name, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`namespace`)) {
+        stop("Missing required parameter `namespace`.")
+      }
+
+      if (missing(`name`)) {
+        stop("Missing required parameter `name`.")
+      }
+
+      body <- NULL
+      urlPath <- "/udfs/favorites/{namespace}/{name}"
+      if (!missing(`namespace`)) {
+        urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)
+      }
+
+      if (!missing(`name`)) {
+        urlPath <- gsub(paste0("\\{", "name", "\\}"), URLencode(as.character(`name`), reserved = TRUE), urlPath)
+      }
+
+      # API key authentication
+      if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {
+        headerParams['X-TILEDB-REST-API-KEY'] <- paste(unlist(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]), collapse='')
+      }
+      # HTTP basic auth
+      headerParams['Authorization'] <- paste("Basic", base64enc::base64encode(charToRaw(paste(self$apiClient$username, self$apiClient$password, sep=":"))))
+
+      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
+                                 method = "POST",
+                                 queryParams = queryParams,
+                                 headerParams = headerParams,
+                                 body = body,
+                                 ...)
+
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        ApiResponse$new(NULL, resp)
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        ApiResponse$new("API client error", resp)
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        ApiResponse$new("API server error", resp)
+      }
+    },
+    DeleteArrayFavorite = function(namespace, name, ...){
+      apiResponse <- self$DeleteArrayFavoriteWithHttpInfo(namespace, name, ...)
+      resp <- apiResponse$response
+      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
+        apiResponse$content
+      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
+        apiResponse
+      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+        apiResponse
+      }
+    },
+
+    DeleteArrayFavoriteWithHttpInfo = function(namespace, name, ...){
+      args <- list(...)
+      queryParams <- list()
+      headerParams <- c()
+
+      if (missing(`namespace`)) {
+        stop("Missing required parameter `namespace`.")
+      }
+
+      if (missing(`name`)) {
+        stop("Missing required parameter `name`.")
+      }
+
+      body <- NULL
+      urlPath <- "/arrays/favorites/{namespace}/{name}"
+      if (!missing(`namespace`)) {
+        urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)
+      }
+
+      if (!missing(`name`)) {
+        urlPath <- gsub(paste0("\\{", "name", "\\}"), URLencode(as.character(`name`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1320,8 +1218,8 @@ FavoritesApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    DeleteMLModelFavorite = function(id, ...){
-      apiResponse <- self$DeleteMLModelFavoriteWithHttpInfo(id, ...)
+    DeleteMLModelFavorite = function(namespace, name, ...){
+      apiResponse <- self$DeleteMLModelFavoriteWithHttpInfo(namespace, name, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1334,19 +1232,27 @@ FavoritesApi <- R6::R6Class(
       }
     },
 
-    DeleteMLModelFavoriteWithHttpInfo = function(id, ...){
+    DeleteMLModelFavoriteWithHttpInfo = function(namespace, name, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`id`)) {
-        stop("Missing required parameter `id`.")
+      if (missing(`namespace`)) {
+        stop("Missing required parameter `namespace`.")
+      }
+
+      if (missing(`name`)) {
+        stop("Missing required parameter `name`.")
       }
 
       body <- NULL
-      urlPath <- "/mlmodels/favorites/{id}"
-      if (!missing(`id`)) {
-        urlPath <- gsub(paste0("\\{", "id", "\\}"), URLencode(as.character(`id`), reserved = TRUE), urlPath)
+      urlPath <- "/ml_models/favorites/{namespace}/{name}"
+      if (!missing(`namespace`)) {
+        urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)
+      }
+
+      if (!missing(`name`)) {
+        urlPath <- gsub(paste0("\\{", "name", "\\}"), URLencode(as.character(`name`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1373,8 +1279,8 @@ FavoritesApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    DeleteNotebookFavorite = function(id, ...){
-      apiResponse <- self$DeleteNotebookFavoriteWithHttpInfo(id, ...)
+    DeleteNotebookFavorite = function(namespace, name, ...){
+      apiResponse <- self$DeleteNotebookFavoriteWithHttpInfo(namespace, name, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1387,19 +1293,27 @@ FavoritesApi <- R6::R6Class(
       }
     },
 
-    DeleteNotebookFavoriteWithHttpInfo = function(id, ...){
+    DeleteNotebookFavoriteWithHttpInfo = function(namespace, name, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`id`)) {
-        stop("Missing required parameter `id`.")
+      if (missing(`namespace`)) {
+        stop("Missing required parameter `namespace`.")
+      }
+
+      if (missing(`name`)) {
+        stop("Missing required parameter `name`.")
       }
 
       body <- NULL
-      urlPath <- "/notebooks/favorites/{id}"
-      if (!missing(`id`)) {
-        urlPath <- gsub(paste0("\\{", "id", "\\}"), URLencode(as.character(`id`), reserved = TRUE), urlPath)
+      urlPath <- "/notebooks/favorites/{namespace}/{name}"
+      if (!missing(`namespace`)) {
+        urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)
+      }
+
+      if (!missing(`name`)) {
+        urlPath <- gsub(paste0("\\{", "name", "\\}"), URLencode(as.character(`name`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1426,8 +1340,8 @@ FavoritesApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    DeleteUDFFavorite = function(id, ...){
-      apiResponse <- self$DeleteUDFFavoriteWithHttpInfo(id, ...)
+    DeleteUDFFavorite = function(namespace, name, ...){
+      apiResponse <- self$DeleteUDFFavoriteWithHttpInfo(namespace, name, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1440,19 +1354,27 @@ FavoritesApi <- R6::R6Class(
       }
     },
 
-    DeleteUDFFavoriteWithHttpInfo = function(id, ...){
+    DeleteUDFFavoriteWithHttpInfo = function(namespace, name, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
 
-      if (missing(`id`)) {
-        stop("Missing required parameter `id`.")
+      if (missing(`namespace`)) {
+        stop("Missing required parameter `namespace`.")
+      }
+
+      if (missing(`name`)) {
+        stop("Missing required parameter `name`.")
       }
 
       body <- NULL
-      urlPath <- "/udfs/favorites/{id}"
-      if (!missing(`id`)) {
-        urlPath <- gsub(paste0("\\{", "id", "\\}"), URLencode(as.character(`id`), reserved = TRUE), urlPath)
+      urlPath <- "/udfs/favorites/{namespace}/{name}"
+      if (!missing(`namespace`)) {
+        urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)
+      }
+
+      if (!missing(`name`)) {
+        urlPath <- gsub(paste0("\\{", "name", "\\}"), URLencode(as.character(`name`), reserved = TRUE), urlPath)
       }
 
       # API key authentication
@@ -1479,8 +1401,8 @@ FavoritesApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    GetArrayFavorite = function(id, ...){
-      apiResponse <- self$GetArrayFavoriteWithHttpInfo(id, ...)
+    GetArrayFavorite = function(namespace, name, ...){
+      apiResponse <- self$GetArrayFavoriteWithHttpInfo(namespace, name, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1493,66 +1415,7 @@ FavoritesApi <- R6::R6Class(
       }
     },
 
-    GetArrayFavoriteWithHttpInfo = function(id, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      if (missing(`id`)) {
-        stop("Missing required parameter `id`.")
-      }
-
-      body <- NULL
-      urlPath <- "/arrays/favorites/{id}"
-      if (!missing(`id`)) {
-        urlPath <- gsub(paste0("\\{", "id", "\\}"), URLencode(as.character(`id`), reserved = TRUE), urlPath)
-      }
-
-      # API key authentication
-      if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {
-        headerParams['X-TILEDB-REST-API-KEY'] <- paste(unlist(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]), collapse='')
-      }
-      # HTTP basic auth
-      headerParams['Authorization'] <- paste("Basic", base64enc::base64encode(charToRaw(paste(self$apiClient$username, self$apiClient$password, sep=":"))))
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "GET",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "ArrayFavorite", loadNamespace("tiledbcloud")),
-          error = function(e){
-             stop("Failed to deserialize response")
-          }
-        )
-        ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
-    GetArrayFavoriteForArray = function(namespace, name, ...){
-      apiResponse <- self$GetArrayFavoriteForArrayWithHttpInfo(namespace, name, ...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    GetArrayFavoriteForArrayWithHttpInfo = function(namespace, name, ...){
+    GetArrayFavoriteWithHttpInfo = function(namespace, name, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
@@ -1605,8 +1468,8 @@ FavoritesApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    GetMLModelFavorite = function(id, ...){
-      apiResponse <- self$GetMLModelFavoriteWithHttpInfo(id, ...)
+    GetMLModelFavorite = function(namespace, name, ...){
+      apiResponse <- self$GetMLModelFavoriteWithHttpInfo(namespace, name, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1619,66 +1482,7 @@ FavoritesApi <- R6::R6Class(
       }
     },
 
-    GetMLModelFavoriteWithHttpInfo = function(id, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      if (missing(`id`)) {
-        stop("Missing required parameter `id`.")
-      }
-
-      body <- NULL
-      urlPath <- "/mlmodels/favorites/{id}"
-      if (!missing(`id`)) {
-        urlPath <- gsub(paste0("\\{", "id", "\\}"), URLencode(as.character(`id`), reserved = TRUE), urlPath)
-      }
-
-      # API key authentication
-      if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {
-        headerParams['X-TILEDB-REST-API-KEY'] <- paste(unlist(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]), collapse='')
-      }
-      # HTTP basic auth
-      headerParams['Authorization'] <- paste("Basic", base64enc::base64encode(charToRaw(paste(self$apiClient$username, self$apiClient$password, sep=":"))))
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "GET",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "MLModelFavorite", loadNamespace("tiledbcloud")),
-          error = function(e){
-             stop("Failed to deserialize response")
-          }
-        )
-        ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
-    GetMLModelFavoriteForMLModel = function(namespace, name, ...){
-      apiResponse <- self$GetMLModelFavoriteForMLModelWithHttpInfo(namespace, name, ...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    GetMLModelFavoriteForMLModelWithHttpInfo = function(namespace, name, ...){
+    GetMLModelFavoriteWithHttpInfo = function(namespace, name, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
@@ -1692,7 +1496,7 @@ FavoritesApi <- R6::R6Class(
       }
 
       body <- NULL
-      urlPath <- "/mlmodels/favorites/{namespace}/{name}"
+      urlPath <- "/ml_models/favorites/{namespace}/{name}"
       if (!missing(`namespace`)) {
         urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)
       }
@@ -1731,8 +1535,8 @@ FavoritesApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    GetNotebookFavorite = function(id, ...){
-      apiResponse <- self$GetNotebookFavoriteWithHttpInfo(id, ...)
+    GetNotebookFavorite = function(namespace, name, ...){
+      apiResponse <- self$GetNotebookFavoriteWithHttpInfo(namespace, name, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1745,66 +1549,7 @@ FavoritesApi <- R6::R6Class(
       }
     },
 
-    GetNotebookFavoriteWithHttpInfo = function(id, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      if (missing(`id`)) {
-        stop("Missing required parameter `id`.")
-      }
-
-      body <- NULL
-      urlPath <- "/notebooks/favorites/{id}"
-      if (!missing(`id`)) {
-        urlPath <- gsub(paste0("\\{", "id", "\\}"), URLencode(as.character(`id`), reserved = TRUE), urlPath)
-      }
-
-      # API key authentication
-      if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {
-        headerParams['X-TILEDB-REST-API-KEY'] <- paste(unlist(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]), collapse='')
-      }
-      # HTTP basic auth
-      headerParams['Authorization'] <- paste("Basic", base64enc::base64encode(charToRaw(paste(self$apiClient$username, self$apiClient$password, sep=":"))))
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "GET",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "NotebookFavorite", loadNamespace("tiledbcloud")),
-          error = function(e){
-             stop("Failed to deserialize response")
-          }
-        )
-        ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
-    GetNotebookFavoriteForNotebook = function(namespace, name, ...){
-      apiResponse <- self$GetNotebookFavoriteForNotebookWithHttpInfo(namespace, name, ...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    GetNotebookFavoriteForNotebookWithHttpInfo = function(namespace, name, ...){
+    GetNotebookFavoriteWithHttpInfo = function(namespace, name, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
@@ -1857,8 +1602,8 @@ FavoritesApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    GetUDFFavorite = function(id, ...){
-      apiResponse <- self$GetUDFFavoriteWithHttpInfo(id, ...)
+    GetUDFFavorite = function(namespace, name, ...){
+      apiResponse <- self$GetUDFFavoriteWithHttpInfo(namespace, name, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -1871,66 +1616,7 @@ FavoritesApi <- R6::R6Class(
       }
     },
 
-    GetUDFFavoriteWithHttpInfo = function(id, ...){
-      args <- list(...)
-      queryParams <- list()
-      headerParams <- c()
-
-      if (missing(`id`)) {
-        stop("Missing required parameter `id`.")
-      }
-
-      body <- NULL
-      urlPath <- "/udfs/favorites/{id}"
-      if (!missing(`id`)) {
-        urlPath <- gsub(paste0("\\{", "id", "\\}"), URLencode(as.character(`id`), reserved = TRUE), urlPath)
-      }
-
-      # API key authentication
-      if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {
-        headerParams['X-TILEDB-REST-API-KEY'] <- paste(unlist(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]), collapse='')
-      }
-      # HTTP basic auth
-      headerParams['Authorization'] <- paste("Basic", base64enc::base64encode(charToRaw(paste(self$apiClient$username, self$apiClient$password, sep=":"))))
-
-      resp <- self$apiClient$CallApi(url = paste0(self$apiClient$basePath, urlPath),
-                                 method = "GET",
-                                 queryParams = queryParams,
-                                 headerParams = headerParams,
-                                 body = body,
-                                 ...)
-
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        deserializedRespObj <- tryCatch(
-          self$apiClient$deserialize(resp, "UDFFavorite", loadNamespace("tiledbcloud")),
-          error = function(e){
-             stop("Failed to deserialize response")
-          }
-        )
-        ApiResponse$new(deserializedRespObj, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
-    },
-    GetUDFFavoriteForUDF = function(namespace, name, ...){
-      apiResponse <- self$GetUDFFavoriteForUDFWithHttpInfo(namespace, name, ...)
-      resp <- apiResponse$response
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        apiResponse
-      }
-    },
-
-    GetUDFFavoriteForUDFWithHttpInfo = function(namespace, name, ...){
+    GetUDFFavoriteWithHttpInfo = function(namespace, name, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
@@ -2113,7 +1799,7 @@ FavoritesApi <- R6::R6Class(
       queryParams['per_page'] <- per.page
 
       body <- NULL
-      urlPath <- "/mlmodels/favorites"
+      urlPath <- "/ml_models/favorites"
       # API key authentication
       if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {
         headerParams['X-TILEDB-REST-API-KEY'] <- paste(unlist(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]), collapse='')
@@ -2164,7 +1850,7 @@ FavoritesApi <- R6::R6Class(
       headerParams <- c()
 
       body <- NULL
-      urlPath <- "/mlmodels/favorites/uuids"
+      urlPath <- "/ml_models/favorites/uuids"
       # API key authentication
       if ("X-TILEDB-REST-API-KEY" %in% names(self$apiClient$apiKeys) && nchar(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]) > 0) {
         headerParams['X-TILEDB-REST-API-KEY'] <- paste(unlist(self$apiClient$apiKeys["X-TILEDB-REST-API-KEY"]), collapse='')
@@ -2195,8 +1881,8 @@ FavoritesApi <- R6::R6Class(
         ApiResponse$new("API server error", resp)
       }
     },
-    ListNotebookFavorites = function(page=NULL, per.page=NULL, ...){
-      apiResponse <- self$ListNotebookFavoritesWithHttpInfo(page, per.page, ...)
+    ListNotebookFavorites = function(is.dashboard=NULL, page=NULL, per.page=NULL, ...){
+      apiResponse <- self$ListNotebookFavoritesWithHttpInfo(is.dashboard, page, per.page, ...)
       resp <- apiResponse$response
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
@@ -2209,10 +1895,12 @@ FavoritesApi <- R6::R6Class(
       }
     },
 
-    ListNotebookFavoritesWithHttpInfo = function(page=NULL, per.page=NULL, ...){
+    ListNotebookFavoritesWithHttpInfo = function(is.dashboard=NULL, page=NULL, per.page=NULL, ...){
       args <- list(...)
       queryParams <- list()
       headerParams <- c()
+
+      queryParams['is_dashboard'] <- is.dashboard
 
       queryParams['page'] <- page
 

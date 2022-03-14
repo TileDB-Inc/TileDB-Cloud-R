@@ -177,7 +177,7 @@
 #' ####################  TaskIdGet  ####################
 #'
 #' library(tiledbcloud)
-#' var.id <- 'id_example' # character | task id to fetch
+#' var.id <- 'id_example' # character | task ID to fetch
 #'
 #' api.instance <- TasksApi$new()
 #'
@@ -196,7 +196,7 @@
 #' ####################  TaskIdResultGet  ####################
 #'
 #' library(tiledbcloud)
-#' var.id <- 'id_example' # character | task id to retrieve stored results
+#' var.id <- 'id_example' # character | task ID to retrieve stored results
 #' var.accept.encoding <- 'accept.encoding_example' # character | Encoding to use
 #'
 #' api.instance <- TasksApi$new()

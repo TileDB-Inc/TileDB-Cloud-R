@@ -21,6 +21,8 @@ Attribute Class
 
 \item{\code{cellValNum}}{integer}
 
+\item{\code{nullable}}{character [optional]}
+
 \item{\code{fillValue}}{list( integer ) [optional]}
 }
 \if{html}{\out{</div>}}
@@ -41,7 +43,15 @@ Attribute Class
 \if{latex}{\out{\hypertarget{method-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Attribute$new(name, type, filterPipeline, cellValNum, fillValue = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Attribute$new(
+  name,
+  type,
+  filterPipeline,
+  cellValNum,
+  nullable = NULL,
+  fillValue = NULL,
+  ...
+)}\if{html}{\out{</div>}}
 }
 
 }
