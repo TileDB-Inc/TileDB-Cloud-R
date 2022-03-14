@@ -13,11 +13,11 @@
 #'
 #' @format An \code{R6Class} generator object
 #'
-#' @field id  character [optional]
-#'
-#' @field created_at  character [optional]
-#'
 #' @field udf_uuid  character [optional]
+#'
+#' @field namespace  character [optional]
+#'
+#' @field name  character [optional]
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -25,78 +25,78 @@
 UDFFavorite <- R6::R6Class(
   'UDFFavorite',
   public = list(
-    `id` = NULL,
-    `created_at` = NULL,
     `udf_uuid` = NULL,
+    `namespace` = NULL,
+    `name` = NULL,
     initialize = function(
-        `id`=NULL, `created_at`=NULL, `udf_uuid`=NULL, ...
+        `udf_uuid`=NULL, `namespace`=NULL, `name`=NULL, ...
     ) {
       local.optional.var <- list(...)
-      if (!is.null(`id`)) {
-        stopifnot(is.character(`id`), length(`id`) == 1)
-        self$`id` <- `id`
-      }
-      if (!is.null(`created_at`)) {
-        stopifnot(is.character(`created_at`), length(`created_at`) == 1)
-        self$`created_at` <- `created_at`
-      }
       if (!is.null(`udf_uuid`)) {
         stopifnot(is.character(`udf_uuid`), length(`udf_uuid`) == 1)
         self$`udf_uuid` <- `udf_uuid`
       }
+      if (!is.null(`namespace`)) {
+        stopifnot(is.character(`namespace`), length(`namespace`) == 1)
+        self$`namespace` <- `namespace`
+      }
+      if (!is.null(`name`)) {
+        stopifnot(is.character(`name`), length(`name`) == 1)
+        self$`name` <- `name`
+      }
     },
     toJSON = function() {
       UDFFavoriteObject <- list()
-      if (!is.null(self$`id`)) {
-        UDFFavoriteObject[['id']] <-
-          self$`id`
-      }
-      if (!is.null(self$`created_at`)) {
-        UDFFavoriteObject[['created_at']] <-
-          self$`created_at`
-      }
       if (!is.null(self$`udf_uuid`)) {
         UDFFavoriteObject[['udf_uuid']] <-
           self$`udf_uuid`
+      }
+      if (!is.null(self$`namespace`)) {
+        UDFFavoriteObject[['namespace']] <-
+          self$`namespace`
+      }
+      if (!is.null(self$`name`)) {
+        UDFFavoriteObject[['name']] <-
+          self$`name`
       }
 
       UDFFavoriteObject
     },
     fromJSON = function(UDFFavoriteJson) {
       UDFFavoriteObject <- jsonlite::fromJSON(UDFFavoriteJson)
-      if (!is.null(UDFFavoriteObject$`id`)) {
-        self$`id` <- UDFFavoriteObject$`id`
-      }
-      if (!is.null(UDFFavoriteObject$`created_at`)) {
-        self$`created_at` <- UDFFavoriteObject$`created_at`
-      }
       if (!is.null(UDFFavoriteObject$`udf_uuid`)) {
         self$`udf_uuid` <- UDFFavoriteObject$`udf_uuid`
+      }
+      if (!is.null(UDFFavoriteObject$`namespace`)) {
+        self$`namespace` <- UDFFavoriteObject$`namespace`
+      }
+      if (!is.null(UDFFavoriteObject$`name`)) {
+        self$`name` <- UDFFavoriteObject$`name`
       }
       self
     },
     toJSONString = function() {
       jsoncontent <- c(
-        if (!is.null(self$`id`)) {
-        sprintf(
-        '"id":
-          "%s"
-                ',
-        self$`id`
-        )},
-        if (!is.null(self$`created_at`)) {
-        sprintf(
-        '"created_at":
-          "%s"
-                ',
-        self$`created_at`
-        )},
         if (!is.null(self$`udf_uuid`)) {
         sprintf(
         '"udf_uuid":
           "%s"
                 ',
         self$`udf_uuid`
+        )},
+        if (!is.null(self$`namespace`)) {
+        sprintf(
+        '"namespace":
+          "%s"
+                ',
+        self$`namespace`
+        )},
+        if (!is.null(self$`name`)) {
+        sprintf(
+        '"name":
+          "%s"
+                ',
+        self$`name`
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -104,9 +104,9 @@ UDFFavorite <- R6::R6Class(
     },
     fromJSONString = function(UDFFavoriteJson) {
       UDFFavoriteObject <- jsonlite::fromJSON(UDFFavoriteJson)
-      self$`id` <- UDFFavoriteObject$`id`
-      self$`created_at` <- UDFFavoriteObject$`created_at`
       self$`udf_uuid` <- UDFFavoriteObject$`udf_uuid`
+      self$`namespace` <- UDFFavoriteObject$`namespace`
+      self$`name` <- UDFFavoriteObject$`name`
       self
     }
   )

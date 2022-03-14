@@ -505,7 +505,7 @@
 #' ####################  DeleteOrganization  ####################
 #'
 #' library(tiledbcloud)
-#' var.organization <- 'organization_example' # character | organization name or id
+#' var.organization <- 'organization_example' # character | organization name or ID
 #'
 #' api.instance <- OrganizationApi$new()
 #'
@@ -562,7 +562,7 @@
 #' ####################  GetOrganization  ####################
 #'
 #' library(tiledbcloud)
-#' var.organization <- 'organization_example' # character | organization name or id
+#' var.organization <- 'organization_example' # character | organization name or ID
 #'
 #' api.instance <- OrganizationApi$new()
 #'
@@ -622,7 +622,7 @@
 #' ####################  UpdateOrganization  ####################
 #'
 #' library(tiledbcloud)
-#' var.organization <- 'organization_example' # character | organization name or id
+#' var.organization <- 'organization_example' # character | organization name or ID
 #' var.organization.details <- Organization$new() # Organization | organization details to update
 #'
 #' api.instance <- OrganizationApi$new()

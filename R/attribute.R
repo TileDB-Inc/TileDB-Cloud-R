@@ -21,6 +21,8 @@
 #'
 #' @field cellValNum  integer 
 #'
+#' @field nullable  character [optional]
+#'
 #' @field fillValue  list( integer ) [optional]
 #'
 #' @importFrom R6 R6Class
@@ -33,9 +35,10 @@ Attribute <- R6::R6Class(
     `type` = NULL,
     `filterPipeline` = NULL,
     `cellValNum` = NULL,
+    `nullable` = NULL,
     `fillValue` = NULL,
     initialize = function(
-        `name`, `type`, `filterPipeline`, `cellValNum`, `fillValue`=NULL, ...
+        `name`, `type`, `filterPipeline`, `cellValNum`, `nullable`=NULL, `fillValue`=NULL, ...
     ) {
       local.optional.var <- list(...)
       if (!missing(`name`)) {
@@ -53,6 +56,9 @@ Attribute <- R6::R6Class(
       if (!missing(`cellValNum`)) {
         stopifnot(is.numeric(`cellValNum`), length(`cellValNum`) == 1)
         self$`cellValNum` <- `cellValNum`
+      }
+      if (!is.null(`nullable`)) {
+        self$`nullable` <- `nullable`
       }
       if (!is.null(`fillValue`)) {
         stopifnot(is.vector(`fillValue`), length(`fillValue`) != 0)
@@ -77,6 +83,10 @@ Attribute <- R6::R6Class(
       if (!is.null(self$`cellValNum`)) {
         AttributeObject[['cellValNum']] <-
           self$`cellValNum`
+      }
+      if (!is.null(self$`nullable`)) {
+        AttributeObject[['nullable']] <-
+          self$`nullable`
       }
       if (!is.null(self$`fillValue`)) {
         AttributeObject[['fillValue']] <-
@@ -108,6 +118,9 @@ Attribute <- R6::R6Class(
       }
       if (!is.null(AttributeObject$`cellValNum`)) {
         self$`cellValNum` <- AttributeObject$`cellValNum`
+      }
+      if (!is.null(AttributeObject$`nullable`)) {
+        self$`nullable` <- AttributeObject$`nullable`
       }
       if (!is.null(AttributeObject$`fillValue`)) {
         self$`fillValue` <- ApiClient$new()$deserializeObj(AttributeObject$`fillValue`, "array[integer]", loadNamespace("tiledbcloud"))
@@ -144,6 +157,13 @@ Attribute <- R6::R6Class(
                 ',
         self$`cellValNum`
         )},
+        if (!is.null(self$`nullable`)) {
+        sprintf(
+        '"nullable":
+          "%s"
+                ',
+        self$`nullable`
+        )},
         if (!is.null(self$`fillValue`)) {
         sprintf(
         '"fillValue":
@@ -161,6 +181,7 @@ Attribute <- R6::R6Class(
       self$`type` <- Datatype$new()$fromJSON(jsonlite::toJSON(AttributeObject$type, auto_unbox = TRUE, digits = NA))
       self$`filterPipeline` <- FilterPipeline$new()$fromJSON(jsonlite::toJSON(AttributeObject$filterPipeline, auto_unbox = TRUE, digits = NA))
       self$`cellValNum` <- AttributeObject$`cellValNum`
+      self$`nullable` <- AttributeObject$`nullable`
       self$`fillValue` <- ApiClient$new()$deserializeObj(AttributeObject$`fillValue`, "array[integer]", loadNamespace("tiledbcloud"))
       self
     }

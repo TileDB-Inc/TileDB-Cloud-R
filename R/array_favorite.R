@@ -13,11 +13,11 @@
 #'
 #' @format An \code{R6Class} generator object
 #'
-#' @field id  character [optional]
-#'
-#' @field created_at  character [optional]
-#'
 #' @field array_uuid  character [optional]
+#'
+#' @field namespace  character [optional]
+#'
+#' @field name  character [optional]
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -25,78 +25,78 @@
 ArrayFavorite <- R6::R6Class(
   'ArrayFavorite',
   public = list(
-    `id` = NULL,
-    `created_at` = NULL,
     `array_uuid` = NULL,
+    `namespace` = NULL,
+    `name` = NULL,
     initialize = function(
-        `id`=NULL, `created_at`=NULL, `array_uuid`=NULL, ...
+        `array_uuid`=NULL, `namespace`=NULL, `name`=NULL, ...
     ) {
       local.optional.var <- list(...)
-      if (!is.null(`id`)) {
-        stopifnot(is.character(`id`), length(`id`) == 1)
-        self$`id` <- `id`
-      }
-      if (!is.null(`created_at`)) {
-        stopifnot(is.character(`created_at`), length(`created_at`) == 1)
-        self$`created_at` <- `created_at`
-      }
       if (!is.null(`array_uuid`)) {
         stopifnot(is.character(`array_uuid`), length(`array_uuid`) == 1)
         self$`array_uuid` <- `array_uuid`
       }
+      if (!is.null(`namespace`)) {
+        stopifnot(is.character(`namespace`), length(`namespace`) == 1)
+        self$`namespace` <- `namespace`
+      }
+      if (!is.null(`name`)) {
+        stopifnot(is.character(`name`), length(`name`) == 1)
+        self$`name` <- `name`
+      }
     },
     toJSON = function() {
       ArrayFavoriteObject <- list()
-      if (!is.null(self$`id`)) {
-        ArrayFavoriteObject[['id']] <-
-          self$`id`
-      }
-      if (!is.null(self$`created_at`)) {
-        ArrayFavoriteObject[['created_at']] <-
-          self$`created_at`
-      }
       if (!is.null(self$`array_uuid`)) {
         ArrayFavoriteObject[['array_uuid']] <-
           self$`array_uuid`
+      }
+      if (!is.null(self$`namespace`)) {
+        ArrayFavoriteObject[['namespace']] <-
+          self$`namespace`
+      }
+      if (!is.null(self$`name`)) {
+        ArrayFavoriteObject[['name']] <-
+          self$`name`
       }
 
       ArrayFavoriteObject
     },
     fromJSON = function(ArrayFavoriteJson) {
       ArrayFavoriteObject <- jsonlite::fromJSON(ArrayFavoriteJson)
-      if (!is.null(ArrayFavoriteObject$`id`)) {
-        self$`id` <- ArrayFavoriteObject$`id`
-      }
-      if (!is.null(ArrayFavoriteObject$`created_at`)) {
-        self$`created_at` <- ArrayFavoriteObject$`created_at`
-      }
       if (!is.null(ArrayFavoriteObject$`array_uuid`)) {
         self$`array_uuid` <- ArrayFavoriteObject$`array_uuid`
+      }
+      if (!is.null(ArrayFavoriteObject$`namespace`)) {
+        self$`namespace` <- ArrayFavoriteObject$`namespace`
+      }
+      if (!is.null(ArrayFavoriteObject$`name`)) {
+        self$`name` <- ArrayFavoriteObject$`name`
       }
       self
     },
     toJSONString = function() {
       jsoncontent <- c(
-        if (!is.null(self$`id`)) {
-        sprintf(
-        '"id":
-          "%s"
-                ',
-        self$`id`
-        )},
-        if (!is.null(self$`created_at`)) {
-        sprintf(
-        '"created_at":
-          "%s"
-                ',
-        self$`created_at`
-        )},
         if (!is.null(self$`array_uuid`)) {
         sprintf(
         '"array_uuid":
           "%s"
                 ',
         self$`array_uuid`
+        )},
+        if (!is.null(self$`namespace`)) {
+        sprintf(
+        '"namespace":
+          "%s"
+                ',
+        self$`namespace`
+        )},
+        if (!is.null(self$`name`)) {
+        sprintf(
+        '"name":
+          "%s"
+                ',
+        self$`name`
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -104,9 +104,9 @@ ArrayFavorite <- R6::R6Class(
     },
     fromJSONString = function(ArrayFavoriteJson) {
       ArrayFavoriteObject <- jsonlite::fromJSON(ArrayFavoriteJson)
-      self$`id` <- ArrayFavoriteObject$`id`
-      self$`created_at` <- ArrayFavoriteObject$`created_at`
       self$`array_uuid` <- ArrayFavoriteObject$`array_uuid`
+      self$`namespace` <- ArrayFavoriteObject$`namespace`
+      self$`name` <- ArrayFavoriteObject$`name`
       self
     }
   )

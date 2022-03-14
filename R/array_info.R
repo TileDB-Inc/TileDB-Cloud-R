@@ -61,8 +61,6 @@
 #'
 #' @field is_favorite  character [optional]
 #'
-#' @field favorite_uuid  character [optional]
-#'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
 #' @export
@@ -93,9 +91,8 @@ ArrayInfo <- R6::R6Class(
     `license_text` = NULL,
     `read_only` = NULL,
     `is_favorite` = NULL,
-    `favorite_uuid` = NULL,
     initialize = function(
-        `id`=NULL, `file_type`=NULL, `file_properties`=NULL, `uri`=NULL, `namespace`=NULL, `size`=NULL, `last_accessed`=NULL, `description`=NULL, `name`=NULL, `allowed_actions`=NULL, `pricing`=NULL, `subscriptions`=NULL, `logo`=NULL, `access_credentials_name`=NULL, `type`=NULL, `share_count`=NULL, `public_share`=NULL, `namespace_subscribed`=NULL, `tiledb_uri`=NULL, `tags`=NULL, `license_id`=NULL, `license_text`=NULL, `read_only`=NULL, `is_favorite`=NULL, `favorite_uuid`=NULL, ...
+        `id`=NULL, `file_type`=NULL, `file_properties`=NULL, `uri`=NULL, `namespace`=NULL, `size`=NULL, `last_accessed`=NULL, `description`=NULL, `name`=NULL, `allowed_actions`=NULL, `pricing`=NULL, `subscriptions`=NULL, `logo`=NULL, `access_credentials_name`=NULL, `type`=NULL, `share_count`=NULL, `public_share`=NULL, `namespace_subscribed`=NULL, `tiledb_uri`=NULL, `tags`=NULL, `license_id`=NULL, `license_text`=NULL, `read_only`=NULL, `is_favorite`=NULL, ...
     ) {
       local.optional.var <- list(...)
       if (!is.null(`id`)) {
@@ -192,10 +189,6 @@ ArrayInfo <- R6::R6Class(
       }
       if (!is.null(`is_favorite`)) {
         self$`is_favorite` <- `is_favorite`
-      }
-      if (!is.null(`favorite_uuid`)) {
-        stopifnot(is.character(`favorite_uuid`), length(`favorite_uuid`) == 1)
-        self$`favorite_uuid` <- `favorite_uuid`
       }
     },
     toJSON = function() {
@@ -296,10 +289,6 @@ ArrayInfo <- R6::R6Class(
         ArrayInfoObject[['is_favorite']] <-
           self$`is_favorite`
       }
-      if (!is.null(self$`favorite_uuid`)) {
-        ArrayInfoObject[['favorite_uuid']] <-
-          self$`favorite_uuid`
-      }
 
       ArrayInfoObject
     },
@@ -384,9 +373,6 @@ ArrayInfo <- R6::R6Class(
       }
       if (!is.null(ArrayInfoObject$`is_favorite`)) {
         self$`is_favorite` <- ArrayInfoObject$`is_favorite`
-      }
-      if (!is.null(ArrayInfoObject$`favorite_uuid`)) {
-        self$`favorite_uuid` <- ArrayInfoObject$`favorite_uuid`
       }
       self
     },
@@ -559,13 +545,6 @@ ArrayInfo <- R6::R6Class(
           "%s"
                 ',
         self$`is_favorite`
-        )},
-        if (!is.null(self$`favorite_uuid`)) {
-        sprintf(
-        '"favorite_uuid":
-          "%s"
-                ',
-        self$`favorite_uuid`
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -597,7 +576,6 @@ ArrayInfo <- R6::R6Class(
       self$`license_text` <- ArrayInfoObject$`license_text`
       self$`read_only` <- ArrayInfoObject$`read_only`
       self$`is_favorite` <- ArrayInfoObject$`is_favorite`
-      self$`favorite_uuid` <- ArrayInfoObject$`favorite_uuid`
       self
     }
   )

@@ -90,7 +90,7 @@
 #' }
 #'
 #' \strong{ UpdateNotebookName } \emph{  }
-#' update name on a notebok, moving related s3 object to new location
+#' update name on a notebok, moving related S3 object to new location
 #'
 #' \itemize{
 #' \item \emph{ @param } namespace character

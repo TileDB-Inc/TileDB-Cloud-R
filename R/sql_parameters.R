@@ -21,11 +21,17 @@
 #'
 #' @field store_results  character [optional]
 #'
+#' @field dont_download_results  character [optional]
+#'
 #' @field result_format  \link{ResultFormat} [optional]
 #'
 #' @field init_commands  list( character ) [optional]
 #'
 #' @field parameters  list( object ) [optional]
+#'
+#' @field task_graph_uuid  character [optional]
+#'
+#' @field client_node_uuid  character [optional]
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -37,11 +43,14 @@ SQLParameters <- R6::R6Class(
     `query` = NULL,
     `output_uri` = NULL,
     `store_results` = NULL,
+    `dont_download_results` = NULL,
     `result_format` = NULL,
     `init_commands` = NULL,
     `parameters` = NULL,
+    `task_graph_uuid` = NULL,
+    `client_node_uuid` = NULL,
     initialize = function(
-        `name`=NULL, `query`=NULL, `output_uri`=NULL, `store_results`=NULL, `result_format`=NULL, `init_commands`=NULL, `parameters`=NULL, ...
+        `name`=NULL, `query`=NULL, `output_uri`=NULL, `store_results`=NULL, `dont_download_results`=NULL, `result_format`=NULL, `init_commands`=NULL, `parameters`=NULL, `task_graph_uuid`=NULL, `client_node_uuid`=NULL, ...
     ) {
       local.optional.var <- list(...)
       if (!is.null(`name`)) {
@@ -63,6 +72,9 @@ SQLParameters <- R6::R6Class(
       if (!is.null(`store_results`)) {
         self$`store_results` <- `store_results`
       }
+      if (!is.null(`dont_download_results`)) {
+        self$`dont_download_results` <- `dont_download_results`
+      }
       if (!is.null(`result_format`)) {
         stopifnot(R6::is.R6(`result_format`))
         self$`result_format` <- `result_format`
@@ -76,6 +88,14 @@ SQLParameters <- R6::R6Class(
         stopifnot(is.vector(`parameters`), length(`parameters`) != 0)
         sapply(`parameters`, function(x) stopifnot(is.character(x)))
         self$`parameters` <- `parameters`
+      }
+      if (!is.null(`task_graph_uuid`)) {
+        stopifnot(is.character(`task_graph_uuid`), length(`task_graph_uuid`) == 1)
+        self$`task_graph_uuid` <- `task_graph_uuid`
+      }
+      if (!is.null(`client_node_uuid`)) {
+        stopifnot(is.character(`client_node_uuid`), length(`client_node_uuid`) == 1)
+        self$`client_node_uuid` <- `client_node_uuid`
       }
     },
     toJSON = function() {
@@ -96,6 +116,10 @@ SQLParameters <- R6::R6Class(
         SQLParametersObject[['store_results']] <-
           self$`store_results`
       }
+      if (!is.null(self$`dont_download_results`)) {
+        SQLParametersObject[['dont_download_results']] <-
+          self$`dont_download_results`
+      }
       if (!is.null(self$`result_format`)) {
         SQLParametersObject[['result_format']] <-
           self$`result_format`$toJSON()
@@ -107,6 +131,14 @@ SQLParameters <- R6::R6Class(
       if (!is.null(self$`parameters`)) {
         SQLParametersObject[['parameters']] <-
           self$`parameters`
+      }
+      if (!is.null(self$`task_graph_uuid`)) {
+        SQLParametersObject[['task_graph_uuid']] <-
+          self$`task_graph_uuid`
+      }
+      if (!is.null(self$`client_node_uuid`)) {
+        SQLParametersObject[['client_node_uuid']] <-
+          self$`client_node_uuid`
       }
 
       SQLParametersObject
@@ -125,6 +157,9 @@ SQLParameters <- R6::R6Class(
       if (!is.null(SQLParametersObject$`store_results`)) {
         self$`store_results` <- SQLParametersObject$`store_results`
       }
+      if (!is.null(SQLParametersObject$`dont_download_results`)) {
+        self$`dont_download_results` <- SQLParametersObject$`dont_download_results`
+      }
       if (!is.null(SQLParametersObject$`result_format`)) {
         # MANUAL EDIT AFTER OPENAPI AUTOGEN
         # For enums, OpenAPI autogen (1) generates a constructor which requires being called
@@ -141,6 +176,12 @@ SQLParameters <- R6::R6Class(
       }
       if (!is.null(SQLParametersObject$`parameters`)) {
         self$`parameters` <- ApiClient$new()$deserializeObj(SQLParametersObject$`parameters`, "array[object]", loadNamespace("tiledbcloud"))
+      }
+      if (!is.null(SQLParametersObject$`task_graph_uuid`)) {
+        self$`task_graph_uuid` <- SQLParametersObject$`task_graph_uuid`
+      }
+      if (!is.null(SQLParametersObject$`client_node_uuid`)) {
+        self$`client_node_uuid` <- SQLParametersObject$`client_node_uuid`
       }
       self
     },
@@ -174,6 +215,13 @@ SQLParameters <- R6::R6Class(
                 ',
         self$`store_results`
         )},
+        if (!is.null(self$`dont_download_results`)) {
+        sprintf(
+        '"dont_download_results":
+          "%s"
+                ',
+        self$`dont_download_results`
+        )},
         if (!is.null(self$`result_format`)) {
         sprintf(
         '"result_format":
@@ -194,6 +242,20 @@ SQLParameters <- R6::R6Class(
            [%s]
         ',
         paste(unlist(lapply(self$`parameters`, function(x) paste0('"', x, '"'))), collapse=",")
+        )},
+        if (!is.null(self$`task_graph_uuid`)) {
+        sprintf(
+        '"task_graph_uuid":
+          "%s"
+                ',
+        self$`task_graph_uuid`
+        )},
+        if (!is.null(self$`client_node_uuid`)) {
+        sprintf(
+        '"client_node_uuid":
+          "%s"
+                ',
+        self$`client_node_uuid`
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -205,9 +267,12 @@ SQLParameters <- R6::R6Class(
       self$`query` <- SQLParametersObject$`query`
       self$`output_uri` <- SQLParametersObject$`output_uri`
       self$`store_results` <- SQLParametersObject$`store_results`
+      self$`dont_download_results` <- SQLParametersObject$`dont_download_results`
       self$`result_format` <- ResultFormat$new()$fromJSON(jsonlite::toJSON(SQLParametersObject$result_format, auto_unbox = TRUE, digits = NA))
       self$`init_commands` <- ApiClient$new()$deserializeObj(SQLParametersObject$`init_commands`, "array[character]", loadNamespace("tiledbcloud"))
       self$`parameters` <- ApiClient$new()$deserializeObj(SQLParametersObject$`parameters`, "array[object]", loadNamespace("tiledbcloud"))
+      self$`task_graph_uuid` <- SQLParametersObject$`task_graph_uuid`
+      self$`client_node_uuid` <- SQLParametersObject$`client_node_uuid`
       self
     }
   )

@@ -35,6 +35,8 @@
 #'
 #' @field store_results  character [optional]
 #'
+#' @field dont_download_results  character [optional]
+#'
 #' @field ranges  \link{QueryRanges} [optional]
 #'
 #' @field subarray  \link{UDFSubarray} [optional]
@@ -42,6 +44,12 @@
 #' @field buffers  list( character ) [optional]
 #'
 #' @field arrays  list( \link{UDFArrayDetails} ) [optional]
+#'
+#' @field timeout  integer [optional]
+#'
+#' @field task_graph_uuid  character [optional]
+#'
+#' @field client_node_uuid  character [optional]
 #'
 #' @importFrom R6 R6Class
 #' @importFrom jsonlite fromJSON toJSON
@@ -60,12 +68,16 @@ MultiArrayUDF <- R6::R6Class(
     `argument` = NULL,
     `stored_param_uuids` = NULL,
     `store_results` = NULL,
+    `dont_download_results` = NULL,
     `ranges` = NULL,
     `subarray` = NULL,
     `buffers` = NULL,
     `arrays` = NULL,
+    `timeout` = NULL,
+    `task_graph_uuid` = NULL,
+    `client_node_uuid` = NULL,
     initialize = function(
-        `udf_info_name`=NULL, `language`=NULL, `version`=NULL, `image_name`=NULL, `exec`=NULL, `exec_raw`=NULL, `result_format`=NULL, `task_name`=NULL, `argument`=NULL, `stored_param_uuids`=NULL, `store_results`=NULL, `ranges`=NULL, `subarray`=NULL, `buffers`=NULL, `arrays`=NULL, ...
+        `udf_info_name`=NULL, `language`=NULL, `version`=NULL, `image_name`=NULL, `exec`=NULL, `exec_raw`=NULL, `result_format`=NULL, `task_name`=NULL, `argument`=NULL, `stored_param_uuids`=NULL, `store_results`=NULL, `dont_download_results`=NULL, `ranges`=NULL, `subarray`=NULL, `buffers`=NULL, `arrays`=NULL, `timeout`=NULL, `task_graph_uuid`=NULL, `client_node_uuid`=NULL, ...
     ) {
       local.optional.var <- list(...)
       if (!is.null(`udf_info_name`)) {
@@ -112,6 +124,9 @@ MultiArrayUDF <- R6::R6Class(
       if (!is.null(`store_results`)) {
         self$`store_results` <- `store_results`
       }
+      if (!is.null(`dont_download_results`)) {
+        self$`dont_download_results` <- `dont_download_results`
+      }
       if (!is.null(`ranges`)) {
         stopifnot(R6::is.R6(`ranges`))
         self$`ranges` <- `ranges`
@@ -129,6 +144,18 @@ MultiArrayUDF <- R6::R6Class(
         stopifnot(is.vector(`arrays`), length(`arrays`) != 0)
         sapply(`arrays`, function(x) stopifnot(R6::is.R6(x)))
         self$`arrays` <- `arrays`
+      }
+      if (!is.null(`timeout`)) {
+        stopifnot(is.numeric(`timeout`), length(`timeout`) == 1)
+        self$`timeout` <- `timeout`
+      }
+      if (!is.null(`task_graph_uuid`)) {
+        stopifnot(is.character(`task_graph_uuid`), length(`task_graph_uuid`) == 1)
+        self$`task_graph_uuid` <- `task_graph_uuid`
+      }
+      if (!is.null(`client_node_uuid`)) {
+        stopifnot(is.character(`client_node_uuid`), length(`client_node_uuid`) == 1)
+        self$`client_node_uuid` <- `client_node_uuid`
       }
     },
     toJSON = function() {
@@ -177,6 +204,10 @@ MultiArrayUDF <- R6::R6Class(
         MultiArrayUDFObject[['store_results']] <-
           self$`store_results`
       }
+      if (!is.null(self$`dont_download_results`)) {
+        MultiArrayUDFObject[['dont_download_results']] <-
+          self$`dont_download_results`
+      }
       if (!is.null(self$`ranges`)) {
         MultiArrayUDFObject[['ranges']] <-
           self$`ranges`$toJSON()
@@ -192,6 +223,18 @@ MultiArrayUDF <- R6::R6Class(
       if (!is.null(self$`arrays`)) {
         MultiArrayUDFObject[['arrays']] <-
           lapply(self$`arrays`, function(x) x$toJSON())
+      }
+      if (!is.null(self$`timeout`)) {
+        MultiArrayUDFObject[['timeout']] <-
+          self$`timeout`
+      }
+      if (!is.null(self$`task_graph_uuid`)) {
+        MultiArrayUDFObject[['task_graph_uuid']] <-
+          self$`task_graph_uuid`
+      }
+      if (!is.null(self$`client_node_uuid`)) {
+        MultiArrayUDFObject[['client_node_uuid']] <-
+          self$`client_node_uuid`
       }
 
       MultiArrayUDFObject
@@ -247,6 +290,9 @@ MultiArrayUDF <- R6::R6Class(
       if (!is.null(MultiArrayUDFObject$`store_results`)) {
         self$`store_results` <- MultiArrayUDFObject$`store_results`
       }
+      if (!is.null(MultiArrayUDFObject$`dont_download_results`)) {
+        self$`dont_download_results` <- MultiArrayUDFObject$`dont_download_results`
+      }
       if (!is.null(MultiArrayUDFObject$`ranges`)) {
         rangesObject <- QueryRanges$new()
         rangesObject$fromJSON(jsonlite::toJSON(MultiArrayUDFObject$ranges, auto_unbox = TRUE, digits = NA))
@@ -262,6 +308,15 @@ MultiArrayUDF <- R6::R6Class(
       }
       if (!is.null(MultiArrayUDFObject$`arrays`)) {
         self$`arrays` <- ApiClient$new()$deserializeObj(MultiArrayUDFObject$`arrays`, "array[UDFArrayDetails]", loadNamespace("tiledbcloud"))
+      }
+      if (!is.null(MultiArrayUDFObject$`timeout`)) {
+        self$`timeout` <- MultiArrayUDFObject$`timeout`
+      }
+      if (!is.null(MultiArrayUDFObject$`task_graph_uuid`)) {
+        self$`task_graph_uuid` <- MultiArrayUDFObject$`task_graph_uuid`
+      }
+      if (!is.null(MultiArrayUDFObject$`client_node_uuid`)) {
+        self$`client_node_uuid` <- MultiArrayUDFObject$`client_node_uuid`
       }
       self
     },
@@ -344,6 +399,13 @@ MultiArrayUDF <- R6::R6Class(
                 ',
         self$`store_results`
         )},
+        if (!is.null(self$`dont_download_results`)) {
+        sprintf(
+        '"dont_download_results":
+          "%s"
+                ',
+        self$`dont_download_results`
+        )},
         if (!is.null(self$`ranges`)) {
         sprintf(
         '"ranges":
@@ -371,6 +433,27 @@ MultiArrayUDF <- R6::R6Class(
         [%s]
 ',
         paste(sapply(self$`arrays`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
+        )},
+        if (!is.null(self$`timeout`)) {
+        sprintf(
+        '"timeout":
+          %d
+                ',
+        self$`timeout`
+        )},
+        if (!is.null(self$`task_graph_uuid`)) {
+        sprintf(
+        '"task_graph_uuid":
+          "%s"
+                ',
+        self$`task_graph_uuid`
+        )},
+        if (!is.null(self$`client_node_uuid`)) {
+        sprintf(
+        '"client_node_uuid":
+          "%s"
+                ',
+        self$`client_node_uuid`
         )}
       )
       jsoncontent <- paste(jsoncontent, collapse = ",")
@@ -389,10 +472,14 @@ MultiArrayUDF <- R6::R6Class(
       self$`argument` <- MultiArrayUDFObject$`argument`
       self$`stored_param_uuids` <- ApiClient$new()$deserializeObj(MultiArrayUDFObject$`stored_param_uuids`, "array[character]", loadNamespace("tiledbcloud"))
       self$`store_results` <- MultiArrayUDFObject$`store_results`
+      self$`dont_download_results` <- MultiArrayUDFObject$`dont_download_results`
       self$`ranges` <- QueryRanges$new()$fromJSON(jsonlite::toJSON(MultiArrayUDFObject$ranges, auto_unbox = TRUE, digits = NA))
       self$`subarray` <- UDFSubarray$new()$fromJSON(jsonlite::toJSON(MultiArrayUDFObject$subarray, auto_unbox = TRUE, digits = NA))
       self$`buffers` <- ApiClient$new()$deserializeObj(MultiArrayUDFObject$`buffers`, "array[character]", loadNamespace("tiledbcloud"))
       self$`arrays` <- ApiClient$new()$deserializeObj(MultiArrayUDFObject$`arrays`, "array[UDFArrayDetails]", loadNamespace("tiledbcloud"))
+      self$`timeout` <- MultiArrayUDFObject$`timeout`
+      self$`task_graph_uuid` <- MultiArrayUDFObject$`task_graph_uuid`
+      self$`client_node_uuid` <- MultiArrayUDFObject$`client_node_uuid`
       self
     }
   )
