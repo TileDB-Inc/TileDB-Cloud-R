@@ -44,7 +44,7 @@ execute_generic_udf <- function(udf=NULL, registered_udf_name=NULL, args=NULL, r
   args_format='native', namespace=NULL, language='r')
 {
   if (is.null(namespace)) {
-    namespace <- .get_default_namespace_charged()
+    namespace <- .get_default_namespace_charged_or_stop()
   }
   apiClientInstance <- get_api_client_instance()
   udfApiInstance <- UdfApi$new(apiClientInstance)
@@ -158,7 +158,7 @@ execute_array_udf <- function(array, udf=NULL, registered_udf_name=NULL, selecte
   result_format='native', args_format='native', namespace=NULL, language='r')
 {
   if (is.null(namespace)) {
-    namespace <- .get_default_namespace_charged()
+    namespace <- .get_default_namespace_charged_or_stop()
   }
   apiClientInstance <- get_api_client_instance()
   udfApiInstance <- UdfApi$new(apiClientInstance)
@@ -293,7 +293,7 @@ execute_multi_array_udf <- function(array_list, udf=NULL, registered_udf_name=NU
   result_format='native', args_format='native', namespace=NULL, language='r')
 {
   if (is.null(namespace)) {
-    namespace <- .get_default_namespace_charged()
+    namespace <- .get_default_namespace_charged_or_stop()
   }
   apiClientInstance <- get_api_client_instance()
   udfApiInstance <- UdfApi$new(apiClientInstance)
