@@ -388,6 +388,10 @@ register_udf <- function(namespace=NULL, name, type, func, func_text=NULL, versi
     func_text <- paste(deparse(func), collapse="\\n")
   }
 
+  if (is.null(version)) {
+    version <- .set_udf_version('r')
+  }
+
   info <- tiledbcloud::UDFInfoUpdate$new(
     name=name,
     type=tiledbcloud::UDFType$new(type),

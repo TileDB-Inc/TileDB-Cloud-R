@@ -858,7 +858,7 @@ UdfApi <- R6::R6Class(
       }
 
       urlPath <- "/udfs/generic/{namespace}"
-      if (!missing(`namespace`)) {
+      if (!is.null(`namespace`)) {
         urlPath <- gsub(paste0("\\{", "namespace", "\\}"), URLencode(as.character(`namespace`), reserved = TRUE), urlPath)
       }
 
