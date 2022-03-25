@@ -17,6 +17,7 @@ These are the steps to follow when bringing this repo up to date from an updated
 * Some manual edits (detailed below)
 * Invoking `roxygen2::roxygenise()` to build interactive R documentation followed by a one-word fix to one Rd file
 * Invoking `pkgdown:build_site()` to build HTML documentation
+  * Update 2022-03-25: now done as a GitHub Action.
 
 ## Prep
 
