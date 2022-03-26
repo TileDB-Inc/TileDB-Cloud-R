@@ -119,8 +119,14 @@
 <div class="section level2">
 <h2 id="build-steps">Build steps<a class="anchor" aria-label="anchor" href="#build-steps"></a>
 </h2>
-<p>After <code>install.packages("roxygen2")</code> and <code>install.packages("pkgdown")</code> you can do <code>roxygen2::roxygenise()</code> and <code><a href="https://pkgdown.r-lib.org/reference/build_site.html" class="external-link">pkgdown::build_site</a></code>.</p>
-<p>This should pop open a browser pointed to local <code>./docs/index.html</code>. From there you can check that the rendering is as desired.</p>
+<p>After <code>install.packages("roxygen2")</code> and <code>install.packages("pkgdown")</code> you should do <code>roxygen2::roxygenise()</code>. These outputs go into source control.</p>
+<p>You can optionally do <code><a href="https://pkgdown.r-lib.org/reference/build_site.html" class="external-link">pkgdown::build_site</a></code> and <code>open docs/index.html</code> to preview HTML locally and check that the rendering is as desired, but, be sure not to commit any of these outputs to source control.</p>
+<p>How this works:</p>
+<ul>
+<li>On <a href="https://github.com/TileDB-Inc/TileDB-Cloud-R/pull/103" class="external-link">https://github.com/TileDB-Inc/TileDB-Cloud-R/pull/103</a> we did a one-time <code>usethis::use_github_action("pkgdown")</code> which created <code>.github/workflows/pkgdown.yaml</code> and <code>.github/.gitignore</code>.</li>
+<li>In this repo’s Settings -&gt; Pages in GitHub we set up GitHub Pages to publish from the root directory on branch <code>gh-pages</code>, which is what the YAML from the previous bullet provides.</li>
+<li>This populates <a href="https://tiledb-inc.github.io/TileDB-Cloud-R/" class="external-link uri">https://tiledb-inc.github.io/TileDB-Cloud-R/</a>.</li>
+</ul>
 </div>
 <div class="section level2">
 <h2 id="publishing">Publishing<a class="anchor" aria-label="anchor" href="#publishing"></a>
