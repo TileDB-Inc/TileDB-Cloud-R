@@ -57,9 +57,15 @@ For new articles (vignettes), by contrast, you will need to add the information 
 
 ## Build steps
 
-After `install.packages("roxygen2")` and `install.packages("pkgdown")` you can do `roxygen2::roxygenise()` and `pkgdown::build_site`.
+After `install.packages("roxygen2")` and `install.packages("pkgdown")` you should do `roxygen2::roxygenise()`. These outputs go into source control.
 
-This should pop open a browser pointed to local `./docs/index.html`. From there you can check that the rendering is as desired.
+You can optionally do `pkgdown::build_site` and `open docs/index.html` to preview HTML locally and check that the rendering is as desired, but, be sure not to commit any of these outputs to source control.
+
+How this works:
+
+* On [https://github.com/TileDB-Inc/TileDB-Cloud-R/pull/103](https://github.com/TileDB-Inc/TileDB-Cloud-R/pull/103) we did a one-time `usethis::use_github_action("pkgdown")` which created `.github/workflows/pkgdown.yaml` and `.github/.gitignore`.
+* In this repo's Settings -> Pages in GitHub we set up GitHub Pages to publish from the root directory on branch `gh-pages`, which is what the YAML from the previous bullet provides.
+* This populates https://tiledb-inc.github.io/TileDB-Cloud-R/.
 
 ## Publishing
 
