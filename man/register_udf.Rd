@@ -58,6 +58,7 @@ Other {manual-layer functions}:
 \code{\link{delayed_generic_udf}()},
 \code{\link{delayed_sql}()},
 \code{\link{delayed}()},
+\code{\link{deregister_array}()},
 \code{\link{deregister_udf}()},
 \code{\link{execute_array_udf}()},
 \code{\link{execute_generic_udf}()},
@@ -66,6 +67,7 @@ Other {manual-layer functions}:
 \code{\link{get_udf_info}()},
 \code{\link{list_arrays}()},
 \code{\link{login}()},
+\code{\link{register_array}()},
 \code{\link{update_udf_info}()},
 \code{\link{user_profile}()}
 }
