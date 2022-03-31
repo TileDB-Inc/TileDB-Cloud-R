@@ -73,3 +73,69 @@ list_arrays <- function(public=FALSE, shared=FALSE, page=NULL, per.page=NULL, se
   # Output has keys 'arrays' and 'pagination_metadata'; keep only the former
   jsonlite::fromJSON(bodyAsJSONString)[["arrays"]]
 }
+
+##' Register an existing array on TileDB Cloud
+##'
+##' The underlying storage must already exist.
+##'
+##' @param namespace Namespace within TileDB cloud to charge. If this is null, the
+##' logged-in user's username will be used for the namespace.
+##'
+##' @param array_name The name to call the array in TileDB Cloud.
+##'
+##' @param uri The URI of where the array is stored.
+##'
+##' @param description Optional description field for the array.
+##'
+##' @param access_credentials_name Credentials to access the array storage. If omitted,
+##'  the logged-in user's default credentials will be used.
+##'
+##' @family {manual-layer functions}
+##' @export
+register_array <- function(namespace=NULL, array_name, uri, description=NULL, access_credentials_name=NULL) {
+  apiClientInstance <- get_api_client_instance()
+  arrayApiInstance <- ArrayApi$new(apiClientInstance)
+
+  if (is.null(namespace)) {
+    namespace <- .get_default_namespace_charged_or_stop()
+  }
+
+  info <- tiledbcloud::ArrayInfoUpdate$new(
+    name=array_name,
+    uri=uri,
+    description=description,
+    access_credentials_name=access_credentials_name
+  )
+
+  resultObject <- arrayApiInstance$RegisterArray(namespace=namespace, array=array_name, array.metadata=info)
+
+  # Decode the result, expecting empty string.
+  .get_empty_response_body_or_stop(resultObject)
+  invisible("OK")
+}
+
+##' Deregister an array from TileDB Cloud
+##'
+##' The underlying storage will not be removed.
+##'
+##' @param namespace Namespace within TileDB cloud to charge. If this is null, the
+##' logged-in user's username will be used for the namespace.
+##'
+##' @param array_name The name to call the array in TileDB Cloud.
+##'
+##' @family {manual-layer functions}
+##' @export
+deregister_array <- function(namespace=NULL, array_name) {
+  apiClientInstance <- get_api_client_instance()
+  arrayApiInstance <- ArrayApi$new(apiClientInstance)
+
+  if (is.null(namespace)) {
+    namespace <- .get_default_namespace_charged_or_stop()
+  }
+
+  resultObject <- arrayApiInstance$DeregisterArray(namespace=namespace, array=array_name)
+
+  # Decode the result, expecting empty string.
+  .get_empty_response_body_or_stop(resultObject)
+  invisible("OK")
+}
