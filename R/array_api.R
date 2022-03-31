@@ -2193,13 +2193,10 @@ ArrayApi <- R6::R6Class(
     DeregisterArray = function(namespace, array, ...){
       apiResponse <- self$DeregisterArrayWithHttpInfo(namespace, array, ...)
       resp <- apiResponse$response
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+      } else {
         apiResponse
       }
     },
@@ -2241,15 +2238,8 @@ ArrayApi <- R6::R6Class(
                                  body = body,
                                  ...)
 
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        ApiResponse$new(NULL, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
+      .wrap_as_api_response(resp)
     },
     GetActivityLogById = function(namespace, array, id, ...){
       apiResponse <- self$GetActivityLogByIdWithHttpInfo(namespace, array, id, ...)
@@ -3181,13 +3171,10 @@ ArrayApi <- R6::R6Class(
     RegisterArray = function(namespace, array, array.metadata, ...){
       apiResponse <- self$RegisterArrayWithHttpInfo(namespace, array, array.metadata, ...)
       resp <- apiResponse$response
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
       if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
         apiResponse$content
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        apiResponse
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
+      } else {
         apiResponse
       }
     },
@@ -3238,15 +3225,8 @@ ArrayApi <- R6::R6Class(
                                  body = body,
                                  ...)
 
-      if (httr::status_code(resp) >= 200 && httr::status_code(resp) <= 299) {
-        ApiResponse$new(NULL, resp)
-      } else if (httr::status_code(resp) >= 300 && httr::status_code(resp) <= 399) {
-        ApiResponse$new(paste("Server returned " , httr::status_code(resp) , " response status code."), resp)
-      } else if (httr::status_code(resp) >= 400 && httr::status_code(resp) <= 499) {
-        ApiResponse$new("API client error", resp)
-      } else if (httr::status_code(resp) >= 500 && httr::status_code(resp) <= 599) {
-        ApiResponse$new("API server error", resp)
-      }
+      # MANUAL EDIT AFTER OPENAPI AUTOGEN
+      .wrap_as_api_response(resp)
     },
     ShareArray = function(namespace, array, array.sharing, ...){
       apiResponse <- self$ShareArrayWithHttpInfo(namespace, array, array.sharing, ...)
