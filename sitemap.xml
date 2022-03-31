@@ -499,6 +499,9 @@
     <loc>/reference/delayed_sql.html</loc>
   </url>
   <url>
+    <loc>/reference/deregister_array.html</loc>
+  </url>
+  <url>
     <loc>/reference/deregister_udf.html</loc>
   </url>
   <url>
@@ -539,6 +542,9 @@
   </url>
   <url>
     <loc>/reference/login.html</loc>
+  </url>
+  <url>
+    <loc>/reference/register_array.html</loc>
   </url>
   <url>
     <loc>/reference/register_udf.html</loc>
