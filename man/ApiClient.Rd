@@ -47,6 +47,7 @@ Do not edit the class manually.
 \itemize{
 \item \href{#method-new}{\code{ApiClient$new()}}
 \item \href{#method-CallApi}{\code{ApiClient$CallApi()}}
+\item \href{#method-ExecuteWrapped}{\code{ApiClient$ExecuteWrapped()}}
 \item \href{#method-Execute}{\code{ApiClient$Execute()}}
 \item \href{#method-deserialize}{\code{ApiClient$deserialize()}}
 \item \href{#method-deserializeObj}{\code{ApiClient$deserializeObj()}}
@@ -79,6 +80,15 @@ Do not edit the class manually.
 \subsection{Method \code{CallApi()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApiClient$CallApi(url, method, queryParams, headerParams, body, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-ExecuteWrapped"></a>}}
+\if{latex}{\out{\hypertarget{method-ExecuteWrapped}{}}}
+\subsection{Method \code{ExecuteWrapped()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{ApiClient$ExecuteWrapped(url, method, queryParams, headerParams, body, ...)}\if{html}{\out{</div>}}
 }
 
 }
