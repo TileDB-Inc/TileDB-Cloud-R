@@ -7,7 +7,7 @@
 share_array(namespace = NULL, array_name, array_sharing)
 }
 \arguments{
-\item{namespace}{Namespace within TileDB cloud to charge. If this is null, the
+\item{namespace}{Namespace of the array within TileDB cloud. If this is null, the
 logged-in user's username will be used for the namespace.}
 
 \item{array_name}{The name to call the array in TileDB Cloud.}

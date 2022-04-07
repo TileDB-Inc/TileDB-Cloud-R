@@ -144,7 +144,7 @@ deregister_array <- function(namespace=NULL, array_name) {
 ##'
 ##' Specify user/organization, read/write, etc.
 ##'
-##' @param namespace Namespace within TileDB cloud to charge. If this is null, the
+##' @param namespace Namespace of the array within TileDB cloud. If this is null, the
 ##' logged-in user's username will be used for the namespace.
 ##'
 ##' @param array_name The name to call the array in TileDB Cloud.
