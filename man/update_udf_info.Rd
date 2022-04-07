@@ -70,6 +70,7 @@ Other {manual-layer functions}:
 \code{\link{login}()},
 \code{\link{register_array}()},
 \code{\link{register_udf}()},
+\code{\link{share_array}()},
 \code{\link{user_profile}()}
 }
 \concept{{manual-layer functions}}

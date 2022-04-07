@@ -38,6 +38,7 @@ Other {manual-layer functions}:
 \code{\link{login}()},
 \code{\link{register_array}()},
 \code{\link{register_udf}()},
+\code{\link{share_array}()},
 \code{\link{update_udf_info}()},
 \code{\link{user_profile}()}
 }
