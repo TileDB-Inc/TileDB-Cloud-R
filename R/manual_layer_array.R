@@ -139,3 +139,31 @@ deregister_array <- function(namespace=NULL, array_name) {
   .get_empty_response_body_or_stop(resultObject)
   invisible("OK")
 }
+
+##' Share an existing array on TileDB Cloud
+##'
+##' Specify user/organization, read/write, etc.
+##'
+##' @param namespace Namespace within TileDB cloud to charge. If this is null, the
+##' logged-in user's username will be used for the namespace.
+##'
+##' @param array_name The name to call the array in TileDB Cloud.
+##'
+##' @param array_sharing \link{ArraySharing} object.
+##'
+##' @family {manual-layer functions}
+##' @export
+share_array <- function(namespace=NULL, array_name, array_sharing) {
+  apiClientInstance <- get_api_client_instance()
+  arrayApiInstance <- ArrayApi$new(apiClientInstance)
+
+  if (is.null(namespace)) {
+    namespace <- .get_default_namespace_charged_or_stop()
+  }
+
+  resultObject <- arrayApiInstance$ShareArray(namespace=namespace, array=array_name, array.sharing=array_sharing)
+
+  # Decode the result, expecting empty string.
+  .get_empty_response_body_or_stop(resultObject)
+  invisible("OK")
+}
