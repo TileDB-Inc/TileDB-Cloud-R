@@ -105,7 +105,46 @@ ApiClient  <- R6::R6Class(
 
     CallApi = function(url, method, queryParams, headerParams, body, ...){
 
-      # MANUAL EDIT AFTER OPENAPI AUTOGEN
+      resp <- self$ExecuteWrapped(url, method, queryParams, headerParams, body, ...)
+      statusCode <- httr::status_code(resp)
+
+      if (is.null(self$maxRetryAttempts)) {
+        self$maxRetryAttempts = 3
+      }
+      
+      if (!is.null(self$retryStatusCodes)) {
+        for (i in 1 : self$maxRetryAttempts) {
+          if (statusCode %in% self$retryStatusCodes) {
+            # Randomized exponential backoff: 2 point something first retry, 4 point something
+            # second retry, etc.
+            sleep_seconds <- (2 ^ i) + stats::runif(n = 1, min = 0, max = 1)
+
+            if (Sys.getenv("TILEDB_CLOUD_R_HTTP_DEBUG") != "") {
+              cat("RETRY", i, "OF", self$maxRetryAttempts, ": SLEEP SECONDS", sleep_seconds, "\n")
+            }
+            Sys.sleep(sleep_seconds)
+            resp <- self$ExecuteWrapped(url, method, queryParams, headerParams, body, ...)
+            statusCode <- httr::status_code(resp)
+          } else {
+            break;
+          }
+        }  
+      }
+
+      resp
+    },
+
+    # MANUAL EDIT AFTER OPENAPI AUTOGEN
+    ExecuteWrapped = function(url, method, queryParams, headerParams, body, ...) {
+      # getenv each time, rather than once in our constructor and caching, so users
+      # can do
+      #   Sys.setenv(TILEDB_CLOUD_R_HTTP_DEBUG='true')
+      # or
+      #   Sys.unsetenv('TILEDB_CLOUD_R_HTTP_DEBUG')
+      # interactively -- including in a notebook / RStudio environment where it's
+      # easier to Sys.setenv inside a running session than it is to export an
+      # environment variable at the shell before starting the session.
+
       if (Sys.getenv("TILEDB_CLOUD_R_HTTP_DEBUG") != "") {
         cat("================================================================ REQUEST\n")
         cat("METHOD:", method, "\n")
@@ -129,24 +168,6 @@ ApiClient  <- R6::R6Class(
       resp <- self$Execute(url, method, queryParams, headerParams, body, ...)
       statusCode <- httr::status_code(resp)
 
-      if (is.null(self$maxRetryAttempts)) {
-        self$maxRetryAttempts = 3
-      }
-      
-      if (!is.null(self$retryStatusCodes)) {
-
-        for (i in 1 : self$maxRetryAttempts) {
-          if (statusCode %in% self$retryStatusCodes) {
-            Sys.sleep((2 ^ i) + stats::runif(n = 1, min = 0, max = 1))
-            resp <- self$Execute(url, method, queryParams, headerParams, body, ...)
-            statusCode <- httr::status_code(resp)
-          } else {
-            break;
-          }
-        }  
-      }
-
-      # MANUAL EDIT AFTER OPENAPI AUTOGEN
       if (Sys.getenv("TILEDB_CLOUD_R_HTTP_DEBUG") != "") {
         cat("================================================================ RESPONSE\n")
         cat("STATUS_CODE:", statusCode, "\n")
@@ -160,7 +181,7 @@ ApiClient  <- R6::R6Class(
       resp
     },
 
-    Execute = function(url, method, queryParams, headerParams, body, ...){
+    Execute = function(url, method, queryParams, headerParams, body, ...) {
       headers <- httr::add_headers(c(headerParams, self$defaultHeaders))
 
       httpTimeout <- NULL

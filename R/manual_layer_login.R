@@ -54,10 +54,13 @@ login <- function(username, password, api_key, host, remember_me=TRUE, write_con
         return(invisible(NULL))
     }
 
-    apiClientInstance <- ApiClient$new(basePath=paste(host, "v1", sep="/"),
-                                       accessToken=api_key,
-                                       username=username,
-                                       password=password)
+    apiClientInstance <- ApiClient$new(
+      basePath=paste(host, "v1", sep="/"),
+      accessToken=api_key,
+      username=username,
+      password=password,
+      retryStatusCodes=c(408, 502, 503, 504)
+    )
 
     userApiInstance <- UserApi$new(apiClientInstance)
     userApiInstance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- api_key
@@ -132,7 +135,7 @@ login <- function(username, password, api_key, host, remember_me=TRUE, write_con
 ##'
 ##' @return The cached \code{\link{ApiClient}} object, or stops.
 get_api_client_instance <- function() {
-  apiClientInstance <- .pkgenv[["apiClientInstance"]] # Expected to be set from login.R
+  apiClientInstance <- .pkgenv[["apiClientInstance"]] # Expected to be set from our login()
   if (is.null(apiClientInstance)) {
     stop("tiledbcloud: unable to find login credentials. Please use login().")
   }
