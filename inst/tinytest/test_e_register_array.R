@@ -9,6 +9,7 @@ if ((namespaceToCharge <- Sys.getenv("TILEDB_REST_UNIT_TEST_NAMESPACE_TO_CHARGE"
 }
 
 library(tiledbcloud)
+library(tiledb)
 library(tinytest)
 
 # ----------------------------------------------------------------
@@ -40,6 +41,19 @@ array_uri <- paste0('tiledb://', namespaceToCharge, '/', array_name)
 
 arr <- tiledb_array(array_uri, query_type="READ", as.data.frame=TRUE)
 expect_equal(length(arr[]), 8)
+
+# ----------------------------------------------------------------
+# SHARE
+
+array_sharing <- ArraySharing$new(
+  namespace='TileDB-Inc',
+  actions=list(
+    ArrayActions$new('read'),
+    ArrayActions$new('read_array_info')
+  )
+)
+
+tiledbcloud::share_array(namespace=namespaceToCharge, array_name=array_name, array_sharing=array_sharing)
 
 # ----------------------------------------------------------------
 # DEREGISTER
