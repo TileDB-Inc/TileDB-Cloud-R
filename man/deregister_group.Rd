@@ -31,7 +31,7 @@ Nothing is returned, the function is invoked for its side-effect
 }
 \description{
 This function de-registers a 'Group' object, the 'Group' objects therein
-as well as any 'arrays.
+as well as any arrays.
 }
 \details{
 Note that 'Group' objects remain on the underlying storage such as S3.

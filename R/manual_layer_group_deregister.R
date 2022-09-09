@@ -2,7 +2,7 @@
 ##' De-register a 'Group' object recursively
 ##'
 ##' This function de-registers a 'Group' object, the 'Group' objects therein
-##' as well as any 'arrays.
+##' as well as any arrays.
 ##'
 ##' Note that 'Group' objects remain on the underlying storage such as S3.
 ##'
