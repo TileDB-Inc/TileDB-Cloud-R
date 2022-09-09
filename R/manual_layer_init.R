@@ -12,7 +12,7 @@
                                     "key, or a username and password. See 'help(config)'."))
     } else {
         ## log in by default (provided sufficient settings)
-        #login()
+        login()
     }
 }
 
