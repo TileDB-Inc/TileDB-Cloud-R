@@ -61,4 +61,5 @@ deregister_group <- function(uri, namespace, name,
         if (verbose) message("Removing group '", name, "' in '", namespace, "'")
         grpapi$DeleteGroup(namespace, name)
     }
+    invisible(NULL)
 }
