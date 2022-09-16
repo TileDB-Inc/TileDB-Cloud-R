@@ -1,8 +1,0 @@
-# Decrypt file (OpenSSL)
-steps:
-  - task: DecryptFile@1
-    inputs:
-      cipher: 'des3' 
-      inFile: 'tests/cloud.json.enc'
-      passphrase: '$(cloud_json_password)'
-      outFile: '$(R_LIBS_USER)/cloud.json'
