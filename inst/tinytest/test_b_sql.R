@@ -1,10 +1,3 @@
-if ((unitTestToken <- Sys.getenv("TILEDB_REST_UNIT_TEST_TOKEN")) != "") {
-    Sys.setenv("TILEDB_REST_TOKEN"=unitTestToken)
-    Sys.setenv("TILEDB_REST_USERNAME"="")
-    Sys.setenv("TILEDB_REST_PASSWORD"="")
-} else {
-    if (!file.exists("~/.tiledb/cloud.json")) exit_file("No authentication")
-}
 
 library(tiledbcloud)
 library(tinytest)
