@@ -8,8 +8,8 @@
 <meta name="description" content="tiledbcloud">
 <title>Logging in • tiledbcloud</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link href="../deps/bootstrap-5.1.3/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.1.3/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Logging in">
 <meta property="og:description" content="tiledbcloud">
@@ -63,7 +63,7 @@
 
 
 <script src="Login_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
-  <main id="main"><div class="page-header">
+  <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Logging in</h1>
             
       
@@ -82,24 +82,24 @@
 <h2 id="usernamepassword-login">Username+password login<a class="anchor" aria-label="anchor" href="#usernamepassword-login"></a>
 </h2>
 <p>Once you’ve set up your credentials at <a href="https://cloud.tiledb.com" class="external-link">https://cloud.tiledb.com</a>, and once you’ve installed <code>TileDB-Cloud-R</code> (see <a href="Setup.html">Setup</a>), you can log in from R CLI or notebook as follows:</p>
-<pre><code><span class="co"># Login for TileDB-Cloud-R per se</span>
-<span class="fu">tiledbcloud</span><span class="fu">::</span><span class="fu"><a href="../reference/login.html">login</a></span><span class="op">(</span>username<span class="op">=</span><span class="st">"your-username"</span>, password<span class="op">=</span><span class="st">"your-password"</span><span class="op">)</span></code></pre>
-<pre><code><span class="co"># Login for TileDB-R delegating to cloud -- e.g. when you use tiledb::tiledb_array() with a URI like</span>
-<span class="co"># "tiledb://namespace-goes-here/arrayname-goes-here" in place of local-disk array storage.</span>
-<span class="va">config</span> <span class="op">&lt;-</span> <span class="fu">tiledb</span><span class="fu">::</span><span class="fu">tiledb_config</span><span class="op">(</span><span class="op">)</span>
-<span class="va">config</span><span class="op">[</span><span class="st">"rest.username"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"your-username"</span>
-<span class="va">config</span><span class="op">[</span><span class="st">"rest.password"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"your-password"</span>
-<span class="va">ctx</span> <span class="op">&lt;-</span> <span class="fu">tiledb</span><span class="fu">::</span><span class="fu">tiledb_ctx</span><span class="op">(</span><span class="va">config</span><span class="op">)</span></code></pre>
+<pre><code><span><span class="co"># Login for TileDB-Cloud-R per se</span></span>
+<span><span class="fu">tiledbcloud</span><span class="fu">::</span><span class="fu"><a href="../reference/login.html">login</a></span><span class="op">(</span>username<span class="op">=</span><span class="st">"your-username"</span>, password<span class="op">=</span><span class="st">"your-password"</span><span class="op">)</span></span></code></pre>
+<pre><code><span><span class="co"># Login for TileDB-R delegating to cloud -- e.g. when you use tiledb::tiledb_array() with a URI like</span></span>
+<span><span class="co"># "tiledb://namespace-goes-here/arrayname-goes-here" in place of local-disk array storage.</span></span>
+<span><span class="va">config</span> <span class="op">&lt;-</span> <span class="fu">tiledb</span><span class="fu">::</span><span class="fu">tiledb_config</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">config</span><span class="op">[</span><span class="st">"rest.username"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"your-username"</span></span>
+<span><span class="va">config</span><span class="op">[</span><span class="st">"rest.password"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"your-password"</span></span>
+<span><span class="va">ctx</span> <span class="op">&lt;-</span> <span class="fu">tiledb</span><span class="fu">::</span><span class="fu">tiledb_ctx</span><span class="op">(</span><span class="va">config</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="token-login">Token login<a class="anchor" aria-label="anchor" href="#token-login"></a>
 </h2>
 <p>Visit <a href="https://cloud.tiledb.com/settings/tokens" class="external-link">https://cloud.tiledb.com/settings/tokens</a> to create an API token. Then you can do</p>
-<pre><code><span class="fu">tiledbcloud</span><span class="fu">::</span><span class="fu"><a href="../reference/login.html">login</a></span><span class="op">(</span>api_key<span class="op">=</span><span class="st">"[redacted]"</span><span class="op">)</span></code></pre>
+<pre><code><span><span class="fu">tiledbcloud</span><span class="fu">::</span><span class="fu"><a href="../reference/login.html">login</a></span><span class="op">(</span>api_key<span class="op">=</span><span class="st">"[redacted]"</span><span class="op">)</span></span></code></pre>
 <p>and</p>
-<pre><code><span class="va">config</span> <span class="op">&lt;-</span> <span class="fu">tiledb</span><span class="fu">::</span><span class="fu">tiledb_config</span><span class="op">(</span><span class="op">)</span>
-<span class="va">config</span><span class="op">[</span><span class="st">"rest.token"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"[redacted]"</span>
-<span class="va">ctx</span> <span class="op">&lt;-</span> <span class="fu">tiledb</span><span class="fu">::</span><span class="fu">tiledb_ctx</span><span class="op">(</span><span class="va">config</span><span class="op">)</span></code></pre>
+<pre><code><span><span class="va">config</span> <span class="op">&lt;-</span> <span class="fu">tiledb</span><span class="fu">::</span><span class="fu">tiledb_config</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">config</span><span class="op">[</span><span class="st">"rest.token"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"[redacted]"</span></span>
+<span><span class="va">ctx</span> <span class="op">&lt;-</span> <span class="fu">tiledb</span><span class="fu">::</span><span class="fu">tiledb_ctx</span><span class="op">(</span><span class="va">config</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="environment-variables">Environment variables<a class="anchor" aria-label="anchor" href="#environment-variables"></a>
@@ -129,7 +129,7 @@ export TILEDB_REST_PASSWORD="your-password"</code></pre>
     "verify_ssl": true
 }</code></pre>
 <p>If you use the optional <code>write_config=TRUE</code> argument for <code><a href="../reference/login.html">tiledbcloud::login</a></code> then <code>~/.tiledb/cloud.json</code> will be written for you:</p>
-<pre><code><span class="fu">tiledbcloud</span><span class="fu">::</span><span class="fu"><a href="../reference/login.html">login</a></span><span class="op">(</span>username<span class="op">=</span><span class="st">"your-username"</span>, password<span class="op">=</span><span class="st">"your-password"</span>, write_config<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></code></pre>
+<pre><code><span><span class="fu">tiledbcloud</span><span class="fu">::</span><span class="fu"><a href="../reference/login.html">login</a></span><span class="op">(</span>username<span class="op">=</span><span class="st">"your-username"</span>, password<span class="op">=</span><span class="st">"your-password"</span>, write_config<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="showing-user-profile">Showing user profile<a class="anchor" aria-label="anchor" href="#showing-user-profile"></a>
@@ -178,7 +178,7 @@ $ default_namespace_charged       : chr "sampleuser"
 
 <div class="pkgdown-footer-right">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
     </footer>
