@@ -214,13 +214,55 @@
     <loc>/reference/Group.html</loc>
   </url>
   <url>
+    <loc>/reference/GroupActions.html</loc>
+  </url>
+  <url>
+    <loc>/reference/GroupBrowserData.html</loc>
+  </url>
+  <url>
+    <loc>/reference/GroupBrowserFilterData.html</loc>
+  </url>
+  <url>
+    <loc>/reference/GroupChanges.html</loc>
+  </url>
+  <url>
+    <loc>/reference/GroupContents.html</loc>
+  </url>
+  <url>
+    <loc>/reference/GroupContentsFilterData.html</loc>
+  </url>
+  <url>
     <loc>/reference/GroupCreate.html</loc>
+  </url>
+  <url>
+    <loc>/reference/GroupEntry.html</loc>
+  </url>
+  <url>
+    <loc>/reference/GroupInfo.html</loc>
   </url>
   <url>
     <loc>/reference/GroupListing.html</loc>
   </url>
   <url>
     <loc>/reference/GroupListingAllOf.html</loc>
+  </url>
+  <url>
+    <loc>/reference/GroupMember.html</loc>
+  </url>
+  <url>
+    <loc>/reference/GroupMemberAssetType.html</loc>
+  </url>
+  <url>
+    <loc>/reference/GroupMemberType.html</loc>
+  </url>
+  <url>
+    <loc>/reference/GroupRegister.html</loc>
+  </url>
+  <url>
+    <loc>/reference/GroupSharing.html</loc>
+  </url>
+  <url>
+    <loc>/reference/GroupSharingRequest.html</loc>
   </url>
   <url>
     <loc>/reference/GroupUpdate.html</loc>
@@ -500,6 +542,9 @@
   </url>
   <url>
     <loc>/reference/deregister_array.html</loc>
+  </url>
+  <url>
+    <loc>/reference/deregister_group.html</loc>
   </url>
   <url>
     <loc>/reference/deregister_udf.html</loc>
