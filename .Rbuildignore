@@ -22,3 +22,4 @@ tiledbcloud-generated
 openapi-v1\.yaml
 origNAMESPACE
 runMe.sh
+^\.github
