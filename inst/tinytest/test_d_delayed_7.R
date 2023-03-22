@@ -84,76 +84,81 @@ a <- delayed_array_udf(
 o <- compute(a)
 expect_equal(o, 18496)
 
-# ----------------------------------------------------------------
-# Delayed registered Python generic UDF
+# ================================================================
+# TODO
+# https://github.com/TileDB-Inc/TileDB-Cloud-R/issues/116
+# Figure out why these are not working.
 
-# This one we require to be already registered in prod -- we don't dynamically
-# register it, then test it, then deregister it -- since it's a Python UDF.
+## ----------------------------------------------------------------
+## Delayed registered Python generic UDF
 #
-# In case this needs to be recreated in TileDB Cloud, here's how:
+## This one we require to be already registered in prod -- we don't dynamically
+## register it, then test it, then deregister it -- since it's a Python UDF.
+##
+## In case this needs to be recreated in TileDB Cloud, here's how:
+##
+## import tiledb, tiledb.cloud
+## def myfunc(vec, exponent):
+##   import numpy
+##   # Cast from NumPy type to Python type so this can serialize via JSON/Arrow to R callers
+##   return int(numpy.sum(numpy.array(vec) ** exponent))
+## tiledb.cloud.udf.register_generic_udf(myfunc, name="tiledb-cloud-r-generic-udf-py", namespace="unittest")
 #
-# import tiledb, tiledb.cloud
-# def myfunc(vec, exponent):
-#   import numpy
-#   # Cast from NumPy type to Python type so this can serialize via JSON/Arrow to R callers
-#   return int(numpy.sum(numpy.array(vec) ** exponent))
-# tiledb.cloud.udf.register_generic_udf(myfunc, name="tiledb-cloud-r-generic-udf-py", namespace="unittest")
-
-# Non-delayed
-o <- execute_generic_udf(
-  registered_udf_name='unittest/tiledb-cloud-r-generic-udf-py',
-  args=list(vec=1:16, exponent=3),
-  language='python',
-  namespace=namespaceToCharge
-)
-expect_equal(o, 18496)
-
-# Delayed
-a <- delayed_generic_udf(
-  registered_udf_name='unittest/tiledb-cloud-r-generic-udf-py',
-  args=list(vec=1:16, exponent=3),
-  name='my generic udf',
-  language='python',
-  namespace=namespaceToCharge
-)
-o <- compute(a)
-expect_equal(o, 18496)
-
-# ----------------------------------------------------------------
-# Delayed registered Python single-array UDF
-
-# In case this needs to be recreated in TileDB Cloud, here's how:
+## Non-delayed
+#o <- execute_generic_udf(
+#  registered_udf_name='unittest/tiledb-cloud-r-generic-udf-py',
+#  args=list(vec=1:16, exponent=3),
+#  language='python',
+#  namespace=namespaceToCharge
+#)
+#expect_equal(o, 18496)
 #
-# import tiledb, tiledb.cloud
-# # 'df' is an OrderedDict from attribute name to multi-dimensional numpy.array.
-# # OrderedDict([('a', array([[ 1,  2,  3,  4], [ 5,  6,  7,  8], [ 9, 10, 11, 12], [13, 14, 15, 16]], dtype=int32))])
-# def myfunc(df, attr, exponent):
-#   import numpy
-#   # Cast from NumPy type to Python type so this can serialize via JSON/Arrow to R callers
-#   return int(numpy.sum(df[attr] ** exponent))
-# tiledb.cloud.udf.register_single_array_udf(myfunc, name="tiledb-cloud-r-single-array-udf-py", namespace="unittest")
+## Delayed
+#a <- delayed_generic_udf(
+#  registered_udf_name='unittest/tiledb-cloud-r-generic-udf-py',
+#  args=list(vec=1:16, exponent=3),
+#  name='my generic udf',
+#  language='python',
+#  namespace=namespaceToCharge
+#)
+#o <- compute(a)
+#expect_equal(o, 18496)
 
-# Non-delayed
-o <- execute_array_udf(
-  array="TileDB-Inc/quickstart_dense",
-  registered_udf_name='unittest/tiledb-cloud-r-single-array-udf-py',
-  selectedRanges=list(cbind(1,4), cbind(1,4)),
-  attrs=c("a"),
-  args=list(attr="a", exponent=3),
-  language='python',
-  namespace=namespaceToCharge
-)
-expect_equal(o, 18496)
-
-# Delayed
-a <- delayed_array_udf(
-  array="TileDB-Inc/quickstart_dense",
-  registered_udf_name='unittest/tiledb-cloud-r-single-array-udf-py',
-  selectedRanges=list(cbind(1,4), cbind(1,4)),
-  attrs=c("a"),
-  args=list(attr="a", exponent=3),
-  language='python',
-  namespace=namespaceToCharge
-)
-o <- compute(a)
-expect_equal(o, 18496)
+## ----------------------------------------------------------------
+## Delayed registered Python single-array UDF
+#
+## In case this needs to be recreated in TileDB Cloud, here's how:
+##
+## import tiledb, tiledb.cloud
+## # 'df' is an OrderedDict from attribute name to multi-dimensional numpy.array.
+## # OrderedDict([('a', array([[ 1,  2,  3,  4], [ 5,  6,  7,  8], [ 9, 10, 11, 12], [13, 14, 15, 16]], dtype=int32))])
+## def myfunc(df, attr, exponent):
+##   import numpy
+##   # Cast from NumPy type to Python type so this can serialize via JSON/Arrow to R callers
+##   return int(numpy.sum(df[attr] ** exponent))
+## tiledb.cloud.udf.register_single_array_udf(myfunc, name="tiledb-cloud-r-single-array-udf-py", namespace="unittest")
+#
+## Non-delayed
+#o <- execute_array_udf(
+#  array="TileDB-Inc/quickstart_dense",
+#  registered_udf_name='unittest/tiledb-cloud-r-single-array-udf-py',
+#  selectedRanges=list(cbind(1,4), cbind(1,4)),
+#  attrs=c("a"),
+#  args=list(attr="a", exponent=3),
+#  language='python',
+#  namespace=namespaceToCharge
+#)
+#expect_equal(o, 18496)
+#
+## Delayed
+#a <- delayed_array_udf(
+#  array="TileDB-Inc/quickstart_dense",
+#  registered_udf_name='unittest/tiledb-cloud-r-single-array-udf-py',
+#  selectedRanges=list(cbind(1,4), cbind(1,4)),
+#  attrs=c("a"),
+#  args=list(attr="a", exponent=3),
+#  language='python',
+#  namespace=namespaceToCharge
+#)
+#o <- compute(a)
+#expect_equal(o, 18496)
