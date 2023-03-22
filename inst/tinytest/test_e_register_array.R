@@ -27,7 +27,9 @@ make_temp_array_name <- function(base) {
 array_name <- make_temp_array_name('array-registration-test')
 storage_uri <- 's3://tiledb-unittest/data/palmer_penguins2'
 
+cat ("\n  inst/tinytest/test_e_register_array.R BEFORE REGISTER\n")
 tiledbcloud::register_array(array_name=array_name, uri=storage_uri, description='Test Description', namespace=namespaceToCharge)
+cat ("\n  inst/tinytest/test_e_register_array.R AFTER  REGISTER\n")
 
 # ----------------------------------------------------------------
 # READ
@@ -41,13 +43,17 @@ tiledbcloud::register_array(array_name=array_name, uri=storage_uri, description=
 
 array_uri <- paste0('tiledb://', namespaceToCharge, '/', array_name)
 
+cat ("\n  inst/tinytest/test_e_register_array.R BEFORE READ ARRAY\n")
 arr <- tiledb::tiledb_array(array_uri, query_type="READ", as.data.frame=TRUE)
+cat ("\n  inst/tinytest/test_e_register_array.R AFTER  READ ARRAY\n")
 expect_equal(length(arr[]), 8)
 
 # ----------------------------------------------------------------
 # DEREGISTER
 
+cat ("\n  inst/tinytest/test_e_register_array.R BEFORE DEREGISTER\n")
 tiledbcloud::deregister_array(array_name=array_name, namespace=namespaceToCharge)
+cat ("\n  inst/tinytest/test_e_register_array.R AFTER  DEREGISTER\n")
 
 # ================================================================
 cat ("EXIT inst/tinytest/test_e_register_array.R\n")
