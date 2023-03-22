@@ -1,7 +1,7 @@
 Package: tiledbcloud
 Type: Package
 Title: TileDB Cloud Platform R Client Package
-Version: 0.0.9.1
+Version: 0.0.9.2
 Authors@R: c(person("TileDB, Inc.", role = c("aut", "cph")),
              person("OpenAPI Generator community", email = "team@openapitools.org", role = "ctb"),
              person("John", "Kerl", email = "john.kerl@tiledb.com", role="cre"))
