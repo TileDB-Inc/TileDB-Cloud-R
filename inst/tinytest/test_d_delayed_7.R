@@ -26,11 +26,11 @@ library(tiledbcloud)
 # In case this needs to be recreated in TileDB Cloud, here's how:
 #
 # myfunc <- function(vec, exponent) { sum(vec ** exponent) }
-# register_udf(namespace='johnkerl-tiledb', name=tiledb-cloud-r-generic-udf-r, type='generic', func=myfunc)
+# register_udf(namespace='unittest', name='tiledb-cloud-r-generic-udf-r', type='generic', func=myfunc)
 
 # Non-delayed
 o <- execute_generic_udf(
-  registered_udf_name='johnkerl-tiledb/tiledb-cloud-r-generic-udf-r',
+  registered_udf_name='unittest/tiledb-cloud-r-generic-udf-r',
   args=list(vec=1:16, exponent=3),
   namespace=namespaceToCharge
 )
@@ -38,7 +38,7 @@ expect_equal(o, 18496)
 
 # Delayed
 a <- delayed_generic_udf(
-  registered_udf_name='johnkerl-tiledb/tiledb-cloud-r-generic-udf-r',
+  registered_udf_name='unittest/tiledb-cloud-r-generic-udf-r',
   args=list(vec=1:16, exponent=3),
   name='my generic udf',
   namespace=namespaceToCharge
@@ -58,12 +58,12 @@ expect_equal(o, 18496)
 #   vec <- as.vector(df[[attr]])
 #   sum(vec ** exponent)
 # }
-# register_udf(namespace='johnkerl-tiledb', name='tiledb-cloud-r-single-array-udf-r', type='single_array', func=myfunc)
+# register_udf(namespace='unittest', name='tiledb-cloud-r-single-array-udf-r', type='single_array', func=myfunc)
 
 # Non-delayed
 o <- execute_array_udf(
   array="TileDB-Inc/quickstart_dense",
-  registered_udf_name='johnkerl-tiledb/tiledb-cloud-r-single-array-udf-r',
+  registered_udf_name='unittest/tiledb-cloud-r-single-array-udf-r',
   selectedRanges=list(cbind(1,4), cbind(1,4)),
   attrs=c("a"),
   args=list(attr="a", exponent=3),
@@ -74,7 +74,7 @@ expect_equal(o, 18496)
 # Delayed
 a <- delayed_array_udf(
   array="TileDB-Inc/quickstart_dense",
-  registered_udf_name='johnkerl-tiledb/tiledb-cloud-r-single-array-udf-r',
+  registered_udf_name='unittest/tiledb-cloud-r-single-array-udf-r',
   selectedRanges=list(cbind(1,4), cbind(1,4)),
   attrs=c("a"),
   args=list(attr="a", exponent=3),
@@ -97,11 +97,11 @@ expect_equal(o, 18496)
 #   import numpy
 #   # Cast from NumPy type to Python type so this can serialize via JSON/Arrow to R callers
 #   return int(numpy.sum(numpy.array(vec) ** exponent))
-# tiledb.cloud.udf.register_generic_udf(myfunc, name="tiledb-cloud-r-generic-udf-py", namespace="johnkerl-tiledb")
+# tiledb.cloud.udf.register_generic_udf(myfunc, name="tiledb-cloud-r-generic-udf-py", namespace="unittest")
 
 # Non-delayed
 o <- execute_generic_udf(
-  registered_udf_name='johnkerl-tiledb/tiledb-cloud-r-generic-udf-py',
+  registered_udf_name='unittest/tiledb-cloud-r-generic-udf-py',
   args=list(vec=1:16, exponent=3),
   language='python',
   namespace=namespaceToCharge
@@ -110,7 +110,7 @@ expect_equal(o, 18496)
 
 # Delayed
 a <- delayed_generic_udf(
-  registered_udf_name='johnkerl-tiledb/tiledb-cloud-r-generic-udf-py',
+  registered_udf_name='unittest/tiledb-cloud-r-generic-udf-py',
   args=list(vec=1:16, exponent=3),
   name='my generic udf',
   language='python',
@@ -131,12 +131,12 @@ expect_equal(o, 18496)
 #   import numpy
 #   # Cast from NumPy type to Python type so this can serialize via JSON/Arrow to R callers
 #   return int(numpy.sum(df[attr] ** exponent))
-# tiledb.cloud.udf.register_single_array_udf(myfunc, name="tiledb-cloud-r-single-array-udf-py", namespace="johnkerl-tiledb")
+# tiledb.cloud.udf.register_single_array_udf(myfunc, name="tiledb-cloud-r-single-array-udf-py", namespace="unittest")
 
 # Non-delayed
 o <- execute_array_udf(
   array="TileDB-Inc/quickstart_dense",
-  registered_udf_name='johnkerl-tiledb/tiledb-cloud-r-single-array-udf-py',
+  registered_udf_name='unittest/tiledb-cloud-r-single-array-udf-py',
   selectedRanges=list(cbind(1,4), cbind(1,4)),
   attrs=c("a"),
   args=list(attr="a", exponent=3),
@@ -148,7 +148,7 @@ expect_equal(o, 18496)
 # Delayed
 a <- delayed_array_udf(
   array="TileDB-Inc/quickstart_dense",
-  registered_udf_name='johnkerl-tiledb/tiledb-cloud-r-single-array-udf-py',
+  registered_udf_name='unittest/tiledb-cloud-r-single-array-udf-py',
   selectedRanges=list(cbind(1,4), cbind(1,4)),
   attrs=c("a"),
   args=list(attr="a", exponent=3),
