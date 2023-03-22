@@ -35,13 +35,15 @@
 ##' logged-in user's username will be used for the namespace.
 ##'
 ##' @param language If omitted, defaults to \code{"r"}. Can be set to \code{"python"}
-##" when executing registered Python UDFs.
+##' when executing registered Python UDFs.
+##'
+##' @param resource_class TO DO TYPE ME UP
 ##'
 ##' @return The R object which is the return value from the UDF.
 ##' @family {manual-layer functions}
 ##' @export
 execute_generic_udf <- function(udf=NULL, registered_udf_name=NULL, args=NULL, result_format='native',
-  args_format='native', namespace=NULL, language='r')
+  args_format='native', namespace=NULL, language='r', resource_class=NULL)
 {
   if (is.null(namespace)) {
     namespace <- .get_default_namespace_charged_or_stop()
@@ -76,6 +78,9 @@ execute_generic_udf <- function(udf=NULL, registered_udf_name=NULL, args=NULL, r
   }
   if (!is.null(registered_udf_name)) {
     generic_udf$udf_info_name <- registered_udf_name
+  }
+  if (!is.null(resource_class)) {
+    generic_udfresource_classudf_info_name <- resource_class
   }
 
   if (!is.null(args)) {
@@ -147,14 +152,16 @@ execute_generic_udf <- function(udf=NULL, registered_udf_name=NULL, args=NULL, r
 ##' logged-in user's username will be used for the namespace.
 ##'
 ##' @param language If omitted, defaults to \code{"r"}. Can be set to \code{"python"}
-##" when executing registered Python UDFs.
+##' when executing registered Python UDFs.
+##'
+##' @param resource_class TO DO TYPE ME UP
 ##'
 ##' @return Return value from the UDF.
 ##'
 ##' @family {manual-layer functions}
 ##' @export
 execute_array_udf <- function(array, udf=NULL, registered_udf_name=NULL, selectedRanges, attrs=NULL, layout=NULL, args=NULL,
-  result_format='native', args_format='native', namespace=NULL, language='r')
+  result_format='native', args_format='native', namespace=NULL, language='r', resource_class=NULL)
 {
   if (is.null(namespace)) {
     namespace <- .get_default_namespace_charged_or_stop()
@@ -189,6 +196,9 @@ execute_array_udf <- function(array, udf=NULL, registered_udf_name=NULL, selecte
   }
   if (!is.null(registered_udf_name)) {
     multi_array_udf$udf_info_name <- registered_udf_name
+  }
+  if (!is.null(resource_class)) {
+    multi_array_udf$resource_class <- resource_class
   }
 
   if (!is.null(layout)) {
@@ -283,13 +293,15 @@ execute_array_udf <- function(array, udf=NULL, registered_udf_name=NULL, selecte
 ##' logged-in user's username will be used for the namespace.
 ##'
 ##' @param language If omitted, defaults to \code{"r"}. Can be set to \code{"python"}
-##" when executing registered Python UDFs.
+##' when executing registered Python UDFs.
+##'
+##' @param resource_class TO DO TYPE ME UP
 ##'
 ##' @return Return value from the UDF.
 ##' @family {manual-layer functions}
 ##' @export
 execute_multi_array_udf <- function(array_list, udf=NULL, registered_udf_name=NULL, args=NULL,
-  result_format='native', args_format='native', namespace=NULL, language='r')
+  result_format='native', args_format='native', namespace=NULL, language='r', resource_class=NULL)
 {
   if (is.null(namespace)) {
     namespace <- .get_default_namespace_charged_or_stop()
@@ -324,6 +336,9 @@ execute_multi_array_udf <- function(array_list, udf=NULL, registered_udf_name=NU
   }
   if (!is.null(registered_udf_name)) {
     multi_array_udf$udf_info_name <- registered_udf_name
+  }
+  if (!is.null(resource_class)) {
+    multi_array_udf$resource_class <- resource_class
   }
 
   if (!is.null(args)) {
