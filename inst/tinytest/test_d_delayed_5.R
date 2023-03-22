@@ -28,9 +28,11 @@ expect_equal(compute(a, timeout_seconds=300), 9)
 a <- delayed(function() { 9 }, name='a', local=FALSE)
 expect_equal(compute(a, namespace=namespaceToCharge, timeout_seconds=300), 9)
 
-# 3. From account lookup
-a <- delayed(function() { 9 }, name='a', local=FALSE)
-expect_equal(compute(a, timeout_seconds=300), 9)
+# # 3. From account lookup
+# This is well-intentioned but only works if the user _has_ a default namespace
+# configured in their account -- which we mustn't assume.
+# a <- delayed(function() { 9 }, name='a', local=FALSE)
+# expect_equal(compute(a, timeout_seconds=300), 9)
 
 # ----------------------------------------------------------------
 a <- delayed(function() { 9 }, name='a', local=FALSE)

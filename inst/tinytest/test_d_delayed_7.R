@@ -31,7 +31,8 @@ library(tiledbcloud)
 # Non-delayed
 o <- execute_generic_udf(
   registered_udf_name='johnkerl-tiledb/tiledb-cloud-r-generic-udf-r',
-  args=list(vec=1:16, exponent=3)
+  args=list(vec=1:16, exponent=3),
+  namespace=namespaceToCharge
 )
 expect_equal(o, 18496)
 
@@ -39,7 +40,8 @@ expect_equal(o, 18496)
 a <- delayed_generic_udf(
   registered_udf_name='johnkerl-tiledb/tiledb-cloud-r-generic-udf-r',
   args=list(vec=1:16, exponent=3),
-  name='my generic udf'
+  name='my generic udf',
+  namespace=namespaceToCharge
 )
 o <- compute(a)
 expect_equal(o, 18496)
@@ -64,7 +66,8 @@ o <- execute_array_udf(
   registered_udf_name='johnkerl-tiledb/tiledb-cloud-r-single-array-udf-r',
   selectedRanges=list(cbind(1,4), cbind(1,4)),
   attrs=c("a"),
-  args=list(attr="a", exponent=3)
+  args=list(attr="a", exponent=3),
+  namespace=namespaceToCharge
 )
 expect_equal(o, 18496)
 
@@ -75,7 +78,8 @@ a <- delayed_array_udf(
   selectedRanges=list(cbind(1,4), cbind(1,4)),
   attrs=c("a"),
   args=list(attr="a", exponent=3),
-  name='my single-array udf'
+  name='my single-array udf',
+  namespace=namespaceToCharge
 )
 o <- compute(a)
 expect_equal(o, 18496)
@@ -99,7 +103,8 @@ expect_equal(o, 18496)
 o <- execute_generic_udf(
   registered_udf_name='johnkerl-tiledb/tiledb-cloud-r-generic-udf-py',
   args=list(vec=1:16, exponent=3),
-  language='python'
+  language='python',
+  namespace=namespaceToCharge
 )
 expect_equal(o, 18496)
 
@@ -108,7 +113,8 @@ a <- delayed_generic_udf(
   registered_udf_name='johnkerl-tiledb/tiledb-cloud-r-generic-udf-py',
   args=list(vec=1:16, exponent=3),
   name='my generic udf',
-  language='python'
+  language='python',
+  namespace=namespaceToCharge
 )
 o <- compute(a)
 expect_equal(o, 18496)
@@ -134,7 +140,8 @@ o <- execute_array_udf(
   selectedRanges=list(cbind(1,4), cbind(1,4)),
   attrs=c("a"),
   args=list(attr="a", exponent=3),
-  language='python'
+  language='python',
+  namespace=namespaceToCharge
 )
 expect_equal(o, 18496)
 
@@ -145,7 +152,8 @@ a <- delayed_array_udf(
   selectedRanges=list(cbind(1,4), cbind(1,4)),
   attrs=c("a"),
   args=list(attr="a", exponent=3),
-  language='python'
+  language='python',
+  namespace=namespaceToCharge
 )
 o <- compute(a)
 expect_equal(o, 18496)
