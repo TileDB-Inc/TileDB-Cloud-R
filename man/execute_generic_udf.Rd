@@ -45,8 +45,9 @@ logged-in user's username will be used for the namespace.}
 \item{language}{If omitted, defaults to \code{"r"}. Can be set to \code{"python"}
 when executing registered Python UDFs.}
 
-\item{resource_class}{If not omitted, can be set to \code{"large"} to run the
-UDF on an instance with more RAM.}
+\item{resource_class}{The resource class to use for the UDF execution. Resource classes define
+resource limits for memory and CPUs. If this is `NULL`, then the UDF will execute in the
+standard resource class of the TileDB Cloud provider. This can be set to \code{"large"}.}
 }
 \value{
 The R object which is the return value from the UDF.

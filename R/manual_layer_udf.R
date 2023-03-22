@@ -37,7 +37,9 @@
 ##' @param language If omitted, defaults to \code{"r"}. Can be set to \code{"python"}
 ##' when executing registered Python UDFs.
 ##'
-##' @param resource_class TO DO TYPE ME UP
+##' @param resource_class The resource class to use for the UDF execution. Resource classes define
+##' resource limits for memory and CPUs. If this is `NULL`, then the UDF will execute in the
+##' standard resource class of the TileDB Cloud provider. This can be set to \code{"large"}.
 ##'
 ##' @return The R object which is the return value from the UDF.
 ##' @family {manual-layer functions}
@@ -154,7 +156,9 @@ execute_generic_udf <- function(udf=NULL, registered_udf_name=NULL, args=NULL, r
 ##' @param language If omitted, defaults to \code{"r"}. Can be set to \code{"python"}
 ##' when executing registered Python UDFs.
 ##'
-##' @param resource_class TO DO TYPE ME UP
+##' @param resource_class The resource class to use for the UDF execution. Resource classes define
+##' resource limits for memory and CPUs. If this is `NULL`, then the UDF will execute in the
+##' standard resource class of the TileDB Cloud provider. This can be set to \code{"large"}.
 ##'
 ##' @return Return value from the UDF.
 ##'
@@ -295,7 +299,9 @@ execute_array_udf <- function(array, udf=NULL, registered_udf_name=NULL, selecte
 ##' @param language If omitted, defaults to \code{"r"}. Can be set to \code{"python"}
 ##' when executing registered Python UDFs.
 ##'
-##' @param resource_class TO DO TYPE ME UP
+##' @param resource_class The resource class to use for the UDF execution. Resource classes define
+##' resource limits for memory and CPUs. If this is `NULL`, then the UDF will execute in the
+##' standard resource class of the TileDB Cloud provider. This can be set to \code{"large"}.
 ##'
 ##' @return Return value from the UDF.
 ##' @family {manual-layer functions}
