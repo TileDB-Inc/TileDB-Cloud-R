@@ -13,7 +13,7 @@ library(tinytest)
 
 # ----------------------------------------------------------------
 cat ("  inst/tinytest/test_e_register_array.R CONFIGURE\n")
-tiledbcloud::configure()
+cloud_config <- tiledbcloud::configure()
 cat ("  inst/tinytest/test_e_register_array.R LOGGED_IN?\n")
 if (!tiledbcloud:::.logged_in()) exit_file("not logged in")
 
@@ -34,14 +34,12 @@ cat ("\n  inst/tinytest/test_e_register_array.R AFTER  REGISTER\n")
 # ----------------------------------------------------------------
 # READ
 
-# Here we access username and password as environment variables
-####config <- tiledb::tiledb_config()
-####config["rest.server_address"] <- Sys.getenv("TILEDB_REST_HOST")     ## wut
-####config["rest.username"]       <- Sys.getenv("TILEDB_REST_USERNAME")
-####config["rest.password"]       <- Sys.getenv("TILEDB_REST_PASSWORD")
-####ctx <- tiledb::tiledb_ctx(config)
+config <- tiledb::tiledb_config()
+config["rest.server_address"] <- cloud_config[["host"]]
+config["rest.token"]          <- cloud_config[["token"]]
+ctx <- tiledb::tiledb_ctx(config)
 
-array_uri <- paste0('tiledb://', namespaceToCharge, '/', array_name)
+array_uri <- paste0('tiledb://', namespaceToCharge, '/', array_name, ctx=ctx)
 
 cat ("\n  inst/tinytest/test_e_register_array.R BEFORE READ ARRAY\n")
 arr <- tiledb::tiledb_array(array_uri, query_type="READ", as.data.frame=TRUE)
