@@ -1,3 +1,6 @@
+# ================================================================
+# See comments on test_delayed_1.R regarding filenames for these test cases.
+# ================================================================
 
 if ((namespaceToCharge <- Sys.getenv("TILEDB_REST_UNIT_TEST_NAMESPACE_TO_CHARGE")) == "") {
     exit_file("No TILEDB_REST_UNIT_TEST_NAMESPACE_TO_CHARGE in environment")

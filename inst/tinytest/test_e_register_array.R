@@ -1,3 +1,7 @@
+# ================================================================
+# See comments on test_delayed_1.R regarding filenames for these test cases.
+# ================================================================
+
 if ((namespaceToCharge <- Sys.getenv("TILEDB_REST_UNIT_TEST_NAMESPACE_TO_CHARGE")) == "") {
     exit_file("No TILEDB_REST_UNIT_TEST_NAMESPACE_TO_CHARGE in environment")
 }
@@ -8,6 +12,11 @@ library(tinytest)
 # ----------------------------------------------------------------
 cloud_config <- tiledbcloud::configure()
 if (!tiledbcloud:::.logged_in()) exit_file("not logged in")
+
+# ----------------------------------------------------------------
+if (Sys.getenv("TILEDB_REST_UNIT_TEST_NAMESPACE_TO_CHARGE") != "unittest") {
+    exit_file("Skipping unit tests which use resources for TileDB Cloud unittest account")
+}
 
 # ----------------------------------------------------------------
 make_temp_array_name <- function(base) {

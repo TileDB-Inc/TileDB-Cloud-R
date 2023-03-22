@@ -15,6 +15,11 @@ if ((namespaceToCharge <- Sys.getenv("TILEDB_REST_UNIT_TEST_NAMESPACE_TO_CHARGE"
 }
 
 # ----------------------------------------------------------------
+if (Sys.getenv("TILEDB_REST_UNIT_TEST_NAMESPACE_TO_CHARGE") != "unittest") {
+    exit_file("Skipping unit tests which use resources for TileDB Cloud unittest account")
+}
+
+# ----------------------------------------------------------------
 library(tiledbcloud)
 
 # ----------------------------------------------------------------
