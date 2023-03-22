@@ -110,7 +110,8 @@ register_array <- function(namespace=NULL, array_name, uri, description=NULL, ac
   resultObject <- arrayApiInstance$RegisterArray(namespace=namespace, array=array_name, array.metadata=info)
 
   # Decode the result, expecting empty string.
-  .get_empty_response_body_or_stop(resultObject)
+  # Update: the response is no longer empty.
+  # .get_empty_response_body_or_stop(resultObject)
   invisible("OK")
 }
 

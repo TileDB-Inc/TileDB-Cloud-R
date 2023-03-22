@@ -26,12 +26,12 @@ configure <- function() {
     verify_ssl <- TRUE
 
     ## Check token or username set again?  done in .onAttach
-
     configuration <- list(api_key    = token,
                           username   = username,
                           password   = password,
                           host       = host,
                           verify_ssl = verify_ssl,
                           logged_in  = "FALSE")
+
     configuration
 }

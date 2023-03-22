@@ -4,11 +4,19 @@ name: ci
 
 on:
   push:
-  pull_request:
+  # Having push & pull_request both simply makes a double/redundant CI run
+  # pull_request:
 
 env:
   _R_CHECK_FORCE_SUGGESTS_: "FALSE"
+
+  # Avoid the sad and frightfully unhelpful "Last 13 lines of output:"
+  # actively prohibits our ability to debug CI failures
+  _R_CHECK_TESTS_NLINES_: 0
+
+  TILEDB_REST_HOST: "https://api.tiledb.com"
   TILEDB_REST_TOKEN_UNITTEST: ${{ secrets.TILEDB_REST_TOKEN_UNITTEST }}
+  TILEDB_REST_UNIT_TEST_NAMESPACE_TO_CHARGE: "unittest"
   
 jobs:
   ci:
@@ -27,7 +35,7 @@ jobs:
         run: ./.github/r-ci.sh bootstrap
 
       - name: Dependencies
-        run: ./.github/r-ci.sh install_deps
+        run: ./.github/r-ci.sh install_all
 
       - name: Test
         run: ./.github/r-ci.sh run_tests

@@ -21,6 +21,8 @@
 #'
 #' @field image_name  character [optional]
 #'
+#' @field resource_class  character [optional]
+#'
 #' @field exec  character [optional]
 #'
 #' @field exec_raw  character [optional]
@@ -30,6 +32,8 @@
 #' @field task_name  character [optional]
 #'
 #' @field argument  character [optional]
+#'
+#' @field arguments_json  list( \link{TGUDFArgument} ) [optional]
 #'
 #' @field stored_param_uuids  list( character ) [optional]
 #'
@@ -61,11 +65,13 @@ MultiArrayUDF <- R6::R6Class(
     `language` = NULL,
     `version` = NULL,
     `image_name` = NULL,
+    `resource_class` = NULL,
     `exec` = NULL,
     `exec_raw` = NULL,
     `result_format` = NULL,
     `task_name` = NULL,
     `argument` = NULL,
+    `arguments_json` = NULL,
     `stored_param_uuids` = NULL,
     `store_results` = NULL,
     `dont_download_results` = NULL,
@@ -77,7 +83,7 @@ MultiArrayUDF <- R6::R6Class(
     `task_graph_uuid` = NULL,
     `client_node_uuid` = NULL,
     initialize = function(
-        `udf_info_name`=NULL, `language`=NULL, `version`=NULL, `image_name`=NULL, `exec`=NULL, `exec_raw`=NULL, `result_format`=NULL, `task_name`=NULL, `argument`=NULL, `stored_param_uuids`=NULL, `store_results`=NULL, `dont_download_results`=NULL, `ranges`=NULL, `subarray`=NULL, `buffers`=NULL, `arrays`=NULL, `timeout`=NULL, `task_graph_uuid`=NULL, `client_node_uuid`=NULL, ...
+        `udf_info_name`=NULL, `language`=NULL, `version`=NULL, `image_name`=NULL, `resource_class`=NULL, `exec`=NULL, `exec_raw`=NULL, `result_format`=NULL, `task_name`=NULL, `argument`=NULL, `arguments_json`=NULL, `stored_param_uuids`=NULL, `store_results`=NULL, `dont_download_results`=NULL, `ranges`=NULL, `subarray`=NULL, `buffers`=NULL, `arrays`=NULL, `timeout`=NULL, `task_graph_uuid`=NULL, `client_node_uuid`=NULL, ...
     ) {
       local.optional.var <- list(...)
       if (!is.null(`udf_info_name`)) {
@@ -95,6 +101,10 @@ MultiArrayUDF <- R6::R6Class(
       if (!is.null(`image_name`)) {
         stopifnot(is.character(`image_name`), length(`image_name`) == 1)
         self$`image_name` <- `image_name`
+      }
+      if (!is.null(`resource_class`)) {
+        stopifnot(is.character(`resource_class`), length(`resource_class`) == 1)
+        self$`resource_class` <- `resource_class`
       }
       if (!is.null(`exec`)) {
         stopifnot(is.character(`exec`), length(`exec`) == 1)
@@ -115,6 +125,11 @@ MultiArrayUDF <- R6::R6Class(
       if (!is.null(`argument`)) {
         stopifnot(is.character(`argument`), length(`argument`) == 1)
         self$`argument` <- `argument`
+      }
+      if (!is.null(`arguments_json`)) {
+        stopifnot(is.vector(`arguments_json`), length(`arguments_json`) != 0)
+        sapply(`arguments_json`, function(x) stopifnot(R6::is.R6(x)))
+        self$`arguments_json` <- `arguments_json`
       }
       if (!is.null(`stored_param_uuids`)) {
         stopifnot(is.vector(`stored_param_uuids`), length(`stored_param_uuids`) != 0)
@@ -176,6 +191,10 @@ MultiArrayUDF <- R6::R6Class(
         MultiArrayUDFObject[['image_name']] <-
           self$`image_name`
       }
+      if (!is.null(self$`resource_class`)) {
+        MultiArrayUDFObject[['resource_class']] <-
+          self$`resource_class`
+      }
       if (!is.null(self$`exec`)) {
         MultiArrayUDFObject[['exec']] <-
           self$`exec`
@@ -195,6 +214,10 @@ MultiArrayUDF <- R6::R6Class(
       if (!is.null(self$`argument`)) {
         MultiArrayUDFObject[['argument']] <-
           self$`argument`
+      }
+      if (!is.null(self$`arguments_json`)) {
+        MultiArrayUDFObject[['arguments_json']] <-
+          lapply(self$`arguments_json`, function(x) x$toJSON())
       }
       if (!is.null(self$`stored_param_uuids`)) {
         MultiArrayUDFObject[['stored_param_uuids']] <-
@@ -261,6 +284,9 @@ MultiArrayUDF <- R6::R6Class(
       if (!is.null(MultiArrayUDFObject$`image_name`)) {
         self$`image_name` <- MultiArrayUDFObject$`image_name`
       }
+      if (!is.null(MultiArrayUDFObject$`resource_class`)) {
+        self$`resource_class` <- MultiArrayUDFObject$`resource_class`
+      }
       if (!is.null(MultiArrayUDFObject$`exec`)) {
         self$`exec` <- MultiArrayUDFObject$`exec`
       }
@@ -283,6 +309,9 @@ MultiArrayUDF <- R6::R6Class(
       }
       if (!is.null(MultiArrayUDFObject$`argument`)) {
         self$`argument` <- MultiArrayUDFObject$`argument`
+      }
+      if (!is.null(MultiArrayUDFObject$`arguments_json`)) {
+        self$`arguments_json` <- ApiClient$new()$deserializeObj(MultiArrayUDFObject$`arguments_json`, "array[TGUDFArgument]", loadNamespace("tiledbcloud"))
       }
       if (!is.null(MultiArrayUDFObject$`stored_param_uuids`)) {
         self$`stored_param_uuids` <- ApiClient$new()$deserializeObj(MultiArrayUDFObject$`stored_param_uuids`, "array[character]", loadNamespace("tiledbcloud"))
@@ -350,6 +379,13 @@ MultiArrayUDF <- R6::R6Class(
                 ',
         self$`image_name`
         )},
+        if (!is.null(self$`resource_class`)) {
+        sprintf(
+        '"resource_class":
+          "%s"
+                ',
+        self$`resource_class`
+        )},
         if (!is.null(self$`exec`)) {
         sprintf(
         '"exec":
@@ -384,6 +420,13 @@ MultiArrayUDF <- R6::R6Class(
           "%s"
                 ',
         self$`argument`
+        )},
+        if (!is.null(self$`arguments_json`)) {
+        sprintf(
+        '"arguments_json":
+        [%s]
+',
+        paste(sapply(self$`arguments_json`, function(x) jsonlite::toJSON(x$toJSON(), auto_unbox=TRUE, digits = NA)), collapse=",")
         )},
         if (!is.null(self$`stored_param_uuids`)) {
         sprintf(
@@ -465,11 +508,13 @@ MultiArrayUDF <- R6::R6Class(
       self$`language` <- UDFLanguage$new()$fromJSON(jsonlite::toJSON(MultiArrayUDFObject$language, auto_unbox = TRUE, digits = NA))
       self$`version` <- MultiArrayUDFObject$`version`
       self$`image_name` <- MultiArrayUDFObject$`image_name`
+      self$`resource_class` <- MultiArrayUDFObject$`resource_class`
       self$`exec` <- MultiArrayUDFObject$`exec`
       self$`exec_raw` <- MultiArrayUDFObject$`exec_raw`
       self$`result_format` <- ResultFormat$new()$fromJSON(jsonlite::toJSON(MultiArrayUDFObject$result_format, auto_unbox = TRUE, digits = NA))
       self$`task_name` <- MultiArrayUDFObject$`task_name`
       self$`argument` <- MultiArrayUDFObject$`argument`
+      self$`arguments_json` <- ApiClient$new()$deserializeObj(MultiArrayUDFObject$`arguments_json`, "array[TGUDFArgument]", loadNamespace("tiledbcloud"))
       self$`stored_param_uuids` <- ApiClient$new()$deserializeObj(MultiArrayUDFObject$`stored_param_uuids`, "array[character]", loadNamespace("tiledbcloud"))
       self$`store_results` <- MultiArrayUDFObject$`store_results`
       self$`dont_download_results` <- MultiArrayUDFObject$`dont_download_results`

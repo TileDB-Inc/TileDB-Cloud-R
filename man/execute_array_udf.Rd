@@ -15,7 +15,8 @@ execute_array_udf(
   result_format = "native",
   args_format = "native",
   namespace = NULL,
-  language = "r"
+  language = "r",
+  resource_class = NULL
 )
 }
 \arguments{
@@ -59,7 +60,12 @@ if you wish.}
 \item{namespace}{Namespace within TileDB cloud to charge. If this is null, the
 logged-in user's username will be used for the namespace.}
 
-\item{language}{If omitted, defaults to \code{"r"}. Can be set to \code{"python"}}
+\item{language}{If omitted, defaults to \code{"r"}. Can be set to \code{"python"}
+when executing registered Python UDFs.}
+
+\item{resource_class}{The resource class to use for the UDF execution. Resource classes define
+resource limits for memory and CPUs. If this is `NULL`, then the UDF will execute in the
+standard resource class of the TileDB Cloud provider. This can be set to \code{"large"}.}
 }
 \value{
 Return value from the UDF.
@@ -85,6 +91,7 @@ Other {manual-layer functions}:
 \code{\link{delayed_sql}()},
 \code{\link{delayed}()},
 \code{\link{deregister_array}()},
+\code{\link{deregister_group}()},
 \code{\link{deregister_udf}()},
 \code{\link{execute_generic_udf}()},
 \code{\link{execute_multi_array_udf}()},

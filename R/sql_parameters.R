@@ -23,6 +23,8 @@
 #'
 #' @field dont_download_results  character [optional]
 #'
+#' @field resource_class  character [optional]
+#'
 #' @field result_format  \link{ResultFormat} [optional]
 #'
 #' @field init_commands  list( character ) [optional]
@@ -44,13 +46,14 @@ SQLParameters <- R6::R6Class(
     `output_uri` = NULL,
     `store_results` = NULL,
     `dont_download_results` = NULL,
+    `resource_class` = NULL,
     `result_format` = NULL,
     `init_commands` = NULL,
     `parameters` = NULL,
     `task_graph_uuid` = NULL,
     `client_node_uuid` = NULL,
     initialize = function(
-        `name`=NULL, `query`=NULL, `output_uri`=NULL, `store_results`=NULL, `dont_download_results`=NULL, `result_format`=NULL, `init_commands`=NULL, `parameters`=NULL, `task_graph_uuid`=NULL, `client_node_uuid`=NULL, ...
+        `name`=NULL, `query`=NULL, `output_uri`=NULL, `store_results`=NULL, `dont_download_results`=NULL, `resource_class`=NULL, `result_format`=NULL, `init_commands`=NULL, `parameters`=NULL, `task_graph_uuid`=NULL, `client_node_uuid`=NULL, ...
     ) {
       local.optional.var <- list(...)
       if (!is.null(`name`)) {
@@ -74,6 +77,10 @@ SQLParameters <- R6::R6Class(
       }
       if (!is.null(`dont_download_results`)) {
         self$`dont_download_results` <- `dont_download_results`
+      }
+      if (!is.null(`resource_class`)) {
+        stopifnot(is.character(`resource_class`), length(`resource_class`) == 1)
+        self$`resource_class` <- `resource_class`
       }
       if (!is.null(`result_format`)) {
         stopifnot(R6::is.R6(`result_format`))
@@ -120,6 +127,10 @@ SQLParameters <- R6::R6Class(
         SQLParametersObject[['dont_download_results']] <-
           self$`dont_download_results`
       }
+      if (!is.null(self$`resource_class`)) {
+        SQLParametersObject[['resource_class']] <-
+          self$`resource_class`
+      }
       if (!is.null(self$`result_format`)) {
         SQLParametersObject[['result_format']] <-
           self$`result_format`$toJSON()
@@ -159,6 +170,9 @@ SQLParameters <- R6::R6Class(
       }
       if (!is.null(SQLParametersObject$`dont_download_results`)) {
         self$`dont_download_results` <- SQLParametersObject$`dont_download_results`
+      }
+      if (!is.null(SQLParametersObject$`resource_class`)) {
+        self$`resource_class` <- SQLParametersObject$`resource_class`
       }
       if (!is.null(SQLParametersObject$`result_format`)) {
         # MANUAL EDIT AFTER OPENAPI AUTOGEN
@@ -222,6 +236,13 @@ SQLParameters <- R6::R6Class(
                 ',
         self$`dont_download_results`
         )},
+        if (!is.null(self$`resource_class`)) {
+        sprintf(
+        '"resource_class":
+          "%s"
+                ',
+        self$`resource_class`
+        )},
         if (!is.null(self$`result_format`)) {
         sprintf(
         '"result_format":
@@ -268,6 +289,7 @@ SQLParameters <- R6::R6Class(
       self$`output_uri` <- SQLParametersObject$`output_uri`
       self$`store_results` <- SQLParametersObject$`store_results`
       self$`dont_download_results` <- SQLParametersObject$`dont_download_results`
+      self$`resource_class` <- SQLParametersObject$`resource_class`
       self$`result_format` <- ResultFormat$new()$fromJSON(jsonlite::toJSON(SQLParametersObject$result_format, auto_unbox = TRUE, digits = NA))
       self$`init_commands` <- ApiClient$new()$deserializeObj(SQLParametersObject$`init_commands`, "array[character]", loadNamespace("tiledbcloud"))
       self$`parameters` <- ApiClient$new()$deserializeObj(SQLParametersObject$`parameters`, "array[object]", loadNamespace("tiledbcloud"))

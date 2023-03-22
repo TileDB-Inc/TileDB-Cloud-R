@@ -15,10 +15,13 @@ myfunc <- function(x=50:54, y=70:74) { x + y }
 result <- tiledbcloud::execute_generic_udf(udf=myfunc, namespace=namespaceToCharge)
 expect_equal(result, c(120, 122, 124, 126, 128))
 
+# This is well-intentioned but only works if the user _has_ a default namespace
+# configured in their account -- which we mustn't assume.
+#
 # Test that missing namespace defaults correctly.
-myfunc <- function(x=50:54, y=70:74) { x + y }
-result <- tiledbcloud::execute_generic_udf(udf=myfunc)
-expect_equal(result, c(120, 122, 124, 126, 128))
+# myfunc <- function(x=50:54, y=70:74) { x + y }
+# result <- tiledbcloud::execute_generic_udf(udf=myfunc)
+# expect_equal(result, c(120, 122, 124, 126, 128))
 
 # ----------------------------------------------------------------
 # Generic UDF, with args
@@ -56,21 +59,24 @@ result <- tiledbcloud::execute_array_udf(
 )
 expect_equal(result, list(min=1, med=3.5, max=6))
 
-# ----------------------------------------------------------------
-# Array UDF, sparse, no args
-myfunc <- function(df) {
-  vec <- as.vector(df[["a"]])
-  list(min=min(vec), med=median(vec), max=max(vec))
-}
-result <- tiledbcloud::execute_array_udf(
-  array="TileDB-Inc/quickstart_sparse",
-  udf=myfunc,
-  selectedRanges=list(cbind(1,4), cbind(1,4)),
-  attrs=c("a")
-  # Test that missing namespace defaults correctly
-  #namespace=namespaceToCharge
-)
-expect_equal(result, list(min=1, med=2, max=3))
+## ----------------------------------------------------------------
+# This is well-intentioned but only works if the user _has_ a default namespace
+# configured in their account -- which we mustn't assume.
+#
+# # Array UDF, sparse, no args
+# myfunc <- function(df) {
+#   vec <- as.vector(df[["a"]])
+#   list(min=min(vec), med=median(vec), max=max(vec))
+# }
+# result <- tiledbcloud::execute_array_udf(
+#   array="TileDB-Inc/quickstart_sparse",
+#   udf=myfunc,
+#   selectedRanges=list(cbind(1,4), cbind(1,4)),
+#   attrs=c("a")
+#   # Test that missing namespace defaults correctly
+#   #namespace=namespaceToCharge
+# )
+# expect_equal(result, list(min=1, med=2, max=3))
 
 # ----------------------------------------------------------------
 # Array UDF, dense, with args
