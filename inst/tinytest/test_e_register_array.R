@@ -33,11 +33,11 @@ tiledbcloud::register_array(array_name=array_name, uri=storage_uri, description=
 # READ
 
 # Here we access username and password as environment variables
-config <- tiledb::tiledb_config()
-config["rest.server_address"] <- Sys.getenv("TILEDB_REST_HOST")     ## wut
-config["rest.username"]       <- Sys.getenv("TILEDB_REST_USERNAME")
-config["rest.password"]       <- Sys.getenv("TILEDB_REST_PASSWORD")
-ctx <- tiledb::tiledb_ctx(config)
+####config <- tiledb::tiledb_config()
+####config["rest.server_address"] <- Sys.getenv("TILEDB_REST_HOST")     ## wut
+####config["rest.username"]       <- Sys.getenv("TILEDB_REST_USERNAME")
+####config["rest.password"]       <- Sys.getenv("TILEDB_REST_PASSWORD")
+####ctx <- tiledb::tiledb_ctx(config)
 
 array_uri <- paste0('tiledb://', namespaceToCharge, '/', array_name)
 
