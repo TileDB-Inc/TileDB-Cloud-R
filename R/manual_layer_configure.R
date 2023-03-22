@@ -19,11 +19,19 @@ configure <- function() {
     ## is set, ditto for the username. This is sufficient for CI runs.  Normal use is enabled
     ## by either using a token or a username and password (or both).  The host can be unset
     ## and defaults to the TileDB instance.
+    cat("CFG ENTER ================================================================\n")
     token      <- Sys.getenv("TILEDB_REST_TOKEN", Sys.getenv("TILEDB_REST_TOKEN_UNITTEST"))
     host       <- Sys.getenv("TILEDB_REST_HOST", "https://api.tiledb.com")
     username   <- Sys.getenv("TILEDB_REST_USERNAME", "unittest")
     password   <- Sys.getenv("TILEDB_REST_PASSWORD", "")
     verify_ssl <- TRUE
+    cat("\n")
+    cat("TOKEN    ", substring(token, 1, 4),    "...\n")
+    cat("HOST     ", host,     "\n")
+    cat("USERNAME ", username, "\n")
+    cat("PASSWORD ", password, "\n")
+    cat("VERIFY_SSL ", verify_ssl, "\n")
+    cat("\n")
 
     ## Check token or username set again?  done in .onAttach
 
@@ -33,5 +41,6 @@ configure <- function() {
                           host       = host,
                           verify_ssl = verify_ssl,
                           logged_in  = "FALSE")
+    cat("CFG EXIT  ================================================================\n")
     configuration
 }
