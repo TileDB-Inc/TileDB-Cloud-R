@@ -28,7 +28,7 @@ jobs:
         run: ./.github/r-ci.sh bootstrap
 
       - name: Dependencies
-        run: ./.github/r-ci.sh install_deps
+        run: ./.github/r-ci.sh install_all
 
       - name: Test
         run: ./.github/r-ci.sh run_tests
