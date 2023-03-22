@@ -45,7 +45,8 @@ logged-in user's username will be used for the namespace.}
 \item{language}{If omitted, defaults to \code{"r"}. Can be set to \code{"python"}
 when executing registered Python UDFs.}
 
-\item{resource_class}{TO DO TYPE ME UP}
+\item{resource_class}{If not omitted, can be set to \code{"large"} to run the
+UDF on an instance with more RAM.}
 }
 \value{
 The R object which is the return value from the UDF.

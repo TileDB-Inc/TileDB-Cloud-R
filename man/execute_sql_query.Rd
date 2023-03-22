@@ -39,6 +39,7 @@ Other {manual-layer functions}:
 \code{\link{delayed_sql}()},
 \code{\link{delayed}()},
 \code{\link{deregister_array}()},
+\code{\link{deregister_group}()},
 \code{\link{deregister_udf}()},
 \code{\link{execute_array_udf}()},
 \code{\link{execute_generic_udf}()},
