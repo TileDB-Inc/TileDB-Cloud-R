@@ -1,12 +1,20 @@
+# ================================================================
+cat("\n")
+cat ("ENTER inst/tinytest/test_e_register_array.R\n")
+# ================================================================
 
 if ((namespaceToCharge <- Sys.getenv("TILEDB_REST_UNIT_TEST_NAMESPACE_TO_CHARGE")) == "") {
     exit_file("No TILEDB_REST_UNIT_TEST_NAMESPACE_TO_CHARGE in environment")
 }
 
+cat ("  inst/tinytest/test_e_register_array.R IMPORTS\n")
 library(tiledbcloud)
 library(tinytest)
 
 # ----------------------------------------------------------------
+cat ("  inst/tinytest/test_e_register_array.R CONFIGURE\n")
+tiledbcloud::configure()
+cat ("  inst/tinytest/test_e_register_array.R LOGGED_IN?\n")
 if (!tiledbcloud:::.logged_in()) exit_file("not logged in")
 
 # ----------------------------------------------------------------
@@ -40,3 +48,7 @@ expect_equal(length(arr[]), 8)
 # DEREGISTER
 
 tiledbcloud::deregister_array(array_name=array_name, namespace=namespaceToCharge)
+
+# ================================================================
+cat ("EXIT inst/tinytest/test_e_register_array.R\n")
+# ================================================================
