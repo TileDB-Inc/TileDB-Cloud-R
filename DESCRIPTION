@@ -14,4 +14,4 @@ Suggests: testthat, tinytest, rmarkdown, knitr, arrow
 Imports: jsonlite, httr, R6, base64enc, future
 VignetteBuilder: knitr
 Encoding: UTF-8
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
