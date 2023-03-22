@@ -104,7 +104,8 @@ login <- function(username, password, api_key, host, remember_me=TRUE, write_con
     .pkgenv[["default_namespace_charged"]] <- res[["default_namespace_charged"]]
 
     if (write_config) {
-      .storeConfig()
+      # .storeConfig()
+      stop("write_config is unimplemented")
     }
 
     invisible()
