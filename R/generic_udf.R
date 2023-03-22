@@ -21,6 +21,8 @@
 #'
 #' @field image_name  character [optional]
 #'
+#' @field resource_class  character [optional]
+#'
 #' @field exec  character [optional]
 #'
 #' @field exec_raw  character [optional]
@@ -53,6 +55,7 @@ GenericUDF <- R6::R6Class(
     `language` = NULL,
     `version` = NULL,
     `image_name` = NULL,
+    `resource_class` = NULL,
     `exec` = NULL,
     `exec_raw` = NULL,
     `argument` = NULL,
@@ -65,7 +68,7 @@ GenericUDF <- R6::R6Class(
     `task_graph_uuid` = NULL,
     `client_node_uuid` = NULL,
     initialize = function(
-        `udf_info_name`=NULL, `language`=NULL, `version`=NULL, `image_name`=NULL, `exec`=NULL, `exec_raw`=NULL, `argument`=NULL, `stored_param_uuids`=NULL, `result_format`=NULL, `task_name`=NULL, `store_results`=NULL, `timeout`=NULL, `dont_download_results`=NULL, `task_graph_uuid`=NULL, `client_node_uuid`=NULL, ...
+        `udf_info_name`=NULL, `language`=NULL, `version`=NULL, `image_name`=NULL, `resource_class`=NULL, `exec`=NULL, `exec_raw`=NULL, `argument`=NULL, `stored_param_uuids`=NULL, `result_format`=NULL, `task_name`=NULL, `store_results`=NULL, `timeout`=NULL, `dont_download_results`=NULL, `task_graph_uuid`=NULL, `client_node_uuid`=NULL, ...
     ) {
       local.optional.var <- list(...)
       if (!is.null(`udf_info_name`)) {
@@ -83,6 +86,10 @@ GenericUDF <- R6::R6Class(
       if (!is.null(`image_name`)) {
         stopifnot(is.character(`image_name`), length(`image_name`) == 1)
         self$`image_name` <- `image_name`
+      }
+      if (!is.null(`resource_class`)) {
+        stopifnot(is.character(`resource_class`), length(`resource_class`) == 1)
+        self$`resource_class` <- `resource_class`
       }
       if (!is.null(`exec`)) {
         stopifnot(is.character(`exec`), length(`exec`) == 1)
@@ -145,6 +152,10 @@ GenericUDF <- R6::R6Class(
       if (!is.null(self$`image_name`)) {
         GenericUDFObject[['image_name']] <-
           self$`image_name`
+      }
+      if (!is.null(self$`resource_class`)) {
+        GenericUDFObject[['resource_class']] <-
+          self$`resource_class`
       }
       if (!is.null(self$`exec`)) {
         GenericUDFObject[['exec']] <-
@@ -214,6 +225,9 @@ GenericUDF <- R6::R6Class(
       }
       if (!is.null(GenericUDFObject$`image_name`)) {
         self$`image_name` <- GenericUDFObject$`image_name`
+      }
+      if (!is.null(GenericUDFObject$`resource_class`)) {
+        self$`resource_class` <- GenericUDFObject$`resource_class`
       }
       if (!is.null(GenericUDFObject$`exec`)) {
         self$`exec` <- GenericUDFObject$`exec`
@@ -287,6 +301,13 @@ GenericUDF <- R6::R6Class(
           "%s"
                 ',
         self$`image_name`
+        )},
+        if (!is.null(self$`resource_class`)) {
+        sprintf(
+        '"resource_class":
+          "%s"
+                ',
+        self$`resource_class`
         )},
         if (!is.null(self$`exec`)) {
         sprintf(
@@ -375,6 +396,7 @@ GenericUDF <- R6::R6Class(
       self$`language` <- UDFLanguage$new()$fromJSON(jsonlite::toJSON(GenericUDFObject$language, auto_unbox = TRUE, digits = NA))
       self$`version` <- GenericUDFObject$`version`
       self$`image_name` <- GenericUDFObject$`image_name`
+      self$`resource_class` <- GenericUDFObject$`resource_class`
       self$`exec` <- GenericUDFObject$`exec`
       self$`exec_raw` <- GenericUDFObject$`exec_raw`
       self$`argument` <- GenericUDFObject$`argument`
