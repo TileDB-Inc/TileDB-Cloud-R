@@ -48,6 +48,16 @@ result <- tiledbcloud::execute_generic_udf(udf=myfunc, args=myargs, result_forma
 expect_equal(result$result, c(300, 302, 304, 306, 308))
 
 # ----------------------------------------------------------------
+# Exercise resource_class
+
+result <- tiledbcloud::execute_generic_udf(udf=myfunc, args=myargs, result_format='arrow', namespace=namespaceToCharge, resource_class="large")
+expect_equal(result$result, c(300, 302, 304, 306, 308))
+
+expect_error(
+  tiledbcloud::execute_generic_udf(udf=myfunc, args=myargs, result_format='arrow', namespace=namespaceToCharge, resource_class="nonesuch")
+)
+
+# ----------------------------------------------------------------
 # Array UDF, no args, dense
 myfunc <- function(df) {
   vec <- as.vector(df[["a"]])

@@ -47,7 +47,6 @@
 execute_generic_udf <- function(udf=NULL, registered_udf_name=NULL, args=NULL, result_format='native',
   args_format='native', namespace=NULL, language='r', resource_class=NULL)
 {
-  cat("EXECUTE_GENERIC_UDF RESOURCE_CLASS", resource_class, "\n")
   if (is.null(namespace)) {
     namespace <- .get_default_namespace_charged_or_stop()
   }
