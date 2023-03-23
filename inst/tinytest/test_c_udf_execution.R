@@ -144,6 +144,33 @@ result <- tiledbcloud::execute_array_udf(
 # Arrow result is of type dataframe, so we pull out the 'result' slot
 expect_equal(result$result, 18496)
 
+# Exercise resource_class
+result <- tiledbcloud::execute_array_udf(
+  array=array_name,
+  udf=myfunc,
+  selectedRanges=selectedRanges,
+  attrs=attrs,
+  args=list(exponent=3),
+  result_format='arrow',
+  namespace=namespaceToCharge,
+  resource_class="large"
+)
+# Arrow result is of type dataframe, so we pull out the 'result' slot
+expect_equal(result$result, 18496)
+
+expect_error(
+  tiledbcloud::execute_array_udf(
+    array=array_name,
+    udf=myfunc,
+    selectedRanges=selectedRanges,
+    attrs=attrs,
+    args=list(exponent=3),
+    result_format='arrow',
+    namespace=namespaceToCharge,
+    resource_class="nonesuch"
+  )
+)
+
 # ----------------------------------------------------------------
 # TODO: put this into TileDB-Inc namespace
 # myfunc <- function(df) {
