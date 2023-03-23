@@ -15,7 +15,7 @@ if (!tiledbcloud:::.logged_in()) exit_file("not logged in")
 
 # ----------------------------------------------------------------
 if (Sys.getenv("TILEDB_REST_UNIT_TEST_NAMESPACE_TO_CHARGE") != "unittest") {
-    exit_file("Skipping unit tests which use resources for TileDB Cloud unittest account")
+    exit_file("Skipping unit tests which use resources specific to the TileDB Cloud unittest account")
 }
 
 # ----------------------------------------------------------------
