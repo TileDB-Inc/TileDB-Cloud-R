@@ -82,7 +82,7 @@ execute_generic_udf <- function(udf=NULL, registered_udf_name=NULL, args=NULL, r
     generic_udf$udf_info_name <- registered_udf_name
   }
   if (!is.null(resource_class)) {
-    generic_udfresource_classudf_info_name <- resource_class
+    generic_udf$resource_class <- resource_class
   }
 
   if (!is.null(args)) {

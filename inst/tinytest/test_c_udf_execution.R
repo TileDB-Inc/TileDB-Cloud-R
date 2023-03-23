@@ -48,6 +48,16 @@ result <- tiledbcloud::execute_generic_udf(udf=myfunc, args=myargs, result_forma
 expect_equal(result$result, c(300, 302, 304, 306, 308))
 
 # ----------------------------------------------------------------
+# Exercise resource_class
+
+result <- tiledbcloud::execute_generic_udf(udf=myfunc, args=myargs, result_format='arrow', namespace=namespaceToCharge, resource_class="large")
+expect_equal(result$result, c(300, 302, 304, 306, 308))
+
+expect_error(
+  tiledbcloud::execute_generic_udf(udf=myfunc, args=myargs, result_format='arrow', namespace=namespaceToCharge, resource_class="nonesuch")
+)
+
+# ----------------------------------------------------------------
 # Array UDF, no args, dense
 myfunc <- function(df) {
   vec <- as.vector(df[["a"]])
@@ -133,6 +143,33 @@ result <- tiledbcloud::execute_array_udf(
 )
 # Arrow result is of type dataframe, so we pull out the 'result' slot
 expect_equal(result$result, 18496)
+
+# Exercise resource_class
+result <- tiledbcloud::execute_array_udf(
+  array=array_name,
+  udf=myfunc,
+  selectedRanges=selectedRanges,
+  attrs=attrs,
+  args=list(exponent=3),
+  result_format='arrow',
+  namespace=namespaceToCharge,
+  resource_class="large"
+)
+# Arrow result is of type dataframe, so we pull out the 'result' slot
+expect_equal(result$result, 18496)
+
+expect_error(
+  tiledbcloud::execute_array_udf(
+    array=array_name,
+    udf=myfunc,
+    selectedRanges=selectedRanges,
+    attrs=attrs,
+    args=list(exponent=3),
+    result_format='arrow',
+    namespace=namespaceToCharge,
+    resource_class="nonesuch"
+  )
+)
 
 # ----------------------------------------------------------------
 # TODO: put this into TileDB-Inc namespace
