@@ -6,6 +6,7 @@ on:
   push:
   # Having push & pull_request both simply makes a double/redundant CI run
   # pull_request:
+  workflow_dispatch:
 
 env:
   _R_CHECK_FORCE_SUGGESTS_: "FALSE"
@@ -23,7 +24,9 @@ jobs:
     strategy:
       matrix:
         include:
-          - {os: macOS-latest}
+          # TODO: re-enable
+          # https://github.com/TileDB-Inc/TileDB-Cloud-R/issues/121
+          # - {os: macOS-latest}
           - {os: ubuntu-latest}
 
     runs-on: ${{ matrix.os }}
