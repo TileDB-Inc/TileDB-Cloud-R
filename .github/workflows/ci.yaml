@@ -24,10 +24,8 @@ jobs:
     strategy:
       matrix:
         include:
-          # TODO: re-enable
-          # https://github.com/TileDB-Inc/TileDB-Cloud-R/issues/121
-          # - {os: macOS-latest}
           - {os: ubuntu-latest}
+          - {os: macOS-latest}
 
     runs-on: ${{ matrix.os }}
 
