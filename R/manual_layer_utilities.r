@@ -16,3 +16,18 @@
          paste0(acceptable_values, collapse = ", "))
   }
 }
+
+#' Get an element from a list
+#' @param object List to extract from
+#' @param names Character vector of names to extract
+#' @param default Default value to return if the element is not present
+#' @examples
+#' getElements(list(a = 1, b = 2), c("a", "c"), default = 3)
+#' @noRd
+getElements <- function(object, names, default = NA) {
+  stopifnot(is.list(object) && is.character(names))
+  lapply(
+    X = setNames(object[names], names),
+    FUN = function(x) replace(x, is.null(x), default)
+  )
+}
