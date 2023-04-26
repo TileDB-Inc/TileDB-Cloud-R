@@ -4,9 +4,9 @@
 #' filter applied.
 #'
 #' Note that this is a paginable API but default params return all results on
-#' one call, even hundreds of them. As currently implemented, pagination
-#' information is not returned from this function. The \code{public} and
-#' \code{shared} arguments may not both be true.
+#' one call, even hundreds of them.
+#'
+#' Pagination information is set as an attribute of the returned data frame.
 #'
 #' @inheritParams list_arrays
 #' @param flat logical, if `TRUE`, ignores the nesting of groups and searches
@@ -65,7 +65,8 @@ list_groups <- function (
     flat,
     parent
   )
-  groups <- resultObject$toJSON()$groups
+  response <- resultObject$toJSON()
+  groups <- response$groups
 
   # The tag element contains a list, which needs to be add separately
   group_element_tags <- lapply(groups, getElement, name = "tags")
@@ -77,5 +78,6 @@ list_groups <- function (
   # Convert to a data frame and add back the tags
   groups <- do.call("rbind", lapply(groups, as.data.frame))
   groups$tags <- group_element_tags
-  groups
+
+  structure(groups, pagination_metadata = response$pagination_metadata)
 }

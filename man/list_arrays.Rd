@@ -58,9 +58,10 @@ filter applied.
 }
 \details{
 Note that this is a paginable API but default params return all results on
-one call, even hundreds of them. As currently implemented, pagination
-information is not returned from this function. The \code{public} and
+one call, even hundreds of them. The \code{public} and
 \code{shared} arguments may not both be true.
+
+Pagination information is set as an attribute of the returned data frame.
 }
 \seealso{
 Other {manual-layer functions}: 
