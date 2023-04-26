@@ -26,9 +26,10 @@ array_info <- function(namespace, arrayname) {
 ##' filter applied.
 ##'
 ##' Note that this is a paginable API but default params return all results on
-##' one call, even hundreds of them. As currently implemented, pagination
-##' information is not returned from this function. The \code{public} and
+##' one call, even hundreds of them. The \code{public} and
 ##' \code{shared} arguments may not both be true.
+##'
+##' Pagination information is set as an attribute of the returned data frame.
 ##'
 ##' @param public logical TRUE means list public arrays
 ##' @param shared logical TRUE means list shared arrays. If \code{public} and \code{shared} are both
@@ -68,10 +69,10 @@ list_arrays <- function(public=FALSE, shared=FALSE, page=NULL, per.page=NULL, se
   }
 
   body <- .get_raw_response_body_or_stop(resultObject)
-
   bodyAsJSONString <- rawToChar(body)
-  # Output has keys 'arrays' and 'pagination_metadata'; keep only the former
-  jsonlite::fromJSON(bodyAsJSONString)[["arrays"]]
+
+  response <- jsonlite::fromJSON(bodyAsJSONString)
+  structure(response$arrays, pagination_metadata = response$pagination_metadata)
 }
 
 ##' Register an existing array on TileDB Cloud

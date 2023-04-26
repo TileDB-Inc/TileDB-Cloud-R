@@ -36,17 +36,17 @@ Query Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Query$new()}}
-\item \href{#method-toJSON}{\code{Query$toJSON()}}
-\item \href{#method-fromJSON}{\code{Query$fromJSON()}}
-\item \href{#method-toJSONString}{\code{Query$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{Query$fromJSONString()}}
-\item \href{#method-clone}{\code{Query$clone()}}
+\item \href{#method-Query-new}{\code{Query$new()}}
+\item \href{#method-Query-toJSON}{\code{Query$toJSON()}}
+\item \href{#method-Query-fromJSON}{\code{Query$fromJSON()}}
+\item \href{#method-Query-toJSONString}{\code{Query$toJSONString()}}
+\item \href{#method-Query-fromJSONString}{\code{Query$fromJSONString()}}
+\item \href{#method-Query-clone}{\code{Query$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Query-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Query-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Query$new(
@@ -65,8 +65,8 @@ Query Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Query-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Query-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Query$toJSON()}\if{html}{\out{</div>}}
@@ -74,8 +74,8 @@ Query Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Query-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Query-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Query$fromJSON(QueryJson)}\if{html}{\out{</div>}}
@@ -83,8 +83,8 @@ Query Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-Query-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Query-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Query$toJSONString()}\if{html}{\out{</div>}}
@@ -92,8 +92,8 @@ Query Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-Query-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Query-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Query$fromJSONString(QueryJson)}\if{html}{\out{</div>}}
@@ -101,8 +101,8 @@ Query Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Query-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Query-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

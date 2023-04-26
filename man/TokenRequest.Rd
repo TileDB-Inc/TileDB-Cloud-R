@@ -24,17 +24,17 @@ TokenRequest Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{TokenRequest$new()}}
-\item \href{#method-toJSON}{\code{TokenRequest$toJSON()}}
-\item \href{#method-fromJSON}{\code{TokenRequest$fromJSON()}}
-\item \href{#method-toJSONString}{\code{TokenRequest$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{TokenRequest$fromJSONString()}}
-\item \href{#method-clone}{\code{TokenRequest$clone()}}
+\item \href{#method-TokenRequest-new}{\code{TokenRequest$new()}}
+\item \href{#method-TokenRequest-toJSON}{\code{TokenRequest$toJSON()}}
+\item \href{#method-TokenRequest-fromJSON}{\code{TokenRequest$fromJSON()}}
+\item \href{#method-TokenRequest-toJSONString}{\code{TokenRequest$toJSONString()}}
+\item \href{#method-TokenRequest-fromJSONString}{\code{TokenRequest$fromJSONString()}}
+\item \href{#method-TokenRequest-clone}{\code{TokenRequest$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-TokenRequest-new"></a>}}
+\if{latex}{\out{\hypertarget{method-TokenRequest-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TokenRequest$new(expires = NULL, name = NULL, scope = "*", ...)}\if{html}{\out{</div>}}
@@ -42,8 +42,8 @@ TokenRequest Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-TokenRequest-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-TokenRequest-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TokenRequest$toJSON()}\if{html}{\out{</div>}}
@@ -51,8 +51,8 @@ TokenRequest Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-TokenRequest-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-TokenRequest-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TokenRequest$fromJSON(TokenRequestJson)}\if{html}{\out{</div>}}
@@ -60,8 +60,8 @@ TokenRequest Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-TokenRequest-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-TokenRequest-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TokenRequest$toJSONString()}\if{html}{\out{</div>}}
@@ -69,8 +69,8 @@ TokenRequest Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-TokenRequest-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-TokenRequest-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TokenRequest$fromJSONString(TokenRequestJson)}\if{html}{\out{</div>}}
@@ -78,8 +78,8 @@ TokenRequest Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-TokenRequest-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-TokenRequest-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

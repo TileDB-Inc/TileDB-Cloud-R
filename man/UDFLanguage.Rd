@@ -13,17 +13,17 @@ UDFLanguage Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{UDFLanguage$new()}}
-\item \href{#method-toJSON}{\code{UDFLanguage$toJSON()}}
-\item \href{#method-fromJSON}{\code{UDFLanguage$fromJSON()}}
-\item \href{#method-toJSONString}{\code{UDFLanguage$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{UDFLanguage$fromJSONString()}}
-\item \href{#method-clone}{\code{UDFLanguage$clone()}}
+\item \href{#method-UDFLanguage-new}{\code{UDFLanguage$new()}}
+\item \href{#method-UDFLanguage-toJSON}{\code{UDFLanguage$toJSON()}}
+\item \href{#method-UDFLanguage-fromJSON}{\code{UDFLanguage$fromJSON()}}
+\item \href{#method-UDFLanguage-toJSONString}{\code{UDFLanguage$toJSONString()}}
+\item \href{#method-UDFLanguage-fromJSONString}{\code{UDFLanguage$fromJSONString()}}
+\item \href{#method-UDFLanguage-clone}{\code{UDFLanguage$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-UDFLanguage-new"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFLanguage-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFLanguage$new(...)}\if{html}{\out{</div>}}
@@ -31,8 +31,8 @@ UDFLanguage Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-UDFLanguage-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFLanguage-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFLanguage$toJSON()}\if{html}{\out{</div>}}
@@ -40,8 +40,8 @@ UDFLanguage Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-UDFLanguage-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFLanguage-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFLanguage$fromJSON(UDFLanguageJson)}\if{html}{\out{</div>}}
@@ -49,8 +49,8 @@ UDFLanguage Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-UDFLanguage-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFLanguage-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFLanguage$toJSONString()}\if{html}{\out{</div>}}
@@ -58,8 +58,8 @@ UDFLanguage Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-UDFLanguage-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFLanguage-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFLanguage$fromJSONString(UDFLanguageJson)}\if{html}{\out{</div>}}
@@ -67,8 +67,8 @@ UDFLanguage Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-UDFLanguage-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFLanguage-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

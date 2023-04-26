@@ -26,17 +26,17 @@ ReadState Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ReadState$new()}}
-\item \href{#method-toJSON}{\code{ReadState$toJSON()}}
-\item \href{#method-fromJSON}{\code{ReadState$fromJSON()}}
-\item \href{#method-toJSONString}{\code{ReadState$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{ReadState$fromJSONString()}}
-\item \href{#method-clone}{\code{ReadState$clone()}}
+\item \href{#method-ReadState-new}{\code{ReadState$new()}}
+\item \href{#method-ReadState-toJSON}{\code{ReadState$toJSON()}}
+\item \href{#method-ReadState-fromJSON}{\code{ReadState$fromJSON()}}
+\item \href{#method-ReadState-toJSONString}{\code{ReadState$toJSONString()}}
+\item \href{#method-ReadState-fromJSONString}{\code{ReadState$fromJSONString()}}
+\item \href{#method-ReadState-clone}{\code{ReadState$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ReadState-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ReadState-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReadState$new(
@@ -50,8 +50,8 @@ ReadState Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ReadState-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ReadState-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReadState$toJSON()}\if{html}{\out{</div>}}
@@ -59,8 +59,8 @@ ReadState Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ReadState-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ReadState-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReadState$fromJSON(ReadStateJson)}\if{html}{\out{</div>}}
@@ -68,8 +68,8 @@ ReadState Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-ReadState-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ReadState-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReadState$toJSONString()}\if{html}{\out{</div>}}
@@ -77,8 +77,8 @@ ReadState Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-ReadState-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ReadState-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ReadState$fromJSONString(ReadStateJson)}\if{html}{\out{</div>}}
@@ -86,8 +86,8 @@ ReadState Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ReadState-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ReadState-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

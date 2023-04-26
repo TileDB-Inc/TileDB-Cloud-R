@@ -22,17 +22,17 @@ ArrayEndTimestampData Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ArrayEndTimestampData$new()}}
-\item \href{#method-toJSON}{\code{ArrayEndTimestampData$toJSON()}}
-\item \href{#method-fromJSON}{\code{ArrayEndTimestampData$fromJSON()}}
-\item \href{#method-toJSONString}{\code{ArrayEndTimestampData$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{ArrayEndTimestampData$fromJSONString()}}
-\item \href{#method-clone}{\code{ArrayEndTimestampData$clone()}}
+\item \href{#method-ArrayEndTimestampData-new}{\code{ArrayEndTimestampData$new()}}
+\item \href{#method-ArrayEndTimestampData-toJSON}{\code{ArrayEndTimestampData$toJSON()}}
+\item \href{#method-ArrayEndTimestampData-fromJSON}{\code{ArrayEndTimestampData$fromJSON()}}
+\item \href{#method-ArrayEndTimestampData-toJSONString}{\code{ArrayEndTimestampData$toJSONString()}}
+\item \href{#method-ArrayEndTimestampData-fromJSONString}{\code{ArrayEndTimestampData$fromJSONString()}}
+\item \href{#method-ArrayEndTimestampData-clone}{\code{ArrayEndTimestampData$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ArrayEndTimestampData-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayEndTimestampData-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayEndTimestampData$new(
@@ -44,8 +44,8 @@ ArrayEndTimestampData Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ArrayEndTimestampData-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayEndTimestampData-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayEndTimestampData$toJSON()}\if{html}{\out{</div>}}
@@ -53,8 +53,8 @@ ArrayEndTimestampData Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ArrayEndTimestampData-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayEndTimestampData-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayEndTimestampData$fromJSON(ArrayEndTimestampDataJson)}\if{html}{\out{</div>}}
@@ -62,8 +62,8 @@ ArrayEndTimestampData Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-ArrayEndTimestampData-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayEndTimestampData-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayEndTimestampData$toJSONString()}\if{html}{\out{</div>}}
@@ -71,8 +71,8 @@ ArrayEndTimestampData Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-ArrayEndTimestampData-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayEndTimestampData-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayEndTimestampData$fromJSONString(ArrayEndTimestampDataJson)}\if{html}{\out{</div>}}
@@ -80,8 +80,8 @@ ArrayEndTimestampData Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ArrayEndTimestampData-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayEndTimestampData-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

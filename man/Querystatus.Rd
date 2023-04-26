@@ -13,17 +13,17 @@ Querystatus Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Querystatus$new()}}
-\item \href{#method-toJSON}{\code{Querystatus$toJSON()}}
-\item \href{#method-fromJSON}{\code{Querystatus$fromJSON()}}
-\item \href{#method-toJSONString}{\code{Querystatus$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{Querystatus$fromJSONString()}}
-\item \href{#method-clone}{\code{Querystatus$clone()}}
+\item \href{#method-Querystatus-new}{\code{Querystatus$new()}}
+\item \href{#method-Querystatus-toJSON}{\code{Querystatus$toJSON()}}
+\item \href{#method-Querystatus-fromJSON}{\code{Querystatus$fromJSON()}}
+\item \href{#method-Querystatus-toJSONString}{\code{Querystatus$toJSONString()}}
+\item \href{#method-Querystatus-fromJSONString}{\code{Querystatus$fromJSONString()}}
+\item \href{#method-Querystatus-clone}{\code{Querystatus$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Querystatus-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Querystatus-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Querystatus$new(...)}\if{html}{\out{</div>}}
@@ -31,8 +31,8 @@ Querystatus Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Querystatus-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Querystatus-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Querystatus$toJSON()}\if{html}{\out{</div>}}
@@ -40,8 +40,8 @@ Querystatus Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Querystatus-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Querystatus-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Querystatus$fromJSON(QuerystatusJson)}\if{html}{\out{</div>}}
@@ -49,8 +49,8 @@ Querystatus Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-Querystatus-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Querystatus-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Querystatus$toJSONString()}\if{html}{\out{</div>}}
@@ -58,8 +58,8 @@ Querystatus Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-Querystatus-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Querystatus-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Querystatus$fromJSONString(QuerystatusJson)}\if{html}{\out{</div>}}
@@ -67,8 +67,8 @@ Querystatus Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Querystatus-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Querystatus-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

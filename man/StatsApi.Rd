@@ -71,15 +71,15 @@ result <- api.instance$GetTiledbStats()
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{StatsApi$new()}}
-\item \href{#method-GetTiledbStats}{\code{StatsApi$GetTiledbStats()}}
-\item \href{#method-GetTiledbStatsWithHttpInfo}{\code{StatsApi$GetTiledbStatsWithHttpInfo()}}
-\item \href{#method-clone}{\code{StatsApi$clone()}}
+\item \href{#method-StatsApi-new}{\code{StatsApi$new()}}
+\item \href{#method-StatsApi-GetTiledbStats}{\code{StatsApi$GetTiledbStats()}}
+\item \href{#method-StatsApi-GetTiledbStatsWithHttpInfo}{\code{StatsApi$GetTiledbStatsWithHttpInfo()}}
+\item \href{#method-StatsApi-clone}{\code{StatsApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-StatsApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-StatsApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{StatsApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -87,8 +87,8 @@ result <- api.instance$GetTiledbStats()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetTiledbStats"></a>}}
-\if{latex}{\out{\hypertarget{method-GetTiledbStats}{}}}
+\if{html}{\out{<a id="method-StatsApi-GetTiledbStats"></a>}}
+\if{latex}{\out{\hypertarget{method-StatsApi-GetTiledbStats}{}}}
 \subsection{Method \code{GetTiledbStats()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{StatsApi$GetTiledbStats(...)}\if{html}{\out{</div>}}
@@ -96,8 +96,8 @@ result <- api.instance$GetTiledbStats()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetTiledbStatsWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetTiledbStatsWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-StatsApi-GetTiledbStatsWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-StatsApi-GetTiledbStatsWithHttpInfo}{}}}
 \subsection{Method \code{GetTiledbStatsWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{StatsApi$GetTiledbStatsWithHttpInfo(...)}\if{html}{\out{</div>}}
@@ -105,8 +105,8 @@ result <- api.instance$GetTiledbStats()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-StatsApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-StatsApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -20,17 +20,17 @@ InlineResponse200 Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{InlineResponse200$new()}}
-\item \href{#method-toJSON}{\code{InlineResponse200$toJSON()}}
-\item \href{#method-fromJSON}{\code{InlineResponse200$fromJSON()}}
-\item \href{#method-toJSONString}{\code{InlineResponse200$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{InlineResponse200$fromJSONString()}}
-\item \href{#method-clone}{\code{InlineResponse200$clone()}}
+\item \href{#method-InlineResponse200-new}{\code{InlineResponse200$new()}}
+\item \href{#method-InlineResponse200-toJSON}{\code{InlineResponse200$toJSON()}}
+\item \href{#method-InlineResponse200-fromJSON}{\code{InlineResponse200$fromJSON()}}
+\item \href{#method-InlineResponse200-toJSONString}{\code{InlineResponse200$toJSONString()}}
+\item \href{#method-InlineResponse200-fromJSONString}{\code{InlineResponse200$fromJSONString()}}
+\item \href{#method-InlineResponse200-clone}{\code{InlineResponse200$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-InlineResponse200-new"></a>}}
+\if{latex}{\out{\hypertarget{method-InlineResponse200-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InlineResponse200$new(stats = NULL, ...)}\if{html}{\out{</div>}}
@@ -38,8 +38,8 @@ InlineResponse200 Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-InlineResponse200-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-InlineResponse200-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InlineResponse200$toJSON()}\if{html}{\out{</div>}}
@@ -47,8 +47,8 @@ InlineResponse200 Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-InlineResponse200-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-InlineResponse200-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InlineResponse200$fromJSON(InlineResponse200Json)}\if{html}{\out{</div>}}
@@ -56,8 +56,8 @@ InlineResponse200 Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-InlineResponse200-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-InlineResponse200-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InlineResponse200$toJSONString()}\if{html}{\out{</div>}}
@@ -65,8 +65,8 @@ InlineResponse200 Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-InlineResponse200-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-InlineResponse200-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InlineResponse200$fromJSONString(InlineResponse200Json)}\if{html}{\out{</div>}}
@@ -74,8 +74,8 @@ InlineResponse200 Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-InlineResponse200-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-InlineResponse200-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -22,17 +22,17 @@ Subarray Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Subarray$new()}}
-\item \href{#method-toJSON}{\code{Subarray$toJSON()}}
-\item \href{#method-fromJSON}{\code{Subarray$fromJSON()}}
-\item \href{#method-toJSONString}{\code{Subarray$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{Subarray$fromJSONString()}}
-\item \href{#method-clone}{\code{Subarray$clone()}}
+\item \href{#method-Subarray-new}{\code{Subarray$new()}}
+\item \href{#method-Subarray-toJSON}{\code{Subarray$toJSON()}}
+\item \href{#method-Subarray-fromJSON}{\code{Subarray$fromJSON()}}
+\item \href{#method-Subarray-toJSONString}{\code{Subarray$toJSONString()}}
+\item \href{#method-Subarray-fromJSONString}{\code{Subarray$fromJSONString()}}
+\item \href{#method-Subarray-clone}{\code{Subarray$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Subarray-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Subarray-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Subarray$new(layout = NULL, ranges = NULL, ...)}\if{html}{\out{</div>}}
@@ -40,8 +40,8 @@ Subarray Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Subarray-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Subarray-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Subarray$toJSON()}\if{html}{\out{</div>}}
@@ -49,8 +49,8 @@ Subarray Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Subarray-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Subarray-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Subarray$fromJSON(SubarrayJson)}\if{html}{\out{</div>}}
@@ -58,8 +58,8 @@ Subarray Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-Subarray-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Subarray-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Subarray$toJSONString()}\if{html}{\out{</div>}}
@@ -67,8 +67,8 @@ Subarray Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-Subarray-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Subarray-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Subarray$fromJSONString(SubarrayJson)}\if{html}{\out{</div>}}
@@ -76,8 +76,8 @@ Subarray Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Subarray-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Subarray-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

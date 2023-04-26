@@ -22,17 +22,17 @@ ArrayTaskLog Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ArrayTaskLog$new()}}
-\item \href{#method-toJSON}{\code{ArrayTaskLog$toJSON()}}
-\item \href{#method-fromJSON}{\code{ArrayTaskLog$fromJSON()}}
-\item \href{#method-toJSONString}{\code{ArrayTaskLog$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{ArrayTaskLog$fromJSONString()}}
-\item \href{#method-clone}{\code{ArrayTaskLog$clone()}}
+\item \href{#method-ArrayTaskLog-new}{\code{ArrayTaskLog$new()}}
+\item \href{#method-ArrayTaskLog-toJSON}{\code{ArrayTaskLog$toJSON()}}
+\item \href{#method-ArrayTaskLog-fromJSON}{\code{ArrayTaskLog$fromJSON()}}
+\item \href{#method-ArrayTaskLog-toJSONString}{\code{ArrayTaskLog$toJSONString()}}
+\item \href{#method-ArrayTaskLog-fromJSONString}{\code{ArrayTaskLog$fromJSONString()}}
+\item \href{#method-ArrayTaskLog-clone}{\code{ArrayTaskLog$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ArrayTaskLog-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayTaskLog-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayTaskLog$new(array_task_id = NULL, logs = NULL, ...)}\if{html}{\out{</div>}}
@@ -40,8 +40,8 @@ ArrayTaskLog Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ArrayTaskLog-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayTaskLog-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayTaskLog$toJSON()}\if{html}{\out{</div>}}
@@ -49,8 +49,8 @@ ArrayTaskLog Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ArrayTaskLog-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayTaskLog-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayTaskLog$fromJSON(ArrayTaskLogJson)}\if{html}{\out{</div>}}
@@ -58,8 +58,8 @@ ArrayTaskLog Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-ArrayTaskLog-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayTaskLog-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayTaskLog$toJSONString()}\if{html}{\out{</div>}}
@@ -67,8 +67,8 @@ ArrayTaskLog Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-ArrayTaskLog-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayTaskLog-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayTaskLog$fromJSONString(ArrayTaskLogJson)}\if{html}{\out{</div>}}
@@ -76,8 +76,8 @@ ArrayTaskLog Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ArrayTaskLog-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayTaskLog-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

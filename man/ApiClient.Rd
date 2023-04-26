@@ -45,18 +45,18 @@ Do not edit the class manually.
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ApiClient$new()}}
-\item \href{#method-CallApi}{\code{ApiClient$CallApi()}}
-\item \href{#method-ExecuteWrapped}{\code{ApiClient$ExecuteWrapped()}}
-\item \href{#method-Execute}{\code{ApiClient$Execute()}}
-\item \href{#method-deserialize}{\code{ApiClient$deserialize()}}
-\item \href{#method-deserializeObj}{\code{ApiClient$deserializeObj()}}
-\item \href{#method-clone}{\code{ApiClient$clone()}}
+\item \href{#method-ApiClient-new}{\code{ApiClient$new()}}
+\item \href{#method-ApiClient-CallApi}{\code{ApiClient$CallApi()}}
+\item \href{#method-ApiClient-ExecuteWrapped}{\code{ApiClient$ExecuteWrapped()}}
+\item \href{#method-ApiClient-Execute}{\code{ApiClient$Execute()}}
+\item \href{#method-ApiClient-deserialize}{\code{ApiClient$deserialize()}}
+\item \href{#method-ApiClient-deserializeObj}{\code{ApiClient$deserializeObj()}}
+\item \href{#method-ApiClient-clone}{\code{ApiClient$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ApiClient-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ApiClient-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApiClient$new(
@@ -75,8 +75,8 @@ Do not edit the class manually.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CallApi"></a>}}
-\if{latex}{\out{\hypertarget{method-CallApi}{}}}
+\if{html}{\out{<a id="method-ApiClient-CallApi"></a>}}
+\if{latex}{\out{\hypertarget{method-ApiClient-CallApi}{}}}
 \subsection{Method \code{CallApi()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApiClient$CallApi(url, method, queryParams, headerParams, body, ...)}\if{html}{\out{</div>}}
@@ -84,8 +84,8 @@ Do not edit the class manually.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ExecuteWrapped"></a>}}
-\if{latex}{\out{\hypertarget{method-ExecuteWrapped}{}}}
+\if{html}{\out{<a id="method-ApiClient-ExecuteWrapped"></a>}}
+\if{latex}{\out{\hypertarget{method-ApiClient-ExecuteWrapped}{}}}
 \subsection{Method \code{ExecuteWrapped()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApiClient$ExecuteWrapped(url, method, queryParams, headerParams, body, ...)}\if{html}{\out{</div>}}
@@ -93,8 +93,8 @@ Do not edit the class manually.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Execute"></a>}}
-\if{latex}{\out{\hypertarget{method-Execute}{}}}
+\if{html}{\out{<a id="method-ApiClient-Execute"></a>}}
+\if{latex}{\out{\hypertarget{method-ApiClient-Execute}{}}}
 \subsection{Method \code{Execute()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApiClient$Execute(url, method, queryParams, headerParams, body, ...)}\if{html}{\out{</div>}}
@@ -102,8 +102,8 @@ Do not edit the class manually.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-deserialize"></a>}}
-\if{latex}{\out{\hypertarget{method-deserialize}{}}}
+\if{html}{\out{<a id="method-ApiClient-deserialize"></a>}}
+\if{latex}{\out{\hypertarget{method-ApiClient-deserialize}{}}}
 \subsection{Method \code{deserialize()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApiClient$deserialize(resp, returnType, pkgEnv)}\if{html}{\out{</div>}}
@@ -111,8 +111,8 @@ Do not edit the class manually.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-deserializeObj"></a>}}
-\if{latex}{\out{\hypertarget{method-deserializeObj}{}}}
+\if{html}{\out{<a id="method-ApiClient-deserializeObj"></a>}}
+\if{latex}{\out{\hypertarget{method-ApiClient-deserializeObj}{}}}
 \subsection{Method \code{deserializeObj()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ApiClient$deserializeObj(obj, returnType, pkgEnv)}\if{html}{\out{</div>}}
@@ -120,8 +120,8 @@ Do not edit the class manually.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ApiClient-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ApiClient-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

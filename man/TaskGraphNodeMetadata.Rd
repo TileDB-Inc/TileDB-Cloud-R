@@ -26,17 +26,17 @@ TaskGraphNodeMetadata Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{TaskGraphNodeMetadata$new()}}
-\item \href{#method-toJSON}{\code{TaskGraphNodeMetadata$toJSON()}}
-\item \href{#method-fromJSON}{\code{TaskGraphNodeMetadata$fromJSON()}}
-\item \href{#method-toJSONString}{\code{TaskGraphNodeMetadata$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{TaskGraphNodeMetadata$fromJSONString()}}
-\item \href{#method-clone}{\code{TaskGraphNodeMetadata$clone()}}
+\item \href{#method-TaskGraphNodeMetadata-new}{\code{TaskGraphNodeMetadata$new()}}
+\item \href{#method-TaskGraphNodeMetadata-toJSON}{\code{TaskGraphNodeMetadata$toJSON()}}
+\item \href{#method-TaskGraphNodeMetadata-fromJSON}{\code{TaskGraphNodeMetadata$fromJSON()}}
+\item \href{#method-TaskGraphNodeMetadata-toJSONString}{\code{TaskGraphNodeMetadata$toJSONString()}}
+\item \href{#method-TaskGraphNodeMetadata-fromJSONString}{\code{TaskGraphNodeMetadata$fromJSONString()}}
+\item \href{#method-TaskGraphNodeMetadata-clone}{\code{TaskGraphNodeMetadata$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-TaskGraphNodeMetadata-new"></a>}}
+\if{latex}{\out{\hypertarget{method-TaskGraphNodeMetadata-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TaskGraphNodeMetadata$new(
@@ -50,8 +50,8 @@ TaskGraphNodeMetadata Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-TaskGraphNodeMetadata-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-TaskGraphNodeMetadata-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TaskGraphNodeMetadata$toJSON()}\if{html}{\out{</div>}}
@@ -59,8 +59,8 @@ TaskGraphNodeMetadata Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-TaskGraphNodeMetadata-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-TaskGraphNodeMetadata-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TaskGraphNodeMetadata$fromJSON(TaskGraphNodeMetadataJson)}\if{html}{\out{</div>}}
@@ -68,8 +68,8 @@ TaskGraphNodeMetadata Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-TaskGraphNodeMetadata-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-TaskGraphNodeMetadata-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TaskGraphNodeMetadata$toJSONString()}\if{html}{\out{</div>}}
@@ -77,8 +77,8 @@ TaskGraphNodeMetadata Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-TaskGraphNodeMetadata-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-TaskGraphNodeMetadata-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TaskGraphNodeMetadata$fromJSONString(TaskGraphNodeMetadataJson)}\if{html}{\out{</div>}}
@@ -86,8 +86,8 @@ TaskGraphNodeMetadata Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-TaskGraphNodeMetadata-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-TaskGraphNodeMetadata-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

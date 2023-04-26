@@ -79,15 +79,15 @@ result <- api.instance$NotebooksNamespaceArrayEndTimestampsGet(var.namespace, va
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{NotebooksApi$new()}}
-\item \href{#method-NotebooksNamespaceArrayEndTimestampsGet}{\code{NotebooksApi$NotebooksNamespaceArrayEndTimestampsGet()}}
-\item \href{#method-NotebooksNamespaceArrayEndTimestampsGetWithHttpInfo}{\code{NotebooksApi$NotebooksNamespaceArrayEndTimestampsGetWithHttpInfo()}}
-\item \href{#method-clone}{\code{NotebooksApi$clone()}}
+\item \href{#method-NotebooksApi-new}{\code{NotebooksApi$new()}}
+\item \href{#method-NotebooksApi-NotebooksNamespaceArrayEndTimestampsGet}{\code{NotebooksApi$NotebooksNamespaceArrayEndTimestampsGet()}}
+\item \href{#method-NotebooksApi-NotebooksNamespaceArrayEndTimestampsGetWithHttpInfo}{\code{NotebooksApi$NotebooksNamespaceArrayEndTimestampsGetWithHttpInfo()}}
+\item \href{#method-NotebooksApi-clone}{\code{NotebooksApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-NotebooksApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-NotebooksApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotebooksApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -95,8 +95,8 @@ result <- api.instance$NotebooksNamespaceArrayEndTimestampsGet(var.namespace, va
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-NotebooksNamespaceArrayEndTimestampsGet"></a>}}
-\if{latex}{\out{\hypertarget{method-NotebooksNamespaceArrayEndTimestampsGet}{}}}
+\if{html}{\out{<a id="method-NotebooksApi-NotebooksNamespaceArrayEndTimestampsGet"></a>}}
+\if{latex}{\out{\hypertarget{method-NotebooksApi-NotebooksNamespaceArrayEndTimestampsGet}{}}}
 \subsection{Method \code{NotebooksNamespaceArrayEndTimestampsGet()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotebooksApi$NotebooksNamespaceArrayEndTimestampsGet(
@@ -110,8 +110,8 @@ result <- api.instance$NotebooksNamespaceArrayEndTimestampsGet(var.namespace, va
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-NotebooksNamespaceArrayEndTimestampsGetWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-NotebooksNamespaceArrayEndTimestampsGetWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-NotebooksApi-NotebooksNamespaceArrayEndTimestampsGetWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-NotebooksApi-NotebooksNamespaceArrayEndTimestampsGetWithHttpInfo}{}}}
 \subsection{Method \code{NotebooksNamespaceArrayEndTimestampsGetWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotebooksApi$NotebooksNamespaceArrayEndTimestampsGetWithHttpInfo(
@@ -125,8 +125,8 @@ result <- api.instance$NotebooksNamespaceArrayEndTimestampsGet(var.namespace, va
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-NotebooksApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-NotebooksApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -24,17 +24,17 @@ InvitationOrganizationJoinEmail Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{InvitationOrganizationJoinEmail$new()}}
-\item \href{#method-toJSON}{\code{InvitationOrganizationJoinEmail$toJSON()}}
-\item \href{#method-fromJSON}{\code{InvitationOrganizationJoinEmail$fromJSON()}}
-\item \href{#method-toJSONString}{\code{InvitationOrganizationJoinEmail$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{InvitationOrganizationJoinEmail$fromJSONString()}}
-\item \href{#method-clone}{\code{InvitationOrganizationJoinEmail$clone()}}
+\item \href{#method-InvitationOrganizationJoinEmail-new}{\code{InvitationOrganizationJoinEmail$new()}}
+\item \href{#method-InvitationOrganizationJoinEmail-toJSON}{\code{InvitationOrganizationJoinEmail$toJSON()}}
+\item \href{#method-InvitationOrganizationJoinEmail-fromJSON}{\code{InvitationOrganizationJoinEmail$fromJSON()}}
+\item \href{#method-InvitationOrganizationJoinEmail-toJSONString}{\code{InvitationOrganizationJoinEmail$toJSONString()}}
+\item \href{#method-InvitationOrganizationJoinEmail-fromJSONString}{\code{InvitationOrganizationJoinEmail$fromJSONString()}}
+\item \href{#method-InvitationOrganizationJoinEmail-clone}{\code{InvitationOrganizationJoinEmail$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-InvitationOrganizationJoinEmail-new"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationOrganizationJoinEmail-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InvitationOrganizationJoinEmail$new(
@@ -47,8 +47,8 @@ InvitationOrganizationJoinEmail Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-InvitationOrganizationJoinEmail-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationOrganizationJoinEmail-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InvitationOrganizationJoinEmail$toJSON()}\if{html}{\out{</div>}}
@@ -56,8 +56,8 @@ InvitationOrganizationJoinEmail Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-InvitationOrganizationJoinEmail-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationOrganizationJoinEmail-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InvitationOrganizationJoinEmail$fromJSON(InvitationOrganizationJoinEmailJson)}\if{html}{\out{</div>}}
@@ -65,8 +65,8 @@ InvitationOrganizationJoinEmail Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-InvitationOrganizationJoinEmail-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationOrganizationJoinEmail-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InvitationOrganizationJoinEmail$toJSONString()}\if{html}{\out{</div>}}
@@ -74,8 +74,8 @@ InvitationOrganizationJoinEmail Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-InvitationOrganizationJoinEmail-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationOrganizationJoinEmail-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InvitationOrganizationJoinEmail$fromJSONString(
@@ -85,8 +85,8 @@ InvitationOrganizationJoinEmail Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-InvitationOrganizationJoinEmail-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationOrganizationJoinEmail-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

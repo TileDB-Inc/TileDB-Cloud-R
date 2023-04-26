@@ -22,17 +22,17 @@ FileCreated Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{FileCreated$new()}}
-\item \href{#method-toJSON}{\code{FileCreated$toJSON()}}
-\item \href{#method-fromJSON}{\code{FileCreated$fromJSON()}}
-\item \href{#method-toJSONString}{\code{FileCreated$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{FileCreated$fromJSONString()}}
-\item \href{#method-clone}{\code{FileCreated$clone()}}
+\item \href{#method-FileCreated-new}{\code{FileCreated$new()}}
+\item \href{#method-FileCreated-toJSON}{\code{FileCreated$toJSON()}}
+\item \href{#method-FileCreated-fromJSON}{\code{FileCreated$fromJSON()}}
+\item \href{#method-FileCreated-toJSONString}{\code{FileCreated$toJSONString()}}
+\item \href{#method-FileCreated-fromJSONString}{\code{FileCreated$fromJSONString()}}
+\item \href{#method-FileCreated-clone}{\code{FileCreated$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-FileCreated-new"></a>}}
+\if{latex}{\out{\hypertarget{method-FileCreated-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FileCreated$new(output_uri = NULL, file_name = NULL, ...)}\if{html}{\out{</div>}}
@@ -40,8 +40,8 @@ FileCreated Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-FileCreated-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-FileCreated-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FileCreated$toJSON()}\if{html}{\out{</div>}}
@@ -49,8 +49,8 @@ FileCreated Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-FileCreated-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-FileCreated-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FileCreated$fromJSON(FileCreatedJson)}\if{html}{\out{</div>}}
@@ -58,8 +58,8 @@ FileCreated Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-FileCreated-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-FileCreated-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FileCreated$toJSONString()}\if{html}{\out{</div>}}
@@ -67,8 +67,8 @@ FileCreated Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-FileCreated-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-FileCreated-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FileCreated$fromJSONString(FileCreatedJson)}\if{html}{\out{</div>}}
@@ -76,8 +76,8 @@ FileCreated Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-FileCreated-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-FileCreated-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -26,17 +26,17 @@ PaginationMetadata Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{PaginationMetadata$new()}}
-\item \href{#method-toJSON}{\code{PaginationMetadata$toJSON()}}
-\item \href{#method-fromJSON}{\code{PaginationMetadata$fromJSON()}}
-\item \href{#method-toJSONString}{\code{PaginationMetadata$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{PaginationMetadata$fromJSONString()}}
-\item \href{#method-clone}{\code{PaginationMetadata$clone()}}
+\item \href{#method-PaginationMetadata-new}{\code{PaginationMetadata$new()}}
+\item \href{#method-PaginationMetadata-toJSON}{\code{PaginationMetadata$toJSON()}}
+\item \href{#method-PaginationMetadata-fromJSON}{\code{PaginationMetadata$fromJSON()}}
+\item \href{#method-PaginationMetadata-toJSONString}{\code{PaginationMetadata$toJSONString()}}
+\item \href{#method-PaginationMetadata-fromJSONString}{\code{PaginationMetadata$fromJSONString()}}
+\item \href{#method-PaginationMetadata-clone}{\code{PaginationMetadata$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-PaginationMetadata-new"></a>}}
+\if{latex}{\out{\hypertarget{method-PaginationMetadata-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PaginationMetadata$new(
@@ -50,8 +50,8 @@ PaginationMetadata Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-PaginationMetadata-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PaginationMetadata-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PaginationMetadata$toJSON()}\if{html}{\out{</div>}}
@@ -59,8 +59,8 @@ PaginationMetadata Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-PaginationMetadata-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PaginationMetadata-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PaginationMetadata$fromJSON(PaginationMetadataJson)}\if{html}{\out{</div>}}
@@ -68,8 +68,8 @@ PaginationMetadata Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-PaginationMetadata-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-PaginationMetadata-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PaginationMetadata$toJSONString()}\if{html}{\out{</div>}}
@@ -77,8 +77,8 @@ PaginationMetadata Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-PaginationMetadata-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-PaginationMetadata-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PaginationMetadata$fromJSONString(PaginationMetadataJson)}\if{html}{\out{</div>}}
@@ -86,8 +86,8 @@ PaginationMetadata Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-PaginationMetadata-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-PaginationMetadata-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

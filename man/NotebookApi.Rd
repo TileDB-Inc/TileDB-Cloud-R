@@ -189,19 +189,19 @@ result <- api.instance$UpdateNotebookName(var.namespace, var.array, var.notebook
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{NotebookApi$new()}}
-\item \href{#method-GetNotebookServerStatus}{\code{NotebookApi$GetNotebookServerStatus()}}
-\item \href{#method-GetNotebookServerStatusWithHttpInfo}{\code{NotebookApi$GetNotebookServerStatusWithHttpInfo()}}
-\item \href{#method-ShutdownNotebookServer}{\code{NotebookApi$ShutdownNotebookServer()}}
-\item \href{#method-ShutdownNotebookServerWithHttpInfo}{\code{NotebookApi$ShutdownNotebookServerWithHttpInfo()}}
-\item \href{#method-UpdateNotebookName}{\code{NotebookApi$UpdateNotebookName()}}
-\item \href{#method-UpdateNotebookNameWithHttpInfo}{\code{NotebookApi$UpdateNotebookNameWithHttpInfo()}}
-\item \href{#method-clone}{\code{NotebookApi$clone()}}
+\item \href{#method-NotebookApi-new}{\code{NotebookApi$new()}}
+\item \href{#method-NotebookApi-GetNotebookServerStatus}{\code{NotebookApi$GetNotebookServerStatus()}}
+\item \href{#method-NotebookApi-GetNotebookServerStatusWithHttpInfo}{\code{NotebookApi$GetNotebookServerStatusWithHttpInfo()}}
+\item \href{#method-NotebookApi-ShutdownNotebookServer}{\code{NotebookApi$ShutdownNotebookServer()}}
+\item \href{#method-NotebookApi-ShutdownNotebookServerWithHttpInfo}{\code{NotebookApi$ShutdownNotebookServerWithHttpInfo()}}
+\item \href{#method-NotebookApi-UpdateNotebookName}{\code{NotebookApi$UpdateNotebookName()}}
+\item \href{#method-NotebookApi-UpdateNotebookNameWithHttpInfo}{\code{NotebookApi$UpdateNotebookNameWithHttpInfo()}}
+\item \href{#method-NotebookApi-clone}{\code{NotebookApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-NotebookApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-NotebookApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotebookApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -209,8 +209,8 @@ result <- api.instance$UpdateNotebookName(var.namespace, var.array, var.notebook
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetNotebookServerStatus"></a>}}
-\if{latex}{\out{\hypertarget{method-GetNotebookServerStatus}{}}}
+\if{html}{\out{<a id="method-NotebookApi-GetNotebookServerStatus"></a>}}
+\if{latex}{\out{\hypertarget{method-NotebookApi-GetNotebookServerStatus}{}}}
 \subsection{Method \code{GetNotebookServerStatus()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotebookApi$GetNotebookServerStatus(namespace, ...)}\if{html}{\out{</div>}}
@@ -218,8 +218,8 @@ result <- api.instance$UpdateNotebookName(var.namespace, var.array, var.notebook
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetNotebookServerStatusWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetNotebookServerStatusWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-NotebookApi-GetNotebookServerStatusWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-NotebookApi-GetNotebookServerStatusWithHttpInfo}{}}}
 \subsection{Method \code{GetNotebookServerStatusWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotebookApi$GetNotebookServerStatusWithHttpInfo(namespace, ...)}\if{html}{\out{</div>}}
@@ -227,8 +227,8 @@ result <- api.instance$UpdateNotebookName(var.namespace, var.array, var.notebook
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ShutdownNotebookServer"></a>}}
-\if{latex}{\out{\hypertarget{method-ShutdownNotebookServer}{}}}
+\if{html}{\out{<a id="method-NotebookApi-ShutdownNotebookServer"></a>}}
+\if{latex}{\out{\hypertarget{method-NotebookApi-ShutdownNotebookServer}{}}}
 \subsection{Method \code{ShutdownNotebookServer()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotebookApi$ShutdownNotebookServer(namespace, ...)}\if{html}{\out{</div>}}
@@ -236,8 +236,8 @@ result <- api.instance$UpdateNotebookName(var.namespace, var.array, var.notebook
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ShutdownNotebookServerWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ShutdownNotebookServerWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-NotebookApi-ShutdownNotebookServerWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-NotebookApi-ShutdownNotebookServerWithHttpInfo}{}}}
 \subsection{Method \code{ShutdownNotebookServerWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotebookApi$ShutdownNotebookServerWithHttpInfo(namespace, ...)}\if{html}{\out{</div>}}
@@ -245,8 +245,8 @@ result <- api.instance$UpdateNotebookName(var.namespace, var.array, var.notebook
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UpdateNotebookName"></a>}}
-\if{latex}{\out{\hypertarget{method-UpdateNotebookName}{}}}
+\if{html}{\out{<a id="method-NotebookApi-UpdateNotebookName"></a>}}
+\if{latex}{\out{\hypertarget{method-NotebookApi-UpdateNotebookName}{}}}
 \subsection{Method \code{UpdateNotebookName()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotebookApi$UpdateNotebookName(namespace, array, notebook.metadata, ...)}\if{html}{\out{</div>}}
@@ -254,8 +254,8 @@ result <- api.instance$UpdateNotebookName(var.namespace, var.array, var.notebook
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UpdateNotebookNameWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-UpdateNotebookNameWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-NotebookApi-UpdateNotebookNameWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-NotebookApi-UpdateNotebookNameWithHttpInfo}{}}}
 \subsection{Method \code{UpdateNotebookNameWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotebookApi$UpdateNotebookNameWithHttpInfo(
@@ -268,8 +268,8 @@ result <- api.instance$UpdateNotebookName(var.namespace, var.array, var.notebook
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-NotebookApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-NotebookApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

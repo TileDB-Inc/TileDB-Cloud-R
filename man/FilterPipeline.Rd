@@ -20,17 +20,17 @@ FilterPipeline Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{FilterPipeline$new()}}
-\item \href{#method-toJSON}{\code{FilterPipeline$toJSON()}}
-\item \href{#method-fromJSON}{\code{FilterPipeline$fromJSON()}}
-\item \href{#method-toJSONString}{\code{FilterPipeline$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{FilterPipeline$fromJSONString()}}
-\item \href{#method-clone}{\code{FilterPipeline$clone()}}
+\item \href{#method-FilterPipeline-new}{\code{FilterPipeline$new()}}
+\item \href{#method-FilterPipeline-toJSON}{\code{FilterPipeline$toJSON()}}
+\item \href{#method-FilterPipeline-fromJSON}{\code{FilterPipeline$fromJSON()}}
+\item \href{#method-FilterPipeline-toJSONString}{\code{FilterPipeline$toJSONString()}}
+\item \href{#method-FilterPipeline-fromJSONString}{\code{FilterPipeline$fromJSONString()}}
+\item \href{#method-FilterPipeline-clone}{\code{FilterPipeline$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-FilterPipeline-new"></a>}}
+\if{latex}{\out{\hypertarget{method-FilterPipeline-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FilterPipeline$new(filters = NULL, ...)}\if{html}{\out{</div>}}
@@ -38,8 +38,8 @@ FilterPipeline Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-FilterPipeline-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-FilterPipeline-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FilterPipeline$toJSON()}\if{html}{\out{</div>}}
@@ -47,8 +47,8 @@ FilterPipeline Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-FilterPipeline-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-FilterPipeline-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FilterPipeline$fromJSON(FilterPipelineJson)}\if{html}{\out{</div>}}
@@ -56,8 +56,8 @@ FilterPipeline Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-FilterPipeline-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-FilterPipeline-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FilterPipeline$toJSONString()}\if{html}{\out{</div>}}
@@ -65,8 +65,8 @@ FilterPipeline Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-FilterPipeline-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-FilterPipeline-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FilterPipeline$fromJSONString(FilterPipelineJson)}\if{html}{\out{</div>}}
@@ -74,8 +74,8 @@ FilterPipeline Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-FilterPipeline-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-FilterPipeline-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

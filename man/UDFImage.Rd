@@ -24,17 +24,17 @@ UDFImage Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{UDFImage$new()}}
-\item \href{#method-toJSON}{\code{UDFImage$toJSON()}}
-\item \href{#method-fromJSON}{\code{UDFImage$fromJSON()}}
-\item \href{#method-toJSONString}{\code{UDFImage$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{UDFImage$fromJSONString()}}
-\item \href{#method-clone}{\code{UDFImage$clone()}}
+\item \href{#method-UDFImage-new}{\code{UDFImage$new()}}
+\item \href{#method-UDFImage-toJSON}{\code{UDFImage$toJSON()}}
+\item \href{#method-UDFImage-fromJSON}{\code{UDFImage$fromJSON()}}
+\item \href{#method-UDFImage-toJSONString}{\code{UDFImage$toJSONString()}}
+\item \href{#method-UDFImage-fromJSONString}{\code{UDFImage$fromJSONString()}}
+\item \href{#method-UDFImage-clone}{\code{UDFImage$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-UDFImage-new"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFImage-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFImage$new(id = NULL, name = NULL, language = NULL, ...)}\if{html}{\out{</div>}}
@@ -42,8 +42,8 @@ UDFImage Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-UDFImage-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFImage-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFImage$toJSON()}\if{html}{\out{</div>}}
@@ -51,8 +51,8 @@ UDFImage Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-UDFImage-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFImage-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFImage$fromJSON(UDFImageJson)}\if{html}{\out{</div>}}
@@ -60,8 +60,8 @@ UDFImage Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-UDFImage-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFImage-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFImage$toJSONString()}\if{html}{\out{</div>}}
@@ -69,8 +69,8 @@ UDFImage Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-UDFImage-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFImage-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFImage$fromJSONString(UDFImageJson)}\if{html}{\out{</div>}}
@@ -78,8 +78,8 @@ UDFImage Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-UDFImage-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFImage-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -38,17 +38,17 @@ DimensionCoordinate Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DimensionCoordinate$new()}}
-\item \href{#method-toJSON}{\code{DimensionCoordinate$toJSON()}}
-\item \href{#method-fromJSON}{\code{DimensionCoordinate$fromJSON()}}
-\item \href{#method-toJSONString}{\code{DimensionCoordinate$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{DimensionCoordinate$fromJSONString()}}
-\item \href{#method-clone}{\code{DimensionCoordinate$clone()}}
+\item \href{#method-DimensionCoordinate-new}{\code{DimensionCoordinate$new()}}
+\item \href{#method-DimensionCoordinate-toJSON}{\code{DimensionCoordinate$toJSON()}}
+\item \href{#method-DimensionCoordinate-fromJSON}{\code{DimensionCoordinate$fromJSON()}}
+\item \href{#method-DimensionCoordinate-toJSONString}{\code{DimensionCoordinate$toJSONString()}}
+\item \href{#method-DimensionCoordinate-fromJSONString}{\code{DimensionCoordinate$fromJSONString()}}
+\item \href{#method-DimensionCoordinate-clone}{\code{DimensionCoordinate$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DimensionCoordinate-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DimensionCoordinate-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DimensionCoordinate$new(
@@ -68,8 +68,8 @@ DimensionCoordinate Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-DimensionCoordinate-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DimensionCoordinate-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DimensionCoordinate$toJSON()}\if{html}{\out{</div>}}
@@ -77,8 +77,8 @@ DimensionCoordinate Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-DimensionCoordinate-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DimensionCoordinate-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DimensionCoordinate$fromJSON(DimensionCoordinateJson)}\if{html}{\out{</div>}}
@@ -86,8 +86,8 @@ DimensionCoordinate Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-DimensionCoordinate-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-DimensionCoordinate-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DimensionCoordinate$toJSONString()}\if{html}{\out{</div>}}
@@ -95,8 +95,8 @@ DimensionCoordinate Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-DimensionCoordinate-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-DimensionCoordinate-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DimensionCoordinate$fromJSONString(DimensionCoordinateJson)}\if{html}{\out{</div>}}
@@ -104,8 +104,8 @@ DimensionCoordinate Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DimensionCoordinate-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DimensionCoordinate-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

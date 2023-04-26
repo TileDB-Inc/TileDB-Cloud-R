@@ -997,57 +997,57 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{UserApi$new()}}
-\item \href{#method-AddAWSAccessCredentials}{\code{UserApi$AddAWSAccessCredentials()}}
-\item \href{#method-AddAWSAccessCredentialsWithHttpInfo}{\code{UserApi$AddAWSAccessCredentialsWithHttpInfo()}}
-\item \href{#method-AddUserToOrganization}{\code{UserApi$AddUserToOrganization()}}
-\item \href{#method-AddUserToOrganizationWithHttpInfo}{\code{UserApi$AddUserToOrganizationWithHttpInfo()}}
-\item \href{#method-CheckAWSAccessCredentials}{\code{UserApi$CheckAWSAccessCredentials()}}
-\item \href{#method-CheckAWSAccessCredentialsWithHttpInfo}{\code{UserApi$CheckAWSAccessCredentialsWithHttpInfo()}}
-\item \href{#method-CheckAWSAccessCredentialsByName}{\code{UserApi$CheckAWSAccessCredentialsByName()}}
-\item \href{#method-CheckAWSAccessCredentialsByNameWithHttpInfo}{\code{UserApi$CheckAWSAccessCredentialsByNameWithHttpInfo()}}
-\item \href{#method-ConfirmEmail}{\code{UserApi$ConfirmEmail()}}
-\item \href{#method-ConfirmEmailWithHttpInfo}{\code{UserApi$ConfirmEmailWithHttpInfo()}}
-\item \href{#method-CreateUser}{\code{UserApi$CreateUser()}}
-\item \href{#method-CreateUserWithHttpInfo}{\code{UserApi$CreateUserWithHttpInfo()}}
-\item \href{#method-DeleteAWSAccessCredentials}{\code{UserApi$DeleteAWSAccessCredentials()}}
-\item \href{#method-DeleteAWSAccessCredentialsWithHttpInfo}{\code{UserApi$DeleteAWSAccessCredentialsWithHttpInfo()}}
-\item \href{#method-DeleteUser}{\code{UserApi$DeleteUser()}}
-\item \href{#method-DeleteUserWithHttpInfo}{\code{UserApi$DeleteUserWithHttpInfo()}}
-\item \href{#method-DeleteUserFromOrganization}{\code{UserApi$DeleteUserFromOrganization()}}
-\item \href{#method-DeleteUserFromOrganizationWithHttpInfo}{\code{UserApi$DeleteUserFromOrganizationWithHttpInfo()}}
-\item \href{#method-GetOrganizationUser}{\code{UserApi$GetOrganizationUser()}}
-\item \href{#method-GetOrganizationUserWithHttpInfo}{\code{UserApi$GetOrganizationUserWithHttpInfo()}}
-\item \href{#method-GetSession}{\code{UserApi$GetSession()}}
-\item \href{#method-GetSessionWithHttpInfo}{\code{UserApi$GetSessionWithHttpInfo()}}
-\item \href{#method-GetTokenScopes}{\code{UserApi$GetTokenScopes()}}
-\item \href{#method-GetTokenScopesWithHttpInfo}{\code{UserApi$GetTokenScopesWithHttpInfo()}}
-\item \href{#method-GetUser}{\code{UserApi$GetUser()}}
-\item \href{#method-GetUserWithHttpInfo}{\code{UserApi$GetUserWithHttpInfo()}}
-\item \href{#method-GetUserWithUsername}{\code{UserApi$GetUserWithUsername()}}
-\item \href{#method-GetUserWithUsernameWithHttpInfo}{\code{UserApi$GetUserWithUsernameWithHttpInfo()}}
-\item \href{#method-RequestToken}{\code{UserApi$RequestToken()}}
-\item \href{#method-RequestTokenWithHttpInfo}{\code{UserApi$RequestTokenWithHttpInfo()}}
-\item \href{#method-ResetUserPassword}{\code{UserApi$ResetUserPassword()}}
-\item \href{#method-ResetUserPasswordWithHttpInfo}{\code{UserApi$ResetUserPasswordWithHttpInfo()}}
-\item \href{#method-RevokeToken}{\code{UserApi$RevokeToken()}}
-\item \href{#method-RevokeTokenWithHttpInfo}{\code{UserApi$RevokeTokenWithHttpInfo()}}
-\item \href{#method-TokensGet}{\code{UserApi$TokensGet()}}
-\item \href{#method-TokensGetWithHttpInfo}{\code{UserApi$TokensGetWithHttpInfo()}}
-\item \href{#method-TokensSessionGet}{\code{UserApi$TokensSessionGet()}}
-\item \href{#method-TokensSessionGetWithHttpInfo}{\code{UserApi$TokensSessionGetWithHttpInfo()}}
-\item \href{#method-UpdateAWSAccessCredentials}{\code{UserApi$UpdateAWSAccessCredentials()}}
-\item \href{#method-UpdateAWSAccessCredentialsWithHttpInfo}{\code{UserApi$UpdateAWSAccessCredentialsWithHttpInfo()}}
-\item \href{#method-UpdateUser}{\code{UserApi$UpdateUser()}}
-\item \href{#method-UpdateUserWithHttpInfo}{\code{UserApi$UpdateUserWithHttpInfo()}}
-\item \href{#method-UpdateUserInOrganization}{\code{UserApi$UpdateUserInOrganization()}}
-\item \href{#method-UpdateUserInOrganizationWithHttpInfo}{\code{UserApi$UpdateUserInOrganizationWithHttpInfo()}}
-\item \href{#method-clone}{\code{UserApi$clone()}}
+\item \href{#method-UserApi-new}{\code{UserApi$new()}}
+\item \href{#method-UserApi-AddAWSAccessCredentials}{\code{UserApi$AddAWSAccessCredentials()}}
+\item \href{#method-UserApi-AddAWSAccessCredentialsWithHttpInfo}{\code{UserApi$AddAWSAccessCredentialsWithHttpInfo()}}
+\item \href{#method-UserApi-AddUserToOrganization}{\code{UserApi$AddUserToOrganization()}}
+\item \href{#method-UserApi-AddUserToOrganizationWithHttpInfo}{\code{UserApi$AddUserToOrganizationWithHttpInfo()}}
+\item \href{#method-UserApi-CheckAWSAccessCredentials}{\code{UserApi$CheckAWSAccessCredentials()}}
+\item \href{#method-UserApi-CheckAWSAccessCredentialsWithHttpInfo}{\code{UserApi$CheckAWSAccessCredentialsWithHttpInfo()}}
+\item \href{#method-UserApi-CheckAWSAccessCredentialsByName}{\code{UserApi$CheckAWSAccessCredentialsByName()}}
+\item \href{#method-UserApi-CheckAWSAccessCredentialsByNameWithHttpInfo}{\code{UserApi$CheckAWSAccessCredentialsByNameWithHttpInfo()}}
+\item \href{#method-UserApi-ConfirmEmail}{\code{UserApi$ConfirmEmail()}}
+\item \href{#method-UserApi-ConfirmEmailWithHttpInfo}{\code{UserApi$ConfirmEmailWithHttpInfo()}}
+\item \href{#method-UserApi-CreateUser}{\code{UserApi$CreateUser()}}
+\item \href{#method-UserApi-CreateUserWithHttpInfo}{\code{UserApi$CreateUserWithHttpInfo()}}
+\item \href{#method-UserApi-DeleteAWSAccessCredentials}{\code{UserApi$DeleteAWSAccessCredentials()}}
+\item \href{#method-UserApi-DeleteAWSAccessCredentialsWithHttpInfo}{\code{UserApi$DeleteAWSAccessCredentialsWithHttpInfo()}}
+\item \href{#method-UserApi-DeleteUser}{\code{UserApi$DeleteUser()}}
+\item \href{#method-UserApi-DeleteUserWithHttpInfo}{\code{UserApi$DeleteUserWithHttpInfo()}}
+\item \href{#method-UserApi-DeleteUserFromOrganization}{\code{UserApi$DeleteUserFromOrganization()}}
+\item \href{#method-UserApi-DeleteUserFromOrganizationWithHttpInfo}{\code{UserApi$DeleteUserFromOrganizationWithHttpInfo()}}
+\item \href{#method-UserApi-GetOrganizationUser}{\code{UserApi$GetOrganizationUser()}}
+\item \href{#method-UserApi-GetOrganizationUserWithHttpInfo}{\code{UserApi$GetOrganizationUserWithHttpInfo()}}
+\item \href{#method-UserApi-GetSession}{\code{UserApi$GetSession()}}
+\item \href{#method-UserApi-GetSessionWithHttpInfo}{\code{UserApi$GetSessionWithHttpInfo()}}
+\item \href{#method-UserApi-GetTokenScopes}{\code{UserApi$GetTokenScopes()}}
+\item \href{#method-UserApi-GetTokenScopesWithHttpInfo}{\code{UserApi$GetTokenScopesWithHttpInfo()}}
+\item \href{#method-UserApi-GetUser}{\code{UserApi$GetUser()}}
+\item \href{#method-UserApi-GetUserWithHttpInfo}{\code{UserApi$GetUserWithHttpInfo()}}
+\item \href{#method-UserApi-GetUserWithUsername}{\code{UserApi$GetUserWithUsername()}}
+\item \href{#method-UserApi-GetUserWithUsernameWithHttpInfo}{\code{UserApi$GetUserWithUsernameWithHttpInfo()}}
+\item \href{#method-UserApi-RequestToken}{\code{UserApi$RequestToken()}}
+\item \href{#method-UserApi-RequestTokenWithHttpInfo}{\code{UserApi$RequestTokenWithHttpInfo()}}
+\item \href{#method-UserApi-ResetUserPassword}{\code{UserApi$ResetUserPassword()}}
+\item \href{#method-UserApi-ResetUserPasswordWithHttpInfo}{\code{UserApi$ResetUserPasswordWithHttpInfo()}}
+\item \href{#method-UserApi-RevokeToken}{\code{UserApi$RevokeToken()}}
+\item \href{#method-UserApi-RevokeTokenWithHttpInfo}{\code{UserApi$RevokeTokenWithHttpInfo()}}
+\item \href{#method-UserApi-TokensGet}{\code{UserApi$TokensGet()}}
+\item \href{#method-UserApi-TokensGetWithHttpInfo}{\code{UserApi$TokensGetWithHttpInfo()}}
+\item \href{#method-UserApi-TokensSessionGet}{\code{UserApi$TokensSessionGet()}}
+\item \href{#method-UserApi-TokensSessionGetWithHttpInfo}{\code{UserApi$TokensSessionGetWithHttpInfo()}}
+\item \href{#method-UserApi-UpdateAWSAccessCredentials}{\code{UserApi$UpdateAWSAccessCredentials()}}
+\item \href{#method-UserApi-UpdateAWSAccessCredentialsWithHttpInfo}{\code{UserApi$UpdateAWSAccessCredentialsWithHttpInfo()}}
+\item \href{#method-UserApi-UpdateUser}{\code{UserApi$UpdateUser()}}
+\item \href{#method-UserApi-UpdateUserWithHttpInfo}{\code{UserApi$UpdateUserWithHttpInfo()}}
+\item \href{#method-UserApi-UpdateUserInOrganization}{\code{UserApi$UpdateUserInOrganization()}}
+\item \href{#method-UserApi-UpdateUserInOrganizationWithHttpInfo}{\code{UserApi$UpdateUserInOrganizationWithHttpInfo()}}
+\item \href{#method-UserApi-clone}{\code{UserApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-UserApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -1055,8 +1055,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AddAWSAccessCredentials"></a>}}
-\if{latex}{\out{\hypertarget{method-AddAWSAccessCredentials}{}}}
+\if{html}{\out{<a id="method-UserApi-AddAWSAccessCredentials"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-AddAWSAccessCredentials}{}}}
 \subsection{Method \code{AddAWSAccessCredentials()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$AddAWSAccessCredentials(namespace, aws.access.credentials, ...)}\if{html}{\out{</div>}}
@@ -1064,8 +1064,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AddAWSAccessCredentialsWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-AddAWSAccessCredentialsWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UserApi-AddAWSAccessCredentialsWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-AddAWSAccessCredentialsWithHttpInfo}{}}}
 \subsection{Method \code{AddAWSAccessCredentialsWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$AddAWSAccessCredentialsWithHttpInfo(
@@ -1077,8 +1077,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AddUserToOrganization"></a>}}
-\if{latex}{\out{\hypertarget{method-AddUserToOrganization}{}}}
+\if{html}{\out{<a id="method-UserApi-AddUserToOrganization"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-AddUserToOrganization}{}}}
 \subsection{Method \code{AddUserToOrganization()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$AddUserToOrganization(organization, user, ...)}\if{html}{\out{</div>}}
@@ -1086,8 +1086,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AddUserToOrganizationWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-AddUserToOrganizationWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UserApi-AddUserToOrganizationWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-AddUserToOrganizationWithHttpInfo}{}}}
 \subsection{Method \code{AddUserToOrganizationWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$AddUserToOrganizationWithHttpInfo(organization, user, ...)}\if{html}{\out{</div>}}
@@ -1095,8 +1095,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CheckAWSAccessCredentials"></a>}}
-\if{latex}{\out{\hypertarget{method-CheckAWSAccessCredentials}{}}}
+\if{html}{\out{<a id="method-UserApi-CheckAWSAccessCredentials"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-CheckAWSAccessCredentials}{}}}
 \subsection{Method \code{CheckAWSAccessCredentials()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$CheckAWSAccessCredentials(namespace, ...)}\if{html}{\out{</div>}}
@@ -1104,8 +1104,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CheckAWSAccessCredentialsWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-CheckAWSAccessCredentialsWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UserApi-CheckAWSAccessCredentialsWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-CheckAWSAccessCredentialsWithHttpInfo}{}}}
 \subsection{Method \code{CheckAWSAccessCredentialsWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$CheckAWSAccessCredentialsWithHttpInfo(namespace, ...)}\if{html}{\out{</div>}}
@@ -1113,8 +1113,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CheckAWSAccessCredentialsByName"></a>}}
-\if{latex}{\out{\hypertarget{method-CheckAWSAccessCredentialsByName}{}}}
+\if{html}{\out{<a id="method-UserApi-CheckAWSAccessCredentialsByName"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-CheckAWSAccessCredentialsByName}{}}}
 \subsection{Method \code{CheckAWSAccessCredentialsByName()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$CheckAWSAccessCredentialsByName(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -1122,8 +1122,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CheckAWSAccessCredentialsByNameWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-CheckAWSAccessCredentialsByNameWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UserApi-CheckAWSAccessCredentialsByNameWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-CheckAWSAccessCredentialsByNameWithHttpInfo}{}}}
 \subsection{Method \code{CheckAWSAccessCredentialsByNameWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$CheckAWSAccessCredentialsByNameWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -1131,8 +1131,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ConfirmEmail"></a>}}
-\if{latex}{\out{\hypertarget{method-ConfirmEmail}{}}}
+\if{html}{\out{<a id="method-UserApi-ConfirmEmail"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-ConfirmEmail}{}}}
 \subsection{Method \code{ConfirmEmail()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$ConfirmEmail(...)}\if{html}{\out{</div>}}
@@ -1140,8 +1140,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ConfirmEmailWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ConfirmEmailWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UserApi-ConfirmEmailWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-ConfirmEmailWithHttpInfo}{}}}
 \subsection{Method \code{ConfirmEmailWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$ConfirmEmailWithHttpInfo(...)}\if{html}{\out{</div>}}
@@ -1149,8 +1149,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CreateUser"></a>}}
-\if{latex}{\out{\hypertarget{method-CreateUser}{}}}
+\if{html}{\out{<a id="method-UserApi-CreateUser"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-CreateUser}{}}}
 \subsection{Method \code{CreateUser()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$CreateUser(user, ...)}\if{html}{\out{</div>}}
@@ -1158,8 +1158,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CreateUserWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-CreateUserWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UserApi-CreateUserWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-CreateUserWithHttpInfo}{}}}
 \subsection{Method \code{CreateUserWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$CreateUserWithHttpInfo(user, ...)}\if{html}{\out{</div>}}
@@ -1167,8 +1167,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeleteAWSAccessCredentials"></a>}}
-\if{latex}{\out{\hypertarget{method-DeleteAWSAccessCredentials}{}}}
+\if{html}{\out{<a id="method-UserApi-DeleteAWSAccessCredentials"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-DeleteAWSAccessCredentials}{}}}
 \subsection{Method \code{DeleteAWSAccessCredentials()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$DeleteAWSAccessCredentials(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -1176,8 +1176,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeleteAWSAccessCredentialsWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-DeleteAWSAccessCredentialsWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UserApi-DeleteAWSAccessCredentialsWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-DeleteAWSAccessCredentialsWithHttpInfo}{}}}
 \subsection{Method \code{DeleteAWSAccessCredentialsWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$DeleteAWSAccessCredentialsWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -1185,8 +1185,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeleteUser"></a>}}
-\if{latex}{\out{\hypertarget{method-DeleteUser}{}}}
+\if{html}{\out{<a id="method-UserApi-DeleteUser"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-DeleteUser}{}}}
 \subsection{Method \code{DeleteUser()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$DeleteUser(username, ...)}\if{html}{\out{</div>}}
@@ -1194,8 +1194,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeleteUserWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-DeleteUserWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UserApi-DeleteUserWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-DeleteUserWithHttpInfo}{}}}
 \subsection{Method \code{DeleteUserWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$DeleteUserWithHttpInfo(username, ...)}\if{html}{\out{</div>}}
@@ -1203,8 +1203,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeleteUserFromOrganization"></a>}}
-\if{latex}{\out{\hypertarget{method-DeleteUserFromOrganization}{}}}
+\if{html}{\out{<a id="method-UserApi-DeleteUserFromOrganization"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-DeleteUserFromOrganization}{}}}
 \subsection{Method \code{DeleteUserFromOrganization()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$DeleteUserFromOrganization(organization, username, ...)}\if{html}{\out{</div>}}
@@ -1212,8 +1212,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeleteUserFromOrganizationWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-DeleteUserFromOrganizationWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UserApi-DeleteUserFromOrganizationWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-DeleteUserFromOrganizationWithHttpInfo}{}}}
 \subsection{Method \code{DeleteUserFromOrganizationWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$DeleteUserFromOrganizationWithHttpInfo(organization, username, ...)}\if{html}{\out{</div>}}
@@ -1221,8 +1221,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetOrganizationUser"></a>}}
-\if{latex}{\out{\hypertarget{method-GetOrganizationUser}{}}}
+\if{html}{\out{<a id="method-UserApi-GetOrganizationUser"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-GetOrganizationUser}{}}}
 \subsection{Method \code{GetOrganizationUser()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$GetOrganizationUser(organization, username, ...)}\if{html}{\out{</div>}}
@@ -1230,8 +1230,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetOrganizationUserWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetOrganizationUserWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UserApi-GetOrganizationUserWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-GetOrganizationUserWithHttpInfo}{}}}
 \subsection{Method \code{GetOrganizationUserWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$GetOrganizationUserWithHttpInfo(organization, username, ...)}\if{html}{\out{</div>}}
@@ -1239,8 +1239,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetSession"></a>}}
-\if{latex}{\out{\hypertarget{method-GetSession}{}}}
+\if{html}{\out{<a id="method-UserApi-GetSession"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-GetSession}{}}}
 \subsection{Method \code{GetSession()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$GetSession(remember.me = NULL, ...)}\if{html}{\out{</div>}}
@@ -1248,8 +1248,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetSessionWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetSessionWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UserApi-GetSessionWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-GetSessionWithHttpInfo}{}}}
 \subsection{Method \code{GetSessionWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$GetSessionWithHttpInfo(remember.me = NULL, ...)}\if{html}{\out{</div>}}
@@ -1257,8 +1257,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetTokenScopes"></a>}}
-\if{latex}{\out{\hypertarget{method-GetTokenScopes}{}}}
+\if{html}{\out{<a id="method-UserApi-GetTokenScopes"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-GetTokenScopes}{}}}
 \subsection{Method \code{GetTokenScopes()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$GetTokenScopes(...)}\if{html}{\out{</div>}}
@@ -1266,8 +1266,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetTokenScopesWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetTokenScopesWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UserApi-GetTokenScopesWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-GetTokenScopesWithHttpInfo}{}}}
 \subsection{Method \code{GetTokenScopesWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$GetTokenScopesWithHttpInfo(...)}\if{html}{\out{</div>}}
@@ -1275,8 +1275,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetUser"></a>}}
-\if{latex}{\out{\hypertarget{method-GetUser}{}}}
+\if{html}{\out{<a id="method-UserApi-GetUser"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-GetUser}{}}}
 \subsection{Method \code{GetUser()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$GetUser(...)}\if{html}{\out{</div>}}
@@ -1284,8 +1284,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetUserWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetUserWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UserApi-GetUserWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-GetUserWithHttpInfo}{}}}
 \subsection{Method \code{GetUserWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$GetUserWithHttpInfo(...)}\if{html}{\out{</div>}}
@@ -1293,8 +1293,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetUserWithUsername"></a>}}
-\if{latex}{\out{\hypertarget{method-GetUserWithUsername}{}}}
+\if{html}{\out{<a id="method-UserApi-GetUserWithUsername"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-GetUserWithUsername}{}}}
 \subsection{Method \code{GetUserWithUsername()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$GetUserWithUsername(username, ...)}\if{html}{\out{</div>}}
@@ -1302,8 +1302,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetUserWithUsernameWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetUserWithUsernameWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UserApi-GetUserWithUsernameWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-GetUserWithUsernameWithHttpInfo}{}}}
 \subsection{Method \code{GetUserWithUsernameWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$GetUserWithUsernameWithHttpInfo(username, ...)}\if{html}{\out{</div>}}
@@ -1311,8 +1311,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-RequestToken"></a>}}
-\if{latex}{\out{\hypertarget{method-RequestToken}{}}}
+\if{html}{\out{<a id="method-UserApi-RequestToken"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-RequestToken}{}}}
 \subsection{Method \code{RequestToken()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$RequestToken(token.request = NULL, ...)}\if{html}{\out{</div>}}
@@ -1320,8 +1320,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-RequestTokenWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-RequestTokenWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UserApi-RequestTokenWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-RequestTokenWithHttpInfo}{}}}
 \subsection{Method \code{RequestTokenWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$RequestTokenWithHttpInfo(token.request = NULL, ...)}\if{html}{\out{</div>}}
@@ -1329,8 +1329,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ResetUserPassword"></a>}}
-\if{latex}{\out{\hypertarget{method-ResetUserPassword}{}}}
+\if{html}{\out{<a id="method-UserApi-ResetUserPassword"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-ResetUserPassword}{}}}
 \subsection{Method \code{ResetUserPassword()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$ResetUserPassword(user, ...)}\if{html}{\out{</div>}}
@@ -1338,8 +1338,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ResetUserPasswordWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ResetUserPasswordWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UserApi-ResetUserPasswordWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-ResetUserPasswordWithHttpInfo}{}}}
 \subsection{Method \code{ResetUserPasswordWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$ResetUserPasswordWithHttpInfo(user, ...)}\if{html}{\out{</div>}}
@@ -1347,8 +1347,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-RevokeToken"></a>}}
-\if{latex}{\out{\hypertarget{method-RevokeToken}{}}}
+\if{html}{\out{<a id="method-UserApi-RevokeToken"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-RevokeToken}{}}}
 \subsection{Method \code{RevokeToken()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$RevokeToken(token, ...)}\if{html}{\out{</div>}}
@@ -1356,8 +1356,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-RevokeTokenWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-RevokeTokenWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UserApi-RevokeTokenWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-RevokeTokenWithHttpInfo}{}}}
 \subsection{Method \code{RevokeTokenWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$RevokeTokenWithHttpInfo(token, ...)}\if{html}{\out{</div>}}
@@ -1365,8 +1365,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-TokensGet"></a>}}
-\if{latex}{\out{\hypertarget{method-TokensGet}{}}}
+\if{html}{\out{<a id="method-UserApi-TokensGet"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-TokensGet}{}}}
 \subsection{Method \code{TokensGet()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$TokensGet(...)}\if{html}{\out{</div>}}
@@ -1374,8 +1374,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-TokensGetWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-TokensGetWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UserApi-TokensGetWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-TokensGetWithHttpInfo}{}}}
 \subsection{Method \code{TokensGetWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$TokensGetWithHttpInfo(...)}\if{html}{\out{</div>}}
@@ -1383,8 +1383,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-TokensSessionGet"></a>}}
-\if{latex}{\out{\hypertarget{method-TokensSessionGet}{}}}
+\if{html}{\out{<a id="method-UserApi-TokensSessionGet"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-TokensSessionGet}{}}}
 \subsection{Method \code{TokensSessionGet()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$TokensSessionGet(...)}\if{html}{\out{</div>}}
@@ -1392,8 +1392,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-TokensSessionGetWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-TokensSessionGetWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UserApi-TokensSessionGetWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-TokensSessionGetWithHttpInfo}{}}}
 \subsection{Method \code{TokensSessionGetWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$TokensSessionGetWithHttpInfo(...)}\if{html}{\out{</div>}}
@@ -1401,8 +1401,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UpdateAWSAccessCredentials"></a>}}
-\if{latex}{\out{\hypertarget{method-UpdateAWSAccessCredentials}{}}}
+\if{html}{\out{<a id="method-UserApi-UpdateAWSAccessCredentials"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-UpdateAWSAccessCredentials}{}}}
 \subsection{Method \code{UpdateAWSAccessCredentials()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$UpdateAWSAccessCredentials(
@@ -1415,8 +1415,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UpdateAWSAccessCredentialsWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-UpdateAWSAccessCredentialsWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UserApi-UpdateAWSAccessCredentialsWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-UpdateAWSAccessCredentialsWithHttpInfo}{}}}
 \subsection{Method \code{UpdateAWSAccessCredentialsWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$UpdateAWSAccessCredentialsWithHttpInfo(
@@ -1429,8 +1429,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UpdateUser"></a>}}
-\if{latex}{\out{\hypertarget{method-UpdateUser}{}}}
+\if{html}{\out{<a id="method-UserApi-UpdateUser"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-UpdateUser}{}}}
 \subsection{Method \code{UpdateUser()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$UpdateUser(username, user, ...)}\if{html}{\out{</div>}}
@@ -1438,8 +1438,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UpdateUserWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-UpdateUserWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UserApi-UpdateUserWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-UpdateUserWithHttpInfo}{}}}
 \subsection{Method \code{UpdateUserWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$UpdateUserWithHttpInfo(username, user, ...)}\if{html}{\out{</div>}}
@@ -1447,8 +1447,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UpdateUserInOrganization"></a>}}
-\if{latex}{\out{\hypertarget{method-UpdateUserInOrganization}{}}}
+\if{html}{\out{<a id="method-UserApi-UpdateUserInOrganization"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-UpdateUserInOrganization}{}}}
 \subsection{Method \code{UpdateUserInOrganization()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$UpdateUserInOrganization(organization, username, user, ...)}\if{html}{\out{</div>}}
@@ -1456,8 +1456,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UpdateUserInOrganizationWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-UpdateUserInOrganizationWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UserApi-UpdateUserInOrganizationWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-UpdateUserInOrganizationWithHttpInfo}{}}}
 \subsection{Method \code{UpdateUserInOrganizationWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UserApi$UpdateUserInOrganizationWithHttpInfo(organization, username, user, ...)}\if{html}{\out{</div>}}
@@ -1465,8 +1465,8 @@ result <- api.instance$UpdateUserInOrganization(var.organization, var.username, 
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-UserApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-UserApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

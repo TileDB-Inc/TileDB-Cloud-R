@@ -38,17 +38,17 @@ FilterData Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{FilterData$new()}}
-\item \href{#method-toJSON}{\code{FilterData$toJSON()}}
-\item \href{#method-fromJSON}{\code{FilterData$fromJSON()}}
-\item \href{#method-toJSONString}{\code{FilterData$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{FilterData$fromJSONString()}}
-\item \href{#method-clone}{\code{FilterData$clone()}}
+\item \href{#method-FilterData-new}{\code{FilterData$new()}}
+\item \href{#method-FilterData-toJSON}{\code{FilterData$toJSON()}}
+\item \href{#method-FilterData-fromJSON}{\code{FilterData$fromJSON()}}
+\item \href{#method-FilterData-toJSONString}{\code{FilterData$toJSONString()}}
+\item \href{#method-FilterData-fromJSONString}{\code{FilterData$fromJSONString()}}
+\item \href{#method-FilterData-clone}{\code{FilterData$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-FilterData-new"></a>}}
+\if{latex}{\out{\hypertarget{method-FilterData-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FilterData$new(
@@ -68,8 +68,8 @@ FilterData Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-FilterData-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-FilterData-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FilterData$toJSON()}\if{html}{\out{</div>}}
@@ -77,8 +77,8 @@ FilterData Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-FilterData-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-FilterData-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FilterData$fromJSON(FilterDataJson)}\if{html}{\out{</div>}}
@@ -86,8 +86,8 @@ FilterData Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-FilterData-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-FilterData-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FilterData$toJSONString()}\if{html}{\out{</div>}}
@@ -95,8 +95,8 @@ FilterData Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-FilterData-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-FilterData-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FilterData$fromJSONString(FilterDataJson)}\if{html}{\out{</div>}}
@@ -104,8 +104,8 @@ FilterData Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-FilterData-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-FilterData-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

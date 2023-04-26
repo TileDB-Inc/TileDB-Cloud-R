@@ -28,17 +28,17 @@ LastAccessedArray Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{LastAccessedArray$new()}}
-\item \href{#method-toJSON}{\code{LastAccessedArray$toJSON()}}
-\item \href{#method-fromJSON}{\code{LastAccessedArray$fromJSON()}}
-\item \href{#method-toJSONString}{\code{LastAccessedArray$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{LastAccessedArray$fromJSONString()}}
-\item \href{#method-clone}{\code{LastAccessedArray$clone()}}
+\item \href{#method-LastAccessedArray-new}{\code{LastAccessedArray$new()}}
+\item \href{#method-LastAccessedArray-toJSON}{\code{LastAccessedArray$toJSON()}}
+\item \href{#method-LastAccessedArray-fromJSON}{\code{LastAccessedArray$fromJSON()}}
+\item \href{#method-LastAccessedArray-toJSONString}{\code{LastAccessedArray$toJSONString()}}
+\item \href{#method-LastAccessedArray-fromJSONString}{\code{LastAccessedArray$fromJSONString()}}
+\item \href{#method-LastAccessedArray-clone}{\code{LastAccessedArray$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-LastAccessedArray-new"></a>}}
+\if{latex}{\out{\hypertarget{method-LastAccessedArray-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LastAccessedArray$new(
@@ -53,8 +53,8 @@ LastAccessedArray Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-LastAccessedArray-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-LastAccessedArray-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LastAccessedArray$toJSON()}\if{html}{\out{</div>}}
@@ -62,8 +62,8 @@ LastAccessedArray Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-LastAccessedArray-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-LastAccessedArray-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LastAccessedArray$fromJSON(LastAccessedArrayJson)}\if{html}{\out{</div>}}
@@ -71,8 +71,8 @@ LastAccessedArray Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-LastAccessedArray-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-LastAccessedArray-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LastAccessedArray$toJSONString()}\if{html}{\out{</div>}}
@@ -80,8 +80,8 @@ LastAccessedArray Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-LastAccessedArray-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-LastAccessedArray-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LastAccessedArray$fromJSONString(LastAccessedArrayJson)}\if{html}{\out{</div>}}
@@ -89,8 +89,8 @@ LastAccessedArray Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-LastAccessedArray-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-LastAccessedArray-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

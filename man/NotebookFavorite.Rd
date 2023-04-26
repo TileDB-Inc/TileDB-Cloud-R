@@ -24,17 +24,17 @@ NotebookFavorite Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{NotebookFavorite$new()}}
-\item \href{#method-toJSON}{\code{NotebookFavorite$toJSON()}}
-\item \href{#method-fromJSON}{\code{NotebookFavorite$fromJSON()}}
-\item \href{#method-toJSONString}{\code{NotebookFavorite$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{NotebookFavorite$fromJSONString()}}
-\item \href{#method-clone}{\code{NotebookFavorite$clone()}}
+\item \href{#method-NotebookFavorite-new}{\code{NotebookFavorite$new()}}
+\item \href{#method-NotebookFavorite-toJSON}{\code{NotebookFavorite$toJSON()}}
+\item \href{#method-NotebookFavorite-fromJSON}{\code{NotebookFavorite$fromJSON()}}
+\item \href{#method-NotebookFavorite-toJSONString}{\code{NotebookFavorite$toJSONString()}}
+\item \href{#method-NotebookFavorite-fromJSONString}{\code{NotebookFavorite$fromJSONString()}}
+\item \href{#method-NotebookFavorite-clone}{\code{NotebookFavorite$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-NotebookFavorite-new"></a>}}
+\if{latex}{\out{\hypertarget{method-NotebookFavorite-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotebookFavorite$new(notebook_uuid = NULL, namespace = NULL, name = NULL, ...)}\if{html}{\out{</div>}}
@@ -42,8 +42,8 @@ NotebookFavorite Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-NotebookFavorite-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-NotebookFavorite-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotebookFavorite$toJSON()}\if{html}{\out{</div>}}
@@ -51,8 +51,8 @@ NotebookFavorite Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-NotebookFavorite-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-NotebookFavorite-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotebookFavorite$fromJSON(NotebookFavoriteJson)}\if{html}{\out{</div>}}
@@ -60,8 +60,8 @@ NotebookFavorite Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-NotebookFavorite-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-NotebookFavorite-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotebookFavorite$toJSONString()}\if{html}{\out{</div>}}
@@ -69,8 +69,8 @@ NotebookFavorite Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-NotebookFavorite-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-NotebookFavorite-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotebookFavorite$fromJSONString(NotebookFavoriteJson)}\if{html}{\out{</div>}}
@@ -78,8 +78,8 @@ NotebookFavorite Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-NotebookFavorite-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-NotebookFavorite-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

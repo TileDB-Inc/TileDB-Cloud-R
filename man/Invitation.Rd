@@ -48,17 +48,17 @@ Invitation Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Invitation$new()}}
-\item \href{#method-toJSON}{\code{Invitation$toJSON()}}
-\item \href{#method-fromJSON}{\code{Invitation$fromJSON()}}
-\item \href{#method-toJSONString}{\code{Invitation$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{Invitation$fromJSONString()}}
-\item \href{#method-clone}{\code{Invitation$clone()}}
+\item \href{#method-Invitation-new}{\code{Invitation$new()}}
+\item \href{#method-Invitation-toJSON}{\code{Invitation$toJSON()}}
+\item \href{#method-Invitation-fromJSON}{\code{Invitation$fromJSON()}}
+\item \href{#method-Invitation-toJSONString}{\code{Invitation$toJSONString()}}
+\item \href{#method-Invitation-fromJSONString}{\code{Invitation$fromJSONString()}}
+\item \href{#method-Invitation-clone}{\code{Invitation$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Invitation-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Invitation-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Invitation$new(
@@ -83,8 +83,8 @@ Invitation Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Invitation-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Invitation-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Invitation$toJSON()}\if{html}{\out{</div>}}
@@ -92,8 +92,8 @@ Invitation Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Invitation-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Invitation-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Invitation$fromJSON(InvitationJson)}\if{html}{\out{</div>}}
@@ -101,8 +101,8 @@ Invitation Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-Invitation-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Invitation-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Invitation$toJSONString()}\if{html}{\out{</div>}}
@@ -110,8 +110,8 @@ Invitation Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-Invitation-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Invitation-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Invitation$fromJSONString(InvitationJson)}\if{html}{\out{</div>}}
@@ -119,8 +119,8 @@ Invitation Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Invitation-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Invitation-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

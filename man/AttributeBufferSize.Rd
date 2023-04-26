@@ -24,17 +24,17 @@ AttributeBufferSize Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{AttributeBufferSize$new()}}
-\item \href{#method-toJSON}{\code{AttributeBufferSize$toJSON()}}
-\item \href{#method-fromJSON}{\code{AttributeBufferSize$fromJSON()}}
-\item \href{#method-toJSONString}{\code{AttributeBufferSize$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{AttributeBufferSize$fromJSONString()}}
-\item \href{#method-clone}{\code{AttributeBufferSize$clone()}}
+\item \href{#method-AttributeBufferSize-new}{\code{AttributeBufferSize$new()}}
+\item \href{#method-AttributeBufferSize-toJSON}{\code{AttributeBufferSize$toJSON()}}
+\item \href{#method-AttributeBufferSize-fromJSON}{\code{AttributeBufferSize$fromJSON()}}
+\item \href{#method-AttributeBufferSize-toJSONString}{\code{AttributeBufferSize$toJSONString()}}
+\item \href{#method-AttributeBufferSize-fromJSONString}{\code{AttributeBufferSize$fromJSONString()}}
+\item \href{#method-AttributeBufferSize-clone}{\code{AttributeBufferSize$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-AttributeBufferSize-new"></a>}}
+\if{latex}{\out{\hypertarget{method-AttributeBufferSize-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AttributeBufferSize$new(attribute, offsetBytes, dataBytes, ...)}\if{html}{\out{</div>}}
@@ -42,8 +42,8 @@ AttributeBufferSize Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-AttributeBufferSize-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-AttributeBufferSize-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AttributeBufferSize$toJSON()}\if{html}{\out{</div>}}
@@ -51,8 +51,8 @@ AttributeBufferSize Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-AttributeBufferSize-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-AttributeBufferSize-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AttributeBufferSize$fromJSON(AttributeBufferSizeJson)}\if{html}{\out{</div>}}
@@ -60,8 +60,8 @@ AttributeBufferSize Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-AttributeBufferSize-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-AttributeBufferSize-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AttributeBufferSize$toJSONString()}\if{html}{\out{</div>}}
@@ -69,8 +69,8 @@ AttributeBufferSize Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-AttributeBufferSize-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-AttributeBufferSize-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AttributeBufferSize$fromJSONString(AttributeBufferSizeJson)}\if{html}{\out{</div>}}
@@ -78,8 +78,8 @@ AttributeBufferSize Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-AttributeBufferSize-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-AttributeBufferSize-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

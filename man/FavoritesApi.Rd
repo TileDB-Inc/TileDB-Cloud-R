@@ -908,53 +908,53 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{FavoritesApi$new()}}
-\item \href{#method-AddArrayFavorite}{\code{FavoritesApi$AddArrayFavorite()}}
-\item \href{#method-AddArrayFavoriteWithHttpInfo}{\code{FavoritesApi$AddArrayFavoriteWithHttpInfo()}}
-\item \href{#method-AddMLModelFavorite}{\code{FavoritesApi$AddMLModelFavorite()}}
-\item \href{#method-AddMLModelFavoriteWithHttpInfo}{\code{FavoritesApi$AddMLModelFavoriteWithHttpInfo()}}
-\item \href{#method-AddNotebookFavorite}{\code{FavoritesApi$AddNotebookFavorite()}}
-\item \href{#method-AddNotebookFavoriteWithHttpInfo}{\code{FavoritesApi$AddNotebookFavoriteWithHttpInfo()}}
-\item \href{#method-AddUDFFavorite}{\code{FavoritesApi$AddUDFFavorite()}}
-\item \href{#method-AddUDFFavoriteWithHttpInfo}{\code{FavoritesApi$AddUDFFavoriteWithHttpInfo()}}
-\item \href{#method-DeleteArrayFavorite}{\code{FavoritesApi$DeleteArrayFavorite()}}
-\item \href{#method-DeleteArrayFavoriteWithHttpInfo}{\code{FavoritesApi$DeleteArrayFavoriteWithHttpInfo()}}
-\item \href{#method-DeleteMLModelFavorite}{\code{FavoritesApi$DeleteMLModelFavorite()}}
-\item \href{#method-DeleteMLModelFavoriteWithHttpInfo}{\code{FavoritesApi$DeleteMLModelFavoriteWithHttpInfo()}}
-\item \href{#method-DeleteNotebookFavorite}{\code{FavoritesApi$DeleteNotebookFavorite()}}
-\item \href{#method-DeleteNotebookFavoriteWithHttpInfo}{\code{FavoritesApi$DeleteNotebookFavoriteWithHttpInfo()}}
-\item \href{#method-DeleteUDFFavorite}{\code{FavoritesApi$DeleteUDFFavorite()}}
-\item \href{#method-DeleteUDFFavoriteWithHttpInfo}{\code{FavoritesApi$DeleteUDFFavoriteWithHttpInfo()}}
-\item \href{#method-GetArrayFavorite}{\code{FavoritesApi$GetArrayFavorite()}}
-\item \href{#method-GetArrayFavoriteWithHttpInfo}{\code{FavoritesApi$GetArrayFavoriteWithHttpInfo()}}
-\item \href{#method-GetMLModelFavorite}{\code{FavoritesApi$GetMLModelFavorite()}}
-\item \href{#method-GetMLModelFavoriteWithHttpInfo}{\code{FavoritesApi$GetMLModelFavoriteWithHttpInfo()}}
-\item \href{#method-GetNotebookFavorite}{\code{FavoritesApi$GetNotebookFavorite()}}
-\item \href{#method-GetNotebookFavoriteWithHttpInfo}{\code{FavoritesApi$GetNotebookFavoriteWithHttpInfo()}}
-\item \href{#method-GetUDFFavorite}{\code{FavoritesApi$GetUDFFavorite()}}
-\item \href{#method-GetUDFFavoriteWithHttpInfo}{\code{FavoritesApi$GetUDFFavoriteWithHttpInfo()}}
-\item \href{#method-ListArrayFavorites}{\code{FavoritesApi$ListArrayFavorites()}}
-\item \href{#method-ListArrayFavoritesWithHttpInfo}{\code{FavoritesApi$ListArrayFavoritesWithHttpInfo()}}
-\item \href{#method-ListArrayFavoritesUUIDs}{\code{FavoritesApi$ListArrayFavoritesUUIDs()}}
-\item \href{#method-ListArrayFavoritesUUIDsWithHttpInfo}{\code{FavoritesApi$ListArrayFavoritesUUIDsWithHttpInfo()}}
-\item \href{#method-ListMLModelFavorites}{\code{FavoritesApi$ListMLModelFavorites()}}
-\item \href{#method-ListMLModelFavoritesWithHttpInfo}{\code{FavoritesApi$ListMLModelFavoritesWithHttpInfo()}}
-\item \href{#method-ListMLModelFavoritesUUIDs}{\code{FavoritesApi$ListMLModelFavoritesUUIDs()}}
-\item \href{#method-ListMLModelFavoritesUUIDsWithHttpInfo}{\code{FavoritesApi$ListMLModelFavoritesUUIDsWithHttpInfo()}}
-\item \href{#method-ListNotebookFavorites}{\code{FavoritesApi$ListNotebookFavorites()}}
-\item \href{#method-ListNotebookFavoritesWithHttpInfo}{\code{FavoritesApi$ListNotebookFavoritesWithHttpInfo()}}
-\item \href{#method-ListNotebookFavoritesUUIDs}{\code{FavoritesApi$ListNotebookFavoritesUUIDs()}}
-\item \href{#method-ListNotebookFavoritesUUIDsWithHttpInfo}{\code{FavoritesApi$ListNotebookFavoritesUUIDsWithHttpInfo()}}
-\item \href{#method-ListUDFFavorites}{\code{FavoritesApi$ListUDFFavorites()}}
-\item \href{#method-ListUDFFavoritesWithHttpInfo}{\code{FavoritesApi$ListUDFFavoritesWithHttpInfo()}}
-\item \href{#method-ListUDFFavoritesUUIDs}{\code{FavoritesApi$ListUDFFavoritesUUIDs()}}
-\item \href{#method-ListUDFFavoritesUUIDsWithHttpInfo}{\code{FavoritesApi$ListUDFFavoritesUUIDsWithHttpInfo()}}
-\item \href{#method-clone}{\code{FavoritesApi$clone()}}
+\item \href{#method-FavoritesApi-new}{\code{FavoritesApi$new()}}
+\item \href{#method-FavoritesApi-AddArrayFavorite}{\code{FavoritesApi$AddArrayFavorite()}}
+\item \href{#method-FavoritesApi-AddArrayFavoriteWithHttpInfo}{\code{FavoritesApi$AddArrayFavoriteWithHttpInfo()}}
+\item \href{#method-FavoritesApi-AddMLModelFavorite}{\code{FavoritesApi$AddMLModelFavorite()}}
+\item \href{#method-FavoritesApi-AddMLModelFavoriteWithHttpInfo}{\code{FavoritesApi$AddMLModelFavoriteWithHttpInfo()}}
+\item \href{#method-FavoritesApi-AddNotebookFavorite}{\code{FavoritesApi$AddNotebookFavorite()}}
+\item \href{#method-FavoritesApi-AddNotebookFavoriteWithHttpInfo}{\code{FavoritesApi$AddNotebookFavoriteWithHttpInfo()}}
+\item \href{#method-FavoritesApi-AddUDFFavorite}{\code{FavoritesApi$AddUDFFavorite()}}
+\item \href{#method-FavoritesApi-AddUDFFavoriteWithHttpInfo}{\code{FavoritesApi$AddUDFFavoriteWithHttpInfo()}}
+\item \href{#method-FavoritesApi-DeleteArrayFavorite}{\code{FavoritesApi$DeleteArrayFavorite()}}
+\item \href{#method-FavoritesApi-DeleteArrayFavoriteWithHttpInfo}{\code{FavoritesApi$DeleteArrayFavoriteWithHttpInfo()}}
+\item \href{#method-FavoritesApi-DeleteMLModelFavorite}{\code{FavoritesApi$DeleteMLModelFavorite()}}
+\item \href{#method-FavoritesApi-DeleteMLModelFavoriteWithHttpInfo}{\code{FavoritesApi$DeleteMLModelFavoriteWithHttpInfo()}}
+\item \href{#method-FavoritesApi-DeleteNotebookFavorite}{\code{FavoritesApi$DeleteNotebookFavorite()}}
+\item \href{#method-FavoritesApi-DeleteNotebookFavoriteWithHttpInfo}{\code{FavoritesApi$DeleteNotebookFavoriteWithHttpInfo()}}
+\item \href{#method-FavoritesApi-DeleteUDFFavorite}{\code{FavoritesApi$DeleteUDFFavorite()}}
+\item \href{#method-FavoritesApi-DeleteUDFFavoriteWithHttpInfo}{\code{FavoritesApi$DeleteUDFFavoriteWithHttpInfo()}}
+\item \href{#method-FavoritesApi-GetArrayFavorite}{\code{FavoritesApi$GetArrayFavorite()}}
+\item \href{#method-FavoritesApi-GetArrayFavoriteWithHttpInfo}{\code{FavoritesApi$GetArrayFavoriteWithHttpInfo()}}
+\item \href{#method-FavoritesApi-GetMLModelFavorite}{\code{FavoritesApi$GetMLModelFavorite()}}
+\item \href{#method-FavoritesApi-GetMLModelFavoriteWithHttpInfo}{\code{FavoritesApi$GetMLModelFavoriteWithHttpInfo()}}
+\item \href{#method-FavoritesApi-GetNotebookFavorite}{\code{FavoritesApi$GetNotebookFavorite()}}
+\item \href{#method-FavoritesApi-GetNotebookFavoriteWithHttpInfo}{\code{FavoritesApi$GetNotebookFavoriteWithHttpInfo()}}
+\item \href{#method-FavoritesApi-GetUDFFavorite}{\code{FavoritesApi$GetUDFFavorite()}}
+\item \href{#method-FavoritesApi-GetUDFFavoriteWithHttpInfo}{\code{FavoritesApi$GetUDFFavoriteWithHttpInfo()}}
+\item \href{#method-FavoritesApi-ListArrayFavorites}{\code{FavoritesApi$ListArrayFavorites()}}
+\item \href{#method-FavoritesApi-ListArrayFavoritesWithHttpInfo}{\code{FavoritesApi$ListArrayFavoritesWithHttpInfo()}}
+\item \href{#method-FavoritesApi-ListArrayFavoritesUUIDs}{\code{FavoritesApi$ListArrayFavoritesUUIDs()}}
+\item \href{#method-FavoritesApi-ListArrayFavoritesUUIDsWithHttpInfo}{\code{FavoritesApi$ListArrayFavoritesUUIDsWithHttpInfo()}}
+\item \href{#method-FavoritesApi-ListMLModelFavorites}{\code{FavoritesApi$ListMLModelFavorites()}}
+\item \href{#method-FavoritesApi-ListMLModelFavoritesWithHttpInfo}{\code{FavoritesApi$ListMLModelFavoritesWithHttpInfo()}}
+\item \href{#method-FavoritesApi-ListMLModelFavoritesUUIDs}{\code{FavoritesApi$ListMLModelFavoritesUUIDs()}}
+\item \href{#method-FavoritesApi-ListMLModelFavoritesUUIDsWithHttpInfo}{\code{FavoritesApi$ListMLModelFavoritesUUIDsWithHttpInfo()}}
+\item \href{#method-FavoritesApi-ListNotebookFavorites}{\code{FavoritesApi$ListNotebookFavorites()}}
+\item \href{#method-FavoritesApi-ListNotebookFavoritesWithHttpInfo}{\code{FavoritesApi$ListNotebookFavoritesWithHttpInfo()}}
+\item \href{#method-FavoritesApi-ListNotebookFavoritesUUIDs}{\code{FavoritesApi$ListNotebookFavoritesUUIDs()}}
+\item \href{#method-FavoritesApi-ListNotebookFavoritesUUIDsWithHttpInfo}{\code{FavoritesApi$ListNotebookFavoritesUUIDsWithHttpInfo()}}
+\item \href{#method-FavoritesApi-ListUDFFavorites}{\code{FavoritesApi$ListUDFFavorites()}}
+\item \href{#method-FavoritesApi-ListUDFFavoritesWithHttpInfo}{\code{FavoritesApi$ListUDFFavoritesWithHttpInfo()}}
+\item \href{#method-FavoritesApi-ListUDFFavoritesUUIDs}{\code{FavoritesApi$ListUDFFavoritesUUIDs()}}
+\item \href{#method-FavoritesApi-ListUDFFavoritesUUIDsWithHttpInfo}{\code{FavoritesApi$ListUDFFavoritesUUIDsWithHttpInfo()}}
+\item \href{#method-FavoritesApi-clone}{\code{FavoritesApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -962,8 +962,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AddArrayFavorite"></a>}}
-\if{latex}{\out{\hypertarget{method-AddArrayFavorite}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-AddArrayFavorite"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-AddArrayFavorite}{}}}
 \subsection{Method \code{AddArrayFavorite()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$AddArrayFavorite(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -971,8 +971,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AddArrayFavoriteWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-AddArrayFavoriteWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-AddArrayFavoriteWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-AddArrayFavoriteWithHttpInfo}{}}}
 \subsection{Method \code{AddArrayFavoriteWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$AddArrayFavoriteWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -980,8 +980,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AddMLModelFavorite"></a>}}
-\if{latex}{\out{\hypertarget{method-AddMLModelFavorite}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-AddMLModelFavorite"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-AddMLModelFavorite}{}}}
 \subsection{Method \code{AddMLModelFavorite()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$AddMLModelFavorite(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -989,8 +989,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AddMLModelFavoriteWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-AddMLModelFavoriteWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-AddMLModelFavoriteWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-AddMLModelFavoriteWithHttpInfo}{}}}
 \subsection{Method \code{AddMLModelFavoriteWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$AddMLModelFavoriteWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -998,8 +998,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AddNotebookFavorite"></a>}}
-\if{latex}{\out{\hypertarget{method-AddNotebookFavorite}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-AddNotebookFavorite"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-AddNotebookFavorite}{}}}
 \subsection{Method \code{AddNotebookFavorite()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$AddNotebookFavorite(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -1007,8 +1007,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AddNotebookFavoriteWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-AddNotebookFavoriteWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-AddNotebookFavoriteWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-AddNotebookFavoriteWithHttpInfo}{}}}
 \subsection{Method \code{AddNotebookFavoriteWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$AddNotebookFavoriteWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -1016,8 +1016,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AddUDFFavorite"></a>}}
-\if{latex}{\out{\hypertarget{method-AddUDFFavorite}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-AddUDFFavorite"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-AddUDFFavorite}{}}}
 \subsection{Method \code{AddUDFFavorite()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$AddUDFFavorite(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -1025,8 +1025,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AddUDFFavoriteWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-AddUDFFavoriteWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-AddUDFFavoriteWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-AddUDFFavoriteWithHttpInfo}{}}}
 \subsection{Method \code{AddUDFFavoriteWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$AddUDFFavoriteWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -1034,8 +1034,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeleteArrayFavorite"></a>}}
-\if{latex}{\out{\hypertarget{method-DeleteArrayFavorite}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-DeleteArrayFavorite"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-DeleteArrayFavorite}{}}}
 \subsection{Method \code{DeleteArrayFavorite()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$DeleteArrayFavorite(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -1043,8 +1043,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeleteArrayFavoriteWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-DeleteArrayFavoriteWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-DeleteArrayFavoriteWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-DeleteArrayFavoriteWithHttpInfo}{}}}
 \subsection{Method \code{DeleteArrayFavoriteWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$DeleteArrayFavoriteWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -1052,8 +1052,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeleteMLModelFavorite"></a>}}
-\if{latex}{\out{\hypertarget{method-DeleteMLModelFavorite}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-DeleteMLModelFavorite"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-DeleteMLModelFavorite}{}}}
 \subsection{Method \code{DeleteMLModelFavorite()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$DeleteMLModelFavorite(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -1061,8 +1061,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeleteMLModelFavoriteWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-DeleteMLModelFavoriteWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-DeleteMLModelFavoriteWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-DeleteMLModelFavoriteWithHttpInfo}{}}}
 \subsection{Method \code{DeleteMLModelFavoriteWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$DeleteMLModelFavoriteWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -1070,8 +1070,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeleteNotebookFavorite"></a>}}
-\if{latex}{\out{\hypertarget{method-DeleteNotebookFavorite}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-DeleteNotebookFavorite"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-DeleteNotebookFavorite}{}}}
 \subsection{Method \code{DeleteNotebookFavorite()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$DeleteNotebookFavorite(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -1079,8 +1079,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeleteNotebookFavoriteWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-DeleteNotebookFavoriteWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-DeleteNotebookFavoriteWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-DeleteNotebookFavoriteWithHttpInfo}{}}}
 \subsection{Method \code{DeleteNotebookFavoriteWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$DeleteNotebookFavoriteWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -1088,8 +1088,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeleteUDFFavorite"></a>}}
-\if{latex}{\out{\hypertarget{method-DeleteUDFFavorite}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-DeleteUDFFavorite"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-DeleteUDFFavorite}{}}}
 \subsection{Method \code{DeleteUDFFavorite()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$DeleteUDFFavorite(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -1097,8 +1097,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeleteUDFFavoriteWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-DeleteUDFFavoriteWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-DeleteUDFFavoriteWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-DeleteUDFFavoriteWithHttpInfo}{}}}
 \subsection{Method \code{DeleteUDFFavoriteWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$DeleteUDFFavoriteWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -1106,8 +1106,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArrayFavorite"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArrayFavorite}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-GetArrayFavorite"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-GetArrayFavorite}{}}}
 \subsection{Method \code{GetArrayFavorite()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetArrayFavorite(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -1115,8 +1115,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArrayFavoriteWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArrayFavoriteWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-GetArrayFavoriteWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-GetArrayFavoriteWithHttpInfo}{}}}
 \subsection{Method \code{GetArrayFavoriteWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetArrayFavoriteWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -1124,8 +1124,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetMLModelFavorite"></a>}}
-\if{latex}{\out{\hypertarget{method-GetMLModelFavorite}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-GetMLModelFavorite"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-GetMLModelFavorite}{}}}
 \subsection{Method \code{GetMLModelFavorite()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetMLModelFavorite(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -1133,8 +1133,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetMLModelFavoriteWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetMLModelFavoriteWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-GetMLModelFavoriteWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-GetMLModelFavoriteWithHttpInfo}{}}}
 \subsection{Method \code{GetMLModelFavoriteWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetMLModelFavoriteWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -1142,8 +1142,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetNotebookFavorite"></a>}}
-\if{latex}{\out{\hypertarget{method-GetNotebookFavorite}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-GetNotebookFavorite"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-GetNotebookFavorite}{}}}
 \subsection{Method \code{GetNotebookFavorite()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetNotebookFavorite(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -1151,8 +1151,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetNotebookFavoriteWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetNotebookFavoriteWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-GetNotebookFavoriteWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-GetNotebookFavoriteWithHttpInfo}{}}}
 \subsection{Method \code{GetNotebookFavoriteWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetNotebookFavoriteWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -1160,8 +1160,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetUDFFavorite"></a>}}
-\if{latex}{\out{\hypertarget{method-GetUDFFavorite}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-GetUDFFavorite"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-GetUDFFavorite}{}}}
 \subsection{Method \code{GetUDFFavorite()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetUDFFavorite(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -1169,8 +1169,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetUDFFavoriteWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetUDFFavoriteWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-GetUDFFavoriteWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-GetUDFFavoriteWithHttpInfo}{}}}
 \subsection{Method \code{GetUDFFavoriteWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$GetUDFFavoriteWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -1178,8 +1178,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ListArrayFavorites"></a>}}
-\if{latex}{\out{\hypertarget{method-ListArrayFavorites}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-ListArrayFavorites"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-ListArrayFavorites}{}}}
 \subsection{Method \code{ListArrayFavorites()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$ListArrayFavorites(page = NULL, per.page = NULL, ...)}\if{html}{\out{</div>}}
@@ -1187,8 +1187,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ListArrayFavoritesWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ListArrayFavoritesWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-ListArrayFavoritesWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-ListArrayFavoritesWithHttpInfo}{}}}
 \subsection{Method \code{ListArrayFavoritesWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$ListArrayFavoritesWithHttpInfo(page = NULL, per.page = NULL, ...)}\if{html}{\out{</div>}}
@@ -1196,8 +1196,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ListArrayFavoritesUUIDs"></a>}}
-\if{latex}{\out{\hypertarget{method-ListArrayFavoritesUUIDs}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-ListArrayFavoritesUUIDs"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-ListArrayFavoritesUUIDs}{}}}
 \subsection{Method \code{ListArrayFavoritesUUIDs()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$ListArrayFavoritesUUIDs(...)}\if{html}{\out{</div>}}
@@ -1205,8 +1205,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ListArrayFavoritesUUIDsWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ListArrayFavoritesUUIDsWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-ListArrayFavoritesUUIDsWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-ListArrayFavoritesUUIDsWithHttpInfo}{}}}
 \subsection{Method \code{ListArrayFavoritesUUIDsWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$ListArrayFavoritesUUIDsWithHttpInfo(...)}\if{html}{\out{</div>}}
@@ -1214,8 +1214,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ListMLModelFavorites"></a>}}
-\if{latex}{\out{\hypertarget{method-ListMLModelFavorites}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-ListMLModelFavorites"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-ListMLModelFavorites}{}}}
 \subsection{Method \code{ListMLModelFavorites()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$ListMLModelFavorites(page = NULL, per.page = NULL, ...)}\if{html}{\out{</div>}}
@@ -1223,8 +1223,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ListMLModelFavoritesWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ListMLModelFavoritesWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-ListMLModelFavoritesWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-ListMLModelFavoritesWithHttpInfo}{}}}
 \subsection{Method \code{ListMLModelFavoritesWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$ListMLModelFavoritesWithHttpInfo(
@@ -1236,8 +1236,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ListMLModelFavoritesUUIDs"></a>}}
-\if{latex}{\out{\hypertarget{method-ListMLModelFavoritesUUIDs}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-ListMLModelFavoritesUUIDs"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-ListMLModelFavoritesUUIDs}{}}}
 \subsection{Method \code{ListMLModelFavoritesUUIDs()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$ListMLModelFavoritesUUIDs(...)}\if{html}{\out{</div>}}
@@ -1245,8 +1245,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ListMLModelFavoritesUUIDsWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ListMLModelFavoritesUUIDsWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-ListMLModelFavoritesUUIDsWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-ListMLModelFavoritesUUIDsWithHttpInfo}{}}}
 \subsection{Method \code{ListMLModelFavoritesUUIDsWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$ListMLModelFavoritesUUIDsWithHttpInfo(...)}\if{html}{\out{</div>}}
@@ -1254,8 +1254,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ListNotebookFavorites"></a>}}
-\if{latex}{\out{\hypertarget{method-ListNotebookFavorites}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-ListNotebookFavorites"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-ListNotebookFavorites}{}}}
 \subsection{Method \code{ListNotebookFavorites()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$ListNotebookFavorites(
@@ -1268,8 +1268,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ListNotebookFavoritesWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ListNotebookFavoritesWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-ListNotebookFavoritesWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-ListNotebookFavoritesWithHttpInfo}{}}}
 \subsection{Method \code{ListNotebookFavoritesWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$ListNotebookFavoritesWithHttpInfo(
@@ -1282,8 +1282,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ListNotebookFavoritesUUIDs"></a>}}
-\if{latex}{\out{\hypertarget{method-ListNotebookFavoritesUUIDs}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-ListNotebookFavoritesUUIDs"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-ListNotebookFavoritesUUIDs}{}}}
 \subsection{Method \code{ListNotebookFavoritesUUIDs()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$ListNotebookFavoritesUUIDs(...)}\if{html}{\out{</div>}}
@@ -1291,8 +1291,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ListNotebookFavoritesUUIDsWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ListNotebookFavoritesUUIDsWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-ListNotebookFavoritesUUIDsWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-ListNotebookFavoritesUUIDsWithHttpInfo}{}}}
 \subsection{Method \code{ListNotebookFavoritesUUIDsWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$ListNotebookFavoritesUUIDsWithHttpInfo(...)}\if{html}{\out{</div>}}
@@ -1300,8 +1300,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ListUDFFavorites"></a>}}
-\if{latex}{\out{\hypertarget{method-ListUDFFavorites}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-ListUDFFavorites"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-ListUDFFavorites}{}}}
 \subsection{Method \code{ListUDFFavorites()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$ListUDFFavorites(page = NULL, per.page = NULL, ...)}\if{html}{\out{</div>}}
@@ -1309,8 +1309,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ListUDFFavoritesWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ListUDFFavoritesWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-ListUDFFavoritesWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-ListUDFFavoritesWithHttpInfo}{}}}
 \subsection{Method \code{ListUDFFavoritesWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$ListUDFFavoritesWithHttpInfo(page = NULL, per.page = NULL, ...)}\if{html}{\out{</div>}}
@@ -1318,8 +1318,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ListUDFFavoritesUUIDs"></a>}}
-\if{latex}{\out{\hypertarget{method-ListUDFFavoritesUUIDs}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-ListUDFFavoritesUUIDs"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-ListUDFFavoritesUUIDs}{}}}
 \subsection{Method \code{ListUDFFavoritesUUIDs()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$ListUDFFavoritesUUIDs(...)}\if{html}{\out{</div>}}
@@ -1327,8 +1327,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ListUDFFavoritesUUIDsWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ListUDFFavoritesUUIDsWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-ListUDFFavoritesUUIDsWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-ListUDFFavoritesUUIDsWithHttpInfo}{}}}
 \subsection{Method \code{ListUDFFavoritesUUIDsWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FavoritesApi$ListUDFFavoritesUUIDsWithHttpInfo(...)}\if{html}{\out{</div>}}
@@ -1336,8 +1336,8 @@ result <- api.instance$ListUDFFavoritesUUIDs()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-FavoritesApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-FavoritesApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

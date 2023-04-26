@@ -20,17 +20,17 @@ MaxBufferSizes Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{MaxBufferSizes$new()}}
-\item \href{#method-toJSON}{\code{MaxBufferSizes$toJSON()}}
-\item \href{#method-fromJSON}{\code{MaxBufferSizes$fromJSON()}}
-\item \href{#method-toJSONString}{\code{MaxBufferSizes$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{MaxBufferSizes$fromJSONString()}}
-\item \href{#method-clone}{\code{MaxBufferSizes$clone()}}
+\item \href{#method-MaxBufferSizes-new}{\code{MaxBufferSizes$new()}}
+\item \href{#method-MaxBufferSizes-toJSON}{\code{MaxBufferSizes$toJSON()}}
+\item \href{#method-MaxBufferSizes-fromJSON}{\code{MaxBufferSizes$fromJSON()}}
+\item \href{#method-MaxBufferSizes-toJSONString}{\code{MaxBufferSizes$toJSONString()}}
+\item \href{#method-MaxBufferSizes-fromJSONString}{\code{MaxBufferSizes$fromJSONString()}}
+\item \href{#method-MaxBufferSizes-clone}{\code{MaxBufferSizes$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-MaxBufferSizes-new"></a>}}
+\if{latex}{\out{\hypertarget{method-MaxBufferSizes-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MaxBufferSizes$new(maxBufferSizes = NULL, ...)}\if{html}{\out{</div>}}
@@ -38,8 +38,8 @@ MaxBufferSizes Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-MaxBufferSizes-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-MaxBufferSizes-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MaxBufferSizes$toJSON()}\if{html}{\out{</div>}}
@@ -47,8 +47,8 @@ MaxBufferSizes Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-MaxBufferSizes-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-MaxBufferSizes-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MaxBufferSizes$fromJSON(MaxBufferSizesJson)}\if{html}{\out{</div>}}
@@ -56,8 +56,8 @@ MaxBufferSizes Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-MaxBufferSizes-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-MaxBufferSizes-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MaxBufferSizes$toJSONString()}\if{html}{\out{</div>}}
@@ -65,8 +65,8 @@ MaxBufferSizes Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-MaxBufferSizes-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-MaxBufferSizes-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MaxBufferSizes$fromJSONString(MaxBufferSizesJson)}\if{html}{\out{</div>}}
@@ -74,8 +74,8 @@ MaxBufferSizes Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-MaxBufferSizes-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-MaxBufferSizes-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

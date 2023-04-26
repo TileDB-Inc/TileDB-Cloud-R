@@ -32,17 +32,17 @@ GroupListing Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GroupListing$new()}}
-\item \href{#method-toJSON}{\code{GroupListing$toJSON()}}
-\item \href{#method-fromJSON}{\code{GroupListing$fromJSON()}}
-\item \href{#method-toJSONString}{\code{GroupListing$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{GroupListing$fromJSONString()}}
-\item \href{#method-clone}{\code{GroupListing$clone()}}
+\item \href{#method-GroupListing-new}{\code{GroupListing$new()}}
+\item \href{#method-GroupListing-toJSON}{\code{GroupListing$toJSON()}}
+\item \href{#method-GroupListing-fromJSON}{\code{GroupListing$fromJSON()}}
+\item \href{#method-GroupListing-toJSONString}{\code{GroupListing$toJSONString()}}
+\item \href{#method-GroupListing-fromJSONString}{\code{GroupListing$fromJSONString()}}
+\item \href{#method-GroupListing-clone}{\code{GroupListing$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GroupListing-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupListing-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GroupListing$new(
@@ -59,8 +59,8 @@ GroupListing Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-GroupListing-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupListing-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GroupListing$toJSON()}\if{html}{\out{</div>}}
@@ -68,8 +68,8 @@ GroupListing Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-GroupListing-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupListing-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GroupListing$fromJSON(GroupListingJson)}\if{html}{\out{</div>}}
@@ -77,8 +77,8 @@ GroupListing Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-GroupListing-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupListing-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GroupListing$toJSONString()}\if{html}{\out{</div>}}
@@ -86,8 +86,8 @@ GroupListing Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-GroupListing-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupListing-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GroupListing$fromJSONString(GroupListingJson)}\if{html}{\out{</div>}}
@@ -95,8 +95,8 @@ GroupListing Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GroupListing-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupListing-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

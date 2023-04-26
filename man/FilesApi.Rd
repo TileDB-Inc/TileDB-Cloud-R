@@ -124,17 +124,17 @@ result <- api.instance$HandleExportFile(var.namespace, var.file, var.file.export
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{FilesApi$new()}}
-\item \href{#method-HandleCreateFile}{\code{FilesApi$HandleCreateFile()}}
-\item \href{#method-HandleCreateFileWithHttpInfo}{\code{FilesApi$HandleCreateFileWithHttpInfo()}}
-\item \href{#method-HandleExportFile}{\code{FilesApi$HandleExportFile()}}
-\item \href{#method-HandleExportFileWithHttpInfo}{\code{FilesApi$HandleExportFileWithHttpInfo()}}
-\item \href{#method-clone}{\code{FilesApi$clone()}}
+\item \href{#method-FilesApi-new}{\code{FilesApi$new()}}
+\item \href{#method-FilesApi-HandleCreateFile}{\code{FilesApi$HandleCreateFile()}}
+\item \href{#method-FilesApi-HandleCreateFileWithHttpInfo}{\code{FilesApi$HandleCreateFileWithHttpInfo()}}
+\item \href{#method-FilesApi-HandleExportFile}{\code{FilesApi$HandleExportFile()}}
+\item \href{#method-FilesApi-HandleExportFileWithHttpInfo}{\code{FilesApi$HandleExportFileWithHttpInfo()}}
+\item \href{#method-FilesApi-clone}{\code{FilesApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-FilesApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-FilesApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FilesApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -142,8 +142,8 @@ result <- api.instance$HandleExportFile(var.namespace, var.file, var.file.export
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-HandleCreateFile"></a>}}
-\if{latex}{\out{\hypertarget{method-HandleCreateFile}{}}}
+\if{html}{\out{<a id="method-FilesApi-HandleCreateFile"></a>}}
+\if{latex}{\out{\hypertarget{method-FilesApi-HandleCreateFile}{}}}
 \subsection{Method \code{HandleCreateFile()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FilesApi$HandleCreateFile(
@@ -156,8 +156,8 @@ result <- api.instance$HandleExportFile(var.namespace, var.file, var.file.export
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-HandleCreateFileWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-HandleCreateFileWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-FilesApi-HandleCreateFileWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-FilesApi-HandleCreateFileWithHttpInfo}{}}}
 \subsection{Method \code{HandleCreateFileWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FilesApi$HandleCreateFileWithHttpInfo(
@@ -170,8 +170,8 @@ result <- api.instance$HandleExportFile(var.namespace, var.file, var.file.export
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-HandleExportFile"></a>}}
-\if{latex}{\out{\hypertarget{method-HandleExportFile}{}}}
+\if{html}{\out{<a id="method-FilesApi-HandleExportFile"></a>}}
+\if{latex}{\out{\hypertarget{method-FilesApi-HandleExportFile}{}}}
 \subsection{Method \code{HandleExportFile()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FilesApi$HandleExportFile(namespace, file, file.export, ...)}\if{html}{\out{</div>}}
@@ -179,8 +179,8 @@ result <- api.instance$HandleExportFile(var.namespace, var.file, var.file.export
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-HandleExportFileWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-HandleExportFileWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-FilesApi-HandleExportFileWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-FilesApi-HandleExportFileWithHttpInfo}{}}}
 \subsection{Method \code{HandleExportFileWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FilesApi$HandleExportFileWithHttpInfo(namespace, file, file.export, ...)}\if{html}{\out{</div>}}
@@ -188,8 +188,8 @@ result <- api.instance$HandleExportFile(var.namespace, var.file, var.file.export
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-FilesApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-FilesApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -22,17 +22,17 @@ UDFFavoritesData Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{UDFFavoritesData$new()}}
-\item \href{#method-toJSON}{\code{UDFFavoritesData$toJSON()}}
-\item \href{#method-fromJSON}{\code{UDFFavoritesData$fromJSON()}}
-\item \href{#method-toJSONString}{\code{UDFFavoritesData$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{UDFFavoritesData$fromJSONString()}}
-\item \href{#method-clone}{\code{UDFFavoritesData$clone()}}
+\item \href{#method-UDFFavoritesData-new}{\code{UDFFavoritesData$new()}}
+\item \href{#method-UDFFavoritesData-toJSON}{\code{UDFFavoritesData$toJSON()}}
+\item \href{#method-UDFFavoritesData-fromJSON}{\code{UDFFavoritesData$fromJSON()}}
+\item \href{#method-UDFFavoritesData-toJSONString}{\code{UDFFavoritesData$toJSONString()}}
+\item \href{#method-UDFFavoritesData-fromJSONString}{\code{UDFFavoritesData$fromJSONString()}}
+\item \href{#method-UDFFavoritesData-clone}{\code{UDFFavoritesData$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-UDFFavoritesData-new"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFFavoritesData-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFFavoritesData$new(udfs = NULL, pagination_metadata = NULL, ...)}\if{html}{\out{</div>}}
@@ -40,8 +40,8 @@ UDFFavoritesData Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-UDFFavoritesData-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFFavoritesData-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFFavoritesData$toJSON()}\if{html}{\out{</div>}}
@@ -49,8 +49,8 @@ UDFFavoritesData Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-UDFFavoritesData-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFFavoritesData-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFFavoritesData$fromJSON(UDFFavoritesDataJson)}\if{html}{\out{</div>}}
@@ -58,8 +58,8 @@ UDFFavoritesData Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-UDFFavoritesData-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFFavoritesData-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFFavoritesData$toJSONString()}\if{html}{\out{</div>}}
@@ -67,8 +67,8 @@ UDFFavoritesData Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-UDFFavoritesData-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFFavoritesData-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFFavoritesData$fromJSONString(UDFFavoritesDataJson)}\if{html}{\out{</div>}}
@@ -76,8 +76,8 @@ UDFFavoritesData Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-UDFFavoritesData-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFFavoritesData-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -13,17 +13,17 @@ ActivityEventType Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ActivityEventType$new()}}
-\item \href{#method-toJSON}{\code{ActivityEventType$toJSON()}}
-\item \href{#method-fromJSON}{\code{ActivityEventType$fromJSON()}}
-\item \href{#method-toJSONString}{\code{ActivityEventType$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{ActivityEventType$fromJSONString()}}
-\item \href{#method-clone}{\code{ActivityEventType$clone()}}
+\item \href{#method-ActivityEventType-new}{\code{ActivityEventType$new()}}
+\item \href{#method-ActivityEventType-toJSON}{\code{ActivityEventType$toJSON()}}
+\item \href{#method-ActivityEventType-fromJSON}{\code{ActivityEventType$fromJSON()}}
+\item \href{#method-ActivityEventType-toJSONString}{\code{ActivityEventType$toJSONString()}}
+\item \href{#method-ActivityEventType-fromJSONString}{\code{ActivityEventType$fromJSONString()}}
+\item \href{#method-ActivityEventType-clone}{\code{ActivityEventType$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ActivityEventType-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ActivityEventType-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ActivityEventType$new(...)}\if{html}{\out{</div>}}
@@ -31,8 +31,8 @@ ActivityEventType Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ActivityEventType-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ActivityEventType-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ActivityEventType$toJSON()}\if{html}{\out{</div>}}
@@ -40,8 +40,8 @@ ActivityEventType Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ActivityEventType-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ActivityEventType-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ActivityEventType$fromJSON(ActivityEventTypeJson)}\if{html}{\out{</div>}}
@@ -49,8 +49,8 @@ ActivityEventType Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-ActivityEventType-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ActivityEventType-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ActivityEventType$toJSONString()}\if{html}{\out{</div>}}
@@ -58,8 +58,8 @@ ActivityEventType Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-ActivityEventType-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ActivityEventType-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ActivityEventType$fromJSONString(ActivityEventTypeJson)}\if{html}{\out{</div>}}
@@ -67,8 +67,8 @@ ActivityEventType Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ActivityEventType-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ActivityEventType-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

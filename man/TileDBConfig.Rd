@@ -20,17 +20,17 @@ TileDBConfig Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{TileDBConfig$new()}}
-\item \href{#method-toJSON}{\code{TileDBConfig$toJSON()}}
-\item \href{#method-fromJSON}{\code{TileDBConfig$fromJSON()}}
-\item \href{#method-toJSONString}{\code{TileDBConfig$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{TileDBConfig$fromJSONString()}}
-\item \href{#method-clone}{\code{TileDBConfig$clone()}}
+\item \href{#method-TileDBConfig-new}{\code{TileDBConfig$new()}}
+\item \href{#method-TileDBConfig-toJSON}{\code{TileDBConfig$toJSON()}}
+\item \href{#method-TileDBConfig-fromJSON}{\code{TileDBConfig$fromJSON()}}
+\item \href{#method-TileDBConfig-toJSONString}{\code{TileDBConfig$toJSONString()}}
+\item \href{#method-TileDBConfig-fromJSONString}{\code{TileDBConfig$fromJSONString()}}
+\item \href{#method-TileDBConfig-clone}{\code{TileDBConfig$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-TileDBConfig-new"></a>}}
+\if{latex}{\out{\hypertarget{method-TileDBConfig-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TileDBConfig$new(configs = NULL, ...)}\if{html}{\out{</div>}}
@@ -38,8 +38,8 @@ TileDBConfig Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-TileDBConfig-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-TileDBConfig-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TileDBConfig$toJSON()}\if{html}{\out{</div>}}
@@ -47,8 +47,8 @@ TileDBConfig Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-TileDBConfig-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-TileDBConfig-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TileDBConfig$fromJSON(TileDBConfigJson)}\if{html}{\out{</div>}}
@@ -56,8 +56,8 @@ TileDBConfig Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-TileDBConfig-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-TileDBConfig-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TileDBConfig$toJSONString()}\if{html}{\out{</div>}}
@@ -65,8 +65,8 @@ TileDBConfig Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-TileDBConfig-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-TileDBConfig-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TileDBConfig$fromJSONString(TileDBConfigJson)}\if{html}{\out{</div>}}
@@ -74,8 +74,8 @@ TileDBConfig Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-TileDBConfig-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-TileDBConfig-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

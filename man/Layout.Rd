@@ -13,17 +13,17 @@ Layout Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Layout$new()}}
-\item \href{#method-toJSON}{\code{Layout$toJSON()}}
-\item \href{#method-fromJSON}{\code{Layout$fromJSON()}}
-\item \href{#method-toJSONString}{\code{Layout$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{Layout$fromJSONString()}}
-\item \href{#method-clone}{\code{Layout$clone()}}
+\item \href{#method-Layout-new}{\code{Layout$new()}}
+\item \href{#method-Layout-toJSON}{\code{Layout$toJSON()}}
+\item \href{#method-Layout-fromJSON}{\code{Layout$fromJSON()}}
+\item \href{#method-Layout-toJSONString}{\code{Layout$toJSONString()}}
+\item \href{#method-Layout-fromJSONString}{\code{Layout$fromJSONString()}}
+\item \href{#method-Layout-clone}{\code{Layout$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Layout-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Layout-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Layout$new(...)}\if{html}{\out{</div>}}
@@ -31,8 +31,8 @@ Layout Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Layout-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Layout-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Layout$toJSON()}\if{html}{\out{</div>}}
@@ -40,8 +40,8 @@ Layout Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Layout-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Layout-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Layout$fromJSON(LayoutJson)}\if{html}{\out{</div>}}
@@ -49,8 +49,8 @@ Layout Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-Layout-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Layout-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Layout$toJSONString()}\if{html}{\out{</div>}}
@@ -58,8 +58,8 @@ Layout Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-Layout-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Layout-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Layout$fromJSONString(LayoutJson)}\if{html}{\out{</div>}}
@@ -67,8 +67,8 @@ Layout Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Layout-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Layout-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

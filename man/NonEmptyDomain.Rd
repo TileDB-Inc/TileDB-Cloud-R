@@ -22,17 +22,17 @@ NonEmptyDomain Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{NonEmptyDomain$new()}}
-\item \href{#method-toJSON}{\code{NonEmptyDomain$toJSON()}}
-\item \href{#method-fromJSON}{\code{NonEmptyDomain$fromJSON()}}
-\item \href{#method-toJSONString}{\code{NonEmptyDomain$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{NonEmptyDomain$fromJSONString()}}
-\item \href{#method-clone}{\code{NonEmptyDomain$clone()}}
+\item \href{#method-NonEmptyDomain-new}{\code{NonEmptyDomain$new()}}
+\item \href{#method-NonEmptyDomain-toJSON}{\code{NonEmptyDomain$toJSON()}}
+\item \href{#method-NonEmptyDomain-fromJSON}{\code{NonEmptyDomain$fromJSON()}}
+\item \href{#method-NonEmptyDomain-toJSONString}{\code{NonEmptyDomain$toJSONString()}}
+\item \href{#method-NonEmptyDomain-fromJSONString}{\code{NonEmptyDomain$fromJSONString()}}
+\item \href{#method-NonEmptyDomain-clone}{\code{NonEmptyDomain$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-NonEmptyDomain-new"></a>}}
+\if{latex}{\out{\hypertarget{method-NonEmptyDomain-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NonEmptyDomain$new(nonEmptyDomain, isEmpty, ...)}\if{html}{\out{</div>}}
@@ -40,8 +40,8 @@ NonEmptyDomain Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-NonEmptyDomain-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-NonEmptyDomain-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NonEmptyDomain$toJSON()}\if{html}{\out{</div>}}
@@ -49,8 +49,8 @@ NonEmptyDomain Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-NonEmptyDomain-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-NonEmptyDomain-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NonEmptyDomain$fromJSON(NonEmptyDomainJson)}\if{html}{\out{</div>}}
@@ -58,8 +58,8 @@ NonEmptyDomain Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-NonEmptyDomain-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-NonEmptyDomain-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NonEmptyDomain$toJSONString()}\if{html}{\out{</div>}}
@@ -67,8 +67,8 @@ NonEmptyDomain Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-NonEmptyDomain-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-NonEmptyDomain-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NonEmptyDomain$fromJSONString(NonEmptyDomainJson)}\if{html}{\out{</div>}}
@@ -76,8 +76,8 @@ NonEmptyDomain Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-NonEmptyDomain-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-NonEmptyDomain-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

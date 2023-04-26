@@ -26,17 +26,17 @@ Writer Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Writer$new()}}
-\item \href{#method-toJSON}{\code{Writer$toJSON()}}
-\item \href{#method-fromJSON}{\code{Writer$fromJSON()}}
-\item \href{#method-toJSONString}{\code{Writer$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{Writer$fromJSONString()}}
-\item \href{#method-clone}{\code{Writer$clone()}}
+\item \href{#method-Writer-new}{\code{Writer$new()}}
+\item \href{#method-Writer-toJSON}{\code{Writer$toJSON()}}
+\item \href{#method-Writer-fromJSON}{\code{Writer$fromJSON()}}
+\item \href{#method-Writer-toJSONString}{\code{Writer$toJSONString()}}
+\item \href{#method-Writer-fromJSONString}{\code{Writer$fromJSONString()}}
+\item \href{#method-Writer-clone}{\code{Writer$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Writer-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Writer-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Writer$new(
@@ -50,8 +50,8 @@ Writer Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Writer-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Writer-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Writer$toJSON()}\if{html}{\out{</div>}}
@@ -59,8 +59,8 @@ Writer Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Writer-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Writer-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Writer$fromJSON(WriterJson)}\if{html}{\out{</div>}}
@@ -68,8 +68,8 @@ Writer Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-Writer-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Writer-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Writer$toJSONString()}\if{html}{\out{</div>}}
@@ -77,8 +77,8 @@ Writer Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-Writer-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Writer-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Writer$fromJSONString(WriterJson)}\if{html}{\out{</div>}}
@@ -86,8 +86,8 @@ Writer Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Writer-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Writer-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -13,17 +13,16 @@ tiledbcloud.Groups
 \section{Methods}{
 
 \describe{
-\strong{ AddAsset } \emph{  }
-Adds an asset(array, notebook, udf etc) to a group
+\strong{ ChangeGroupContents } \emph{  }
+Changes the contents of the group by adding/removing members.
 
 \itemize{
-\item \emph{ @param } namespace character
-\item \emph{ @param } name character
-\item \emph{ @param } asset.namespace character
-\item \emph{ @param } asset.name character
+\item \emph{ @param } group.namespace character
+\item \emph{ @param } group.name character
+\item \emph{ @param } group.changes \link{GroupChanges}
 
 
-\item status code : 204 | asset added successfully
+\item status code : 204 | all changes applied successfully
 
 
 \item response headers :
@@ -40,11 +39,10 @@ Adds an asset(array, notebook, udf etc) to a group
 }
 
 \strong{ CreateGroup } \emph{  }
-Creates a new, empty group in the namespace.
+Creates a new group in the namespace.
 
 \itemize{
 \item \emph{ @param } namespace character
-\item \emph{ @param } name character
 \item \emph{ @param } group.create \link{GroupCreate}
 
 
@@ -65,11 +63,11 @@ Creates a new, empty group in the namespace.
 }
 
 \strong{ DeleteGroup } \emph{  }
-Deletes the group and all the subgroups recursively. The assets are not deleted nor are not relocated to any other group
+Deletes the group. The assets are not deleted nor are not relocated to any other group
 
 \itemize{
-\item \emph{ @param } namespace character
-\item \emph{ @param } name character
+\item \emph{ @param } group.namespace character
+\item \emph{ @param } group.name character
 
 
 \item status code : 204 | group deleted successfully
@@ -88,21 +86,18 @@ Deletes the group and all the subgroups recursively. The assets are not deleted 
 }
 }
 
-\strong{ ListGroup } \emph{  }
-Returns the contents, assets and subgroups, of the group
+\strong{ GetGroup } \emph{  }
+Returns the the group
 
 \itemize{
-\item \emph{ @param } namespace character
-\item \emph{ @param } name character
-\item \emph{ @param } output Enum < [attributes, groups, assets] > 
-\item \emph{ @param } page integer
-\item \emph{ @param } per.page integer
-\item \emph{ @returnType } \link{GroupListing} \cr
+\item \emph{ @param } group.namespace character
+\item \emph{ @param } group.name character
+\item \emph{ @returnType } \link{GroupInfo} \cr
 
 
-\item status code : 200 | the group contents
+\item status code : 200 | the group metadata
 
-\item return type : GroupListing 
+\item return type : GroupInfo 
 \item response headers :
 
 \tabular{ll}{
@@ -116,19 +111,27 @@ Returns the contents, assets and subgroups, of the group
 }
 }
 
-\strong{ ListTopLevelGroups } \emph{  }
-Returns one page of top level groups in namespace.
+\strong{ GetGroupContents } \emph{  }
+Returns the contents of the group
 
 \itemize{
-\item \emph{ @param } namespace character
+\item \emph{ @param } group.namespace character
+\item \emph{ @param } group.name character
 \item \emph{ @param } page integer
 \item \emph{ @param } per.page integer
-\item \emph{ @returnType } \link{GroupListing} \cr
+\item \emph{ @param } namespace character
+\item \emph{ @param } search character
+\item \emph{ @param } orderby character
+\item \emph{ @param } tag list( character )
+\item \emph{ @param } exclude.tag list( character )
+\item \emph{ @param } member.type list( character )
+\item \emph{ @param } exclude.member.type list( character )
+\item \emph{ @returnType } \link{GroupContents} \cr
 
 
 \item status code : 200 | the group contents
 
-\item return type : GroupListing 
+\item return type : GroupContents 
 \item response headers :
 
 \tabular{ll}{
@@ -142,17 +145,274 @@ Returns one page of top level groups in namespace.
 }
 }
 
-\strong{ RemoveAsset } \emph{  }
-Removes an asset from a group
+\strong{ GetGroupSharingPolicies } \emph{  }
+Get all sharing details of the group
+
+\itemize{
+\item \emph{ @param } group.namespace character
+\item \emph{ @param } group.name character
+\item \emph{ @returnType } list( \link{GroupSharing} ) \cr
+
+
+\item status code : 200 | List of all specific sharing policies
+
+\item return type : array[GroupSharing] 
+\item response headers :
+
+\tabular{ll}{
+}
+\item status code : 404 | Group does not exist or user does not have permissions to view group-sharing policies
+
+
+\item response headers :
+
+\tabular{ll}{
+}
+\item status code : 0 | error response
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
+}
+}
+
+\strong{ GroupsBrowserOwnedFiltersGet } \emph{  }
+Fetch data to initialize filters for the groups browser
+
+\itemize{
+\item \emph{ @returnType } \link{GroupBrowserFilterData} \cr
+
+
+\item status code : 200 | Filter data
+
+\item return type : GroupBrowserFilterData 
+\item response headers :
+
+\tabular{ll}{
+}
+\item status code : 0 | error response
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
+}
+}
+
+\strong{ GroupsBrowserPublicFiltersGet } \emph{  }
+Fetch data to initialize filters for the groups browser
+
+\itemize{
+\item \emph{ @returnType } \link{GroupBrowserFilterData} \cr
+
+
+\item status code : 200 | Filter data
+
+\item return type : GroupBrowserFilterData 
+\item response headers :
+
+\tabular{ll}{
+}
+\item status code : 0 | error response
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
+}
+}
+
+\strong{ GroupsBrowserSharedFiltersGet } \emph{  }
+Fetch data to initialize filters for the groups browser
+
+\itemize{
+\item \emph{ @returnType } \link{GroupBrowserFilterData} \cr
+
+
+\item status code : 200 | Filter data
+
+\item return type : GroupBrowserFilterData 
+\item response headers :
+
+\tabular{ll}{
+}
+\item status code : 0 | error response
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
+}
+}
+
+\strong{ GroupsGroupNamespaceGroupNameContentsFiltersGet } \emph{  }
+Fetch data to initialize filters for the group contents
+
+\itemize{
+\item \emph{ @param } group.namespace character
+\item \emph{ @param } group.name character
+\item \emph{ @returnType } \link{GroupContentsFilterData} \cr
+
+
+\item status code : 200 | Filter data
+
+\item return type : GroupContentsFilterData 
+\item response headers :
+
+\tabular{ll}{
+}
+\item status code : 0 | error response
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
+}
+}
+
+\strong{ ListOwnedGroups } \emph{  }
+Returns one page of owned groups.
+
+\itemize{
+\item \emph{ @param } page integer
+\item \emph{ @param } per.page integer
+\item \emph{ @param } search character
+\item \emph{ @param } namespace character
+\item \emph{ @param } orderby character
+\item \emph{ @param } permissions character
+\item \emph{ @param } tag list( character )
+\item \emph{ @param } exclude.tag list( character )
+\item \emph{ @param } flat character
+\item \emph{ @param } parent character
+\item \emph{ @returnType } \link{GroupBrowserData} \cr
+
+
+\item status code : 200 | the group contents
+
+\item return type : GroupBrowserData 
+\item response headers :
+
+\tabular{ll}{
+}
+\item status code : 0 | error response
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
+}
+}
+
+\strong{ ListPublicGroups } \emph{  }
+Returns one page of public groups.
+
+\itemize{
+\item \emph{ @param } page integer
+\item \emph{ @param } per.page integer
+\item \emph{ @param } search character
+\item \emph{ @param } namespace character
+\item \emph{ @param } orderby character
+\item \emph{ @param } permissions character
+\item \emph{ @param } tag list( character )
+\item \emph{ @param } exclude.tag list( character )
+\item \emph{ @param } flat character
+\item \emph{ @param } parent character
+\item \emph{ @returnType } \link{GroupBrowserData} \cr
+
+
+\item status code : 200 | the group contents
+
+\item return type : GroupBrowserData 
+\item response headers :
+
+\tabular{ll}{
+}
+\item status code : 0 | error response
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
+}
+}
+
+\strong{ ListSharedGroups } \emph{  }
+Returns one page of shared groups.
+
+\itemize{
+\item \emph{ @param } page integer
+\item \emph{ @param } per.page integer
+\item \emph{ @param } search character
+\item \emph{ @param } namespace character
+\item \emph{ @param } orderby character
+\item \emph{ @param } permissions character
+\item \emph{ @param } tag list( character )
+\item \emph{ @param } exclude.tag list( character )
+\item \emph{ @param } flat character
+\item \emph{ @param } parent character
+\item \emph{ @param } shared.to list( character )
+\item \emph{ @returnType } \link{GroupBrowserData} \cr
+
+
+\item status code : 200 | the group contents
+
+\item return type : GroupBrowserData 
+\item response headers :
+
+\tabular{ll}{
+}
+\item status code : 0 | error response
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
+}
+}
+
+\strong{ RegisterGroup } \emph{  }
+Registers an existing group in the namespace.
 
 \itemize{
 \item \emph{ @param } namespace character
-\item \emph{ @param } name character
-\item \emph{ @param } asset.namespace character
-\item \emph{ @param } asset.name character
+\item \emph{ @param } array character
+\item \emph{ @param } group.register \link{GroupRegister}
 
 
-\item status code : 204 | asset removed successfully
+\item status code : 204 | group created successfully
+
+
+\item response headers :
+
+\tabular{ll}{
+}
+\item status code : 0 | error response
+
+\item return type : Error 
+\item response headers :
+
+\tabular{ll}{
+}
+}
+
+\strong{ ShareGroup } \emph{  }
+Share a group with a namespace
+
+\itemize{
+\item \emph{ @param } group.namespace character
+\item \emph{ @param } group.name character
+\item \emph{ @param } group.sharing.request \link{GroupSharingRequest}
+
+
+\item status code : 204 | Group shared successfully
+
+
+\item response headers :
+
+\tabular{ll}{
+}
+\item status code : 404 | Group does not exist or user does not have permissions to share group
 
 
 \item response headers :
@@ -172,8 +432,8 @@ Removes an asset from a group
 Changes attributes of the group
 
 \itemize{
-\item \emph{ @param } namespace character
-\item \emph{ @param } name character
+\item \emph{ @param } group.namespace character
+\item \emph{ @param } group.name character
 \item \emph{ @param } group.update \link{GroupUpdate}
 
 
@@ -198,13 +458,12 @@ Changes attributes of the group
 
 \examples{
 \dontrun{
-####################  AddAsset  ####################
+####################  ChangeGroupContents  ####################
 
 library(tiledbcloud)
-var.namespace <- 'namespace_example' # character | The namespace of the group
-var.name <- 'name_example' # character | The name of the group
-var.asset.namespace <- 'asset.namespace_example' # character | The namespace of the asset
-var.asset.name <- 'asset.name_example' # character | The name of the asset
+var.group.namespace <- 'group.namespace_example' # character | The namespace of the group
+var.group.name <- 'group.name_example' # character | The unique name or id of the group
+var.group.changes <- GroupChanges$new() # GroupChanges | 
 
 api.instance <- GroupsApi$new()
 
@@ -217,14 +476,13 @@ api.instance$apiClient$username <- '<user-serial>';
 # provide your api key generated using the developer portal
 api.instance$apiClient$password <- '<api_key>';
 
-result <- api.instance$AddAsset(var.namespace, var.name, var.asset.namespace, var.asset.name)
+result <- api.instance$ChangeGroupContents(var.group.namespace, var.group.name, group.changes=var.group.changes)
 
 
 ####################  CreateGroup  ####################
 
 library(tiledbcloud)
 var.namespace <- 'namespace_example' # character | The namespace of the group
-var.name <- 'name_example' # character | The name of the group
 var.group.create <- GroupCreate$new() # GroupCreate | 
 
 api.instance <- GroupsApi$new()
@@ -238,14 +496,14 @@ api.instance$apiClient$username <- '<user-serial>';
 # provide your api key generated using the developer portal
 api.instance$apiClient$password <- '<api_key>';
 
-result <- api.instance$CreateGroup(var.namespace, var.name, group.create=var.group.create)
+result <- api.instance$CreateGroup(var.namespace, group.create=var.group.create)
 
 
 ####################  DeleteGroup  ####################
 
 library(tiledbcloud)
-var.namespace <- 'namespace_example' # character | The namespace of the group
-var.name <- 'name_example' # character | The name of the group
+var.group.namespace <- 'group.namespace_example' # character | The namespace of the group
+var.group.name <- 'group.name_example' # character | The unique name or id of the group
 
 api.instance <- GroupsApi$new()
 
@@ -258,17 +516,43 @@ api.instance$apiClient$username <- '<user-serial>';
 # provide your api key generated using the developer portal
 api.instance$apiClient$password <- '<api_key>';
 
-result <- api.instance$DeleteGroup(var.namespace, var.name)
+result <- api.instance$DeleteGroup(var.group.namespace, var.group.name)
 
 
-####################  ListGroup  ####################
+####################  GetGroup  ####################
 
 library(tiledbcloud)
-var.namespace <- 'namespace_example' # character | The namespace of the group
-var.name <- 'name_example' # character | The name of the group
-var.output <- 'output_example' # character | 
+var.group.namespace <- 'group.namespace_example' # character | The namespace of the group
+var.group.name <- 'group.name_example' # character | The unique name or id of the group
+
+api.instance <- GroupsApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$GetGroup(var.group.namespace, var.group.name)
+
+
+####################  GetGroupContents  ####################
+
+library(tiledbcloud)
+var.group.namespace <- 'group.namespace_example' # character | The namespace of the group
+var.group.name <- 'group.name_example' # character | The unique name or id of the group
 var.page <- 56 # integer | pagination offset for assets
 var.per.page <- 56 # integer | pagination limit for assets
+var.namespace <- 'namespace_example' # character | namespace to search for
+var.search <- 'search_example' # character | search string that will look at name, namespace or description fields
+var.orderby <- 'orderby_example' # character | sort by which field valid values include last_accessed, size, name
+var.tag <- ['tag_example'] # array[character] | tag to search for, more than one can be included
+var.exclude.tag <- ['exclude.tag_example'] # array[character] | tags to exclude matching array in results, more than one can be included
+var.member.type <- ['member.type_example'] # array[character] | member type to search for, more than one can be included
+var.exclude.member.type <- ['exclude.member.type_example'] # array[character] | member type to exclude matching groups in results, more than one can be included
 
 api.instance <- GroupsApi$new()
 
@@ -281,15 +565,14 @@ api.instance$apiClient$username <- '<user-serial>';
 # provide your api key generated using the developer portal
 api.instance$apiClient$password <- '<api_key>';
 
-result <- api.instance$ListGroup(var.namespace, var.name, output=var.output, page=var.page, per.page=var.per.page)
+result <- api.instance$GetGroupContents(var.group.namespace, var.group.name, page=var.page, per.page=var.per.page, namespace=var.namespace, search=var.search, orderby=var.orderby, tag=var.tag, exclude.tag=var.exclude.tag, member.type=var.member.type, exclude.member.type=var.exclude.member.type)
 
 
-####################  ListTopLevelGroups  ####################
+####################  GetGroupSharingPolicies  ####################
 
 library(tiledbcloud)
-var.namespace <- 'namespace_example' # character | The namespace to operate on
-var.page <- 56 # integer | pagination offset
-var.per.page <- 56 # integer | pagination limit
+var.group.namespace <- 'group.namespace_example' # character | The namespace of the group
+var.group.name <- 'group.name_example' # character | The unique name or id of the group
 
 api.instance <- GroupsApi$new()
 
@@ -302,16 +585,174 @@ api.instance$apiClient$username <- '<user-serial>';
 # provide your api key generated using the developer portal
 api.instance$apiClient$password <- '<api_key>';
 
-result <- api.instance$ListTopLevelGroups(var.namespace, page=var.page, per.page=var.per.page)
+result <- api.instance$GetGroupSharingPolicies(var.group.namespace, var.group.name)
 
 
-####################  RemoveAsset  ####################
+####################  GroupsBrowserOwnedFiltersGet  ####################
+
+library(tiledbcloud)
+
+api.instance <- GroupsApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$GroupsBrowserOwnedFiltersGet()
+
+
+####################  GroupsBrowserPublicFiltersGet  ####################
+
+library(tiledbcloud)
+
+api.instance <- GroupsApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$GroupsBrowserPublicFiltersGet()
+
+
+####################  GroupsBrowserSharedFiltersGet  ####################
+
+library(tiledbcloud)
+
+api.instance <- GroupsApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$GroupsBrowserSharedFiltersGet()
+
+
+####################  GroupsGroupNamespaceGroupNameContentsFiltersGet  ####################
+
+library(tiledbcloud)
+var.group.namespace <- 'group.namespace_example' # character | The namespace of the group
+var.group.name <- 'group.name_example' # character | The unique name or id of the group
+
+api.instance <- GroupsApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$GroupsGroupNamespaceGroupNameContentsFiltersGet(var.group.namespace, var.group.name)
+
+
+####################  ListOwnedGroups  ####################
+
+library(tiledbcloud)
+var.page <- 56 # integer | pagination offset
+var.per.page <- 56 # integer | pagination limit
+var.search <- 'search_example' # character | search string that will look at name, namespace or description fields
+var.namespace <- 'namespace_example' # character | namespace
+var.orderby <- 'orderby_example' # character | sort by which field valid values include last_accessed, size, name
+var.permissions <- 'permissions_example' # character | permissions valid values include read, read_write, write, admin
+var.tag <- ['tag_example'] # array[character] | tag to search for, more than one can be included
+var.exclude.tag <- ['exclude.tag_example'] # array[character] | tags to exclude matching array in results, more than one can be included
+var.flat <- 'flat_example' # character | if true, ignores the nesting of groups and searches all of them
+var.parent <- 'parent_example' # character | search only the children of the groups with this uuid
+
+api.instance <- GroupsApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$ListOwnedGroups(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag, exclude.tag=var.exclude.tag, flat=var.flat, parent=var.parent)
+
+
+####################  ListPublicGroups  ####################
+
+library(tiledbcloud)
+var.page <- 56 # integer | pagination offset
+var.per.page <- 56 # integer | pagination limit
+var.search <- 'search_example' # character | search string that will look at name, namespace or description fields
+var.namespace <- 'namespace_example' # character | namespace
+var.orderby <- 'orderby_example' # character | sort by which field valid values include last_accessed, size, name
+var.permissions <- 'permissions_example' # character | permissions valid values include read, read_write, write, admin
+var.tag <- ['tag_example'] # array[character] | tag to search for, more than one can be included
+var.exclude.tag <- ['exclude.tag_example'] # array[character] | tags to exclude matching array in results, more than one can be included
+var.flat <- 'flat_example' # character | if true, ignores the nesting of groups and searches all of them
+var.parent <- 'parent_example' # character | search only the children of the groups with this uuid
+
+api.instance <- GroupsApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$ListPublicGroups(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag, exclude.tag=var.exclude.tag, flat=var.flat, parent=var.parent)
+
+
+####################  ListSharedGroups  ####################
+
+library(tiledbcloud)
+var.page <- 56 # integer | pagination offset
+var.per.page <- 56 # integer | pagination limit
+var.search <- 'search_example' # character | search string that will look at name, namespace or description fields
+var.namespace <- 'namespace_example' # character | namespace
+var.orderby <- 'orderby_example' # character | sort by which field valid values include last_accessed, size, name
+var.permissions <- 'permissions_example' # character | permissions valid values include read, read_write, write, admin
+var.tag <- ['tag_example'] # array[character] | tag to search for, more than one can be included
+var.exclude.tag <- ['exclude.tag_example'] # array[character] | tags to exclude matching array in results, more than one can be included
+var.flat <- 'flat_example' # character | if true, ignores the nesting of groups and searches all of them
+var.parent <- 'parent_example' # character | search only the children of the groups with this uuid
+var.shared.to <- ['shared.to_example'] # array[character] | namespaces to filter results of where there groups were shared to
+
+api.instance <- GroupsApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$ListSharedGroups(page=var.page, per.page=var.per.page, search=var.search, namespace=var.namespace, orderby=var.orderby, permissions=var.permissions, tag=var.tag, exclude.tag=var.exclude.tag, flat=var.flat, parent=var.parent, shared.to=var.shared.to)
+
+
+####################  RegisterGroup  ####################
 
 library(tiledbcloud)
 var.namespace <- 'namespace_example' # character | The namespace of the group
-var.name <- 'name_example' # character | The name of the group
-var.asset.namespace <- 'asset.namespace_example' # character | The namespace of the asset
-var.asset.name <- 'asset.name_example' # character | The name of the asset
+var.array <- 'array_example' # character | The unique name or id of the group
+var.group.register <- GroupRegister$new() # GroupRegister | 
 
 api.instance <- GroupsApi$new()
 
@@ -324,14 +765,35 @@ api.instance$apiClient$username <- '<user-serial>';
 # provide your api key generated using the developer portal
 api.instance$apiClient$password <- '<api_key>';
 
-result <- api.instance$RemoveAsset(var.namespace, var.name, var.asset.namespace, var.asset.name)
+result <- api.instance$RegisterGroup(var.namespace, var.array, group.register=var.group.register)
+
+
+####################  ShareGroup  ####################
+
+library(tiledbcloud)
+var.group.namespace <- 'group.namespace_example' # character | The namespace of the group
+var.group.name <- 'group.name_example' # character | The unique name or id of the group
+var.group.sharing.request <- GroupSharingRequest$new() # GroupSharingRequest | Namespace and list of permissions to share with. Sharing is recursive, it is applied to all reachable subgroups and arrays of the group. An empty list of permissions will remove the namespace; if permissions already exist they will be deleted then new ones added. In the event of a failure, the new policies will be rolled back to prevent partial policies, and it's likely the group will not be shared with the namespace at all.
+
+api.instance <- GroupsApi$new()
+
+#Configure API key authorization: ApiKeyAuth
+api.instance$apiClient$apiKeys['X-TILEDB-REST-API-KEY'] <- 'TODO_YOUR_API_KEY';
+
+#Configure HTTP basic authorization: BasicAuth
+# provide your username in the user-serial format
+api.instance$apiClient$username <- '<user-serial>'; 
+# provide your api key generated using the developer portal
+api.instance$apiClient$password <- '<api_key>';
+
+result <- api.instance$ShareGroup(var.group.namespace, var.group.name, var.group.sharing.request)
 
 
 ####################  UpdateGroup  ####################
 
 library(tiledbcloud)
-var.namespace <- 'namespace_example' # character | The namespace of the group
-var.name <- 'name_example' # character | The name of the group
+var.group.namespace <- 'group.namespace_example' # character | The namespace of the group
+var.group.name <- 'group.name_example' # character | The unique name or id of the group
 var.group.update <- GroupUpdate$new() # GroupUpdate | 
 
 api.instance <- GroupsApi$new()
@@ -345,7 +807,7 @@ api.instance$apiClient$username <- '<user-serial>';
 # provide your api key generated using the developer portal
 api.instance$apiClient$password <- '<api_key>';
 
-result <- api.instance$UpdateGroup(var.namespace, var.name, group.update=var.group.update)
+result <- api.instance$UpdateGroup(var.group.namespace, var.group.name, group.update=var.group.update)
 
 
 }
@@ -360,27 +822,45 @@ result <- api.instance$UpdateGroup(var.namespace, var.name, group.update=var.gro
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GroupsApi$new()}}
-\item \href{#method-AddAsset}{\code{GroupsApi$AddAsset()}}
-\item \href{#method-AddAssetWithHttpInfo}{\code{GroupsApi$AddAssetWithHttpInfo()}}
-\item \href{#method-CreateGroup}{\code{GroupsApi$CreateGroup()}}
-\item \href{#method-CreateGroupWithHttpInfo}{\code{GroupsApi$CreateGroupWithHttpInfo()}}
-\item \href{#method-DeleteGroup}{\code{GroupsApi$DeleteGroup()}}
-\item \href{#method-DeleteGroupWithHttpInfo}{\code{GroupsApi$DeleteGroupWithHttpInfo()}}
-\item \href{#method-ListGroup}{\code{GroupsApi$ListGroup()}}
-\item \href{#method-ListGroupWithHttpInfo}{\code{GroupsApi$ListGroupWithHttpInfo()}}
-\item \href{#method-ListTopLevelGroups}{\code{GroupsApi$ListTopLevelGroups()}}
-\item \href{#method-ListTopLevelGroupsWithHttpInfo}{\code{GroupsApi$ListTopLevelGroupsWithHttpInfo()}}
-\item \href{#method-RemoveAsset}{\code{GroupsApi$RemoveAsset()}}
-\item \href{#method-RemoveAssetWithHttpInfo}{\code{GroupsApi$RemoveAssetWithHttpInfo()}}
-\item \href{#method-UpdateGroup}{\code{GroupsApi$UpdateGroup()}}
-\item \href{#method-UpdateGroupWithHttpInfo}{\code{GroupsApi$UpdateGroupWithHttpInfo()}}
-\item \href{#method-clone}{\code{GroupsApi$clone()}}
+\item \href{#method-GroupsApi-new}{\code{GroupsApi$new()}}
+\item \href{#method-GroupsApi-ChangeGroupContents}{\code{GroupsApi$ChangeGroupContents()}}
+\item \href{#method-GroupsApi-ChangeGroupContentsWithHttpInfo}{\code{GroupsApi$ChangeGroupContentsWithHttpInfo()}}
+\item \href{#method-GroupsApi-CreateGroup}{\code{GroupsApi$CreateGroup()}}
+\item \href{#method-GroupsApi-CreateGroupWithHttpInfo}{\code{GroupsApi$CreateGroupWithHttpInfo()}}
+\item \href{#method-GroupsApi-DeleteGroup}{\code{GroupsApi$DeleteGroup()}}
+\item \href{#method-GroupsApi-DeleteGroupWithHttpInfo}{\code{GroupsApi$DeleteGroupWithHttpInfo()}}
+\item \href{#method-GroupsApi-GetGroup}{\code{GroupsApi$GetGroup()}}
+\item \href{#method-GroupsApi-GetGroupWithHttpInfo}{\code{GroupsApi$GetGroupWithHttpInfo()}}
+\item \href{#method-GroupsApi-GetGroupContents}{\code{GroupsApi$GetGroupContents()}}
+\item \href{#method-GroupsApi-GetGroupContentsWithHttpInfo}{\code{GroupsApi$GetGroupContentsWithHttpInfo()}}
+\item \href{#method-GroupsApi-GetGroupSharingPolicies}{\code{GroupsApi$GetGroupSharingPolicies()}}
+\item \href{#method-GroupsApi-GetGroupSharingPoliciesWithHttpInfo}{\code{GroupsApi$GetGroupSharingPoliciesWithHttpInfo()}}
+\item \href{#method-GroupsApi-GroupsBrowserOwnedFiltersGet}{\code{GroupsApi$GroupsBrowserOwnedFiltersGet()}}
+\item \href{#method-GroupsApi-GroupsBrowserOwnedFiltersGetWithHttpInfo}{\code{GroupsApi$GroupsBrowserOwnedFiltersGetWithHttpInfo()}}
+\item \href{#method-GroupsApi-GroupsBrowserPublicFiltersGet}{\code{GroupsApi$GroupsBrowserPublicFiltersGet()}}
+\item \href{#method-GroupsApi-GroupsBrowserPublicFiltersGetWithHttpInfo}{\code{GroupsApi$GroupsBrowserPublicFiltersGetWithHttpInfo()}}
+\item \href{#method-GroupsApi-GroupsBrowserSharedFiltersGet}{\code{GroupsApi$GroupsBrowserSharedFiltersGet()}}
+\item \href{#method-GroupsApi-GroupsBrowserSharedFiltersGetWithHttpInfo}{\code{GroupsApi$GroupsBrowserSharedFiltersGetWithHttpInfo()}}
+\item \href{#method-GroupsApi-GroupsGroupNamespaceGroupNameContentsFiltersGet}{\code{GroupsApi$GroupsGroupNamespaceGroupNameContentsFiltersGet()}}
+\item \href{#method-GroupsApi-GroupsGroupNamespaceGroupNameContentsFiltersGetWithHttpInfo}{\code{GroupsApi$GroupsGroupNamespaceGroupNameContentsFiltersGetWithHttpInfo()}}
+\item \href{#method-GroupsApi-ListOwnedGroups}{\code{GroupsApi$ListOwnedGroups()}}
+\item \href{#method-GroupsApi-ListOwnedGroupsWithHttpInfo}{\code{GroupsApi$ListOwnedGroupsWithHttpInfo()}}
+\item \href{#method-GroupsApi-ListPublicGroups}{\code{GroupsApi$ListPublicGroups()}}
+\item \href{#method-GroupsApi-ListPublicGroupsWithHttpInfo}{\code{GroupsApi$ListPublicGroupsWithHttpInfo()}}
+\item \href{#method-GroupsApi-ListSharedGroups}{\code{GroupsApi$ListSharedGroups()}}
+\item \href{#method-GroupsApi-ListSharedGroupsWithHttpInfo}{\code{GroupsApi$ListSharedGroupsWithHttpInfo()}}
+\item \href{#method-GroupsApi-RegisterGroup}{\code{GroupsApi$RegisterGroup()}}
+\item \href{#method-GroupsApi-RegisterGroupWithHttpInfo}{\code{GroupsApi$RegisterGroupWithHttpInfo()}}
+\item \href{#method-GroupsApi-ShareGroup}{\code{GroupsApi$ShareGroup()}}
+\item \href{#method-GroupsApi-ShareGroupWithHttpInfo}{\code{GroupsApi$ShareGroupWithHttpInfo()}}
+\item \href{#method-GroupsApi-UpdateGroup}{\code{GroupsApi$UpdateGroup()}}
+\item \href{#method-GroupsApi-UpdateGroupWithHttpInfo}{\code{GroupsApi$UpdateGroupWithHttpInfo()}}
+\item \href{#method-GroupsApi-clone}{\code{GroupsApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GroupsApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GroupsApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -388,165 +868,429 @@ result <- api.instance$UpdateGroup(var.namespace, var.name, group.update=var.gro
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AddAsset"></a>}}
-\if{latex}{\out{\hypertarget{method-AddAsset}{}}}
-\subsection{Method \code{AddAsset()}}{
+\if{html}{\out{<a id="method-GroupsApi-ChangeGroupContents"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-ChangeGroupContents}{}}}
+\subsection{Method \code{ChangeGroupContents()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$AddAsset(namespace, name, asset.namespace, asset.name, ...)}\if{html}{\out{</div>}}
-}
-
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AddAssetWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-AddAssetWithHttpInfo}{}}}
-\subsection{Method \code{AddAssetWithHttpInfo()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$AddAssetWithHttpInfo(
-  namespace,
-  name,
-  asset.namespace,
-  asset.name,
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$ChangeGroupContents(
+  group.namespace,
+  group.name,
+  group.changes = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CreateGroup"></a>}}
-\if{latex}{\out{\hypertarget{method-CreateGroup}{}}}
+\if{html}{\out{<a id="method-GroupsApi-ChangeGroupContentsWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-ChangeGroupContentsWithHttpInfo}{}}}
+\subsection{Method \code{ChangeGroupContentsWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$ChangeGroupContentsWithHttpInfo(
+  group.namespace,
+  group.name,
+  group.changes = NULL,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GroupsApi-CreateGroup"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-CreateGroup}{}}}
 \subsection{Method \code{CreateGroup()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$CreateGroup(namespace, name, group.create = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$CreateGroup(namespace, group.create = NULL, ...)}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CreateGroupWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-CreateGroupWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-GroupsApi-CreateGroupWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-CreateGroupWithHttpInfo}{}}}
 \subsection{Method \code{CreateGroupWithHttpInfo()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$CreateGroupWithHttpInfo(namespace, name, group.create = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$CreateGroupWithHttpInfo(namespace, group.create = NULL, ...)}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeleteGroup"></a>}}
-\if{latex}{\out{\hypertarget{method-DeleteGroup}{}}}
+\if{html}{\out{<a id="method-GroupsApi-DeleteGroup"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-DeleteGroup}{}}}
 \subsection{Method \code{DeleteGroup()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$DeleteGroup(namespace, name, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$DeleteGroup(group.namespace, group.name, ...)}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeleteGroupWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-DeleteGroupWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-GroupsApi-DeleteGroupWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-DeleteGroupWithHttpInfo}{}}}
 \subsection{Method \code{DeleteGroupWithHttpInfo()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$DeleteGroupWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$DeleteGroupWithHttpInfo(group.namespace, group.name, ...)}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ListGroup"></a>}}
-\if{latex}{\out{\hypertarget{method-ListGroup}{}}}
-\subsection{Method \code{ListGroup()}}{
+\if{html}{\out{<a id="method-GroupsApi-GetGroup"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-GetGroup}{}}}
+\subsection{Method \code{GetGroup()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$ListGroup(
-  namespace,
-  name,
-  output = NULL,
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$GetGroup(group.namespace, group.name, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GroupsApi-GetGroupWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-GetGroupWithHttpInfo}{}}}
+\subsection{Method \code{GetGroupWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$GetGroupWithHttpInfo(group.namespace, group.name, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GroupsApi-GetGroupContents"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-GetGroupContents}{}}}
+\subsection{Method \code{GetGroupContents()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$GetGroupContents(
+  group.namespace,
+  group.name,
   page = NULL,
   per.page = NULL,
+  namespace = NULL,
+  search = NULL,
+  orderby = NULL,
+  tag = NULL,
+  exclude.tag = NULL,
+  member.type = NULL,
+  exclude.member.type = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ListGroupWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ListGroupWithHttpInfo}{}}}
-\subsection{Method \code{ListGroupWithHttpInfo()}}{
+\if{html}{\out{<a id="method-GroupsApi-GetGroupContentsWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-GetGroupContentsWithHttpInfo}{}}}
+\subsection{Method \code{GetGroupContentsWithHttpInfo()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$ListGroupWithHttpInfo(
-  namespace,
-  name,
-  output = NULL,
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$GetGroupContentsWithHttpInfo(
+  group.namespace,
+  group.name,
   page = NULL,
   per.page = NULL,
+  namespace = NULL,
+  search = NULL,
+  orderby = NULL,
+  tag = NULL,
+  exclude.tag = NULL,
+  member.type = NULL,
+  exclude.member.type = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ListTopLevelGroups"></a>}}
-\if{latex}{\out{\hypertarget{method-ListTopLevelGroups}{}}}
-\subsection{Method \code{ListTopLevelGroups()}}{
+\if{html}{\out{<a id="method-GroupsApi-GetGroupSharingPolicies"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-GetGroupSharingPolicies}{}}}
+\subsection{Method \code{GetGroupSharingPolicies()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$ListTopLevelGroups(namespace, page = NULL, per.page = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$GetGroupSharingPolicies(group.namespace, group.name, ...)}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ListTopLevelGroupsWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ListTopLevelGroupsWithHttpInfo}{}}}
-\subsection{Method \code{ListTopLevelGroupsWithHttpInfo()}}{
+\if{html}{\out{<a id="method-GroupsApi-GetGroupSharingPoliciesWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-GetGroupSharingPoliciesWithHttpInfo}{}}}
+\subsection{Method \code{GetGroupSharingPoliciesWithHttpInfo()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$ListTopLevelGroupsWithHttpInfo(
-  namespace,
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$GetGroupSharingPoliciesWithHttpInfo(group.namespace, group.name, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GroupsApi-GroupsBrowserOwnedFiltersGet"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-GroupsBrowserOwnedFiltersGet}{}}}
+\subsection{Method \code{GroupsBrowserOwnedFiltersGet()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$GroupsBrowserOwnedFiltersGet(...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GroupsApi-GroupsBrowserOwnedFiltersGetWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-GroupsBrowserOwnedFiltersGetWithHttpInfo}{}}}
+\subsection{Method \code{GroupsBrowserOwnedFiltersGetWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$GroupsBrowserOwnedFiltersGetWithHttpInfo(...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GroupsApi-GroupsBrowserPublicFiltersGet"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-GroupsBrowserPublicFiltersGet}{}}}
+\subsection{Method \code{GroupsBrowserPublicFiltersGet()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$GroupsBrowserPublicFiltersGet(...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GroupsApi-GroupsBrowserPublicFiltersGetWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-GroupsBrowserPublicFiltersGetWithHttpInfo}{}}}
+\subsection{Method \code{GroupsBrowserPublicFiltersGetWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$GroupsBrowserPublicFiltersGetWithHttpInfo(...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GroupsApi-GroupsBrowserSharedFiltersGet"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-GroupsBrowserSharedFiltersGet}{}}}
+\subsection{Method \code{GroupsBrowserSharedFiltersGet()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$GroupsBrowserSharedFiltersGet(...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GroupsApi-GroupsBrowserSharedFiltersGetWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-GroupsBrowserSharedFiltersGetWithHttpInfo}{}}}
+\subsection{Method \code{GroupsBrowserSharedFiltersGetWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$GroupsBrowserSharedFiltersGetWithHttpInfo(...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GroupsApi-GroupsGroupNamespaceGroupNameContentsFiltersGet"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-GroupsGroupNamespaceGroupNameContentsFiltersGet}{}}}
+\subsection{Method \code{GroupsGroupNamespaceGroupNameContentsFiltersGet()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$GroupsGroupNamespaceGroupNameContentsFiltersGet(
+  group.namespace,
+  group.name,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GroupsApi-GroupsGroupNamespaceGroupNameContentsFiltersGetWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-GroupsGroupNamespaceGroupNameContentsFiltersGetWithHttpInfo}{}}}
+\subsection{Method \code{GroupsGroupNamespaceGroupNameContentsFiltersGetWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$GroupsGroupNamespaceGroupNameContentsFiltersGetWithHttpInfo(
+  group.namespace,
+  group.name,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GroupsApi-ListOwnedGroups"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-ListOwnedGroups}{}}}
+\subsection{Method \code{ListOwnedGroups()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$ListOwnedGroups(
   page = NULL,
   per.page = NULL,
+  search = NULL,
+  namespace = NULL,
+  orderby = NULL,
+  permissions = NULL,
+  tag = NULL,
+  exclude.tag = NULL,
+  flat = NULL,
+  parent = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-RemoveAsset"></a>}}
-\if{latex}{\out{\hypertarget{method-RemoveAsset}{}}}
-\subsection{Method \code{RemoveAsset()}}{
+\if{html}{\out{<a id="method-GroupsApi-ListOwnedGroupsWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-ListOwnedGroupsWithHttpInfo}{}}}
+\subsection{Method \code{ListOwnedGroupsWithHttpInfo()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$RemoveAsset(namespace, name, asset.namespace, asset.name, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$ListOwnedGroupsWithHttpInfo(
+  page = NULL,
+  per.page = NULL,
+  search = NULL,
+  namespace = NULL,
+  orderby = NULL,
+  permissions = NULL,
+  tag = NULL,
+  exclude.tag = NULL,
+  flat = NULL,
+  parent = NULL,
+  ...
+)}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-RemoveAssetWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-RemoveAssetWithHttpInfo}{}}}
-\subsection{Method \code{RemoveAssetWithHttpInfo()}}{
+\if{html}{\out{<a id="method-GroupsApi-ListPublicGroups"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-ListPublicGroups}{}}}
+\subsection{Method \code{ListPublicGroups()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$RemoveAssetWithHttpInfo(
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$ListPublicGroups(
+  page = NULL,
+  per.page = NULL,
+  search = NULL,
+  namespace = NULL,
+  orderby = NULL,
+  permissions = NULL,
+  tag = NULL,
+  exclude.tag = NULL,
+  flat = NULL,
+  parent = NULL,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GroupsApi-ListPublicGroupsWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-ListPublicGroupsWithHttpInfo}{}}}
+\subsection{Method \code{ListPublicGroupsWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$ListPublicGroupsWithHttpInfo(
+  page = NULL,
+  per.page = NULL,
+  search = NULL,
+  namespace = NULL,
+  orderby = NULL,
+  permissions = NULL,
+  tag = NULL,
+  exclude.tag = NULL,
+  flat = NULL,
+  parent = NULL,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GroupsApi-ListSharedGroups"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-ListSharedGroups}{}}}
+\subsection{Method \code{ListSharedGroups()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$ListSharedGroups(
+  page = NULL,
+  per.page = NULL,
+  search = NULL,
+  namespace = NULL,
+  orderby = NULL,
+  permissions = NULL,
+  tag = NULL,
+  exclude.tag = NULL,
+  flat = NULL,
+  parent = NULL,
+  shared.to = NULL,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GroupsApi-ListSharedGroupsWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-ListSharedGroupsWithHttpInfo}{}}}
+\subsection{Method \code{ListSharedGroupsWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$ListSharedGroupsWithHttpInfo(
+  page = NULL,
+  per.page = NULL,
+  search = NULL,
+  namespace = NULL,
+  orderby = NULL,
+  permissions = NULL,
+  tag = NULL,
+  exclude.tag = NULL,
+  flat = NULL,
+  parent = NULL,
+  shared.to = NULL,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GroupsApi-RegisterGroup"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-RegisterGroup}{}}}
+\subsection{Method \code{RegisterGroup()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$RegisterGroup(namespace, array, group.register = NULL, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GroupsApi-RegisterGroupWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-RegisterGroupWithHttpInfo}{}}}
+\subsection{Method \code{RegisterGroupWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$RegisterGroupWithHttpInfo(
   namespace,
-  name,
-  asset.namespace,
-  asset.name,
+  array,
+  group.register = NULL,
   ...
 )}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UpdateGroup"></a>}}
-\if{latex}{\out{\hypertarget{method-UpdateGroup}{}}}
+\if{html}{\out{<a id="method-GroupsApi-ShareGroup"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-ShareGroup}{}}}
+\subsection{Method \code{ShareGroup()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$ShareGroup(group.namespace, group.name, group.sharing.request, ...)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GroupsApi-ShareGroupWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-ShareGroupWithHttpInfo}{}}}
+\subsection{Method \code{ShareGroupWithHttpInfo()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$ShareGroupWithHttpInfo(
+  group.namespace,
+  group.name,
+  group.sharing.request,
+  ...
+)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-GroupsApi-UpdateGroup"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-UpdateGroup}{}}}
 \subsection{Method \code{UpdateGroup()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$UpdateGroup(namespace, name, group.update = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$UpdateGroup(group.namespace, group.name, group.update = NULL, ...)}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UpdateGroupWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-UpdateGroupWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-GroupsApi-UpdateGroupWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-UpdateGroupWithHttpInfo}{}}}
 \subsection{Method \code{UpdateGroupWithHttpInfo()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$UpdateGroupWithHttpInfo(namespace, name, group.update = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GroupsApi$UpdateGroupWithHttpInfo(
+  group.namespace,
+  group.name,
+  group.update = NULL,
+  ...
+)}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GroupsApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupsApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

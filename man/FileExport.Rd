@@ -20,17 +20,17 @@ FileExport Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{FileExport$new()}}
-\item \href{#method-toJSON}{\code{FileExport$toJSON()}}
-\item \href{#method-fromJSON}{\code{FileExport$fromJSON()}}
-\item \href{#method-toJSONString}{\code{FileExport$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{FileExport$fromJSONString()}}
-\item \href{#method-clone}{\code{FileExport$clone()}}
+\item \href{#method-FileExport-new}{\code{FileExport$new()}}
+\item \href{#method-FileExport-toJSON}{\code{FileExport$toJSON()}}
+\item \href{#method-FileExport-fromJSON}{\code{FileExport$fromJSON()}}
+\item \href{#method-FileExport-toJSONString}{\code{FileExport$toJSONString()}}
+\item \href{#method-FileExport-fromJSONString}{\code{FileExport$fromJSONString()}}
+\item \href{#method-FileExport-clone}{\code{FileExport$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-FileExport-new"></a>}}
+\if{latex}{\out{\hypertarget{method-FileExport-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FileExport$new(output_uri = NULL, ...)}\if{html}{\out{</div>}}
@@ -38,8 +38,8 @@ FileExport Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-FileExport-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-FileExport-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FileExport$toJSON()}\if{html}{\out{</div>}}
@@ -47,8 +47,8 @@ FileExport Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-FileExport-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-FileExport-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FileExport$fromJSON(FileExportJson)}\if{html}{\out{</div>}}
@@ -56,8 +56,8 @@ FileExport Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-FileExport-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-FileExport-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FileExport$toJSONString()}\if{html}{\out{</div>}}
@@ -65,8 +65,8 @@ FileExport Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-FileExport-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-FileExport-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FileExport$fromJSONString(FileExportJson)}\if{html}{\out{</div>}}
@@ -74,8 +74,8 @@ FileExport Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-FileExport-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-FileExport-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

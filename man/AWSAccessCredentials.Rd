@@ -34,17 +34,17 @@ AWSAccessCredentials Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{AWSAccessCredentials$new()}}
-\item \href{#method-toJSON}{\code{AWSAccessCredentials$toJSON()}}
-\item \href{#method-fromJSON}{\code{AWSAccessCredentials$fromJSON()}}
-\item \href{#method-toJSONString}{\code{AWSAccessCredentials$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{AWSAccessCredentials$fromJSONString()}}
-\item \href{#method-clone}{\code{AWSAccessCredentials$clone()}}
+\item \href{#method-AWSAccessCredentials-new}{\code{AWSAccessCredentials$new()}}
+\item \href{#method-AWSAccessCredentials-toJSON}{\code{AWSAccessCredentials$toJSON()}}
+\item \href{#method-AWSAccessCredentials-fromJSON}{\code{AWSAccessCredentials$fromJSON()}}
+\item \href{#method-AWSAccessCredentials-toJSONString}{\code{AWSAccessCredentials$toJSONString()}}
+\item \href{#method-AWSAccessCredentials-fromJSONString}{\code{AWSAccessCredentials$fromJSONString()}}
+\item \href{#method-AWSAccessCredentials-clone}{\code{AWSAccessCredentials$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-AWSAccessCredentials-new"></a>}}
+\if{latex}{\out{\hypertarget{method-AWSAccessCredentials-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AWSAccessCredentials$new(
@@ -62,8 +62,8 @@ AWSAccessCredentials Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-AWSAccessCredentials-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-AWSAccessCredentials-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AWSAccessCredentials$toJSON()}\if{html}{\out{</div>}}
@@ -71,8 +71,8 @@ AWSAccessCredentials Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-AWSAccessCredentials-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-AWSAccessCredentials-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AWSAccessCredentials$fromJSON(AWSAccessCredentialsJson)}\if{html}{\out{</div>}}
@@ -80,8 +80,8 @@ AWSAccessCredentials Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-AWSAccessCredentials-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-AWSAccessCredentials-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AWSAccessCredentials$toJSONString()}\if{html}{\out{</div>}}
@@ -89,8 +89,8 @@ AWSAccessCredentials Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-AWSAccessCredentials-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-AWSAccessCredentials-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{AWSAccessCredentials$fromJSONString(AWSAccessCredentialsJson)}\if{html}{\out{</div>}}
@@ -98,8 +98,8 @@ AWSAccessCredentials Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-AWSAccessCredentials-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-AWSAccessCredentials-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

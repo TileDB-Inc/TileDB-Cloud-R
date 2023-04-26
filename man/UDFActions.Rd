@@ -13,17 +13,17 @@ UDFActions Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{UDFActions$new()}}
-\item \href{#method-toJSON}{\code{UDFActions$toJSON()}}
-\item \href{#method-fromJSON}{\code{UDFActions$fromJSON()}}
-\item \href{#method-toJSONString}{\code{UDFActions$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{UDFActions$fromJSONString()}}
-\item \href{#method-clone}{\code{UDFActions$clone()}}
+\item \href{#method-UDFActions-new}{\code{UDFActions$new()}}
+\item \href{#method-UDFActions-toJSON}{\code{UDFActions$toJSON()}}
+\item \href{#method-UDFActions-fromJSON}{\code{UDFActions$fromJSON()}}
+\item \href{#method-UDFActions-toJSONString}{\code{UDFActions$toJSONString()}}
+\item \href{#method-UDFActions-fromJSONString}{\code{UDFActions$fromJSONString()}}
+\item \href{#method-UDFActions-clone}{\code{UDFActions$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-UDFActions-new"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFActions-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFActions$new(...)}\if{html}{\out{</div>}}
@@ -31,8 +31,8 @@ UDFActions Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-UDFActions-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFActions-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFActions$toJSON()}\if{html}{\out{</div>}}
@@ -40,8 +40,8 @@ UDFActions Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-UDFActions-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFActions-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFActions$fromJSON(UDFActionsJson)}\if{html}{\out{</div>}}
@@ -49,8 +49,8 @@ UDFActions Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-UDFActions-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFActions-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFActions$toJSONString()}\if{html}{\out{</div>}}
@@ -58,8 +58,8 @@ UDFActions Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-UDFActions-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFActions-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFActions$fromJSONString(UDFActionsJson)}\if{html}{\out{</div>}}
@@ -67,8 +67,8 @@ UDFActions Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-UDFActions-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFActions-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

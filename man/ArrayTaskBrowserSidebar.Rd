@@ -24,17 +24,17 @@ ArrayTaskBrowserSidebar Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ArrayTaskBrowserSidebar$new()}}
-\item \href{#method-toJSON}{\code{ArrayTaskBrowserSidebar$toJSON()}}
-\item \href{#method-fromJSON}{\code{ArrayTaskBrowserSidebar$fromJSON()}}
-\item \href{#method-toJSONString}{\code{ArrayTaskBrowserSidebar$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{ArrayTaskBrowserSidebar$fromJSONString()}}
-\item \href{#method-clone}{\code{ArrayTaskBrowserSidebar$clone()}}
+\item \href{#method-ArrayTaskBrowserSidebar-new}{\code{ArrayTaskBrowserSidebar$new()}}
+\item \href{#method-ArrayTaskBrowserSidebar-toJSON}{\code{ArrayTaskBrowserSidebar$toJSON()}}
+\item \href{#method-ArrayTaskBrowserSidebar-fromJSON}{\code{ArrayTaskBrowserSidebar$fromJSON()}}
+\item \href{#method-ArrayTaskBrowserSidebar-toJSONString}{\code{ArrayTaskBrowserSidebar$toJSONString()}}
+\item \href{#method-ArrayTaskBrowserSidebar-fromJSONString}{\code{ArrayTaskBrowserSidebar$fromJSONString()}}
+\item \href{#method-ArrayTaskBrowserSidebar-clone}{\code{ArrayTaskBrowserSidebar$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ArrayTaskBrowserSidebar-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayTaskBrowserSidebar-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayTaskBrowserSidebar$new(
@@ -47,8 +47,8 @@ ArrayTaskBrowserSidebar Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ArrayTaskBrowserSidebar-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayTaskBrowserSidebar-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayTaskBrowserSidebar$toJSON()}\if{html}{\out{</div>}}
@@ -56,8 +56,8 @@ ArrayTaskBrowserSidebar Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ArrayTaskBrowserSidebar-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayTaskBrowserSidebar-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayTaskBrowserSidebar$fromJSON(ArrayTaskBrowserSidebarJson)}\if{html}{\out{</div>}}
@@ -65,8 +65,8 @@ ArrayTaskBrowserSidebar Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-ArrayTaskBrowserSidebar-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayTaskBrowserSidebar-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayTaskBrowserSidebar$toJSONString()}\if{html}{\out{</div>}}
@@ -74,8 +74,8 @@ ArrayTaskBrowserSidebar Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-ArrayTaskBrowserSidebar-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayTaskBrowserSidebar-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayTaskBrowserSidebar$fromJSONString(ArrayTaskBrowserSidebarJson)}\if{html}{\out{</div>}}
@@ -83,8 +83,8 @@ ArrayTaskBrowserSidebar Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ArrayTaskBrowserSidebar-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayTaskBrowserSidebar-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

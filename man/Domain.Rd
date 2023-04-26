@@ -26,17 +26,17 @@ Domain Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Domain$new()}}
-\item \href{#method-toJSON}{\code{Domain$toJSON()}}
-\item \href{#method-fromJSON}{\code{Domain$fromJSON()}}
-\item \href{#method-toJSONString}{\code{Domain$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{Domain$fromJSONString()}}
-\item \href{#method-clone}{\code{Domain$clone()}}
+\item \href{#method-Domain-new}{\code{Domain$new()}}
+\item \href{#method-Domain-toJSON}{\code{Domain$toJSON()}}
+\item \href{#method-Domain-fromJSON}{\code{Domain$fromJSON()}}
+\item \href{#method-Domain-toJSONString}{\code{Domain$toJSONString()}}
+\item \href{#method-Domain-fromJSONString}{\code{Domain$fromJSONString()}}
+\item \href{#method-Domain-clone}{\code{Domain$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Domain-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Domain-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Domain$new(type, tileOrder, cellOrder, dimensions, ...)}\if{html}{\out{</div>}}
@@ -44,8 +44,8 @@ Domain Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Domain-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Domain-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Domain$toJSON()}\if{html}{\out{</div>}}
@@ -53,8 +53,8 @@ Domain Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Domain-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Domain-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Domain$fromJSON(DomainJson)}\if{html}{\out{</div>}}
@@ -62,8 +62,8 @@ Domain Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-Domain-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Domain-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Domain$toJSONString()}\if{html}{\out{</div>}}
@@ -71,8 +71,8 @@ Domain Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-Domain-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Domain-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Domain$fromJSONString(DomainJson)}\if{html}{\out{</div>}}
@@ -80,8 +80,8 @@ Domain Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Domain-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Domain-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

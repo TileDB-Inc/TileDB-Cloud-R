@@ -1517,75 +1517,75 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ArrayApi$new()}}
-\item \href{#method-ArrayActivityLog}{\code{ArrayApi$ArrayActivityLog()}}
-\item \href{#method-ArrayActivityLogWithHttpInfo}{\code{ArrayApi$ArrayActivityLogWithHttpInfo()}}
-\item \href{#method-ArraysBrowserOwnedGet}{\code{ArrayApi$ArraysBrowserOwnedGet()}}
-\item \href{#method-ArraysBrowserOwnedGetWithHttpInfo}{\code{ArrayApi$ArraysBrowserOwnedGetWithHttpInfo()}}
-\item \href{#method-ArraysBrowserOwnedSidebarGet}{\code{ArrayApi$ArraysBrowserOwnedSidebarGet()}}
-\item \href{#method-ArraysBrowserOwnedSidebarGetWithHttpInfo}{\code{ArrayApi$ArraysBrowserOwnedSidebarGetWithHttpInfo()}}
-\item \href{#method-ArraysBrowserPublicGet}{\code{ArrayApi$ArraysBrowserPublicGet()}}
-\item \href{#method-ArraysBrowserPublicGetWithHttpInfo}{\code{ArrayApi$ArraysBrowserPublicGetWithHttpInfo()}}
-\item \href{#method-ArraysBrowserPublicSidebarGet}{\code{ArrayApi$ArraysBrowserPublicSidebarGet()}}
-\item \href{#method-ArraysBrowserPublicSidebarGetWithHttpInfo}{\code{ArrayApi$ArraysBrowserPublicSidebarGetWithHttpInfo()}}
-\item \href{#method-ArraysBrowserSharedGet}{\code{ArrayApi$ArraysBrowserSharedGet()}}
-\item \href{#method-ArraysBrowserSharedGetWithHttpInfo}{\code{ArrayApi$ArraysBrowserSharedGetWithHttpInfo()}}
-\item \href{#method-ArraysBrowserSharedSidebarGet}{\code{ArrayApi$ArraysBrowserSharedSidebarGet()}}
-\item \href{#method-ArraysBrowserSharedSidebarGetWithHttpInfo}{\code{ArrayApi$ArraysBrowserSharedSidebarGetWithHttpInfo()}}
-\item \href{#method-ArraysNamespaceArrayEndTimestampsGet}{\code{ArrayApi$ArraysNamespaceArrayEndTimestampsGet()}}
-\item \href{#method-ArraysNamespaceArrayEndTimestampsGetWithHttpInfo}{\code{ArrayApi$ArraysNamespaceArrayEndTimestampsGetWithHttpInfo()}}
-\item \href{#method-ConsolidateArray}{\code{ArrayApi$ConsolidateArray()}}
-\item \href{#method-ConsolidateArrayWithHttpInfo}{\code{ArrayApi$ConsolidateArrayWithHttpInfo()}}
-\item \href{#method-CreateArray}{\code{ArrayApi$CreateArray()}}
-\item \href{#method-CreateArrayWithHttpInfo}{\code{ArrayApi$CreateArrayWithHttpInfo()}}
-\item \href{#method-DeleteArray}{\code{ArrayApi$DeleteArray()}}
-\item \href{#method-DeleteArrayWithHttpInfo}{\code{ArrayApi$DeleteArrayWithHttpInfo()}}
-\item \href{#method-DeregisterArray}{\code{ArrayApi$DeregisterArray()}}
-\item \href{#method-DeregisterArrayWithHttpInfo}{\code{ArrayApi$DeregisterArrayWithHttpInfo()}}
-\item \href{#method-GetActivityLogById}{\code{ArrayApi$GetActivityLogById()}}
-\item \href{#method-GetActivityLogByIdWithHttpInfo}{\code{ArrayApi$GetActivityLogByIdWithHttpInfo()}}
-\item \href{#method-GetAllArrayMetadata}{\code{ArrayApi$GetAllArrayMetadata()}}
-\item \href{#method-GetAllArrayMetadataWithHttpInfo}{\code{ArrayApi$GetAllArrayMetadataWithHttpInfo()}}
-\item \href{#method-GetArray}{\code{ArrayApi$GetArray()}}
-\item \href{#method-GetArrayWithHttpInfo}{\code{ArrayApi$GetArrayWithHttpInfo()}}
-\item \href{#method-GetArrayMaxBufferSizes}{\code{ArrayApi$GetArrayMaxBufferSizes()}}
-\item \href{#method-GetArrayMaxBufferSizesWithHttpInfo}{\code{ArrayApi$GetArrayMaxBufferSizesWithHttpInfo()}}
-\item \href{#method-GetArrayMetaDataJson}{\code{ArrayApi$GetArrayMetaDataJson()}}
-\item \href{#method-GetArrayMetaDataJsonWithHttpInfo}{\code{ArrayApi$GetArrayMetaDataJsonWithHttpInfo()}}
-\item \href{#method-GetArrayMetadata}{\code{ArrayApi$GetArrayMetadata()}}
-\item \href{#method-GetArrayMetadataWithHttpInfo}{\code{ArrayApi$GetArrayMetadataWithHttpInfo()}}
-\item \href{#method-GetArrayMetadataCapnp}{\code{ArrayApi$GetArrayMetadataCapnp()}}
-\item \href{#method-GetArrayMetadataCapnpWithHttpInfo}{\code{ArrayApi$GetArrayMetadataCapnpWithHttpInfo()}}
-\item \href{#method-GetArrayNonEmptyDomain}{\code{ArrayApi$GetArrayNonEmptyDomain()}}
-\item \href{#method-GetArrayNonEmptyDomainWithHttpInfo}{\code{ArrayApi$GetArrayNonEmptyDomainWithHttpInfo()}}
-\item \href{#method-GetArrayNonEmptyDomainJson}{\code{ArrayApi$GetArrayNonEmptyDomainJson()}}
-\item \href{#method-GetArrayNonEmptyDomainJsonWithHttpInfo}{\code{ArrayApi$GetArrayNonEmptyDomainJsonWithHttpInfo()}}
-\item \href{#method-GetArraySampleData}{\code{ArrayApi$GetArraySampleData()}}
-\item \href{#method-GetArraySampleDataWithHttpInfo}{\code{ArrayApi$GetArraySampleDataWithHttpInfo()}}
-\item \href{#method-GetArraySharingPolicies}{\code{ArrayApi$GetArraySharingPolicies()}}
-\item \href{#method-GetArraySharingPoliciesWithHttpInfo}{\code{ArrayApi$GetArraySharingPoliciesWithHttpInfo()}}
-\item \href{#method-GetArraysInNamespace}{\code{ArrayApi$GetArraysInNamespace()}}
-\item \href{#method-GetArraysInNamespaceWithHttpInfo}{\code{ArrayApi$GetArraysInNamespaceWithHttpInfo()}}
-\item \href{#method-GetFragmentEndTimestamp}{\code{ArrayApi$GetFragmentEndTimestamp()}}
-\item \href{#method-GetFragmentEndTimestampWithHttpInfo}{\code{ArrayApi$GetFragmentEndTimestampWithHttpInfo()}}
-\item \href{#method-GetLastAccessedArrays}{\code{ArrayApi$GetLastAccessedArrays()}}
-\item \href{#method-GetLastAccessedArraysWithHttpInfo}{\code{ArrayApi$GetLastAccessedArraysWithHttpInfo()}}
-\item \href{#method-RegisterArray}{\code{ArrayApi$RegisterArray()}}
-\item \href{#method-RegisterArrayWithHttpInfo}{\code{ArrayApi$RegisterArrayWithHttpInfo()}}
-\item \href{#method-ShareArray}{\code{ArrayApi$ShareArray()}}
-\item \href{#method-ShareArrayWithHttpInfo}{\code{ArrayApi$ShareArrayWithHttpInfo()}}
-\item \href{#method-UpdateArrayMetadata}{\code{ArrayApi$UpdateArrayMetadata()}}
-\item \href{#method-UpdateArrayMetadataWithHttpInfo}{\code{ArrayApi$UpdateArrayMetadataWithHttpInfo()}}
-\item \href{#method-UpdateArrayMetadataCapnp}{\code{ArrayApi$UpdateArrayMetadataCapnp()}}
-\item \href{#method-UpdateArrayMetadataCapnpWithHttpInfo}{\code{ArrayApi$UpdateArrayMetadataCapnpWithHttpInfo()}}
-\item \href{#method-VacuumArray}{\code{ArrayApi$VacuumArray()}}
-\item \href{#method-VacuumArrayWithHttpInfo}{\code{ArrayApi$VacuumArrayWithHttpInfo()}}
-\item \href{#method-clone}{\code{ArrayApi$clone()}}
+\item \href{#method-ArrayApi-new}{\code{ArrayApi$new()}}
+\item \href{#method-ArrayApi-ArrayActivityLog}{\code{ArrayApi$ArrayActivityLog()}}
+\item \href{#method-ArrayApi-ArrayActivityLogWithHttpInfo}{\code{ArrayApi$ArrayActivityLogWithHttpInfo()}}
+\item \href{#method-ArrayApi-ArraysBrowserOwnedGet}{\code{ArrayApi$ArraysBrowserOwnedGet()}}
+\item \href{#method-ArrayApi-ArraysBrowserOwnedGetWithHttpInfo}{\code{ArrayApi$ArraysBrowserOwnedGetWithHttpInfo()}}
+\item \href{#method-ArrayApi-ArraysBrowserOwnedSidebarGet}{\code{ArrayApi$ArraysBrowserOwnedSidebarGet()}}
+\item \href{#method-ArrayApi-ArraysBrowserOwnedSidebarGetWithHttpInfo}{\code{ArrayApi$ArraysBrowserOwnedSidebarGetWithHttpInfo()}}
+\item \href{#method-ArrayApi-ArraysBrowserPublicGet}{\code{ArrayApi$ArraysBrowserPublicGet()}}
+\item \href{#method-ArrayApi-ArraysBrowserPublicGetWithHttpInfo}{\code{ArrayApi$ArraysBrowserPublicGetWithHttpInfo()}}
+\item \href{#method-ArrayApi-ArraysBrowserPublicSidebarGet}{\code{ArrayApi$ArraysBrowserPublicSidebarGet()}}
+\item \href{#method-ArrayApi-ArraysBrowserPublicSidebarGetWithHttpInfo}{\code{ArrayApi$ArraysBrowserPublicSidebarGetWithHttpInfo()}}
+\item \href{#method-ArrayApi-ArraysBrowserSharedGet}{\code{ArrayApi$ArraysBrowserSharedGet()}}
+\item \href{#method-ArrayApi-ArraysBrowserSharedGetWithHttpInfo}{\code{ArrayApi$ArraysBrowserSharedGetWithHttpInfo()}}
+\item \href{#method-ArrayApi-ArraysBrowserSharedSidebarGet}{\code{ArrayApi$ArraysBrowserSharedSidebarGet()}}
+\item \href{#method-ArrayApi-ArraysBrowserSharedSidebarGetWithHttpInfo}{\code{ArrayApi$ArraysBrowserSharedSidebarGetWithHttpInfo()}}
+\item \href{#method-ArrayApi-ArraysNamespaceArrayEndTimestampsGet}{\code{ArrayApi$ArraysNamespaceArrayEndTimestampsGet()}}
+\item \href{#method-ArrayApi-ArraysNamespaceArrayEndTimestampsGetWithHttpInfo}{\code{ArrayApi$ArraysNamespaceArrayEndTimestampsGetWithHttpInfo()}}
+\item \href{#method-ArrayApi-ConsolidateArray}{\code{ArrayApi$ConsolidateArray()}}
+\item \href{#method-ArrayApi-ConsolidateArrayWithHttpInfo}{\code{ArrayApi$ConsolidateArrayWithHttpInfo()}}
+\item \href{#method-ArrayApi-CreateArray}{\code{ArrayApi$CreateArray()}}
+\item \href{#method-ArrayApi-CreateArrayWithHttpInfo}{\code{ArrayApi$CreateArrayWithHttpInfo()}}
+\item \href{#method-ArrayApi-DeleteArray}{\code{ArrayApi$DeleteArray()}}
+\item \href{#method-ArrayApi-DeleteArrayWithHttpInfo}{\code{ArrayApi$DeleteArrayWithHttpInfo()}}
+\item \href{#method-ArrayApi-DeregisterArray}{\code{ArrayApi$DeregisterArray()}}
+\item \href{#method-ArrayApi-DeregisterArrayWithHttpInfo}{\code{ArrayApi$DeregisterArrayWithHttpInfo()}}
+\item \href{#method-ArrayApi-GetActivityLogById}{\code{ArrayApi$GetActivityLogById()}}
+\item \href{#method-ArrayApi-GetActivityLogByIdWithHttpInfo}{\code{ArrayApi$GetActivityLogByIdWithHttpInfo()}}
+\item \href{#method-ArrayApi-GetAllArrayMetadata}{\code{ArrayApi$GetAllArrayMetadata()}}
+\item \href{#method-ArrayApi-GetAllArrayMetadataWithHttpInfo}{\code{ArrayApi$GetAllArrayMetadataWithHttpInfo()}}
+\item \href{#method-ArrayApi-GetArray}{\code{ArrayApi$GetArray()}}
+\item \href{#method-ArrayApi-GetArrayWithHttpInfo}{\code{ArrayApi$GetArrayWithHttpInfo()}}
+\item \href{#method-ArrayApi-GetArrayMaxBufferSizes}{\code{ArrayApi$GetArrayMaxBufferSizes()}}
+\item \href{#method-ArrayApi-GetArrayMaxBufferSizesWithHttpInfo}{\code{ArrayApi$GetArrayMaxBufferSizesWithHttpInfo()}}
+\item \href{#method-ArrayApi-GetArrayMetaDataJson}{\code{ArrayApi$GetArrayMetaDataJson()}}
+\item \href{#method-ArrayApi-GetArrayMetaDataJsonWithHttpInfo}{\code{ArrayApi$GetArrayMetaDataJsonWithHttpInfo()}}
+\item \href{#method-ArrayApi-GetArrayMetadata}{\code{ArrayApi$GetArrayMetadata()}}
+\item \href{#method-ArrayApi-GetArrayMetadataWithHttpInfo}{\code{ArrayApi$GetArrayMetadataWithHttpInfo()}}
+\item \href{#method-ArrayApi-GetArrayMetadataCapnp}{\code{ArrayApi$GetArrayMetadataCapnp()}}
+\item \href{#method-ArrayApi-GetArrayMetadataCapnpWithHttpInfo}{\code{ArrayApi$GetArrayMetadataCapnpWithHttpInfo()}}
+\item \href{#method-ArrayApi-GetArrayNonEmptyDomain}{\code{ArrayApi$GetArrayNonEmptyDomain()}}
+\item \href{#method-ArrayApi-GetArrayNonEmptyDomainWithHttpInfo}{\code{ArrayApi$GetArrayNonEmptyDomainWithHttpInfo()}}
+\item \href{#method-ArrayApi-GetArrayNonEmptyDomainJson}{\code{ArrayApi$GetArrayNonEmptyDomainJson()}}
+\item \href{#method-ArrayApi-GetArrayNonEmptyDomainJsonWithHttpInfo}{\code{ArrayApi$GetArrayNonEmptyDomainJsonWithHttpInfo()}}
+\item \href{#method-ArrayApi-GetArraySampleData}{\code{ArrayApi$GetArraySampleData()}}
+\item \href{#method-ArrayApi-GetArraySampleDataWithHttpInfo}{\code{ArrayApi$GetArraySampleDataWithHttpInfo()}}
+\item \href{#method-ArrayApi-GetArraySharingPolicies}{\code{ArrayApi$GetArraySharingPolicies()}}
+\item \href{#method-ArrayApi-GetArraySharingPoliciesWithHttpInfo}{\code{ArrayApi$GetArraySharingPoliciesWithHttpInfo()}}
+\item \href{#method-ArrayApi-GetArraysInNamespace}{\code{ArrayApi$GetArraysInNamespace()}}
+\item \href{#method-ArrayApi-GetArraysInNamespaceWithHttpInfo}{\code{ArrayApi$GetArraysInNamespaceWithHttpInfo()}}
+\item \href{#method-ArrayApi-GetFragmentEndTimestamp}{\code{ArrayApi$GetFragmentEndTimestamp()}}
+\item \href{#method-ArrayApi-GetFragmentEndTimestampWithHttpInfo}{\code{ArrayApi$GetFragmentEndTimestampWithHttpInfo()}}
+\item \href{#method-ArrayApi-GetLastAccessedArrays}{\code{ArrayApi$GetLastAccessedArrays()}}
+\item \href{#method-ArrayApi-GetLastAccessedArraysWithHttpInfo}{\code{ArrayApi$GetLastAccessedArraysWithHttpInfo()}}
+\item \href{#method-ArrayApi-RegisterArray}{\code{ArrayApi$RegisterArray()}}
+\item \href{#method-ArrayApi-RegisterArrayWithHttpInfo}{\code{ArrayApi$RegisterArrayWithHttpInfo()}}
+\item \href{#method-ArrayApi-ShareArray}{\code{ArrayApi$ShareArray()}}
+\item \href{#method-ArrayApi-ShareArrayWithHttpInfo}{\code{ArrayApi$ShareArrayWithHttpInfo()}}
+\item \href{#method-ArrayApi-UpdateArrayMetadata}{\code{ArrayApi$UpdateArrayMetadata()}}
+\item \href{#method-ArrayApi-UpdateArrayMetadataWithHttpInfo}{\code{ArrayApi$UpdateArrayMetadataWithHttpInfo()}}
+\item \href{#method-ArrayApi-UpdateArrayMetadataCapnp}{\code{ArrayApi$UpdateArrayMetadataCapnp()}}
+\item \href{#method-ArrayApi-UpdateArrayMetadataCapnpWithHttpInfo}{\code{ArrayApi$UpdateArrayMetadataCapnpWithHttpInfo()}}
+\item \href{#method-ArrayApi-VacuumArray}{\code{ArrayApi$VacuumArray()}}
+\item \href{#method-ArrayApi-VacuumArrayWithHttpInfo}{\code{ArrayApi$VacuumArrayWithHttpInfo()}}
+\item \href{#method-ArrayApi-clone}{\code{ArrayApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ArrayApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -1593,8 +1593,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ArrayActivityLog"></a>}}
-\if{latex}{\out{\hypertarget{method-ArrayActivityLog}{}}}
+\if{html}{\out{<a id="method-ArrayApi-ArrayActivityLog"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-ArrayActivityLog}{}}}
 \subsection{Method \code{ArrayActivityLog()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$ArrayActivityLog(
@@ -1611,8 +1611,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ArrayActivityLogWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ArrayActivityLogWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-ArrayActivityLogWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-ArrayActivityLogWithHttpInfo}{}}}
 \subsection{Method \code{ArrayActivityLogWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$ArrayActivityLogWithHttpInfo(
@@ -1629,8 +1629,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ArraysBrowserOwnedGet"></a>}}
-\if{latex}{\out{\hypertarget{method-ArraysBrowserOwnedGet}{}}}
+\if{html}{\out{<a id="method-ArrayApi-ArraysBrowserOwnedGet"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-ArraysBrowserOwnedGet}{}}}
 \subsection{Method \code{ArraysBrowserOwnedGet()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$ArraysBrowserOwnedGet(
@@ -1651,8 +1651,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ArraysBrowserOwnedGetWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ArraysBrowserOwnedGetWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-ArraysBrowserOwnedGetWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-ArraysBrowserOwnedGetWithHttpInfo}{}}}
 \subsection{Method \code{ArraysBrowserOwnedGetWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$ArraysBrowserOwnedGetWithHttpInfo(
@@ -1673,8 +1673,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ArraysBrowserOwnedSidebarGet"></a>}}
-\if{latex}{\out{\hypertarget{method-ArraysBrowserOwnedSidebarGet}{}}}
+\if{html}{\out{<a id="method-ArrayApi-ArraysBrowserOwnedSidebarGet"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-ArraysBrowserOwnedSidebarGet}{}}}
 \subsection{Method \code{ArraysBrowserOwnedSidebarGet()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$ArraysBrowserOwnedSidebarGet(...)}\if{html}{\out{</div>}}
@@ -1682,8 +1682,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ArraysBrowserOwnedSidebarGetWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ArraysBrowserOwnedSidebarGetWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-ArraysBrowserOwnedSidebarGetWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-ArraysBrowserOwnedSidebarGetWithHttpInfo}{}}}
 \subsection{Method \code{ArraysBrowserOwnedSidebarGetWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$ArraysBrowserOwnedSidebarGetWithHttpInfo(...)}\if{html}{\out{</div>}}
@@ -1691,8 +1691,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ArraysBrowserPublicGet"></a>}}
-\if{latex}{\out{\hypertarget{method-ArraysBrowserPublicGet}{}}}
+\if{html}{\out{<a id="method-ArrayApi-ArraysBrowserPublicGet"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-ArraysBrowserPublicGet}{}}}
 \subsection{Method \code{ArraysBrowserPublicGet()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$ArraysBrowserPublicGet(
@@ -1713,8 +1713,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ArraysBrowserPublicGetWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ArraysBrowserPublicGetWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-ArraysBrowserPublicGetWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-ArraysBrowserPublicGetWithHttpInfo}{}}}
 \subsection{Method \code{ArraysBrowserPublicGetWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$ArraysBrowserPublicGetWithHttpInfo(
@@ -1735,8 +1735,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ArraysBrowserPublicSidebarGet"></a>}}
-\if{latex}{\out{\hypertarget{method-ArraysBrowserPublicSidebarGet}{}}}
+\if{html}{\out{<a id="method-ArrayApi-ArraysBrowserPublicSidebarGet"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-ArraysBrowserPublicSidebarGet}{}}}
 \subsection{Method \code{ArraysBrowserPublicSidebarGet()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$ArraysBrowserPublicSidebarGet(...)}\if{html}{\out{</div>}}
@@ -1744,8 +1744,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ArraysBrowserPublicSidebarGetWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ArraysBrowserPublicSidebarGetWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-ArraysBrowserPublicSidebarGetWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-ArraysBrowserPublicSidebarGetWithHttpInfo}{}}}
 \subsection{Method \code{ArraysBrowserPublicSidebarGetWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$ArraysBrowserPublicSidebarGetWithHttpInfo(...)}\if{html}{\out{</div>}}
@@ -1753,8 +1753,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ArraysBrowserSharedGet"></a>}}
-\if{latex}{\out{\hypertarget{method-ArraysBrowserSharedGet}{}}}
+\if{html}{\out{<a id="method-ArrayApi-ArraysBrowserSharedGet"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-ArraysBrowserSharedGet}{}}}
 \subsection{Method \code{ArraysBrowserSharedGet()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$ArraysBrowserSharedGet(
@@ -1775,8 +1775,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ArraysBrowserSharedGetWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ArraysBrowserSharedGetWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-ArraysBrowserSharedGetWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-ArraysBrowserSharedGetWithHttpInfo}{}}}
 \subsection{Method \code{ArraysBrowserSharedGetWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$ArraysBrowserSharedGetWithHttpInfo(
@@ -1797,8 +1797,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ArraysBrowserSharedSidebarGet"></a>}}
-\if{latex}{\out{\hypertarget{method-ArraysBrowserSharedSidebarGet}{}}}
+\if{html}{\out{<a id="method-ArrayApi-ArraysBrowserSharedSidebarGet"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-ArraysBrowserSharedSidebarGet}{}}}
 \subsection{Method \code{ArraysBrowserSharedSidebarGet()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$ArraysBrowserSharedSidebarGet(...)}\if{html}{\out{</div>}}
@@ -1806,8 +1806,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ArraysBrowserSharedSidebarGetWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ArraysBrowserSharedSidebarGetWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-ArraysBrowserSharedSidebarGetWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-ArraysBrowserSharedSidebarGetWithHttpInfo}{}}}
 \subsection{Method \code{ArraysBrowserSharedSidebarGetWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$ArraysBrowserSharedSidebarGetWithHttpInfo(...)}\if{html}{\out{</div>}}
@@ -1815,8 +1815,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ArraysNamespaceArrayEndTimestampsGet"></a>}}
-\if{latex}{\out{\hypertarget{method-ArraysNamespaceArrayEndTimestampsGet}{}}}
+\if{html}{\out{<a id="method-ArrayApi-ArraysNamespaceArrayEndTimestampsGet"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-ArraysNamespaceArrayEndTimestampsGet}{}}}
 \subsection{Method \code{ArraysNamespaceArrayEndTimestampsGet()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$ArraysNamespaceArrayEndTimestampsGet(
@@ -1830,8 +1830,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ArraysNamespaceArrayEndTimestampsGetWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ArraysNamespaceArrayEndTimestampsGetWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-ArraysNamespaceArrayEndTimestampsGetWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-ArraysNamespaceArrayEndTimestampsGetWithHttpInfo}{}}}
 \subsection{Method \code{ArraysNamespaceArrayEndTimestampsGetWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$ArraysNamespaceArrayEndTimestampsGetWithHttpInfo(
@@ -1845,8 +1845,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ConsolidateArray"></a>}}
-\if{latex}{\out{\hypertarget{method-ConsolidateArray}{}}}
+\if{html}{\out{<a id="method-ArrayApi-ConsolidateArray"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-ConsolidateArray}{}}}
 \subsection{Method \code{ConsolidateArray()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$ConsolidateArray(namespace, array, tiledb.config, ...)}\if{html}{\out{</div>}}
@@ -1854,8 +1854,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ConsolidateArrayWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ConsolidateArrayWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-ConsolidateArrayWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-ConsolidateArrayWithHttpInfo}{}}}
 \subsection{Method \code{ConsolidateArrayWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$ConsolidateArrayWithHttpInfo(namespace, array, tiledb.config, ...)}\if{html}{\out{</div>}}
@@ -1863,8 +1863,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CreateArray"></a>}}
-\if{latex}{\out{\hypertarget{method-CreateArray}{}}}
+\if{html}{\out{<a id="method-ArrayApi-CreateArray"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-CreateArray}{}}}
 \subsection{Method \code{CreateArray()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$CreateArray(
@@ -1879,8 +1879,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CreateArrayWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-CreateArrayWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-CreateArrayWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-CreateArrayWithHttpInfo}{}}}
 \subsection{Method \code{CreateArrayWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$CreateArrayWithHttpInfo(
@@ -1895,8 +1895,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeleteArray"></a>}}
-\if{latex}{\out{\hypertarget{method-DeleteArray}{}}}
+\if{html}{\out{<a id="method-ArrayApi-DeleteArray"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-DeleteArray}{}}}
 \subsection{Method \code{DeleteArray()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$DeleteArray(namespace, array, content.type, ...)}\if{html}{\out{</div>}}
@@ -1904,8 +1904,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeleteArrayWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-DeleteArrayWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-DeleteArrayWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-DeleteArrayWithHttpInfo}{}}}
 \subsection{Method \code{DeleteArrayWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$DeleteArrayWithHttpInfo(namespace, array, content.type, ...)}\if{html}{\out{</div>}}
@@ -1913,8 +1913,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeregisterArray"></a>}}
-\if{latex}{\out{\hypertarget{method-DeregisterArray}{}}}
+\if{html}{\out{<a id="method-ArrayApi-DeregisterArray"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-DeregisterArray}{}}}
 \subsection{Method \code{DeregisterArray()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$DeregisterArray(namespace, array, ...)}\if{html}{\out{</div>}}
@@ -1922,8 +1922,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeregisterArrayWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-DeregisterArrayWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-DeregisterArrayWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-DeregisterArrayWithHttpInfo}{}}}
 \subsection{Method \code{DeregisterArrayWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$DeregisterArrayWithHttpInfo(namespace, array, ...)}\if{html}{\out{</div>}}
@@ -1931,8 +1931,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetActivityLogById"></a>}}
-\if{latex}{\out{\hypertarget{method-GetActivityLogById}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetActivityLogById"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetActivityLogById}{}}}
 \subsection{Method \code{GetActivityLogById()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetActivityLogById(namespace, array, id, ...)}\if{html}{\out{</div>}}
@@ -1940,8 +1940,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetActivityLogByIdWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetActivityLogByIdWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetActivityLogByIdWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetActivityLogByIdWithHttpInfo}{}}}
 \subsection{Method \code{GetActivityLogByIdWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetActivityLogByIdWithHttpInfo(namespace, array, id, ...)}\if{html}{\out{</div>}}
@@ -1949,8 +1949,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetAllArrayMetadata"></a>}}
-\if{latex}{\out{\hypertarget{method-GetAllArrayMetadata}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetAllArrayMetadata"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetAllArrayMetadata}{}}}
 \subsection{Method \code{GetAllArrayMetadata()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetAllArrayMetadata(public.share = NULL, ...)}\if{html}{\out{</div>}}
@@ -1958,8 +1958,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetAllArrayMetadataWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetAllArrayMetadataWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetAllArrayMetadataWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetAllArrayMetadataWithHttpInfo}{}}}
 \subsection{Method \code{GetAllArrayMetadataWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetAllArrayMetadataWithHttpInfo(public.share = NULL, ...)}\if{html}{\out{</div>}}
@@ -1967,8 +1967,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArray"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArray}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetArray"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetArray}{}}}
 \subsection{Method \code{GetArray()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArray(namespace, array, content.type, ...)}\if{html}{\out{</div>}}
@@ -1976,8 +1976,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArrayWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArrayWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetArrayWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetArrayWithHttpInfo}{}}}
 \subsection{Method \code{GetArrayWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArrayWithHttpInfo(namespace, array, content.type, ...)}\if{html}{\out{</div>}}
@@ -1985,8 +1985,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArrayMaxBufferSizes"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArrayMaxBufferSizes}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetArrayMaxBufferSizes"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetArrayMaxBufferSizes}{}}}
 \subsection{Method \code{GetArrayMaxBufferSizes()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArrayMaxBufferSizes(
@@ -2001,8 +2001,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArrayMaxBufferSizesWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArrayMaxBufferSizesWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetArrayMaxBufferSizesWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetArrayMaxBufferSizesWithHttpInfo}{}}}
 \subsection{Method \code{GetArrayMaxBufferSizesWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArrayMaxBufferSizesWithHttpInfo(
@@ -2017,8 +2017,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArrayMetaDataJson"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArrayMetaDataJson}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetArrayMetaDataJson"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetArrayMetaDataJson}{}}}
 \subsection{Method \code{GetArrayMetaDataJson()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArrayMetaDataJson(
@@ -2032,8 +2032,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArrayMetaDataJsonWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArrayMetaDataJsonWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetArrayMetaDataJsonWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetArrayMetaDataJsonWithHttpInfo}{}}}
 \subsection{Method \code{GetArrayMetaDataJsonWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArrayMetaDataJsonWithHttpInfo(
@@ -2047,8 +2047,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArrayMetadata"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArrayMetadata}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetArrayMetadata"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetArrayMetadata}{}}}
 \subsection{Method \code{GetArrayMetadata()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArrayMetadata(namespace, array, ...)}\if{html}{\out{</div>}}
@@ -2056,8 +2056,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArrayMetadataWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArrayMetadataWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetArrayMetadataWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetArrayMetadataWithHttpInfo}{}}}
 \subsection{Method \code{GetArrayMetadataWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArrayMetadataWithHttpInfo(namespace, array, ...)}\if{html}{\out{</div>}}
@@ -2065,8 +2065,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArrayMetadataCapnp"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArrayMetadataCapnp}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetArrayMetadataCapnp"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetArrayMetadataCapnp}{}}}
 \subsection{Method \code{GetArrayMetadataCapnp()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArrayMetadataCapnp(namespace, array, ...)}\if{html}{\out{</div>}}
@@ -2074,8 +2074,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArrayMetadataCapnpWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArrayMetadataCapnpWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetArrayMetadataCapnpWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetArrayMetadataCapnpWithHttpInfo}{}}}
 \subsection{Method \code{GetArrayMetadataCapnpWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArrayMetadataCapnpWithHttpInfo(namespace, array, ...)}\if{html}{\out{</div>}}
@@ -2083,8 +2083,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArrayNonEmptyDomain"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArrayNonEmptyDomain}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetArrayNonEmptyDomain"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetArrayNonEmptyDomain}{}}}
 \subsection{Method \code{GetArrayNonEmptyDomain()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArrayNonEmptyDomain(
@@ -2098,8 +2098,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArrayNonEmptyDomainWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArrayNonEmptyDomainWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetArrayNonEmptyDomainWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetArrayNonEmptyDomainWithHttpInfo}{}}}
 \subsection{Method \code{GetArrayNonEmptyDomainWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArrayNonEmptyDomainWithHttpInfo(
@@ -2113,8 +2113,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArrayNonEmptyDomainJson"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArrayNonEmptyDomainJson}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetArrayNonEmptyDomainJson"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetArrayNonEmptyDomainJson}{}}}
 \subsection{Method \code{GetArrayNonEmptyDomainJson()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArrayNonEmptyDomainJson(namespace, array, ...)}\if{html}{\out{</div>}}
@@ -2122,8 +2122,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArrayNonEmptyDomainJsonWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArrayNonEmptyDomainJsonWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetArrayNonEmptyDomainJsonWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetArrayNonEmptyDomainJsonWithHttpInfo}{}}}
 \subsection{Method \code{GetArrayNonEmptyDomainJsonWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArrayNonEmptyDomainJsonWithHttpInfo(namespace, array, ...)}\if{html}{\out{</div>}}
@@ -2131,8 +2131,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArraySampleData"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArraySampleData}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetArraySampleData"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetArraySampleData}{}}}
 \subsection{Method \code{GetArraySampleData()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArraySampleData(namespace, array, samples = 5, ...)}\if{html}{\out{</div>}}
@@ -2140,8 +2140,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArraySampleDataWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArraySampleDataWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetArraySampleDataWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetArraySampleDataWithHttpInfo}{}}}
 \subsection{Method \code{GetArraySampleDataWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArraySampleDataWithHttpInfo(namespace, array, samples = 5, ...)}\if{html}{\out{</div>}}
@@ -2149,8 +2149,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArraySharingPolicies"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArraySharingPolicies}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetArraySharingPolicies"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetArraySharingPolicies}{}}}
 \subsection{Method \code{GetArraySharingPolicies()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArraySharingPolicies(namespace, array, ...)}\if{html}{\out{</div>}}
@@ -2158,8 +2158,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArraySharingPoliciesWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArraySharingPoliciesWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetArraySharingPoliciesWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetArraySharingPoliciesWithHttpInfo}{}}}
 \subsection{Method \code{GetArraySharingPoliciesWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArraySharingPoliciesWithHttpInfo(namespace, array, ...)}\if{html}{\out{</div>}}
@@ -2167,8 +2167,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArraysInNamespace"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArraysInNamespace}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetArraysInNamespace"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetArraysInNamespace}{}}}
 \subsection{Method \code{GetArraysInNamespace()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArraysInNamespace(namespace, ...)}\if{html}{\out{</div>}}
@@ -2176,8 +2176,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArraysInNamespaceWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArraysInNamespaceWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetArraysInNamespaceWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetArraysInNamespaceWithHttpInfo}{}}}
 \subsection{Method \code{GetArraysInNamespaceWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetArraysInNamespaceWithHttpInfo(namespace, ...)}\if{html}{\out{</div>}}
@@ -2185,8 +2185,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetFragmentEndTimestamp"></a>}}
-\if{latex}{\out{\hypertarget{method-GetFragmentEndTimestamp}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetFragmentEndTimestamp"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetFragmentEndTimestamp}{}}}
 \subsection{Method \code{GetFragmentEndTimestamp()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetFragmentEndTimestamp(namespace, array, end.timestamp = NULL, ...)}\if{html}{\out{</div>}}
@@ -2194,8 +2194,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetFragmentEndTimestampWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetFragmentEndTimestampWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetFragmentEndTimestampWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetFragmentEndTimestampWithHttpInfo}{}}}
 \subsection{Method \code{GetFragmentEndTimestampWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetFragmentEndTimestampWithHttpInfo(
@@ -2208,8 +2208,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetLastAccessedArrays"></a>}}
-\if{latex}{\out{\hypertarget{method-GetLastAccessedArrays}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetLastAccessedArrays"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetLastAccessedArrays}{}}}
 \subsection{Method \code{GetLastAccessedArrays()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetLastAccessedArrays(...)}\if{html}{\out{</div>}}
@@ -2217,8 +2217,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetLastAccessedArraysWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetLastAccessedArraysWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-GetLastAccessedArraysWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-GetLastAccessedArraysWithHttpInfo}{}}}
 \subsection{Method \code{GetLastAccessedArraysWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$GetLastAccessedArraysWithHttpInfo(...)}\if{html}{\out{</div>}}
@@ -2226,8 +2226,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-RegisterArray"></a>}}
-\if{latex}{\out{\hypertarget{method-RegisterArray}{}}}
+\if{html}{\out{<a id="method-ArrayApi-RegisterArray"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-RegisterArray}{}}}
 \subsection{Method \code{RegisterArray()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$RegisterArray(namespace, array, array.metadata, ...)}\if{html}{\out{</div>}}
@@ -2235,8 +2235,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-RegisterArrayWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-RegisterArrayWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-RegisterArrayWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-RegisterArrayWithHttpInfo}{}}}
 \subsection{Method \code{RegisterArrayWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$RegisterArrayWithHttpInfo(namespace, array, array.metadata, ...)}\if{html}{\out{</div>}}
@@ -2244,8 +2244,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ShareArray"></a>}}
-\if{latex}{\out{\hypertarget{method-ShareArray}{}}}
+\if{html}{\out{<a id="method-ArrayApi-ShareArray"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-ShareArray}{}}}
 \subsection{Method \code{ShareArray()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$ShareArray(namespace, array, array.sharing, ...)}\if{html}{\out{</div>}}
@@ -2253,8 +2253,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ShareArrayWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ShareArrayWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-ShareArrayWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-ShareArrayWithHttpInfo}{}}}
 \subsection{Method \code{ShareArrayWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$ShareArrayWithHttpInfo(namespace, array, array.sharing, ...)}\if{html}{\out{</div>}}
@@ -2262,8 +2262,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UpdateArrayMetadata"></a>}}
-\if{latex}{\out{\hypertarget{method-UpdateArrayMetadata}{}}}
+\if{html}{\out{<a id="method-ArrayApi-UpdateArrayMetadata"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-UpdateArrayMetadata}{}}}
 \subsection{Method \code{UpdateArrayMetadata()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$UpdateArrayMetadata(namespace, array, array.metadata, ...)}\if{html}{\out{</div>}}
@@ -2271,8 +2271,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UpdateArrayMetadataWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-UpdateArrayMetadataWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-UpdateArrayMetadataWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-UpdateArrayMetadataWithHttpInfo}{}}}
 \subsection{Method \code{UpdateArrayMetadataWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$UpdateArrayMetadataWithHttpInfo(namespace, array, array.metadata, ...)}\if{html}{\out{</div>}}
@@ -2280,8 +2280,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UpdateArrayMetadataCapnp"></a>}}
-\if{latex}{\out{\hypertarget{method-UpdateArrayMetadataCapnp}{}}}
+\if{html}{\out{<a id="method-ArrayApi-UpdateArrayMetadataCapnp"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-UpdateArrayMetadataCapnp}{}}}
 \subsection{Method \code{UpdateArrayMetadataCapnp()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$UpdateArrayMetadataCapnp(
@@ -2294,8 +2294,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UpdateArrayMetadataCapnpWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-UpdateArrayMetadataCapnpWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-UpdateArrayMetadataCapnpWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-UpdateArrayMetadataCapnpWithHttpInfo}{}}}
 \subsection{Method \code{UpdateArrayMetadataCapnpWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$UpdateArrayMetadataCapnpWithHttpInfo(
@@ -2308,8 +2308,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-VacuumArray"></a>}}
-\if{latex}{\out{\hypertarget{method-VacuumArray}{}}}
+\if{html}{\out{<a id="method-ArrayApi-VacuumArray"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-VacuumArray}{}}}
 \subsection{Method \code{VacuumArray()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$VacuumArray(namespace, array, tiledb.config, ...)}\if{html}{\out{</div>}}
@@ -2317,8 +2317,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-VacuumArrayWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-VacuumArrayWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayApi-VacuumArrayWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-VacuumArrayWithHttpInfo}{}}}
 \subsection{Method \code{VacuumArrayWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayApi$VacuumArrayWithHttpInfo(namespace, array, tiledb.config, ...)}\if{html}{\out{</div>}}
@@ -2326,8 +2326,8 @@ result <- api.instance$VacuumArray(var.namespace, var.array, var.tiledb.config)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ArrayApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

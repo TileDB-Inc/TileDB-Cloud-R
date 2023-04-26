@@ -24,17 +24,17 @@ SubarrayRanges Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{SubarrayRanges$new()}}
-\item \href{#method-toJSON}{\code{SubarrayRanges$toJSON()}}
-\item \href{#method-fromJSON}{\code{SubarrayRanges$fromJSON()}}
-\item \href{#method-toJSONString}{\code{SubarrayRanges$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{SubarrayRanges$fromJSONString()}}
-\item \href{#method-clone}{\code{SubarrayRanges$clone()}}
+\item \href{#method-SubarrayRanges-new}{\code{SubarrayRanges$new()}}
+\item \href{#method-SubarrayRanges-toJSON}{\code{SubarrayRanges$toJSON()}}
+\item \href{#method-SubarrayRanges-fromJSON}{\code{SubarrayRanges$fromJSON()}}
+\item \href{#method-SubarrayRanges-toJSONString}{\code{SubarrayRanges$toJSONString()}}
+\item \href{#method-SubarrayRanges-fromJSONString}{\code{SubarrayRanges$fromJSONString()}}
+\item \href{#method-SubarrayRanges-clone}{\code{SubarrayRanges$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-SubarrayRanges-new"></a>}}
+\if{latex}{\out{\hypertarget{method-SubarrayRanges-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SubarrayRanges$new(type = NULL, hasDefaultRange = NULL, buffer = NULL, ...)}\if{html}{\out{</div>}}
@@ -42,8 +42,8 @@ SubarrayRanges Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-SubarrayRanges-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SubarrayRanges-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SubarrayRanges$toJSON()}\if{html}{\out{</div>}}
@@ -51,8 +51,8 @@ SubarrayRanges Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-SubarrayRanges-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SubarrayRanges-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SubarrayRanges$fromJSON(SubarrayRangesJson)}\if{html}{\out{</div>}}
@@ -60,8 +60,8 @@ SubarrayRanges Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-SubarrayRanges-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-SubarrayRanges-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SubarrayRanges$toJSONString()}\if{html}{\out{</div>}}
@@ -69,8 +69,8 @@ SubarrayRanges Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-SubarrayRanges-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-SubarrayRanges-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SubarrayRanges$fromJSONString(SubarrayRangesJson)}\if{html}{\out{</div>}}
@@ -78,8 +78,8 @@ SubarrayRanges Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-SubarrayRanges-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-SubarrayRanges-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

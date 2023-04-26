@@ -30,17 +30,17 @@ QueryReader Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{QueryReader$new()}}
-\item \href{#method-toJSON}{\code{QueryReader$toJSON()}}
-\item \href{#method-fromJSON}{\code{QueryReader$fromJSON()}}
-\item \href{#method-toJSONString}{\code{QueryReader$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{QueryReader$fromJSONString()}}
-\item \href{#method-clone}{\code{QueryReader$clone()}}
+\item \href{#method-QueryReader-new}{\code{QueryReader$new()}}
+\item \href{#method-QueryReader-toJSON}{\code{QueryReader$toJSON()}}
+\item \href{#method-QueryReader-fromJSON}{\code{QueryReader$fromJSON()}}
+\item \href{#method-QueryReader-toJSONString}{\code{QueryReader$toJSONString()}}
+\item \href{#method-QueryReader-fromJSONString}{\code{QueryReader$fromJSONString()}}
+\item \href{#method-QueryReader-clone}{\code{QueryReader$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-QueryReader-new"></a>}}
+\if{latex}{\out{\hypertarget{method-QueryReader-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{QueryReader$new(
@@ -56,8 +56,8 @@ QueryReader Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-QueryReader-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-QueryReader-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{QueryReader$toJSON()}\if{html}{\out{</div>}}
@@ -65,8 +65,8 @@ QueryReader Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-QueryReader-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-QueryReader-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{QueryReader$fromJSON(QueryReaderJson)}\if{html}{\out{</div>}}
@@ -74,8 +74,8 @@ QueryReader Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-QueryReader-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-QueryReader-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{QueryReader$toJSONString()}\if{html}{\out{</div>}}
@@ -83,8 +83,8 @@ QueryReader Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-QueryReader-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-QueryReader-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{QueryReader$fromJSONString(QueryReaderJson)}\if{html}{\out{</div>}}
@@ -92,8 +92,8 @@ QueryReader Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-QueryReader-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-QueryReader-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

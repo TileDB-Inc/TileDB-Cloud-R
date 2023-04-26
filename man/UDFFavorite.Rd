@@ -24,17 +24,17 @@ UDFFavorite Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{UDFFavorite$new()}}
-\item \href{#method-toJSON}{\code{UDFFavorite$toJSON()}}
-\item \href{#method-fromJSON}{\code{UDFFavorite$fromJSON()}}
-\item \href{#method-toJSONString}{\code{UDFFavorite$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{UDFFavorite$fromJSONString()}}
-\item \href{#method-clone}{\code{UDFFavorite$clone()}}
+\item \href{#method-UDFFavorite-new}{\code{UDFFavorite$new()}}
+\item \href{#method-UDFFavorite-toJSON}{\code{UDFFavorite$toJSON()}}
+\item \href{#method-UDFFavorite-fromJSON}{\code{UDFFavorite$fromJSON()}}
+\item \href{#method-UDFFavorite-toJSONString}{\code{UDFFavorite$toJSONString()}}
+\item \href{#method-UDFFavorite-fromJSONString}{\code{UDFFavorite$fromJSONString()}}
+\item \href{#method-UDFFavorite-clone}{\code{UDFFavorite$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-UDFFavorite-new"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFFavorite-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFFavorite$new(udf_uuid = NULL, namespace = NULL, name = NULL, ...)}\if{html}{\out{</div>}}
@@ -42,8 +42,8 @@ UDFFavorite Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-UDFFavorite-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFFavorite-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFFavorite$toJSON()}\if{html}{\out{</div>}}
@@ -51,8 +51,8 @@ UDFFavorite Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-UDFFavorite-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFFavorite-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFFavorite$fromJSON(UDFFavoriteJson)}\if{html}{\out{</div>}}
@@ -60,8 +60,8 @@ UDFFavorite Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-UDFFavorite-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFFavorite-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFFavorite$toJSONString()}\if{html}{\out{</div>}}
@@ -69,8 +69,8 @@ UDFFavorite Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-UDFFavorite-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFFavorite-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFFavorite$fromJSONString(UDFFavoriteJson)}\if{html}{\out{</div>}}
@@ -78,8 +78,8 @@ UDFFavorite Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-UDFFavorite-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFFavorite-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -13,17 +13,17 @@ Querytype Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Querytype$new()}}
-\item \href{#method-toJSON}{\code{Querytype$toJSON()}}
-\item \href{#method-fromJSON}{\code{Querytype$fromJSON()}}
-\item \href{#method-toJSONString}{\code{Querytype$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{Querytype$fromJSONString()}}
-\item \href{#method-clone}{\code{Querytype$clone()}}
+\item \href{#method-Querytype-new}{\code{Querytype$new()}}
+\item \href{#method-Querytype-toJSON}{\code{Querytype$toJSON()}}
+\item \href{#method-Querytype-fromJSON}{\code{Querytype$fromJSON()}}
+\item \href{#method-Querytype-toJSONString}{\code{Querytype$toJSONString()}}
+\item \href{#method-Querytype-fromJSONString}{\code{Querytype$fromJSONString()}}
+\item \href{#method-Querytype-clone}{\code{Querytype$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Querytype-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Querytype-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Querytype$new(...)}\if{html}{\out{</div>}}
@@ -31,8 +31,8 @@ Querytype Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Querytype-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Querytype-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Querytype$toJSON()}\if{html}{\out{</div>}}
@@ -40,8 +40,8 @@ Querytype Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Querytype-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Querytype-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Querytype$fromJSON(QuerytypeJson)}\if{html}{\out{</div>}}
@@ -49,8 +49,8 @@ Querytype Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-Querytype-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Querytype-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Querytype$toJSONString()}\if{html}{\out{</div>}}
@@ -58,8 +58,8 @@ Querytype Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-Querytype-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Querytype-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Querytype$fromJSONString(QuerytypeJson)}\if{html}{\out{</div>}}
@@ -67,8 +67,8 @@ Querytype Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Querytype-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Querytype-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

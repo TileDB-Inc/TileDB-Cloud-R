@@ -22,17 +22,17 @@ QueryRanges Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{QueryRanges$new()}}
-\item \href{#method-toJSON}{\code{QueryRanges$toJSON()}}
-\item \href{#method-fromJSON}{\code{QueryRanges$fromJSON()}}
-\item \href{#method-toJSONString}{\code{QueryRanges$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{QueryRanges$fromJSONString()}}
-\item \href{#method-clone}{\code{QueryRanges$clone()}}
+\item \href{#method-QueryRanges-new}{\code{QueryRanges$new()}}
+\item \href{#method-QueryRanges-toJSON}{\code{QueryRanges$toJSON()}}
+\item \href{#method-QueryRanges-fromJSON}{\code{QueryRanges$fromJSON()}}
+\item \href{#method-QueryRanges-toJSONString}{\code{QueryRanges$toJSONString()}}
+\item \href{#method-QueryRanges-fromJSONString}{\code{QueryRanges$fromJSONString()}}
+\item \href{#method-QueryRanges-clone}{\code{QueryRanges$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-QueryRanges-new"></a>}}
+\if{latex}{\out{\hypertarget{method-QueryRanges-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{QueryRanges$new(layout = NULL, ranges = NULL, ...)}\if{html}{\out{</div>}}
@@ -40,8 +40,8 @@ QueryRanges Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-QueryRanges-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-QueryRanges-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{QueryRanges$toJSON()}\if{html}{\out{</div>}}
@@ -49,8 +49,8 @@ QueryRanges Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-QueryRanges-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-QueryRanges-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{QueryRanges$fromJSON(QueryRangesJson)}\if{html}{\out{</div>}}
@@ -58,8 +58,8 @@ QueryRanges Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-QueryRanges-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-QueryRanges-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{QueryRanges$toJSONString()}\if{html}{\out{</div>}}
@@ -67,8 +67,8 @@ QueryRanges Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-QueryRanges-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-QueryRanges-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{QueryRanges$fromJSONString(QueryRangesJson)}\if{html}{\out{</div>}}
@@ -76,8 +76,8 @@ QueryRanges Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-QueryRanges-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-QueryRanges-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

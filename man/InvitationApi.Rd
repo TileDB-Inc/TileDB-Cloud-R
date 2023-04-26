@@ -346,25 +346,25 @@ result <- api.instance$ShareArrayByInvite(var.namespace, var.array, var.email.in
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{InvitationApi$new()}}
-\item \href{#method-AcceptInvitation}{\code{InvitationApi$AcceptInvitation()}}
-\item \href{#method-AcceptInvitationWithHttpInfo}{\code{InvitationApi$AcceptInvitationWithHttpInfo()}}
-\item \href{#method-CancelJoinOrganization}{\code{InvitationApi$CancelJoinOrganization()}}
-\item \href{#method-CancelJoinOrganizationWithHttpInfo}{\code{InvitationApi$CancelJoinOrganizationWithHttpInfo()}}
-\item \href{#method-CancelShareArrayByInvite}{\code{InvitationApi$CancelShareArrayByInvite()}}
-\item \href{#method-CancelShareArrayByInviteWithHttpInfo}{\code{InvitationApi$CancelShareArrayByInviteWithHttpInfo()}}
-\item \href{#method-FetchInvitations}{\code{InvitationApi$FetchInvitations()}}
-\item \href{#method-FetchInvitationsWithHttpInfo}{\code{InvitationApi$FetchInvitationsWithHttpInfo()}}
-\item \href{#method-JoinOrganization}{\code{InvitationApi$JoinOrganization()}}
-\item \href{#method-JoinOrganizationWithHttpInfo}{\code{InvitationApi$JoinOrganizationWithHttpInfo()}}
-\item \href{#method-ShareArrayByInvite}{\code{InvitationApi$ShareArrayByInvite()}}
-\item \href{#method-ShareArrayByInviteWithHttpInfo}{\code{InvitationApi$ShareArrayByInviteWithHttpInfo()}}
-\item \href{#method-clone}{\code{InvitationApi$clone()}}
+\item \href{#method-InvitationApi-new}{\code{InvitationApi$new()}}
+\item \href{#method-InvitationApi-AcceptInvitation}{\code{InvitationApi$AcceptInvitation()}}
+\item \href{#method-InvitationApi-AcceptInvitationWithHttpInfo}{\code{InvitationApi$AcceptInvitationWithHttpInfo()}}
+\item \href{#method-InvitationApi-CancelJoinOrganization}{\code{InvitationApi$CancelJoinOrganization()}}
+\item \href{#method-InvitationApi-CancelJoinOrganizationWithHttpInfo}{\code{InvitationApi$CancelJoinOrganizationWithHttpInfo()}}
+\item \href{#method-InvitationApi-CancelShareArrayByInvite}{\code{InvitationApi$CancelShareArrayByInvite()}}
+\item \href{#method-InvitationApi-CancelShareArrayByInviteWithHttpInfo}{\code{InvitationApi$CancelShareArrayByInviteWithHttpInfo()}}
+\item \href{#method-InvitationApi-FetchInvitations}{\code{InvitationApi$FetchInvitations()}}
+\item \href{#method-InvitationApi-FetchInvitationsWithHttpInfo}{\code{InvitationApi$FetchInvitationsWithHttpInfo()}}
+\item \href{#method-InvitationApi-JoinOrganization}{\code{InvitationApi$JoinOrganization()}}
+\item \href{#method-InvitationApi-JoinOrganizationWithHttpInfo}{\code{InvitationApi$JoinOrganizationWithHttpInfo()}}
+\item \href{#method-InvitationApi-ShareArrayByInvite}{\code{InvitationApi$ShareArrayByInvite()}}
+\item \href{#method-InvitationApi-ShareArrayByInviteWithHttpInfo}{\code{InvitationApi$ShareArrayByInviteWithHttpInfo()}}
+\item \href{#method-InvitationApi-clone}{\code{InvitationApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-InvitationApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InvitationApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -372,8 +372,8 @@ result <- api.instance$ShareArrayByInvite(var.namespace, var.array, var.email.in
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AcceptInvitation"></a>}}
-\if{latex}{\out{\hypertarget{method-AcceptInvitation}{}}}
+\if{html}{\out{<a id="method-InvitationApi-AcceptInvitation"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationApi-AcceptInvitation}{}}}
 \subsection{Method \code{AcceptInvitation()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InvitationApi$AcceptInvitation(invitation, ...)}\if{html}{\out{</div>}}
@@ -381,8 +381,8 @@ result <- api.instance$ShareArrayByInvite(var.namespace, var.array, var.email.in
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-AcceptInvitationWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-AcceptInvitationWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-InvitationApi-AcceptInvitationWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationApi-AcceptInvitationWithHttpInfo}{}}}
 \subsection{Method \code{AcceptInvitationWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InvitationApi$AcceptInvitationWithHttpInfo(invitation, ...)}\if{html}{\out{</div>}}
@@ -390,8 +390,8 @@ result <- api.instance$ShareArrayByInvite(var.namespace, var.array, var.email.in
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CancelJoinOrganization"></a>}}
-\if{latex}{\out{\hypertarget{method-CancelJoinOrganization}{}}}
+\if{html}{\out{<a id="method-InvitationApi-CancelJoinOrganization"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationApi-CancelJoinOrganization}{}}}
 \subsection{Method \code{CancelJoinOrganization()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InvitationApi$CancelJoinOrganization(invitation, organization, ...)}\if{html}{\out{</div>}}
@@ -399,8 +399,8 @@ result <- api.instance$ShareArrayByInvite(var.namespace, var.array, var.email.in
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CancelJoinOrganizationWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-CancelJoinOrganizationWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-InvitationApi-CancelJoinOrganizationWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationApi-CancelJoinOrganizationWithHttpInfo}{}}}
 \subsection{Method \code{CancelJoinOrganizationWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InvitationApi$CancelJoinOrganizationWithHttpInfo(invitation, organization, ...)}\if{html}{\out{</div>}}
@@ -408,8 +408,8 @@ result <- api.instance$ShareArrayByInvite(var.namespace, var.array, var.email.in
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CancelShareArrayByInvite"></a>}}
-\if{latex}{\out{\hypertarget{method-CancelShareArrayByInvite}{}}}
+\if{html}{\out{<a id="method-InvitationApi-CancelShareArrayByInvite"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationApi-CancelShareArrayByInvite}{}}}
 \subsection{Method \code{CancelShareArrayByInvite()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InvitationApi$CancelShareArrayByInvite(namespace, invitation, array, ...)}\if{html}{\out{</div>}}
@@ -417,8 +417,8 @@ result <- api.instance$ShareArrayByInvite(var.namespace, var.array, var.email.in
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CancelShareArrayByInviteWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-CancelShareArrayByInviteWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-InvitationApi-CancelShareArrayByInviteWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationApi-CancelShareArrayByInviteWithHttpInfo}{}}}
 \subsection{Method \code{CancelShareArrayByInviteWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InvitationApi$CancelShareArrayByInviteWithHttpInfo(
@@ -431,8 +431,8 @@ result <- api.instance$ShareArrayByInvite(var.namespace, var.array, var.email.in
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-FetchInvitations"></a>}}
-\if{latex}{\out{\hypertarget{method-FetchInvitations}{}}}
+\if{html}{\out{<a id="method-InvitationApi-FetchInvitations"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationApi-FetchInvitations}{}}}
 \subsection{Method \code{FetchInvitations()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InvitationApi$FetchInvitations(
@@ -451,8 +451,8 @@ result <- api.instance$ShareArrayByInvite(var.namespace, var.array, var.email.in
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-FetchInvitationsWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-FetchInvitationsWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-InvitationApi-FetchInvitationsWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationApi-FetchInvitationsWithHttpInfo}{}}}
 \subsection{Method \code{FetchInvitationsWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InvitationApi$FetchInvitationsWithHttpInfo(
@@ -471,8 +471,8 @@ result <- api.instance$ShareArrayByInvite(var.namespace, var.array, var.email.in
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-JoinOrganization"></a>}}
-\if{latex}{\out{\hypertarget{method-JoinOrganization}{}}}
+\if{html}{\out{<a id="method-InvitationApi-JoinOrganization"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationApi-JoinOrganization}{}}}
 \subsection{Method \code{JoinOrganization()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InvitationApi$JoinOrganization(organization, email.invite, ...)}\if{html}{\out{</div>}}
@@ -480,8 +480,8 @@ result <- api.instance$ShareArrayByInvite(var.namespace, var.array, var.email.in
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-JoinOrganizationWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-JoinOrganizationWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-InvitationApi-JoinOrganizationWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationApi-JoinOrganizationWithHttpInfo}{}}}
 \subsection{Method \code{JoinOrganizationWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InvitationApi$JoinOrganizationWithHttpInfo(organization, email.invite, ...)}\if{html}{\out{</div>}}
@@ -489,8 +489,8 @@ result <- api.instance$ShareArrayByInvite(var.namespace, var.array, var.email.in
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ShareArrayByInvite"></a>}}
-\if{latex}{\out{\hypertarget{method-ShareArrayByInvite}{}}}
+\if{html}{\out{<a id="method-InvitationApi-ShareArrayByInvite"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationApi-ShareArrayByInvite}{}}}
 \subsection{Method \code{ShareArrayByInvite()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InvitationApi$ShareArrayByInvite(namespace, array, email.invite, ...)}\if{html}{\out{</div>}}
@@ -498,8 +498,8 @@ result <- api.instance$ShareArrayByInvite(var.namespace, var.array, var.email.in
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ShareArrayByInviteWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ShareArrayByInviteWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-InvitationApi-ShareArrayByInviteWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationApi-ShareArrayByInviteWithHttpInfo}{}}}
 \subsection{Method \code{ShareArrayByInviteWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InvitationApi$ShareArrayByInviteWithHttpInfo(
@@ -512,8 +512,8 @@ result <- api.instance$ShareArrayByInvite(var.namespace, var.array, var.email.in
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-InvitationApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

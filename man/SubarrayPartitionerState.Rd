@@ -26,17 +26,17 @@ SubarrayPartitionerState Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{SubarrayPartitionerState$new()}}
-\item \href{#method-toJSON}{\code{SubarrayPartitionerState$toJSON()}}
-\item \href{#method-fromJSON}{\code{SubarrayPartitionerState$fromJSON()}}
-\item \href{#method-toJSONString}{\code{SubarrayPartitionerState$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{SubarrayPartitionerState$fromJSONString()}}
-\item \href{#method-clone}{\code{SubarrayPartitionerState$clone()}}
+\item \href{#method-SubarrayPartitionerState-new}{\code{SubarrayPartitionerState$new()}}
+\item \href{#method-SubarrayPartitionerState-toJSON}{\code{SubarrayPartitionerState$toJSON()}}
+\item \href{#method-SubarrayPartitionerState-fromJSON}{\code{SubarrayPartitionerState$fromJSON()}}
+\item \href{#method-SubarrayPartitionerState-toJSONString}{\code{SubarrayPartitionerState$toJSONString()}}
+\item \href{#method-SubarrayPartitionerState-fromJSONString}{\code{SubarrayPartitionerState$fromJSONString()}}
+\item \href{#method-SubarrayPartitionerState-clone}{\code{SubarrayPartitionerState$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-SubarrayPartitionerState-new"></a>}}
+\if{latex}{\out{\hypertarget{method-SubarrayPartitionerState-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SubarrayPartitionerState$new(
@@ -50,8 +50,8 @@ SubarrayPartitionerState Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-SubarrayPartitionerState-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SubarrayPartitionerState-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SubarrayPartitionerState$toJSON()}\if{html}{\out{</div>}}
@@ -59,8 +59,8 @@ SubarrayPartitionerState Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-SubarrayPartitionerState-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SubarrayPartitionerState-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SubarrayPartitionerState$fromJSON(SubarrayPartitionerStateJson)}\if{html}{\out{</div>}}
@@ -68,8 +68,8 @@ SubarrayPartitionerState Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-SubarrayPartitionerState-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-SubarrayPartitionerState-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SubarrayPartitionerState$toJSONString()}\if{html}{\out{</div>}}
@@ -77,8 +77,8 @@ SubarrayPartitionerState Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-SubarrayPartitionerState-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-SubarrayPartitionerState-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SubarrayPartitionerState$fromJSONString(SubarrayPartitionerStateJson)}\if{html}{\out{</div>}}
@@ -86,8 +86,8 @@ SubarrayPartitionerState Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-SubarrayPartitionerState-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-SubarrayPartitionerState-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

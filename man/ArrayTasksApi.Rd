@@ -82,15 +82,15 @@ result <- api.instance$GetArrayTasksSidebar(start=var.start, end=var.end)
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ArrayTasksApi$new()}}
-\item \href{#method-GetArrayTasksSidebar}{\code{ArrayTasksApi$GetArrayTasksSidebar()}}
-\item \href{#method-GetArrayTasksSidebarWithHttpInfo}{\code{ArrayTasksApi$GetArrayTasksSidebarWithHttpInfo()}}
-\item \href{#method-clone}{\code{ArrayTasksApi$clone()}}
+\item \href{#method-ArrayTasksApi-new}{\code{ArrayTasksApi$new()}}
+\item \href{#method-ArrayTasksApi-GetArrayTasksSidebar}{\code{ArrayTasksApi$GetArrayTasksSidebar()}}
+\item \href{#method-ArrayTasksApi-GetArrayTasksSidebarWithHttpInfo}{\code{ArrayTasksApi$GetArrayTasksSidebarWithHttpInfo()}}
+\item \href{#method-ArrayTasksApi-clone}{\code{ArrayTasksApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ArrayTasksApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayTasksApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayTasksApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -98,8 +98,8 @@ result <- api.instance$GetArrayTasksSidebar(start=var.start, end=var.end)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArrayTasksSidebar"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArrayTasksSidebar}{}}}
+\if{html}{\out{<a id="method-ArrayTasksApi-GetArrayTasksSidebar"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayTasksApi-GetArrayTasksSidebar}{}}}
 \subsection{Method \code{GetArrayTasksSidebar()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayTasksApi$GetArrayTasksSidebar(start = NULL, end = NULL, ...)}\if{html}{\out{</div>}}
@@ -107,8 +107,8 @@ result <- api.instance$GetArrayTasksSidebar(start=var.start, end=var.end)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetArrayTasksSidebarWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetArrayTasksSidebarWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-ArrayTasksApi-GetArrayTasksSidebarWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayTasksApi-GetArrayTasksSidebarWithHttpInfo}{}}}
 \subsection{Method \code{GetArrayTasksSidebarWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayTasksApi$GetArrayTasksSidebarWithHttpInfo(start = NULL, end = NULL, ...)}\if{html}{\out{</div>}}
@@ -116,8 +116,8 @@ result <- api.instance$GetArrayTasksSidebar(start=var.start, end=var.end)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ArrayTasksApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayTasksApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

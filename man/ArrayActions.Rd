@@ -13,17 +13,17 @@ ArrayActions Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ArrayActions$new()}}
-\item \href{#method-toJSON}{\code{ArrayActions$toJSON()}}
-\item \href{#method-fromJSON}{\code{ArrayActions$fromJSON()}}
-\item \href{#method-toJSONString}{\code{ArrayActions$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{ArrayActions$fromJSONString()}}
-\item \href{#method-clone}{\code{ArrayActions$clone()}}
+\item \href{#method-ArrayActions-new}{\code{ArrayActions$new()}}
+\item \href{#method-ArrayActions-toJSON}{\code{ArrayActions$toJSON()}}
+\item \href{#method-ArrayActions-fromJSON}{\code{ArrayActions$fromJSON()}}
+\item \href{#method-ArrayActions-toJSONString}{\code{ArrayActions$toJSONString()}}
+\item \href{#method-ArrayActions-fromJSONString}{\code{ArrayActions$fromJSONString()}}
+\item \href{#method-ArrayActions-clone}{\code{ArrayActions$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ArrayActions-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayActions-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayActions$new(...)}\if{html}{\out{</div>}}
@@ -31,8 +31,8 @@ ArrayActions Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ArrayActions-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayActions-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayActions$toJSON()}\if{html}{\out{</div>}}
@@ -40,8 +40,8 @@ ArrayActions Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ArrayActions-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayActions-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayActions$fromJSON(ArrayActionsJson)}\if{html}{\out{</div>}}
@@ -49,8 +49,8 @@ ArrayActions Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-ArrayActions-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayActions-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayActions$toJSONString()}\if{html}{\out{</div>}}
@@ -58,8 +58,8 @@ ArrayActions Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-ArrayActions-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayActions-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayActions$fromJSONString(ArrayActionsJson)}\if{html}{\out{</div>}}
@@ -67,8 +67,8 @@ ArrayActions Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ArrayActions-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayActions-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{
