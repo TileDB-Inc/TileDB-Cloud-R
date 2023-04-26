@@ -26,17 +26,17 @@ SubarrayPartitionerCurrent Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{SubarrayPartitionerCurrent$new()}}
-\item \href{#method-toJSON}{\code{SubarrayPartitionerCurrent$toJSON()}}
-\item \href{#method-fromJSON}{\code{SubarrayPartitionerCurrent$fromJSON()}}
-\item \href{#method-toJSONString}{\code{SubarrayPartitionerCurrent$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{SubarrayPartitionerCurrent$fromJSONString()}}
-\item \href{#method-clone}{\code{SubarrayPartitionerCurrent$clone()}}
+\item \href{#method-SubarrayPartitionerCurrent-new}{\code{SubarrayPartitionerCurrent$new()}}
+\item \href{#method-SubarrayPartitionerCurrent-toJSON}{\code{SubarrayPartitionerCurrent$toJSON()}}
+\item \href{#method-SubarrayPartitionerCurrent-fromJSON}{\code{SubarrayPartitionerCurrent$fromJSON()}}
+\item \href{#method-SubarrayPartitionerCurrent-toJSONString}{\code{SubarrayPartitionerCurrent$toJSONString()}}
+\item \href{#method-SubarrayPartitionerCurrent-fromJSONString}{\code{SubarrayPartitionerCurrent$fromJSONString()}}
+\item \href{#method-SubarrayPartitionerCurrent-clone}{\code{SubarrayPartitionerCurrent$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-SubarrayPartitionerCurrent-new"></a>}}
+\if{latex}{\out{\hypertarget{method-SubarrayPartitionerCurrent-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SubarrayPartitionerCurrent$new(
@@ -50,8 +50,8 @@ SubarrayPartitionerCurrent Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-SubarrayPartitionerCurrent-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SubarrayPartitionerCurrent-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SubarrayPartitionerCurrent$toJSON()}\if{html}{\out{</div>}}
@@ -59,8 +59,8 @@ SubarrayPartitionerCurrent Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-SubarrayPartitionerCurrent-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SubarrayPartitionerCurrent-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SubarrayPartitionerCurrent$fromJSON(SubarrayPartitionerCurrentJson)}\if{html}{\out{</div>}}
@@ -68,8 +68,8 @@ SubarrayPartitionerCurrent Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-SubarrayPartitionerCurrent-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-SubarrayPartitionerCurrent-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SubarrayPartitionerCurrent$toJSONString()}\if{html}{\out{</div>}}
@@ -77,8 +77,8 @@ SubarrayPartitionerCurrent Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-SubarrayPartitionerCurrent-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-SubarrayPartitionerCurrent-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SubarrayPartitionerCurrent$fromJSONString(SubarrayPartitionerCurrentJson)}\if{html}{\out{</div>}}
@@ -86,8 +86,8 @@ SubarrayPartitionerCurrent Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-SubarrayPartitionerCurrent-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-SubarrayPartitionerCurrent-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

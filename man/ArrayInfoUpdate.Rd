@@ -40,17 +40,17 @@ ArrayInfoUpdate Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ArrayInfoUpdate$new()}}
-\item \href{#method-toJSON}{\code{ArrayInfoUpdate$toJSON()}}
-\item \href{#method-fromJSON}{\code{ArrayInfoUpdate$fromJSON()}}
-\item \href{#method-toJSONString}{\code{ArrayInfoUpdate$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{ArrayInfoUpdate$fromJSONString()}}
-\item \href{#method-clone}{\code{ArrayInfoUpdate$clone()}}
+\item \href{#method-ArrayInfoUpdate-new}{\code{ArrayInfoUpdate$new()}}
+\item \href{#method-ArrayInfoUpdate-toJSON}{\code{ArrayInfoUpdate$toJSON()}}
+\item \href{#method-ArrayInfoUpdate-fromJSON}{\code{ArrayInfoUpdate$fromJSON()}}
+\item \href{#method-ArrayInfoUpdate-toJSONString}{\code{ArrayInfoUpdate$toJSONString()}}
+\item \href{#method-ArrayInfoUpdate-fromJSONString}{\code{ArrayInfoUpdate$fromJSONString()}}
+\item \href{#method-ArrayInfoUpdate-clone}{\code{ArrayInfoUpdate$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ArrayInfoUpdate-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayInfoUpdate-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayInfoUpdate$new(
@@ -71,8 +71,8 @@ ArrayInfoUpdate Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ArrayInfoUpdate-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayInfoUpdate-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayInfoUpdate$toJSON()}\if{html}{\out{</div>}}
@@ -80,8 +80,8 @@ ArrayInfoUpdate Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ArrayInfoUpdate-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayInfoUpdate-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayInfoUpdate$fromJSON(ArrayInfoUpdateJson)}\if{html}{\out{</div>}}
@@ -89,8 +89,8 @@ ArrayInfoUpdate Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-ArrayInfoUpdate-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayInfoUpdate-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayInfoUpdate$toJSONString()}\if{html}{\out{</div>}}
@@ -98,8 +98,8 @@ ArrayInfoUpdate Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-ArrayInfoUpdate-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayInfoUpdate-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayInfoUpdate$fromJSONString(ArrayInfoUpdateJson)}\if{html}{\out{</div>}}
@@ -107,8 +107,8 @@ ArrayInfoUpdate Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ArrayInfoUpdate-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayInfoUpdate-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -22,17 +22,17 @@ MLModelFavoritesData Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{MLModelFavoritesData$new()}}
-\item \href{#method-toJSON}{\code{MLModelFavoritesData$toJSON()}}
-\item \href{#method-fromJSON}{\code{MLModelFavoritesData$fromJSON()}}
-\item \href{#method-toJSONString}{\code{MLModelFavoritesData$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{MLModelFavoritesData$fromJSONString()}}
-\item \href{#method-clone}{\code{MLModelFavoritesData$clone()}}
+\item \href{#method-MLModelFavoritesData-new}{\code{MLModelFavoritesData$new()}}
+\item \href{#method-MLModelFavoritesData-toJSON}{\code{MLModelFavoritesData$toJSON()}}
+\item \href{#method-MLModelFavoritesData-fromJSON}{\code{MLModelFavoritesData$fromJSON()}}
+\item \href{#method-MLModelFavoritesData-toJSONString}{\code{MLModelFavoritesData$toJSONString()}}
+\item \href{#method-MLModelFavoritesData-fromJSONString}{\code{MLModelFavoritesData$fromJSONString()}}
+\item \href{#method-MLModelFavoritesData-clone}{\code{MLModelFavoritesData$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-MLModelFavoritesData-new"></a>}}
+\if{latex}{\out{\hypertarget{method-MLModelFavoritesData-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MLModelFavoritesData$new(mlmodels = NULL, pagination_metadata = NULL, ...)}\if{html}{\out{</div>}}
@@ -40,8 +40,8 @@ MLModelFavoritesData Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-MLModelFavoritesData-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-MLModelFavoritesData-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MLModelFavoritesData$toJSON()}\if{html}{\out{</div>}}
@@ -49,8 +49,8 @@ MLModelFavoritesData Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-MLModelFavoritesData-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-MLModelFavoritesData-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MLModelFavoritesData$fromJSON(MLModelFavoritesDataJson)}\if{html}{\out{</div>}}
@@ -58,8 +58,8 @@ MLModelFavoritesData Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-MLModelFavoritesData-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-MLModelFavoritesData-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MLModelFavoritesData$toJSONString()}\if{html}{\out{</div>}}
@@ -67,8 +67,8 @@ MLModelFavoritesData Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-MLModelFavoritesData-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-MLModelFavoritesData-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MLModelFavoritesData$fromJSONString(MLModelFavoritesDataJson)}\if{html}{\out{</div>}}
@@ -76,8 +76,8 @@ MLModelFavoritesData Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-MLModelFavoritesData-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-MLModelFavoritesData-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

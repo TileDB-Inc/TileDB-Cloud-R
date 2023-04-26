@@ -13,17 +13,17 @@ PricingAggregateUsage Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{PricingAggregateUsage$new()}}
-\item \href{#method-toJSON}{\code{PricingAggregateUsage$toJSON()}}
-\item \href{#method-fromJSON}{\code{PricingAggregateUsage$fromJSON()}}
-\item \href{#method-toJSONString}{\code{PricingAggregateUsage$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{PricingAggregateUsage$fromJSONString()}}
-\item \href{#method-clone}{\code{PricingAggregateUsage$clone()}}
+\item \href{#method-PricingAggregateUsage-new}{\code{PricingAggregateUsage$new()}}
+\item \href{#method-PricingAggregateUsage-toJSON}{\code{PricingAggregateUsage$toJSON()}}
+\item \href{#method-PricingAggregateUsage-fromJSON}{\code{PricingAggregateUsage$fromJSON()}}
+\item \href{#method-PricingAggregateUsage-toJSONString}{\code{PricingAggregateUsage$toJSONString()}}
+\item \href{#method-PricingAggregateUsage-fromJSONString}{\code{PricingAggregateUsage$fromJSONString()}}
+\item \href{#method-PricingAggregateUsage-clone}{\code{PricingAggregateUsage$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-PricingAggregateUsage-new"></a>}}
+\if{latex}{\out{\hypertarget{method-PricingAggregateUsage-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PricingAggregateUsage$new(...)}\if{html}{\out{</div>}}
@@ -31,8 +31,8 @@ PricingAggregateUsage Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-PricingAggregateUsage-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PricingAggregateUsage-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PricingAggregateUsage$toJSON()}\if{html}{\out{</div>}}
@@ -40,8 +40,8 @@ PricingAggregateUsage Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-PricingAggregateUsage-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PricingAggregateUsage-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PricingAggregateUsage$fromJSON(PricingAggregateUsageJson)}\if{html}{\out{</div>}}
@@ -49,8 +49,8 @@ PricingAggregateUsage Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-PricingAggregateUsage-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-PricingAggregateUsage-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PricingAggregateUsage$toJSONString()}\if{html}{\out{</div>}}
@@ -58,8 +58,8 @@ PricingAggregateUsage Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-PricingAggregateUsage-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-PricingAggregateUsage-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PricingAggregateUsage$fromJSONString(PricingAggregateUsageJson)}\if{html}{\out{</div>}}
@@ -67,8 +67,8 @@ PricingAggregateUsage Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-PricingAggregateUsage-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-PricingAggregateUsage-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

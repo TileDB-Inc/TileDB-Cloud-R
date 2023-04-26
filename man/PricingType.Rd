@@ -13,17 +13,17 @@ PricingType Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{PricingType$new()}}
-\item \href{#method-toJSON}{\code{PricingType$toJSON()}}
-\item \href{#method-fromJSON}{\code{PricingType$fromJSON()}}
-\item \href{#method-toJSONString}{\code{PricingType$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{PricingType$fromJSONString()}}
-\item \href{#method-clone}{\code{PricingType$clone()}}
+\item \href{#method-PricingType-new}{\code{PricingType$new()}}
+\item \href{#method-PricingType-toJSON}{\code{PricingType$toJSON()}}
+\item \href{#method-PricingType-fromJSON}{\code{PricingType$fromJSON()}}
+\item \href{#method-PricingType-toJSONString}{\code{PricingType$toJSONString()}}
+\item \href{#method-PricingType-fromJSONString}{\code{PricingType$fromJSONString()}}
+\item \href{#method-PricingType-clone}{\code{PricingType$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-PricingType-new"></a>}}
+\if{latex}{\out{\hypertarget{method-PricingType-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PricingType$new(...)}\if{html}{\out{</div>}}
@@ -31,8 +31,8 @@ PricingType Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-PricingType-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PricingType-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PricingType$toJSON()}\if{html}{\out{</div>}}
@@ -40,8 +40,8 @@ PricingType Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-PricingType-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PricingType-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PricingType$fromJSON(PricingTypeJson)}\if{html}{\out{</div>}}
@@ -49,8 +49,8 @@ PricingType Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-PricingType-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-PricingType-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PricingType$toJSONString()}\if{html}{\out{</div>}}
@@ -58,8 +58,8 @@ PricingType Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-PricingType-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-PricingType-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PricingType$fromJSONString(PricingTypeJson)}\if{html}{\out{</div>}}
@@ -67,8 +67,8 @@ PricingType Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-PricingType-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-PricingType-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

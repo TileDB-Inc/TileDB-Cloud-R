@@ -21,6 +21,8 @@ GenericUDF Class
 
 \item{\code{image_name}}{character [optional]}
 
+\item{\code{resource_class}}{character [optional]}
+
 \item{\code{exec}}{character [optional]}
 
 \item{\code{exec_raw}}{character [optional]}
@@ -48,17 +50,17 @@ GenericUDF Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GenericUDF$new()}}
-\item \href{#method-toJSON}{\code{GenericUDF$toJSON()}}
-\item \href{#method-fromJSON}{\code{GenericUDF$fromJSON()}}
-\item \href{#method-toJSONString}{\code{GenericUDF$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{GenericUDF$fromJSONString()}}
-\item \href{#method-clone}{\code{GenericUDF$clone()}}
+\item \href{#method-GenericUDF-new}{\code{GenericUDF$new()}}
+\item \href{#method-GenericUDF-toJSON}{\code{GenericUDF$toJSON()}}
+\item \href{#method-GenericUDF-fromJSON}{\code{GenericUDF$fromJSON()}}
+\item \href{#method-GenericUDF-toJSONString}{\code{GenericUDF$toJSONString()}}
+\item \href{#method-GenericUDF-fromJSONString}{\code{GenericUDF$fromJSONString()}}
+\item \href{#method-GenericUDF-clone}{\code{GenericUDF$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GenericUDF-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GenericUDF-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GenericUDF$new(
@@ -66,6 +68,7 @@ GenericUDF Class
   language = NULL,
   version = NULL,
   image_name = NULL,
+  resource_class = NULL,
   exec = NULL,
   exec_raw = NULL,
   argument = NULL,
@@ -83,8 +86,8 @@ GenericUDF Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-GenericUDF-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-GenericUDF-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GenericUDF$toJSON()}\if{html}{\out{</div>}}
@@ -92,8 +95,8 @@ GenericUDF Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-GenericUDF-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-GenericUDF-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GenericUDF$fromJSON(GenericUDFJson)}\if{html}{\out{</div>}}
@@ -101,8 +104,8 @@ GenericUDF Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-GenericUDF-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-GenericUDF-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GenericUDF$toJSONString()}\if{html}{\out{</div>}}
@@ -110,8 +113,8 @@ GenericUDF Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-GenericUDF-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-GenericUDF-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GenericUDF$fromJSONString(GenericUDFJson)}\if{html}{\out{</div>}}
@@ -119,8 +122,8 @@ GenericUDF Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GenericUDF-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GenericUDF-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

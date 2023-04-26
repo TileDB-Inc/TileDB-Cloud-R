@@ -20,17 +20,17 @@ InlineObject Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{InlineObject$new()}}
-\item \href{#method-toJSON}{\code{InlineObject$toJSON()}}
-\item \href{#method-fromJSON}{\code{InlineObject$fromJSON()}}
-\item \href{#method-toJSONString}{\code{InlineObject$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{InlineObject$fromJSONString()}}
-\item \href{#method-clone}{\code{InlineObject$clone()}}
+\item \href{#method-InlineObject-new}{\code{InlineObject$new()}}
+\item \href{#method-InlineObject-toJSON}{\code{InlineObject$toJSON()}}
+\item \href{#method-InlineObject-fromJSON}{\code{InlineObject$fromJSON()}}
+\item \href{#method-InlineObject-toJSONString}{\code{InlineObject$toJSONString()}}
+\item \href{#method-InlineObject-fromJSONString}{\code{InlineObject$fromJSONString()}}
+\item \href{#method-InlineObject-clone}{\code{InlineObject$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-InlineObject-new"></a>}}
+\if{latex}{\out{\hypertarget{method-InlineObject-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InlineObject$new(password = NULL, ...)}\if{html}{\out{</div>}}
@@ -38,8 +38,8 @@ InlineObject Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-InlineObject-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-InlineObject-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InlineObject$toJSON()}\if{html}{\out{</div>}}
@@ -47,8 +47,8 @@ InlineObject Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-InlineObject-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-InlineObject-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InlineObject$fromJSON(InlineObjectJson)}\if{html}{\out{</div>}}
@@ -56,8 +56,8 @@ InlineObject Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-InlineObject-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-InlineObject-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InlineObject$toJSONString()}\if{html}{\out{</div>}}
@@ -65,8 +65,8 @@ InlineObject Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-InlineObject-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-InlineObject-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InlineObject$fromJSONString(InlineObjectJson)}\if{html}{\out{</div>}}
@@ -74,8 +74,8 @@ InlineObject Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-InlineObject-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-InlineObject-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -522,33 +522,33 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{UdfApi$new()}}
-\item \href{#method-DeleteUDFInfo}{\code{UdfApi$DeleteUDFInfo()}}
-\item \href{#method-DeleteUDFInfoWithHttpInfo}{\code{UdfApi$DeleteUDFInfoWithHttpInfo()}}
-\item \href{#method-GetUDFInfo}{\code{UdfApi$GetUDFInfo()}}
-\item \href{#method-GetUDFInfoWithHttpInfo}{\code{UdfApi$GetUDFInfoWithHttpInfo()}}
-\item \href{#method-GetUDFInfoSharingPolicies}{\code{UdfApi$GetUDFInfoSharingPolicies()}}
-\item \href{#method-GetUDFInfoSharingPoliciesWithHttpInfo}{\code{UdfApi$GetUDFInfoSharingPoliciesWithHttpInfo()}}
-\item \href{#method-RegisterUDFInfo}{\code{UdfApi$RegisterUDFInfo()}}
-\item \href{#method-RegisterUDFInfoWithHttpInfo}{\code{UdfApi$RegisterUDFInfoWithHttpInfo()}}
-\item \href{#method-ShareUDFInfo}{\code{UdfApi$ShareUDFInfo()}}
-\item \href{#method-ShareUDFInfoWithHttpInfo}{\code{UdfApi$ShareUDFInfoWithHttpInfo()}}
-\item \href{#method-SubmitGenericUDF}{\code{UdfApi$SubmitGenericUDF()}}
-\item \href{#method-SubmitGenericUDFWithHttpInfo}{\code{UdfApi$SubmitGenericUDFWithHttpInfo()}}
-\item \href{#method-SubmitMultiArrayUDF}{\code{UdfApi$SubmitMultiArrayUDF()}}
-\item \href{#method-SubmitMultiArrayUDFWithHttpInfo}{\code{UdfApi$SubmitMultiArrayUDFWithHttpInfo()}}
-\item \href{#method-SubmitUDF}{\code{UdfApi$SubmitUDF()}}
-\item \href{#method-SubmitUDFWithHttpInfo}{\code{UdfApi$SubmitUDFWithHttpInfo()}}
-\item \href{#method-UdfNamespaceArrayEndTimestampsGet}{\code{UdfApi$UdfNamespaceArrayEndTimestampsGet()}}
-\item \href{#method-UdfNamespaceArrayEndTimestampsGetWithHttpInfo}{\code{UdfApi$UdfNamespaceArrayEndTimestampsGetWithHttpInfo()}}
-\item \href{#method-UpdateUDFInfo}{\code{UdfApi$UpdateUDFInfo()}}
-\item \href{#method-UpdateUDFInfoWithHttpInfo}{\code{UdfApi$UpdateUDFInfoWithHttpInfo()}}
-\item \href{#method-clone}{\code{UdfApi$clone()}}
+\item \href{#method-UdfApi-new}{\code{UdfApi$new()}}
+\item \href{#method-UdfApi-DeleteUDFInfo}{\code{UdfApi$DeleteUDFInfo()}}
+\item \href{#method-UdfApi-DeleteUDFInfoWithHttpInfo}{\code{UdfApi$DeleteUDFInfoWithHttpInfo()}}
+\item \href{#method-UdfApi-GetUDFInfo}{\code{UdfApi$GetUDFInfo()}}
+\item \href{#method-UdfApi-GetUDFInfoWithHttpInfo}{\code{UdfApi$GetUDFInfoWithHttpInfo()}}
+\item \href{#method-UdfApi-GetUDFInfoSharingPolicies}{\code{UdfApi$GetUDFInfoSharingPolicies()}}
+\item \href{#method-UdfApi-GetUDFInfoSharingPoliciesWithHttpInfo}{\code{UdfApi$GetUDFInfoSharingPoliciesWithHttpInfo()}}
+\item \href{#method-UdfApi-RegisterUDFInfo}{\code{UdfApi$RegisterUDFInfo()}}
+\item \href{#method-UdfApi-RegisterUDFInfoWithHttpInfo}{\code{UdfApi$RegisterUDFInfoWithHttpInfo()}}
+\item \href{#method-UdfApi-ShareUDFInfo}{\code{UdfApi$ShareUDFInfo()}}
+\item \href{#method-UdfApi-ShareUDFInfoWithHttpInfo}{\code{UdfApi$ShareUDFInfoWithHttpInfo()}}
+\item \href{#method-UdfApi-SubmitGenericUDF}{\code{UdfApi$SubmitGenericUDF()}}
+\item \href{#method-UdfApi-SubmitGenericUDFWithHttpInfo}{\code{UdfApi$SubmitGenericUDFWithHttpInfo()}}
+\item \href{#method-UdfApi-SubmitMultiArrayUDF}{\code{UdfApi$SubmitMultiArrayUDF()}}
+\item \href{#method-UdfApi-SubmitMultiArrayUDFWithHttpInfo}{\code{UdfApi$SubmitMultiArrayUDFWithHttpInfo()}}
+\item \href{#method-UdfApi-SubmitUDF}{\code{UdfApi$SubmitUDF()}}
+\item \href{#method-UdfApi-SubmitUDFWithHttpInfo}{\code{UdfApi$SubmitUDFWithHttpInfo()}}
+\item \href{#method-UdfApi-UdfNamespaceArrayEndTimestampsGet}{\code{UdfApi$UdfNamespaceArrayEndTimestampsGet()}}
+\item \href{#method-UdfApi-UdfNamespaceArrayEndTimestampsGetWithHttpInfo}{\code{UdfApi$UdfNamespaceArrayEndTimestampsGetWithHttpInfo()}}
+\item \href{#method-UdfApi-UpdateUDFInfo}{\code{UdfApi$UpdateUDFInfo()}}
+\item \href{#method-UdfApi-UpdateUDFInfoWithHttpInfo}{\code{UdfApi$UpdateUDFInfoWithHttpInfo()}}
+\item \href{#method-UdfApi-clone}{\code{UdfApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-UdfApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-UdfApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UdfApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -556,8 +556,8 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeleteUDFInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-DeleteUDFInfo}{}}}
+\if{html}{\out{<a id="method-UdfApi-DeleteUDFInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UdfApi-DeleteUDFInfo}{}}}
 \subsection{Method \code{DeleteUDFInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UdfApi$DeleteUDFInfo(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -565,8 +565,8 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-DeleteUDFInfoWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-DeleteUDFInfoWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UdfApi-DeleteUDFInfoWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UdfApi-DeleteUDFInfoWithHttpInfo}{}}}
 \subsection{Method \code{DeleteUDFInfoWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UdfApi$DeleteUDFInfoWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -574,8 +574,8 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetUDFInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetUDFInfo}{}}}
+\if{html}{\out{<a id="method-UdfApi-GetUDFInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UdfApi-GetUDFInfo}{}}}
 \subsection{Method \code{GetUDFInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UdfApi$GetUDFInfo(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -583,8 +583,8 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetUDFInfoWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetUDFInfoWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UdfApi-GetUDFInfoWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UdfApi-GetUDFInfoWithHttpInfo}{}}}
 \subsection{Method \code{GetUDFInfoWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UdfApi$GetUDFInfoWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -592,8 +592,8 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetUDFInfoSharingPolicies"></a>}}
-\if{latex}{\out{\hypertarget{method-GetUDFInfoSharingPolicies}{}}}
+\if{html}{\out{<a id="method-UdfApi-GetUDFInfoSharingPolicies"></a>}}
+\if{latex}{\out{\hypertarget{method-UdfApi-GetUDFInfoSharingPolicies}{}}}
 \subsection{Method \code{GetUDFInfoSharingPolicies()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UdfApi$GetUDFInfoSharingPolicies(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -601,8 +601,8 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetUDFInfoSharingPoliciesWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetUDFInfoSharingPoliciesWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UdfApi-GetUDFInfoSharingPoliciesWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UdfApi-GetUDFInfoSharingPoliciesWithHttpInfo}{}}}
 \subsection{Method \code{GetUDFInfoSharingPoliciesWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UdfApi$GetUDFInfoSharingPoliciesWithHttpInfo(namespace, name, ...)}\if{html}{\out{</div>}}
@@ -610,8 +610,8 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-RegisterUDFInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-RegisterUDFInfo}{}}}
+\if{html}{\out{<a id="method-UdfApi-RegisterUDFInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UdfApi-RegisterUDFInfo}{}}}
 \subsection{Method \code{RegisterUDFInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UdfApi$RegisterUDFInfo(namespace, name, udf, ...)}\if{html}{\out{</div>}}
@@ -619,8 +619,8 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-RegisterUDFInfoWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-RegisterUDFInfoWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UdfApi-RegisterUDFInfoWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UdfApi-RegisterUDFInfoWithHttpInfo}{}}}
 \subsection{Method \code{RegisterUDFInfoWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UdfApi$RegisterUDFInfoWithHttpInfo(namespace, name, udf, ...)}\if{html}{\out{</div>}}
@@ -628,8 +628,8 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ShareUDFInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ShareUDFInfo}{}}}
+\if{html}{\out{<a id="method-UdfApi-ShareUDFInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UdfApi-ShareUDFInfo}{}}}
 \subsection{Method \code{ShareUDFInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UdfApi$ShareUDFInfo(namespace, name, udf.sharing, ...)}\if{html}{\out{</div>}}
@@ -637,8 +637,8 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ShareUDFInfoWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ShareUDFInfoWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UdfApi-ShareUDFInfoWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UdfApi-ShareUDFInfoWithHttpInfo}{}}}
 \subsection{Method \code{ShareUDFInfoWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UdfApi$ShareUDFInfoWithHttpInfo(namespace, name, udf.sharing, ...)}\if{html}{\out{</div>}}
@@ -646,8 +646,8 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SubmitGenericUDF"></a>}}
-\if{latex}{\out{\hypertarget{method-SubmitGenericUDF}{}}}
+\if{html}{\out{<a id="method-UdfApi-SubmitGenericUDF"></a>}}
+\if{latex}{\out{\hypertarget{method-UdfApi-SubmitGenericUDF}{}}}
 \subsection{Method \code{SubmitGenericUDF()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UdfApi$SubmitGenericUDF(namespace, udf, accept.encoding = NULL, ...)}\if{html}{\out{</div>}}
@@ -655,8 +655,8 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SubmitGenericUDFWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-SubmitGenericUDFWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UdfApi-SubmitGenericUDFWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UdfApi-SubmitGenericUDFWithHttpInfo}{}}}
 \subsection{Method \code{SubmitGenericUDFWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UdfApi$SubmitGenericUDFWithHttpInfo(
@@ -669,8 +669,8 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SubmitMultiArrayUDF"></a>}}
-\if{latex}{\out{\hypertarget{method-SubmitMultiArrayUDF}{}}}
+\if{html}{\out{<a id="method-UdfApi-SubmitMultiArrayUDF"></a>}}
+\if{latex}{\out{\hypertarget{method-UdfApi-SubmitMultiArrayUDF}{}}}
 \subsection{Method \code{SubmitMultiArrayUDF()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UdfApi$SubmitMultiArrayUDF(namespace, udf, accept.encoding = NULL, ...)}\if{html}{\out{</div>}}
@@ -678,8 +678,8 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SubmitMultiArrayUDFWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-SubmitMultiArrayUDFWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UdfApi-SubmitMultiArrayUDFWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UdfApi-SubmitMultiArrayUDFWithHttpInfo}{}}}
 \subsection{Method \code{SubmitMultiArrayUDFWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UdfApi$SubmitMultiArrayUDFWithHttpInfo(
@@ -692,8 +692,8 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SubmitUDF"></a>}}
-\if{latex}{\out{\hypertarget{method-SubmitUDF}{}}}
+\if{html}{\out{<a id="method-UdfApi-SubmitUDF"></a>}}
+\if{latex}{\out{\hypertarget{method-UdfApi-SubmitUDF}{}}}
 \subsection{Method \code{SubmitUDF()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UdfApi$SubmitUDF(
@@ -709,8 +709,8 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SubmitUDFWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-SubmitUDFWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UdfApi-SubmitUDFWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UdfApi-SubmitUDFWithHttpInfo}{}}}
 \subsection{Method \code{SubmitUDFWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UdfApi$SubmitUDFWithHttpInfo(
@@ -726,8 +726,8 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UdfNamespaceArrayEndTimestampsGet"></a>}}
-\if{latex}{\out{\hypertarget{method-UdfNamespaceArrayEndTimestampsGet}{}}}
+\if{html}{\out{<a id="method-UdfApi-UdfNamespaceArrayEndTimestampsGet"></a>}}
+\if{latex}{\out{\hypertarget{method-UdfApi-UdfNamespaceArrayEndTimestampsGet}{}}}
 \subsection{Method \code{UdfNamespaceArrayEndTimestampsGet()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UdfApi$UdfNamespaceArrayEndTimestampsGet(
@@ -741,8 +741,8 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UdfNamespaceArrayEndTimestampsGetWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-UdfNamespaceArrayEndTimestampsGetWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UdfApi-UdfNamespaceArrayEndTimestampsGetWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UdfApi-UdfNamespaceArrayEndTimestampsGetWithHttpInfo}{}}}
 \subsection{Method \code{UdfNamespaceArrayEndTimestampsGetWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UdfApi$UdfNamespaceArrayEndTimestampsGetWithHttpInfo(
@@ -756,8 +756,8 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UpdateUDFInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-UpdateUDFInfo}{}}}
+\if{html}{\out{<a id="method-UdfApi-UpdateUDFInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UdfApi-UpdateUDFInfo}{}}}
 \subsection{Method \code{UpdateUDFInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UdfApi$UpdateUDFInfo(namespace, name, udf, ...)}\if{html}{\out{</div>}}
@@ -765,8 +765,8 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UpdateUDFInfoWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-UpdateUDFInfoWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-UdfApi-UpdateUDFInfoWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-UdfApi-UpdateUDFInfoWithHttpInfo}{}}}
 \subsection{Method \code{UpdateUDFInfoWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UdfApi$UpdateUDFInfoWithHttpInfo(namespace, name, udf, ...)}\if{html}{\out{</div>}}
@@ -774,8 +774,8 @@ result <- api.instance$UpdateUDFInfo(var.namespace, var.name, var.udf)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-UdfApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-UdfApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

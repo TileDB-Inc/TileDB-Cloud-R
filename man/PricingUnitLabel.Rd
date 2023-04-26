@@ -13,17 +13,17 @@ PricingUnitLabel Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{PricingUnitLabel$new()}}
-\item \href{#method-toJSON}{\code{PricingUnitLabel$toJSON()}}
-\item \href{#method-fromJSON}{\code{PricingUnitLabel$fromJSON()}}
-\item \href{#method-toJSONString}{\code{PricingUnitLabel$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{PricingUnitLabel$fromJSONString()}}
-\item \href{#method-clone}{\code{PricingUnitLabel$clone()}}
+\item \href{#method-PricingUnitLabel-new}{\code{PricingUnitLabel$new()}}
+\item \href{#method-PricingUnitLabel-toJSON}{\code{PricingUnitLabel$toJSON()}}
+\item \href{#method-PricingUnitLabel-fromJSON}{\code{PricingUnitLabel$fromJSON()}}
+\item \href{#method-PricingUnitLabel-toJSONString}{\code{PricingUnitLabel$toJSONString()}}
+\item \href{#method-PricingUnitLabel-fromJSONString}{\code{PricingUnitLabel$fromJSONString()}}
+\item \href{#method-PricingUnitLabel-clone}{\code{PricingUnitLabel$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-PricingUnitLabel-new"></a>}}
+\if{latex}{\out{\hypertarget{method-PricingUnitLabel-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PricingUnitLabel$new(...)}\if{html}{\out{</div>}}
@@ -31,8 +31,8 @@ PricingUnitLabel Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-PricingUnitLabel-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PricingUnitLabel-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PricingUnitLabel$toJSON()}\if{html}{\out{</div>}}
@@ -40,8 +40,8 @@ PricingUnitLabel Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-PricingUnitLabel-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PricingUnitLabel-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PricingUnitLabel$fromJSON(PricingUnitLabelJson)}\if{html}{\out{</div>}}
@@ -49,8 +49,8 @@ PricingUnitLabel Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-PricingUnitLabel-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-PricingUnitLabel-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PricingUnitLabel$toJSONString()}\if{html}{\out{</div>}}
@@ -58,8 +58,8 @@ PricingUnitLabel Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-PricingUnitLabel-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-PricingUnitLabel-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PricingUnitLabel$fromJSONString(PricingUnitLabelJson)}\if{html}{\out{</div>}}
@@ -67,8 +67,8 @@ PricingUnitLabel Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-PricingUnitLabel-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-PricingUnitLabel-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

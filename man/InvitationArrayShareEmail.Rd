@@ -22,17 +22,17 @@ InvitationArrayShareEmail Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{InvitationArrayShareEmail$new()}}
-\item \href{#method-toJSON}{\code{InvitationArrayShareEmail$toJSON()}}
-\item \href{#method-fromJSON}{\code{InvitationArrayShareEmail$fromJSON()}}
-\item \href{#method-toJSONString}{\code{InvitationArrayShareEmail$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{InvitationArrayShareEmail$fromJSONString()}}
-\item \href{#method-clone}{\code{InvitationArrayShareEmail$clone()}}
+\item \href{#method-InvitationArrayShareEmail-new}{\code{InvitationArrayShareEmail$new()}}
+\item \href{#method-InvitationArrayShareEmail-toJSON}{\code{InvitationArrayShareEmail$toJSON()}}
+\item \href{#method-InvitationArrayShareEmail-fromJSON}{\code{InvitationArrayShareEmail$fromJSON()}}
+\item \href{#method-InvitationArrayShareEmail-toJSONString}{\code{InvitationArrayShareEmail$toJSONString()}}
+\item \href{#method-InvitationArrayShareEmail-fromJSONString}{\code{InvitationArrayShareEmail$fromJSONString()}}
+\item \href{#method-InvitationArrayShareEmail-clone}{\code{InvitationArrayShareEmail$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-InvitationArrayShareEmail-new"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationArrayShareEmail-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InvitationArrayShareEmail$new(actions, invitee_email, ...)}\if{html}{\out{</div>}}
@@ -40,8 +40,8 @@ InvitationArrayShareEmail Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-InvitationArrayShareEmail-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationArrayShareEmail-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InvitationArrayShareEmail$toJSON()}\if{html}{\out{</div>}}
@@ -49,8 +49,8 @@ InvitationArrayShareEmail Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-InvitationArrayShareEmail-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationArrayShareEmail-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InvitationArrayShareEmail$fromJSON(InvitationArrayShareEmailJson)}\if{html}{\out{</div>}}
@@ -58,8 +58,8 @@ InvitationArrayShareEmail Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-InvitationArrayShareEmail-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationArrayShareEmail-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InvitationArrayShareEmail$toJSONString()}\if{html}{\out{</div>}}
@@ -67,8 +67,8 @@ InvitationArrayShareEmail Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-InvitationArrayShareEmail-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationArrayShareEmail-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{InvitationArrayShareEmail$fromJSONString(InvitationArrayShareEmailJson)}\if{html}{\out{</div>}}
@@ -76,8 +76,8 @@ InvitationArrayShareEmail Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-InvitationArrayShareEmail-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-InvitationArrayShareEmail-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

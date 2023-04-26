@@ -20,17 +20,17 @@ ArraySample Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ArraySample$new()}}
-\item \href{#method-toJSON}{\code{ArraySample$toJSON()}}
-\item \href{#method-fromJSON}{\code{ArraySample$fromJSON()}}
-\item \href{#method-toJSONString}{\code{ArraySample$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{ArraySample$fromJSONString()}}
-\item \href{#method-clone}{\code{ArraySample$clone()}}
+\item \href{#method-ArraySample-new}{\code{ArraySample$new()}}
+\item \href{#method-ArraySample-toJSON}{\code{ArraySample$toJSON()}}
+\item \href{#method-ArraySample-fromJSON}{\code{ArraySample$fromJSON()}}
+\item \href{#method-ArraySample-toJSONString}{\code{ArraySample$toJSONString()}}
+\item \href{#method-ArraySample-fromJSONString}{\code{ArraySample$fromJSONString()}}
+\item \href{#method-ArraySample-clone}{\code{ArraySample$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ArraySample-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ArraySample-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArraySample$new(data = NULL, ...)}\if{html}{\out{</div>}}
@@ -38,8 +38,8 @@ ArraySample Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ArraySample-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ArraySample-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArraySample$toJSON()}\if{html}{\out{</div>}}
@@ -47,8 +47,8 @@ ArraySample Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ArraySample-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ArraySample-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArraySample$fromJSON(ArraySampleJson)}\if{html}{\out{</div>}}
@@ -56,8 +56,8 @@ ArraySample Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-ArraySample-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ArraySample-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArraySample$toJSONString()}\if{html}{\out{</div>}}
@@ -65,8 +65,8 @@ ArraySample Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-ArraySample-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ArraySample-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArraySample$fromJSONString(ArraySampleJson)}\if{html}{\out{</div>}}
@@ -74,8 +74,8 @@ ArraySample Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ArraySample-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ArraySample-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -38,17 +38,17 @@ DomainArray Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DomainArray$new()}}
-\item \href{#method-toJSON}{\code{DomainArray$toJSON()}}
-\item \href{#method-fromJSON}{\code{DomainArray$fromJSON()}}
-\item \href{#method-toJSONString}{\code{DomainArray$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{DomainArray$fromJSONString()}}
-\item \href{#method-clone}{\code{DomainArray$clone()}}
+\item \href{#method-DomainArray-new}{\code{DomainArray$new()}}
+\item \href{#method-DomainArray-toJSON}{\code{DomainArray$toJSON()}}
+\item \href{#method-DomainArray-fromJSON}{\code{DomainArray$fromJSON()}}
+\item \href{#method-DomainArray-toJSONString}{\code{DomainArray$toJSONString()}}
+\item \href{#method-DomainArray-fromJSONString}{\code{DomainArray$fromJSONString()}}
+\item \href{#method-DomainArray-clone}{\code{DomainArray$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DomainArray-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DomainArray-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DomainArray$new(
@@ -68,8 +68,8 @@ DomainArray Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-DomainArray-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DomainArray-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DomainArray$toJSON()}\if{html}{\out{</div>}}
@@ -77,8 +77,8 @@ DomainArray Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-DomainArray-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DomainArray-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DomainArray$fromJSON(DomainArrayJson)}\if{html}{\out{</div>}}
@@ -86,8 +86,8 @@ DomainArray Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-DomainArray-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-DomainArray-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DomainArray$toJSONString()}\if{html}{\out{</div>}}
@@ -95,8 +95,8 @@ DomainArray Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-DomainArray-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-DomainArray-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DomainArray$fromJSONString(DomainArrayJson)}\if{html}{\out{</div>}}
@@ -104,8 +104,8 @@ DomainArray Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DomainArray-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DomainArray-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

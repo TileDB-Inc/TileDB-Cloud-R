@@ -221,21 +221,21 @@ result <- api.instance$UpdateTaskGraphLog(var.namespace, var.id, var.log)
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{TaskGraphLogsApi$new()}}
-\item \href{#method-CreateTaskGraphLog}{\code{TaskGraphLogsApi$CreateTaskGraphLog()}}
-\item \href{#method-CreateTaskGraphLogWithHttpInfo}{\code{TaskGraphLogsApi$CreateTaskGraphLogWithHttpInfo()}}
-\item \href{#method-GetTaskGraphLog}{\code{TaskGraphLogsApi$GetTaskGraphLog()}}
-\item \href{#method-GetTaskGraphLogWithHttpInfo}{\code{TaskGraphLogsApi$GetTaskGraphLogWithHttpInfo()}}
-\item \href{#method-ListTaskGraphLogs}{\code{TaskGraphLogsApi$ListTaskGraphLogs()}}
-\item \href{#method-ListTaskGraphLogsWithHttpInfo}{\code{TaskGraphLogsApi$ListTaskGraphLogsWithHttpInfo()}}
-\item \href{#method-UpdateTaskGraphLog}{\code{TaskGraphLogsApi$UpdateTaskGraphLog()}}
-\item \href{#method-UpdateTaskGraphLogWithHttpInfo}{\code{TaskGraphLogsApi$UpdateTaskGraphLogWithHttpInfo()}}
-\item \href{#method-clone}{\code{TaskGraphLogsApi$clone()}}
+\item \href{#method-TaskGraphLogsApi-new}{\code{TaskGraphLogsApi$new()}}
+\item \href{#method-TaskGraphLogsApi-CreateTaskGraphLog}{\code{TaskGraphLogsApi$CreateTaskGraphLog()}}
+\item \href{#method-TaskGraphLogsApi-CreateTaskGraphLogWithHttpInfo}{\code{TaskGraphLogsApi$CreateTaskGraphLogWithHttpInfo()}}
+\item \href{#method-TaskGraphLogsApi-GetTaskGraphLog}{\code{TaskGraphLogsApi$GetTaskGraphLog()}}
+\item \href{#method-TaskGraphLogsApi-GetTaskGraphLogWithHttpInfo}{\code{TaskGraphLogsApi$GetTaskGraphLogWithHttpInfo()}}
+\item \href{#method-TaskGraphLogsApi-ListTaskGraphLogs}{\code{TaskGraphLogsApi$ListTaskGraphLogs()}}
+\item \href{#method-TaskGraphLogsApi-ListTaskGraphLogsWithHttpInfo}{\code{TaskGraphLogsApi$ListTaskGraphLogsWithHttpInfo()}}
+\item \href{#method-TaskGraphLogsApi-UpdateTaskGraphLog}{\code{TaskGraphLogsApi$UpdateTaskGraphLog()}}
+\item \href{#method-TaskGraphLogsApi-UpdateTaskGraphLogWithHttpInfo}{\code{TaskGraphLogsApi$UpdateTaskGraphLogWithHttpInfo()}}
+\item \href{#method-TaskGraphLogsApi-clone}{\code{TaskGraphLogsApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-TaskGraphLogsApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-TaskGraphLogsApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TaskGraphLogsApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -243,8 +243,8 @@ result <- api.instance$UpdateTaskGraphLog(var.namespace, var.id, var.log)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CreateTaskGraphLog"></a>}}
-\if{latex}{\out{\hypertarget{method-CreateTaskGraphLog}{}}}
+\if{html}{\out{<a id="method-TaskGraphLogsApi-CreateTaskGraphLog"></a>}}
+\if{latex}{\out{\hypertarget{method-TaskGraphLogsApi-CreateTaskGraphLog}{}}}
 \subsection{Method \code{CreateTaskGraphLog()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TaskGraphLogsApi$CreateTaskGraphLog(namespace, log, ...)}\if{html}{\out{</div>}}
@@ -252,8 +252,8 @@ result <- api.instance$UpdateTaskGraphLog(var.namespace, var.id, var.log)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-CreateTaskGraphLogWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-CreateTaskGraphLogWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-TaskGraphLogsApi-CreateTaskGraphLogWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-TaskGraphLogsApi-CreateTaskGraphLogWithHttpInfo}{}}}
 \subsection{Method \code{CreateTaskGraphLogWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TaskGraphLogsApi$CreateTaskGraphLogWithHttpInfo(namespace, log, ...)}\if{html}{\out{</div>}}
@@ -261,8 +261,8 @@ result <- api.instance$UpdateTaskGraphLog(var.namespace, var.id, var.log)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetTaskGraphLog"></a>}}
-\if{latex}{\out{\hypertarget{method-GetTaskGraphLog}{}}}
+\if{html}{\out{<a id="method-TaskGraphLogsApi-GetTaskGraphLog"></a>}}
+\if{latex}{\out{\hypertarget{method-TaskGraphLogsApi-GetTaskGraphLog}{}}}
 \subsection{Method \code{GetTaskGraphLog()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TaskGraphLogsApi$GetTaskGraphLog(namespace, id, ...)}\if{html}{\out{</div>}}
@@ -270,8 +270,8 @@ result <- api.instance$UpdateTaskGraphLog(var.namespace, var.id, var.log)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetTaskGraphLogWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetTaskGraphLogWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-TaskGraphLogsApi-GetTaskGraphLogWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-TaskGraphLogsApi-GetTaskGraphLogWithHttpInfo}{}}}
 \subsection{Method \code{GetTaskGraphLogWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TaskGraphLogsApi$GetTaskGraphLogWithHttpInfo(namespace, id, ...)}\if{html}{\out{</div>}}
@@ -279,8 +279,8 @@ result <- api.instance$UpdateTaskGraphLog(var.namespace, var.id, var.log)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ListTaskGraphLogs"></a>}}
-\if{latex}{\out{\hypertarget{method-ListTaskGraphLogs}{}}}
+\if{html}{\out{<a id="method-TaskGraphLogsApi-ListTaskGraphLogs"></a>}}
+\if{latex}{\out{\hypertarget{method-TaskGraphLogsApi-ListTaskGraphLogs}{}}}
 \subsection{Method \code{ListTaskGraphLogs()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TaskGraphLogsApi$ListTaskGraphLogs(
@@ -297,8 +297,8 @@ result <- api.instance$UpdateTaskGraphLog(var.namespace, var.id, var.log)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-ListTaskGraphLogsWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-ListTaskGraphLogsWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-TaskGraphLogsApi-ListTaskGraphLogsWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-TaskGraphLogsApi-ListTaskGraphLogsWithHttpInfo}{}}}
 \subsection{Method \code{ListTaskGraphLogsWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TaskGraphLogsApi$ListTaskGraphLogsWithHttpInfo(
@@ -315,8 +315,8 @@ result <- api.instance$UpdateTaskGraphLog(var.namespace, var.id, var.log)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UpdateTaskGraphLog"></a>}}
-\if{latex}{\out{\hypertarget{method-UpdateTaskGraphLog}{}}}
+\if{html}{\out{<a id="method-TaskGraphLogsApi-UpdateTaskGraphLog"></a>}}
+\if{latex}{\out{\hypertarget{method-TaskGraphLogsApi-UpdateTaskGraphLog}{}}}
 \subsection{Method \code{UpdateTaskGraphLog()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TaskGraphLogsApi$UpdateTaskGraphLog(namespace, id, log, ...)}\if{html}{\out{</div>}}
@@ -324,8 +324,8 @@ result <- api.instance$UpdateTaskGraphLog(var.namespace, var.id, var.log)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-UpdateTaskGraphLogWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-UpdateTaskGraphLogWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-TaskGraphLogsApi-UpdateTaskGraphLogWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-TaskGraphLogsApi-UpdateTaskGraphLogWithHttpInfo}{}}}
 \subsection{Method \code{UpdateTaskGraphLogWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TaskGraphLogsApi$UpdateTaskGraphLogWithHttpInfo(namespace, id, log, ...)}\if{html}{\out{</div>}}
@@ -333,8 +333,8 @@ result <- api.instance$UpdateTaskGraphLog(var.namespace, var.id, var.log)
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-TaskGraphLogsApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-TaskGraphLogsApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

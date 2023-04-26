@@ -21,6 +21,8 @@ MultiArrayUDF Class
 
 \item{\code{image_name}}{character [optional]}
 
+\item{\code{resource_class}}{character [optional]}
+
 \item{\code{exec}}{character [optional]}
 
 \item{\code{exec_raw}}{character [optional]}
@@ -30,6 +32,8 @@ MultiArrayUDF Class
 \item{\code{task_name}}{character [optional]}
 
 \item{\code{argument}}{character [optional]}
+
+\item{\code{arguments_json}}{list( \link{TGUDFArgument} ) [optional]}
 
 \item{\code{stored_param_uuids}}{list( character ) [optional]}
 
@@ -56,17 +60,17 @@ MultiArrayUDF Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{MultiArrayUDF$new()}}
-\item \href{#method-toJSON}{\code{MultiArrayUDF$toJSON()}}
-\item \href{#method-fromJSON}{\code{MultiArrayUDF$fromJSON()}}
-\item \href{#method-toJSONString}{\code{MultiArrayUDF$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{MultiArrayUDF$fromJSONString()}}
-\item \href{#method-clone}{\code{MultiArrayUDF$clone()}}
+\item \href{#method-MultiArrayUDF-new}{\code{MultiArrayUDF$new()}}
+\item \href{#method-MultiArrayUDF-toJSON}{\code{MultiArrayUDF$toJSON()}}
+\item \href{#method-MultiArrayUDF-fromJSON}{\code{MultiArrayUDF$fromJSON()}}
+\item \href{#method-MultiArrayUDF-toJSONString}{\code{MultiArrayUDF$toJSONString()}}
+\item \href{#method-MultiArrayUDF-fromJSONString}{\code{MultiArrayUDF$fromJSONString()}}
+\item \href{#method-MultiArrayUDF-clone}{\code{MultiArrayUDF$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-MultiArrayUDF-new"></a>}}
+\if{latex}{\out{\hypertarget{method-MultiArrayUDF-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MultiArrayUDF$new(
@@ -74,11 +78,13 @@ MultiArrayUDF Class
   language = NULL,
   version = NULL,
   image_name = NULL,
+  resource_class = NULL,
   exec = NULL,
   exec_raw = NULL,
   result_format = NULL,
   task_name = NULL,
   argument = NULL,
+  arguments_json = NULL,
   stored_param_uuids = NULL,
   store_results = NULL,
   dont_download_results = NULL,
@@ -95,8 +101,8 @@ MultiArrayUDF Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-MultiArrayUDF-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-MultiArrayUDF-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MultiArrayUDF$toJSON()}\if{html}{\out{</div>}}
@@ -104,8 +110,8 @@ MultiArrayUDF Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-MultiArrayUDF-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-MultiArrayUDF-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MultiArrayUDF$fromJSON(MultiArrayUDFJson)}\if{html}{\out{</div>}}
@@ -113,8 +119,8 @@ MultiArrayUDF Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-MultiArrayUDF-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-MultiArrayUDF-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MultiArrayUDF$toJSONString()}\if{html}{\out{</div>}}
@@ -122,8 +128,8 @@ MultiArrayUDF Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-MultiArrayUDF-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-MultiArrayUDF-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{MultiArrayUDF$fromJSONString(MultiArrayUDFJson)}\if{html}{\out{</div>}}
@@ -131,8 +137,8 @@ MultiArrayUDF Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-MultiArrayUDF-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-MultiArrayUDF-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

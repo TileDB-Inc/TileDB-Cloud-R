@@ -26,17 +26,17 @@ Subscription Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Subscription$new()}}
-\item \href{#method-toJSON}{\code{Subscription$toJSON()}}
-\item \href{#method-fromJSON}{\code{Subscription$fromJSON()}}
-\item \href{#method-toJSONString}{\code{Subscription$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{Subscription$fromJSONString()}}
-\item \href{#method-clone}{\code{Subscription$clone()}}
+\item \href{#method-Subscription-new}{\code{Subscription$new()}}
+\item \href{#method-Subscription-toJSON}{\code{Subscription$toJSON()}}
+\item \href{#method-Subscription-fromJSON}{\code{Subscription$fromJSON()}}
+\item \href{#method-Subscription-toJSONString}{\code{Subscription$toJSONString()}}
+\item \href{#method-Subscription-fromJSONString}{\code{Subscription$fromJSONString()}}
+\item \href{#method-Subscription-clone}{\code{Subscription$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Subscription-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Subscription-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Subscription$new(
@@ -50,8 +50,8 @@ Subscription Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Subscription-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Subscription-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Subscription$toJSON()}\if{html}{\out{</div>}}
@@ -59,8 +59,8 @@ Subscription Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Subscription-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Subscription-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Subscription$fromJSON(SubscriptionJson)}\if{html}{\out{</div>}}
@@ -68,8 +68,8 @@ Subscription Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-Subscription-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Subscription-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Subscription$toJSONString()}\if{html}{\out{</div>}}
@@ -77,8 +77,8 @@ Subscription Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-Subscription-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Subscription-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Subscription$fromJSONString(SubscriptionJson)}\if{html}{\out{</div>}}
@@ -86,8 +86,8 @@ Subscription Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Subscription-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Subscription-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -48,17 +48,17 @@ Organization Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Organization$new()}}
-\item \href{#method-toJSON}{\code{Organization$toJSON()}}
-\item \href{#method-fromJSON}{\code{Organization$fromJSON()}}
-\item \href{#method-toJSONString}{\code{Organization$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{Organization$fromJSONString()}}
-\item \href{#method-clone}{\code{Organization$clone()}}
+\item \href{#method-Organization-new}{\code{Organization$new()}}
+\item \href{#method-Organization-toJSON}{\code{Organization$toJSON()}}
+\item \href{#method-Organization-fromJSON}{\code{Organization$fromJSON()}}
+\item \href{#method-Organization-toJSONString}{\code{Organization$toJSONString()}}
+\item \href{#method-Organization-fromJSONString}{\code{Organization$fromJSONString()}}
+\item \href{#method-Organization-clone}{\code{Organization$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Organization-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Organization-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Organization$new(
@@ -83,8 +83,8 @@ Organization Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Organization-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Organization-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Organization$toJSON()}\if{html}{\out{</div>}}
@@ -92,8 +92,8 @@ Organization Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Organization-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Organization-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Organization$fromJSON(OrganizationJson)}\if{html}{\out{</div>}}
@@ -101,8 +101,8 @@ Organization Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-Organization-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Organization-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Organization$toJSONString()}\if{html}{\out{</div>}}
@@ -110,8 +110,8 @@ Organization Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-Organization-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Organization-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Organization$fromJSONString(OrganizationJson)}\if{html}{\out{</div>}}
@@ -119,8 +119,8 @@ Organization Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Organization-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Organization-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

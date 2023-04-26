@@ -24,17 +24,17 @@ UDFSharing Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{UDFSharing$new()}}
-\item \href{#method-toJSON}{\code{UDFSharing$toJSON()}}
-\item \href{#method-fromJSON}{\code{UDFSharing$fromJSON()}}
-\item \href{#method-toJSONString}{\code{UDFSharing$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{UDFSharing$fromJSONString()}}
-\item \href{#method-clone}{\code{UDFSharing$clone()}}
+\item \href{#method-UDFSharing-new}{\code{UDFSharing$new()}}
+\item \href{#method-UDFSharing-toJSON}{\code{UDFSharing$toJSON()}}
+\item \href{#method-UDFSharing-fromJSON}{\code{UDFSharing$fromJSON()}}
+\item \href{#method-UDFSharing-toJSONString}{\code{UDFSharing$toJSONString()}}
+\item \href{#method-UDFSharing-fromJSONString}{\code{UDFSharing$fromJSONString()}}
+\item \href{#method-UDFSharing-clone}{\code{UDFSharing$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-UDFSharing-new"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFSharing-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFSharing$new(actions = NULL, namespace = NULL, namespace_type = NULL, ...)}\if{html}{\out{</div>}}
@@ -42,8 +42,8 @@ UDFSharing Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-UDFSharing-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFSharing-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFSharing$toJSON()}\if{html}{\out{</div>}}
@@ -51,8 +51,8 @@ UDFSharing Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-UDFSharing-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFSharing-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFSharing$fromJSON(UDFSharingJson)}\if{html}{\out{</div>}}
@@ -60,8 +60,8 @@ UDFSharing Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-UDFSharing-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFSharing-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFSharing$toJSONString()}\if{html}{\out{</div>}}
@@ -69,8 +69,8 @@ UDFSharing Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-UDFSharing-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFSharing-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFSharing$fromJSONString(UDFSharingJson)}\if{html}{\out{</div>}}
@@ -78,8 +78,8 @@ UDFSharing Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-UDFSharing-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFSharing-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -13,35 +13,60 @@ GroupCreate Class
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
+\item{\code{description}}{character [optional]}
+
+\item{\code{name}}{character [optional]}
+
 \item{\code{parent}}{character [optional]}
 
-\item{\code{description}}{character [optional]}
+\item{\code{uri}}{character [optional]}
+
+\item{\code{logo}}{character [optional]}
+
+\item{\code{access_credentials_name}}{character [optional]}
+
+\item{\code{tags}}{list( character ) [optional]}
+
+\item{\code{license_id}}{character [optional]}
+
+\item{\code{license_text}}{character [optional]}
 }
 \if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GroupCreate$new()}}
-\item \href{#method-toJSON}{\code{GroupCreate$toJSON()}}
-\item \href{#method-fromJSON}{\code{GroupCreate$fromJSON()}}
-\item \href{#method-toJSONString}{\code{GroupCreate$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{GroupCreate$fromJSONString()}}
-\item \href{#method-clone}{\code{GroupCreate$clone()}}
+\item \href{#method-GroupCreate-new}{\code{GroupCreate$new()}}
+\item \href{#method-GroupCreate-toJSON}{\code{GroupCreate$toJSON()}}
+\item \href{#method-GroupCreate-fromJSON}{\code{GroupCreate$fromJSON()}}
+\item \href{#method-GroupCreate-toJSONString}{\code{GroupCreate$toJSONString()}}
+\item \href{#method-GroupCreate-fromJSONString}{\code{GroupCreate$fromJSONString()}}
+\item \href{#method-GroupCreate-clone}{\code{GroupCreate$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GroupCreate-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupCreate-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GroupCreate$new(parent = NULL, description = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GroupCreate$new(
+  description = NULL,
+  name = NULL,
+  parent = NULL,
+  uri = NULL,
+  logo = NULL,
+  access_credentials_name = NULL,
+  tags = NULL,
+  license_id = NULL,
+  license_text = NULL,
+  ...
+)}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-GroupCreate-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupCreate-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GroupCreate$toJSON()}\if{html}{\out{</div>}}
@@ -49,8 +74,8 @@ GroupCreate Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-GroupCreate-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupCreate-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GroupCreate$fromJSON(GroupCreateJson)}\if{html}{\out{</div>}}
@@ -58,8 +83,8 @@ GroupCreate Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-GroupCreate-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupCreate-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GroupCreate$toJSONString()}\if{html}{\out{</div>}}
@@ -67,8 +92,8 @@ GroupCreate Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-GroupCreate-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupCreate-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GroupCreate$fromJSONString(GroupCreateJson)}\if{html}{\out{</div>}}
@@ -76,8 +101,8 @@ GroupCreate Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GroupCreate-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupCreate-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -54,17 +54,17 @@ User Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{User$new()}}
-\item \href{#method-toJSON}{\code{User$toJSON()}}
-\item \href{#method-fromJSON}{\code{User$fromJSON()}}
-\item \href{#method-toJSONString}{\code{User$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{User$fromJSONString()}}
-\item \href{#method-clone}{\code{User$clone()}}
+\item \href{#method-User-new}{\code{User$new()}}
+\item \href{#method-User-toJSON}{\code{User$toJSON()}}
+\item \href{#method-User-fromJSON}{\code{User$fromJSON()}}
+\item \href{#method-User-toJSONString}{\code{User$toJSONString()}}
+\item \href{#method-User-fromJSONString}{\code{User$fromJSONString()}}
+\item \href{#method-User-clone}{\code{User$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-User-new"></a>}}
+\if{latex}{\out{\hypertarget{method-User-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{User$new(
@@ -92,8 +92,8 @@ User Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-User-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-User-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{User$toJSON()}\if{html}{\out{</div>}}
@@ -101,8 +101,8 @@ User Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-User-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-User-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{User$fromJSON(UserJson)}\if{html}{\out{</div>}}
@@ -110,8 +110,8 @@ User Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-User-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-User-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{User$toJSONString()}\if{html}{\out{</div>}}
@@ -119,8 +119,8 @@ User Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-User-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-User-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{User$fromJSONString(UserJson)}\if{html}{\out{</div>}}
@@ -128,8 +128,8 @@ User Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-User-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-User-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -24,17 +24,17 @@ ArrayFavorite Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ArrayFavorite$new()}}
-\item \href{#method-toJSON}{\code{ArrayFavorite$toJSON()}}
-\item \href{#method-fromJSON}{\code{ArrayFavorite$fromJSON()}}
-\item \href{#method-toJSONString}{\code{ArrayFavorite$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{ArrayFavorite$fromJSONString()}}
-\item \href{#method-clone}{\code{ArrayFavorite$clone()}}
+\item \href{#method-ArrayFavorite-new}{\code{ArrayFavorite$new()}}
+\item \href{#method-ArrayFavorite-toJSON}{\code{ArrayFavorite$toJSON()}}
+\item \href{#method-ArrayFavorite-fromJSON}{\code{ArrayFavorite$fromJSON()}}
+\item \href{#method-ArrayFavorite-toJSONString}{\code{ArrayFavorite$toJSONString()}}
+\item \href{#method-ArrayFavorite-fromJSONString}{\code{ArrayFavorite$fromJSONString()}}
+\item \href{#method-ArrayFavorite-clone}{\code{ArrayFavorite$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ArrayFavorite-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayFavorite-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayFavorite$new(array_uuid = NULL, namespace = NULL, name = NULL, ...)}\if{html}{\out{</div>}}
@@ -42,8 +42,8 @@ ArrayFavorite Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ArrayFavorite-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayFavorite-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayFavorite$toJSON()}\if{html}{\out{</div>}}
@@ -51,8 +51,8 @@ ArrayFavorite Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ArrayFavorite-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayFavorite-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayFavorite$fromJSON(ArrayFavoriteJson)}\if{html}{\out{</div>}}
@@ -60,8 +60,8 @@ ArrayFavorite Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-ArrayFavorite-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayFavorite-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayFavorite$toJSONString()}\if{html}{\out{</div>}}
@@ -69,8 +69,8 @@ ArrayFavorite Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-ArrayFavorite-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayFavorite-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayFavorite$fromJSONString(ArrayFavoriteJson)}\if{html}{\out{</div>}}
@@ -78,8 +78,8 @@ ArrayFavorite Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ArrayFavorite-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayFavorite-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

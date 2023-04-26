@@ -30,17 +30,17 @@ NotebookStatus Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{NotebookStatus$new()}}
-\item \href{#method-toJSON}{\code{NotebookStatus$toJSON()}}
-\item \href{#method-fromJSON}{\code{NotebookStatus$fromJSON()}}
-\item \href{#method-toJSONString}{\code{NotebookStatus$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{NotebookStatus$fromJSONString()}}
-\item \href{#method-clone}{\code{NotebookStatus$clone()}}
+\item \href{#method-NotebookStatus-new}{\code{NotebookStatus$new()}}
+\item \href{#method-NotebookStatus-toJSON}{\code{NotebookStatus$toJSON()}}
+\item \href{#method-NotebookStatus-fromJSON}{\code{NotebookStatus$fromJSON()}}
+\item \href{#method-NotebookStatus-toJSONString}{\code{NotebookStatus$toJSONString()}}
+\item \href{#method-NotebookStatus-fromJSONString}{\code{NotebookStatus$fromJSONString()}}
+\item \href{#method-NotebookStatus-clone}{\code{NotebookStatus$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-NotebookStatus-new"></a>}}
+\if{latex}{\out{\hypertarget{method-NotebookStatus-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotebookStatus$new(
@@ -56,8 +56,8 @@ NotebookStatus Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-NotebookStatus-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-NotebookStatus-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotebookStatus$toJSON()}\if{html}{\out{</div>}}
@@ -65,8 +65,8 @@ NotebookStatus Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-NotebookStatus-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-NotebookStatus-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotebookStatus$fromJSON(NotebookStatusJson)}\if{html}{\out{</div>}}
@@ -74,8 +74,8 @@ NotebookStatus Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-NotebookStatus-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-NotebookStatus-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotebookStatus$toJSONString()}\if{html}{\out{</div>}}
@@ -83,8 +83,8 @@ NotebookStatus Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-NotebookStatus-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-NotebookStatus-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NotebookStatus$fromJSONString(NotebookStatusJson)}\if{html}{\out{</div>}}
@@ -92,8 +92,8 @@ NotebookStatus Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-NotebookStatus-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-NotebookStatus-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

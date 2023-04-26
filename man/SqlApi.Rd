@@ -85,15 +85,15 @@ result <- api.instance$RunSQL(var.namespace, var.sql, accept.encoding=var.accept
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{SqlApi$new()}}
-\item \href{#method-RunSQL}{\code{SqlApi$RunSQL()}}
-\item \href{#method-RunSQLWithHttpInfo}{\code{SqlApi$RunSQLWithHttpInfo()}}
-\item \href{#method-clone}{\code{SqlApi$clone()}}
+\item \href{#method-SqlApi-new}{\code{SqlApi$new()}}
+\item \href{#method-SqlApi-RunSQL}{\code{SqlApi$RunSQL()}}
+\item \href{#method-SqlApi-RunSQLWithHttpInfo}{\code{SqlApi$RunSQLWithHttpInfo()}}
+\item \href{#method-SqlApi-clone}{\code{SqlApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-SqlApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-SqlApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SqlApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -101,8 +101,8 @@ result <- api.instance$RunSQL(var.namespace, var.sql, accept.encoding=var.accept
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-RunSQL"></a>}}
-\if{latex}{\out{\hypertarget{method-RunSQL}{}}}
+\if{html}{\out{<a id="method-SqlApi-RunSQL"></a>}}
+\if{latex}{\out{\hypertarget{method-SqlApi-RunSQL}{}}}
 \subsection{Method \code{RunSQL()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SqlApi$RunSQL(namespace, sql, accept.encoding = NULL, ...)}\if{html}{\out{</div>}}
@@ -110,8 +110,8 @@ result <- api.instance$RunSQL(var.namespace, var.sql, accept.encoding=var.accept
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-RunSQLWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-RunSQLWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-SqlApi-RunSQLWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-SqlApi-RunSQLWithHttpInfo}{}}}
 \subsection{Method \code{RunSQLWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SqlApi$RunSQLWithHttpInfo(namespace, sql, accept.encoding = NULL, ...)}\if{html}{\out{</div>}}
@@ -119,8 +119,8 @@ result <- api.instance$RunSQL(var.namespace, var.sql, accept.encoding=var.accept
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-SqlApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-SqlApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

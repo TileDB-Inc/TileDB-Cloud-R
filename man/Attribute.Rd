@@ -30,17 +30,17 @@ Attribute Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Attribute$new()}}
-\item \href{#method-toJSON}{\code{Attribute$toJSON()}}
-\item \href{#method-fromJSON}{\code{Attribute$fromJSON()}}
-\item \href{#method-toJSONString}{\code{Attribute$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{Attribute$fromJSONString()}}
-\item \href{#method-clone}{\code{Attribute$clone()}}
+\item \href{#method-Attribute-new}{\code{Attribute$new()}}
+\item \href{#method-Attribute-toJSON}{\code{Attribute$toJSON()}}
+\item \href{#method-Attribute-fromJSON}{\code{Attribute$fromJSON()}}
+\item \href{#method-Attribute-toJSONString}{\code{Attribute$toJSONString()}}
+\item \href{#method-Attribute-fromJSONString}{\code{Attribute$fromJSONString()}}
+\item \href{#method-Attribute-clone}{\code{Attribute$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Attribute-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Attribute-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Attribute$new(
@@ -56,8 +56,8 @@ Attribute Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Attribute-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Attribute-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Attribute$toJSON()}\if{html}{\out{</div>}}
@@ -65,8 +65,8 @@ Attribute Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Attribute-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Attribute-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Attribute$fromJSON(AttributeJson)}\if{html}{\out{</div>}}
@@ -74,8 +74,8 @@ Attribute Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-Attribute-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Attribute-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Attribute$toJSONString()}\if{html}{\out{</div>}}
@@ -83,8 +83,8 @@ Attribute Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-Attribute-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Attribute-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Attribute$fromJSONString(AttributeJson)}\if{html}{\out{</div>}}
@@ -92,8 +92,8 @@ Attribute Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Attribute-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Attribute-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -22,17 +22,17 @@ ArrayBrowserData Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ArrayBrowserData$new()}}
-\item \href{#method-toJSON}{\code{ArrayBrowserData$toJSON()}}
-\item \href{#method-fromJSON}{\code{ArrayBrowserData$fromJSON()}}
-\item \href{#method-toJSONString}{\code{ArrayBrowserData$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{ArrayBrowserData$fromJSONString()}}
-\item \href{#method-clone}{\code{ArrayBrowserData$clone()}}
+\item \href{#method-ArrayBrowserData-new}{\code{ArrayBrowserData$new()}}
+\item \href{#method-ArrayBrowserData-toJSON}{\code{ArrayBrowserData$toJSON()}}
+\item \href{#method-ArrayBrowserData-fromJSON}{\code{ArrayBrowserData$fromJSON()}}
+\item \href{#method-ArrayBrowserData-toJSONString}{\code{ArrayBrowserData$toJSONString()}}
+\item \href{#method-ArrayBrowserData-fromJSONString}{\code{ArrayBrowserData$fromJSONString()}}
+\item \href{#method-ArrayBrowserData-clone}{\code{ArrayBrowserData$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ArrayBrowserData-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayBrowserData-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayBrowserData$new(arrays = NULL, pagination_metadata = NULL, ...)}\if{html}{\out{</div>}}
@@ -40,8 +40,8 @@ ArrayBrowserData Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ArrayBrowserData-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayBrowserData-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayBrowserData$toJSON()}\if{html}{\out{</div>}}
@@ -49,8 +49,8 @@ ArrayBrowserData Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ArrayBrowserData-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayBrowserData-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayBrowserData$fromJSON(ArrayBrowserDataJson)}\if{html}{\out{</div>}}
@@ -58,8 +58,8 @@ ArrayBrowserData Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-ArrayBrowserData-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayBrowserData-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayBrowserData$toJSONString()}\if{html}{\out{</div>}}
@@ -67,8 +67,8 @@ ArrayBrowserData Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-ArrayBrowserData-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayBrowserData-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayBrowserData$fromJSONString(ArrayBrowserDataJson)}\if{html}{\out{</div>}}
@@ -76,8 +76,8 @@ ArrayBrowserData Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ArrayBrowserData-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayBrowserData-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

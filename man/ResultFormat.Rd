@@ -13,17 +13,17 @@ ResultFormat Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ResultFormat$new()}}
-\item \href{#method-toJSON}{\code{ResultFormat$toJSON()}}
-\item \href{#method-fromJSON}{\code{ResultFormat$fromJSON()}}
-\item \href{#method-toJSONString}{\code{ResultFormat$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{ResultFormat$fromJSONString()}}
-\item \href{#method-clone}{\code{ResultFormat$clone()}}
+\item \href{#method-ResultFormat-new}{\code{ResultFormat$new()}}
+\item \href{#method-ResultFormat-toJSON}{\code{ResultFormat$toJSON()}}
+\item \href{#method-ResultFormat-fromJSON}{\code{ResultFormat$fromJSON()}}
+\item \href{#method-ResultFormat-toJSONString}{\code{ResultFormat$toJSONString()}}
+\item \href{#method-ResultFormat-fromJSONString}{\code{ResultFormat$fromJSONString()}}
+\item \href{#method-ResultFormat-clone}{\code{ResultFormat$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ResultFormat-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ResultFormat-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ResultFormat$new(...)}\if{html}{\out{</div>}}
@@ -31,8 +31,8 @@ ResultFormat Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ResultFormat-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ResultFormat-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ResultFormat$toJSON()}\if{html}{\out{</div>}}
@@ -40,8 +40,8 @@ ResultFormat Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ResultFormat-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ResultFormat-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ResultFormat$fromJSON(ResultFormatJson)}\if{html}{\out{</div>}}
@@ -49,8 +49,8 @@ ResultFormat Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-ResultFormat-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ResultFormat-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ResultFormat$toJSONString()}\if{html}{\out{</div>}}
@@ -58,8 +58,8 @@ ResultFormat Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-ResultFormat-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ResultFormat-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ResultFormat$fromJSONString(ResultFormatJson)}\if{html}{\out{</div>}}
@@ -67,8 +67,8 @@ ResultFormat Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ResultFormat-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ResultFormat-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

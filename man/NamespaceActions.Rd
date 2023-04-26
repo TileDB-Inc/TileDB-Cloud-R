@@ -13,17 +13,17 @@ NamespaceActions Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{NamespaceActions$new()}}
-\item \href{#method-toJSON}{\code{NamespaceActions$toJSON()}}
-\item \href{#method-fromJSON}{\code{NamespaceActions$fromJSON()}}
-\item \href{#method-toJSONString}{\code{NamespaceActions$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{NamespaceActions$fromJSONString()}}
-\item \href{#method-clone}{\code{NamespaceActions$clone()}}
+\item \href{#method-NamespaceActions-new}{\code{NamespaceActions$new()}}
+\item \href{#method-NamespaceActions-toJSON}{\code{NamespaceActions$toJSON()}}
+\item \href{#method-NamespaceActions-fromJSON}{\code{NamespaceActions$fromJSON()}}
+\item \href{#method-NamespaceActions-toJSONString}{\code{NamespaceActions$toJSONString()}}
+\item \href{#method-NamespaceActions-fromJSONString}{\code{NamespaceActions$fromJSONString()}}
+\item \href{#method-NamespaceActions-clone}{\code{NamespaceActions$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-NamespaceActions-new"></a>}}
+\if{latex}{\out{\hypertarget{method-NamespaceActions-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NamespaceActions$new(...)}\if{html}{\out{</div>}}
@@ -31,8 +31,8 @@ NamespaceActions Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-NamespaceActions-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-NamespaceActions-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NamespaceActions$toJSON()}\if{html}{\out{</div>}}
@@ -40,8 +40,8 @@ NamespaceActions Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-NamespaceActions-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-NamespaceActions-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NamespaceActions$fromJSON(NamespaceActionsJson)}\if{html}{\out{</div>}}
@@ -49,8 +49,8 @@ NamespaceActions Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-NamespaceActions-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-NamespaceActions-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NamespaceActions$toJSONString()}\if{html}{\out{</div>}}
@@ -58,8 +58,8 @@ NamespaceActions Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-NamespaceActions-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-NamespaceActions-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NamespaceActions$fromJSONString(NamespaceActionsJson)}\if{html}{\out{</div>}}
@@ -67,8 +67,8 @@ NamespaceActions Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-NamespaceActions-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-NamespaceActions-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

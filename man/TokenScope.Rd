@@ -13,17 +13,17 @@ TokenScope Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{TokenScope$new()}}
-\item \href{#method-toJSON}{\code{TokenScope$toJSON()}}
-\item \href{#method-fromJSON}{\code{TokenScope$fromJSON()}}
-\item \href{#method-toJSONString}{\code{TokenScope$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{TokenScope$fromJSONString()}}
-\item \href{#method-clone}{\code{TokenScope$clone()}}
+\item \href{#method-TokenScope-new}{\code{TokenScope$new()}}
+\item \href{#method-TokenScope-toJSON}{\code{TokenScope$toJSON()}}
+\item \href{#method-TokenScope-fromJSON}{\code{TokenScope$fromJSON()}}
+\item \href{#method-TokenScope-toJSONString}{\code{TokenScope$toJSONString()}}
+\item \href{#method-TokenScope-fromJSONString}{\code{TokenScope$fromJSONString()}}
+\item \href{#method-TokenScope-clone}{\code{TokenScope$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-TokenScope-new"></a>}}
+\if{latex}{\out{\hypertarget{method-TokenScope-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TokenScope$new(...)}\if{html}{\out{</div>}}
@@ -31,8 +31,8 @@ TokenScope Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-TokenScope-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-TokenScope-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TokenScope$toJSON()}\if{html}{\out{</div>}}
@@ -40,8 +40,8 @@ TokenScope Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-TokenScope-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-TokenScope-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TokenScope$fromJSON(TokenScopeJson)}\if{html}{\out{</div>}}
@@ -49,8 +49,8 @@ TokenScope Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-TokenScope-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-TokenScope-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TokenScope$toJSONString()}\if{html}{\out{</div>}}
@@ -58,8 +58,8 @@ TokenScope Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-TokenScope-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-TokenScope-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TokenScope$fromJSONString(TokenScopeJson)}\if{html}{\out{</div>}}
@@ -67,8 +67,8 @@ TokenScope Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-TokenScope-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-TokenScope-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

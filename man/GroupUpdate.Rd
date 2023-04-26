@@ -13,35 +13,54 @@ GroupUpdate Class
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
+\item{\code{description}}{character [optional]}
+
 \item{\code{name}}{character [optional]}
 
-\item{\code{description}}{character [optional]}
+\item{\code{logo}}{character [optional]}
+
+\item{\code{access_credentials_name}}{character [optional]}
+
+\item{\code{tags}}{list( character ) [optional]}
+
+\item{\code{license_id}}{character [optional]}
+
+\item{\code{license_text}}{character [optional]}
 }
 \if{html}{\out{</div>}}
 }
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GroupUpdate$new()}}
-\item \href{#method-toJSON}{\code{GroupUpdate$toJSON()}}
-\item \href{#method-fromJSON}{\code{GroupUpdate$fromJSON()}}
-\item \href{#method-toJSONString}{\code{GroupUpdate$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{GroupUpdate$fromJSONString()}}
-\item \href{#method-clone}{\code{GroupUpdate$clone()}}
+\item \href{#method-GroupUpdate-new}{\code{GroupUpdate$new()}}
+\item \href{#method-GroupUpdate-toJSON}{\code{GroupUpdate$toJSON()}}
+\item \href{#method-GroupUpdate-fromJSON}{\code{GroupUpdate$fromJSON()}}
+\item \href{#method-GroupUpdate-toJSONString}{\code{GroupUpdate$toJSONString()}}
+\item \href{#method-GroupUpdate-fromJSONString}{\code{GroupUpdate$fromJSONString()}}
+\item \href{#method-GroupUpdate-clone}{\code{GroupUpdate$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GroupUpdate-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupUpdate-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{GroupUpdate$new(name = NULL, description = NULL, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{GroupUpdate$new(
+  description = NULL,
+  name = NULL,
+  logo = NULL,
+  access_credentials_name = NULL,
+  tags = NULL,
+  license_id = NULL,
+  license_text = NULL,
+  ...
+)}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-GroupUpdate-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupUpdate-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GroupUpdate$toJSON()}\if{html}{\out{</div>}}
@@ -49,8 +68,8 @@ GroupUpdate Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-GroupUpdate-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupUpdate-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GroupUpdate$fromJSON(GroupUpdateJson)}\if{html}{\out{</div>}}
@@ -58,8 +77,8 @@ GroupUpdate Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-GroupUpdate-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupUpdate-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GroupUpdate$toJSONString()}\if{html}{\out{</div>}}
@@ -67,8 +86,8 @@ GroupUpdate Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-GroupUpdate-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupUpdate-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GroupUpdate$fromJSONString(GroupUpdateJson)}\if{html}{\out{</div>}}
@@ -76,8 +95,8 @@ GroupUpdate Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GroupUpdate-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupUpdate-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

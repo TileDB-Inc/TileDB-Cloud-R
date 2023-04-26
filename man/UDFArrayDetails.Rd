@@ -24,17 +24,17 @@ UDFArrayDetails Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{UDFArrayDetails$new()}}
-\item \href{#method-toJSON}{\code{UDFArrayDetails$toJSON()}}
-\item \href{#method-fromJSON}{\code{UDFArrayDetails$fromJSON()}}
-\item \href{#method-toJSONString}{\code{UDFArrayDetails$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{UDFArrayDetails$fromJSONString()}}
-\item \href{#method-clone}{\code{UDFArrayDetails$clone()}}
+\item \href{#method-UDFArrayDetails-new}{\code{UDFArrayDetails$new()}}
+\item \href{#method-UDFArrayDetails-toJSON}{\code{UDFArrayDetails$toJSON()}}
+\item \href{#method-UDFArrayDetails-fromJSON}{\code{UDFArrayDetails$fromJSON()}}
+\item \href{#method-UDFArrayDetails-toJSONString}{\code{UDFArrayDetails$toJSONString()}}
+\item \href{#method-UDFArrayDetails-fromJSONString}{\code{UDFArrayDetails$fromJSONString()}}
+\item \href{#method-UDFArrayDetails-clone}{\code{UDFArrayDetails$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-UDFArrayDetails-new"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFArrayDetails-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFArrayDetails$new(uri = NULL, ranges = NULL, buffers = NULL, ...)}\if{html}{\out{</div>}}
@@ -42,8 +42,8 @@ UDFArrayDetails Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-UDFArrayDetails-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFArrayDetails-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFArrayDetails$toJSON()}\if{html}{\out{</div>}}
@@ -51,8 +51,8 @@ UDFArrayDetails Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-UDFArrayDetails-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFArrayDetails-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFArrayDetails$fromJSON(UDFArrayDetailsJson)}\if{html}{\out{</div>}}
@@ -60,8 +60,8 @@ UDFArrayDetails Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-UDFArrayDetails-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFArrayDetails-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFArrayDetails$toJSONString()}\if{html}{\out{</div>}}
@@ -69,8 +69,8 @@ UDFArrayDetails Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-UDFArrayDetails-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFArrayDetails-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFArrayDetails$fromJSONString(UDFArrayDetailsJson)}\if{html}{\out{</div>}}
@@ -78,8 +78,8 @@ UDFArrayDetails Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-UDFArrayDetails-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFArrayDetails-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

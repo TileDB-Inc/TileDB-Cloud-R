@@ -24,17 +24,17 @@ ArrayBrowserSidebar Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ArrayBrowserSidebar$new()}}
-\item \href{#method-toJSON}{\code{ArrayBrowserSidebar$toJSON()}}
-\item \href{#method-fromJSON}{\code{ArrayBrowserSidebar$fromJSON()}}
-\item \href{#method-toJSONString}{\code{ArrayBrowserSidebar$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{ArrayBrowserSidebar$fromJSONString()}}
-\item \href{#method-clone}{\code{ArrayBrowserSidebar$clone()}}
+\item \href{#method-ArrayBrowserSidebar-new}{\code{ArrayBrowserSidebar$new()}}
+\item \href{#method-ArrayBrowserSidebar-toJSON}{\code{ArrayBrowserSidebar$toJSON()}}
+\item \href{#method-ArrayBrowserSidebar-fromJSON}{\code{ArrayBrowserSidebar$fromJSON()}}
+\item \href{#method-ArrayBrowserSidebar-toJSONString}{\code{ArrayBrowserSidebar$toJSONString()}}
+\item \href{#method-ArrayBrowserSidebar-fromJSONString}{\code{ArrayBrowserSidebar$fromJSONString()}}
+\item \href{#method-ArrayBrowserSidebar-clone}{\code{ArrayBrowserSidebar$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ArrayBrowserSidebar-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayBrowserSidebar-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayBrowserSidebar$new(
@@ -47,8 +47,8 @@ ArrayBrowserSidebar Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ArrayBrowserSidebar-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayBrowserSidebar-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayBrowserSidebar$toJSON()}\if{html}{\out{</div>}}
@@ -56,8 +56,8 @@ ArrayBrowserSidebar Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ArrayBrowserSidebar-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayBrowserSidebar-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayBrowserSidebar$fromJSON(ArrayBrowserSidebarJson)}\if{html}{\out{</div>}}
@@ -65,8 +65,8 @@ ArrayBrowserSidebar Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-ArrayBrowserSidebar-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayBrowserSidebar-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayBrowserSidebar$toJSONString()}\if{html}{\out{</div>}}
@@ -74,8 +74,8 @@ ArrayBrowserSidebar Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-ArrayBrowserSidebar-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayBrowserSidebar-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArrayBrowserSidebar$fromJSONString(ArrayBrowserSidebarJson)}\if{html}{\out{</div>}}
@@ -83,8 +83,8 @@ ArrayBrowserSidebar Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ArrayBrowserSidebar-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ArrayBrowserSidebar-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

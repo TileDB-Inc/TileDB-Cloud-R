@@ -256,21 +256,21 @@ result <- api.instance$TasksGet(namespace=var.namespace, created.by=var.created.
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{TasksApi$new()}}
-\item \href{#method-RunSQL}{\code{TasksApi$RunSQL()}}
-\item \href{#method-RunSQLWithHttpInfo}{\code{TasksApi$RunSQLWithHttpInfo()}}
-\item \href{#method-TaskIdGet}{\code{TasksApi$TaskIdGet()}}
-\item \href{#method-TaskIdGetWithHttpInfo}{\code{TasksApi$TaskIdGetWithHttpInfo()}}
-\item \href{#method-TaskIdResultGet}{\code{TasksApi$TaskIdResultGet()}}
-\item \href{#method-TaskIdResultGetWithHttpInfo}{\code{TasksApi$TaskIdResultGetWithHttpInfo()}}
-\item \href{#method-TasksGet}{\code{TasksApi$TasksGet()}}
-\item \href{#method-TasksGetWithHttpInfo}{\code{TasksApi$TasksGetWithHttpInfo()}}
-\item \href{#method-clone}{\code{TasksApi$clone()}}
+\item \href{#method-TasksApi-new}{\code{TasksApi$new()}}
+\item \href{#method-TasksApi-RunSQL}{\code{TasksApi$RunSQL()}}
+\item \href{#method-TasksApi-RunSQLWithHttpInfo}{\code{TasksApi$RunSQLWithHttpInfo()}}
+\item \href{#method-TasksApi-TaskIdGet}{\code{TasksApi$TaskIdGet()}}
+\item \href{#method-TasksApi-TaskIdGetWithHttpInfo}{\code{TasksApi$TaskIdGetWithHttpInfo()}}
+\item \href{#method-TasksApi-TaskIdResultGet}{\code{TasksApi$TaskIdResultGet()}}
+\item \href{#method-TasksApi-TaskIdResultGetWithHttpInfo}{\code{TasksApi$TaskIdResultGetWithHttpInfo()}}
+\item \href{#method-TasksApi-TasksGet}{\code{TasksApi$TasksGet()}}
+\item \href{#method-TasksApi-TasksGetWithHttpInfo}{\code{TasksApi$TasksGetWithHttpInfo()}}
+\item \href{#method-TasksApi-clone}{\code{TasksApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-TasksApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-TasksApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TasksApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -278,8 +278,8 @@ result <- api.instance$TasksGet(namespace=var.namespace, created.by=var.created.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-RunSQL"></a>}}
-\if{latex}{\out{\hypertarget{method-RunSQL}{}}}
+\if{html}{\out{<a id="method-TasksApi-RunSQL"></a>}}
+\if{latex}{\out{\hypertarget{method-TasksApi-RunSQL}{}}}
 \subsection{Method \code{RunSQL()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TasksApi$RunSQL(namespace, sql, accept.encoding = NULL, ...)}\if{html}{\out{</div>}}
@@ -287,8 +287,8 @@ result <- api.instance$TasksGet(namespace=var.namespace, created.by=var.created.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-RunSQLWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-RunSQLWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-TasksApi-RunSQLWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-TasksApi-RunSQLWithHttpInfo}{}}}
 \subsection{Method \code{RunSQLWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TasksApi$RunSQLWithHttpInfo(namespace, sql, accept.encoding = NULL, ...)}\if{html}{\out{</div>}}
@@ -296,8 +296,8 @@ result <- api.instance$TasksGet(namespace=var.namespace, created.by=var.created.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-TaskIdGet"></a>}}
-\if{latex}{\out{\hypertarget{method-TaskIdGet}{}}}
+\if{html}{\out{<a id="method-TasksApi-TaskIdGet"></a>}}
+\if{latex}{\out{\hypertarget{method-TasksApi-TaskIdGet}{}}}
 \subsection{Method \code{TaskIdGet()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TasksApi$TaskIdGet(id, ...)}\if{html}{\out{</div>}}
@@ -305,8 +305,8 @@ result <- api.instance$TasksGet(namespace=var.namespace, created.by=var.created.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-TaskIdGetWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-TaskIdGetWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-TasksApi-TaskIdGetWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-TasksApi-TaskIdGetWithHttpInfo}{}}}
 \subsection{Method \code{TaskIdGetWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TasksApi$TaskIdGetWithHttpInfo(id, ...)}\if{html}{\out{</div>}}
@@ -314,8 +314,8 @@ result <- api.instance$TasksGet(namespace=var.namespace, created.by=var.created.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-TaskIdResultGet"></a>}}
-\if{latex}{\out{\hypertarget{method-TaskIdResultGet}{}}}
+\if{html}{\out{<a id="method-TasksApi-TaskIdResultGet"></a>}}
+\if{latex}{\out{\hypertarget{method-TasksApi-TaskIdResultGet}{}}}
 \subsection{Method \code{TaskIdResultGet()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TasksApi$TaskIdResultGet(id, accept.encoding = NULL, ...)}\if{html}{\out{</div>}}
@@ -323,8 +323,8 @@ result <- api.instance$TasksGet(namespace=var.namespace, created.by=var.created.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-TaskIdResultGetWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-TaskIdResultGetWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-TasksApi-TaskIdResultGetWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-TasksApi-TaskIdResultGetWithHttpInfo}{}}}
 \subsection{Method \code{TaskIdResultGetWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TasksApi$TaskIdResultGetWithHttpInfo(id, accept.encoding = NULL, ...)}\if{html}{\out{</div>}}
@@ -332,8 +332,8 @@ result <- api.instance$TasksGet(namespace=var.namespace, created.by=var.created.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-TasksGet"></a>}}
-\if{latex}{\out{\hypertarget{method-TasksGet}{}}}
+\if{html}{\out{<a id="method-TasksApi-TasksGet"></a>}}
+\if{latex}{\out{\hypertarget{method-TasksApi-TasksGet}{}}}
 \subsection{Method \code{TasksGet()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TasksApi$TasksGet(
@@ -357,8 +357,8 @@ result <- api.instance$TasksGet(namespace=var.namespace, created.by=var.created.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-TasksGetWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-TasksGetWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-TasksApi-TasksGetWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-TasksApi-TasksGetWithHttpInfo}{}}}
 \subsection{Method \code{TasksGetWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{TasksApi$TasksGetWithHttpInfo(
@@ -382,8 +382,8 @@ result <- api.instance$TasksGet(namespace=var.namespace, created.by=var.created.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-TasksApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-TasksApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

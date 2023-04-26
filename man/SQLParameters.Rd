@@ -23,6 +23,8 @@ SQLParameters Class
 
 \item{\code{dont_download_results}}{character [optional]}
 
+\item{\code{resource_class}}{character [optional]}
+
 \item{\code{result_format}}{\link{ResultFormat} [optional]}
 
 \item{\code{init_commands}}{list( character ) [optional]}
@@ -38,17 +40,17 @@ SQLParameters Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{SQLParameters$new()}}
-\item \href{#method-toJSON}{\code{SQLParameters$toJSON()}}
-\item \href{#method-fromJSON}{\code{SQLParameters$fromJSON()}}
-\item \href{#method-toJSONString}{\code{SQLParameters$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{SQLParameters$fromJSONString()}}
-\item \href{#method-clone}{\code{SQLParameters$clone()}}
+\item \href{#method-SQLParameters-new}{\code{SQLParameters$new()}}
+\item \href{#method-SQLParameters-toJSON}{\code{SQLParameters$toJSON()}}
+\item \href{#method-SQLParameters-fromJSON}{\code{SQLParameters$fromJSON()}}
+\item \href{#method-SQLParameters-toJSONString}{\code{SQLParameters$toJSONString()}}
+\item \href{#method-SQLParameters-fromJSONString}{\code{SQLParameters$fromJSONString()}}
+\item \href{#method-SQLParameters-clone}{\code{SQLParameters$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-SQLParameters-new"></a>}}
+\if{latex}{\out{\hypertarget{method-SQLParameters-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SQLParameters$new(
@@ -57,6 +59,7 @@ SQLParameters Class
   output_uri = NULL,
   store_results = NULL,
   dont_download_results = NULL,
+  resource_class = NULL,
   result_format = NULL,
   init_commands = NULL,
   parameters = NULL,
@@ -68,8 +71,8 @@ SQLParameters Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-SQLParameters-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SQLParameters-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SQLParameters$toJSON()}\if{html}{\out{</div>}}
@@ -77,8 +80,8 @@ SQLParameters Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-SQLParameters-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-SQLParameters-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SQLParameters$fromJSON(SQLParametersJson)}\if{html}{\out{</div>}}
@@ -86,8 +89,8 @@ SQLParameters Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-SQLParameters-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-SQLParameters-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SQLParameters$toJSONString()}\if{html}{\out{</div>}}
@@ -95,8 +98,8 @@ SQLParameters Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-SQLParameters-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-SQLParameters-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{SQLParameters$fromJSONString(SQLParametersJson)}\if{html}{\out{</div>}}
@@ -104,8 +107,8 @@ SQLParameters Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-SQLParameters-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-SQLParameters-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

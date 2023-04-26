@@ -30,17 +30,17 @@ Dimension Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Dimension$new()}}
-\item \href{#method-toJSON}{\code{Dimension$toJSON()}}
-\item \href{#method-fromJSON}{\code{Dimension$fromJSON()}}
-\item \href{#method-toJSONString}{\code{Dimension$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{Dimension$fromJSONString()}}
-\item \href{#method-clone}{\code{Dimension$clone()}}
+\item \href{#method-Dimension-new}{\code{Dimension$new()}}
+\item \href{#method-Dimension-toJSON}{\code{Dimension$toJSON()}}
+\item \href{#method-Dimension-fromJSON}{\code{Dimension$fromJSON()}}
+\item \href{#method-Dimension-toJSONString}{\code{Dimension$toJSONString()}}
+\item \href{#method-Dimension-fromJSONString}{\code{Dimension$fromJSONString()}}
+\item \href{#method-Dimension-clone}{\code{Dimension$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-Dimension-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Dimension-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Dimension$new(
@@ -56,8 +56,8 @@ Dimension Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-Dimension-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Dimension-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Dimension$toJSON()}\if{html}{\out{</div>}}
@@ -65,8 +65,8 @@ Dimension Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-Dimension-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-Dimension-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Dimension$fromJSON(DimensionJson)}\if{html}{\out{</div>}}
@@ -74,8 +74,8 @@ Dimension Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-Dimension-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Dimension-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Dimension$toJSONString()}\if{html}{\out{</div>}}
@@ -83,8 +83,8 @@ Dimension Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-Dimension-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-Dimension-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Dimension$fromJSONString(DimensionJson)}\if{html}{\out{</div>}}
@@ -92,8 +92,8 @@ Dimension Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-Dimension-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-Dimension-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -32,17 +32,17 @@ UDFImageVersion Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{UDFImageVersion$new()}}
-\item \href{#method-toJSON}{\code{UDFImageVersion$toJSON()}}
-\item \href{#method-fromJSON}{\code{UDFImageVersion$fromJSON()}}
-\item \href{#method-toJSONString}{\code{UDFImageVersion$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{UDFImageVersion$fromJSONString()}}
-\item \href{#method-clone}{\code{UDFImageVersion$clone()}}
+\item \href{#method-UDFImageVersion-new}{\code{UDFImageVersion$new()}}
+\item \href{#method-UDFImageVersion-toJSON}{\code{UDFImageVersion$toJSON()}}
+\item \href{#method-UDFImageVersion-fromJSON}{\code{UDFImageVersion$fromJSON()}}
+\item \href{#method-UDFImageVersion-toJSONString}{\code{UDFImageVersion$toJSONString()}}
+\item \href{#method-UDFImageVersion-fromJSONString}{\code{UDFImageVersion$fromJSONString()}}
+\item \href{#method-UDFImageVersion-clone}{\code{UDFImageVersion$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-UDFImageVersion-new"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFImageVersion-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFImageVersion$new(
@@ -59,8 +59,8 @@ UDFImageVersion Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-UDFImageVersion-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFImageVersion-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFImageVersion$toJSON()}\if{html}{\out{</div>}}
@@ -68,8 +68,8 @@ UDFImageVersion Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-UDFImageVersion-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFImageVersion-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFImageVersion$fromJSON(UDFImageVersionJson)}\if{html}{\out{</div>}}
@@ -77,8 +77,8 @@ UDFImageVersion Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-UDFImageVersion-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFImageVersion-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFImageVersion$toJSONString()}\if{html}{\out{</div>}}
@@ -86,8 +86,8 @@ UDFImageVersion Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-UDFImageVersion-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFImageVersion-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{UDFImageVersion$fromJSONString(UDFImageVersionJson)}\if{html}{\out{</div>}}
@@ -95,8 +95,8 @@ UDFImageVersion Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-UDFImageVersion-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-UDFImageVersion-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

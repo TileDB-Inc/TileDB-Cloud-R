@@ -38,17 +38,17 @@ DimensionTileExtent Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{DimensionTileExtent$new()}}
-\item \href{#method-toJSON}{\code{DimensionTileExtent$toJSON()}}
-\item \href{#method-fromJSON}{\code{DimensionTileExtent$fromJSON()}}
-\item \href{#method-toJSONString}{\code{DimensionTileExtent$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{DimensionTileExtent$fromJSONString()}}
-\item \href{#method-clone}{\code{DimensionTileExtent$clone()}}
+\item \href{#method-DimensionTileExtent-new}{\code{DimensionTileExtent$new()}}
+\item \href{#method-DimensionTileExtent-toJSON}{\code{DimensionTileExtent$toJSON()}}
+\item \href{#method-DimensionTileExtent-fromJSON}{\code{DimensionTileExtent$fromJSON()}}
+\item \href{#method-DimensionTileExtent-toJSONString}{\code{DimensionTileExtent$toJSONString()}}
+\item \href{#method-DimensionTileExtent-fromJSONString}{\code{DimensionTileExtent$fromJSONString()}}
+\item \href{#method-DimensionTileExtent-clone}{\code{DimensionTileExtent$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-DimensionTileExtent-new"></a>}}
+\if{latex}{\out{\hypertarget{method-DimensionTileExtent-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DimensionTileExtent$new(
@@ -68,8 +68,8 @@ DimensionTileExtent Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-DimensionTileExtent-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DimensionTileExtent-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DimensionTileExtent$toJSON()}\if{html}{\out{</div>}}
@@ -77,8 +77,8 @@ DimensionTileExtent Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-DimensionTileExtent-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-DimensionTileExtent-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DimensionTileExtent$fromJSON(DimensionTileExtentJson)}\if{html}{\out{</div>}}
@@ -86,8 +86,8 @@ DimensionTileExtent Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-DimensionTileExtent-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-DimensionTileExtent-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DimensionTileExtent$toJSONString()}\if{html}{\out{</div>}}
@@ -95,8 +95,8 @@ DimensionTileExtent Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-DimensionTileExtent-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-DimensionTileExtent-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{DimensionTileExtent$fromJSONString(DimensionTileExtentJson)}\if{html}{\out{</div>}}
@@ -104,8 +104,8 @@ DimensionTileExtent Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-DimensionTileExtent-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-DimensionTileExtent-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

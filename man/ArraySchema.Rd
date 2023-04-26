@@ -40,17 +40,17 @@ ArraySchema Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{ArraySchema$new()}}
-\item \href{#method-toJSON}{\code{ArraySchema$toJSON()}}
-\item \href{#method-fromJSON}{\code{ArraySchema$fromJSON()}}
-\item \href{#method-toJSONString}{\code{ArraySchema$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{ArraySchema$fromJSONString()}}
-\item \href{#method-clone}{\code{ArraySchema$clone()}}
+\item \href{#method-ArraySchema-new}{\code{ArraySchema$new()}}
+\item \href{#method-ArraySchema-toJSON}{\code{ArraySchema$toJSON()}}
+\item \href{#method-ArraySchema-fromJSON}{\code{ArraySchema$fromJSON()}}
+\item \href{#method-ArraySchema-toJSONString}{\code{ArraySchema$toJSONString()}}
+\item \href{#method-ArraySchema-fromJSONString}{\code{ArraySchema$fromJSONString()}}
+\item \href{#method-ArraySchema-clone}{\code{ArraySchema$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-ArraySchema-new"></a>}}
+\if{latex}{\out{\hypertarget{method-ArraySchema-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArraySchema$new(
@@ -71,8 +71,8 @@ ArraySchema Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-ArraySchema-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ArraySchema-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArraySchema$toJSON()}\if{html}{\out{</div>}}
@@ -80,8 +80,8 @@ ArraySchema Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-ArraySchema-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-ArraySchema-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArraySchema$fromJSON(ArraySchemaJson)}\if{html}{\out{</div>}}
@@ -89,8 +89,8 @@ ArraySchema Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-ArraySchema-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ArraySchema-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArraySchema$toJSONString()}\if{html}{\out{</div>}}
@@ -98,8 +98,8 @@ ArraySchema Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-ArraySchema-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-ArraySchema-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{ArraySchema$fromJSONString(ArraySchemaJson)}\if{html}{\out{</div>}}
@@ -107,8 +107,8 @@ ArraySchema Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-ArraySchema-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-ArraySchema-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

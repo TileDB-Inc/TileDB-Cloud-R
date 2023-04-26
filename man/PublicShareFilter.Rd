@@ -13,17 +13,17 @@ PublicShareFilter Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{PublicShareFilter$new()}}
-\item \href{#method-toJSON}{\code{PublicShareFilter$toJSON()}}
-\item \href{#method-fromJSON}{\code{PublicShareFilter$fromJSON()}}
-\item \href{#method-toJSONString}{\code{PublicShareFilter$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{PublicShareFilter$fromJSONString()}}
-\item \href{#method-clone}{\code{PublicShareFilter$clone()}}
+\item \href{#method-PublicShareFilter-new}{\code{PublicShareFilter$new()}}
+\item \href{#method-PublicShareFilter-toJSON}{\code{PublicShareFilter$toJSON()}}
+\item \href{#method-PublicShareFilter-fromJSON}{\code{PublicShareFilter$fromJSON()}}
+\item \href{#method-PublicShareFilter-toJSONString}{\code{PublicShareFilter$toJSONString()}}
+\item \href{#method-PublicShareFilter-fromJSONString}{\code{PublicShareFilter$fromJSONString()}}
+\item \href{#method-PublicShareFilter-clone}{\code{PublicShareFilter$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-PublicShareFilter-new"></a>}}
+\if{latex}{\out{\hypertarget{method-PublicShareFilter-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PublicShareFilter$new(...)}\if{html}{\out{</div>}}
@@ -31,8 +31,8 @@ PublicShareFilter Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-PublicShareFilter-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PublicShareFilter-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PublicShareFilter$toJSON()}\if{html}{\out{</div>}}
@@ -40,8 +40,8 @@ PublicShareFilter Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-PublicShareFilter-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-PublicShareFilter-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PublicShareFilter$fromJSON(PublicShareFilterJson)}\if{html}{\out{</div>}}
@@ -49,8 +49,8 @@ PublicShareFilter Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-PublicShareFilter-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-PublicShareFilter-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PublicShareFilter$toJSONString()}\if{html}{\out{</div>}}
@@ -58,8 +58,8 @@ PublicShareFilter Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-PublicShareFilter-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-PublicShareFilter-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{PublicShareFilter$fromJSONString(PublicShareFilterJson)}\if{html}{\out{</div>}}
@@ -67,8 +67,8 @@ PublicShareFilter Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-PublicShareFilter-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-PublicShareFilter-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

@@ -13,17 +13,17 @@ FileType Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{FileType$new()}}
-\item \href{#method-toJSON}{\code{FileType$toJSON()}}
-\item \href{#method-fromJSON}{\code{FileType$fromJSON()}}
-\item \href{#method-toJSONString}{\code{FileType$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{FileType$fromJSONString()}}
-\item \href{#method-clone}{\code{FileType$clone()}}
+\item \href{#method-FileType-new}{\code{FileType$new()}}
+\item \href{#method-FileType-toJSON}{\code{FileType$toJSON()}}
+\item \href{#method-FileType-fromJSON}{\code{FileType$fromJSON()}}
+\item \href{#method-FileType-toJSONString}{\code{FileType$toJSONString()}}
+\item \href{#method-FileType-fromJSONString}{\code{FileType$fromJSONString()}}
+\item \href{#method-FileType-clone}{\code{FileType$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-FileType-new"></a>}}
+\if{latex}{\out{\hypertarget{method-FileType-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FileType$new(...)}\if{html}{\out{</div>}}
@@ -31,8 +31,8 @@ FileType Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-FileType-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-FileType-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FileType$toJSON()}\if{html}{\out{</div>}}
@@ -40,8 +40,8 @@ FileType Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-FileType-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-FileType-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FileType$fromJSON(FileTypeJson)}\if{html}{\out{</div>}}
@@ -49,8 +49,8 @@ FileType Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-FileType-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-FileType-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FileType$toJSONString()}\if{html}{\out{</div>}}
@@ -58,8 +58,8 @@ FileType Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-FileType-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-FileType-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{FileType$fromJSONString(FileTypeJson)}\if{html}{\out{</div>}}
@@ -67,8 +67,8 @@ FileType Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-FileType-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-FileType-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

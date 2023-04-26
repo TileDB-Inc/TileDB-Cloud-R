@@ -24,17 +24,17 @@ GroupListingAllOf Class
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{GroupListingAllOf$new()}}
-\item \href{#method-toJSON}{\code{GroupListingAllOf$toJSON()}}
-\item \href{#method-fromJSON}{\code{GroupListingAllOf$fromJSON()}}
-\item \href{#method-toJSONString}{\code{GroupListingAllOf$toJSONString()}}
-\item \href{#method-fromJSONString}{\code{GroupListingAllOf$fromJSONString()}}
-\item \href{#method-clone}{\code{GroupListingAllOf$clone()}}
+\item \href{#method-GroupListingAllOf-new}{\code{GroupListingAllOf$new()}}
+\item \href{#method-GroupListingAllOf-toJSON}{\code{GroupListingAllOf$toJSON()}}
+\item \href{#method-GroupListingAllOf-fromJSON}{\code{GroupListingAllOf$fromJSON()}}
+\item \href{#method-GroupListingAllOf-toJSONString}{\code{GroupListingAllOf$toJSONString()}}
+\item \href{#method-GroupListingAllOf-fromJSONString}{\code{GroupListingAllOf$fromJSONString()}}
+\item \href{#method-GroupListingAllOf-clone}{\code{GroupListingAllOf$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-GroupListingAllOf-new"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupListingAllOf-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GroupListingAllOf$new(
@@ -47,8 +47,8 @@ GroupListingAllOf Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSON}{}}}
+\if{html}{\out{<a id="method-GroupListingAllOf-toJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupListingAllOf-toJSON}{}}}
 \subsection{Method \code{toJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GroupListingAllOf$toJSON()}\if{html}{\out{</div>}}
@@ -56,8 +56,8 @@ GroupListingAllOf Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSON"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSON}{}}}
+\if{html}{\out{<a id="method-GroupListingAllOf-fromJSON"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupListingAllOf-fromJSON}{}}}
 \subsection{Method \code{fromJSON()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GroupListingAllOf$fromJSON(GroupListingAllOfJson)}\if{html}{\out{</div>}}
@@ -65,8 +65,8 @@ GroupListingAllOf Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-toJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-toJSONString}{}}}
+\if{html}{\out{<a id="method-GroupListingAllOf-toJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupListingAllOf-toJSONString}{}}}
 \subsection{Method \code{toJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GroupListingAllOf$toJSONString()}\if{html}{\out{</div>}}
@@ -74,8 +74,8 @@ GroupListingAllOf Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-fromJSONString"></a>}}
-\if{latex}{\out{\hypertarget{method-fromJSONString}{}}}
+\if{html}{\out{<a id="method-GroupListingAllOf-fromJSONString"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupListingAllOf-fromJSONString}{}}}
 \subsection{Method \code{fromJSONString()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{GroupListingAllOf$fromJSONString(GroupListingAllOfJson)}\if{html}{\out{</div>}}
@@ -83,8 +83,8 @@ GroupListingAllOf Class
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-GroupListingAllOf-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-GroupListingAllOf-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

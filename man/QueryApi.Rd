@@ -319,23 +319,23 @@ result <- api.instance$SubmitQueryJson(var.namespace, var.array, var.content.typ
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{QueryApi$new()}}
-\item \href{#method-FinalizeQuery}{\code{QueryApi$FinalizeQuery()}}
-\item \href{#method-FinalizeQueryWithHttpInfo}{\code{QueryApi$FinalizeQueryWithHttpInfo()}}
-\item \href{#method-GetEstResultSizes}{\code{QueryApi$GetEstResultSizes()}}
-\item \href{#method-GetEstResultSizesWithHttpInfo}{\code{QueryApi$GetEstResultSizesWithHttpInfo()}}
-\item \href{#method-GetFile}{\code{QueryApi$GetFile()}}
-\item \href{#method-GetFileWithHttpInfo}{\code{QueryApi$GetFileWithHttpInfo()}}
-\item \href{#method-SubmitQuery}{\code{QueryApi$SubmitQuery()}}
-\item \href{#method-SubmitQueryWithHttpInfo}{\code{QueryApi$SubmitQueryWithHttpInfo()}}
-\item \href{#method-SubmitQueryJson}{\code{QueryApi$SubmitQueryJson()}}
-\item \href{#method-SubmitQueryJsonWithHttpInfo}{\code{QueryApi$SubmitQueryJsonWithHttpInfo()}}
-\item \href{#method-clone}{\code{QueryApi$clone()}}
+\item \href{#method-QueryApi-new}{\code{QueryApi$new()}}
+\item \href{#method-QueryApi-FinalizeQuery}{\code{QueryApi$FinalizeQuery()}}
+\item \href{#method-QueryApi-FinalizeQueryWithHttpInfo}{\code{QueryApi$FinalizeQueryWithHttpInfo()}}
+\item \href{#method-QueryApi-GetEstResultSizes}{\code{QueryApi$GetEstResultSizes()}}
+\item \href{#method-QueryApi-GetEstResultSizesWithHttpInfo}{\code{QueryApi$GetEstResultSizesWithHttpInfo()}}
+\item \href{#method-QueryApi-GetFile}{\code{QueryApi$GetFile()}}
+\item \href{#method-QueryApi-GetFileWithHttpInfo}{\code{QueryApi$GetFileWithHttpInfo()}}
+\item \href{#method-QueryApi-SubmitQuery}{\code{QueryApi$SubmitQuery()}}
+\item \href{#method-QueryApi-SubmitQueryWithHttpInfo}{\code{QueryApi$SubmitQueryWithHttpInfo()}}
+\item \href{#method-QueryApi-SubmitQueryJson}{\code{QueryApi$SubmitQueryJson()}}
+\item \href{#method-QueryApi-SubmitQueryJsonWithHttpInfo}{\code{QueryApi$SubmitQueryJsonWithHttpInfo()}}
+\item \href{#method-QueryApi-clone}{\code{QueryApi$clone()}}
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-QueryApi-new"></a>}}
+\if{latex}{\out{\hypertarget{method-QueryApi-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{QueryApi$new(apiClient)}\if{html}{\out{</div>}}
@@ -343,8 +343,8 @@ result <- api.instance$SubmitQueryJson(var.namespace, var.array, var.content.typ
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-FinalizeQuery"></a>}}
-\if{latex}{\out{\hypertarget{method-FinalizeQuery}{}}}
+\if{html}{\out{<a id="method-QueryApi-FinalizeQuery"></a>}}
+\if{latex}{\out{\hypertarget{method-QueryApi-FinalizeQuery}{}}}
 \subsection{Method \code{FinalizeQuery()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{QueryApi$FinalizeQuery(
@@ -361,8 +361,8 @@ result <- api.instance$SubmitQueryJson(var.namespace, var.array, var.content.typ
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-FinalizeQueryWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-FinalizeQueryWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-QueryApi-FinalizeQueryWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-QueryApi-FinalizeQueryWithHttpInfo}{}}}
 \subsection{Method \code{FinalizeQueryWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{QueryApi$FinalizeQueryWithHttpInfo(
@@ -379,8 +379,8 @@ result <- api.instance$SubmitQueryJson(var.namespace, var.array, var.content.typ
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetEstResultSizes"></a>}}
-\if{latex}{\out{\hypertarget{method-GetEstResultSizes}{}}}
+\if{html}{\out{<a id="method-QueryApi-GetEstResultSizes"></a>}}
+\if{latex}{\out{\hypertarget{method-QueryApi-GetEstResultSizes}{}}}
 \subsection{Method \code{GetEstResultSizes()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{QueryApi$GetEstResultSizes(
@@ -397,8 +397,8 @@ result <- api.instance$SubmitQueryJson(var.namespace, var.array, var.content.typ
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetEstResultSizesWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetEstResultSizesWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-QueryApi-GetEstResultSizesWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-QueryApi-GetEstResultSizesWithHttpInfo}{}}}
 \subsection{Method \code{GetEstResultSizesWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{QueryApi$GetEstResultSizesWithHttpInfo(
@@ -415,8 +415,8 @@ result <- api.instance$SubmitQueryJson(var.namespace, var.array, var.content.typ
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetFile"></a>}}
-\if{latex}{\out{\hypertarget{method-GetFile}{}}}
+\if{html}{\out{<a id="method-QueryApi-GetFile"></a>}}
+\if{latex}{\out{\hypertarget{method-QueryApi-GetFile}{}}}
 \subsection{Method \code{GetFile()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{QueryApi$GetFile(namespace, array, content.type, x.payer = NULL, ...)}\if{html}{\out{</div>}}
@@ -424,8 +424,8 @@ result <- api.instance$SubmitQueryJson(var.namespace, var.array, var.content.typ
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-GetFileWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-GetFileWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-QueryApi-GetFileWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-QueryApi-GetFileWithHttpInfo}{}}}
 \subsection{Method \code{GetFileWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{QueryApi$GetFileWithHttpInfo(
@@ -439,8 +439,8 @@ result <- api.instance$SubmitQueryJson(var.namespace, var.array, var.content.typ
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SubmitQuery"></a>}}
-\if{latex}{\out{\hypertarget{method-SubmitQuery}{}}}
+\if{html}{\out{<a id="method-QueryApi-SubmitQuery"></a>}}
+\if{latex}{\out{\hypertarget{method-QueryApi-SubmitQuery}{}}}
 \subsection{Method \code{SubmitQuery()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{QueryApi$SubmitQuery(
@@ -457,8 +457,8 @@ result <- api.instance$SubmitQueryJson(var.namespace, var.array, var.content.typ
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SubmitQueryWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-SubmitQueryWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-QueryApi-SubmitQueryWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-QueryApi-SubmitQueryWithHttpInfo}{}}}
 \subsection{Method \code{SubmitQueryWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{QueryApi$SubmitQueryWithHttpInfo(
@@ -475,8 +475,8 @@ result <- api.instance$SubmitQueryJson(var.namespace, var.array, var.content.typ
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SubmitQueryJson"></a>}}
-\if{latex}{\out{\hypertarget{method-SubmitQueryJson}{}}}
+\if{html}{\out{<a id="method-QueryApi-SubmitQueryJson"></a>}}
+\if{latex}{\out{\hypertarget{method-QueryApi-SubmitQueryJson}{}}}
 \subsection{Method \code{SubmitQueryJson()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{QueryApi$SubmitQueryJson(
@@ -491,8 +491,8 @@ result <- api.instance$SubmitQueryJson(var.namespace, var.array, var.content.typ
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-SubmitQueryJsonWithHttpInfo"></a>}}
-\if{latex}{\out{\hypertarget{method-SubmitQueryJsonWithHttpInfo}{}}}
+\if{html}{\out{<a id="method-QueryApi-SubmitQueryJsonWithHttpInfo"></a>}}
+\if{latex}{\out{\hypertarget{method-QueryApi-SubmitQueryJsonWithHttpInfo}{}}}
 \subsection{Method \code{SubmitQueryJsonWithHttpInfo()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{QueryApi$SubmitQueryJsonWithHttpInfo(
@@ -507,8 +507,8 @@ result <- api.instance$SubmitQueryJson(var.namespace, var.array, var.content.typ
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-QueryApi-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-QueryApi-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{
