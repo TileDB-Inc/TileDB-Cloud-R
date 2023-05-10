@@ -10,7 +10,13 @@
 #' @export
 group_info <- function(namespace, name) {
   groupApiInstance <- GroupsApi$new(get_api_client_instance())
-  groupApiInstance$GetGroup(namespace, name)$toJSON()
+  resp <- groupApiInstance$GetGroup(namespace, name)
+
+  switch(class(resp)[1],
+    ApiResponse = stop(httr::content(resp$response)$message, call. = FALSE),
+    GroupInfo = resp$toJSON(),
+    stop("Unexpected response type from GetGroup()", call. = FALSE)
+  )
 }
 
 #' Show listing of groups
