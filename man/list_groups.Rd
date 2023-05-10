@@ -80,6 +80,7 @@ Other {manual-layer functions}:
 \code{\link{execute_multi_array_udf}()},
 \code{\link{execute_sql_query}()},
 \code{\link{get_udf_info}()},
+\code{\link{group_info}()},
 \code{\link{list_arrays}()},
 \code{\link{login}()},
 \code{\link{register_array}()},
