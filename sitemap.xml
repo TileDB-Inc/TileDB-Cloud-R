@@ -52,7 +52,7 @@
     <loc>/index.html</loc>
   </url>
   <url>
-    <loc>/origREADME.html</loc>
+    <loc>/news/index.html</loc>
   </url>
   <url>
     <loc>/reference/AWSAccessCredentials.html</loc>
@@ -580,10 +580,16 @@
     <loc>/reference/get_udf_info.html</loc>
   </url>
   <url>
+    <loc>/reference/group_info.html</loc>
+  </url>
+  <url>
     <loc>/reference/index.html</loc>
   </url>
   <url>
     <loc>/reference/list_arrays.html</loc>
+  </url>
+  <url>
+    <loc>/reference/list_groups.html</loc>
   </url>
   <url>
     <loc>/reference/login.html</loc>
