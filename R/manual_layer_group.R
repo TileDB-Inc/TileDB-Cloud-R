@@ -1,3 +1,24 @@
+#' Group Information
+#'
+#' Show information about a group on TileDB Cloud.
+#'
+#' @inheritParams array_info
+#' @param name Name of the group
+#'
+#' @return A list of properties
+#' @family {manual-layer functions}
+#' @export
+group_info <- function(namespace, name) {
+  groupApiInstance <- GroupsApi$new(get_api_client_instance())
+  resp <- groupApiInstance$GetGroup(namespace, name)
+
+  switch(class(resp)[1],
+    ApiResponse = stop(httr::content(resp$response)$message, call. = FALSE),
+    GroupInfo = resp$toJSON(),
+    stop("Unexpected response type from GetGroup()", call. = FALSE)
+  )
+}
+
 #' Show listing of groups
 #'
 #' Returns a dataframe of metadata for all groups that meet the
