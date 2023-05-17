@@ -102,3 +102,50 @@ list_groups <- function (
 
   structure(groups, pagination_metadata = response$pagination_metadata)
 }
+
+#' Register a group on TileDB Cloud
+#'
+#' @description The underlying group must already exist.
+#'
+#' @param name Object name in TileDB Cloud. Defaults to the basename of the URI.
+#'
+#' @family {manual-layer functions}
+#' @export
+register_group <- function(
+  uri,
+  name = NULL,
+  namespace = NULL,
+  description = NULL,
+  access_credentials_name = NULL
+) {
+  groupApiInstance <- GroupsApi$new(get_api_client_instance())
+
+  stopifnot(
+    is.character(uri),
+    is.null(name) || is.character(name),
+    is.null(namespace) || is.character(namespace),
+    is.null(description) || is.character(description),
+    is.null(access_credentials_name) || is.character(access_credentials_name)
+  )
+
+  if (is.null(name)) name <- basename(uri)
+  if (is.null(namespace)) namespace <- .get_default_namespace_charged_or_stop()
+
+  group_register <- GroupRegister$new(
+    name = name,
+    uri = uri,
+    description = description,
+    access_credentials_name = access_credentials_name
+  )
+
+  result <- groupApiInstance$RegisterGroup(
+    namespace = namespace,
+    array = name,
+    group.register = group_register
+  )
+
+  # Decode the result, expecting empty string.
+  # Update: the response is no longer empty.
+  # .get_empty_response_body_or_stop(result)
+  invisible("OK")
+}
