@@ -69,39 +69,15 @@ tiledb::tiledb_group_add_member(grp1b, array2a_uri, relative = FALSE, name = bas
 tiledb::tiledb_group_add_member(grp1b, array2b_uri, relative = FALSE, name = basename(array2b_uri))
 tiledb::tiledb_group_close(grp1b)
 
-# Until register_group() is available we're using tiledb:// creation URIs above
-# to create and register simultaneously.
-
-# Register the arrays
-# register_array(
-#   uri = array2a_uri,
-#   array_name = basename(array2a_uri),
-#   description = 'Test Description',
-#   namespace = NAMESPACE
-# )
-
-# register_array(
-#   uri = array2b_uri,
-#   array_name = basename(array2b_uri),
-#   description = 'Test Description',
-#   namespace = NAMESPACE
-# )
-
 # Register the groups
-# register_group(group0_uri, description='Test Description', namespace=NAMESPACE)
+register_group(
+  uri = group0_uri,
+  name = basename(group0_uri),
+  namespace = NAMESPACE,
+  description = "Test Description",
+)
 
-# ----------------------------------------------------------------
-# READ
-
-config <- tiledb::tiledb_config()
-config["rest.server_address"] <- cloud_config[["host"]]
-config["rest.token"]          <- cloud_config[["api_key"]]
-ctx <- tiledb::tiledb_ctx(config)
-
-array_uri <- paste0('tiledb://', namespaceToCharge, '/', array_name)
-
-arr <- tiledb::tiledb_array(array_uri, query_type="READ", as.data.frame=TRUE, ctx=ctx)
-expect_equal(length(arr[]), 8)
+group_info(NAMESPACE, basename(group0_uri))
 
 # ----------------------------------------------------------------
 # DEREGISTER
