@@ -5,6 +5,9 @@
 library(tiledbcloud)
 library(tinytest)
 
+userApiInstance <- tiledbcloud:::.pkgenv[["userApiInstance"]]
+if (is.null(userApiInstance)) exit_file("not logged in")
+
 res <- user_profile()
 expect_true(is.list(res))
 expect_true(length(names(res)) >= 13)
