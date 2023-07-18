@@ -51,7 +51,7 @@ expect_equal(result$result, c(300, 302, 304, 306, 308))
 # Exercise resource_class
 
 result <- tiledbcloud::execute_generic_udf(udf=myfunc, args=myargs, result_format='arrow', namespace=namespaceToCharge, resource_class="large")
-expect_equal(result$result, c(300, 302, 304, 306, 308))
+expect_equal(result$result$as_vector(), c(300, 302, 304, 306, 308))
 
 expect_error(
   tiledbcloud::execute_generic_udf(udf=myfunc, args=myargs, result_format='arrow', namespace=namespaceToCharge, resource_class="nonesuch")
@@ -142,7 +142,7 @@ result <- tiledbcloud::execute_array_udf(
   namespace=namespaceToCharge
 )
 # Arrow result is of type dataframe, so we pull out the 'result' slot
-expect_equal(result$result, 18496)
+expect_equal(result$result$as_vector(), 18496)
 
 # Exercise resource_class
 result <- tiledbcloud::execute_array_udf(
@@ -156,7 +156,7 @@ result <- tiledbcloud::execute_array_udf(
   resource_class="large"
 )
 # Arrow result is of type dataframe, so we pull out the 'result' slot
-expect_equal(result$result, 18496)
+expect_equal(result$result$as_vector(), 18496)
 
 expect_error(
   tiledbcloud::execute_array_udf(
