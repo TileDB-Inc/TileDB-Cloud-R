@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">tiledbcloud</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.10.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.11</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,6 +47,13 @@
       <small>Source: <a href="https://github.com/TileDB-Inc/TileDB-Cloud-R/blob/HEAD/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.0.11" id="tiledbcloud-v0011">tiledbcloud v0.0.11<a class="anchor" aria-label="anchor" href="#tiledbcloud-v0011"></a></h2>
+<ul><li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
+<li>Added support for listing TileDB Cloud groups with <code><a href="../reference/list_groups.html">list_groups()</a></code>.</li>
+<li>Data frames returned by <code><a href="../reference/list_groups.html">list_groups()</a></code> and <code><a href="../reference/list_arrays.html">list_arrays()</a></code> now include pagination information in the <code>pagination_metadata</code> attribute.</li>
+<li>Arrow Tables are now returned from UDFs when <code>result_format = "arrow"</code>.</li>
+</ul></div>
   </main></div>
 
 
