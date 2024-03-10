@@ -67,7 +67,7 @@ ResultFormat <- R6::R6Class(
 # add to utils.R
 .parse_ResultFormat <- function(vals) {
     res <- gsub("^\\[|\\]$", "",
-        "[native, json, arrow]"
+        "[python_pickle, r_serialization, json, arrow, bytes, tiledb_json, native]"
     )
     unlist(strsplit(res, ", "))
 }
