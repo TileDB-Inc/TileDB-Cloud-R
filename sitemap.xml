@@ -1,609 +1,205 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>/articles/AboutTaskGraphs.html</loc>
-  </url>
-  <url>
-    <loc>/articles/Arrays.html</loc>
-  </url>
-  <url>
-    <loc>/articles/HowToRelease.html</loc>
-  </url>
-  <url>
-    <loc>/articles/HowToUpdateAPI.html</loc>
-  </url>
-  <url>
-    <loc>/articles/HowToUpdateDocumentation.html</loc>
-  </url>
-  <url>
-    <loc>/articles/Login.html</loc>
-  </url>
-  <url>
-    <loc>/articles/PackageStatus.html</loc>
-  </url>
-  <url>
-    <loc>/articles/SQL.html</loc>
-  </url>
-  <url>
-    <loc>/articles/Setup.html</loc>
-  </url>
-  <url>
-    <loc>/articles/TaskGraphs.html</loc>
-  </url>
-  <url>
-    <loc>/articles/Testing.html</loc>
-  </url>
-  <url>
-    <loc>/articles/UDFs.html</loc>
-  </url>
-  <url>
-    <loc>/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/AWSAccessCredentials.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ActivityEventType.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ApiClient.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ApiResponse.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Array.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ArrayActions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ArrayActivityLog.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ArrayApi.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ArrayBrowserData.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ArrayBrowserSidebar.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ArrayEndTimestampData.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ArrayFavorite.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ArrayFavoritesData.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ArrayInfo.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ArrayInfoUpdate.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ArrayMetadata.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ArrayMetadataEntry.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ArraySample.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ArraySchema.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ArraySharing.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ArrayTask.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ArrayTaskBrowserSidebar.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ArrayTaskData.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ArrayTaskLog.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ArrayTaskStatus.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ArrayTaskType.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ArrayTasksApi.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ArrayType.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Attribute.html</loc>
-  </url>
-  <url>
-    <loc>/reference/AttributeBufferHeader.html</loc>
-  </url>
-  <url>
-    <loc>/reference/AttributeBufferSize.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Datatype.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Dimension.html</loc>
-  </url>
-  <url>
-    <loc>/reference/DimensionCoordinate.html</loc>
-  </url>
-  <url>
-    <loc>/reference/DimensionTileExtent.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Domain.html</loc>
-  </url>
-  <url>
-    <loc>/reference/DomainArray.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Error.html</loc>
-  </url>
-  <url>
-    <loc>/reference/FavoritesApi.html</loc>
-  </url>
-  <url>
-    <loc>/reference/FileCreate.html</loc>
-  </url>
-  <url>
-    <loc>/reference/FileCreated.html</loc>
-  </url>
-  <url>
-    <loc>/reference/FileExport.html</loc>
-  </url>
-  <url>
-    <loc>/reference/FileExported.html</loc>
-  </url>
-  <url>
-    <loc>/reference/FilePropertyName.html</loc>
-  </url>
-  <url>
-    <loc>/reference/FileType.html</loc>
-  </url>
-  <url>
-    <loc>/reference/FilesApi.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Filter.html</loc>
-  </url>
-  <url>
-    <loc>/reference/FilterData.html</loc>
-  </url>
-  <url>
-    <loc>/reference/FilterOption.html</loc>
-  </url>
-  <url>
-    <loc>/reference/FilterPipeline.html</loc>
-  </url>
-  <url>
-    <loc>/reference/FilterType.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GenericUDF.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Group.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GroupActions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GroupBrowserData.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GroupBrowserFilterData.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GroupChanges.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GroupContents.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GroupContentsFilterData.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GroupCreate.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GroupEntry.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GroupInfo.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GroupListing.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GroupListingAllOf.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GroupMember.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GroupMemberAssetType.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GroupMemberType.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GroupRegister.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GroupSharing.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GroupSharingRequest.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GroupUpdate.html</loc>
-  </url>
-  <url>
-    <loc>/reference/GroupsApi.html</loc>
-  </url>
-  <url>
-    <loc>/reference/InlineObject.html</loc>
-  </url>
-  <url>
-    <loc>/reference/InlineResponse200.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Invitation.html</loc>
-  </url>
-  <url>
-    <loc>/reference/InvitationApi.html</loc>
-  </url>
-  <url>
-    <loc>/reference/InvitationArrayShareEmail.html</loc>
-  </url>
-  <url>
-    <loc>/reference/InvitationData.html</loc>
-  </url>
-  <url>
-    <loc>/reference/InvitationOrganizationJoinEmail.html</loc>
-  </url>
-  <url>
-    <loc>/reference/InvitationStatus.html</loc>
-  </url>
-  <url>
-    <loc>/reference/InvitationType.html</loc>
-  </url>
-  <url>
-    <loc>/reference/LastAccessedArray.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Layout.html</loc>
-  </url>
-  <url>
-    <loc>/reference/MLModelFavorite.html</loc>
-  </url>
-  <url>
-    <loc>/reference/MLModelFavoritesData.html</loc>
-  </url>
-  <url>
-    <loc>/reference/MaxBufferSizes.html</loc>
-  </url>
-  <url>
-    <loc>/reference/MultiArrayUDF.html</loc>
-  </url>
-  <url>
-    <loc>/reference/NamespaceActions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/NonEmptyDomain.html</loc>
-  </url>
-  <url>
-    <loc>/reference/NotebookApi.html</loc>
-  </url>
-  <url>
-    <loc>/reference/NotebookFavorite.html</loc>
-  </url>
-  <url>
-    <loc>/reference/NotebookFavoritesData.html</loc>
-  </url>
-  <url>
-    <loc>/reference/NotebookStatus.html</loc>
-  </url>
-  <url>
-    <loc>/reference/NotebooksApi.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Organization.html</loc>
-  </url>
-  <url>
-    <loc>/reference/OrganizationApi.html</loc>
-  </url>
-  <url>
-    <loc>/reference/OrganizationRoles.html</loc>
-  </url>
-  <url>
-    <loc>/reference/OrganizationUser.html</loc>
-  </url>
-  <url>
-    <loc>/reference/PaginationMetadata.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Pricing.html</loc>
-  </url>
-  <url>
-    <loc>/reference/PricingAggregateUsage.html</loc>
-  </url>
-  <url>
-    <loc>/reference/PricingCurrency.html</loc>
-  </url>
-  <url>
-    <loc>/reference/PricingInterval.html</loc>
-  </url>
-  <url>
-    <loc>/reference/PricingType.html</loc>
-  </url>
-  <url>
-    <loc>/reference/PricingUnitLabel.html</loc>
-  </url>
-  <url>
-    <loc>/reference/PublicShareFilter.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Query.html</loc>
-  </url>
-  <url>
-    <loc>/reference/QueryApi.html</loc>
-  </url>
-  <url>
-    <loc>/reference/QueryJson.html</loc>
-  </url>
-  <url>
-    <loc>/reference/QueryRanges.html</loc>
-  </url>
-  <url>
-    <loc>/reference/QueryReader.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Querystatus.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Querytype.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ReadState.html</loc>
-  </url>
-  <url>
-    <loc>/reference/ResultFormat.html</loc>
-  </url>
-  <url>
-    <loc>/reference/SQLParameters.html</loc>
-  </url>
-  <url>
-    <loc>/reference/SSOProvider.html</loc>
-  </url>
-  <url>
-    <loc>/reference/SqlApi.html</loc>
-  </url>
-  <url>
-    <loc>/reference/StatsApi.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Subarray.html</loc>
-  </url>
-  <url>
-    <loc>/reference/SubarrayPartitioner.html</loc>
-  </url>
-  <url>
-    <loc>/reference/SubarrayPartitionerCurrent.html</loc>
-  </url>
-  <url>
-    <loc>/reference/SubarrayPartitionerState.html</loc>
-  </url>
-  <url>
-    <loc>/reference/SubarrayRanges.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Subscription.html</loc>
-  </url>
-  <url>
-    <loc>/reference/TaskGraphLog.html</loc>
-  </url>
-  <url>
-    <loc>/reference/TaskGraphLogStatus.html</loc>
-  </url>
-  <url>
-    <loc>/reference/TaskGraphLogsApi.html</loc>
-  </url>
-  <url>
-    <loc>/reference/TaskGraphLogsData.html</loc>
-  </url>
-  <url>
-    <loc>/reference/TaskGraphNodeMetadata.html</loc>
-  </url>
-  <url>
-    <loc>/reference/TasksApi.html</loc>
-  </url>
-  <url>
-    <loc>/reference/TileDBConfig.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Token.html</loc>
-  </url>
-  <url>
-    <loc>/reference/TokenRequest.html</loc>
-  </url>
-  <url>
-    <loc>/reference/TokenScope.html</loc>
-  </url>
-  <url>
-    <loc>/reference/UDFActions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/UDFArrayDetails.html</loc>
-  </url>
-  <url>
-    <loc>/reference/UDFFavorite.html</loc>
-  </url>
-  <url>
-    <loc>/reference/UDFFavoritesData.html</loc>
-  </url>
-  <url>
-    <loc>/reference/UDFImage.html</loc>
-  </url>
-  <url>
-    <loc>/reference/UDFImageVersion.html</loc>
-  </url>
-  <url>
-    <loc>/reference/UDFInfo.html</loc>
-  </url>
-  <url>
-    <loc>/reference/UDFInfoUpdate.html</loc>
-  </url>
-  <url>
-    <loc>/reference/UDFLanguage.html</loc>
-  </url>
-  <url>
-    <loc>/reference/UDFSharing.html</loc>
-  </url>
-  <url>
-    <loc>/reference/UDFSubarray.html</loc>
-  </url>
-  <url>
-    <loc>/reference/UDFSubarrayRange.html</loc>
-  </url>
-  <url>
-    <loc>/reference/UDFType.html</loc>
-  </url>
-  <url>
-    <loc>/reference/UdfApi.html</loc>
-  </url>
-  <url>
-    <loc>/reference/User.html</loc>
-  </url>
-  <url>
-    <loc>/reference/UserApi.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Writer.html</loc>
-  </url>
-  <url>
-    <loc>/reference/array_info.html</loc>
-  </url>
-  <url>
-    <loc>/reference/compute.html</loc>
-  </url>
-  <url>
-    <loc>/reference/compute_sequentially.html</loc>
-  </url>
-  <url>
-    <loc>/reference/configure.html</loc>
-  </url>
-  <url>
-    <loc>/reference/delayed.html</loc>
-  </url>
-  <url>
-    <loc>/reference/delayed_args-set.html</loc>
-  </url>
-  <url>
-    <loc>/reference/delayed_args.html</loc>
-  </url>
-  <url>
-    <loc>/reference/delayed_array_udf.html</loc>
-  </url>
-  <url>
-    <loc>/reference/delayed_generic_udf.html</loc>
-  </url>
-  <url>
-    <loc>/reference/delayed_sql.html</loc>
-  </url>
-  <url>
-    <loc>/reference/deregister_array.html</loc>
-  </url>
-  <url>
-    <loc>/reference/deregister_group.html</loc>
-  </url>
-  <url>
-    <loc>/reference/deregister_udf.html</loc>
-  </url>
-  <url>
-    <loc>/reference/dot-get_decoded_response_body_or_stop.html</loc>
-  </url>
-  <url>
-    <loc>/reference/dot-get_empty_response_body_or_stop.html</loc>
-  </url>
-  <url>
-    <loc>/reference/dot-get_raw_response_body_or_stop.html</loc>
-  </url>
-  <url>
-    <loc>/reference/dot-wrap_as_api_response.html</loc>
-  </url>
-  <url>
-    <loc>/reference/execute_array_udf.html</loc>
-  </url>
-  <url>
-    <loc>/reference/execute_generic_udf.html</loc>
-  </url>
-  <url>
-    <loc>/reference/execute_multi_array_udf.html</loc>
-  </url>
-  <url>
-    <loc>/reference/execute_sql_query.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_api_client_instance.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_udf_info.html</loc>
-  </url>
-  <url>
-    <loc>/reference/group_info.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/list_arrays.html</loc>
-  </url>
-  <url>
-    <loc>/reference/list_groups.html</loc>
-  </url>
-  <url>
-    <loc>/reference/login.html</loc>
-  </url>
-  <url>
-    <loc>/reference/register_array.html</loc>
-  </url>
-  <url>
-    <loc>/reference/register_udf.html</loc>
-  </url>
-  <url>
-    <loc>/reference/update_udf_info.html</loc>
-  </url>
-  <url>
-    <loc>/reference/user_profile.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/LICENSE-text.html</loc></url>
+<url><loc>/articles/AboutTaskGraphs.html</loc></url>
+<url><loc>/articles/Arrays.html</loc></url>
+<url><loc>/articles/HowToRelease.html</loc></url>
+<url><loc>/articles/HowToUpdateAPI.html</loc></url>
+<url><loc>/articles/HowToUpdateDocumentation.html</loc></url>
+<url><loc>/articles/Login.html</loc></url>
+<url><loc>/articles/PackageStatus.html</loc></url>
+<url><loc>/articles/SQL.html</loc></url>
+<url><loc>/articles/Setup.html</loc></url>
+<url><loc>/articles/TaskGraphs.html</loc></url>
+<url><loc>/articles/Testing.html</loc></url>
+<url><loc>/articles/UDFs.html</loc></url>
+<url><loc>/articles/index.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/news/index.html</loc></url>
+<url><loc>/reference/AWSAccessCredentials.html</loc></url>
+<url><loc>/reference/ActivityEventType.html</loc></url>
+<url><loc>/reference/ApiClient.html</loc></url>
+<url><loc>/reference/ApiResponse.html</loc></url>
+<url><loc>/reference/Array.html</loc></url>
+<url><loc>/reference/ArrayActions.html</loc></url>
+<url><loc>/reference/ArrayActivityLog.html</loc></url>
+<url><loc>/reference/ArrayApi.html</loc></url>
+<url><loc>/reference/ArrayBrowserData.html</loc></url>
+<url><loc>/reference/ArrayBrowserSidebar.html</loc></url>
+<url><loc>/reference/ArrayEndTimestampData.html</loc></url>
+<url><loc>/reference/ArrayFavorite.html</loc></url>
+<url><loc>/reference/ArrayFavoritesData.html</loc></url>
+<url><loc>/reference/ArrayInfo.html</loc></url>
+<url><loc>/reference/ArrayInfoUpdate.html</loc></url>
+<url><loc>/reference/ArrayMetadata.html</loc></url>
+<url><loc>/reference/ArrayMetadataEntry.html</loc></url>
+<url><loc>/reference/ArraySample.html</loc></url>
+<url><loc>/reference/ArraySchema.html</loc></url>
+<url><loc>/reference/ArraySharing.html</loc></url>
+<url><loc>/reference/ArrayTask.html</loc></url>
+<url><loc>/reference/ArrayTaskBrowserSidebar.html</loc></url>
+<url><loc>/reference/ArrayTaskData.html</loc></url>
+<url><loc>/reference/ArrayTaskLog.html</loc></url>
+<url><loc>/reference/ArrayTaskStatus.html</loc></url>
+<url><loc>/reference/ArrayTaskType.html</loc></url>
+<url><loc>/reference/ArrayTasksApi.html</loc></url>
+<url><loc>/reference/ArrayType.html</loc></url>
+<url><loc>/reference/Attribute.html</loc></url>
+<url><loc>/reference/AttributeBufferHeader.html</loc></url>
+<url><loc>/reference/AttributeBufferSize.html</loc></url>
+<url><loc>/reference/Datatype.html</loc></url>
+<url><loc>/reference/Dimension.html</loc></url>
+<url><loc>/reference/DimensionCoordinate.html</loc></url>
+<url><loc>/reference/DimensionTileExtent.html</loc></url>
+<url><loc>/reference/Domain.html</loc></url>
+<url><loc>/reference/DomainArray.html</loc></url>
+<url><loc>/reference/Error.html</loc></url>
+<url><loc>/reference/FavoritesApi.html</loc></url>
+<url><loc>/reference/FileCreate.html</loc></url>
+<url><loc>/reference/FileCreated.html</loc></url>
+<url><loc>/reference/FileExport.html</loc></url>
+<url><loc>/reference/FileExported.html</loc></url>
+<url><loc>/reference/FilePropertyName.html</loc></url>
+<url><loc>/reference/FileType.html</loc></url>
+<url><loc>/reference/FilesApi.html</loc></url>
+<url><loc>/reference/Filter.html</loc></url>
+<url><loc>/reference/FilterData.html</loc></url>
+<url><loc>/reference/FilterOption.html</loc></url>
+<url><loc>/reference/FilterPipeline.html</loc></url>
+<url><loc>/reference/FilterType.html</loc></url>
+<url><loc>/reference/GenericUDF.html</loc></url>
+<url><loc>/reference/Group.html</loc></url>
+<url><loc>/reference/GroupActions.html</loc></url>
+<url><loc>/reference/GroupBrowserData.html</loc></url>
+<url><loc>/reference/GroupBrowserFilterData.html</loc></url>
+<url><loc>/reference/GroupChanges.html</loc></url>
+<url><loc>/reference/GroupContents.html</loc></url>
+<url><loc>/reference/GroupContentsFilterData.html</loc></url>
+<url><loc>/reference/GroupCreate.html</loc></url>
+<url><loc>/reference/GroupEntry.html</loc></url>
+<url><loc>/reference/GroupInfo.html</loc></url>
+<url><loc>/reference/GroupListing.html</loc></url>
+<url><loc>/reference/GroupListingAllOf.html</loc></url>
+<url><loc>/reference/GroupMember.html</loc></url>
+<url><loc>/reference/GroupMemberAssetType.html</loc></url>
+<url><loc>/reference/GroupMemberType.html</loc></url>
+<url><loc>/reference/GroupRegister.html</loc></url>
+<url><loc>/reference/GroupSharing.html</loc></url>
+<url><loc>/reference/GroupSharingRequest.html</loc></url>
+<url><loc>/reference/GroupUpdate.html</loc></url>
+<url><loc>/reference/GroupsApi.html</loc></url>
+<url><loc>/reference/InlineObject.html</loc></url>
+<url><loc>/reference/InlineResponse200.html</loc></url>
+<url><loc>/reference/Invitation.html</loc></url>
+<url><loc>/reference/InvitationApi.html</loc></url>
+<url><loc>/reference/InvitationArrayShareEmail.html</loc></url>
+<url><loc>/reference/InvitationData.html</loc></url>
+<url><loc>/reference/InvitationOrganizationJoinEmail.html</loc></url>
+<url><loc>/reference/InvitationStatus.html</loc></url>
+<url><loc>/reference/InvitationType.html</loc></url>
+<url><loc>/reference/LastAccessedArray.html</loc></url>
+<url><loc>/reference/Layout.html</loc></url>
+<url><loc>/reference/MLModelFavorite.html</loc></url>
+<url><loc>/reference/MLModelFavoritesData.html</loc></url>
+<url><loc>/reference/MaxBufferSizes.html</loc></url>
+<url><loc>/reference/MultiArrayUDF.html</loc></url>
+<url><loc>/reference/NamespaceActions.html</loc></url>
+<url><loc>/reference/NonEmptyDomain.html</loc></url>
+<url><loc>/reference/NotebookApi.html</loc></url>
+<url><loc>/reference/NotebookFavorite.html</loc></url>
+<url><loc>/reference/NotebookFavoritesData.html</loc></url>
+<url><loc>/reference/NotebookStatus.html</loc></url>
+<url><loc>/reference/NotebooksApi.html</loc></url>
+<url><loc>/reference/Organization.html</loc></url>
+<url><loc>/reference/OrganizationApi.html</loc></url>
+<url><loc>/reference/OrganizationRoles.html</loc></url>
+<url><loc>/reference/OrganizationUser.html</loc></url>
+<url><loc>/reference/PaginationMetadata.html</loc></url>
+<url><loc>/reference/Pricing.html</loc></url>
+<url><loc>/reference/PricingAggregateUsage.html</loc></url>
+<url><loc>/reference/PricingCurrency.html</loc></url>
+<url><loc>/reference/PricingInterval.html</loc></url>
+<url><loc>/reference/PricingType.html</loc></url>
+<url><loc>/reference/PricingUnitLabel.html</loc></url>
+<url><loc>/reference/PublicShareFilter.html</loc></url>
+<url><loc>/reference/Query.html</loc></url>
+<url><loc>/reference/QueryApi.html</loc></url>
+<url><loc>/reference/QueryJson.html</loc></url>
+<url><loc>/reference/QueryRanges.html</loc></url>
+<url><loc>/reference/QueryReader.html</loc></url>
+<url><loc>/reference/Querystatus.html</loc></url>
+<url><loc>/reference/Querytype.html</loc></url>
+<url><loc>/reference/ReadState.html</loc></url>
+<url><loc>/reference/ResultFormat.html</loc></url>
+<url><loc>/reference/SQLParameters.html</loc></url>
+<url><loc>/reference/SSOProvider.html</loc></url>
+<url><loc>/reference/SqlApi.html</loc></url>
+<url><loc>/reference/StatsApi.html</loc></url>
+<url><loc>/reference/Subarray.html</loc></url>
+<url><loc>/reference/SubarrayPartitioner.html</loc></url>
+<url><loc>/reference/SubarrayPartitionerCurrent.html</loc></url>
+<url><loc>/reference/SubarrayPartitionerState.html</loc></url>
+<url><loc>/reference/SubarrayRanges.html</loc></url>
+<url><loc>/reference/Subscription.html</loc></url>
+<url><loc>/reference/TaskGraphLog.html</loc></url>
+<url><loc>/reference/TaskGraphLogStatus.html</loc></url>
+<url><loc>/reference/TaskGraphLogsApi.html</loc></url>
+<url><loc>/reference/TaskGraphLogsData.html</loc></url>
+<url><loc>/reference/TaskGraphNodeMetadata.html</loc></url>
+<url><loc>/reference/TasksApi.html</loc></url>
+<url><loc>/reference/TileDBConfig.html</loc></url>
+<url><loc>/reference/Token.html</loc></url>
+<url><loc>/reference/TokenRequest.html</loc></url>
+<url><loc>/reference/TokenScope.html</loc></url>
+<url><loc>/reference/UDFActions.html</loc></url>
+<url><loc>/reference/UDFArrayDetails.html</loc></url>
+<url><loc>/reference/UDFFavorite.html</loc></url>
+<url><loc>/reference/UDFFavoritesData.html</loc></url>
+<url><loc>/reference/UDFImage.html</loc></url>
+<url><loc>/reference/UDFImageVersion.html</loc></url>
+<url><loc>/reference/UDFInfo.html</loc></url>
+<url><loc>/reference/UDFInfoUpdate.html</loc></url>
+<url><loc>/reference/UDFLanguage.html</loc></url>
+<url><loc>/reference/UDFSharing.html</loc></url>
+<url><loc>/reference/UDFSubarray.html</loc></url>
+<url><loc>/reference/UDFSubarrayRange.html</loc></url>
+<url><loc>/reference/UDFType.html</loc></url>
+<url><loc>/reference/UdfApi.html</loc></url>
+<url><loc>/reference/User.html</loc></url>
+<url><loc>/reference/UserApi.html</loc></url>
+<url><loc>/reference/Writer.html</loc></url>
+<url><loc>/reference/array_info.html</loc></url>
+<url><loc>/reference/compute.html</loc></url>
+<url><loc>/reference/compute_sequentially.html</loc></url>
+<url><loc>/reference/configure.html</loc></url>
+<url><loc>/reference/delayed.html</loc></url>
+<url><loc>/reference/delayed_args-set.html</loc></url>
+<url><loc>/reference/delayed_args.html</loc></url>
+<url><loc>/reference/delayed_array_udf.html</loc></url>
+<url><loc>/reference/delayed_generic_udf.html</loc></url>
+<url><loc>/reference/delayed_sql.html</loc></url>
+<url><loc>/reference/deregister_array.html</loc></url>
+<url><loc>/reference/deregister_group.html</loc></url>
+<url><loc>/reference/deregister_udf.html</loc></url>
+<url><loc>/reference/dot-get_decoded_response_body_or_stop.html</loc></url>
+<url><loc>/reference/dot-get_empty_response_body_or_stop.html</loc></url>
+<url><loc>/reference/dot-get_raw_response_body_or_stop.html</loc></url>
+<url><loc>/reference/dot-wrap_as_api_response.html</loc></url>
+<url><loc>/reference/execute_array_udf.html</loc></url>
+<url><loc>/reference/execute_generic_udf.html</loc></url>
+<url><loc>/reference/execute_multi_array_udf.html</loc></url>
+<url><loc>/reference/execute_sql_query.html</loc></url>
+<url><loc>/reference/get_api_client_instance.html</loc></url>
+<url><loc>/reference/get_udf_info.html</loc></url>
+<url><loc>/reference/group_info.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/list_arrays.html</loc></url>
+<url><loc>/reference/list_groups.html</loc></url>
+<url><loc>/reference/login.html</loc></url>
+<url><loc>/reference/register_array.html</loc></url>
+<url><loc>/reference/register_udf.html</loc></url>
+<url><loc>/reference/update_udf_info.html</loc></url>
+<url><loc>/reference/user_profile.html</loc></url>
 </urlset>
+
