@@ -147,6 +147,7 @@ ApiClient  <- R6::R6Class(
 
       if (Sys.getenv("TILEDB_CLOUD_R_HTTP_DEBUG") != "") {
         cat("================================================================ REQUEST\n")
+        cat("URL:", url, "\n")
         cat("METHOD:", method, "\n")
         if (exists("str")) { # sometimes at startup weird "object 'str' not found" :^/
           cat("QUERY_PARAMS:\n")
