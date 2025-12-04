@@ -279,8 +279,7 @@ Node <- R6::R6Class(
         }
         # This return value back to the call
         self$result
-        },
-        earlySignal=FALSE
+        }
       )
       # If earlySignal == TRUE, resolved(self$future) will throw before returning.
       # With earlySignal == FALSE, we have to do more bookkeeping ourselves but it's
