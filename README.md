@@ -1,4 +1,7 @@
-# <a href="https://tiledb.com/"><img src="https://github.com/TileDB-Inc/TileDB/raw/dev/doc/source/_static/tiledb-logo_color_no_margin_@4x.png" alt="TileDB logo" width="400"></a>
+# TileDB-Cloud-R
+
+> [!WARNING]
+> This package is deprecated, and the repository will be archived in the future.
 
 [![Build Status](https://dev.azure.com/TileDB-Inc/CI/_apis/build/status/TileDB-Inc.TileDB-Cloud-R?branchName=master)](https://dev.azure.com/TileDB-Inc/CI/_build/latest?definitionId=26&branchName=master)
 
